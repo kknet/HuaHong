@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */; };
+		7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8341FC50D7000774E40 /* AppDelegate.m */; };
+		7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */; };
+		7D0DA8401FC50D7000774E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0DA83F1FC50D7000774E40 /* Assets.xcassets */; };
+		7D0DA8461FC50D7000774E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8451FC50D7000774E40 /* main.m */; };
+		7DE8D57A1FC5279F00577762 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5791FC5279F00577762 /* TabBarController.m */; };
+		7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57C1FC527F000577762 /* HomeVC.m */; };
+		7DE8D5801FC5485500577762 /* GongNengVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57F1FC5485500577762 /* GongNengVC.m */; };
+		7DE8D5831FC5493300577762 /* KongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5821FC5493300577762 /* KongJianVC.m */; };
+		7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Storyboard.storyboard */; };
+		7DE8D5911FC576ED00577762 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58C1FC576ED00577762 /* UIView+UIViewController.m */; };
+		7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58E1FC576ED00577762 /* UIViewExt.m */; };
+		7DE8D5931FC576ED00577762 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5901FC576ED00577762 /* Utils.m */; };
+		7DE8D5961FC5773300577762 /* DesUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5951FC5773300577762 /* DesUtil.m */; };
+		7DE8D59F1FC57D4400577762 /* NSString+IdentityCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D59E1FC57D4400577762 /* NSString+IdentityCard.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuaHong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6696974C8B0A708887FDD327 /* Pods-HuaHong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.release.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.release.xcconfig"; sourceTree = "<group>"; };
+		7D0DA8301FC50D7000774E40 /* HuaHong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuaHong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D0DA8331FC50D7000774E40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7D0DA8341FC50D7000774E40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7D0DA83D1FC50D7000774E40 /* HuaHong.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HuaHong.xcdatamodel; sourceTree = "<group>"; };
+		7D0DA83F1FC50D7000774E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D0DA8441FC50D7000774E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D0DA8451FC50D7000774E40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7DE8D5781FC5279F00577762 /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		7DE8D5791FC5279F00577762 /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		7DE8D57B1FC527F000577762 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		7DE8D57C1FC527F000577762 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		7DE8D57E1FC5485500577762 /* GongNengVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GongNengVC.h; sourceTree = "<group>"; };
+		7DE8D57F1FC5485500577762 /* GongNengVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GongNengVC.m; sourceTree = "<group>"; };
+		7DE8D5811FC5493300577762 /* KongJianVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KongJianVC.h; sourceTree = "<group>"; };
+		7DE8D5821FC5493300577762 /* KongJianVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KongJianVC.m; sourceTree = "<group>"; };
+		7DE8D5841FC54FDF00577762 /* HuaHong.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuaHong.pch; sourceTree = "<group>"; };
+		7DE8D5851FC556DE00577762 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		7DE8D5891FC55A6C00577762 /* UtilsMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
+		7DE8D58B1FC576ED00577762 /* UIView+UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewController.h"; sourceTree = "<group>"; };
+		7DE8D58C1FC576ED00577762 /* UIView+UIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewController.m"; sourceTree = "<group>"; };
+		7DE8D58D1FC576ED00577762 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		7DE8D58E1FC576ED00577762 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		7DE8D58F1FC576ED00577762 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		7DE8D5901FC576ED00577762 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		7DE8D5941FC5773300577762 /* DesUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesUtil.h; sourceTree = "<group>"; };
+		7DE8D5951FC5773300577762 /* DesUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesUtil.m; sourceTree = "<group>"; };
+		7DE8D59D1FC57D4400577762 /* NSString+IdentityCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IdentityCard.h"; sourceTree = "<group>"; };
+		7DE8D59E1FC57D4400577762 /* NSString+IdentityCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IdentityCard.m"; sourceTree = "<group>"; };
+		9AB1874EA98924911D4A28EB /* Pods-HuaHong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7D0DA82D1FC50D7000774E40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7D0DA8271FC50D7000774E40 = {
+			isa = PBXGroup;
+			children = (
+				7D0DA8321FC50D7000774E40 /* HuaHong */,
+				7D0DA8311FC50D7000774E40 /* Products */,
+				A3E05E8260C4D86AEAF6644D /* Pods */,
+				C0F58A3743C28E2FADB6F68F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7D0DA8311FC50D7000774E40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D0DA8301FC50D7000774E40 /* HuaHong.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7D0DA8321FC50D7000774E40 /* HuaHong */ = {
+			isa = PBXGroup;
+			children = (
+				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
+				7D0DA8341FC50D7000774E40 /* AppDelegate.m */,
+				7DE8D5781FC5279F00577762 /* TabBarController.h */,
+				7DE8D5791FC5279F00577762 /* TabBarController.m */,
+				7DE8D57B1FC527F000577762 /* HomeVC.h */,
+				7DE8D57C1FC527F000577762 /* HomeVC.m */,
+				7DE8D57E1FC5485500577762 /* GongNengVC.h */,
+				7DE8D57F1FC5485500577762 /* GongNengVC.m */,
+				7DE8D5811FC5493300577762 /* KongJianVC.h */,
+				7DE8D5821FC5493300577762 /* KongJianVC.m */,
+				7DE8D5841FC54FDF00577762 /* HuaHong.pch */,
+				7DE8D5891FC55A6C00577762 /* UtilsMacro.h */,
+				7DE8D5851FC556DE00577762 /* Storyboard.storyboard */,
+				7DE8D58A1FC576ED00577762 /* Catagory */,
+				7D0DA83F1FC50D7000774E40 /* Assets.xcassets */,
+				7D0DA8441FC50D7000774E40 /* Info.plist */,
+				7D0DA8451FC50D7000774E40 /* main.m */,
+				7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */,
+			);
+			path = HuaHong;
+			sourceTree = "<group>";
+		};
+		7DE8D58A1FC576ED00577762 /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				7DE8D59D1FC57D4400577762 /* NSString+IdentityCard.h */,
+				7DE8D59E1FC57D4400577762 /* NSString+IdentityCard.m */,
+				7DE8D58B1FC576ED00577762 /* UIView+UIViewController.h */,
+				7DE8D58C1FC576ED00577762 /* UIView+UIViewController.m */,
+				7DE8D58D1FC576ED00577762 /* UIViewExt.h */,
+				7DE8D58E1FC576ED00577762 /* UIViewExt.m */,
+				7DE8D58F1FC576ED00577762 /* Utils.h */,
+				7DE8D5901FC576ED00577762 /* Utils.m */,
+				7DE8D5941FC5773300577762 /* DesUtil.h */,
+				7DE8D5951FC5773300577762 /* DesUtil.m */,
+			);
+			path = Catagory;
+			sourceTree = "<group>";
+		};
+		A3E05E8260C4D86AEAF6644D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1874EA98924911D4A28EB /* Pods-HuaHong.debug.xcconfig */,
+				6696974C8B0A708887FDD327 /* Pods-HuaHong.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C0F58A3743C28E2FADB6F68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D0DA82F1FC50D7000774E40 /* HuaHong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D0DA8491FC50D7000774E40 /* Build configuration list for PBXNativeTarget "HuaHong" */;
+			buildPhases = (
+				5005276F3D96BCC92D0E51DF /* [CP] Check Pods Manifest.lock */,
+				7D0DA82C1FC50D7000774E40 /* Sources */,
+				7D0DA82D1FC50D7000774E40 /* Frameworks */,
+				7D0DA82E1FC50D7000774E40 /* Resources */,
+				898847096188163B74DF253D /* [CP] Embed Pods Frameworks */,
+				82BBFF3B4CCC452186D8780B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HuaHong;
+			productName = HuaHong;
+			productReference = 7D0DA8301FC50D7000774E40 /* HuaHong.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7D0DA8281FC50D7000774E40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = huahong;
+				TargetAttributes = {
+					7D0DA82F1FC50D7000774E40 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 7D0DA82B1FC50D7000774E40 /* Build configuration list for PBXProject "HuaHong" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7D0DA8271FC50D7000774E40;
+			productRefGroup = 7D0DA8311FC50D7000774E40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D0DA82F1FC50D7000774E40 /* HuaHong */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7D0DA82E1FC50D7000774E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D0DA8401FC50D7000774E40 /* Assets.xcassets in Resources */,
+				7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5005276F3D96BCC92D0E51DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HuaHong-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82BBFF3B4CCC452186D8780B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		898847096188163B74DF253D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7D0DA82C1FC50D7000774E40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DE8D5831FC5493300577762 /* KongJianVC.m in Sources */,
+				7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */,
+				7DE8D57A1FC5279F00577762 /* TabBarController.m in Sources */,
+				7DE8D5931FC576ED00577762 /* Utils.m in Sources */,
+				7DE8D5801FC5485500577762 /* GongNengVC.m in Sources */,
+				7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */,
+				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
+				7DE8D59F1FC57D4400577762 /* NSString+IdentityCard.m in Sources */,
+				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
+				7DE8D5911FC576ED00577762 /* UIView+UIViewController.m in Sources */,
+				7D0DA8461FC50D7000774E40 /* main.m in Sources */,
+				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7D0DA8471FC50D7000774E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7D0DA8481FC50D7000774E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7D0DA84A1FC50D7000774E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AB1874EA98924911D4A28EB /* Pods-HuaHong.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 3PV33XPK7B;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/HuaHong.pch";
+				INFOPLIST_FILE = HuaHong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qk365.online;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cf857dbc-d4ef-4920-80e9-33c5a185bebb";
+				PROVISIONING_PROFILE_SPECIFIER = qkonlineDev;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D0DA84B1FC50D7000774E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6696974C8B0A708887FDD327 /* Pods-HuaHong.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 3PV33XPK7B;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/HuaHong.pch";
+				INFOPLIST_FILE = HuaHong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qk365.online;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "45dbde0a-15bd-4450-8b8b-bfb0a4ee4f87";
+				PROVISIONING_PROFILE_SPECIFIER = qkonlineProduction;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D0DA82B1FC50D7000774E40 /* Build configuration list for PBXProject "HuaHong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D0DA8471FC50D7000774E40 /* Debug */,
+				7D0DA8481FC50D7000774E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D0DA8491FC50D7000774E40 /* Build configuration list for PBXNativeTarget "HuaHong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D0DA84A1FC50D7000774E40 /* Debug */,
+				7D0DA84B1FC50D7000774E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7D0DA83D1FC50D7000774E40 /* HuaHong.xcdatamodel */,
+			);
+			currentVersion = 7D0DA83D1FC50D7000774E40 /* HuaHong.xcdatamodel */;
+			path = HuaHong.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7D0DA8281FC50D7000774E40 /* Project object */;
+}
