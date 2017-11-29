@@ -15,6 +15,12 @@
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
+//定位服务
+@property (nonatomic, assign) BOOL isStartLocation;
+@property (nonatomic, copy)   NSString *address;
+@property (nonatomic, assign) double latitude;//纬度
+@property (nonatomic, assign) double longitude;//经度
+
 - (void)saveContext;
 
 

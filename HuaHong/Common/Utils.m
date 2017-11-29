@@ -54,4 +54,12 @@
     return  [formatter stringFromDate:date];
 }
 
++(NSString *)convertToJsonFrom:(id)data
+{
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonStr = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    return jsonStr;
+}
+
 @end

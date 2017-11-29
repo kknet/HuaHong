@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KongJianVC : UIViewController
+@interface KongJianVC : BaseViewController
 
 @end

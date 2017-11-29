@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>定位</key>
+	<array>
+		<string>系统定位</string>
+		<string>content1</string>
+	</array>
+	<key>传感器</key>
+	<array>
+		<string>光学传感器</string>
+		<string>内容2</string>
+		<string>内容3</string>
+	</array>
+</dict>
+</plist>

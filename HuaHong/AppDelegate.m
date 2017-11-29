@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "TabBarController.h"
-
+#import "TabBarViewController.h"
+#import "LocationManager.h"
 @interface AppDelegate ()
 
 @end
@@ -17,14 +17,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window = window;
     [self.window makeKeyAndVisible];
 
-    
-    TabBarController *tabBarVC = [[TabBarController alloc]init];
+    TabBarViewController *tabBarVC = [[TabBarViewController alloc]init];
     self.window.rootViewController = tabBarVC;
+    
+    [LocationManager sharedLocationManager];
+    
+    [self shortcutItem];
     
     return YES;
 }
@@ -102,6 +105,59 @@
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+
+-(void)application:(UIApplication *)application performActionForShortcutItem:(nonnull UIApplicationShortcutItem *)shortcutItem completionHandler:(nonnull void (^)(BOOL))completionHandler
+{
+    NSLog(@"name:%@\ntype:%@", shortcutItem.localizedTitle, shortcutItem.type);
+    
+    if ([shortcutItem.type isEqualToString:@"com.qk.share"])
+    {
+        NSLog(@"分享");
+        NSArray *arr = @[@"hello 3D Touch"];
+        
+        UIActivityViewController *vc = [[UIActivityViewController alloc]initWithActivityItems:arr applicationActivities:nil];
+        
+        //设置当前的VC 为rootVC
+        
+        [self.window.rootViewController presentViewController:vc animated:YES completion:^{
+            
+        }];
+        
+        
+    }else if ([shortcutItem.type isEqualToString:@"com.qk.search"])
+    {
+        NSLog(@"搜索");
+        
+    }else if ([shortcutItem.type isEqualToString:@"com.qk.compose"])
+    {
+        NSLog(@"新消息");
+        
+    }
+    
+}
+
+-(void)shortcutItem
+{
+    
+    if ([UIApplication sharedApplication].shortcutItems.count) {
+        return;
+    }
+    
+    // 分享 已在Info.plist里面设置
+    NSMutableArray *shortcutItemArr = [NSMutableArray arrayWithArray:[UIApplication sharedApplication].shortcutItems];
+    
+    UIApplicationShortcutItem *shortcutItem1 = [[UIApplicationShortcutItem alloc]initWithType:@"com.qk.search" localizedTitle:@"搜索" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch] userInfo:nil];
+    [shortcutItemArr addObject:shortcutItem1];
+    
+    UIApplicationShortcutItem *shortcutItem2 = [[UIApplicationShortcutItem alloc]initWithType:@"com.qk.compose" localizedTitle:@"新消息" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose] userInfo:nil];
+    [shortcutItemArr addObject:shortcutItem2];
+    
+    [UIApplication sharedApplication].shortcutItems = shortcutItemArr;
+    
+    //以下打印值不包含Info.plist里面的设置
+    NSLog(@"shortcutItems.count：%lu",[UIApplication sharedApplication].shortcutItems.count);
+    
 }
 
 @end

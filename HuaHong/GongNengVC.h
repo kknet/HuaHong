@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GongNengVC : UIViewController
+@interface GongNengVC : BaseViewController
 
 @end

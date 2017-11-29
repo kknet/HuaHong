@@ -10,5 +10,9 @@
 #define HuaHong_pch
 
 #import "UtilsMacro.h"
+#import "UIViewExt.h"
+#import "Utils.h"
+#import "BaseViewController.h"
+
 
 #endif /* HuaHong_pch */

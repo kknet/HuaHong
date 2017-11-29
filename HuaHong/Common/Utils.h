@@ -13,4 +13,5 @@
 
 +(NSString*)formatString:(NSString*)timeString;
 
++(NSString *)convertToJsonFrom:(id)data;
 @end
