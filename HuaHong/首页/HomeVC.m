@@ -11,6 +11,8 @@
 #import "CollectionHeadView.h"
 #import "MapViewController.h"
 #import "WaterFallController.h"
+#import "LightSinceController.h"
+#import "ThreeDTouchController.h"
 
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
@@ -46,16 +48,16 @@ static NSString *headerID = @"headerID";
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    [self.tableTittleDataArray addObjectsFromArray:@[@"Collection",@"定位",@"教师",@"专家2",@"CIO2",@"教师2",@"专家3",@"CIO3",@"教师3",@"专家4",@"CIO4",@"教师4",@"专家5",@"CIO5",@"教师5",@"专家6",@"教师6"]];
+    [self.tableTittleDataArray addObjectsFromArray:@[@"Collection",@"定位",@"传感器",@"专家2",@"CIO2",@"教师2",@"专家3",@"CIO3",@"教师3",@"专家4",@"CIO4",@"教师4",@"专家5",@"CIO5",@"教师5",@"专家6",@"教师6"]];
     
-    [self.headTittleDataArray addObjectsFromArray:@[@"CollectionView",@"地图定位服务",@"教师领域",@"专家领域2",@"CIO领域2",@"教师领域2",@"专家领域3",@"CIO领域3",@"教师领域3",@"专家领域4",@"CIO领域4",@"教师领域4",@"专家领域5",@"CIO领域5",@"教师领域5",@"专家领域6",@"教师领域6"]];
+    [self.headTittleDataArray addObjectsFromArray:@[@"CollectionView",@"地图定位服务",@"传感器",@"专家领域2",@"CIO领域2",@"教师领域2",@"专家领域3",@"CIO领域3",@"教师领域3",@"专家领域4",@"CIO领域4",@"教师领域4",@"专家领域5",@"CIO领域5",@"教师领域5",@"专家领域6",@"教师领域6"]];
     
     [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher"]];
     
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"大数据",@"物联网",@"移动应用",@"区块链",@"网络技术",@"互联网技术",@"产品设计",@"产品运营",@"人工智能",@"信息安全",@"数据治理",@"商务智能",@"其他"],
         @[@"Apple Map",@"金融",@"房地产",@"建筑",@"能源",@"化工",@"政府",@"服装",@"汽车",@"交通",@"医疗",@"医药",@"教育",@"农业",@"物流",@"商贸",@"酒店",@"旅游",@"冶金",@"电器",@"机械",@"IT",@"食品",@"餐饮",@"综合"],
-        @[@"全部",@"软件工程",@"数据库",@"电子工程",@"网络工程",@"通信工程",@"云计算",@"人工智能",@"信息安全",@"信息管理",@"大数据",@"自动化",@"电子商务",@"物联网",@"移动互联网",@"电脑设计",@"数字媒体",@"地理信息系统",@"医学信息学",@"计算机应用",@"其他"],
+        @[@"光学传感器",@"3DTouch",@"数据库",@"电子工程",@"网络工程",@"通信工程",@"云计算",@"人工智能",@"信息安全",@"信息管理",@"大数据",@"自动化",@"电子商务",@"物联网",@"移动互联网",@"电脑设计",@"数字媒体",@"地理信息系统",@"医学信息学",@"计算机应用",@"其他"],
         @[@"全部",@"云计算",@"大数据",@"物联网",@"移动应用",@"区块链",@"网络技术",@"互联网技术",@"产品设计",@"产品运营",@"人工智能",@"信息安全",@"数据治理",@"其他"],
         @[@"全部",@"金融",@"房地产",@"建筑",@"能源",@"化工",@"政府",@"服装",@"汽车",@"交通",@"医疗",@"医药",@"教育",@"农业",@"物流",@"商贸",@"酒店",@"旅游",@"冶金",@"电器",@"机械",@"IT",@"食品",@"餐饮",@"综合",@"其他"],
         @[@"全部",@"软件工程",@"数据库",@"电子工程",@"网络工程",@"通信工程",@"云计算",@"人工智能",@"信息安全",@"信息管理",@"大数据",@"自动化",@"电子商务",@"物联网",@"移动互联网",@"电脑设计",@"数字媒体",@"地理信息系统",@"医学信息学",@"计算机应用",@"其他"],
@@ -201,7 +203,13 @@ static NSString *headerID = @"headerID";
             
         case 2:
         {
-            
+            if (indexPath.item == 0) {
+                LightSinceController *lightVC = [[LightSinceController alloc]init];
+                [self.navigationController pushViewController:lightVC animated:YES];
+            }else if (indexPath.item == 1){
+                ThreeDTouchController *touchVC = [[ThreeDTouchController alloc]init];
+                [self.navigationController pushViewController:touchVC animated:YES];
+            }
         }
             break;
         case 3:

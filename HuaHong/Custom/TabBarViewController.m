@@ -73,7 +73,7 @@
  */
 - (void)setUpAllChildVc
 {
-    [self setupChildVc:[[GongNengVC alloc] init] title:@"功能" image:@"mes_icon" selectedImage:@"mes_icon_sel"];
+    [self setupChildVc:[[GongNengVC alloc] init] title:@"StoryBoard" image:@"mes_icon" selectedImage:@"mes_icon_sel"];
     
     
     [self setupChildVc:[[HomeVC alloc] init] title:@"Home" image:nil selectedImage:nil];

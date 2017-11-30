@@ -34,6 +34,9 @@
 		7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */; };
 		7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */; };
 		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
+		7DFB1BE31FCFE2420033D9E2 /* LightSinceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BE21FCFE2420033D9E2 /* LightSinceController.m */; };
+		7DFB1BE61FCFE6EB0033D9E2 /* ThreeDTouchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BE51FCFE6EB0033D9E2 /* ThreeDTouchController.m */; };
+		7DFB1BE91FCFE8390033D9E2 /* presentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BE81FCFE8390033D9E2 /* presentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,12 @@
 		7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpLoadViewController.m; sourceTree = "<group>"; };
 		7DFB1BDD1FCFDDB30033D9E2 /* WaterFallController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallController.h; sourceTree = "<group>"; };
 		7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallController.m; sourceTree = "<group>"; };
+		7DFB1BE11FCFE2420033D9E2 /* LightSinceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightSinceController.h; sourceTree = "<group>"; };
+		7DFB1BE21FCFE2420033D9E2 /* LightSinceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightSinceController.m; sourceTree = "<group>"; };
+		7DFB1BE41FCFE6EB0033D9E2 /* ThreeDTouchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeDTouchController.h; sourceTree = "<group>"; };
+		7DFB1BE51FCFE6EB0033D9E2 /* ThreeDTouchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeDTouchController.m; sourceTree = "<group>"; };
+		7DFB1BE71FCFE8390033D9E2 /* presentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = presentViewController.h; sourceTree = "<group>"; };
+		7DFB1BE81FCFE8390033D9E2 /* presentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = presentViewController.m; sourceTree = "<group>"; };
 		9AB1874EA98924911D4A28EB /* Pods-HuaHong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +135,7 @@
 		7D0DA8321FC50D7000774E40 /* HuaHong */ = {
 			isa = PBXGroup;
 			children = (
+				7DFB1BE01FCFE2220033D9E2 /* 传感器 */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
 				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
 				7D0DA8341FC50D7000774E40 /* AppDelegate.m */,
@@ -234,6 +244,19 @@
 				7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		7DFB1BE01FCFE2220033D9E2 /* 传感器 */ = {
+			isa = PBXGroup;
+			children = (
+				7DFB1BE11FCFE2420033D9E2 /* LightSinceController.h */,
+				7DFB1BE21FCFE2420033D9E2 /* LightSinceController.m */,
+				7DFB1BE41FCFE6EB0033D9E2 /* ThreeDTouchController.h */,
+				7DFB1BE51FCFE6EB0033D9E2 /* ThreeDTouchController.m */,
+				7DFB1BE71FCFE8390033D9E2 /* presentViewController.h */,
+				7DFB1BE81FCFE8390033D9E2 /* presentViewController.m */,
+			);
+			path = "传感器";
 			sourceTree = "<group>";
 		};
 		A3E05E8260C4D86AEAF6644D /* Pods */ = {
@@ -404,8 +427,11 @@
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
 				7DFB1BA91FCE94380033D9E2 /* FlowLayout.m in Sources */,
 				7D0DA8461FC50D7000774E40 /* main.m in Sources */,
+				7DFB1BE61FCFE6EB0033D9E2 /* ThreeDTouchController.m in Sources */,
+				7DFB1BE91FCFE8390033D9E2 /* presentViewController.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
 				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,
+				7DFB1BE31FCFE2420033D9E2 /* LightSinceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
