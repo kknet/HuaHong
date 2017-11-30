@@ -22,7 +22,6 @@
 		7DE8D5801FC5485500577762 /* GongNengVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57F1FC5485500577762 /* GongNengVC.m */; };
 		7DE8D5831FC5493300577762 /* KongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5821FC5493300577762 /* KongJianVC.m */; };
 		7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Storyboard.storyboard */; };
-		7DE8D5911FC576ED00577762 /* UIView+UIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58C1FC576ED00577762 /* UIView+UIViewController.m */; };
 		7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58E1FC576ED00577762 /* UIViewExt.m */; };
 		7DE8D5931FC576ED00577762 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5901FC576ED00577762 /* Utils.m */; };
 		7DE8D5961FC5773300577762 /* DesUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5951FC5773300577762 /* DesUtil.m */; };
@@ -30,6 +29,11 @@
 		7DE8D5A21FC69BB800577762 /* UILabel+autoReSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5A11FC69BB800577762 /* UILabel+autoReSize.m */; };
 		7DE8D5A71FC6B73600577762 /* home.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5A61FC6B73600577762 /* home.plist */; };
 		7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5AB1FC6D1B900577762 /* LocationManager.m */; };
+		7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */; };
+		7DFB1BA91FCE94380033D9E2 /* FlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BA81FCE94380033D9E2 /* FlowLayout.m */; };
+		7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */; };
+		7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */; };
+		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,8 +67,6 @@
 		7DE8D5841FC54FDF00577762 /* HuaHong.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuaHong.pch; sourceTree = "<group>"; };
 		7DE8D5851FC556DE00577762 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		7DE8D5891FC55A6C00577762 /* UtilsMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
-		7DE8D58B1FC576ED00577762 /* UIView+UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewController.h"; sourceTree = "<group>"; };
-		7DE8D58C1FC576ED00577762 /* UIView+UIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewController.m"; sourceTree = "<group>"; };
 		7DE8D58D1FC576ED00577762 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		7DE8D58E1FC576ED00577762 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		7DE8D58F1FC576ED00577762 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -78,6 +80,16 @@
 		7DE8D5A61FC6B73600577762 /* home.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = home.plist; sourceTree = "<group>"; };
 		7DE8D5AA1FC6D1B900577762 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		7DE8D5AB1FC6D1B900577762 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		7DFB1BA41FCE937C0033D9E2 /* CollectionHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionHeadView.h; sourceTree = "<group>"; };
+		7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionHeadView.m; sourceTree = "<group>"; };
+		7DFB1BA71FCE94380033D9E2 /* FlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlowLayout.h; sourceTree = "<group>"; };
+		7DFB1BA81FCE94380033D9E2 /* FlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlowLayout.m; sourceTree = "<group>"; };
+		7DFB1BD61FCFD27E0033D9E2 /* WaterFallLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallLayout.h; sourceTree = "<group>"; };
+		7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallLayout.m; sourceTree = "<group>"; };
+		7DFB1BDA1FCFD4580033D9E2 /* UpLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpLoadViewController.h; sourceTree = "<group>"; };
+		7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpLoadViewController.m; sourceTree = "<group>"; };
+		7DFB1BDD1FCFDDB30033D9E2 /* WaterFallController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallController.h; sourceTree = "<group>"; };
+		7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallController.m; sourceTree = "<group>"; };
 		9AB1874EA98924911D4A28EB /* Pods-HuaHong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,16 +126,17 @@
 		7D0DA8321FC50D7000774E40 /* HuaHong */ = {
 			isa = PBXGroup;
 			children = (
+				7DFB1BA31FCE93360033D9E2 /* 首页 */,
 				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
 				7D0DA8341FC50D7000774E40 /* AppDelegate.m */,
 				7D88EE1F1FC8076B00CC76FE /* BaseViewController.h */,
 				7D88EE201FC8076B00CC76FE /* BaseViewController.m */,
-				7DE8D57B1FC527F000577762 /* HomeVC.h */,
-				7DE8D57C1FC527F000577762 /* HomeVC.m */,
 				7DE8D57E1FC5485500577762 /* GongNengVC.h */,
 				7DE8D57F1FC5485500577762 /* GongNengVC.m */,
 				7DE8D5811FC5493300577762 /* KongJianVC.h */,
 				7DE8D5821FC5493300577762 /* KongJianVC.m */,
+				7DFB1BD91FCFD4440033D9E2 /* NetWork */,
+				7DFB1BD51FCFD2480033D9E2 /* WaterFall */,
 				7D3623DA1FCE4DA000C77874 /* Custom */,
 				7DE8D5A91FC6D12F00577762 /* 定位 */,
 				7DE8D5851FC556DE00577762 /* Storyboard.storyboard */,
@@ -158,8 +171,6 @@
 			children = (
 				7DE8D5891FC55A6C00577762 /* UtilsMacro.h */,
 				7DE8D5A61FC6B73600577762 /* home.plist */,
-				7DE8D58D1FC576ED00577762 /* UIViewExt.h */,
-				7DE8D58E1FC576ED00577762 /* UIViewExt.m */,
 				7DE8D58F1FC576ED00577762 /* Utils.h */,
 				7DE8D5901FC576ED00577762 /* Utils.m */,
 				7DE8D5941FC5773300577762 /* DesUtil.h */,
@@ -175,8 +186,8 @@
 				7DE8D5A11FC69BB800577762 /* UILabel+autoReSize.m */,
 				7DE8D59D1FC57D4400577762 /* NSString+IdentityCard.h */,
 				7DE8D59E1FC57D4400577762 /* NSString+IdentityCard.m */,
-				7DE8D58B1FC576ED00577762 /* UIView+UIViewController.h */,
-				7DE8D58C1FC576ED00577762 /* UIView+UIViewController.m */,
+				7DE8D58D1FC576ED00577762 /* UIViewExt.h */,
+				7DE8D58E1FC576ED00577762 /* UIViewExt.m */,
 			);
 			path = Catagory;
 			sourceTree = "<group>";
@@ -190,6 +201,39 @@
 				7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */,
 			);
 			path = "定位";
+			sourceTree = "<group>";
+		};
+		7DFB1BA31FCE93360033D9E2 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				7DE8D57B1FC527F000577762 /* HomeVC.h */,
+				7DE8D57C1FC527F000577762 /* HomeVC.m */,
+				7DFB1BA41FCE937C0033D9E2 /* CollectionHeadView.h */,
+				7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */,
+				7DFB1BA71FCE94380033D9E2 /* FlowLayout.h */,
+				7DFB1BA81FCE94380033D9E2 /* FlowLayout.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		7DFB1BD51FCFD2480033D9E2 /* WaterFall */ = {
+			isa = PBXGroup;
+			children = (
+				7DFB1BD61FCFD27E0033D9E2 /* WaterFallLayout.h */,
+				7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */,
+				7DFB1BDD1FCFDDB30033D9E2 /* WaterFallController.h */,
+				7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */,
+			);
+			path = WaterFall;
+			sourceTree = "<group>";
+		};
+		7DFB1BD91FCFD4440033D9E2 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				7DFB1BDA1FCFD4580033D9E2 /* UpLoadViewController.h */,
+				7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 		A3E05E8260C4D86AEAF6644D /* Pods */ = {
@@ -345,19 +389,23 @@
 				7D3623DF1FCE4DA000C77874 /* NavigationController.m in Sources */,
 				7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */,
 				7DE8D5931FC576ED00577762 /* Utils.m in Sources */,
+				7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */,
 				7DE8D5801FC5485500577762 /* GongNengVC.m in Sources */,
 				7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */,
 				7D88EE271FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m in Sources */,
+				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,
 				7D88EE241FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m in Sources */,
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
+				7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */,
 				7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */,
 				7DE8D59F1FC57D4400577762 /* NSString+IdentityCard.m in Sources */,
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
-				7DE8D5911FC576ED00577762 /* UIView+UIViewController.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
+				7DFB1BA91FCE94380033D9E2 /* FlowLayout.m in Sources */,
 				7D0DA8461FC50D7000774E40 /* main.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
+				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -192,22 +192,40 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center)
 
 
 
--(UIViewController *)viewController{
-
+- (UIViewController *)viewController {
     
-    
-// 查询 responder  直到 是ViewController为止
-    
-    UIResponder *respnder = self;
-    do{
+    //通过响应者链，取得此视图所在的视图控制器
+    UIResponder *next = self.nextResponder;
+    do {
         
-        respnder = respnder.nextResponder;
+        //判断响应者对象是否是视图控制器类型
+        if ([next isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)next;
+        }
         
+        next = next.nextResponder;
         
-    }while (![respnder isKindOfClass:[UIViewController class]]);
+    }while(next != nil);
     
-    
-    return (UIViewController*)respnder;
+    return nil;
 }
 
+//判断一个view是否在主窗口上
+-(BOOL)isShowingOnWindow{
+    
+    UIWindow *keywindow = [UIApplication sharedApplication].keyWindow;
+    
+    
+    //转换坐标系
+    CGRect newFrame = [self.superview convertRect:self.frame toView:keywindow];
+    
+    CGRect windowBouns = keywindow.bounds;
+    
+    BOOL intersects =  CGRectIntersectsRect(newFrame, windowBouns);
+    
+    //判断一个控件是否真正显示在窗口范围内
+    
+    return !self.isHidden && self.alpha > 0.01 && intersects && self.window == keywindow;
+    
+}
 @end

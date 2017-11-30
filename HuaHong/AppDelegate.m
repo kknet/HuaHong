@@ -9,7 +9,10 @@
 #import "AppDelegate.h"
 #import "TabBarViewController.h"
 #import "LocationManager.h"
+#import <UserNotifications/UserNotifications.h>
+
 @interface AppDelegate ()
+@property (strong, nonatomic) UILocalNotification *localNotification;
 
 @end
 
@@ -29,6 +32,31 @@
     
     [self shortcutItem];
     
+    //长亮
+    [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
+
+    //BackgroundFetch
+    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+
+    //本地通知
+    if ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0) {
+        
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        //请求获取通知权限（角标，声音，弹框）
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (granted) {
+                //获取用户是否同意开启通知
+                NSLog(@"request authorization successed!");
+            }
+        }];
+        
+    }else
+    {
+        // iOS8以后 本地通知必须注册(获取权限)
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+        
+        [application registerUserNotificationSettings:settings];
+    }
     return YES;
 }
 
@@ -160,4 +188,101 @@
     
 }
 
+
+//- (void)application:(UIApplication *)application
+//handleEventsForBackgroundURLSession:(NSString *)identifier
+//  completionHandler:(nonnull void (^)(void))completionHandler
+//{
+//    NSLog(@"handleEventsForBackgroundURLSession");
+//    [self initLocalNotification:@"handleEventsForBackgroundURLSession"];
+//
+//
+//}
+//- (void)URLSession:(NSURLSession *)session
+//              task:(NSURLSessionTask *)task
+//didCompleteWithError:(NSError *)error {
+//
+//    if (error) {
+//        // check if resume data are available
+//        if ([error.userInfo objectForKey:NSURLSessionDownloadTaskResumeData]) {
+//            NSData *resumeData = [error.userInfo objectForKey:NSURLSessionDownloadTaskResumeData];
+//            //通过之前保存的resumeData，获取断点的NSURLSessionTask，调用resume恢复下载
+//            //            self.resumeData = resumeData;
+//        }
+//    } else {
+//        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//        [delegate initLocalNotification:@"URLSessiondidCompleteWithError"];
+//    }
+//}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSLog(@"Background Fetch");
+    
+    
+    [self initLocalNotification];
+    
+    completionHandler(UIBackgroundFetchResultNewData);
+    
+    
+    
+}
+
+#pragma mark - Local Notification
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"通知"
+                                                    message:notification.alertBody
+                                                   delegate:nil
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    // 图标上的数字
+    application.applicationIconBadgeNumber = 0;
+}
+
+- (void)initLocalNotification {
+    
+    if ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0) {
+        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        content.title = @"iOS10通知";
+        content.subtitle = @"新通知学习笔记";
+        content.body = @"新通知变化很大，之前本地通知和远程推送是两个类，现在合成一个了。这是一条测试通知，";
+        content.badge = @1;
+        UNNotificationSound *sound = [UNNotificationSound soundNamed:UILocalNotificationDefaultSoundName];
+        content.sound = sound;
+        
+        //第三步：通知触发机制。（重复提醒，时间间隔要大于60s）
+        UNTimeIntervalNotificationTrigger *trigger1 = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
+        
+        //第四步：创建UNNotificationRequest通知请求对象
+        NSString *requertIdentifier = @"RequestIdentifier";
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requertIdentifier content:content trigger:trigger1];
+        
+        //第五步：将通知加到通知中心
+        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+            NSLog(@"Error:%@",error);
+            
+        }];
+        
+        
+    }else
+    {
+        self.localNotification = [[UILocalNotification alloc] init];
+        self.localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:1];
+        self.localNotification.alertAction = nil;
+        self.localNotification.soundName = UILocalNotificationDefaultSoundName;
+        self.localNotification.alertBody = @"Background Fetch启动";
+        self.localNotification.applicationIconBadgeNumber += 1;
+        self.localNotification.repeatInterval = 0;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
+    }
+    
+    
+    
+}
 @end
+

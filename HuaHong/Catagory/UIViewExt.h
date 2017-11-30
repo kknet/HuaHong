@@ -31,6 +31,9 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 - (void) fitInSize: (CGSize) aSize;
 
 
-@property (nonatomic,weak,readonly) UIViewController *viewController;
+- (UIViewController *)viewController;
+
+//判断一个view是否在window上面
+-(BOOL)isShowingOnWindow;
 
 @end
