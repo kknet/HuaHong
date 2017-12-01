@@ -18,6 +18,8 @@
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
 		7D88EE241FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE231FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m */; };
 		7D88EE271FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE261FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m */; };
+		7DB4FF041FD134D2004EE368 /* VoiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4FF031FD134D2004EE368 /* VoiceManager.m */; };
+		7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4FF061FD1352B004EE368 /* VoiceController.m */; };
 		7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57C1FC527F000577762 /* HomeVC.m */; };
 		7DE8D5801FC5485500577762 /* GongNengVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57F1FC5485500577762 /* GongNengVC.m */; };
 		7DE8D5831FC5493300577762 /* KongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5821FC5493300577762 /* KongJianVC.m */; };
@@ -30,7 +32,7 @@
 		7DE8D5A71FC6B73600577762 /* home.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5A61FC6B73600577762 /* home.plist */; };
 		7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5AB1FC6D1B900577762 /* LocationManager.m */; };
 		7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */; };
-		7DFB1BA91FCE94380033D9E2 /* FlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BA81FCE94380033D9E2 /* FlowLayout.m */; };
+		7DFB1BA91FCE94380033D9E2 /* HomeFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BA81FCE94380033D9E2 /* HomeFlowLayout.m */; };
 		7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */; };
 		7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */; };
 		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
@@ -61,6 +63,11 @@
 		7D88EE231FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		7D88EE251FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShouldPopOnBackButton.h"; sourceTree = "<group>"; };
 		7D88EE261FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShouldPopOnBackButton.m"; sourceTree = "<group>"; };
+		7DB4FF021FD134D2004EE368 /* VoiceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceManager.h; sourceTree = "<group>"; };
+		7DB4FF031FD134D2004EE368 /* VoiceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceManager.m; sourceTree = "<group>"; };
+		7DB4FF051FD1352B004EE368 /* VoiceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceController.h; sourceTree = "<group>"; };
+		7DB4FF061FD1352B004EE368 /* VoiceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceController.m; sourceTree = "<group>"; };
+		7DB4FF081FD135A8004EE368 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
 		7DE8D57B1FC527F000577762 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7DE8D57C1FC527F000577762 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		7DE8D57E1FC5485500577762 /* GongNengVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GongNengVC.h; sourceTree = "<group>"; };
@@ -85,8 +92,8 @@
 		7DE8D5AB1FC6D1B900577762 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		7DFB1BA41FCE937C0033D9E2 /* CollectionHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionHeadView.h; sourceTree = "<group>"; };
 		7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionHeadView.m; sourceTree = "<group>"; };
-		7DFB1BA71FCE94380033D9E2 /* FlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlowLayout.h; sourceTree = "<group>"; };
-		7DFB1BA81FCE94380033D9E2 /* FlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlowLayout.m; sourceTree = "<group>"; };
+		7DFB1BA71FCE94380033D9E2 /* HomeFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFlowLayout.h; sourceTree = "<group>"; };
+		7DFB1BA81FCE94380033D9E2 /* HomeFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFlowLayout.m; sourceTree = "<group>"; };
 		7DFB1BD61FCFD27E0033D9E2 /* WaterFallLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallLayout.h; sourceTree = "<group>"; };
 		7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallLayout.m; sourceTree = "<group>"; };
 		7DFB1BDA1FCFD4580033D9E2 /* UpLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpLoadViewController.h; sourceTree = "<group>"; };
@@ -135,7 +142,6 @@
 		7D0DA8321FC50D7000774E40 /* HuaHong */ = {
 			isa = PBXGroup;
 			children = (
-				7DFB1BE01FCFE2220033D9E2 /* 传感器 */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
 				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
 				7D0DA8341FC50D7000774E40 /* AppDelegate.m */,
@@ -145,6 +151,8 @@
 				7DE8D57F1FC5485500577762 /* GongNengVC.m */,
 				7DE8D5811FC5493300577762 /* KongJianVC.h */,
 				7DE8D5821FC5493300577762 /* KongJianVC.m */,
+				7DB4FF011FD134BD004EE368 /* 音频 */,
+				7DFB1BE01FCFE2220033D9E2 /* 传感器 */,
 				7DFB1BD91FCFD4440033D9E2 /* NetWork */,
 				7DFB1BD51FCFD2480033D9E2 /* WaterFall */,
 				7D3623DA1FCE4DA000C77874 /* Custom */,
@@ -185,8 +193,20 @@
 				7DE8D5901FC576ED00577762 /* Utils.m */,
 				7DE8D5941FC5773300577762 /* DesUtil.h */,
 				7DE8D5951FC5773300577762 /* DesUtil.m */,
+				7DB4FF081FD135A8004EE368 /* Public.h */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		7DB4FF011FD134BD004EE368 /* 音频 */ = {
+			isa = PBXGroup;
+			children = (
+				7DB4FF021FD134D2004EE368 /* VoiceManager.h */,
+				7DB4FF031FD134D2004EE368 /* VoiceManager.m */,
+				7DB4FF051FD1352B004EE368 /* VoiceController.h */,
+				7DB4FF061FD1352B004EE368 /* VoiceController.m */,
+			);
+			path = "音频";
 			sourceTree = "<group>";
 		};
 		7DE8D58A1FC576ED00577762 /* Catagory */ = {
@@ -220,8 +240,8 @@
 				7DE8D57C1FC527F000577762 /* HomeVC.m */,
 				7DFB1BA41FCE937C0033D9E2 /* CollectionHeadView.h */,
 				7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */,
-				7DFB1BA71FCE94380033D9E2 /* FlowLayout.h */,
-				7DFB1BA81FCE94380033D9E2 /* FlowLayout.m */,
+				7DFB1BA71FCE94380033D9E2 /* HomeFlowLayout.h */,
+				7DFB1BA81FCE94380033D9E2 /* HomeFlowLayout.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -416,6 +436,7 @@
 				7DE8D5801FC5485500577762 /* GongNengVC.m in Sources */,
 				7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */,
 				7D88EE271FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m in Sources */,
+				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
 				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,
 				7D88EE241FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m in Sources */,
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
@@ -425,7 +446,8 @@
 				7DE8D59F1FC57D4400577762 /* NSString+IdentityCard.m in Sources */,
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
-				7DFB1BA91FCE94380033D9E2 /* FlowLayout.m in Sources */,
+				7DFB1BA91FCE94380033D9E2 /* HomeFlowLayout.m in Sources */,
+				7DB4FF041FD134D2004EE368 /* VoiceManager.m in Sources */,
 				7D0DA8461FC50D7000774E40 /* main.m in Sources */,
 				7DFB1BE61FCFE6EB0033D9E2 /* ThreeDTouchController.m in Sources */,
 				7DFB1BE91FCFE8390033D9E2 /* presentViewController.m in Sources */,

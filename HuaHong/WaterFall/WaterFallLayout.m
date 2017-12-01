@@ -31,7 +31,6 @@
     //这个数组的主要作用是保存每一列的总高度，这样在布局时，我们可以始终将下一个Item放在最短的列下面
     CGFloat colHight[2] = {self.sectionInset.top,self.sectionInset.bottom};
     
-    
     for (int i=0; i<_itemCount; i++) {
         
         NSIndexPath *IndexPath = [NSIndexPath indexPathForItem:i inSection:0];
@@ -51,9 +50,7 @@
             hight = smallHeight;
             
         }
-        //        NSLog(@"index:%d",i);
-        //        NSLog(@"colHight[0]:%f",colHight[0]);
-        //        NSLog(@"colHight[1]:%f",colHight[1]);
+        
         //标记最短的列
         int index =0;
         if (colHight[0] > colHight[1])

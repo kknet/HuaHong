@@ -12,7 +12,7 @@
 #import "UtilsMacro.h"
 #import "UIViewExt.h"
 #import "Utils.h"
-#import "BaseViewController.h"
+#import "Public.h"
 
 
 #endif /* HuaHong_pch */

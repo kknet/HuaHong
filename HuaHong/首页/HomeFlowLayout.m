@@ -6,33 +6,37 @@
 //  Copyright © 2017年 huahong. All rights reserved.
 //
 
-#import "FlowLayout.h"
+#import "HomeFlowLayout.h"
 
-@interface FlowLayout()
+@interface HomeFlowLayout()
 @property (nonatomic, assign) CGFloat naviHeight;
 
 @end
 
-@implementation FlowLayout
+@implementation HomeFlowLayout
 
 -(instancetype)init
 {
     self = [super init];
     if (self)
     {
-        _naviHeight = 64.0;
+        _naviHeight = 0.0;
     }
     return self;
 }
 
 
-- (NSArray *) layoutAttributesForElementsInRect:(CGRect)rect
+#pragma mark--这个方法中返回我们的布局数组
+-(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
+//    NSLog(@"layoutAttributesForElementsInRect");
+
     //截取到父类所返回的数组（里面放的是当前屏幕所能展示的item的结构信息），并转化成不可变数组
     NSMutableArray *superArray = [[super layoutAttributesForElementsInRect:rect] mutableCopy];
     
     //创建存索引的数组，无符号（正整数），无序（不能通过下标取值），不可重复（重复的话会自动过滤）
     NSMutableIndexSet *noneHeaderSections = [NSMutableIndexSet indexSet];
+    
     //遍历superArray，得到一个当前屏幕中所有的section数组
     for (UICollectionViewLayoutAttributes *attributes in superArray)
     {
@@ -59,13 +63,13 @@
         
         //取到当前section中第一个item的indexPath
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:idx];
+        
         //获取当前section在正常情况下已经离开屏幕的header结构信息
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath];
         
         //如果当前分区确实有因为离开屏幕而被系统回收的header
         if (attributes)
         {
-            NSLog(@"1");
             //将该header结构信息重新加入到superArray中去
             [superArray addObject:attributes];
         }
@@ -77,13 +81,15 @@
         //如果当前item是header
         if ([attributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader])
         {
-            
             //得到当前header所在分区的cell的数量
             NSInteger numberOfItemsInSection = [self.collectionView numberOfItemsInSection:attributes.indexPath.section];
+            
             //得到第一个item的indexPath
             NSIndexPath *firstItemIndexPath = [NSIndexPath indexPathForItem:0 inSection:attributes.indexPath.section];
+            
             //得到最后一个item的indexPath
             NSIndexPath *lastItemIndexPath = [NSIndexPath indexPathForItem:MAX(0, numberOfItemsInSection-1) inSection:attributes.indexPath.section];
+            
             //得到第一个item和最后一个item的结构信息
             UICollectionViewLayoutAttributes *firstItemAttributes, *lastItemAttributes;
             if (numberOfItemsInSection>0)
@@ -137,10 +143,15 @@
 //return YES;表示一旦滑动就实时调用上面这个layoutAttributesForElementsInRect:方法
 - (BOOL) shouldInvalidateLayoutForBoundsChange:(CGRect)newBound
 {
+//    NSLog(@"shouldInvalidateLayoutForBoundsChange");
+
     return YES;
 }
 
-
+-(void)prepareLayout
+{
+//    NSLog(@"prepareLayout");
+}
 @end
 
 

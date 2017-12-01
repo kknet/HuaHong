@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlowLayout : UICollectionViewFlowLayout
+@interface HomeFlowLayout : UICollectionViewFlowLayout
 
 
 @end
