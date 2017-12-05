@@ -15,5 +15,8 @@
 #import "LightSinceController.h"
 #import "ThreeDTouchController.h"
 #import "VoiceController.h"
+#import "TakePhotoController.h"
+#import "SystemContactsController.h"
+
 
 #endif /* Public_h */
