@@ -1,5 +1,5 @@
 //
-//  SystemContactsController.h
+//  ContactsController.h
 //  HuaHong
 //
 //  Created by 华宏 on 2017/12/5.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface SystemContactsController : BaseViewController
+@interface ContactsController : BaseViewController
 
 @end

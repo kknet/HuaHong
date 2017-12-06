@@ -61,7 +61,7 @@ static NSString *headerID = @"headerID";
         @[@"文字转语音",@"录音"],
         @[@"视频录制1",@"视频录制2",@"视频录制3",@"视频合成"],
         @[@"相册"],
-        @[@"通讯录"],
+        @[@"系统通讯录",@"自定义通讯录"],
         @[@"二维码扫描",@"二维码生成"],
         @[@"动画"],
         @[@"网络"],
@@ -124,7 +124,7 @@ static NSString *headerID = @"headerID";
 -(UITableView *)tableView{
     
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,kNavBarHeight, 100, kScreenHeight-kNavBarHeight-kTabBarHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,kNavBarHeight, 80, kScreenHeight-kNavBarHeight-kTabBarHeight) style:UITableViewStylePlain];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -159,6 +159,17 @@ static NSString *headerID = @"headerID";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
+//    for (UIView *view in cell.contentView.subviews) {
+//        [view removeFromSuperview];
+//    }
+//
+//    UILabel *textLabel = [[UILabel alloc]initWithFrame:cell.contentView.bounds];
+//    textLabel.textAlignment = NSTextAlignmentCenter;
+//    textLabel.font = [UIFont systemFontOfSize:14];
+//    textLabel.backgroundColor = [UIColor clearColor];
+//    textLabel.textColor = [UIColor blackColor];
+//    [cell.contentView addSubview:textLabel];
+    
     if (_selectIndex == indexPath.row) {
         
         cell.contentView.backgroundColor = [UIColor orangeColor];
@@ -167,7 +178,8 @@ static NSString *headerID = @"headerID";
     }
     
     cell.textLabel.text = self.tableTittleDataArray[indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    
     return cell;
 }
 
@@ -204,8 +216,8 @@ static NSString *headerID = @"headerID";
     if (!_collectionView) {
         HomeFlowLayout *layout = [HomeFlowLayout new];
         //        UICollectionViewLayout *layout = [[UICollectionViewLayout alloc]init];
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(self.tableView.right+5,kNavBarHeight, kScreenWidth-self.tableView.width-10, kScreenHeight-kNavBarHeight-kTabBarHeight) collectionViewLayout: layout];
-        _collectionView.backgroundColor = [UIColor cyanColor];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(self.tableView.right,kNavBarHeight, kScreenWidth-self.tableView.width-0, kScreenHeight-kNavBarHeight-kTabBarHeight) collectionViewLayout: layout];
+        _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.delegate = self;
@@ -322,17 +334,17 @@ static NSString *headerID = @"headerID";
 //列间距
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     
-    return 1.f;
+    return 3.f;
 }
 
 //行间距
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     
-    return 1.f;
+    return 3.f;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
-    return UIEdgeInsetsMake(1, 0, 1,0);
+    return UIEdgeInsetsMake(3, 3, 3,3);
 }
 /*
  格子的宽高设置
@@ -375,8 +387,13 @@ static NSString *headerID = @"headerID";
             break;
         case 3:
         {
-            if (indexPath.item == 0) {
+            if (indexPath.item == 0)
+            {
                 VoiceController *voiceVC = [[VoiceController alloc]init];
+                [self.navigationController pushViewController:voiceVC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                RecorderViewController *voiceVC = [[RecorderViewController alloc]init];
                 [self.navigationController pushViewController:voiceVC animated:YES];
             }
         }
@@ -397,8 +414,13 @@ static NSString *headerID = @"headerID";
             break;
         case 6:
         {
-            if (indexPath.item == 0) {
-                SystemContactsController *contactVC = [[SystemContactsController alloc]init];
+            if (indexPath.item == 0)
+            {
+                ContactsController *contactVC = [[ContactsController alloc]init];
+                [self.navigationController pushViewController:contactVC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                CustomContactsController *contactVC = [[CustomContactsController alloc]init];
                 [self.navigationController pushViewController:contactVC animated:YES];
             }
         }

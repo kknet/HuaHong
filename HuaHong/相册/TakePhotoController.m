@@ -140,6 +140,7 @@ static NSString *cellId = @"CollectionId";
     imagePick.delegate = self;
     imagePick.allowsEditing = YES;
     imagePick.sourceType = sourceType;
+    imagePick.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:imagePick animated:YES completion:nil];
 }
 #pragma mark - UIImagePickerControllerDelegate

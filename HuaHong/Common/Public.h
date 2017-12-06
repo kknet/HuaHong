@@ -16,7 +16,9 @@
 #import "ThreeDTouchController.h"
 #import "VoiceController.h"
 #import "TakePhotoController.h"
-#import "SystemContactsController.h"
+#import "ContactsController.h"
+#import "CustomContactsController.h"
+#import "RecorderViewController.h"
 
 
 #endif /* Public_h */

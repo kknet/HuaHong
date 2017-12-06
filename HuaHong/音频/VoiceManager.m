@@ -10,6 +10,7 @@
 
 @implementation VoiceManager
 
+//文字转语音
 + (void)startBroadcastVoice:(id)user speed:(NSInteger)speed volume:(NSInteger)volume tone:(NSInteger)tone voice:(AVSpeechSynthesizer *)voice LanguageType:(NSString *)languageType content:(NSString *)content {
     
     voice.delegate= user;
@@ -29,6 +30,7 @@
     
 }
 
+//文字转语音停止
 + (void)stopBroadcastVoice:(AVSpeechSynthesizer *)voice{
     
     [voice continueSpeaking];

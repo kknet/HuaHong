@@ -18,12 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIButton *voiceBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
-    voiceBtn.backgroundColor = [UIColor orangeColor];
-    [voiceBtn setTitle:@"文字转语音" forState:UIControlStateNormal];
-    [voiceBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [voiceBtn addTarget:self action:@selector(voiceBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:voiceBtn];
+//    UIButton *voiceBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
+//    voiceBtn.backgroundColor = [UIColor orangeColor];
+//    [voiceBtn setTitle:@"文字转语音" forState:UIControlStateNormal];
+//    [voiceBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    [voiceBtn addTarget:self action:@selector(voiceBtn:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:voiceBtn];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"文字转语音" style:UIBarButtonItemStylePlain target:self action:@selector(voiceBtn:)];
+
     
 }
 
@@ -45,10 +48,8 @@
     
     //[voice pauseSpeakingAtBoundary:AVSpeechBoundaryWord];//暂停
     
-    
-    
-    
-    
+
 }
+
 
 @end
