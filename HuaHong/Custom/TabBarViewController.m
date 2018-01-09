@@ -7,12 +7,14 @@
 //
 
 #import "TabBarViewController.h"
+#import "HHTabBar.h"
 #import "NavigationController.h"
 #import "HomeVC.h"
 #import "GongNengVC.h"
 #import "KongJianVC.h"
-@interface TabBarViewController ()
 
+@interface TabBarViewController ()<UITabBarControllerDelegate>
+@property (nonatomic,strong) HHTabBar *myTabBar;
 @end
 
 @implementation TabBarViewController
@@ -38,36 +40,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tabBar.backgroundColor = [UIColor whiteColor];
+    self.myTabBar = [[HHTabBar alloc]init];
+    self.delegate = self;
     
-    [[UITabBar appearance] setShadowImage:[UIImage new]];
-    [[UITabBar appearance] setBackgroundImage:[[UIImage alloc]init]];
-    UIImageView *imageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, -20, self.view.frame.size.width, 20)];
-    imageV.image = [UIImage imageNamed:@"tabBarLine"];
-    imageV.contentMode = UIViewContentModeCenter;
-    [self.tabBar addSubview:imageV];
-    
-    //中间自定义按钮
-    UIButton *centerBtn = [[UIButton alloc]initWithFrame:CGRectMake((self.view.bounds.size.width - 60)/2, 49 - 60, 60, 60)];
-//    centerBtn.userInteractionEnabled = NO;
-    centerBtn.backgroundColor = [UIColor clearColor];
-    centerBtn.titleLabel.font = [UIFont systemFontOfSize:10];
-    centerBtn.imageEdgeInsets = UIEdgeInsetsMake(-20, 0, 0, 0);
-    [centerBtn setImage:[UIImage imageNamed:@"tabBarCenter"] forState:UIControlStateNormal];
-//    [centerBtn setImage:[UIImage imageNamed:@"tabBarCenter"] forState:UIControlStateSelected];
+//    self.myTabBar.backgroundColor = [UIColor whiteColor];
+//    透明设置为NO，显示白色，view的高度到tabbar顶部截止，YES的话到底部
+    self.myTabBar.translucent = NO;
 
-//    [centerBtn addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.tabBar addSubview:centerBtn];
+    [self.myTabBar.centerBtn addTarget:self action:@selector(centerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    //利用KVC 将自己的tabbar赋给系统tabBar
+    [self setValue:_myTabBar forKey:@"tabBar"];
     
     [self setUpAllChildVc];
     
     self.selectedIndex = 1;
 }
 
-//-(void)centerBtnClick:(UIButton *)sender
-//{
-//    self.selectedIndex = 1;
-//}
+-(void)centerBtnClick:(UIButton *)sender
+{
+    self.selectedIndex = 1;
+    [self rotationAnimation];
+}
 /**
  *  添加所有的控制器
  */
@@ -101,4 +96,23 @@
     [self addChildViewController:nav];
 }
 
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if (tabBarController.selectedIndex == 1) {
+        [self rotationAnimation];
+
+    }else
+    {
+        [_myTabBar.centerBtn.layer removeAllAnimations];
+    }
+}
+
+//旋转动画
+- (void)rotationAnimation{
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat:M_PI*2.0];
+    rotationAnimation.duration = 3.0;
+    rotationAnimation.repeatCount = HUGE;
+    [_myTabBar.centerBtn.layer addAnimation:rotationAnimation forKey:@"key"];
+}
 @end

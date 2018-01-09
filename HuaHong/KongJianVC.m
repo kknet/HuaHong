@@ -16,10 +16,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     self.view.backgroundColor = [UIColor orangeColor];
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+//    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+//    NSDate * NowDate = [NSDate dateWithTimeIntervalSince1970:now];
+    
+    NSString *timeStr = @"2017-12-11 17:22:41";
+    NSDate *date = [formatter dateFromString:timeStr];
+    NSTimeInterval interval = [date timeIntervalSince1970];
+//    NSString * timeStr = [formatter stringFromDate:[NSDate date]];
+    NSLog(@"interval:%f",interval/(60*60*24*365));
 
-
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

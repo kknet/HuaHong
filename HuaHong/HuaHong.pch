@@ -14,6 +14,7 @@
 #import "Utils.h"
 #import "Public.h"
 #import "UIColor+Category.h"
+#import "VideoManager.h"
 
 
 #endif /* HuaHong_pch */

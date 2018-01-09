@@ -9,6 +9,7 @@
 #ifndef Public_h
 #define Public_h
 
+#import <SVProgressHUD.h>
 #import "BaseViewController.h"
 #import "MapViewController.h"
 #import "WaterFallController.h"
@@ -19,6 +20,16 @@
 #import "ContactsController.h"
 #import "CustomContactsController.h"
 #import "RecorderViewController.h"
+#import "ImagePickController.h"
+#import "MovieFileOutputController.h"
+#import "CustomVideoController.h"
+#import "AnimationController.h"
+#import "MultiRequestController.h"
+#import "QRCodeController.h"
+#import "CreatQRCodeController.h"
+#import "LoadingViewController.h"
+#import "AddVideoController.h"
+
 
 
 #endif /* Public_h */

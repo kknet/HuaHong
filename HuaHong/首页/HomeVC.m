@@ -9,6 +9,7 @@
 #import "HomeVC.h"
 #import "HomeFlowLayout.h"
 #import "CollectionHeadView.h"
+#import "HomeLeftCell.h"
 
 
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
@@ -39,7 +40,7 @@ static NSString *headerID = @"headerID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"首页";
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -58,12 +59,12 @@ static NSString *headerID = @"headerID";
         @[@"瀑布流"],
         @[@"Apple Map"],
         @[@"光学传感器",@"3DTouch",@"指纹识别"],
-        @[@"文字转语音",@"录音"],
+        @[@"文字转语音",@"录音",@"语音合成"],
         @[@"视频录制1",@"视频录制2",@"视频录制3",@"视频合成"],
         @[@"相册"],
         @[@"系统通讯录",@"自定义通讯录"],
         @[@"二维码扫描",@"二维码生成"],
-        @[@"动画"],
+        @[@"旋转加载",@"扇形加载"],
         @[@"网络"],
         @[@"手势交互"],
         @[@"数据持久化"],
@@ -128,7 +129,7 @@ static NSString *headerID = @"headerID";
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor  = [UIColor purpleColor];
+        _tableView.backgroundColor  = [UIColor whiteColor];
         _tableView.showsVerticalScrollIndicator = NO;
         [_tableView setSeparatorInset:UIEdgeInsetsZero];
         
@@ -151,24 +152,14 @@ static NSString *headerID = @"headerID";
     
     static NSString *cellID = @"cellID";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    HomeLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     if (!cell) {
         
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[HomeLeftCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-//    for (UIView *view in cell.contentView.subviews) {
-//        [view removeFromSuperview];
-//    }
-//
-//    UILabel *textLabel = [[UILabel alloc]initWithFrame:cell.contentView.bounds];
-//    textLabel.textAlignment = NSTextAlignmentCenter;
-//    textLabel.font = [UIFont systemFontOfSize:14];
-//    textLabel.backgroundColor = [UIColor clearColor];
-//    textLabel.textColor = [UIColor blackColor];
-//    [cell.contentView addSubview:textLabel];
     
     if (_selectIndex == indexPath.row) {
         
@@ -177,9 +168,8 @@ static NSString *headerID = @"headerID";
         cell.contentView.backgroundColor = [UIColor whiteColor];
     }
     
-    cell.textLabel.text = self.tableTittleDataArray[indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:12];
-    
+    cell.contentLabel.text = self.tableTittleDataArray[indexPath.row];
+
     return cell;
 }
 
@@ -344,7 +334,7 @@ static NSString *headerID = @"headerID";
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
-    return UIEdgeInsetsMake(3, 3, 3,3);
+    return UIEdgeInsetsMake(0, 0, 0,0);
 }
 /*
  格子的宽高设置
@@ -400,9 +390,27 @@ static NSString *headerID = @"headerID";
             break;
         case 4:
         {
-            
+            if (indexPath.item == 0)
+            {
+                ImagePickController *pickerVC = [[ImagePickController alloc]init];
+                [self.navigationController pushViewController:pickerVC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                MovieFileOutputController *VC = [[MovieFileOutputController alloc]init];
+                [self presentViewController:VC animated:YES completion:nil];
+            }else if (indexPath.item == 2)
+            {
+                CustomVideoController *VC = [[CustomVideoController alloc]init];
+                [self presentViewController:VC animated:YES completion:nil];
+            }else if (indexPath.item == 3)
+            {
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+                AddVideoController *vc = [story instantiateViewControllerWithIdentifier:@"AddVideoController"];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
             break;
+            
             
         case 5:
         {
@@ -425,7 +433,39 @@ static NSString *headerID = @"headerID";
             }
         }
             break;
-            
+        case 7:
+        {
+            if (indexPath.item == 0) {
+                QRCodeController *takePhotoVC = [[QRCodeController alloc]init];
+                [self.navigationController pushViewController:takePhotoVC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                UIStoryboard *storyboard =  [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+                CreatQRCodeController *takePhotoVC = [storyboard instantiateViewControllerWithIdentifier:@"CreatQRCodeController"];
+                [self.navigationController pushViewController:takePhotoVC animated:YES];
+            }
+        }
+            break;
+        case 8:
+        {
+            if (indexPath.item == 0) {
+                AnimationController *takePhotoVC = [[AnimationController alloc]init];
+                [self.navigationController pushViewController:takePhotoVC animated:YES];
+            }else if (indexPath.item == 1) {
+                LoadingViewController *takePhotoVC = [[LoadingViewController alloc]init];
+                [self.navigationController pushViewController:takePhotoVC animated:YES];
+            }
+        }
+            break;
+        case 9:
+        {
+            if (indexPath.item == 0) {
+                
+                MultiRequestController *VC = [[MultiRequestController alloc]init];
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+        }
+            break;
         default:
             break;
     }
