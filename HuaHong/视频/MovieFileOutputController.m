@@ -277,14 +277,21 @@
         desiredPosition = AVCaptureDevicePositionFront;
     }
     
-    for (AVCaptureDevice *d in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) {
-        if ([d position] == desiredPosition) {
+    for (AVCaptureDevice *device in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) {
+        
+        if ([device position] == desiredPosition) {
+            
             [self.previewLayer.session beginConfiguration];
-            AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:d error:nil];
+            AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+            
             for (AVCaptureInput *oldInput in self.previewLayer.session.inputs) {
                 [[self.previewLayer session] removeInput:oldInput];
             }
-            [self.previewLayer.session addInput:input];
+            
+            if ([self.previewLayer.session canAddInput:input])
+            {
+                [self.previewLayer.session addInput:input];
+            }
             [self.previewLayer.session commitConfiguration];
             break;
         }
