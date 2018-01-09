@@ -300,44 +300,5 @@
      self.isFront = !self.isFront;
 }
 
-//- (void)changeCameraAnimation {
-//    CATransition *changeAnimation = [CATransition animation];
-//    changeAnimation.delegate = self;
-//    changeAnimation.duration = 0.45;
-//    changeAnimation.type = @"oglFlip";
-//    changeAnimation.subtype = kCATransitionFromRight;
-//    changeAnimation.timingFunction = UIViewAnimationCurveEaseInOut;
-//    [self.previewLayer addAnimation:changeAnimation forKey:@"changeAnimation"];
-//}
-//
-//#pragma mark - CAAnimationDelegate
-//- (void)animationDidStart:(CAAnimation *)anim {
-////    self.videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
-//    [self.session startRunning];
-//}
-//
-////后置摄像头输入
-//- (AVCaptureDeviceInput *)backCameraInput {
-//    if (_backCameraInput == nil) {
-//        NSError *error;
-//        _backCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[VideoManager backCamera] error:&error];
-//        if (error) {
-//            NSLog(@"获取后置摄像头失败~");
-//        }
-//    }
-//    return _backCameraInput;
-//}
-//
-////前置摄像头输入
-//- (AVCaptureDeviceInput *)frontCameraInput {
-//    if (_frontCameraInput == nil) {
-//        NSError *error;
-//        _frontCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[VideoManager frontCamera] error:&error];
-//        if (error) {
-//            NSLog(@"获取前置摄像头失败~");
-//        }
-//    }
-//    return _frontCameraInput;
-//}
 
 @end
