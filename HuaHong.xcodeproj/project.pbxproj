@@ -12,7 +12,6 @@
 		7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */; };
 		7D0DA8461FC50D7000774E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8451FC50D7000774E40 /* main.m */; };
 		7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2172101FDA86D8008698C9 /* BlueToothController.m */; };
-		7D2FF0AB1FF373E300ECAA26 /* HHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0AA1FF373E300ECAA26 /* HHTabBar.m */; };
 		7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */; };
 		7D2FF0B11FF4F91400ECAA26 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0B01FF4F91400ECAA26 /* TestView.m */; };
 		7D2FF0B51FFCB97700ECAA26 /* HomeLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0B41FFCB97700ECAA26 /* HomeLeftCell.m */; };
@@ -25,12 +24,16 @@
 		7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2FF0C82004A39A00ECAA26 /* music.mp3 */; };
 		7D2FF0CC2004A3E300ECAA26 /* AddVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0CB2004A3E300ECAA26 /* AddVideoController.m */; };
 		7D2FF0CE2004AB4900ECAA26 /* weixinY.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2FF0CD2004AB4900ECAA26 /* weixinY.mp4 */; };
-		7D3623DF1FCE4DA000C77874 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3623DD1FCE4DA000C77874 /* NavigationController.m */; };
-		7D3623E01FCE4DA000C77874 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3623DE1FCE4DA000C77874 /* TabBarViewController.m */; };
+		7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */; };
+		7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF1FC20084F3600ECAA26 /* SwiftHomeController.swift */; };
+		7D2FF2092008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2002008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m */; };
+		7D2FF20A2008916700ECAA26 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2042008916700ECAA26 /* NavigationController.m */; };
+		7D2FF20B2008916700ECAA26 /* UINavigationController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2052008916700ECAA26 /* UINavigationController+BackButtonHandler.m */; };
+		7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2062008916700ECAA26 /* HHTabBar.m */; };
+		7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2072008916700ECAA26 /* TabBarViewController.m */; };
+		7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2112008935F00ECAA26 /* TestViewController.m */; };
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
-		7D88EE241FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE231FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m */; };
-		7D88EE271FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE261FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m */; };
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
 		7D957EB91FD4DFCA00D0A4D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D957EB81FD4DFC900D0A4D5 /* Assets.xcassets */; };
 		7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EBB1FD531CE00D0A4D5 /* PhotoListController.m */; };
@@ -55,8 +58,6 @@
 		7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5651FD97FAF0011EE54 /* CustomVideoController.m */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
 		7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57C1FC527F000577762 /* HomeVC.m */; };
-		7DE8D5801FC5485500577762 /* GongNengVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57F1FC5485500577762 /* GongNengVC.m */; };
-		7DE8D5831FC5493300577762 /* KongJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5821FC5493300577762 /* KongJianVC.m */; };
 		7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Storyboard.storyboard */; };
 		7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58E1FC576ED00577762 /* UIViewExt.m */; };
 		7DE8D5931FC576ED00577762 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5901FC576ED00577762 /* Utils.m */; };
@@ -86,8 +87,6 @@
 		7D0DA8451FC50D7000774E40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D21720F1FDA86D8008698C9 /* BlueToothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueToothController.h; sourceTree = "<group>"; };
 		7D2172101FDA86D8008698C9 /* BlueToothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueToothController.m; sourceTree = "<group>"; };
-		7D2FF0A91FF373E300ECAA26 /* HHTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHTabBar.h; sourceTree = "<group>"; };
-		7D2FF0AA1FF373E300ECAA26 /* HHTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHTabBar.m; sourceTree = "<group>"; };
 		7D2FF0AC1FF397E000ECAA26 /* MultiRequestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiRequestController.h; sourceTree = "<group>"; };
 		7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiRequestController.m; sourceTree = "<group>"; };
 		7D2FF0AF1FF4F91400ECAA26 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
@@ -109,18 +108,26 @@
 		7D2FF0CA2004A3E300ECAA26 /* AddVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddVideoController.h; sourceTree = "<group>"; };
 		7D2FF0CB2004A3E300ECAA26 /* AddVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddVideoController.m; sourceTree = "<group>"; };
 		7D2FF0CD2004AB4900ECAA26 /* weixinY.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = weixinY.mp4; sourceTree = "<group>"; };
-		7D3623DB1FCE4DA000C77874 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
-		7D3623DC1FCE4DA000C77874 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
-		7D3623DD1FCE4DA000C77874 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
-		7D3623DE1FCE4DA000C77874 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		7D2FF1F820084F0D00ECAA26 /* StoryboardHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardHomeController.h; sourceTree = "<group>"; };
+		7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryboardHomeController.m; sourceTree = "<group>"; };
+		7D2FF1FB20084F3500ECAA26 /* HuaHong-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HuaHong-Bridging-Header.h"; sourceTree = "<group>"; };
+		7D2FF1FC20084F3600ECAA26 /* SwiftHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHomeController.swift; sourceTree = "<group>"; };
+		7D2FF1FF2008916700ECAA26 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		7D2FF2002008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShouldPopOnBackButton.m"; sourceTree = "<group>"; };
+		7D2FF2012008916700ECAA26 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		7D2FF2022008916700ECAA26 /* HHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTabBar.h; sourceTree = "<group>"; };
+		7D2FF2032008916700ECAA26 /* UINavigationController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		7D2FF2042008916700ECAA26 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		7D2FF2052008916700ECAA26 /* UINavigationController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		7D2FF2062008916700ECAA26 /* HHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTabBar.m; sourceTree = "<group>"; };
+		7D2FF2072008916700ECAA26 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		7D2FF2082008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShouldPopOnBackButton.h"; sourceTree = "<group>"; };
+		7D2FF2102008935F00ECAA26 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		7D2FF2112008935F00ECAA26 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		7D88EE1F1FC8076B00CC76FE /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7D88EE201FC8076B00CC76FE /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		7D88EE221FC80BE400CC76FE /* UINavigationController+BackButtonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BackButtonHandler.h"; sourceTree = "<group>"; };
-		7D88EE231FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BackButtonHandler.m"; sourceTree = "<group>"; };
-		7D88EE251FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShouldPopOnBackButton.h"; sourceTree = "<group>"; };
-		7D88EE261FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShouldPopOnBackButton.m"; sourceTree = "<group>"; };
 		7D957EB51FD4DC4900D0A4D5 /* TakePhotoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePhotoController.h; sourceTree = "<group>"; };
 		7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakePhotoController.m; sourceTree = "<group>"; };
 		7D957EB81FD4DFC900D0A4D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,10 +176,6 @@
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 		7DE8D57B1FC527F000577762 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7DE8D57C1FC527F000577762 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
-		7DE8D57E1FC5485500577762 /* GongNengVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GongNengVC.h; sourceTree = "<group>"; };
-		7DE8D57F1FC5485500577762 /* GongNengVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GongNengVC.m; sourceTree = "<group>"; };
-		7DE8D5811FC5493300577762 /* KongJianVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KongJianVC.h; sourceTree = "<group>"; };
-		7DE8D5821FC5493300577762 /* KongJianVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KongJianVC.m; sourceTree = "<group>"; };
 		7DE8D5841FC54FDF00577762 /* HuaHong.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuaHong.pch; sourceTree = "<group>"; };
 		7DE8D5851FC556DE00577762 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		7DE8D5891FC55A6C00577762 /* UtilsMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
@@ -242,16 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
-				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
-				7D0DA8341FC50D7000774E40 /* AppDelegate.m */,
-				7D88EE1F1FC8076B00CC76FE /* BaseViewController.h */,
-				7D88EE201FC8076B00CC76FE /* BaseViewController.m */,
-				7DE8D57E1FC5485500577762 /* GongNengVC.h */,
-				7DE8D57F1FC5485500577762 /* GongNengVC.m */,
-				7D2FF0AF1FF4F91400ECAA26 /* TestView.h */,
-				7D2FF0B01FF4F91400ECAA26 /* TestView.m */,
-				7DE8D5811FC5493300577762 /* KongJianVC.h */,
-				7DE8D5821FC5493300577762 /* KongJianVC.m */,
+				7D2FF20F200892C700ECAA26 /* 测试 */,
+				7D2FF20E200892B900ECAA26 /* Base */,
 				7D2FF0B21FFCAEF900ECAA26 /* 二维码 */,
 				7DC94AF51FE901770042632D /* 动画 */,
 				7DB9B5431FD7E4460011EE54 /* 视频 */,
@@ -260,21 +255,21 @@
 				7DB9B5331FD6787B0011EE54 /* 通讯录 */,
 				7D957EB41FD4DC1300D0A4D5 /* 相册 */,
 				7DFB1BE01FCFE2220033D9E2 /* 传感器 */,
-				7DFB1BD91FCFD4440033D9E2 /* NetWork */,
+				7DFB1BD91FCFD4440033D9E2 /* 网络请求 */,
+				7D2FF1FE2008916700ECAA26 /* 导航栏标签栏 */,
 				7DFB1BD51FCFD2480033D9E2 /* WaterFall */,
-				7D3623DA1FCE4DA000C77874 /* Custom */,
 				7DE8D5A91FC6D12F00577762 /* 定位 */,
-				7DE8D5851FC556DE00577762 /* Storyboard.storyboard */,
 				7DE8D58A1FC576ED00577762 /* Catagory */,
-				7DE8D5841FC54FDF00577762 /* HuaHong.pch */,
 				7D3623E11FCE51B400C77874 /* Common */,
+				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
+				7D0DA8341FC50D7000774E40 /* AppDelegate.m */,
+				7DE8D5851FC556DE00577762 /* Storyboard.storyboard */,
+				7DE8D5841FC54FDF00577762 /* HuaHong.pch */,
 				7D0DA8441FC50D7000774E40 /* Info.plist */,
 				7D0DA8451FC50D7000774E40 /* main.m */,
 				7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */,
 				7D957EB81FD4DFC900D0A4D5 /* Assets.xcassets */,
-				7D2FF0C52004A38000ECAA26 /* selfS.MOV */,
-				7D2FF0C82004A39A00ECAA26 /* music.mp3 */,
-				7D2FF0CD2004AB4900ECAA26 /* weixinY.mp4 */,
+				7D2FF2132008970400ECAA26 /* Supporting Files */,
 			);
 			path = HuaHong;
 			sourceTree = "<group>";
@@ -301,28 +296,59 @@
 			path = "二维码";
 			sourceTree = "<group>";
 		};
-		7D3623DA1FCE4DA000C77874 /* Custom */ = {
+		7D2FF1FE2008916700ECAA26 /* 导航栏标签栏 */ = {
 			isa = PBXGroup;
 			children = (
-				7D3623DB1FCE4DA000C77874 /* NavigationController.h */,
-				7D3623DD1FCE4DA000C77874 /* NavigationController.m */,
-				7D3623DC1FCE4DA000C77874 /* TabBarViewController.h */,
-				7D3623DE1FCE4DA000C77874 /* TabBarViewController.m */,
-				7D88EE221FC80BE400CC76FE /* UINavigationController+BackButtonHandler.h */,
-				7D88EE231FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m */,
-				7D88EE251FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.h */,
-				7D88EE261FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m */,
-				7D2FF0A91FF373E300ECAA26 /* HHTabBar.h */,
-				7D2FF0AA1FF373E300ECAA26 /* HHTabBar.m */,
+				7D2FF1FF2008916700ECAA26 /* NavigationController.h */,
+				7D2FF2042008916700ECAA26 /* NavigationController.m */,
+				7D2FF2082008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.h */,
+				7D2FF2002008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m */,
+				7D2FF2032008916700ECAA26 /* UINavigationController+BackButtonHandler.h */,
+				7D2FF2052008916700ECAA26 /* UINavigationController+BackButtonHandler.m */,
+				7D2FF2022008916700ECAA26 /* HHTabBar.h */,
+				7D2FF2062008916700ECAA26 /* HHTabBar.m */,
+				7D2FF2012008916700ECAA26 /* TabBarViewController.h */,
+				7D2FF2072008916700ECAA26 /* TabBarViewController.m */,
 			);
-			path = Custom;
+			name = "导航栏标签栏";
+			path = "HuaHong/导航栏标签栏";
+			sourceTree = SOURCE_ROOT;
+		};
+		7D2FF20E200892B900ECAA26 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7D88EE1F1FC8076B00CC76FE /* BaseViewController.h */,
+				7D88EE201FC8076B00CC76FE /* BaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7D2FF20F200892C700ECAA26 /* 测试 */ = {
+			isa = PBXGroup;
+			children = (
+				7D2FF0AF1FF4F91400ECAA26 /* TestView.h */,
+				7D2FF0B01FF4F91400ECAA26 /* TestView.m */,
+				7D2FF2102008935F00ECAA26 /* TestViewController.h */,
+				7D2FF2112008935F00ECAA26 /* TestViewController.m */,
+			);
+			path = "测试";
+			sourceTree = "<group>";
+		};
+		7D2FF2132008970400ECAA26 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7DE8D5A61FC6B73600577762 /* home.plist */,
+				7D2FF0C52004A38000ECAA26 /* selfS.MOV */,
+				7D2FF0C82004A39A00ECAA26 /* music.mp3 */,
+				7D2FF0CD2004AB4900ECAA26 /* weixinY.mp4 */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		7D3623E11FCE51B400C77874 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				7DE8D5891FC55A6C00577762 /* UtilsMacro.h */,
-				7DE8D5A61FC6B73600577762 /* home.plist */,
 				7DE8D58F1FC576ED00577762 /* Utils.h */,
 				7DE8D5901FC576ED00577762 /* Utils.m */,
 				7DE8D5941FC5773300577762 /* DesUtil.h */,
@@ -468,6 +494,10 @@
 				7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */,
 				7DFB1BA71FCE94380033D9E2 /* HomeFlowLayout.h */,
 				7DFB1BA81FCE94380033D9E2 /* HomeFlowLayout.m */,
+				7D2FF1F820084F0D00ECAA26 /* StoryboardHomeController.h */,
+				7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */,
+				7D2FF1FC20084F3600ECAA26 /* SwiftHomeController.swift */,
+				7D2FF1FB20084F3500ECAA26 /* HuaHong-Bridging-Header.h */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -483,7 +513,7 @@
 			path = WaterFall;
 			sourceTree = "<group>";
 		};
-		7DFB1BD91FCFD4440033D9E2 /* NetWork */ = {
+		7DFB1BD91FCFD4440033D9E2 /* 网络请求 */ = {
 			isa = PBXGroup;
 			children = (
 				7DFB1BDA1FCFD4580033D9E2 /* UpLoadViewController.h */,
@@ -491,7 +521,7 @@
 				7D2FF0AC1FF397E000ECAA26 /* MultiRequestController.h */,
 				7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */,
 			);
-			path = NetWork;
+			path = "网络请求";
 			sourceTree = "<group>";
 		};
 		7DFB1BE01FCFE2220033D9E2 /* 传感器 */ = {
@@ -558,6 +588,7 @@
 				TargetAttributes = {
 					7D0DA82F1FC50D7000774E40 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -662,9 +693,7 @@
 			files = (
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,
-				7D3623E01FCE4DA000C77874 /* TabBarViewController.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
-				7DE8D5831FC5493300577762 /* KongJianVC.m in Sources */,
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
 				7DB9B5491FD7E6710011EE54 /* VideoBottomView.m in Sources */,
@@ -672,39 +701,41 @@
 				7DB9B5551FD8FF830011EE54 /* PlayerController.m in Sources */,
 				7DE8D5A21FC69BB800577762 /* UILabel+autoReSize.m in Sources */,
 				7DB9B5581FD90A570011EE54 /* MovieFileOutputController.m in Sources */,
-				7D3623DF1FCE4DA000C77874 /* NavigationController.m in Sources */,
 				7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */,
 				7DE8D5931FC576ED00577762 /* Utils.m in Sources */,
 				7DB9B5601FD97F0B0011EE54 /* AssetWriter.m in Sources */,
 				7DB9B5521FD8E7F50011EE54 /* ImagePickController.m in Sources */,
 				7D2FF0B51FFCB97700ECAA26 /* HomeLeftCell.m in Sources */,
 				7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */,
-				7DE8D5801FC5485500577762 /* GongNengVC.m in Sources */,
 				7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */,
-				7D88EE271FC8118700CC76FE /* UIViewController+ShouldPopOnBackButton.m in Sources */,
 				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
+				7D2FF2092008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,
 				7D2FF0B11FF4F91400ECAA26 /* TestView.m in Sources */,
 				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,
 				7DB9B54C1FD7E6800011EE54 /* VideoTopView.m in Sources */,
-				7D2FF0AB1FF373E300ECAA26 /* HHTabBar.m in Sources */,
-				7D88EE241FC80BE400CC76FE /* UINavigationController+BackButtonHandler.m in Sources */,
+				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
+				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
 				7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */,
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
 				7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */,
+				7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */,
 				7DB9B54F1FD8D8100011EE54 /* VideoManager.m in Sources */,
 				7D957EBF1FD5337000D0A4D5 /* PhotoListCell.m in Sources */,
 				7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */,
+				7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */,
 				7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */,
 				7DB9B55B1FD93C720011EE54 /* BaseVideoController.m in Sources */,
 				7DE8D59F1FC57D4400577762 /* NSString+IdentityCard.m in Sources */,
 				7DB9B5361FD678F80011EE54 /* ContactsController.m in Sources */,
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
 				7DB9B53C1FD792300011EE54 /* AudioRecorderManager.m in Sources */,
+				7D2FF20B2008916700ECAA26 /* UINavigationController+BackButtonHandler.m in Sources */,
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
+				7D2FF20A2008916700ECAA26 /* NavigationController.m in Sources */,
 				7D2FF0BE1FFF4B4600ECAA26 /* CreatQRCodeController.m in Sources */,
 				7DFB1BA91FCE94380033D9E2 /* HomeFlowLayout.m in Sources */,
 				7D2FF0B81FFCDB1100ECAA26 /* ScanView.m in Sources */,
@@ -714,6 +745,7 @@
 				7DFB1BE61FCFE6EB0033D9E2 /* ThreeDTouchController.m in Sources */,
 				7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */,
 				7DB4FF0C1FD13D26004EE368 /* UIColor+Category.m in Sources */,
+				7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */,
 				7DFB1BE91FCFE8390033D9E2 /* presentViewController.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
 				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,
@@ -838,8 +870,10 @@
 			baseConfigurationReference = 9AB1874EA98924911D4A28EB /* Pods-HuaHong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3PV33XPK7B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/HuaHong.pch";
@@ -850,6 +884,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db9746fa-aba1-453b-a899-ed904add62a3";
 				PROVISIONING_PROFILE_SPECIFIER = qkonlineDev;
+				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/首页/HuaHong-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -859,8 +896,10 @@
 			baseConfigurationReference = 6696974C8B0A708887FDD327 /* Pods-HuaHong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3PV33XPK7B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/HuaHong.pch";
@@ -871,6 +910,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "45dbde0a-15bd-4450-8b8b-bfb0a4ee4f87";
 				PROVISIONING_PROFILE_SPECIFIER = qkonlineProduction;
+				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/首页/HuaHong-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

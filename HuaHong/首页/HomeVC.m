@@ -84,8 +84,14 @@ static NSString *headerID = @"headerID";
     // collectionView 的添加
     [self.view addSubview:self.collectionView];
     
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"测试" style:UIBarButtonItemStylePlain target:self action:@selector(testAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
+-(void)testAction
+{
+    [self.navigationController pushViewController:[[TestViewController alloc]init] animated:YES];
+}
 
 -(NSMutableArray *)dataArray{
     

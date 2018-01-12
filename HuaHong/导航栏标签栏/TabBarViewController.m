@@ -10,8 +10,7 @@
 #import "HHTabBar.h"
 #import "NavigationController.h"
 #import "HomeVC.h"
-#import "GongNengVC.h"
-#import "KongJianVC.h"
+#import "StoryboardHomeController.h"
 
 @interface TabBarViewController ()<UITabBarControllerDelegate>
 @property (nonatomic,strong) HHTabBar *myTabBar;
@@ -68,13 +67,18 @@
  */
 - (void)setUpAllChildVc
 {
-    [self setupChildVc:[[GongNengVC alloc] init] title:@"StoryBoard" image:@"mes_icon" selectedImage:@"mes_icon_sel"];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    StoryboardHomeController *storyVC = [story instantiateViewControllerWithIdentifier:@"StoryboardHomeController"];
+    [self setupChildVc:storyVC title:@"StoryBoard" image:@"mes_icon" selectedImage:@"mes_icon_sel"];
     
     
     [self setupChildVc:[[HomeVC alloc] init] title:@"Home" image:nil selectedImage:nil];
     
+    SwiftHomeController *swiftVC = [[SwiftHomeController alloc]init];
     
-    [self setupChildVc:[[KongJianVC alloc] init] title:@"我的" image:@"personal_icon" selectedImage:@"personal_icon_sel"];
+    [self setupChildVc:swiftVC title:@"Swift" image:@"personal_icon" selectedImage:@"personal_icon_sel"];
+    
+
 }
 
 /**
