@@ -56,7 +56,7 @@ static NSString *headerID = @"headerID";
     [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher"]];
     
     [self.dataArray addObjectsFromArray: @[
-        @[@"瀑布流"],
+        @[@"瀑布流",@"tableView"],
         @[@"Apple Map"],
         @[@"光学传感器",@"3DTouch",@"指纹识别"],
         @[@"文字转语音",@"录音",@"语音合成"],
@@ -358,6 +358,11 @@ static NSString *headerID = @"headerID";
             if (indexPath.item == 0) {
                 WaterFallController *waterfallVC = [[WaterFallController alloc]init];
                 [self.navigationController pushViewController:waterfallVC animated:YES];
+            }else if (indexPath.item == 1) {
+//                TableViewVC *tableVC = [[TableViewVC alloc]init];
+               
+                id objc = [[NSClassFromString(@"TableViewVC") alloc]init];
+                [self.navigationController pushViewController:objc animated:YES];
             }
         }
             break;

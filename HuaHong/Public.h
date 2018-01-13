@@ -29,9 +29,10 @@
 #import "CreatQRCodeController.h"
 #import "LoadingViewController.h"
 #import "AddVideoController.h"
-//#import "HuaHong-Bridging-Header.h"
+#import "HuaHong-Bridging-Header.h"
 #import "HuaHong-Swift.h"
 #import "TestViewController.h"
-
+#import "TableViewVC.h"
+#import "UIScrollView+Refresh.h"
 
 #endif /* Public_h */

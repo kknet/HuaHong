@@ -32,6 +32,9 @@
 		7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2062008916700ECAA26 /* HHTabBar.m */; };
 		7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2072008916700ECAA26 /* TabBarViewController.m */; };
 		7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2112008935F00ECAA26 /* TestViewController.m */; };
+		7D398FAA2009BFBE00994A3C /* TableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FA92009BFBE00994A3C /* TableViewVC.m */; };
+		7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FAC200A0B8000994A3C /* PullUpRefreshView.m */; };
+		7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */; };
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
@@ -124,6 +127,12 @@
 		7D2FF2082008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShouldPopOnBackButton.h"; sourceTree = "<group>"; };
 		7D2FF2102008935F00ECAA26 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		7D2FF2112008935F00ECAA26 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		7D398FA82009BFBE00994A3C /* TableViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewVC.h; sourceTree = "<group>"; };
+		7D398FA92009BFBE00994A3C /* TableViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewVC.m; sourceTree = "<group>"; };
+		7D398FAB200A0B8000994A3C /* PullUpRefreshView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullUpRefreshView.h; sourceTree = "<group>"; };
+		7D398FAC200A0B8000994A3C /* PullUpRefreshView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PullUpRefreshView.m; sourceTree = "<group>"; };
+		7D398FAF200A29BE00994A3C /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
+		7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
 		7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		7D88EE1F1FC8076B00CC76FE /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -245,6 +254,10 @@
 			isa = PBXGroup;
 			children = (
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
+				7D398FA72009BEF800994A3C /* 常用控件 */,
+				7D398FAE200A10B700994A3C /* 上拉加载 */,
+				7D398FA62009BE7800994A3C /* Storyboard */,
+				7D398FA52009BE3C00994A3C /* Swift */,
 				7D2FF20F200892C700ECAA26 /* 测试 */,
 				7D2FF20E200892B900ECAA26 /* Base */,
 				7D2FF0B21FFCAEF900ECAA26 /* 二维码 */,
@@ -257,12 +270,13 @@
 				7DFB1BE01FCFE2220033D9E2 /* 传感器 */,
 				7DFB1BD91FCFD4440033D9E2 /* 网络请求 */,
 				7D2FF1FE2008916700ECAA26 /* 导航栏标签栏 */,
-				7DFB1BD51FCFD2480033D9E2 /* WaterFall */,
+				7DFB1BD51FCFD2480033D9E2 /* 瀑布流 */,
 				7DE8D5A91FC6D12F00577762 /* 定位 */,
 				7DE8D58A1FC576ED00577762 /* Catagory */,
 				7D3623E11FCE51B400C77874 /* Common */,
 				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
 				7D0DA8341FC50D7000774E40 /* AppDelegate.m */,
+				7DB4FF081FD135A8004EE368 /* Public.h */,
 				7DE8D5851FC556DE00577762 /* Storyboard.storyboard */,
 				7DE8D5841FC54FDF00577762 /* HuaHong.pch */,
 				7D0DA8441FC50D7000774E40 /* Info.plist */,
@@ -353,9 +367,46 @@
 				7DE8D5901FC576ED00577762 /* Utils.m */,
 				7DE8D5941FC5773300577762 /* DesUtil.h */,
 				7DE8D5951FC5773300577762 /* DesUtil.m */,
-				7DB4FF081FD135A8004EE368 /* Public.h */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		7D398FA52009BE3C00994A3C /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				7D2FF1FB20084F3500ECAA26 /* HuaHong-Bridging-Header.h */,
+				7D2FF1FC20084F3600ECAA26 /* SwiftHomeController.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		7D398FA62009BE7800994A3C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7D2FF1F820084F0D00ECAA26 /* StoryboardHomeController.h */,
+				7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		7D398FA72009BEF800994A3C /* 常用控件 */ = {
+			isa = PBXGroup;
+			children = (
+				7D398FA82009BFBE00994A3C /* TableViewVC.h */,
+				7D398FA92009BFBE00994A3C /* TableViewVC.m */,
+			);
+			path = "常用控件";
+			sourceTree = "<group>";
+		};
+		7D398FAE200A10B700994A3C /* 上拉加载 */ = {
+			isa = PBXGroup;
+			children = (
+				7D398FAB200A0B8000994A3C /* PullUpRefreshView.h */,
+				7D398FAC200A0B8000994A3C /* PullUpRefreshView.m */,
+				7D398FAF200A29BE00994A3C /* UIScrollView+Refresh.h */,
+				7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */,
+			);
+			path = "上拉加载";
 			sourceTree = "<group>";
 		};
 		7D957EB41FD4DC1300D0A4D5 /* 相册 */ = {
@@ -494,15 +545,11 @@
 				7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */,
 				7DFB1BA71FCE94380033D9E2 /* HomeFlowLayout.h */,
 				7DFB1BA81FCE94380033D9E2 /* HomeFlowLayout.m */,
-				7D2FF1F820084F0D00ECAA26 /* StoryboardHomeController.h */,
-				7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */,
-				7D2FF1FC20084F3600ECAA26 /* SwiftHomeController.swift */,
-				7D2FF1FB20084F3500ECAA26 /* HuaHong-Bridging-Header.h */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
 		};
-		7DFB1BD51FCFD2480033D9E2 /* WaterFall */ = {
+		7DFB1BD51FCFD2480033D9E2 /* 瀑布流 */ = {
 			isa = PBXGroup;
 			children = (
 				7DFB1BD61FCFD27E0033D9E2 /* WaterFallLayout.h */,
@@ -510,7 +557,7 @@
 				7DFB1BDD1FCFDDB30033D9E2 /* WaterFallController.h */,
 				7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */,
 			);
-			path = WaterFall;
+			path = "瀑布流";
 			sourceTree = "<group>";
 		};
 		7DFB1BD91FCFD4440033D9E2 /* 网络请求 */ = {
@@ -691,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */,
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
@@ -730,10 +778,12 @@
 				7DE8D59F1FC57D4400577762 /* NSString+IdentityCard.m in Sources */,
 				7DB9B5361FD678F80011EE54 /* ContactsController.m in Sources */,
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
+				7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */,
 				7DB9B53C1FD792300011EE54 /* AudioRecorderManager.m in Sources */,
 				7D2FF20B2008916700ECAA26 /* UINavigationController+BackButtonHandler.m in Sources */,
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
+				7D398FAA2009BFBE00994A3C /* TableViewVC.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
 				7D2FF20A2008916700ECAA26 /* NavigationController.m in Sources */,
 				7D2FF0BE1FFF4B4600ECAA26 /* CreatQRCodeController.m in Sources */,
@@ -884,7 +934,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db9746fa-aba1-453b-a899-ed904add62a3";
 				PROVISIONING_PROFILE_SPECIFIER = qkonlineDev;
-				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/首页/HuaHong-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/Swift/HuaHong-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
