@@ -35,6 +35,7 @@
 		7D398FAA2009BFBE00994A3C /* TableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FA92009BFBE00994A3C /* TableViewVC.m */; };
 		7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FAC200A0B8000994A3C /* PullUpRefreshView.m */; };
 		7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */; };
+		7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FB3200B32DE00994A3C /* HHAnnotation.m */; };
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
@@ -133,6 +134,8 @@
 		7D398FAC200A0B8000994A3C /* PullUpRefreshView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PullUpRefreshView.m; sourceTree = "<group>"; };
 		7D398FAF200A29BE00994A3C /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
 		7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
+		7D398FB2200B32DE00994A3C /* HHAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAnnotation.h; sourceTree = "<group>"; };
+		7D398FB3200B32DE00994A3C /* HHAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAnnotation.m; sourceTree = "<group>"; };
 		7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		7D88EE1F1FC8076B00CC76FE /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -530,6 +533,8 @@
 				7DE8D5AB1FC6D1B900577762 /* LocationManager.m */,
 				7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */,
 				7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */,
+				7D398FB2200B32DE00994A3C /* HHAnnotation.h */,
+				7D398FB3200B32DE00994A3C /* HHAnnotation.m */,
 			);
 			path = "定位";
 			sourceTree = "<group>";
@@ -758,6 +763,7 @@
 				7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */,
 				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
 				7D2FF2092008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m in Sources */,
+				7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,
 				7D2FF0B11FF4F91400ECAA26 /* TestView.m in Sources */,
 				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,

@@ -40,7 +40,12 @@
             //如果没有授权则请求授权
             if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
             {
-                [locationManager requestWhenInUseAuthorization];
+                if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+                {
+                    [locationManager requestWhenInUseAuthorization];
+
+                }
+                
             }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)
             {
                 AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -110,8 +115,8 @@
 
 
     //反地理编码
-    CLGeocoder *geoCode = [[CLGeocoder alloc]init];
-    [geoCode reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+    CLGeocoder *reverseGeoCode = [[CLGeocoder alloc]init];
+    [reverseGeoCode reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (!error && placemarks.count > 0)
         {
             NSDictionary *dic = [[placemarks firstObject] addressDictionary];
@@ -127,6 +132,26 @@
         {
 //            NSLog(@"反地理编码失败");
         }
+    }];
+    
+    
+    //地理编码
+    CLGeocoder *geoCoder = [[CLGeocoder alloc]init];
+    [geoCoder geocodeAddressString:@"顾村公园" completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        
+        if (placemarks.count == 0 || error) {
+            NSLog(@"地理编码失败");
+            return ;
+        }
+        
+        for (CLPlacemark *placemark in placemarks) {
+            double latitude = placemark.location.coordinate.latitude;
+            double longitude = placemark.location.coordinate.longitude;
+            NSString *city = placemark.locality;
+            NSString *detaildress = placemark.name;
+
+        }
+        
     }];
     
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
