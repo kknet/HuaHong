@@ -61,6 +61,7 @@
 		7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5621FD97F210011EE54 /* VideoRecorder.m */; };
 		7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5651FD97FAF0011EE54 /* CustomVideoController.m */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
+		7DCCFAA8200CC48500902D92 /* DistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCCFAA7200CC48500902D92 /* DistanceController.m */; };
 		7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57C1FC527F000577762 /* HomeVC.m */; };
 		7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Storyboard.storyboard */; };
 		7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58E1FC576ED00577762 /* UIViewExt.m */; };
@@ -136,6 +137,8 @@
 		7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
 		7D398FB2200B32DE00994A3C /* HHAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAnnotation.h; sourceTree = "<group>"; };
 		7D398FB3200B32DE00994A3C /* HHAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAnnotation.m; sourceTree = "<group>"; };
+		7D811F82200CACAA005C168F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libcrypto.a; sourceTree = "<group>"; };
+		7D811F83200CACAA005C168F /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libssl.a; sourceTree = "<group>"; };
 		7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		7D88EE1F1FC8076B00CC76FE /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 		7DB9B5651FD97FAF0011EE54 /* CustomVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomVideoController.m; sourceTree = "<group>"; };
 		7DC94AF61FE901F20042632D /* AnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
+		7DCCFAA6200CC48500902D92 /* DistanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistanceController.h; sourceTree = "<group>"; };
+		7DCCFAA7200CC48500902D92 /* DistanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DistanceController.m; sourceTree = "<group>"; };
 		7DE8D57B1FC527F000577762 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7DE8D57C1FC527F000577762 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		7DE8D5841FC54FDF00577762 /* HuaHong.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuaHong.pch; sourceTree = "<group>"; };
@@ -274,7 +279,7 @@
 				7DFB1BD91FCFD4440033D9E2 /* 网络请求 */,
 				7D2FF1FE2008916700ECAA26 /* 导航栏标签栏 */,
 				7DFB1BD51FCFD2480033D9E2 /* 瀑布流 */,
-				7DE8D5A91FC6D12F00577762 /* 定位 */,
+				7DE8D5A91FC6D12F00577762 /* 地图定位 */,
 				7DE8D58A1FC576ED00577762 /* Catagory */,
 				7D3623E11FCE51B400C77874 /* Common */,
 				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
@@ -526,7 +531,7 @@
 			path = Catagory;
 			sourceTree = "<group>";
 		};
-		7DE8D5A91FC6D12F00577762 /* 定位 */ = {
+		7DE8D5A91FC6D12F00577762 /* 地图定位 */ = {
 			isa = PBXGroup;
 			children = (
 				7DE8D5AA1FC6D1B900577762 /* LocationManager.h */,
@@ -536,7 +541,7 @@
 				7D398FB2200B32DE00994A3C /* HHAnnotation.h */,
 				7D398FB3200B32DE00994A3C /* HHAnnotation.m */,
 			);
-			path = "定位";
+			path = "地图定位";
 			sourceTree = "<group>";
 		};
 		7DFB1BA31FCE93360033D9E2 /* 首页 */ = {
@@ -585,6 +590,8 @@
 				7DFB1BE51FCFE6EB0033D9E2 /* ThreeDTouchController.m */,
 				7DFB1BE71FCFE8390033D9E2 /* presentViewController.h */,
 				7DFB1BE81FCFE8390033D9E2 /* presentViewController.m */,
+				7DCCFAA6200CC48500902D92 /* DistanceController.h */,
+				7DCCFAA7200CC48500902D92 /* DistanceController.m */,
 			);
 			path = "传感器";
 			sourceTree = "<group>";
@@ -601,6 +608,8 @@
 		C0F58A3743C28E2FADB6F68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D811F82200CACAA005C168F /* libcrypto.a */,
+				7D811F83200CACAA005C168F /* libssl.a */,
 				3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */,
 			);
 			name = Frameworks;
@@ -743,6 +752,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCCFAA8200CC48500902D92 /* DistanceController.m in Sources */,
 				7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */,
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,
@@ -936,6 +946,7 @@
 				INFOPLIST_FILE = HuaHong/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qk365.online;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db9746fa-aba1-453b-a899-ed904add62a3";
@@ -962,6 +973,7 @@
 				INFOPLIST_FILE = HuaHong/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qk365.online;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "45dbde0a-15bd-4450-8b8b-bfb0a4ee4f87";

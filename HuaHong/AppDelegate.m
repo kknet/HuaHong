@@ -57,6 +57,8 @@
         
         [application registerUserNotificationSettings:settings];
     }
+    
+    
     return YES;
 }
 

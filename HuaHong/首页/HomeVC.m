@@ -57,8 +57,8 @@ static NSString *headerID = @"headerID";
     
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"tableView"],
-        @[@"地图"],
-        @[@"光学传感器",@"3DTouch",@"指纹识别"],
+        @[@"苹果地图" ,@"百度地图"],
+        @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器"],
         @[@"文字转语音",@"录音",@"语音合成"],
         @[@"视频录制1",@"视频录制2",@"视频录制3",@"视频合成"],
         @[@"相册"],
@@ -383,6 +383,13 @@ static NSString *headerID = @"headerID";
             }else if (indexPath.item == 1){
                 ThreeDTouchController *touchVC = [[ThreeDTouchController alloc]init];
                 [self.navigationController pushViewController:touchVC animated:YES];
+            }else if (indexPath.item == 2){
+                
+            }else if (indexPath.item == 3){
+                id objc = [[NSClassFromString(@"DistanceController") alloc]init];
+                
+//                ThreeDTouchController *touchVC = [[ThreeDTouchController alloc]init];
+                [self.navigationController pushViewController:objc animated:YES];
             }
         }
             break;
