@@ -57,7 +57,7 @@ static NSString *headerID = @"headerID";
     
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"tableView"],
-        @[@"Apple Map"],
+        @[@"地图"],
         @[@"光学传感器",@"3DTouch",@"指纹识别"],
         @[@"文字转语音",@"录音",@"语音合成"],
         @[@"视频录制1",@"视频录制2",@"视频录制3",@"视频合成"],
