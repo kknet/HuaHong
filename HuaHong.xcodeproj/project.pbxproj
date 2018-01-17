@@ -63,6 +63,7 @@
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
 		7DCCFAA8200CC48500902D92 /* DistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCCFAA7200CC48500902D92 /* DistanceController.m */; };
 		7DE836CA200F242500003AAF /* AnnotationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836C9200F242500003AAF /* AnnotationController.m */; };
+		7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836CC200F3EC500003AAF /* MyAnnotationView.m */; };
 		7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57C1FC527F000577762 /* HomeVC.m */; };
 		7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Storyboard.storyboard */; };
 		7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58E1FC576ED00577762 /* UIViewExt.m */; };
@@ -194,6 +195,8 @@
 		7DCCFAA7200CC48500902D92 /* DistanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DistanceController.m; sourceTree = "<group>"; };
 		7DE836C8200F242500003AAF /* AnnotationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationController.h; sourceTree = "<group>"; };
 		7DE836C9200F242500003AAF /* AnnotationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnotationController.m; sourceTree = "<group>"; };
+		7DE836CB200F3EC500003AAF /* MyAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAnnotationView.h; sourceTree = "<group>"; };
+		7DE836CC200F3EC500003AAF /* MyAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyAnnotationView.m; sourceTree = "<group>"; };
 		7DE8D57B1FC527F000577762 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7DE8D57C1FC527F000577762 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		7DE8D5841FC54FDF00577762 /* HuaHong.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuaHong.pch; sourceTree = "<group>"; };
@@ -545,6 +548,8 @@
 				7DE836C9200F242500003AAF /* AnnotationController.m */,
 				7D398FB2200B32DE00994A3C /* HHAnnotation.h */,
 				7D398FB3200B32DE00994A3C /* HHAnnotation.m */,
+				7DE836CB200F3EC500003AAF /* MyAnnotationView.h */,
+				7DE836CC200F3EC500003AAF /* MyAnnotationView.m */,
 			);
 			path = "地图定位";
 			sourceTree = "<group>";
@@ -777,6 +782,7 @@
 				7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */,
 				7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */,
 				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
+				7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */,
 				7D2FF2092008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m in Sources */,
 				7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,

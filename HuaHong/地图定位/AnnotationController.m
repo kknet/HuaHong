@@ -9,6 +9,7 @@
 #import "AnnotationController.h"
 #import <MapKit/MapKit.h>
 #import "HHAnnotation.h"
+#import "MyAnnotationView.h"
 
 @interface AnnotationController ()<MKMapViewDelegate>
 @property (nonatomic,strong) MKMapView *mapView;
@@ -122,17 +123,8 @@
     }
     
     
-    static NSString *ID = @"annotation";
-    MKAnnotationView *annoView = [mapView dequeueReusableAnnotationViewWithIdentifier:ID];
-    if (annoView == nil) {
-        annoView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:ID];
+    MyAnnotationView *annoView = [MyAnnotationView myAnnotationViewWithMapView:mapView];
         
-    }
-    
-    HHAnnotation *myAnnotation = annotation;
-    annoView.image = [UIImage imageNamed:myAnnotation.icon];
-    
-    //设置掉落动画
     
     return annoView;
 }
@@ -174,5 +166,7 @@
     
     [self.mapView addAnnotation:annotation];
 }
+
+
 @end
 
