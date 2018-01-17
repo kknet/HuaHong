@@ -57,7 +57,7 @@ static NSString *headerID = @"headerID";
     
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"tableView"],
-        @[@"苹果地图" ,@"百度地图"],
+        @[@"苹果地图" ,@"大头针",@"百度地图"],
         @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器"],
         @[@"文字转语音",@"录音",@"语音合成"],
         @[@"视频录制1",@"视频录制2",@"视频录制3",@"视频合成"],
@@ -370,6 +370,10 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 MapViewController *mapVC = [[MapViewController alloc]init];
+                [self.navigationController pushViewController:mapVC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                AnnotationController *mapVC = [[AnnotationController alloc]init];
                 [self.navigationController pushViewController:mapVC animated:YES];
             }
         }

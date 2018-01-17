@@ -20,10 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"地图";
+    self.title = @"自定义大头针";
     
     [self.view addSubview:self.mapView];
-    
     
 }
 
@@ -126,7 +125,7 @@
     static NSString *ID = @"annotation";
     MKAnnotationView *annoView = [mapView dequeueReusableAnnotationViewWithIdentifier:ID];
     if (annoView == nil) {
-        annoView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:ID];
+        annoView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:ID];
         
     }
     
@@ -138,16 +137,40 @@
     return annoView;
 }
 
-
+-(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray<MKAnnotationView *> *)views
+{
+    //在添加大头针之前调用
+    for (MKAnnotationView *AnnotationView in views) {
+        
+        if ([AnnotationView.annotation isKindOfClass:[MKUserLocation class]])
+        {
+            continue;
+        }
+        
+        CGRect endFrame = AnnotationView.frame;
+        AnnotationView.frame = CGRectMake(endFrame.origin.x, 0, endFrame.size.width, endFrame.size.height);
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            AnnotationView.frame = endFrame;
+        }];
+    }
+}
 #pragma mark 点击添加大头针
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
+    //获取点击地图上的点
+    CGPoint point = [[touches anyObject]locationInView:self.mapView];
+    
+    //将点转换成经纬度
+    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+
     HHAnnotation *annotation = [HHAnnotation new];
-    annotation.coordinate = CLLocationCoordinate2DMake(31.34807656703043, 121.363206362035);
+//    annotation.coordinate = CLLocationCoordinate2DMake(31.34807656703043, 121.363206362035);
+    annotation.coordinate = coordinate;
     annotation.title = @"上海市";
     annotation.subtitle = @"顾村公园";
-    annotation.icon = @"MyRoom";
+    annotation.icon = @"search_expert";
     
     [self.mapView addAnnotation:annotation];
 }

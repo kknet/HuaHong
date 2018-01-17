@@ -11,6 +11,10 @@
 
 #import <SVProgressHUD.h>
 #import "BaseViewController.h"
+#import "UIScrollView+Refresh.h"
+#import "HuaHong-Bridging-Header.h"
+#import "HuaHong-Swift.h"
+
 #import "MapViewController.h"
 #import "WaterFallController.h"
 #import "LightSinceController.h"
@@ -29,11 +33,9 @@
 #import "CreatQRCodeController.h"
 #import "LoadingViewController.h"
 #import "AddVideoController.h"
-#import "HuaHong-Bridging-Header.h"
-#import "HuaHong-Swift.h"
 #import "TestViewController.h"
 #import "TableViewVC.h"
-#import "UIScrollView+Refresh.h"
+#import "AnnotationController.h"
 
 
 #endif /* Public_h */
