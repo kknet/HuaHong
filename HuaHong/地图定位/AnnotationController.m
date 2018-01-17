@@ -113,38 +113,7 @@
     
 }
 
-/**
- //  MKPinAnnotationView 是 MKAnnotationView 的子类
- //   用MKPinAnnotationView设置颜色和掉落效果
- -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
- {
- if ([annotation isKindOfClass:[MKUserLocation class]]) {
- //不处理
- return nil;
- }
- 
- 
- static NSString *ID = @"annotation";
- MKPinAnnotationView *annoView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:ID];
- if (annoView == nil) {
- annoView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:ID];
- 
- }
- 
- //    //ios9过期
- //    annoView.pinColor = MKPinAnnotationColorGreen;
- 
- //iOS9 later
- annoView.pinTintColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
- 
- //设置掉落动画
- annoView.animatesDrop = YES;
- 
- return annoView;
- }
- 
- */
-
+#pragma mark -
 //用 MKAnnotationView 设置图片和掉落效果
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -168,9 +137,12 @@
     
     return annoView;
 }
-#pragma mark 添加大头针
--(void)addAnnotation
+
+
+#pragma mark 点击添加大头针
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    
     HHAnnotation *annotation = [HHAnnotation new];
     annotation.coordinate = CLLocationCoordinate2DMake(31.34807656703043, 121.363206362035);
     annotation.title = @"上海市";
@@ -178,46 +150,6 @@
     annotation.icon = @"MyRoom";
     
     [self.mapView addAnnotation:annotation];
-}
-
-#pragma mark 点击添加大头针
-//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//    //获取点击地图上的点
-//    CGPoint point = [[touches anyObject]locationInView:self.mapView];
-//
-//    //将点转换成经纬度
-//    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
-//
-//    HHAnnotation *annotation = [HHAnnotation new];
-//    annotation.coordinate = coordinate;
-//
-//    //创建编码对象
-//    CLGeocoder *geocoder=[[CLGeocoder alloc]init];
-//    CLLocation *location = [[CLLocation alloc]initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-//    //反地理编码
-//    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-//        if (error || placemarks.count == 0) {
-//            return ;
-//        }
-//        //获取地标
-//        CLPlacemark *placemark=[placemarks lastObject];
-//        //设置标题
-//        annotation.title=placemark.locality;
-//        //设置子标题
-//        annotation.subtitle=placemark.name;
-//        annotation.icon = @"search_expert";
-//
-//
-//    }];
-//
-//    [self.mapView addAnnotation:annotation];
-//}
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self addAnnotation];
-    
 }
 @end
 
