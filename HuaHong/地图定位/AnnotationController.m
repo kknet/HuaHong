@@ -1,30 +1,30 @@
 //
-//  MapViewController.m
+//  AnnotationController.m
 //  HuaHong
 //
-//  Created by 华宏 on 2017/11/24.
-//  Copyright © 2017年 huahong. All rights reserved.
+//  Created by 华宏 on 2018/1/17.
+//  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "MapViewController.h"
+#import "AnnotationController.h"
 #import <MapKit/MapKit.h>
 #import "HHAnnotation.h"
 
-@interface MapViewController ()<MKMapViewDelegate>
+@interface AnnotationController ()<MKMapViewDelegate>
 @property (nonatomic,strong) MKMapView *mapView;
 @property (nonatomic,assign) MKCoordinateSpan span;
 @end
 
-@implementation MapViewController
+@implementation AnnotationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"地图";
-
+    
     [self.view addSubview:self.mapView];
     
-
+    
 }
 
 -(MKMapView *)mapView
@@ -51,14 +51,14 @@
             
             //设置比例尺
             _mapView.showsScale = YES;
-
-
+            
+            
         }
         
-//        开启地图的showsUserLocation属性，并设置方法setUserTrackMode:即可实现跟踪用户的位置和方向变化
+        //        开启地图的showsUserLocation属性，并设置方法setUserTrackMode:即可实现跟踪用户的位置和方向变化
         _mapView.showsUserLocation = YES;
         
-//        显示地图上的POI点
+        //        显示地图上的POI点
         _mapView.showsPointsOfInterest = YES;
         
     }
@@ -70,14 +70,14 @@
 -(void)backUserLocationCenter
 {
     //设置中心点
-//    self.mapView.centerCoordinate = _mapView.userLocation.location.coordinate;
+    //    self.mapView.centerCoordinate = _mapView.userLocation.location.coordinate;
     
     //或者
-//    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(_mapView. userLocation.location.coordinate.latitude, _mapView.userLocation.location.coordinate.longitude)];
-
+    //    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(_mapView. userLocation.location.coordinate.latitude, _mapView.userLocation.location.coordinate.longitude)];
+    
     
     //设置范围
-//    MKCoordinateSpan span=MKCoordinateSpanMake(0.021250, 0.016090);
+    //    MKCoordinateSpan span=MKCoordinateSpanMake(0.021250, 0.016090);
     [self.mapView setRegion:MKCoordinateRegionMake(self.mapView.userLocation.coordinate, self.span) animated:YES];
 }
 #pragma mark MKMapViewDelegate
@@ -115,35 +115,35 @@
 
 /**
  //  MKPinAnnotationView 是 MKAnnotationView 的子类
-//   用MKPinAnnotationView设置颜色和掉落效果
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[MKUserLocation class]]) {
-        //不处理
-        return nil;
-    }
-
-
-    static NSString *ID = @"annotation";
-    MKPinAnnotationView *annoView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:ID];
-    if (annoView == nil) {
-        annoView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:ID];
-
-    }
-
-//    //ios9过期
-//    annoView.pinColor = MKPinAnnotationColorGreen;
-
-    //iOS9 later
-    annoView.pinTintColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
-
-    //设置掉落动画
-    annoView.animatesDrop = YES;
-
-    return annoView;
-}
-
-*/
+ //   用MKPinAnnotationView设置颜色和掉落效果
+ -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+ {
+ if ([annotation isKindOfClass:[MKUserLocation class]]) {
+ //不处理
+ return nil;
+ }
+ 
+ 
+ static NSString *ID = @"annotation";
+ MKPinAnnotationView *annoView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:ID];
+ if (annoView == nil) {
+ annoView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:ID];
+ 
+ }
+ 
+ //    //ios9过期
+ //    annoView.pinColor = MKPinAnnotationColorGreen;
+ 
+ //iOS9 later
+ annoView.pinTintColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+ 
+ //设置掉落动画
+ annoView.animatesDrop = YES;
+ 
+ return annoView;
+ }
+ 
+ */
 
 //用 MKAnnotationView 设置图片和掉落效果
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -176,7 +176,7 @@
     annotation.title = @"上海市";
     annotation.subtitle = @"顾村公园";
     annotation.icon = @"MyRoom";
-
+    
     [self.mapView addAnnotation:annotation];
 }
 
@@ -217,6 +217,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self addAnnotation];
-
+    
 }
 @end
+

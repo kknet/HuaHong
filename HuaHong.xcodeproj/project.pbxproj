@@ -62,6 +62,7 @@
 		7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5651FD97FAF0011EE54 /* CustomVideoController.m */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
 		7DCCFAA8200CC48500902D92 /* DistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCCFAA7200CC48500902D92 /* DistanceController.m */; };
+		7DE836CA200F242500003AAF /* AnnotationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836C9200F242500003AAF /* AnnotationController.m */; };
 		7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57C1FC527F000577762 /* HomeVC.m */; };
 		7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Storyboard.storyboard */; };
 		7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58E1FC576ED00577762 /* UIViewExt.m */; };
@@ -191,6 +192,8 @@
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 		7DCCFAA6200CC48500902D92 /* DistanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistanceController.h; sourceTree = "<group>"; };
 		7DCCFAA7200CC48500902D92 /* DistanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DistanceController.m; sourceTree = "<group>"; };
+		7DE836C8200F242500003AAF /* AnnotationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationController.h; sourceTree = "<group>"; };
+		7DE836C9200F242500003AAF /* AnnotationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnotationController.m; sourceTree = "<group>"; };
 		7DE8D57B1FC527F000577762 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7DE8D57C1FC527F000577762 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		7DE8D5841FC54FDF00577762 /* HuaHong.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuaHong.pch; sourceTree = "<group>"; };
@@ -538,6 +541,8 @@
 				7DE8D5AB1FC6D1B900577762 /* LocationManager.m */,
 				7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */,
 				7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */,
+				7DE836C8200F242500003AAF /* AnnotationController.h */,
+				7DE836C9200F242500003AAF /* AnnotationController.m */,
 				7D398FB2200B32DE00994A3C /* HHAnnotation.h */,
 				7D398FB3200B32DE00994A3C /* HHAnnotation.m */,
 			);
@@ -776,6 +781,7 @@
 				7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,
 				7D2FF0B11FF4F91400ECAA26 /* TestView.m in Sources */,
+				7DE836CA200F242500003AAF /* AnnotationController.m in Sources */,
 				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,
 				7DB9B54C1FD7E6800011EE54 /* VideoTopView.m in Sources */,
 				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
