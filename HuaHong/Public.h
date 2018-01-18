@@ -37,6 +37,7 @@
 #import "TableViewVC.h"
 #import "AnnotationController.h"
 #import "SystemNavigationController.h"
+#import "BaiDuMapController.h"
 
 
 #endif /* Public_h */

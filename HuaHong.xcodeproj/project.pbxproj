@@ -36,6 +36,9 @@
 		7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FAC200A0B8000994A3C /* PullUpRefreshView.m */; };
 		7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */; };
 		7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FB3200B32DE00994A3C /* HHAnnotation.m */; };
+		7D4AFAFF20108D430018AB3D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D811F82200CACAA005C168F /* libcrypto.a */; };
+		7D4AFB0020108D430018AB3D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D811F83200CACAA005C168F /* libssl.a */; };
+		7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AFB022010946B0018AB3D /* BaiDuMapController.m */; };
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
@@ -140,6 +143,8 @@
 		7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
 		7D398FB2200B32DE00994A3C /* HHAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAnnotation.h; sourceTree = "<group>"; };
 		7D398FB3200B32DE00994A3C /* HHAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAnnotation.m; sourceTree = "<group>"; };
+		7D4AFB012010946B0018AB3D /* BaiDuMapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiDuMapController.h; sourceTree = "<group>"; };
+		7D4AFB022010946B0018AB3D /* BaiDuMapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaiDuMapController.m; sourceTree = "<group>"; };
 		7D811F82200CACAA005C168F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libcrypto.a; sourceTree = "<group>"; };
 		7D811F83200CACAA005C168F /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libssl.a; sourceTree = "<group>"; };
 		7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -242,6 +247,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D4AFAFF20108D430018AB3D /* libcrypto.a in Frameworks */,
+				7D4AFB0020108D430018AB3D /* libssl.a in Frameworks */,
 				274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,6 +562,8 @@
 				7DE836CC200F3EC500003AAF /* MyAnnotationView.m */,
 				7DE836D12010710500003AAF /* SystemNavigationController.h */,
 				7DE836D22010710500003AAF /* SystemNavigationController.m */,
+				7D4AFB012010946B0018AB3D /* BaiDuMapController.h */,
+				7D4AFB022010946B0018AB3D /* BaiDuMapController.m */,
 			);
 			path = "地图定位";
 			sourceTree = "<group>";
@@ -734,6 +743,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -785,6 +795,7 @@
 				7DB9B5521FD8E7F50011EE54 /* ImagePickController.m in Sources */,
 				7D2FF0B51FFCB97700ECAA26 /* HomeLeftCell.m in Sources */,
 				7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */,
+				7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */,
 				7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */,
 				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
 				7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */,
@@ -964,7 +975,10 @@
 				INFOPLIST_FILE = HuaHong/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/BaiduMapKit/BaiduMapKit/thirdlibs",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qk365.online;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "db9746fa-aba1-453b-a899-ed904add62a3";
@@ -991,7 +1005,10 @@
 				INFOPLIST_FILE = HuaHong/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/BaiduMapKit/BaiduMapKit/thirdlibs",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qk365.online;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "45dbde0a-15bd-4450-8b8b-bfb0a4ee4f87";

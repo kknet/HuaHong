@@ -369,17 +369,25 @@ static NSString *headerID = @"headerID";
         case 1:
         {
             if (indexPath.item == 0) {
+                //系统自带地图
                 MapViewController *mapVC = [[MapViewController alloc]init];
                 [self.navigationController pushViewController:mapVC animated:YES];
             }else if (indexPath.item == 1)
             {
+                //大头针
                 AnnotationController *mapVC = [[AnnotationController alloc]init];
                 [self.navigationController pushViewController:mapVC animated:YES];
             }else if (indexPath.item == 2)
             {
+                //系统地图导航/画线
                 UIStoryboard *story = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
                 SystemNavigationController *naviVC = [story instantiateViewControllerWithIdentifier:@"SystemNavigationController"];
                 [self.navigationController pushViewController:naviVC animated:YES];
+            }else if (indexPath.item == 3)
+            {
+                //百度地图
+                BaiDuMapController *mapVC = [[BaiDuMapController alloc]init];
+                [self.navigationController pushViewController:mapVC animated:YES];
             }
         }
             break;
