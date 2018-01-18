@@ -64,6 +64,7 @@
 		7DCCFAA8200CC48500902D92 /* DistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCCFAA7200CC48500902D92 /* DistanceController.m */; };
 		7DE836CA200F242500003AAF /* AnnotationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836C9200F242500003AAF /* AnnotationController.m */; };
 		7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836CC200F3EC500003AAF /* MyAnnotationView.m */; };
+		7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836D22010710500003AAF /* SystemNavigationController.m */; };
 		7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57C1FC527F000577762 /* HomeVC.m */; };
 		7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Storyboard.storyboard */; };
 		7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58E1FC576ED00577762 /* UIViewExt.m */; };
@@ -197,6 +198,8 @@
 		7DE836C9200F242500003AAF /* AnnotationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnotationController.m; sourceTree = "<group>"; };
 		7DE836CB200F3EC500003AAF /* MyAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAnnotationView.h; sourceTree = "<group>"; };
 		7DE836CC200F3EC500003AAF /* MyAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyAnnotationView.m; sourceTree = "<group>"; };
+		7DE836D12010710500003AAF /* SystemNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemNavigationController.h; sourceTree = "<group>"; };
+		7DE836D22010710500003AAF /* SystemNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemNavigationController.m; sourceTree = "<group>"; };
 		7DE8D57B1FC527F000577762 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7DE8D57C1FC527F000577762 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		7DE8D5841FC54FDF00577762 /* HuaHong.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuaHong.pch; sourceTree = "<group>"; };
@@ -550,6 +553,8 @@
 				7D398FB3200B32DE00994A3C /* HHAnnotation.m */,
 				7DE836CB200F3EC500003AAF /* MyAnnotationView.h */,
 				7DE836CC200F3EC500003AAF /* MyAnnotationView.m */,
+				7DE836D12010710500003AAF /* SystemNavigationController.h */,
+				7DE836D22010710500003AAF /* SystemNavigationController.m */,
 			);
 			path = "地图定位";
 			sourceTree = "<group>";
@@ -811,6 +816,7 @@
 				7D2FF20B2008916700ECAA26 /* UINavigationController+BackButtonHandler.m in Sources */,
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
+				7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */,
 				7D398FAA2009BFBE00994A3C /* TableViewVC.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
 				7D2FF20A2008916700ECAA26 /* NavigationController.m in Sources */,
