@@ -85,7 +85,8 @@
     CIImage *qrImage = qrFilter.outputImage;
     //绘制
     CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:qrImage fromRect:qrImage.extent];
-    UIGraphicsBeginImageContext(size);
+//    UIGraphicsBeginImageContext(size);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetInterpolationQuality(context, kCGInterpolationNone);
     CGContextScaleCTM(context, 1.0, -1.0);
@@ -174,12 +175,13 @@
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否保存到相册？" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            [self saveToPhotoLibrary:_imageView.image];
+//            [self saveToPhotoLibrary:_imageView.image];
             
-//            [self savedPhotosToAlbum:_imageView.image];
+            [self savedPhotosToAlbum:_imageView.image];
             
         }];
         [alert addAction:sureAction];
+        
         [self presentViewController:alert animated:YES completion:nil];
         
         
@@ -200,14 +202,16 @@
 //保存到相册 方法二
 -(void)savedPhotosToAlbum:(UIImage *)image
 {
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+//    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:),@"identifier");
+
 
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
-//    if(!error)
-//    {
-//        NSLog(@"保存成功");
-//    }
+    if(!error)
+    {
+        NSLog(@"保存成功:%@",contextInfo);
+    }
 }
 @end

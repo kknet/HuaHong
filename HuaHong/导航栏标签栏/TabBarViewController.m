@@ -67,7 +67,7 @@
  */
 - (void)setUpAllChildVc
 {
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     StoryboardHomeController *storyVC = [story instantiateViewControllerWithIdentifier:@"StoryboardHomeController"];
     [self setupChildVc:storyVC title:@"StoryBoard" image:@"mes_icon" selectedImage:@"mes_icon_sel"];
     

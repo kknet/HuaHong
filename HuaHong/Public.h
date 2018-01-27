@@ -9,6 +9,7 @@
 #ifndef Public_h
 #define Public_h
 
+#define kStory [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]
 #import <SVProgressHUD.h>
 #import "BaseViewController.h"
 #import "UIScrollView+Refresh.h"
@@ -38,6 +39,8 @@
 #import "AnnotationController.h"
 #import "SystemNavigationController.h"
 #import "BaiDuMapController.h"
+#import "DataStorageController.h"
+#import "TouchController.h"
 
 
 #endif /* Public_h */

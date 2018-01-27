@@ -66,8 +66,8 @@ static NSString *headerID = @"headerID";
         @[@"二维码扫描",@"二维码生成"],
         @[@"旋转加载",@"扇形加载"],
         @[@"网络"],
-        @[@"手势交互"],
-        @[@"数据持久化"],
+        @[@"触摸",@"手势交互"],
+        @[@"数据存储"],
         @[@"绘图"],
         @[@"日历"],
         @[@"图文混排"],
@@ -380,8 +380,7 @@ static NSString *headerID = @"headerID";
             }else if (indexPath.item == 2)
             {
                 //系统地图导航/画线
-                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-                SystemNavigationController *naviVC = [story instantiateViewControllerWithIdentifier:@"SystemNavigationController"];
+                SystemNavigationController *naviVC = [kStory instantiateViewControllerWithIdentifier:@"SystemNavigationController"];
                 [self.navigationController pushViewController:naviVC animated:YES];
             }else if (indexPath.item == 3)
             {
@@ -439,8 +438,7 @@ static NSString *headerID = @"headerID";
                 [self presentViewController:VC animated:YES completion:nil];
             }else if (indexPath.item == 3)
             {
-                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-                AddVideoController *vc = [story instantiateViewControllerWithIdentifier:@"AddVideoController"];
+                AddVideoController *vc = [kStory instantiateViewControllerWithIdentifier:@"AddVideoController"];
                 [self.navigationController pushViewController:vc animated:YES];
             }
         }
@@ -475,8 +473,7 @@ static NSString *headerID = @"headerID";
                 [self.navigationController pushViewController:takePhotoVC animated:YES];
             }else if (indexPath.item == 1)
             {
-                UIStoryboard *storyboard =  [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-                CreatQRCodeController *takePhotoVC = [storyboard instantiateViewControllerWithIdentifier:@"CreatQRCodeController"];
+                CreatQRCodeController *takePhotoVC = [kStory instantiateViewControllerWithIdentifier:@"CreatQRCodeController"];
                 [self.navigationController pushViewController:takePhotoVC animated:YES];
             }
         }
@@ -497,6 +494,35 @@ static NSString *headerID = @"headerID";
             if (indexPath.item == 0) {
                 
                 MultiRequestController *VC = [[MultiRequestController alloc]init];
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+        }
+            break;
+        case 10://手势交互
+        {
+            if (indexPath.item == 0) {
+              //触摸
+                TouchController *VC = [kStory instantiateViewControllerWithIdentifier:@"TouchController"];
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+        }
+            break;
+        case 11://数据持久化
+        {
+            if (indexPath.item == 0) {
+                
+                DataStorageController *VC = [kStory instantiateViewControllerWithIdentifier:@"DataStorageController"];
+//                VC.title = @"数据存储";
+                
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+        }
+            break;
+        case 12:
+        {
+            if (indexPath.item == 0) {
+                UIViewController *VC = [kStory instantiateViewControllerWithIdentifier:@"DrawView"];
+                VC.navigationItem.title = @"绘图";
                 [self.navigationController pushViewController:VC animated:YES];
             }
         }

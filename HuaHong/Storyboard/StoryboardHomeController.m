@@ -7,7 +7,7 @@
 //
 
 #import "StoryboardHomeController.h"
-
+#import "LoginViewController.h"
 @interface StoryboardHomeController ()
 
 @end
@@ -17,21 +17,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)contactAction:(id)sender
+{
+    [self performSegueWithIdentifier:@"contact" sender:nil];
 }
 
-/*
+
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    LoginViewController *loginVC = segue.destinationViewController;
+    loginVC.title = @"通讯录登录";
 }
-*/
+
 
 @end

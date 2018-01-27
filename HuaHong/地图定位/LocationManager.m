@@ -108,11 +108,11 @@
 //    NSLog(@"floor:%@",location.floor);
 //    NSLog(@"altitude:%f",location.altitude);
 
+    /*
     double distance = 0.0;
     CLLocation *location1 = [[CLLocation alloc]initWithLatitude:32.185438 longitude:122.449361];
     distance = [location distanceFromLocation:location1];
-//    NSLog(@"distance:%f",distance);
-
+   */
 
     //反地理编码
     CLGeocoder *reverseGeoCode = [[CLGeocoder alloc]init];
@@ -140,15 +140,15 @@
     [geoCoder geocodeAddressString:@"顾村公园" completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         
         if (placemarks.count == 0 || error) {
-            NSLog(@"地理编码失败");
+//            NSLog(@"地理编码失败");
             return ;
         }
         
         for (CLPlacemark *placemark in placemarks) {
-            double latitude = placemark.location.coordinate.latitude;
-            double longitude = placemark.location.coordinate.longitude;
-            NSString *city = placemark.locality;
-            NSString *detaildress = placemark.name;
+//            double latitude = placemark.location.coordinate.latitude;
+//            double longitude = placemark.location.coordinate.longitude;
+//            NSString *city = placemark.locality;
+//            NSString *detaildress = placemark.name;
 
         }
         

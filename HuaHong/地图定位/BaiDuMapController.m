@@ -21,12 +21,14 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:YES];
     [_mapView viewWillAppear];
     _mapView.delegate = self;
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:YES];
     [_mapView viewWillDisappear];
     _mapView.delegate = nil;
     _searcher.delegate = nil;
@@ -348,6 +350,7 @@
         //在此处理正常结果
         for (BMKPoiInfo *poiInfo in poiResultList.poiInfoList) {
             
+            //添加大头针
             BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
             annotation.coordinate = poiInfo.pt;
             annotation.title = poiInfo.name;

@@ -382,7 +382,6 @@
         NSString *firtStr = [self substringToIndex:3];
         NSString *lastStr = [self substringFromIndex:self.length - 4];
         resultStr = [NSString stringWithFormat:@"%@****%@",firtStr,lastStr];
-        
         return resultStr;
     }
     return self;

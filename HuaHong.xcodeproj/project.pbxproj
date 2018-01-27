@@ -12,6 +12,11 @@
 		7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */; };
 		7D0DA8461FC50D7000774E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8451FC50D7000774E40 /* main.m */; };
 		7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2172101FDA86D8008698C9 /* BlueToothController.m */; };
+		7D2DE5EF2015B8B8001590E1 /* DataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5EE2015B8B8001590E1 /* DataStorageController.m */; };
+		7D2DE5F22015BBCF001590E1 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F12015BBCF001590E1 /* DataModel.m */; };
+		7D2DE5F720170227001590E1 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F620170227001590E1 /* DrawView.m */; };
+		7D2DE5FC20181CF0001590E1 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F820181CEF001590E1 /* NSArray+Log.m */; };
+		7D2DE5FD20181CF0001590E1 /* NSDictionary+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5FA20181CEF001590E1 /* NSDictionary+Log.m */; };
 		7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */; };
 		7D2FF0B11FF4F91400ECAA26 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0B01FF4F91400ECAA26 /* TestView.m */; };
 		7D2FF0B51FFCB97700ECAA26 /* HomeLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0B41FFCB97700ECAA26 /* HomeLeftCell.m */; };
@@ -39,6 +44,10 @@
 		7D4AFAFF20108D430018AB3D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D811F82200CACAA005C168F /* libcrypto.a */; };
 		7D4AFB0020108D430018AB3D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D811F83200CACAA005C168F /* libssl.a */; };
 		7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AFB022010946B0018AB3D /* BaiDuMapController.m */; };
+		7D4AFB062011C9FE0018AB3D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AFB052011C9FE0018AB3D /* LoginViewController.m */; };
+		7D4AFB0C2011D78A0018AB3D /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AFB0B2011D78A0018AB3D /* ContactController.m */; };
+		7D5393BD2019746B006D2712 /* DrawController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393BC2019746B006D2712 /* DrawController.m */; };
+		7D5393E3201AF916006D2712 /* TouchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E2201AF916006D2712 /* TouchController.m */; };
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
@@ -69,7 +78,7 @@
 		7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836CC200F3EC500003AAF /* MyAnnotationView.m */; };
 		7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836D22010710500003AAF /* SystemNavigationController.m */; };
 		7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D57C1FC527F000577762 /* HomeVC.m */; };
-		7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Storyboard.storyboard */; };
+		7DE8D5861FC556DE00577762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8D5851FC556DE00577762 /* Main.storyboard */; };
 		7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D58E1FC576ED00577762 /* UIViewExt.m */; };
 		7DE8D5931FC576ED00577762 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5901FC576ED00577762 /* Utils.m */; };
 		7DE8D5961FC5773300577762 /* DesUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8D5951FC5773300577762 /* DesUtil.m */; };
@@ -98,6 +107,17 @@
 		7D0DA8451FC50D7000774E40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7D21720F1FDA86D8008698C9 /* BlueToothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueToothController.h; sourceTree = "<group>"; };
 		7D2172101FDA86D8008698C9 /* BlueToothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueToothController.m; sourceTree = "<group>"; };
+		7D2DE5ED2015B8B8001590E1 /* DataStorageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataStorageController.h; sourceTree = "<group>"; };
+		7D2DE5EE2015B8B8001590E1 /* DataStorageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataStorageController.m; sourceTree = "<group>"; };
+		7D2DE5F02015BBCF001590E1 /* DataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		7D2DE5F12015BBCF001590E1 /* DataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		7D2DE5F320170015001590E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7D2DE5F520170227001590E1 /* DrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		7D2DE5F620170227001590E1 /* DrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		7D2DE5F820181CEF001590E1 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		7D2DE5F920181CEF001590E1 /* NSDictionary+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Log.h"; sourceTree = "<group>"; };
+		7D2DE5FA20181CEF001590E1 /* NSDictionary+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Log.m"; sourceTree = "<group>"; };
+		7D2DE5FB20181CF0001590E1 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		7D2FF0AC1FF397E000ECAA26 /* MultiRequestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiRequestController.h; sourceTree = "<group>"; };
 		7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiRequestController.m; sourceTree = "<group>"; };
 		7D2FF0AF1FF4F91400ECAA26 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
@@ -145,6 +165,14 @@
 		7D398FB3200B32DE00994A3C /* HHAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAnnotation.m; sourceTree = "<group>"; };
 		7D4AFB012010946B0018AB3D /* BaiDuMapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiDuMapController.h; sourceTree = "<group>"; };
 		7D4AFB022010946B0018AB3D /* BaiDuMapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaiDuMapController.m; sourceTree = "<group>"; };
+		7D4AFB042011C9FE0018AB3D /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7D4AFB052011C9FE0018AB3D /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7D4AFB0A2011D78A0018AB3D /* ContactController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactController.h; sourceTree = "<group>"; };
+		7D4AFB0B2011D78A0018AB3D /* ContactController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
+		7D5393BB2019746B006D2712 /* DrawController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawController.h; sourceTree = "<group>"; };
+		7D5393BC2019746B006D2712 /* DrawController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawController.m; sourceTree = "<group>"; };
+		7D5393E1201AF916006D2712 /* TouchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchController.h; sourceTree = "<group>"; };
+		7D5393E2201AF916006D2712 /* TouchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchController.m; sourceTree = "<group>"; };
 		7D811F82200CACAA005C168F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libcrypto.a; sourceTree = "<group>"; };
 		7D811F83200CACAA005C168F /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libssl.a; sourceTree = "<group>"; };
 		7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -207,8 +235,7 @@
 		7DE836D22010710500003AAF /* SystemNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemNavigationController.m; sourceTree = "<group>"; };
 		7DE8D57B1FC527F000577762 /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		7DE8D57C1FC527F000577762 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
-		7DE8D5841FC54FDF00577762 /* HuaHong.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuaHong.pch; sourceTree = "<group>"; };
-		7DE8D5851FC556DE00577762 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		7DE8D5851FC556DE00577762 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7DE8D5891FC55A6C00577762 /* UtilsMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
 		7DE8D58D1FC576ED00577762 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		7DE8D58E1FC576ED00577762 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
@@ -296,13 +323,16 @@
 				7D2FF1FE2008916700ECAA26 /* 导航栏标签栏 */,
 				7DFB1BD51FCFD2480033D9E2 /* 瀑布流 */,
 				7DE8D5A91FC6D12F00577762 /* 地图定位 */,
+				7D2DE5EC2015B88E001590E1 /* 数据存储 */,
+				7D2DE5F4201701F8001590E1 /* 绘图 */,
+				7D5393E0201AF855006D2712 /* 手势交互 */,
 				7DE8D58A1FC576ED00577762 /* Catagory */,
 				7D3623E11FCE51B400C77874 /* Common */,
 				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
 				7D0DA8341FC50D7000774E40 /* AppDelegate.m */,
 				7DB4FF081FD135A8004EE368 /* Public.h */,
-				7DE8D5851FC556DE00577762 /* Storyboard.storyboard */,
-				7DE8D5841FC54FDF00577762 /* HuaHong.pch */,
+				7DE8D5851FC556DE00577762 /* Main.storyboard */,
+				7D2DE5F320170015001590E1 /* PrefixHeader.pch */,
 				7D0DA8441FC50D7000774E40 /* Info.plist */,
 				7D0DA8451FC50D7000774E40 /* main.m */,
 				7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */,
@@ -319,6 +349,28 @@
 				7D2172101FDA86D8008698C9 /* BlueToothController.m */,
 			);
 			path = "蓝牙";
+			sourceTree = "<group>";
+		};
+		7D2DE5EC2015B88E001590E1 /* 数据存储 */ = {
+			isa = PBXGroup;
+			children = (
+				7D2DE5ED2015B8B8001590E1 /* DataStorageController.h */,
+				7D2DE5EE2015B8B8001590E1 /* DataStorageController.m */,
+				7D2DE5F02015BBCF001590E1 /* DataModel.h */,
+				7D2DE5F12015BBCF001590E1 /* DataModel.m */,
+			);
+			path = "数据存储";
+			sourceTree = "<group>";
+		};
+		7D2DE5F4201701F8001590E1 /* 绘图 */ = {
+			isa = PBXGroup;
+			children = (
+				7D2DE5F520170227001590E1 /* DrawView.h */,
+				7D2DE5F620170227001590E1 /* DrawView.m */,
+				7D5393BB2019746B006D2712 /* DrawController.h */,
+				7D5393BC2019746B006D2712 /* DrawController.m */,
+			);
+			path = "绘图";
 			sourceTree = "<group>";
 		};
 		7D2FF0B21FFCAEF900ECAA26 /* 二维码 */ = {
@@ -409,6 +461,10 @@
 			children = (
 				7D2FF1F820084F0D00ECAA26 /* StoryboardHomeController.h */,
 				7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */,
+				7D4AFB042011C9FE0018AB3D /* LoginViewController.h */,
+				7D4AFB052011C9FE0018AB3D /* LoginViewController.m */,
+				7D4AFB0A2011D78A0018AB3D /* ContactController.h */,
+				7D4AFB0B2011D78A0018AB3D /* ContactController.m */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -431,6 +487,15 @@
 				7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */,
 			);
 			path = "上拉加载";
+			sourceTree = "<group>";
+		};
+		7D5393E0201AF855006D2712 /* 手势交互 */ = {
+			isa = PBXGroup;
+			children = (
+				7D5393E1201AF916006D2712 /* TouchController.h */,
+				7D5393E2201AF916006D2712 /* TouchController.m */,
+			);
+			path = "手势交互";
 			sourceTree = "<group>";
 		};
 		7D957EB41FD4DC1300D0A4D5 /* 相册 */ = {
@@ -535,6 +600,10 @@
 		7DE8D58A1FC576ED00577762 /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
+				7D2DE5FB20181CF0001590E1 /* NSArray+Log.h */,
+				7D2DE5F820181CEF001590E1 /* NSArray+Log.m */,
+				7D2DE5F920181CEF001590E1 /* NSDictionary+Log.h */,
+				7D2DE5FA20181CEF001590E1 /* NSDictionary+Log.m */,
 				7DE8D5A01FC69BB800577762 /* UILabel+autoReSize.h */,
 				7DE8D5A11FC69BB800577762 /* UILabel+autoReSize.m */,
 				7DE8D59D1FC57D4400577762 /* NSString+IdentityCard.h */,
@@ -707,7 +776,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */,
-				7DE8D5861FC556DE00577762 /* Storyboard.storyboard in Resources */,
+				7DE8D5861FC556DE00577762 /* Main.storyboard in Resources */,
 				7D957EB91FD4DFCA00D0A4D5 /* Assets.xcassets in Resources */,
 				7D2FF0CE2004AB4900ECAA26 /* weixinY.mp4 in Resources */,
 				7D2FF0C62004A38000ECAA26 /* selfS.MOV in Resources */,
@@ -781,6 +850,7 @@
 				7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */,
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,
+				7D4AFB062011C9FE0018AB3D /* LoginViewController.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
@@ -821,12 +891,16 @@
 				7DB9B55B1FD93C720011EE54 /* BaseVideoController.m in Sources */,
 				7DE8D59F1FC57D4400577762 /* NSString+IdentityCard.m in Sources */,
 				7DB9B5361FD678F80011EE54 /* ContactsController.m in Sources */,
+				7D2DE5FC20181CF0001590E1 /* NSArray+Log.m in Sources */,
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
 				7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */,
 				7DB9B53C1FD792300011EE54 /* AudioRecorderManager.m in Sources */,
+				7D5393E3201AF916006D2712 /* TouchController.m in Sources */,
+				7D2DE5F720170227001590E1 /* DrawView.m in Sources */,
 				7D2FF20B2008916700ECAA26 /* UINavigationController+BackButtonHandler.m in Sources */,
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
+				7D2DE5F22015BBCF001590E1 /* DataModel.m in Sources */,
 				7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */,
 				7D398FAA2009BFBE00994A3C /* TableViewVC.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
@@ -837,6 +911,9 @@
 				7DB4FF041FD134D2004EE368 /* VoiceManager.m in Sources */,
 				7DB9B5391FD6A47D0011EE54 /* ContactModel.m in Sources */,
 				7D0DA8461FC50D7000774E40 /* main.m in Sources */,
+				7D2DE5EF2015B8B8001590E1 /* DataStorageController.m in Sources */,
+				7D2DE5FD20181CF0001590E1 /* NSDictionary+Log.m in Sources */,
+				7D4AFB0C2011D78A0018AB3D /* ContactController.m in Sources */,
 				7DFB1BE61FCFE6EB0033D9E2 /* ThreeDTouchController.m in Sources */,
 				7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */,
 				7DB4FF0C1FD13D26004EE368 /* UIColor+Category.m in Sources */,
@@ -844,6 +921,7 @@
 				7DFB1BE91FCFE8390033D9E2 /* presentViewController.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
 				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,
+				7D5393BD2019746B006D2712 /* DrawController.m in Sources */,
 				7D2FF0CC2004A3E300ECAA26 /* AddVideoController.m in Sources */,
 				7DFB1BE31FCFE2420033D9E2 /* LightSinceController.m in Sources */,
 			);
@@ -891,7 +969,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Huahong/Huahong/HuaHong.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Huahong/Huahong/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -946,7 +1024,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Huahong/Huahong/HuaHong.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Huahong/Huahong/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -971,7 +1049,7 @@
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3PV33XPK7B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/HuaHong.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
 				INFOPLIST_FILE = HuaHong/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1001,7 +1079,7 @@
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3PV33XPK7B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/HuaHong.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
 				INFOPLIST_FILE = HuaHong/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
