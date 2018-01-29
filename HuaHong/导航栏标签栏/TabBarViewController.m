@@ -52,6 +52,14 @@
     //利用KVC 将自己的tabbar赋给系统tabBar
     [self setValue:_myTabBar forKey:@"tabBar"];
     
+    /**
+     * ios10 新特性
+     */
+//    self.tabBarItem.badgeColor = [UIColor redColor];
+//    self.tabBarItem setBadgeTextAttributes:<#(nullable NSDictionary<NSString *,id> *)#> forState:UIControlState
+//    self.tabBar.unselectedItemTintColor = [UIColor blackColor];
+    
+    
     [self setUpAllChildVc];
     
     self.selectedIndex = 1;
