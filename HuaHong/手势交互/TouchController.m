@@ -27,18 +27,18 @@
     // 取消上一个调用的方法
     //    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(pan) object:nil];
     
-//    [self.view addGestureRecognizer:self.singleTap];
-//    [self.view addGestureRecognizer:self.doubleTap];
-//    //双击发生时，单击失效
-//    [_singleTap requireGestureRecognizerToFail:_doubleTap];
-//
-//    [self.view addGestureRecognizer:self.pan];
-//
-//    [self.view addGestureRecognizer:self.swipe];
-//    //轻扫发生时，平移失效
-//    [self.pan requireGestureRecognizerToFail:self.swipe];
-//
-//    [self.view addGestureRecognizer:self.longPress];
+    [self.view addGestureRecognizer:self.singleTap];
+    [self.view addGestureRecognizer:self.doubleTap];
+    //双击发生时，单击失效
+    [_singleTap requireGestureRecognizerToFail:_doubleTap];
+
+    [self.view addGestureRecognizer:self.pan];
+
+    [self.view addGestureRecognizer:self.swipe];
+    //轻扫发生时，平移失效
+    [self.pan requireGestureRecognizerToFail:self.swipe];
+
+    [self.view addGestureRecognizer:self.longPress];
 
     [self.hView addGestureRecognizer:self.pinch];
     [self.hView addGestureRecognizer:self.rotation];
@@ -180,7 +180,10 @@
 -(void)rotationAction:(UIRotationGestureRecognizer *)sender
 {
     if (sender.state == UIGestureRecognizerStateChanged) {
+        
+        //基于原来的位置
 //        [sender.view setTransform:CGAffineTransformMakeRotation(sender.rotation)];
+        
         [sender.view setTransform:CGAffineTransformRotate(sender.view.transform, sender.rotation)];
     }else if (sender.state == UIGestureRecognizerStateEnded)
     {

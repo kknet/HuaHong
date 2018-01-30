@@ -49,11 +49,11 @@ static NSString *headerID = @"headerID";
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表"]];
+    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"其他"]];
     
-    [self.headTittleDataArray addObjectsFromArray:@[@"基础控件",@"地图定位服务",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表"]];
+    [self.headTittleDataArray addObjectsFromArray:@[@"基础控件",@"地图定位服务",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"其他"]];
     
-    [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher"]];
+    [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher",@"search_teacher"]];
     
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"tableView"],
@@ -68,11 +68,12 @@ static NSString *headerID = @"headerID";
         @[@"网络"],
         @[@"触摸手势交互"],
         @[@"数据存储"],
-        @[@"绘图"],
+        @[@"绘图",@"时钟"],
         @[@"日历"],
         @[@"图文混排"],
         @[@"JS交互"],
-        @[@"图表"]
+        @[@"图表"],
+        @[@"计时器"]
         ]];
     
     
@@ -524,6 +525,43 @@ static NSString *headerID = @"headerID";
                 UIViewController *VC = [kStory instantiateViewControllerWithIdentifier:@"DrawView"];
                 VC.navigationItem.title = @"绘图";
                 [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                ClockViewController *VC = [ClockViewController new];
+                VC.navigationItem.title = @"时钟";
+                [self.navigationController pushViewController:VC animated:YES];
+            }
+        }
+            break;
+            case 13:
+        {
+            
+        }
+            break;
+        case 14:
+        {
+            
+        }
+            break;
+        case 15:
+        {
+            
+        }
+            break;
+        case 16:
+        {
+            
+        }
+            break;
+        case 17:
+        {
+            if (indexPath.item == 0) {
+                TimerController *VC = [TimerController new];
+                VC.navigationItem.title = @"计时器";
+                [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                
             }
         }
             break;

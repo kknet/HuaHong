@@ -48,6 +48,8 @@
 		7D4AFB0C2011D78A0018AB3D /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AFB0B2011D78A0018AB3D /* ContactController.m */; };
 		7D5393BD2019746B006D2712 /* DrawController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393BC2019746B006D2712 /* DrawController.m */; };
 		7D5393E3201AF916006D2712 /* TouchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E2201AF916006D2712 /* TouchController.m */; };
+		7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E5201F22D1006D2712 /* ClockViewController.m */; };
+		7D5393EA202013F4006D2712 /* TimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E9202013F4006D2712 /* TimerController.m */; };
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
@@ -173,6 +175,10 @@
 		7D5393BC2019746B006D2712 /* DrawController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawController.m; sourceTree = "<group>"; };
 		7D5393E1201AF916006D2712 /* TouchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchController.h; sourceTree = "<group>"; };
 		7D5393E2201AF916006D2712 /* TouchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchController.m; sourceTree = "<group>"; };
+		7D5393E4201F22D1006D2712 /* ClockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClockViewController.h; sourceTree = "<group>"; };
+		7D5393E5201F22D1006D2712 /* ClockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClockViewController.m; sourceTree = "<group>"; };
+		7D5393E8202013F4006D2712 /* TimerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerController.h; sourceTree = "<group>"; };
+		7D5393E9202013F4006D2712 /* TimerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerController.m; sourceTree = "<group>"; };
 		7D811F82200CACAA005C168F /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libcrypto.a; sourceTree = "<group>"; };
 		7D811F83200CACAA005C168F /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libssl.a; sourceTree = "<group>"; };
 		7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -326,6 +332,7 @@
 				7D2DE5EC2015B88E001590E1 /* 数据存储 */,
 				7D2DE5F4201701F8001590E1 /* 绘图 */,
 				7D5393E0201AF855006D2712 /* 手势交互 */,
+				7D5393E7202013E4006D2712 /* 定时器 */,
 				7DE8D58A1FC576ED00577762 /* Catagory */,
 				7D3623E11FCE51B400C77874 /* Common */,
 				7D0DA8331FC50D7000774E40 /* AppDelegate.h */,
@@ -369,6 +376,8 @@
 				7D2DE5F620170227001590E1 /* DrawView.m */,
 				7D5393BB2019746B006D2712 /* DrawController.h */,
 				7D5393BC2019746B006D2712 /* DrawController.m */,
+				7D5393E4201F22D1006D2712 /* ClockViewController.h */,
+				7D5393E5201F22D1006D2712 /* ClockViewController.m */,
 			);
 			path = "绘图";
 			sourceTree = "<group>";
@@ -496,6 +505,15 @@
 				7D5393E2201AF916006D2712 /* TouchController.m */,
 			);
 			path = "手势交互";
+			sourceTree = "<group>";
+		};
+		7D5393E7202013E4006D2712 /* 定时器 */ = {
+			isa = PBXGroup;
+			children = (
+				7D5393E8202013F4006D2712 /* TimerController.h */,
+				7D5393E9202013F4006D2712 /* TimerController.m */,
+			);
+			path = "定时器";
 			sourceTree = "<group>";
 		};
 		7D957EB41FD4DC1300D0A4D5 /* 相册 */ = {
@@ -879,7 +897,9 @@
 				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
 				7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */,
+				7D5393EA202013F4006D2712 /* TimerController.m in Sources */,
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
+				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
 				7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */,
 				7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */,

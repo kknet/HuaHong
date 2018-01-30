@@ -41,6 +41,8 @@
 #import "BaiDuMapController.h"
 #import "DataStorageController.h"
 #import "TouchController.h"
+#import "ClockViewController.h"
+#import "TimerController.h"
 
 
 #endif /* Public_h */
