@@ -10,4 +10,5 @@
 
 @interface HomeVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
+-(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler;
 @end

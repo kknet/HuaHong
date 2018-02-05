@@ -7,11 +7,19 @@
 //
 
 #import "TestViewController.h"
+#import <CoreLocation/CoreLocation.h>
+#import "AppDelegate.h"
+#import "AppDelegate+Notification.h"
+
+@interface TestViewController()
+@property (nonatomic,strong) UILocalNotification *localNotification;
+@end
 
 @implementation TestViewController
 {
 //    dispatch_source_t _timer;
 }
+
 
 -(void)viewDidLoad
 {
@@ -25,8 +33,11 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
+    AppDelegate *delegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    [delegate setLocalNotification];
     
-
+    self.localNotification = [[UILocalNotification alloc] init];
+    
     
 }
 

@@ -41,7 +41,7 @@
         
     }else{
         
-        [VoiceManager startBroadcastVoice:self speed:0.95 volume:1 tone:1 voice:voice LanguageType:@"zh-CN" content:@"安得广厦千万间，大庇天下寒士俱欢颜，风雨不动安如山。"];
+        [VoiceManager startBroadcastVoice:self speed:0.95 volume:1 tone:1 voice:voice LanguageType:@"zh_CN" content:@"安得广厦千万间，大庇天下寒士俱欢颜，风雨不动安如山。"];
     }
     
     
@@ -51,5 +51,9 @@
 
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [VoiceManager convertToTextWithVoice:@"黑马程序员.mp3"];
+}
 
 @end

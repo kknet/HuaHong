@@ -33,9 +33,11 @@
         
         CLPlacemark *clplacemark = [placemarks lastObject];
         MKPlacemark *mkplacemark = [[MKPlacemark alloc]initWithPlacemark:clplacemark];
-        MKMapItem *mapItem = [[MKMapItem alloc]initWithPlacemark:mkplacemark];
+        
+        MKMapItem *sourceItem = [MKMapItem mapItemForCurrentLocation];
+        MKMapItem *destiItem = [[MKMapItem alloc]initWithPlacemark:mkplacemark];
         NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeTransit,MKLaunchOptionsMapTypeKey:@(MKMapTypeStandard),MKLaunchOptionsShowsTrafficKey:@(YES)};
-        [ MKMapItem openMapsWithItems:@[mapItem] launchOptions:options];
+        [MKMapItem openMapsWithItems:@[sourceItem,destiItem] launchOptions:options];
         
     }];
     

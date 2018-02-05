@@ -68,8 +68,8 @@
 -(void)centerBtnClick:(UIButton *)sender
 {
     self.selectedIndex = 1;
-    [self rotationAnimation];
 }
+
 /**
  *  添加所有的控制器
  */
@@ -111,20 +111,8 @@
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     if (tabBarController.selectedIndex == 1) {
-        [self rotationAnimation];
 
-    }else
-    {
-        [_myTabBar.centerBtn.layer removeAllAnimations];
     }
 }
 
-//旋转动画
-- (void)rotationAnimation{
-    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:M_PI*2.0];
-    rotationAnimation.duration = 3.0;
-    rotationAnimation.repeatCount = HUGE;
-    [_myTabBar.centerBtn.layer addAnimation:rotationAnimation forKey:@"key"];
-}
 @end

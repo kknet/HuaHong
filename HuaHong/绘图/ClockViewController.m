@@ -22,7 +22,7 @@
     // 创建表盘
     CALayer *clock = [[CALayer alloc]init];
     clock.bounds = CGRectMake(0, 0, 200, 200);
-    clock.position = CGPointMake(200, 200);
+    clock.position = self.view.center;
     clock.contents = (__bridge id)[UIImage imageNamed:@"clock"].CGImage;
     clock.cornerRadius = clock.bounds.size.height*0.5;
     clock.masksToBounds = YES;

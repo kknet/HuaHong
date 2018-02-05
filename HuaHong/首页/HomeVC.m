@@ -37,13 +37,18 @@ static NSString *headerID = @"headerID";
 {
     return NO;
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"首页";
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
 
     _selectIndex = 0;
@@ -64,11 +69,11 @@ static NSString *headerID = @"headerID";
         @[@"相册"],
         @[@"系统通讯录",@"自定义通讯录"],
         @[@"二维码扫描",@"二维码生成"],
-        @[@"旋转加载",@"扇形加载"],
+        @[@"基本动画",@"扇形加载",@"转场动画"],
         @[@"网络"],
         @[@"触摸手势交互"],
         @[@"数据存储"],
-        @[@"绘图",@"时钟"],
+        @[@"绘图",@"时钟",@"画板"],
         @[@"日历"],
         @[@"图文混排"],
         @[@"JS交互"],
@@ -87,6 +92,10 @@ static NSString *headerID = @"headerID";
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"测试" style:UIBarButtonItemStylePlain target:self action:@selector(testAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
+//    self.navigationController.navigationBar.translucent = NO;
+
 }
 
 -(void)testAction
@@ -482,11 +491,15 @@ static NSString *headerID = @"headerID";
         case 8:
         {
             if (indexPath.item == 0) {
-                AnimationController *takePhotoVC = [[AnimationController alloc]init];
-                [self.navigationController pushViewController:takePhotoVC animated:YES];
+                AnimationController *animationVC = [[AnimationController alloc]init];
+                animationVC.title = @"基本动画";
+                [self.navigationController pushViewController:animationVC animated:YES];
             }else if (indexPath.item == 1) {
                 LoadingViewController *takePhotoVC = [[LoadingViewController alloc]init];
                 [self.navigationController pushViewController:takePhotoVC animated:YES];
+            }else if (indexPath.item == 2){
+                TransitionController *transitionVC = [kStory instantiateViewControllerWithIdentifier:@"TransitionController"];
+                [self.navigationController pushViewController:transitionVC animated:YES];
             }
         }
             break;
@@ -530,6 +543,11 @@ static NSString *headerID = @"headerID";
                 ClockViewController *VC = [ClockViewController new];
                 VC.navigationItem.title = @"时钟";
                 [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 2)
+            {
+                DrawingBoardController *VC = [kStory instantiateViewControllerWithIdentifier:@"DrawingBoardController"];
+//                VC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:VC animated:YES];
             }
         }
             break;
@@ -570,6 +588,11 @@ static NSString *headerID = @"headerID";
     }
 }
 
+-(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler
+{
+    NSLog(@"UIBackgroundFetchResultNewData");
+    completationHandler(UIBackgroundFetchResultNewData);
+}
 @end
 
 

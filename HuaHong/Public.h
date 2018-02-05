@@ -43,6 +43,7 @@
 #import "TouchController.h"
 #import "ClockViewController.h"
 #import "TimerController.h"
-
+#import "TransitionController.h"
+#import "DrawingBoardController.h"
 
 #endif /* Public_h */

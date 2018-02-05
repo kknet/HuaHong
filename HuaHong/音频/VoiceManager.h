@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import <Speech/Speech.h>
 
-@interface VoiceManager : NSObject<AVSpeechSynthesizerDelegate,AVAudioRecorderDelegate>
+@interface VoiceManager : NSObject<AVSpeechSynthesizerDelegate,AVAudioRecorderDelegate,SFSpeechRecognizerDelegate>
 
 /** 文字转语音
  user : self
@@ -37,6 +38,11 @@
  voice : 初始化类名
  */
 + (void)stopBroadcastVoice:(AVSpeechSynthesizer *)voice;
+
+#pragma mark - 语音转文字
++(void)convertToTextWithVoice:(NSString *)voicename;
+
++(void)convert;
 
 @end
 
