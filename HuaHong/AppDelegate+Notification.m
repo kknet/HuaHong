@@ -127,7 +127,7 @@
 //6a2cee08 e00bc63b 70231cb0 66cc3026 906e5226 47ed6884 785d0971 55581c2e
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken
 {
-    NSLog(@"deviceToken:%@",deviceToken);
+//    NSLog(@"deviceToken:%@",deviceToken);
 }
 
 #pragma mark iOS推送通知的处理方法

@@ -26,7 +26,7 @@
 
 #pragma mark - GCD
 /**
- * 延时调用
+ * 延迟调用
  */
 -(void)delay
 {

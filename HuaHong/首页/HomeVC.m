@@ -54,11 +54,11 @@ static NSString *headerID = @"headerID";
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"其他"]];
+    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"其他"]];
     
-    [self.headTittleDataArray addObjectsFromArray:@[@"基础控件",@"地图定位服务",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"其他"]];
+    [self.headTittleDataArray addObjectsFromArray:@[@"基础控件",@"地图定位服务",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"其他"]];
     
-    [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher",@"search_teacher"]];
+    [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher",@"search_teacher",@"search_cio"]];
     
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"tableView"],
@@ -70,7 +70,7 @@ static NSString *headerID = @"headerID";
         @[@"系统通讯录",@"自定义通讯录"],
         @[@"二维码扫描",@"二维码生成"],
         @[@"基本动画",@"扇形加载",@"转场动画"],
-        @[@"网络"],
+        @[@"网络1",@"网络2",@"下载"],
         @[@"触摸手势交互"],
         @[@"数据存储"],
         @[@"绘图",@"时钟",@"画板"],
@@ -78,7 +78,8 @@ static NSString *headerID = @"headerID";
         @[@"图文混排"],
         @[@"JS交互"],
         @[@"图表"],
-        @[@"计时器"]
+        @[@"多线程"],
+        @[@"计时器",@"密码安全"]
         ]];
     
     
@@ -93,13 +94,14 @@ static NSString *headerID = @"headerID";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"测试" style:UIBarButtonItemStylePlain target:self action:@selector(testAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
     
-    self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
-//    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 
+    
 }
 
 -(void)testAction
 {
+    
     [self.navigationController pushViewController:[[TestViewController alloc]init] animated:YES];
 }
 
@@ -509,6 +511,17 @@ static NSString *headerID = @"headerID";
                 
                 MultiRequestController *VC = [[MultiRequestController alloc]init];
                 [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 1) {
+                
+                RequestController *VC = [[RequestController alloc]init];
+                [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 2) {
+                
+//                DownLoadViewController *VC = [[DownLoadViewController alloc]init];
+                TouchController *VC = [kStory instantiateViewControllerWithIdentifier:@"DownLoadViewController"];
+
+                VC.title = @"下载";
+                [self.navigationController pushViewController:VC animated:YES];
             }
         }
             break;
@@ -574,12 +587,26 @@ static NSString *headerID = @"headerID";
         case 17:
         {
             if (indexPath.item == 0) {
+                ThreadViewController *VC = [ThreadViewController new];
+                VC.navigationItem.title = @"多线程";
+                [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                
+            }
+        }
+            break;
+            case 18:
+        {
+            if (indexPath.item == 0) {
                 TimerController *VC = [TimerController new];
                 VC.navigationItem.title = @"计时器";
                 [self.navigationController pushViewController:VC animated:YES];
             }else if (indexPath.item == 1)
             {
-                
+                SecurityController *VC = [SecurityController new];
+                VC.navigationItem.title = @"密码安全";
+                [self.navigationController pushViewController:VC animated:YES];
             }
         }
             break;

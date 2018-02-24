@@ -27,6 +27,17 @@
     
     self.title = @"测试";
     
+        
+//    NSThread *t = [[NSThread alloc]initWithTarget:self selector:@selector(timeAction:) object:@"name"];
+//    [t start];
+    
+    NSArray *arr = @[@"测试",@(666)];
+    NSLog(@"arr:%@",arr);
+    
+    NSDictionary *dic = @{@"key1":@"测试",@"key2":@(666)};
+    NSLog(@"dic:%@",dic);
+
+    
     
 }
 
@@ -41,8 +52,14 @@
     
 }
 
--(void)timeAction
+-(void)timeAction:(NSString *)name
 {
+    //多线程互斥锁
+    @synchronized(self)
+    {
+        
+    }
+    
     self.view.backgroundColor =         [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
 }
 @end

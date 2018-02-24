@@ -163,7 +163,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="YOo-RO-e50">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="YOo-RO-e50">
                                 <rect key="frame" x="27.5" y="93.5" width="320" height="480"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -326,6 +326,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2W-yQ-73S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="616.79999999999995" y="597.75112443778119"/>
+        </scene>
+        <!--Down Load View Controller-->
+        <scene sceneID="sUA-ZM-yuk">
+            <objects>
+                <viewController storyboardIdentifier="DownLoadViewController" id="MWb-da-orE" customClass="DownLoadViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wqO-o0-R4s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6m-9L-VlY" customClass="ProgressView">
+                                <rect key="frame" x="87" y="208.5" width="200" height="250"/>
+                                <color key="backgroundColor" red="0.81418362560000002" green="1" blue="0.76583258170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="d8k-Jp-Sfs"/>
+                                    <constraint firstAttribute="height" constant="250" id="pT6-xb-k6a"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="0.1128640253" blue="0.1466410457" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="downLoadAction:" destination="MWb-da-orE" eventType="touchUpInside" id="1wr-ML-00G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvY-Lp-jBf">
+                                <rect key="frame" x="87" y="107" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="暂停"/>
+                                <connections>
+                                    <action selector="pause:" destination="MWb-da-orE" eventType="touchUpInside" id="Ef5-3l-Yum"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8p-gD-hWa">
+                                <rect key="frame" x="156" y="107" width="62" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="继续"/>
+                                <connections>
+                                    <action selector="resume:" destination="MWb-da-orE" eventType="touchUpInside" id="W53-HB-90S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sm7-jI-PIw">
+                                <rect key="frame" x="31" y="107" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="start:" destination="MWb-da-orE" eventType="touchUpInside" id="lnU-F2-ayD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pQ-dQ-DFd">
+                                <rect key="frame" x="245" y="107" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="停止"/>
+                                <connections>
+                                    <action selector="stop:" destination="MWb-da-orE" eventType="touchUpInside" id="eLx-v6-vAV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F6m-9L-VlY" firstAttribute="centerX" secondItem="wqO-o0-R4s" secondAttribute="centerX" id="Byc-ou-hzY"/>
+                            <constraint firstItem="F6m-9L-VlY" firstAttribute="centerY" secondItem="wqO-o0-R4s" secondAttribute="centerY" id="rAa-Ab-8BU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="M9G-lk-hR6"/>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="F6m-9L-VlY" id="rag-9M-uAi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q89-tn-7Eb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396" y="619.34032983508246"/>
         </scene>
         <!--Add Video Controller-->
         <scene sceneID="ScN-Xf-q2f">
@@ -698,6 +768,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="320" height="480"/>
+        <image name="01" width="320" height="480"/>
     </resources>
 </document>

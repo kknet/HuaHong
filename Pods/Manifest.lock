@@ -17,6 +17,12 @@ PODS:
   - BaiduMapKit (3.4.2)
   - hhtestPod (0.1.0)
   - Masonry (1.1.0)
+  - ReactiveObjC (3.1.0)
+  - SDWebImage (4.2.3):
+    - SDWebImage/Core (= 4.2.3)
+  - SDWebImage/Core (4.2.3)
+  - SSKeychain (1.4.1)
+  - SSZipArchive (2.1.1)
   - SVProgressHUD (2.2.2)
 
 DEPENDENCIES:
@@ -24,6 +30,10 @@ DEPENDENCIES:
   - BaiduMapKit
   - hhtestPod (~> 0.1.0)
   - Masonry
+  - ReactiveObjC (~> 3.1.0)
+  - SDWebImage (~> 4.2.3)
+  - SSKeychain (~> 1.4.1)
+  - SSZipArchive
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -31,8 +41,12 @@ SPEC CHECKSUMS:
   BaiduMapKit: f61b19ecf07a3f2deede72b221b366bf698739ed
   hhtestPod: 6d4009d4bbfb75f1b29d2a78889622ced07a7d31
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+  SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
+  SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: 510ef4ebb31212ce7865b9d9c196d09e321ea852
+PODFILE CHECKSUM: ea5d651fdaec2821b74afc862ebc1ab774981c33
 
 COCOAPODS: 1.3.1

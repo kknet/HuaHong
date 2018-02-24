@@ -10,11 +10,15 @@
 #define Public_h
 
 #define kStory [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]
+//#define kBaseURL @"http://192.168.0.5"
+#define kBaseURL @"http://172.31.0.47"
+
 #import <SVProgressHUD.h>
 #import "BaseViewController.h"
 #import "UIScrollView+Refresh.h"
 #import "HuaHong-Bridging-Header.h"
 #import "HuaHong-Swift.h"
+#import <SSZipArchive.h>
 
 #import "MapViewController.h"
 #import "WaterFallController.h"
@@ -45,5 +49,12 @@
 #import "TimerController.h"
 #import "TransitionController.h"
 #import "DrawingBoardController.h"
+#import "ThreadViewController.h"
+#import "RequestController.h"
+#import "DownLoadViewController.h"
+#import "SecurityController.h"
+#import "RACViewController.h"
+
+
 
 #endif /* Public_h */

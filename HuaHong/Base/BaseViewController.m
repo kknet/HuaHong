@@ -18,6 +18,8 @@
     [super viewDidLoad];
    
     self.view.backgroundColor = [UIColor whiteColor];
+    
+//    self.shouldAutorotate = YES;
 }
 
 // 重写下面的方法以拦截导航栏返回按钮点击事件，返回 YES 则 pop，NO 则不 pop
@@ -26,5 +28,8 @@
     return YES;
 }
 
-
+//-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+//{
+//    return YES;
+//}
 @end

@@ -10,19 +10,47 @@
 
 @implementation NSArray (Log)
 
-- (NSString *)descriptionWithLocale:(id)locale
+- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
 {
-    NSMutableString *strM = [NSMutableString string];
-    [strM appendString:@"(\n"];
-    //遍历数组
-    for (id obj in self) {
-        [strM appendFormat:@"\t%@,\n",obj];
-    }
+    NSMutableString *strM = [NSMutableString stringWithString:@"\n(\n"];
+    
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[NSString class]]) {
+            [strM appendFormat:@"\t\"%@\",\n", obj];
+        }else
+        {
+            [strM appendFormat:@"\t%@,\n", obj];
+        }
+        
+    }];
     
     [strM appendString:@")"];
-
     
     return strM;
 }
 
 @end
+
+@implementation NSDictionary (Log)
+
+- (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
+{
+    NSMutableString *strM = [NSMutableString stringWithString:@"\n{\n"];
+    
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[NSString class]]) {
+            [strM appendFormat:@"\t\"%@\" : \"%@\",\n", key, obj];
+        }else
+        {
+            [strM appendFormat:@"\t\"%@\" : %@,\n", key, obj];
+        }
+        
+    }];
+    
+    [strM appendString:@"}\n"];
+    
+    return strM;
+}
+
+@end
+
