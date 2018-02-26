@@ -51,6 +51,7 @@
 		7D5393E3201AF916006D2712 /* TouchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E2201AF916006D2712 /* TouchController.m */; };
 		7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E5201F22D1006D2712 /* ClockViewController.m */; };
 		7D5393EA202013F4006D2712 /* TimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E9202013F4006D2712 /* TimerController.m */; };
+		7D53F72B2042E8DC00D886B9 /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F72A2042E8DC00D886B9 /* RACView.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
 		7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651129203C414E0042DAE7 /* ProgressView.m */; };
 		7D6FA8FB203B08E50072109E /* RequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6FA8FA203B08E50072109E /* RequestController.m */; };
@@ -203,6 +204,8 @@
 		7D5393E5201F22D1006D2712 /* ClockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClockViewController.m; sourceTree = "<group>"; };
 		7D5393E8202013F4006D2712 /* TimerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerController.h; sourceTree = "<group>"; };
 		7D5393E9202013F4006D2712 /* TimerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerController.m; sourceTree = "<group>"; };
+		7D53F7292042E8DC00D886B9 /* RACView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACView.h; sourceTree = "<group>"; };
+		7D53F72A2042E8DC00D886B9 /* RACView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACView.m; sourceTree = "<group>"; };
 		7D651125203C35900042DAE7 /* DownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewController.h; sourceTree = "<group>"; };
 		7D651126203C35900042DAE7 /* DownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewController.m; sourceTree = "<group>"; };
 		7D651128203C414E0042DAE7 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
@@ -614,6 +617,8 @@
 			children = (
 				7DAA3CE92041BA9E00B12BC4 /* RACViewController.h */,
 				7DAA3CEA2041BA9E00B12BC4 /* RACViewController.m */,
+				7D53F7292042E8DC00D886B9 /* RACView.h */,
+				7D53F72A2042E8DC00D886B9 /* RACView.m */,
 			);
 			path = "响应式编程RAC";
 			sourceTree = "<group>";
@@ -1037,6 +1042,7 @@
 				7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,
 				7D6FA8FB203B08E50072109E /* RequestController.m in Sources */,
+				7D53F72B2042E8DC00D886B9 /* RACView.m in Sources */,
 				7D2FF0B11FF4F91400ECAA26 /* TestView.m in Sources */,
 				7DE836CA200F242500003AAF /* AnnotationController.m in Sources */,
 				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,

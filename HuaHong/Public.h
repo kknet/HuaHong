@@ -19,6 +19,10 @@
 #import "HuaHong-Bridging-Header.h"
 #import "HuaHong-Swift.h"
 #import <SSZipArchive.h>
+#import "ReactiveObjc.h"
+#import <NSObject+RACKVOWrapper.h>
+
+
 
 #import "MapViewController.h"
 #import "WaterFallController.h"

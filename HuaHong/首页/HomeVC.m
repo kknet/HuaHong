@@ -79,7 +79,7 @@ static NSString *headerID = @"headerID";
         @[@"JS交互"],
         @[@"图表"],
         @[@"多线程"],
-        @[@"计时器",@"密码安全"]
+        @[@"计时器",@"密码安全",@"RAC"]
         ]];
     
     
@@ -606,6 +606,12 @@ static NSString *headerID = @"headerID";
             {
                 SecurityController *VC = [SecurityController new];
                 VC.navigationItem.title = @"密码安全";
+                [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 2)
+            {
+//                RACViewController *VC = [RACViewController new];
+                RACViewController *VC = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
+                VC.navigationItem.title = @"RAC";
                 [self.navigationController pushViewController:VC animated:YES];
             }
         }
