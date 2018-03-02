@@ -135,6 +135,7 @@
     [audioPlayer play];
 }
 
+
 -(void)sensorStateChange:(NSNotification *)notification
 {
     if ([[UIDevice currentDevice] proximityState] == YES) {

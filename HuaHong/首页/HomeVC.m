@@ -37,12 +37,7 @@ static NSString *headerID = @"headerID";
 {
     return NO;
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -61,7 +56,7 @@ static NSString *headerID = @"headerID";
     [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher",@"search_teacher",@"search_cio"]];
     
     [self.dataArray addObjectsFromArray: @[
-        @[@"瀑布流",@"tableView"],
+        @[@"瀑布流",@"tableView",@"chat"],
         @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
         @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器"],
         @[@"文字转语音",@"录音",@"语音合成"],
@@ -375,6 +370,11 @@ static NSString *headerID = @"headerID";
                
                 id objc = [[NSClassFromString(@"TableViewVC") alloc]init];
                 [self.navigationController pushViewController:objc animated:YES];
+            }else if (indexPath.item == 2)
+            {
+                //chat
+                QKCRChatControlViewController *naviVC = [QKCRChatControlViewController new];
+                [self.navigationController pushViewController:naviVC animated:YES];
             }
         }
             break;

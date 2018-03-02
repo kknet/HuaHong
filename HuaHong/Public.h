@@ -21,7 +21,9 @@
 #import <SSZipArchive.h>
 #import "ReactiveObjc.h"
 #import <NSObject+RACKVOWrapper.h>
-
+#import "CALayer+borderColor.h"
+#import "UILabel+autoReSize.h"
+#import "NSString+IdentityCard.h"
 
 
 #import "MapViewController.h"
@@ -58,6 +60,7 @@
 #import "DownLoadViewController.h"
 #import "SecurityController.h"
 #import "RACViewController.h"
+#import "QKCRChatControlViewController.h"
 
 
 

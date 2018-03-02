@@ -8,24 +8,55 @@
 
 #import "TableViewVC.h"
 #import "PullUpRefreshView.h"
+#import "QKCRIndicateCell.h"
+#import "QKCRIndicateHeadView.h"
+#import "QKCRRecordTypeView.h"
+#import "AudioRecorderManager.h"
+
+
+#define kHeadViewHeight 40
+#define kBottomHeight 100
+#define bgColor [UIColor colorWithRed:244/255.0 green:245/255.0 blue:246/255.0 alpha:1.0]
 @interface TableViewVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) NSMutableArray *data;
+@property (nonatomic,strong) UIButton *recordBtn;
+@property (nonatomic,strong) NSMutableArray *titles;
 @end
 
 @implementation TableViewVC
 
+static NSString *headIdentifier = @"QKCRIndicateHeadView";
+
+-(void)viewReportAction
+{
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"tableView";
+    self.view.backgroundColor = bgColor;
     
-    for (int i=0; i<15; i++) {
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:172/255.0 blue:130/255.0 alpha:1.0];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"查看报表" style:(UIBarButtonItemStylePlain) target:self action:@selector(viewReportAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+
+
+    
+    for (int i=0; i<10; i++) {
         [self.data addObject:[NSString stringWithFormat:@"%d",arc4random()%100]];
 
     }
     
+    self.titles = [NSMutableArray arrayWithArray:@[@"2018.02.23",@"2018.02.23",@"2018.02.23",@"2018.02.24",@"2018.02.25",@"2018.02.25",@"2018.02.25",@"2018.02.25",@"2018.02.26",@"2018.02.26"]];
+    
+    
     [self.view addSubview:self.tableView];
+    [self.view addSubview:self.recordBtn];
+
     
     //下拉刷新
     if (@available(iOS 10.0, *)) {
@@ -61,11 +92,15 @@
 -(UITableView *)tableView
 {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64-kBottomHeight) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+        [_tableView registerNib:[UINib nibWithNibName:@"QKCRIndicateCell" bundle:nil] forCellReuseIdentifier:@"QKCRIndicateCell"];
+        [_tableView registerClass:[QKCRIndicateHeadView class] forHeaderFooterViewReuseIdentifier:headIdentifier];
+        
         _tableView.tableFooterView = [UIView new];
+        _tableView.estimatedRowHeight = 80;
+        _tableView.backgroundColor = bgColor;
         
     }
     
@@ -73,6 +108,25 @@
     return _tableView;
 }
 
+-(UIButton *)recordBtn
+{
+    if (_recordBtn == nil) {
+        
+        UIImage *image = [UIImage imageNamed:@"microphone"];
+        
+        _recordBtn = [[UIButton alloc]initWithFrame:CGRectMake((kScreenWidth-image.size.width)/2, (kBottomHeight-image.size.height)/2 + (kScreenHeight-kBottomHeight), image.size.height, image.size.height)];
+        _recordBtn.layer.cornerRadius = image.size.height/2;
+        [_recordBtn setImage:image forState:UIControlStateNormal];
+        
+        [[_recordBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            
+            //选择录音类型
+            [self selectRecordType];
+        }];
+    }
+    
+    return _recordBtn;
+}
 #pragma mark - 下拉刷新
 -(UIRefreshControl *)refreshControl
 {
@@ -106,21 +160,28 @@
 #pragma mark - UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+    return 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    QKCRIndicateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QKCRIndicateCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.textLabel.text = [self.data objectAtIndex:indexPath.row];
-    
+    [[cell rac_signalForSelector:@selector(playAction:)]subscribeNext:^(RACTuple * _Nullable x) {
+        
+        //播放录音
+        NSLog(@"播放录音");
+        cell.progress = 0.51;
+        
+        
+    }];
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.data.count;
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -135,7 +196,7 @@
 
 // Editing
 
-// Individual rows can opt out of having the -editing property set for them. If not implemented, all rows are assumed to be editable.
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
@@ -144,25 +205,35 @@
 // Moving/reordering
 
 // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return YES;
-}
+//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    return YES;
+//}
 
 // Index
 
 //- (nullable NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView;
-//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index;
+//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+//{
+//
+//}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.titles removeObjectAtIndex:indexPath.section];
+        [self.data removeObjectAtIndex:indexPath.section];
+    [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section]
+                 withRowAnimation:UITableViewRowAnimationFade];
+
+    }
 }
 
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
-{
-    
-}
+//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+//{
+//    
+//}
 
 #pragma mark - UITableViewDelegate
 //- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -174,8 +245,37 @@
 //
 //// Variable height support
 //
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return kHeadViewHeight;
+    }
+    
+    NSString *lastTitle = [self.titles objectAtIndex:section-1];
+    NSString *currentTitle = [self.titles objectAtIndex:section];
+
+    if ([lastTitle isEqualToString:currentTitle]) {
+        return 0;
+    }
+    
+    return kHeadViewHeight;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    QKCRIndicateHeadView *headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headIdentifier];
+    if (headView == nil) {
+        headView = [[QKCRIndicateHeadView alloc]initWithReuseIdentifier:headIdentifier];
+    }
+
+    [headView setTime:self.titles[section]];
+    return headView;
+}
 //- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
 //
 //// Use the estimatedHeight methods to quickly calcuate guessed values which will allow for fast load times of the table.
@@ -186,7 +286,8 @@
 //
 //// Section header & footer information. Views are preferred over title should you decide to provide both
 //
-//- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;   // custom view for header. will be adjusted to default or specified header height
+
+//will be adjusted to default or specified header height
 //- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;   // custom view for footer. will be adjusted to default or specified footer height
 //
 //// Accessories (disclosures).
@@ -206,25 +307,49 @@
 //- (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 //- (nullable NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(3_0);
 //// Called after the user changes the selection.
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+//    [self selectRecordType];
+}
+
+#pragma mark - 选择录音类型
+-(void)selectRecordType
+{
+    QKCRRecordTypeView *selectView = [QKCRRecordTypeView shared];
+    [selectView show];
+    
+    [[selectView rac_signalForSelector:@selector(startAction)]subscribeNext:^(RACTuple * _Nullable x) {
+       
+        //开始语
+        NSLog(@"startAction");
+
+    }];
+    
+    [[selectView rac_signalForSelector:@selector(endAction)]subscribeNext:^(RACTuple * _Nullable x) {
+        
+        //结束语
+        NSLog(@"endAction");
+
+    }];
+}
 //- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(3_0);
 //
 //// Editing
 //
 //// Allows customization of the editingStyle for a particular cell located at 'indexPath'. If not implemented, all editable cells will have UITableViewCellEditingStyleDelete set for them when the table has editing property set to YES.
-//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
 //- (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(3_0) __TVOS_PROHIBITED;
 //
 //// Use -tableView:trailingSwipeActionsConfigurationForRowAtIndexPath: instead of this method, which will be deprecated in a future release.
 //// This method supersedes -tableView:titleForDeleteConfirmationButtonForRowAtIndexPath: if return value is non-nil
 //- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0) __TVOS_PROHIBITED;
-//
-//// Swipe actions
-//// These methods supersede -editActionsForRowAtIndexPath: if implemented
-//// return nil to get the default swipe actions
-//- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(tvos);
-//- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(tvos);
-//
+
+
+
 //// Controls whether the background is indented while editing.  If not implemented, the default is YES.  This is unrelated to the indentation level below.  This method only applies to grouped style table views.
 //- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath;
 //
@@ -253,4 +378,27 @@
 //- (BOOL)tableView:(UITableView *)tableView shouldUpdateFocusInContext:(UITableViewFocusUpdateContext *)context NS_AVAILABLE_IOS(9_0);
 //- (void)tableView:(UITableView *)tableView didUpdateFocusInContext:(UITableViewFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator NS_AVAILABLE_IOS(9_0);
 //- (nullable NSIndexPath *)indexPathForPreferredFocusedViewInTableView:(UITableView *)tableView NS_AVAILABLE_IOS(9_0);
+
+
+ //ios 11 新增方法
+ - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+ UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"删除"
+ handler:^(UIContextualAction * _Nonnull action,__kindof UIView * _Nonnull sourceView,void (^ _Nonnull completionHandler)(BOOL)){
+ 
+ [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
+ completionHandler(true);
+ }];
+ 
+ // 设置按钮图片
+ [deleteAction setImage:[UIImage imageNamed:@"close" inBundle:nil compatibleWithTraitCollection:nil]];
+ 
+ 
+ NSArray *actions = [[NSArray alloc] initWithObjects:deleteAction, nil];
+ 
+ return [UISwipeActionsConfiguration configurationWithActions:actions];
+ }
+
+//右滑
+//- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(tvos);
 @end

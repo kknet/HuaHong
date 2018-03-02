@@ -11,11 +11,12 @@
 
 @interface RACViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *label;
-@property (nonatomic,strong)id <RACSubscriber> subscriber;
 @property (strong, nonatomic) IBOutlet UIButton *btn;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet RACView *racView;
-@property (strong, nonatomic) RACDisposable *disposable;
+@property (nonatomic,strong)id <RACSubscriber> subscriber;
+
+//@property (strong, nonatomic) RACDisposable *disposable;
 
 @end
 
@@ -44,7 +45,7 @@
 //
 //    [self kvo2];
 //
-//    [self targetEvents];
+    [self targetEvents];
 //
 //    [self notification];
     
@@ -53,6 +54,8 @@
 //    [self racDefine];
     
 //    [self RACObserve];
+    
+    [self rac_gestureSignal];
     
 }
 
@@ -165,7 +168,7 @@
     static NSInteger _time = 10;
     sender.enabled = NO;
     
-    _disposable = [[RACSignal interval:1.0 onScheduler:[RACScheduler mainThreadScheduler]]subscribeNext:^(NSDate * _Nullable x) {
+    RACDisposable *disposable = [[RACSignal interval:1.0 onScheduler:[RACScheduler mainThreadScheduler]]subscribeNext:^(NSDate * _Nullable x) {
         
         NSString *text = _time > 0 ? [NSString stringWithFormat:@"请等待%ld秒",(long)_time]: @"重新发送";
         
@@ -177,7 +180,7 @@
         {
             sender.enabled = YES;
             [sender setTitle:text forState:UIControlStateNormal];
-            [_disposable dispose];
+            [disposable dispose];
             
         }
         
@@ -205,7 +208,8 @@
 #pragma mark - 监听事件
 -(void)targetEvents
 {
-    [[_btn rac_signalForControlEvents:(UIControlEventTouchUpInside)] subscribeNext:^(__kindof UIControl * _Nullable x) {
+    //(UIControlEventTouchUpInside):有无括号均可
+    [[_btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         NSLog(@"监听事件:%@",x);
     }];
 }
@@ -223,6 +227,18 @@
     [_textField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
         NSLog(@"textField:%@",x);
     }];
+    
+    /* 添加监听条件 */
+    [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+        
+        // 表示输入文字长度 > 5 时才会调用下面的 block
+        return value.length > 5;
+        
+    }] subscribeNext:^(NSString * _Nullable x) {
+        
+        NSLog(@"输入框内容：%@", x);
+    }];
+    
 }
 
 #pragma mark - Timer
@@ -248,5 +264,84 @@
     }];
 }
 
+#pragma mark - 元祖
+-(void)tuple
+{
+    NSArray *arr = @[@"abc",@"321",@(123)];
+    RACTuple *tuple = [RACTuple tupleWithObjectsFromArray:arr];
+    NSString *str = [tuple objectAtIndex:1];
+}
 
+#pragma mark - 集合
+-(void)sequence_array
+{
+    NSArray *arr = @[@"abc",@"321",@(123)];
+    
+    //RAC集合 将数组中的元素作为发送信号的内容
+//    RACSequence *sequence = [arr rac_sequence];
+//    RACSignal *signal = [sequence signal];
+//    [signal subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"%@",x);
+//    }];
+    
+    [arr.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
+    }];
+    
+    
+}
+
+-(void)sequence_dictionary
+{
+    NSDictionary *dic = @{@"name":@"huahong",@"age":@(18)};
+    //字典转为集合
+    [dic.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
+        
+//        NSString *key = x[0];
+//        NSString *value = x[1];
+        
+        //解析元祖： RACTupleUnpack(<#...#>)
+        RACTupleUnpack(NSString *key,id value) = x;
+        
+        NSLog(@"key:%@,value:%@",key,value);
+        
+        
+    }];
+}
+
+-(void)rac_plist
+{
+    /*
+    //解析Plist路径
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"kfc.plist" ofType:nil];
+    NSArray *dictArr = [NSArray arrayWithContentsOfFile:filePath];
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    
+    [dictArr.rac_sequence.signal subscribeNext:^(NSDictionary * x) {
+        
+        KFC *kfc = [KFC KFCWithDict:x];
+        [arr addObject:kfc];
+        
+    }];
+    
+    //或者这样遍历数组，并且将模型添加到数组
+    NSArray *arr2 = [[dictArr.rac_sequence map:^id _Nullable(NSDictionary * value) {
+        
+        return [KFC KFCWithDict:value];
+    }] array];
+     
+     */
+}
+
+#pragma mark - 手势
+-(void)rac_gestureSignal
+{
+    UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+    [[tap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+        
+        NSLog(@"rac_gestureSignal:%@",x);
+    }];
+    [self.racView addGestureRecognizer:tap];
+}
 @end

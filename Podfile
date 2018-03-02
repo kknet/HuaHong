@@ -9,6 +9,7 @@ pod 'SSZipArchive'
 pod 'SSKeychain', '~> 1.4.1'
 pod 'SDWebImage', '~> 4.2.3'
 pod 'ReactiveObjC', '~> 3.1.0'
+pod 'iCarousel', '~> 1.8.3'
 #pod 'XYPieChart'
 #pod 'SystemServices', '~> 2.0.1'//系统硬件信息
 end

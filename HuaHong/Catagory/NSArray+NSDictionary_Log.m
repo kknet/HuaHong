@@ -1,12 +1,12 @@
 //
-//  NSArray+Log.m
-//  9.Dictionary
+//  NSArray+NSDictionary_Log.m
+//  HuaHong
 //
-//  Created by keyzhang on 15-1-24.
-//  Copyright (c) 2015年 无限互联3G学院 www.iphonetrain.com. All rights reserved.
+//  Created by 华宏 on 2018/3/2.
+//  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "NSArray+Log.h"
+#import "NSArray+NSDictionary_Log.h"
 
 @implementation NSArray (Log)
 
@@ -53,4 +53,5 @@
 }
 
 @end
+
 

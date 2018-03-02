@@ -19,6 +19,9 @@
    
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
+    
 //    self.shouldAutorotate = YES;
 }
 

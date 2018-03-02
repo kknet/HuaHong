@@ -17,7 +17,6 @@
 		7D2DE5EF2015B8B8001590E1 /* DataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5EE2015B8B8001590E1 /* DataStorageController.m */; };
 		7D2DE5F22015BBCF001590E1 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F12015BBCF001590E1 /* DataModel.m */; };
 		7D2DE5F720170227001590E1 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F620170227001590E1 /* DrawView.m */; };
-		7D2DE5FC20181CF0001590E1 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F820181CEF001590E1 /* NSArray+Log.m */; };
 		7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */; };
 		7D2FF0B11FF4F91400ECAA26 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0B01FF4F91400ECAA26 /* TestView.m */; };
 		7D2FF0B51FFCB97700ECAA26 /* HomeLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0B41FFCB97700ECAA26 /* HomeLeftCell.m */; };
@@ -52,6 +51,12 @@
 		7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E5201F22D1006D2712 /* ClockViewController.m */; };
 		7D5393EA202013F4006D2712 /* TimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E9202013F4006D2712 /* TimerController.m */; };
 		7D53F72B2042E8DC00D886B9 /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F72A2042E8DC00D886B9 /* RACView.m */; };
+		7D53F7392044523200D886B9 /* QKCRIndicateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F7372044523200D886B9 /* QKCRIndicateCell.m */; };
+		7D53F73A2044523200D886B9 /* QKCRIndicateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D53F7382044523200D886B9 /* QKCRIndicateCell.xib */; };
+		7D53F73D2044FBB000D886B9 /* CALayer+borderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F73B2044FBAF00D886B9 /* CALayer+borderColor.m */; };
+		7D53F740204528CF00D886B9 /* QKCRIndicateHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F73F204528CF00D886B9 /* QKCRIndicateHeadView.m */; };
+		7D53F74620453B6700D886B9 /* QKCRRecordTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F74520453B6700D886B9 /* QKCRRecordTypeView.m */; };
+		7D53F76120467CFA00D886B9 /* QKCRChatControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F76020467CFA00D886B9 /* QKCRChatControlViewController.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
 		7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651129203C414E0042DAE7 /* ProgressView.m */; };
 		7D6FA8FB203B08E50072109E /* RequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6FA8FA203B08E50072109E /* RequestController.m */; };
@@ -64,6 +69,7 @@
 		7D957EB91FD4DFCA00D0A4D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D957EB81FD4DFC900D0A4D5 /* Assets.xcassets */; };
 		7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EBB1FD531CE00D0A4D5 /* PhotoListController.m */; };
 		7D957EBF1FD5337000D0A4D5 /* PhotoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EBE1FD5337000D0A4D5 /* PhotoListCell.m */; };
+		7DA38D7420495B3100ACE387 /* NSArray+NSDictionary_Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA38D7320495B3100ACE387 /* NSArray+NSDictionary_Log.m */; };
 		7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE12041B28B00B12BC4 /* RSACryptor.m */; };
 		7DAA3CE62041B28C00B12BC4 /* rsacert.der in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE32041B28B00B12BC4 /* rsacert.der */; };
 		7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE42041B28C00B12BC4 /* p.p12 */; };
@@ -100,6 +106,7 @@
 		7DC24CA320283F6500103BDE /* HHBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC24CA220283F6500103BDE /* HHBezierPath.m */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
 		7DCCFAA8200CC48500902D92 /* DistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCCFAA7200CC48500902D92 /* DistanceController.m */; };
+		7DCF6A7D204795F500205322 /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCF6A7C204795F500205322 /* XTSegmentControl.m */; };
 		7DE836CA200F242500003AAF /* AnnotationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836C9200F242500003AAF /* AnnotationController.m */; };
 		7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836CC200F3EC500003AAF /* MyAnnotationView.m */; };
 		7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE836D22010710500003AAF /* SystemNavigationController.m */; };
@@ -143,8 +150,6 @@
 		7D2DE5F320170015001590E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7D2DE5F520170227001590E1 /* DrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		7D2DE5F620170227001590E1 /* DrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
-		7D2DE5F820181CEF001590E1 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
-		7D2DE5FB20181CF0001590E1 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		7D2FF0AC1FF397E000ECAA26 /* MultiRequestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiRequestController.h; sourceTree = "<group>"; };
 		7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiRequestController.m; sourceTree = "<group>"; };
 		7D2FF0AF1FF4F91400ECAA26 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
@@ -206,6 +211,17 @@
 		7D5393E9202013F4006D2712 /* TimerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerController.m; sourceTree = "<group>"; };
 		7D53F7292042E8DC00D886B9 /* RACView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACView.h; sourceTree = "<group>"; };
 		7D53F72A2042E8DC00D886B9 /* RACView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACView.m; sourceTree = "<group>"; };
+		7D53F7362044523200D886B9 /* QKCRIndicateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKCRIndicateCell.h; sourceTree = "<group>"; };
+		7D53F7372044523200D886B9 /* QKCRIndicateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKCRIndicateCell.m; sourceTree = "<group>"; };
+		7D53F7382044523200D886B9 /* QKCRIndicateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QKCRIndicateCell.xib; sourceTree = "<group>"; };
+		7D53F73B2044FBAF00D886B9 /* CALayer+borderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+borderColor.m"; sourceTree = "<group>"; };
+		7D53F73C2044FBB000D886B9 /* CALayer+borderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+borderColor.h"; sourceTree = "<group>"; };
+		7D53F73E204528CF00D886B9 /* QKCRIndicateHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKCRIndicateHeadView.h; sourceTree = "<group>"; };
+		7D53F73F204528CF00D886B9 /* QKCRIndicateHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKCRIndicateHeadView.m; sourceTree = "<group>"; };
+		7D53F74420453B6700D886B9 /* QKCRRecordTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKCRRecordTypeView.h; sourceTree = "<group>"; };
+		7D53F74520453B6700D886B9 /* QKCRRecordTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKCRRecordTypeView.m; sourceTree = "<group>"; };
+		7D53F75F20467CFA00D886B9 /* QKCRChatControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKCRChatControlViewController.h; sourceTree = "<group>"; };
+		7D53F76020467CFA00D886B9 /* QKCRChatControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKCRChatControlViewController.m; sourceTree = "<group>"; };
 		7D651125203C35900042DAE7 /* DownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewController.h; sourceTree = "<group>"; };
 		7D651126203C35900042DAE7 /* DownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewController.m; sourceTree = "<group>"; };
 		7D651128203C414E0042DAE7 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
@@ -231,6 +247,8 @@
 		7D957EBB1FD531CE00D0A4D5 /* PhotoListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListController.m; sourceTree = "<group>"; };
 		7D957EBD1FD5337000D0A4D5 /* PhotoListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListCell.h; sourceTree = "<group>"; };
 		7D957EBE1FD5337000D0A4D5 /* PhotoListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListCell.m; sourceTree = "<group>"; };
+		7DA38D7220495B3100ACE387 /* NSArray+NSDictionary_Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSDictionary_Log.h"; sourceTree = "<group>"; };
+		7DA38D7320495B3100ACE387 /* NSArray+NSDictionary_Log.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSDictionary_Log.m"; sourceTree = "<group>"; };
 		7DAA3CE12041B28B00B12BC4 /* RSACryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSACryptor.m; sourceTree = "<group>"; };
 		7DAA3CE22041B28B00B12BC4 /* RSACryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSACryptor.h; sourceTree = "<group>"; };
 		7DAA3CE32041B28B00B12BC4 /* rsacert.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = rsacert.der; sourceTree = "<group>"; };
@@ -301,6 +319,8 @@
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 		7DCCFAA6200CC48500902D92 /* DistanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistanceController.h; sourceTree = "<group>"; };
 		7DCCFAA7200CC48500902D92 /* DistanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DistanceController.m; sourceTree = "<group>"; };
+		7DCF6A7B204795F500205322 /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
+		7DCF6A7C204795F500205322 /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
 		7DE836C8200F242500003AAF /* AnnotationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationController.h; sourceTree = "<group>"; };
 		7DE836C9200F242500003AAF /* AnnotationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnotationController.m; sourceTree = "<group>"; };
 		7DE836CB200F3EC500003AAF /* MyAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAnnotationView.h; sourceTree = "<group>"; };
@@ -380,6 +400,7 @@
 		7D0DA8321FC50D7000774E40 /* HuaHong */ = {
 			isa = PBXGroup;
 			children = (
+				7D53F75E20467BE100D886B9 /* chat */,
 				7DC24C8A202161A400103BDE /* HuaHong.entitlements */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
 				7D398FA72009BEF800994A3C /* 常用控件 */,
@@ -518,6 +539,7 @@
 		7D2FF2132008970400ECAA26 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7DCF6A7A204795F500205322 /* XTSegmentControl */,
 				7D058575203F0A5200C7E204 /* 123.jpg */,
 				7DC24C9A20246C7A00103BDE /* 黑马程序员.mp3 */,
 				7D2FF0C52004A38000ECAA26 /* selfS.MOV */,
@@ -566,6 +588,13 @@
 			children = (
 				7D398FA82009BFBE00994A3C /* TableViewVC.h */,
 				7D398FA92009BFBE00994A3C /* TableViewVC.m */,
+				7D53F7362044523200D886B9 /* QKCRIndicateCell.h */,
+				7D53F7372044523200D886B9 /* QKCRIndicateCell.m */,
+				7D53F7382044523200D886B9 /* QKCRIndicateCell.xib */,
+				7D53F73E204528CF00D886B9 /* QKCRIndicateHeadView.h */,
+				7D53F73F204528CF00D886B9 /* QKCRIndicateHeadView.m */,
+				7D53F74420453B6700D886B9 /* QKCRRecordTypeView.h */,
+				7D53F74520453B6700D886B9 /* QKCRRecordTypeView.m */,
 			);
 			path = "常用控件";
 			sourceTree = "<group>";
@@ -597,6 +626,15 @@
 				7D5393E9202013F4006D2712 /* TimerController.m */,
 			);
 			path = "定时器";
+			sourceTree = "<group>";
+		};
+		7D53F75E20467BE100D886B9 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				7D53F75F20467CFA00D886B9 /* QKCRChatControlViewController.h */,
+				7D53F76020467CFA00D886B9 /* QKCRChatControlViewController.m */,
+			);
+			path = chat;
 			sourceTree = "<group>";
 		};
 		7D957EB41FD4DC1300D0A4D5 /* 相册 */ = {
@@ -736,11 +774,20 @@
 			path = "动画";
 			sourceTree = "<group>";
 		};
+		7DCF6A7A204795F500205322 /* XTSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				7DCF6A7B204795F500205322 /* XTSegmentControl.h */,
+				7DCF6A7C204795F500205322 /* XTSegmentControl.m */,
+			);
+			path = XTSegmentControl;
+			sourceTree = "<group>";
+		};
 		7DE8D58A1FC576ED00577762 /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
-				7D2DE5FB20181CF0001590E1 /* NSArray+Log.h */,
-				7D2DE5F820181CEF001590E1 /* NSArray+Log.m */,
+				7D53F73C2044FBB000D886B9 /* CALayer+borderColor.h */,
+				7D53F73B2044FBAF00D886B9 /* CALayer+borderColor.m */,
 				7DE8D5A01FC69BB800577762 /* UILabel+autoReSize.h */,
 				7DE8D5A11FC69BB800577762 /* UILabel+autoReSize.m */,
 				7DE8D59D1FC57D4400577762 /* NSString+IdentityCard.h */,
@@ -751,6 +798,8 @@
 				7DB4FF0B1FD13D26004EE368 /* UIColor+Category.m */,
 				7D058571203EF96700C7E204 /* NSURL+hook.h */,
 				7D058572203EF96700C7E204 /* NSURL+hook.m */,
+				7DA38D7220495B3100ACE387 /* NSArray+NSDictionary_Log.h */,
+				7DA38D7320495B3100ACE387 /* NSArray+NSDictionary_Log.m */,
 			);
 			path = Catagory;
 			sourceTree = "<group>";
@@ -943,6 +992,7 @@
 				7D058576203F0A5200C7E204 /* 123.jpg in Resources */,
 				7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */,
 				7DE8D5861FC556DE00577762 /* Main.storyboard in Resources */,
+				7D53F73A2044523200D886B9 /* QKCRIndicateCell.xib in Resources */,
 				7D957EB91FD4DFCA00D0A4D5 /* Assets.xcassets in Resources */,
 				7D2FF0CE2004AB4900ECAA26 /* weixinY.mp4 in Resources */,
 				7D2FF0C62004A38000ECAA26 /* selfS.MOV in Resources */,
@@ -1033,9 +1083,11 @@
 				7DB9B5601FD97F0B0011EE54 /* AssetWriter.m in Sources */,
 				7DB9B5521FD8E7F50011EE54 /* ImagePickController.m in Sources */,
 				7D2FF0B51FFCB97700ECAA26 /* HomeLeftCell.m in Sources */,
+				7D53F74620453B6700D886B9 /* QKCRRecordTypeView.m in Sources */,
 				7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */,
 				7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */,
 				7DE8D5921FC576ED00577762 /* UIViewExt.m in Sources */,
+				7D53F73D2044FBB000D886B9 /* CALayer+borderColor.m in Sources */,
 				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
 				7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */,
 				7D2FF2092008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m in Sources */,
@@ -1051,6 +1103,7 @@
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
 				7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */,
 				7D5393EA202013F4006D2712 /* TimerController.m in Sources */,
+				7DA38D7420495B3100ACE387 /* NSArray+NSDictionary_Log.m in Sources */,
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
 				7D058573203EF96700C7E204 /* NSURL+hook.m in Sources */,
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
@@ -1064,11 +1117,11 @@
 				7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */,
 				7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */,
 				7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */,
+				7DCF6A7D204795F500205322 /* XTSegmentControl.m in Sources */,
 				7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */,
 				7DB9B55B1FD93C720011EE54 /* BaseVideoController.m in Sources */,
 				7DE8D59F1FC57D4400577762 /* NSString+IdentityCard.m in Sources */,
 				7DB9B5361FD678F80011EE54 /* ContactsController.m in Sources */,
-				7D2DE5FC20181CF0001590E1 /* NSArray+Log.m in Sources */,
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
 				7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */,
 				7DB9B53C1FD792300011EE54 /* AudioRecorderManager.m in Sources */,
@@ -1090,10 +1143,12 @@
 				7DAA3CEB2041BA9E00B12BC4 /* RACViewController.m in Sources */,
 				7DFB1BA91FCE94380033D9E2 /* HomeFlowLayout.m in Sources */,
 				7D2FF0B81FFCDB1100ECAA26 /* ScanView.m in Sources */,
+				7D53F7392044523200D886B9 /* QKCRIndicateCell.m in Sources */,
 				7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */,
 				7DBA5A5E20410C3900BC274E /* RSAEncryptor.m in Sources */,
 				7DBA5A6120410CF700BC274E /* SecurityController.m in Sources */,
 				7D6FA8FE203B3B390072109E /* XMLModel.m in Sources */,
+				7D53F740204528CF00D886B9 /* QKCRIndicateHeadView.m in Sources */,
 				7DB4FF041FD134D2004EE368 /* VoiceManager.m in Sources */,
 				7DC24C932022B6E500103BDE /* DrawingBoardController.m in Sources */,
 				7DB9B5391FD6A47D0011EE54 /* ContactModel.m in Sources */,
@@ -1112,6 +1167,7 @@
 				7D2FF0CC2004A3E300ECAA26 /* AddVideoController.m in Sources */,
 				7DEA99A2202A95050050055E /* ThreadViewController.m in Sources */,
 				7DFB1BE31FCFE2420033D9E2 /* LightSinceController.m in Sources */,
+				7D53F76120467CFA00D886B9 /* QKCRChatControlViewController.m in Sources */,
 				7DC24C962023001100103BDE /* CustomTransitionPush.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
