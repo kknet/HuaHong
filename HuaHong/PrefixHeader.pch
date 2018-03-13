@@ -20,6 +20,6 @@
 #import "Utils.h"
 #import "Public.h"
 #import "UIColor+Category.h"
-#import "VideoManager.h"
+#import "HHVideoManager.h"
 
 #endif /* PrefixHeader_pch */

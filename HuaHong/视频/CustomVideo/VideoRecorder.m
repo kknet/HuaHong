@@ -9,7 +9,7 @@
 #import "VideoRecorder.h"
 #import "AssetWriter.h"
 #import <Photos/Photos.h>
-#import "VideoManager.h"
+#import "HHVideoManager.h"
 
 typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
@@ -229,7 +229,7 @@ CAAnimationDelegate>
         if ((self.assetWriter == nil) && !isVideo) {
             CMFormatDescriptionRef fmt = CMSampleBufferGetFormatDescription(sampleBuffer);
             [self setAudioFormat:fmt];
-            self.assetWriter = [AssetWriter encoderForPath:[VideoManager getVideoCachePath] Height:_cy width:_cx channels:_channels samples:_samplerate];
+            self.assetWriter = [AssetWriter encoderForPath:[HHVideoManager getVideoCachePath] Height:_cy width:_cx channels:_channels samples:_samplerate];
         }
         //判断是否中断录制过
         if (self.isDiscount)
@@ -362,7 +362,7 @@ CAAnimationDelegate>
 - (AVCaptureDeviceInput *)backCameraInput {
     if (_backCameraInput == nil) {
         NSError *error;
-        _backCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[VideoManager backCamera] error:&error];
+        _backCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[HHVideoManager backCamera] error:&error];
         if (error) {
             NSLog(@"获取后置摄像头失败~");
         }
@@ -374,7 +374,7 @@ CAAnimationDelegate>
 - (AVCaptureDeviceInput *)frontCameraInput {
     if (_frontCameraInput == nil) {
         NSError *error;
-        _frontCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[VideoManager frontCamera] error:&error];
+        _frontCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[HHVideoManager frontCamera] error:&error];
         if (error) {
             NSLog(@"获取前置摄像头失败~");
         }

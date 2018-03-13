@@ -27,16 +27,28 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if (![VideoManager isCameraAvailable] || ![VideoManager cameraSupportShootingVideos] || ![VideoManager cameraAuthStatus]) {
+    if (![HHVideoManager isCameraAvailable] || ![HHVideoManager cameraSupportShootingVideos] || ![HHVideoManager cameraAuthStatus]) {
         return;
     }
     
     UIImagePickerController *pick = [[UIImagePickerController alloc]init];
     pick.delegate = self;
+    
     pick.sourceType = UIImagePickerControllerSourceTypeCamera;
-    pick.mediaTypes = [[NSArray alloc]initWithObjects:(NSString *)kUTTypeMovie, nil];//kUTTypeVideo
+    
+    //设置媒体类型
+    pick.mediaTypes = [[NSArray alloc]initWithObjects:(NSString *)kUTTypeMovie, nil];
+    
+    //设置相机检测模式
+    pick.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+    
+    //设置视频质量
     pick.videoQuality = UIImagePickerControllerQualityTypeHigh;
+    
+    //是否允许编辑
     pick.allowsEditing = YES;
+    
+    //最大时长
     pick.videoMaximumDuration = 10;
     
     [self presentViewController:pick animated:YES completion:nil];
@@ -74,7 +86,7 @@
         NSURL *mediaUrl = [info objectForKey:UIImagePickerControllerMediaURL];
         
         //将视频保存到媒体库
-        [VideoManager saveToPhotoLibrary:mediaUrl];
+        [HHVideoManager saveToPhotoLibrary:mediaUrl];
     }
     
     [picker dismissViewControllerAnimated:YES completion:nil];

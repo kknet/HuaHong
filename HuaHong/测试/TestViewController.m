@@ -31,24 +31,19 @@
 //    NSThread *t = [[NSThread alloc]initWithTarget:self selector:@selector(timeAction:) object:@"name"];
 //    [t start];
     
-    NSArray *arr = @[@"测试",@(666)];
-    NSLog(@"arr:%@",arr);
-    
-    NSDictionary *dic = @{@"key1":@"测试",@"key2":@(666)};
-    NSLog(@"dic:%@",dic);
 
-    
     
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
-    AppDelegate *delegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-    [delegate setLocalNotification];
-    
-    self.localNotification = [[UILocalNotification alloc] init];
-    
+//    AppDelegate *delegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+//    [delegate setLocalNotification];
+//
+//    self.localNotification = [[UILocalNotification alloc] init];
+    runtimeViewController *vc = [runtimeViewController new];
+    [vc eat:@"123"];
     
 }
 

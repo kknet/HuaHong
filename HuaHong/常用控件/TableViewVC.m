@@ -11,8 +11,8 @@
 #import "QKCRIndicateCell.h"
 #import "QKCRIndicateHeadView.h"
 #import "QKCRRecordTypeView.h"
-#import "AudioRecorderManager.h"
 
+typedef void(^runloopBlock)(void);
 
 #define kHeadViewHeight 40
 #define kBottomHeight 100
@@ -23,6 +23,9 @@
 @property (nonatomic,strong) NSMutableArray *data;
 @property (nonatomic,strong) UIButton *recordBtn;
 @property (nonatomic,strong) NSMutableArray *titles;
+
+@property(nonatomic,strong)NSMutableArray * taskArr;
+
 @end
 
 @implementation TableViewVC
@@ -35,6 +38,10 @@ static NSString *headIdentifier = @"QKCRIndicateHeadView";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //runloop 优化tableview卡顿
+    [self runloop];
+    
     self.title = @"tableView";
     self.view.backgroundColor = bgColor;
     
@@ -79,8 +86,9 @@ static NSString *headIdentifier = @"QKCRIndicateHeadView";
         });
         
     }];
+    
+    
 }
-
 -(NSMutableArray *)data
 {
     if (_data == nil) {
@@ -381,24 +389,81 @@ static NSString *headIdentifier = @"QKCRIndicateHeadView";
 
 
  //ios 11 新增方法
- - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
- 
- UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"删除"
- handler:^(UIContextualAction * _Nonnull action,__kindof UIView * _Nonnull sourceView,void (^ _Nonnull completionHandler)(BOOL)){
- 
- [self.tableView deleteRowsAtIndexPaths: [NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
- completionHandler(true);
- }];
- 
- // 设置按钮图片
- [deleteAction setImage:[UIImage imageNamed:@"close" inBundle:nil compatibleWithTraitCollection:nil]];
- 
- 
- NSArray *actions = [[NSArray alloc] initWithObjects:deleteAction, nil];
- 
- return [UISwipeActionsConfiguration configurationWithActions:actions];
- }
-
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@""handler:^(UIContextualAction * action,UIView * sourceView,void (^ completionHandler)(BOOL)){
+        
+        sourceView.backgroundColor = [UIColor clearColor];
+        completionHandler(true);
+        
+    }];
+    
+    // 设置按钮图片
+    UIImage *image = [[UIImage imageNamed:@"delete"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [deleteAction setImage:image];
+    deleteAction.backgroundColor = bgColor;
+    return [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
+}
 //右滑
 //- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(tvos);
+
+
+#pragma mark - runloop 优化tableview卡顿
+//调用addTasks:添加耗时事件
+-(void)timerAction{
+    
+}
+-(void)runloop
+{
+    [NSTimer scheduledTimerWithTimeInterval:0.0001 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+    
+    _taskArr = [NSMutableArray array];
+    
+    [self addRunLoopObserver];
+}
+
+-(void)addTasks:(runloopBlock)task
+{
+    [self.taskArr addObject:task];
+    
+    if (self.taskArr.count > 15) {
+        [self.taskArr removeObjectAtIndex:0];
+    }
+}
+
+-(void)addRunLoopObserver
+{
+    CFRunLoopRef runloop = CFRunLoopGetCurrent();
+    
+    CFRunLoopObserverContext context = {
+        0,
+        (__bridge void*)(self),
+        &CFRetain,
+        &CFRelease,
+        NULL
+    };
+    
+    static CFRunLoopObserverRef runloopObserver;
+    runloopObserver = CFRunLoopObserverCreate(NULL, kCFRunLoopBeforeWaiting, YES, 0, &callback, &context);
+    
+    CFRunLoopAddObserver(runloop, runloopObserver, kCFRunLoopCommonModes);
+    
+    CFRelease(runloopObserver);
+}
+
+void callback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info){
+    
+    TableViewVC *vc = (__bridge TableViewVC *)info;
+    
+    if (vc.taskArr.count == 0) {
+        return;
+    }
+    
+    runloopBlock runloopBlock = vc.taskArr.firstObject;
+    runloopBlock();
+    
+    [vc.taskArr removeObjectAtIndex:0];
+    
+    
+}
 @end

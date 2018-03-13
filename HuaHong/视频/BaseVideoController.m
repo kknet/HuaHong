@@ -7,7 +7,7 @@
 //
 
 #import "BaseVideoController.h"
-#import "PlayerController.h"
+#import "HHPlayerViewController.h"
 
 @interface BaseVideoController()
 /**
@@ -133,7 +133,7 @@
 
 -(void)switchFlashLight
 {
-    [VideoManager switchFlashLight];
+    [HHVideoManager switchFlashLight];
 }
 
 - (void)changeCamera
@@ -144,8 +144,8 @@
 
 -(void)playVideo:(NSString *)path
 {
-    PlayerController *playVc = [[PlayerController alloc] init];
-    playVc.moviePath = path;
+    HHPlayerViewController *playVc = [[HHPlayerViewController alloc] init];
+    [playVc playVideo_AVPlayerViewController:[NSURL fileURLWithPath:path]];
     [self presentViewController:playVc animated:YES completion:nil];
 }
 

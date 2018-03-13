@@ -344,4 +344,17 @@
     }];
     [self.racView addGestureRecognizer:tap];
 }
+
+#pragma mark - RACReplaySubject
+-(void)RACReplaySubject
+{
+    RACReplaySubject *replaySubject = [RACReplaySubject subject];
+    
+    //订阅和发送步骤可替换
+    [replaySubject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
+    }];
+    
+    [replaySubject sendNext:@"RACReplaySubject"];
+}
 @end

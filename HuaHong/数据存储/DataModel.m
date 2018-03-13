@@ -14,11 +14,11 @@
  将某个对象写入文件时候调用
  在这个方法中说清楚哪些属性需要存储
  */
--(void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:_name forKey:@"name111"];
-    [aCoder encodeInteger:_age forKey:@"age"];
-}
+//-(void)encodeWithCoder:(NSCoder *)aCoder
+//{
+//    [aCoder encodeObject:_name forKey:@"name111"];
+//    [aCoder encodeInteger:_age forKey:@"age"];
+//}
 
 
 /*
@@ -27,14 +27,15 @@
  需要解析哪些属性
  
  */
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    if (self) {
-        _name = [aDecoder decodeObjectForKey:@"name111"];
-        _age = [aDecoder decodeIntegerForKey:@"age"];
-    }
-    return self;
-}
+//- (instancetype)initWithCoder:(NSCoder *)aDecoder
+//{
+//    self = [super init];
+//    if (self) {
+//        _name = [aDecoder decodeObjectForKey:@"name111"];
+//        _age = [aDecoder decodeIntegerForKey:@"age"];
+//    }
+//    return self;
+//}
+
 
 @end

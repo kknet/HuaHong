@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMLModel : NSObject
+@interface XMLModel : BaseModel
 
 @property(nonatomic,strong)NSNumber *videoId;
 @property(nonatomic,copy)NSString  *name;
@@ -19,7 +19,9 @@
 @property(nonatomic,strong)NSString *teacher;
 @property(nonatomic,readonly)NSString *time;
 
--(instancetype)initWithDict:(NSDictionary *)dict;
+//父类已写该方法
+//-(instancetype)initWithDict:(NSDictionary *)dict;
+
 +(instancetype)videoWithDict:(NSDictionary *)dict;
 
 @end

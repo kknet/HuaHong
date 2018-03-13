@@ -7,7 +7,7 @@
 //
 
 #import "ThreadViewController.h"
-#import "VideoManager.h"
+#import "HHVideoManager.h"
 #define imageStr @"http://img31.mtime.cn/pi/2013/03/08/144644.81111130_1280X720.jpg"
 @interface ThreadViewController ()
 @property (nonatomic,strong) NSOperationQueue *queue;
@@ -158,7 +158,7 @@
     static id instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[VideoManager alloc]init];
+        instance = [[HHVideoManager alloc]init];
     });
 
     return instance;

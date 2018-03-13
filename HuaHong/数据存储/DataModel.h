@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataModel : NSObject<NSCoding>
+@interface DataModel : BaseModel
 
 @property (nonatomic,copy)   NSString *name;
 @property (nonatomic,assign) NSInteger age;

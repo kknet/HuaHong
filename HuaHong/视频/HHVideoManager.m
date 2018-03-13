@@ -1,16 +1,16 @@
 //
-//  VideoManager.m
+//  HHVideoManager.m
 //  HuaHong
 //
-//  Created by 华宏 on 2017/12/7.
-//  Copyright © 2017年 huahong. All rights reserved.
+//  Created by 华宏 on 2018/3/13.
+//  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "VideoManager.h"
+#import "HHVideoManager.h"
 #import <Photos/Photos.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@implementation VideoManager
+@implementation HHVideoManager
 
 //判断相机权限
 +(BOOL)cameraAuthStatus
@@ -57,12 +57,12 @@
 
 //返回前置摄像头
 + (AVCaptureDevice *)frontCamera {
-    return [VideoManager cameraWithPosition:AVCaptureDevicePositionFront];
+    return [HHVideoManager cameraWithPosition:AVCaptureDevicePositionFront];
 }
 
 //返回后置摄像头
 + (AVCaptureDevice *)backCamera {
-    return [VideoManager cameraWithPosition:AVCaptureDevicePositionBack];
+    return [HHVideoManager cameraWithPosition:AVCaptureDevicePositionBack];
 }
 
 // 判断是否支持某种多媒体类型：拍照，视频
@@ -94,21 +94,21 @@
 //检查摄像头是否支持拍照
 +(BOOL)cameraSupportTakingPhotos
 {
-   return [self cameraSupportsMedia:(NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypeCamera];
+    return [self cameraSupportsMedia:(NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypeCamera];
 }
 
 //是否可以在相册中选择视频
 +(BOOL)canPickVideosFromPhotoLibrary
 {
     return [self cameraSupportsMedia:(NSString *)kUTTypeVideo sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-
+    
 }
 
 //是否可以在相册中选择照片
 +(BOOL)canPickPhotoFromPhotoLibrary
 {
     return [self cameraSupportsMedia:(NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-
+    
 }
 
 +(void)saveVideoPath:(NSURL*)videoPath Watermark:(NSString*)watermark complete:(void (^)(NSURL *outputURL))complete
@@ -222,10 +222,10 @@
 {
     
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:watermark attributes:@{
-                                                                                                              
-                                                                                                              NSFontAttributeName : [UIFont systemFontOfSize: 30],
-                                                                                                              NSForegroundColorAttributeName : [UIColor whiteColor]
-                                                                                                              }];
+                                                                                                               
+                                                                                                               NSFontAttributeName : [UIFont systemFontOfSize: 30],
+                                                                                                               NSForegroundColorAttributeName : [UIColor whiteColor]
+                                                                                                               }];
     
     CATextLayer *textLayer = [[CATextLayer alloc] init];
     [textLayer setString:attr];
@@ -431,26 +431,43 @@
 //获取视频第一帧的图片
 +(void)movieToImageWithVideoURL:(NSURL *)videoUrl Handler:(void (^)(UIImage *movieImage))handler
 {
+    AVAsset *asset = [AVAsset assetWithURL:videoUrl];
+    //    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
     
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
     NSParameterAssert(asset);
+    
     AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
-    generator.appliesPreferredTrackTransform = TRUE;
+    
+    //    generator.appliesPreferredTrackTransform = YES;
+    //    generator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
     CMTime thumbTime = CMTimeMakeWithSeconds(0, 60);
-    generator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
-    AVAssetImageGeneratorCompletionHandler generatorHandler =
-    ^(CMTime requestedTime, CGImageRef im, CMTime actualTime, AVAssetImageGeneratorResult result, NSError *error){
-        if (result == AVAssetImageGeneratorSucceeded) {
-            UIImage *thumbImg = [UIImage imageWithCGImage:im];
-            if (handler) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    handler(thumbImg);
-                });
-            }
-        }
-    };
+    
+    //    AVAssetImageGeneratorCompletionHandler generatorHandler =
+    //    ^(CMTime requestedTime, CGImageRef im, CMTime actualTime, AVAssetImageGeneratorResult result, NSError *error){
+    //
+    //        if (result == AVAssetImageGeneratorSucceeded) {
+    //            UIImage *thumbImg = [UIImage imageWithCGImage:im];
+    //            if (handler) {
+    //                dispatch_async(dispatch_get_main_queue(), ^{
+    //                    handler(thumbImg);
+    //                });
+    //            }
+    //        }
+    //    };
+    
     [generator generateCGImagesAsynchronouslyForTimes:
-     [NSArray arrayWithObject:[NSValue valueWithCMTime:thumbTime]] completionHandler:generatorHandler];
+     [NSArray arrayWithObject:[NSValue valueWithCMTime:thumbTime]] completionHandler:^(CMTime requestedTime, CGImageRef image, CMTime actualTime, AVAssetImageGeneratorResult result, NSError * error) {
+         
+         if (result == AVAssetImageGeneratorSucceeded) {
+             UIImage *thumbImg = [UIImage imageWithCGImage:image];
+             if (handler) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     handler(thumbImg);
+                 });
+             }
+         }
+     }];
 }
 
 + (void)cleanCache:(NSString *)videoPath
@@ -472,9 +489,9 @@
 //开启／关闭闪光灯
 +(void)switchFlashLight
 {
-//    AVCaptureDevice *backCamera = [VideoManager backCamera];
+    //    AVCaptureDevice *backCamera = [VideoManager backCamera];
     AVCaptureDevice *backCamera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-
+    
     if (backCamera.torchMode == AVCaptureTorchModeOff) {
         [backCamera lockForConfiguration:nil];
         backCamera.torchMode = AVCaptureTorchModeOn;
@@ -646,3 +663,4 @@
 //}
 //
 @end
+

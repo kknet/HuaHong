@@ -22,7 +22,7 @@
 {
     NSURL *url = [NSURL HHURLWithString:string];
     if (url == nil) {
-        NSLog(@"------------NSURL == nil------------");
+        NSLog(@"------------URL == nil------------");
     }
     
     return url;

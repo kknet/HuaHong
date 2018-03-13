@@ -7,7 +7,7 @@
 //
 
 #import "AddVideoController.h"
-#import "VideoManager.h"
+#import "HHVideoManager.h"
 @interface AddVideoController ()
 
 @end
@@ -36,14 +36,14 @@
     NSURL *firstUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfS" ofType:@"MOV"]];
     NSURL *secondUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"weixinY" ofType:@"mp4"]];
     
-    [VideoManager addFirstVideo:firstUrl andSecondVideo:secondUrl withMusic:nil];
+    [HHVideoManager addFirstVideo:firstUrl andSecondVideo:secondUrl withMusic:nil];
 }
 - (IBAction)addVideoAndMusic:(id)sender
 {
     NSURL *firstUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfS" ofType:@"MOV"]];
     NSURL *secondUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"weixinY" ofType:@"mp4"]];
     NSURL *musicUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"]];
-    [VideoManager addFirstVideo:firstUrl andSecondVideo:secondUrl withMusic:musicUrl];
+    [HHVideoManager addFirstVideo:firstUrl andSecondVideo:secondUrl withMusic:musicUrl];
 }
 
 /*

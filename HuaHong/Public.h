@@ -24,6 +24,7 @@
 #import "CALayer+borderColor.h"
 #import "UILabel+autoReSize.h"
 #import "NSString+IdentityCard.h"
+#import "BaseModel.h"
 
 
 #import "MapViewController.h"
@@ -61,6 +62,11 @@
 #import "SecurityController.h"
 #import "RACViewController.h"
 #import "QKCRChatControlViewController.h"
+#import "BlockViewController.h"
+#import "FunctionViewController.h"
+#import "ChainViewController.h"
+#import "runtimeViewController.h"
+#import "runloopViewController.h"
 
 
 

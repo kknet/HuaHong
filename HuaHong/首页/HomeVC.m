@@ -49,14 +49,14 @@ static NSString *headerID = @"headerID";
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"其他"]];
+    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"其他"]];
     
-    [self.headTittleDataArray addObjectsFromArray:@[@"基础控件",@"地图定位服务",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"其他"]];
+    [self.headTittleDataArray addObjectsFromArray:@[@"基础控件",@"地图定位服务",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"其他"]];
     
-    [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher",@"search_teacher",@"search_cio"]];
+    [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher",@"search_teacher",@"search_cio",@"search_teacher"]];
     
     [self.dataArray addObjectsFromArray: @[
-        @[@"瀑布流",@"tableView",@"chat"],
+        @[@"瀑布流",@"tableView",@"chat",@"block"],
         @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
         @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器"],
         @[@"文字转语音",@"录音",@"语音合成"],
@@ -74,7 +74,8 @@ static NSString *headerID = @"headerID";
         @[@"JS交互"],
         @[@"图表"],
         @[@"多线程"],
-        @[@"计时器",@"密码安全",@"RAC"]
+        @[@"响应式编程RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
+        @[@"计时器",@"密码安全",@""]
         ]];
     
     
@@ -375,6 +376,11 @@ static NSString *headerID = @"headerID";
                 //chat
                 QKCRChatControlViewController *naviVC = [QKCRChatControlViewController new];
                 [self.navigationController pushViewController:naviVC animated:YES];
+            }else if (indexPath.item == 3)
+            {
+                //block
+                BlockViewController *naviVC = [BlockViewController new];
+                [self.navigationController pushViewController:naviVC animated:YES];
             }
         }
             break;
@@ -596,7 +602,39 @@ static NSString *headerID = @"headerID";
             }
         }
             break;
-            case 18:
+        case 18:
+        {
+            if (indexPath.item == 0)
+            {
+                RACViewController *VC = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
+                VC.navigationItem.title = @"RAC";
+                [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                FunctionViewController *vc = [FunctionViewController new];
+                vc.title = @"函数式编程";
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }else if (indexPath.item == 2)
+            {
+                ChainViewController *vc = [ChainViewController new];
+                vc.title = @"链式编程";
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if (indexPath.item == 3)
+            {
+                runtimeViewController *vc = [runtimeViewController new];
+                vc.title = @"runtime";
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }else if (indexPath.item == 4)
+            {
+                runloopViewController *vc = [runloopViewController new];
+                vc.title = @"runloop";
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }
+            break;
+            case 19:
         {
             if (indexPath.item == 0) {
                 TimerController *VC = [TimerController new];

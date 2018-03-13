@@ -77,7 +77,7 @@
 //开始和停止录制事件
 - (void)recordAction
 {
-    if (![VideoManager isCameraAvailable] && ![VideoManager cameraSupportShootingVideos]) {
+    if (![HHVideoManager isCameraAvailable] && ![HHVideoManager cameraSupportShootingVideos]) {
         return;
     }
     
@@ -120,7 +120,7 @@
         [movieConnection setVideoOrientation:avcaptureOrientation];
         [movieConnection setVideoScaleAndCropFactor:1.0];
         
-        NSURL *url = [NSURL fileURLWithPath:[VideoManager getVideoCachePath]];
+        NSURL *url = [NSURL fileURLWithPath:[HHVideoManager getVideoCachePath]];
         [self.movieFileOutput startRecordingToOutputFileURL:url recordingDelegate:self];
         
         self.topView.hidden = YES;
@@ -158,7 +158,7 @@
     self.bottomView.lastVideoPath = [outputFileURL path];
     
     __weak typeof(self) weakSelf = self;
-    [VideoManager movieToImageWithVideoURL:outputFileURL Handler:^(UIImage *movieImage) {
+    [HHVideoManager movieToImageWithVideoURL:outputFileURL Handler:^(UIImage *movieImage) {
         [weakSelf.bottomView configVideoThumb:movieImage];
     }];
     

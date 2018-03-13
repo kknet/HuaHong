@@ -7,7 +7,7 @@
 //
 
 #import "RecorderViewController.h"
-#import "AudioRecorderManager.h"
+#import "HHAudioTools.h"
 
 @interface RecorderViewController ()
 
@@ -15,7 +15,7 @@
 
 @implementation RecorderViewController
 {
-    AudioRecorderManager *recorde;
+    HHAudioTools *recorde;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +27,7 @@
 
 -(void)recodeVoice
 {
-    recorde = [AudioRecorderManager sharedRecorde];
+    recorde = [HHAudioTools sharedTools];
     recorde.recordeFileName = @"12345";
     __weak typeof(recorde) weakrecorde = recorde;
     [recorde setRecordeBlock:^(NSString *recordePath) {
@@ -39,7 +39,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    recorde = [AudioRecorderManager sharedRecorde];
+    recorde = [HHAudioTools sharedTools];
     
     [recorde stopRecorde:YES];
 }

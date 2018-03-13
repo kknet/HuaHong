@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VideoTopView.h"
 #import "VideoBottomView.h"
-#import "VideoManager.h"
+#import "HHVideoManager.h"
 #import "VideoRecorder.h"
 
 @interface BaseVideoController : UIViewController<VideoTopViewDelegate,VideoBottomViewDelegate,CAAnimationDelegate>

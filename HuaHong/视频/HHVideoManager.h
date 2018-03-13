@@ -1,14 +1,14 @@
 //
-//  VideoManager.h
+//  HHVideoManager.h
 //  HuaHong
 //
-//  Created by 华宏 on 2017/12/7.
-//  Copyright © 2017年 huahong. All rights reserved.
+//  Created by 华宏 on 2018/3/13.
+//  Copyright © 2018年 huahong. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface VideoManager : NSObject
+@interface HHVideoManager : NSObject
 
 //判断相机权限
 +(BOOL)cameraAuthStatus;
