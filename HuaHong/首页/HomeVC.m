@@ -7,7 +7,6 @@
 //
 
 #import "HomeVC.h"
-#import "HomeFlowLayout.h"
 #import "CollectionHeadView.h"
 #import "HomeLeftCell.h"
 
@@ -15,8 +14,6 @@
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic,strong) NSMutableArray *tableTittleDataArray;
-@property(nonatomic,strong) NSMutableArray *headTittleDataArray;
-@property(nonatomic,strong) NSMutableArray *headImageDataArray;
 @property(nonatomic,strong) NSMutableArray *dataArray;
 @property(nonatomic,strong) UICollectionView *collectionView;
 @property(nonatomic,strong)UITableView *tableView;
@@ -40,7 +37,7 @@ static NSString *headerID = @"headerID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+//    self.navigationController.hidesBarsOnSwipe = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"首页";
 //    self.automaticallyAdjustsScrollViewInsets = NO;
@@ -49,14 +46,10 @@ static NSString *headerID = @"headerID";
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"其他"]];
-    
-    [self.headTittleDataArray addObjectsFromArray:@[@"基础控件",@"地图定位服务",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"其他"]];
-    
-    [self.headImageDataArray addObjectsFromArray:@[@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_cio",@"search_teacher",@"search_expert",@"search_teacher",@"search_teacher",@"search_cio",@"search_teacher"]];
+    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"其他"]];
     
     [self.dataArray addObjectsFromArray: @[
-        @[@"瀑布流",@"tableView",@"chat",@"block"],
+        @[@"瀑布流",@"tableView",@"chat",@"block",@"TextView",@"控件"],
         @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
         @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器"],
         @[@"文字转语音",@"录音",@"语音合成"],
@@ -67,7 +60,7 @@ static NSString *headerID = @"headerID";
         @[@"基本动画",@"扇形加载",@"转场动画"],
         @[@"网络1",@"网络2",@"下载"],
         @[@"触摸手势交互"],
-        @[@"数据存储"],
+        @[@"数据存储",@"云端存储",@"CoreData"],
         @[@"绘图",@"时钟",@"画板"],
         @[@"日历"],
         @[@"图文混排"],
@@ -75,6 +68,8 @@ static NSString *headerID = @"headerID";
         @[@"图表"],
         @[@"多线程"],
         @[@"响应式编程RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
+        @[@"蓝牙",@"蓝牙外设"],
+        @[@"人脸识别"],
         @[@"计时器",@"密码安全",@""]
         ]];
     
@@ -87,7 +82,8 @@ static NSString *headerID = @"headerID";
     // collectionView 的添加
     [self.view addSubview:self.collectionView];
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"测试" style:UIBarButtonItemStylePlain target:self action:@selector(testAction)];
+    NSString *title = NSLocalizedString(@"title", @"注释");
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(testAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -97,7 +93,6 @@ static NSString *headerID = @"headerID";
 
 -(void)testAction
 {
-    
     [self.navigationController pushViewController:[[TestViewController alloc]init] animated:YES];
 }
 
@@ -109,22 +104,6 @@ static NSString *headerID = @"headerID";
     }
     
     return _dataArray;
-}
-
--(NSMutableArray *)headTittleDataArray{
-    
-    if (!_headTittleDataArray) {
-        _headTittleDataArray = [[NSMutableArray alloc]init];
-    }
-    return _headTittleDataArray;
-}
-
--(NSMutableArray *)headImageDataArray{
-    
-    if (!_headImageDataArray) {
-        _headImageDataArray = [[NSMutableArray alloc]init];
-    }
-    return _headImageDataArray;
 }
 
 -(NSMutableArray *)tableTittleDataArray{
@@ -151,6 +130,30 @@ static NSString *headerID = @"headerID";
     
     return _tableView;
 }
+
+-(UICollectionView *)collectionView{
+    
+    if (!_collectionView) {
+        
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        //layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(self.tableView.right,kNavBarHeight, kScreenWidth-self.tableView.width-0, kScreenHeight-kNavBarHeight-kTabBarHeight) collectionViewLayout: layout];
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.showsVerticalScrollIndicator = NO;
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.alwaysBounceVertical = NO;
+        _collectionView.alwaysBounceHorizontal = NO;
+        _collectionView.pagingEnabled = NO;
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellID];
+        [_collectionView registerClass:[CollectionHeadView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader  withReuseIdentifier:headerID];
+    }
+    
+    return _collectionView;
+}
+
 #pragma mark UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -174,13 +177,7 @@ static NSString *headerID = @"headerID";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    
-    if (_selectIndex == indexPath.row) {
-        
-        cell.contentView.backgroundColor = [UIColor orangeColor];
-    }else{
-        cell.contentView.backgroundColor = [UIColor whiteColor];
-    }
+    cell.contentView.backgroundColor = (_selectIndex == indexPath.row)?  [UIColor orangeColor] : [UIColor whiteColor];
     
     cell.contentLabel.text = self.tableTittleDataArray[indexPath.row];
 
@@ -197,48 +194,38 @@ static NSString *headerID = @"headerID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectIndex = indexPath.row;
+    
+    //设置collectionView滚动
     CGRect headerRect = [self frameForHeaderForSection:_selectIndex];
     CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - _collectionView.contentInset.top);
     [self.collectionView setContentOffset:topOfHeader animated:YES];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
     [self.tableView reloadData];
+    
+    
+}
+
+- (CGRect)frameForHeaderForSection:(NSInteger)section {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:section];
+    UICollectionViewLayoutAttributes *attributes = [self.collectionView.collectionViewLayout layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath];
+    return attributes.frame;
 }
 
 #pragma mark - UIScrollView Delegate
 // 标记一下CollectionView的滚动方向，是向上还是向下
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     static float lastOffsetY = 0;
-    if (self.collectionView == scrollView) {
+    if ([self.collectionView isEqual: scrollView]) {
         _isScrollDown = lastOffsetY < scrollView.contentOffset.y;
         lastOffsetY = scrollView.contentOffset.y;
     }
 }
 
 #pragma mark - UICollectionViewDataSource
--(UICollectionView *)collectionView{
-    
-    if (!_collectionView) {
-        HomeFlowLayout *layout = [HomeFlowLayout new];
-        //        UICollectionViewLayout *layout = [[UICollectionViewLayout alloc]init];
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(self.tableView.right,kNavBarHeight, kScreenWidth-self.tableView.width-0, kScreenHeight-kNavBarHeight-kTabBarHeight) collectionViewLayout: layout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
-        _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        _collectionView.alwaysBounceVertical = NO;
-        _collectionView.alwaysBounceHorizontal = NO;
-        _collectionView.pagingEnabled = NO;
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellID];
-        [_collectionView registerClass:[CollectionHeadView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader  withReuseIdentifier:headerID];
-    }
-    
-    return _collectionView;
-}
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return self.headTittleDataArray.count;
+    return self.tableTittleDataArray.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -276,111 +263,123 @@ static NSString *headerID = @"headerID";
 
 // CollectionView分区标题即将展示
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
-    //         当前CollectionView滚动的方向向上，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
+    
+    // 当前CollectionView滚动的方向向上，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
     if (!_isScrollDown && (collectionView.dragging || collectionView.decelerating)) {
+        
         [self selectRowAtIndexPath:indexPath.section];
-    }
-}
-
-// CollectionView分区标题展示结束
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(nonnull UICollectionReusableView *)view forElementOfKind:(nonnull NSString *)elementKind atIndexPath:(nonnull NSIndexPath *)indexPath {
-    //当前CollectionView滚动的方向向下，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
-    if (_isScrollDown && (collectionView.dragging || collectionView.decelerating)) {
-        [self selectRowAtIndexPath:indexPath.section + 1];
     }
 }
 
 // 当拖动CollectionView的时候，处理TableView
 - (void)selectRowAtIndexPath:(NSInteger)index {
-
+    
     _selectIndex = index;
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     [self.tableView reloadData];
 }
 
-- (CGRect)frameForHeaderForSection:(NSInteger)section {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:section];
-    UICollectionViewLayoutAttributes *attributes = [self.collectionView.collectionViewLayout layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath];
-    return attributes.frame;
+// CollectionView分区标题展示结束
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(nonnull UICollectionReusableView *)view forElementOfKind:(nonnull NSString *)elementKind atIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    //当前CollectionView滚动的方向向下，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
+    if (_isScrollDown && (collectionView.dragging || collectionView.decelerating)) {
+        
+        [self selectRowAtIndexPath:indexPath.section + 1];
+    }
 }
-
-
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
     CollectionHeadView *header = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID forIndexPath:indexPath];
     header.backgroundColor = [UIColor lightGrayColor];
-    header.iconImage.image = [UIImage imageNamed:self.headImageDataArray[indexPath.section]];
-    header.headText.text = [NSString stringWithFormat:@"%@",self.headTittleDataArray[indexPath.section]];
+    header.iconImage.image = [UIImage imageNamed:@"search_expert"];
+    header.headText.text = [NSString stringWithFormat:@"%@",self.tableTittleDataArray[indexPath.section]];
     
     
     return header;
 }
 
+//Header 大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    
     return CGSizeMake(0, 40);
-    
 }
 
+//Footer 大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    if (section == 2) {
-        
-        return CGSizeMake(0, 8);
-    }
-    
     return CGSizeZero;
 }
 
 
 //列间距
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    
-    return 3.f;
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 3.0;
 }
 
 //行间距
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    
-    return 3.f;
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 3.0;
 }
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
     
-    return UIEdgeInsetsMake(0, 0, 0,0);
+    return UIEdgeInsetsMake(0,0,0,0);
 }
+
 /*
  格子的宽高设置
  */
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((kScreenWidth-self.tableView.right-15)/3.0, 40);
+    CGFloat itemSpace = 3.0;//item列间距
+    NSInteger line = 3;//行
+    
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)collectionViewLayout;
+    
+    NSLog(@"layout.sectionInset.left:%f",layout.sectionInset.left);
+    NSLog(@"contentInset.left:%f",collectionView.contentInset.left);
+
+    
+    return CGSizeMake((kScreenWidth-self.tableView.right -layout.sectionInset.left - layout.sectionInset.right - (line-1)*itemSpace)/line, 40);
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    id vc = nil;
     switch (indexPath.section) {
         case 0:
         {
-            if (indexPath.item == 0) {
-                WaterFallController *waterfallVC = [[WaterFallController alloc]init];
-                [self.navigationController pushViewController:waterfallVC animated:YES];
-            }else if (indexPath.item == 1) {
-//                TableViewVC *tableVC = [[TableViewVC alloc]init];
-               
-                id objc = [[NSClassFromString(@"TableViewVC") alloc]init];
-                [self.navigationController pushViewController:objc animated:YES];
+            if (indexPath.item == 0)
+            {
+                vc = [[WaterFallController alloc]init];
+                
+            }else if (indexPath.item == 1)
+            {
+                vc = [[NSClassFromString(@"TableViewVC") alloc]init];
+                
             }else if (indexPath.item == 2)
             {
                 //chat
-                QKCRChatControlViewController *naviVC = [QKCRChatControlViewController new];
-                [self.navigationController pushViewController:naviVC animated:YES];
+                vc = [QKCRChatControlViewController new];
+                
             }else if (indexPath.item == 3)
             {
                 //block
-                BlockViewController *naviVC = [BlockViewController new];
-                [self.navigationController pushViewController:naviVC animated:YES];
+                vc = [BlockViewController new];
+                
+            }else if (indexPath.item == 4)
+            {
+                TextViewController *vc = [TextViewController new];
+                vc.title = @"图文混排&硬件信息";
+
+            }else if (indexPath.item == 5)
+            {
+                vc = [ViewController new];
             }
         }
             break;
@@ -388,23 +387,22 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 //系统自带地图
-                MapViewController *mapVC = [[MapViewController alloc]init];
-                [self.navigationController pushViewController:mapVC animated:YES];
+                vc = [[MapViewController alloc]init];
+                
             }else if (indexPath.item == 1)
             {
                 //大头针
-                AnnotationController *mapVC = [[AnnotationController alloc]init];
-                [self.navigationController pushViewController:mapVC animated:YES];
+                vc = [[AnnotationController alloc]init];
+
             }else if (indexPath.item == 2)
             {
                 //系统地图导航/画线
-                SystemNavigationController *naviVC = [kStory instantiateViewControllerWithIdentifier:@"SystemNavigationController"];
-                [self.navigationController pushViewController:naviVC animated:YES];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"SystemNavigationController"];
+
             }else if (indexPath.item == 3)
             {
                 //百度地图
-                BaiDuMapController *mapVC = [[BaiDuMapController alloc]init];
-                [self.navigationController pushViewController:mapVC animated:YES];
+                vc = [[BaiDuMapController alloc]init];
             }
         }
             break;
@@ -412,18 +410,19 @@ static NSString *headerID = @"headerID";
         case 2:
         {
             if (indexPath.item == 0) {
-                LightSinceController *lightVC = [[LightSinceController alloc]init];
-                [self.navigationController pushViewController:lightVC animated:YES];
+                //光学传感器
+                vc = [[LightSinceController alloc]init];
+                
             }else if (indexPath.item == 1){
-                ThreeDTouchController *touchVC = [[ThreeDTouchController alloc]init];
-                [self.navigationController pushViewController:touchVC animated:YES];
+                //3DTouch
+                vc = [[ThreeDTouchController alloc]init];
+                
             }else if (indexPath.item == 2){
                 
             }else if (indexPath.item == 3){
-                id objc = [[NSClassFromString(@"DistanceController") alloc]init];
+                //距离传感器
+                vc = [[NSClassFromString(@"DistanceController") alloc]init];
                 
-//                ThreeDTouchController *touchVC = [[ThreeDTouchController alloc]init];
-                [self.navigationController pushViewController:objc animated:YES];
             }
         }
             break;
@@ -431,12 +430,11 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0)
             {
-                VoiceController *voiceVC = [[VoiceController alloc]init];
-                [self.navigationController pushViewController:voiceVC animated:YES];
+                vc = [[VoiceController alloc]init];
+                
             }else if (indexPath.item == 1)
             {
-                RecorderViewController *voiceVC = [[RecorderViewController alloc]init];
-                [self.navigationController pushViewController:voiceVC animated:YES];
+                vc = [[RecorderViewController alloc]init];
             }
         }
             break;
@@ -444,30 +442,27 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0)
             {
-                ImagePickController *pickerVC = [[ImagePickController alloc]init];
-                [self.navigationController pushViewController:pickerVC animated:YES];
+                vc = [[ImagePickController alloc]init];
+
             }else if (indexPath.item == 1)
             {
-                MovieFileOutputController *VC = [[MovieFileOutputController alloc]init];
-                [self presentViewController:VC animated:YES completion:nil];
+                vc = [[MovieFileOutputController alloc]init];
+
             }else if (indexPath.item == 2)
             {
                 CustomVideoController *VC = [[CustomVideoController alloc]init];
                 [self presentViewController:VC animated:YES completion:nil];
             }else if (indexPath.item == 3)
             {
-                AddVideoController *vc = [kStory instantiateViewControllerWithIdentifier:@"AddVideoController"];
-                [self.navigationController pushViewController:vc animated:YES];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"AddVideoController"];
             }
         }
             break;
-            
-            
         case 5:
         {
-            if (indexPath.item == 0) {
-                TakePhotoController *takePhotoVC = [[TakePhotoController alloc]init];
-                [self.navigationController pushViewController:takePhotoVC animated:YES];
+            if (indexPath.item == 0)
+            {
+                vc = [[TakePhotoController alloc]init];
             }
         }
             break;
@@ -475,39 +470,40 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0)
             {
-                ContactsController *contactVC = [[ContactsController alloc]init];
-                [self.navigationController pushViewController:contactVC animated:YES];
+                vc = [[ContactsController alloc]init];
+
             }else if (indexPath.item == 1)
             {
-                CustomContactsController *contactVC = [[CustomContactsController alloc]init];
-                [self.navigationController pushViewController:contactVC animated:YES];
+                vc = [[CustomContactsController alloc]init];
             }
         }
             break;
         case 7:
         {
             if (indexPath.item == 0) {
-                QRCodeController *takePhotoVC = [[QRCodeController alloc]init];
-                [self.navigationController pushViewController:takePhotoVC animated:YES];
+                
+                vc = [[QRCodeController alloc]init];
+                
             }else if (indexPath.item == 1)
             {
-                CreatQRCodeController *takePhotoVC = [kStory instantiateViewControllerWithIdentifier:@"CreatQRCodeController"];
-                [self.navigationController pushViewController:takePhotoVC animated:YES];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"CreatQRCodeController"];
             }
         }
             break;
         case 8:
         {
             if (indexPath.item == 0) {
-                AnimationController *animationVC = [[AnimationController alloc]init];
-                animationVC.title = @"基本动画";
-                [self.navigationController pushViewController:animationVC animated:YES];
+                
+                AnimationController *vc = (AnimationController *)[[AnimationController alloc]init];
+                vc.title = @"基本动画";
+                
             }else if (indexPath.item == 1) {
-                LoadingViewController *takePhotoVC = [[LoadingViewController alloc]init];
-                [self.navigationController pushViewController:takePhotoVC animated:YES];
+                
+                vc = [[LoadingViewController alloc]init];
+                
             }else if (indexPath.item == 2){
-                TransitionController *transitionVC = [kStory instantiateViewControllerWithIdentifier:@"TransitionController"];
-                [self.navigationController pushViewController:transitionVC animated:YES];
+                
+                vc = [kStory instantiateViewControllerWithIdentifier:@"TransitionController"];
             }
         }
             break;
@@ -515,19 +511,16 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                MultiRequestController *VC = [[MultiRequestController alloc]init];
-                [self.navigationController pushViewController:VC animated:YES];
+                vc = [[MultiRequestController alloc]init];
+
             }else if (indexPath.item == 1) {
                 
-                RequestController *VC = [[RequestController alloc]init];
-                [self.navigationController pushViewController:VC animated:YES];
+                vc = [[RequestController alloc]init];
+
             }else if (indexPath.item == 2) {
                 
-//                DownLoadViewController *VC = [[DownLoadViewController alloc]init];
-                TouchController *VC = [kStory instantiateViewControllerWithIdentifier:@"DownLoadViewController"];
-
-                VC.title = @"下载";
-                [self.navigationController pushViewController:VC animated:YES];
+               DownLoadViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"DownLoadViewController"];
+                vc.title = @"下载";
             }
         }
             break;
@@ -535,8 +528,7 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
               //触摸
-                TouchController *VC = [kStory instantiateViewControllerWithIdentifier:@"TouchController"];
-                [self.navigationController pushViewController:VC animated:YES];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"TouchController"];
             }
         }
             break;
@@ -544,29 +536,35 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                DataStorageController *VC = [kStory instantiateViewControllerWithIdentifier:@"DataStorageController"];
-//                VC.title = @"数据存储";
+                vc = [kStory instantiateViewControllerWithIdentifier:@"DataStorageController"];
                 
-                [self.navigationController pushViewController:VC animated:YES];
+            }else if (indexPath.item == 1)
+            {
+                LeanCloudViewController *vc = [LeanCloudViewController new];
+                vc.title = @"LeanCloud";
+                
+            }else if (indexPath.item == 2)
+            {
+                CoreDataController *vc = [CoreDataController new];
+                vc.title = @"CoreData";
             }
         }
             break;
         case 12:
         {
             if (indexPath.item == 0) {
-                UIViewController *VC = [kStory instantiateViewControllerWithIdentifier:@"DrawView"];
-                VC.navigationItem.title = @"绘图";
-                [self.navigationController pushViewController:VC animated:YES];
+                
+                UIViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"DrawView"];
+                vc.navigationItem.title = @"绘图";
+                
             }else if (indexPath.item == 1)
             {
-                ClockViewController *VC = [ClockViewController new];
-                VC.navigationItem.title = @"时钟";
-                [self.navigationController pushViewController:VC animated:YES];
+                ClockViewController *vc = [ClockViewController new];
+                vc.navigationItem.title = @"时钟";
+
             }else if (indexPath.item == 2)
             {
-                DrawingBoardController *VC = [kStory instantiateViewControllerWithIdentifier:@"DrawingBoardController"];
-//                VC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:VC animated:YES];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"DrawingBoardController"];
             }
         }
             break;
@@ -582,6 +580,9 @@ static NSString *headerID = @"headerID";
             break;
         case 15:
         {
+        
+            WebViewController *vc = [WebViewController new];
+            vc.navigationItem.title = @"JS互调";
             
         }
             break;
@@ -593,9 +594,10 @@ static NSString *headerID = @"headerID";
         case 17:
         {
             if (indexPath.item == 0) {
-                ThreadViewController *VC = [ThreadViewController new];
-                VC.navigationItem.title = @"多线程";
-                [self.navigationController pushViewController:VC animated:YES];
+                
+                ThreadViewController *vc = [ThreadViewController new];
+                vc.navigationItem.title = @"多线程";
+
             }else if (indexPath.item == 1)
             {
                 
@@ -606,57 +608,80 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0)
             {
-                RACViewController *VC = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
-                VC.navigationItem.title = @"RAC";
-                [self.navigationController pushViewController:VC animated:YES];
+                RACViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
+                vc.navigationItem.title = @"RAC";
+
             }else if (indexPath.item == 1)
             {
                 FunctionViewController *vc = [FunctionViewController new];
                 vc.title = @"函数式编程";
-                [self.navigationController pushViewController:vc animated:YES];
                 
             }else if (indexPath.item == 2)
             {
                 ChainViewController *vc = [ChainViewController new];
                 vc.title = @"链式编程";
-                [self.navigationController pushViewController:vc animated:YES];
+
             }else if (indexPath.item == 3)
             {
                 runtimeViewController *vc = [runtimeViewController new];
                 vc.title = @"runtime";
-                [self.navigationController pushViewController:vc animated:YES];
                 
             }else if (indexPath.item == 4)
             {
                 runloopViewController *vc = [runloopViewController new];
                 vc.title = @"runloop";
-                [self.navigationController pushViewController:vc animated:YES];
             }
         }
             break;
             case 19:
         {
             if (indexPath.item == 0) {
-                TimerController *VC = [TimerController new];
-                VC.navigationItem.title = @"计时器";
-                [self.navigationController pushViewController:VC animated:YES];
+                
+                BlueToothController *vc = [kStory instantiateViewControllerWithIdentifier:@"BlueToothController"];
+                vc.navigationItem.title = @"蓝牙";
+
             }else if (indexPath.item == 1)
             {
-                SecurityController *VC = [SecurityController new];
-                VC.navigationItem.title = @"密码安全";
-                [self.navigationController pushViewController:VC animated:YES];
+                CBPeripheralViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"CBPeripheralViewController"];
+                vc.navigationItem.title = @"蓝牙外设";
+            }
+            
+        }
+            break;
+            case 20:
+        {
+            if (indexPath.item == 0) {
+                
+                FaceViewController *vc = [FaceViewController new];
+                vc.navigationItem.title = @"人脸识别";
+            }
+        }
+            break;
+            case 21:
+        {
+            if (indexPath.item == 0) {
+                
+                TimerController *vc = [TimerController new];
+                vc.navigationItem.title = @"计时器";
+
+            }else if (indexPath.item == 1)
+            {
+                SecurityController *vc = [SecurityController new];
+                vc.navigationItem.title = @"密码安全";
+
             }else if (indexPath.item == 2)
             {
-//                RACViewController *VC = [RACViewController new];
-                RACViewController *VC = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
-                VC.navigationItem.title = @"RAC";
-                [self.navigationController pushViewController:VC animated:YES];
+                RACViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
+                vc.navigationItem.title = @"RAC";
             }
         }
             break;
         default:
             break;
     }
+    
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 -(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler

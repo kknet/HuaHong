@@ -8,6 +8,6 @@
 
 #import "BaseVideoController.h"
 
-@interface BlueToothController : BaseVideoController
+@interface BlueToothController : UIViewController
 
 @end

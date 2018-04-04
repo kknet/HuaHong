@@ -7,8 +7,12 @@
 //
 
 #import "XTSegmentControl.h"
+#import "UIColor+Category.h"
 
-#define XTSegmentControlItemFont (12)
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+
+#define XTSegmentControlItemFont (17)
 
 #define XTSegmentControlHspace (0)
 
@@ -19,11 +23,6 @@
 #define XTSegmentControlIconWidth (50.0)
 
 #define XTSegmentControlIconSpace (4)
-
-#define kDevice_Is_iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
-
-#define kDevice_Is_iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
-
 
 typedef NS_ENUM(NSInteger, XTSegmentControlItemType)
 {
@@ -90,13 +89,8 @@ typedef NS_ENUM(NSInteger, XTSegmentControlItemType)
                 _titleLabel = ({
                     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(XTSegmentControlHspace, 0, CGRectGetWidth(self.bounds) - 2 * XTSegmentControlHspace, CGRectGetHeight(self.bounds))];
                     label.font = [UIFont systemFontOfSize:XTSegmentControlItemFont];
-                    if ([title isEqualToString:@"2服务中心房间"] || [title isEqualToString:@"3分公司房间"]) {
-                        label.textAlignment = NSTextAlignmentRight;
-                    } else {
-                        label.textAlignment = NSTextAlignmentCenter;
-                    }
-                    label.text = title;
                     label.textAlignment = NSTextAlignmentCenter;
+                    label.text = title;
                     label.textColor = [UIColor colorWithHexString:@"0x222222"];
                     label.backgroundColor = [UIColor clearColor];
                     label;
@@ -241,6 +235,11 @@ typedef NS_ENUM(NSInteger, XTSegmentControlItemType)
     return self;
 }
 
+- (void)setItems:(NSArray *)titleItem selectedBlock:(XTSegmentControlBlock)selectedHandle {
+    self.block = selectedHandle;
+    [self initUIWith:NO Items:titleItem];
+}
+
 - (void)doTap:(UITapGestureRecognizer *)sender
 {
     CGPoint point = [sender locationInView:sender.view];
@@ -285,7 +284,7 @@ typedef NS_ENUM(NSInteger, XTSegmentControlItemType)
     if ([obj isKindOfClass:[NSString class]]) {
         for (int i = 0; i < titleArray.count; i++) {
             float x = i > 0 ? CGRectGetMaxX([_itemFrames[i-1] CGRectValue]) : 0;
-            float width = [UIScreen mainScreen].bounds.size.width/titleArray.count;
+            float width = SCREEN_WIDTH/titleArray.count;
             CGRect rect = CGRectMake(x, y, width, height);
             [_itemFrames addObject:[NSValue valueWithCGRect:rect]];
         }
@@ -459,7 +458,7 @@ typedef NS_ENUM(NSInteger, XTSegmentControlItemType)
 
 - (void)setScrollOffset:(NSInteger)index
 {
-    if (_contentView.contentSize.width <= [UIScreen mainScreen].bounds.size.width) {
+    if (_contentView.contentSize.width <= SCREEN_WIDTH) {
         return;
     }
     

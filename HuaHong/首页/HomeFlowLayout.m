@@ -8,34 +8,17 @@
 
 #import "HomeFlowLayout.h"
 
-@interface HomeFlowLayout()
-@property (nonatomic, assign) CGFloat naviHeight;
-
-@end
-
 @implementation HomeFlowLayout
-
--(instancetype)init
-{
-    self = [super init];
-    if (self)
-    {
-        _naviHeight = 0.0;
-    }
-    return self;
-}
-
 
 #pragma mark--这个方法中返回我们的布局数组
 -(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-//    NSLog(@"layoutAttributesForElementsInRect");
 
-    //截取到父类所返回的数组（里面放的是当前屏幕所能展示的item的结构信息），并转化成不可变数组
+    //截取到父类所返回的数组（里面放的是当前屏幕所能展示的item的结构信息），并转化成可变数组
     NSMutableArray *superArray = [[super layoutAttributesForElementsInRect:rect] mutableCopy];
     
-    //创建存索引的数组，无符号（正整数），无序（不能通过下标取值），不可重复（重复的话会自动过滤）
-    NSMutableIndexSet *noneHeaderSections = [NSMutableIndexSet indexSet];
+    //创建存索引的集合，无符号（正整数），无序（不能通过下标取值），不可重复（重复的话会自动过滤）
+    NSMutableIndexSet *headSectionsSet = [NSMutableIndexSet indexSet];
     
     //遍历superArray，得到一个当前屏幕中所有的section数组
     for (UICollectionViewLayoutAttributes *attributes in superArray)
@@ -43,7 +26,7 @@
         //如果当前的元素分类是一个cell，将cell所在的分区section加入数组，重复的话会自动过滤
         if (attributes.representedElementCategory == UICollectionElementCategoryCell)
         {
-            [noneHeaderSections addIndex:attributes.indexPath.section];
+            [headSectionsSet addIndex:attributes.indexPath.section];
         }
     }
     
@@ -54,12 +37,12 @@
         //如果当前的元素是一个header，将header所在的section从数组中移除
         if ([attributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader])
         {
-            [noneHeaderSections removeIndex:attributes.indexPath.section];
+            [headSectionsSet removeIndex:attributes.indexPath.section];
         }
     }
     
     //遍历当前屏幕中没有header的section数组
-    [noneHeaderSections enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
+    [headSectionsSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
         
         //取到当前section中第一个item的indexPath
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:idx];
@@ -112,7 +95,7 @@
             CGRect rect = attributes.frame;
             
             //当前的滑动距离 + 因为导航栏产生的偏移量，默认为64（如果app需求不同，需自己设置）
-            CGFloat offset = self.collectionView.contentOffset.y + _naviHeight;
+            CGFloat offset = self.collectionView.contentOffset.y;
             //第一个cell的y值 - 当前header的高度 - 可能存在的sectionInset的top
             CGFloat headerY = firstItemAttributes.frame.origin.y - rect.size.height - self.sectionInset.top;
             
@@ -140,18 +123,18 @@
     
 }
 
-//return YES;表示一旦滑动就实时调用上面这个layoutAttributesForElementsInRect:方法
-- (BOOL) shouldInvalidateLayoutForBoundsChange:(CGRect)newBound
-{
-//    NSLog(@"shouldInvalidateLayoutForBoundsChange");
-
-    return YES;
-}
-
--(void)prepareLayout
-{
-//    NSLog(@"prepareLayout");
-}
+////return YES;表示一旦滑动就实时调用上面这个layoutAttributesForElementsInRect:方法
+//- (BOOL) shouldInvalidateLayoutForBoundsChange:(CGRect)newBound
+//{
+////    NSLog(@"shouldInvalidateLayoutForBoundsChange");
+//
+//    return YES;
+//}
+//
+//-(void)prepareLayout
+//{
+////    NSLog(@"prepareLayout");
+//}
 @end
 
 

@@ -660,6 +660,79 @@
             </objects>
             <point key="canvasLocation" x="2152.8000000000002" y="-90.404797601199405"/>
         </scene>
+        <!--Blue Tooth Controller-->
+        <scene sceneID="y6f-X8-03p">
+            <objects>
+                <viewController storyboardIdentifier="BlueToothController" id="Vcs-hs-atY" customClass="BlueToothController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6ft-q8-iBa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RBo-b2-unn">
+                                <rect key="frame" x="30" y="176" width="315" height="315"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RBo-b2-unn" secondAttribute="height" multiplier="1:1" id="aWE-g5-8Pl"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xEv-8n-89P" appends="YES" id="En8-ts-IW2"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcZ-WM-5s2">
+                                <rect key="frame" x="30" y="521" width="85" height="30"/>
+                                <state key="normal" title="连接"/>
+                                <connections>
+                                    <action selector="connecct:" destination="Vcs-hs-atY" eventType="touchUpInside" id="SwA-Oa-fi0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZB-gh-gPz">
+                                <rect key="frame" x="145" y="521" width="85" height="30"/>
+                                <state key="normal" title="发送"/>
+                                <connections>
+                                    <action selector="sendAction:" destination="Vcs-hs-atY" eventType="touchUpInside" id="CwZ-Oh-m1A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwg-Yi-86d">
+                                <rect key="frame" x="260" y="521" width="85" height="30"/>
+                                <state key="normal" title="断开"/>
+                                <connections>
+                                    <action selector="disConnect:" destination="Vcs-hs-atY" eventType="touchUpInside" id="O5A-VQ-xAc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dwg-Yi-86d" firstAttribute="width" secondItem="bcZ-WM-5s2" secondAttribute="width" id="1Yx-cI-hxb"/>
+                            <constraint firstItem="RBo-b2-unn" firstAttribute="leading" secondItem="UqB-O1-WVF" secondAttribute="leading" constant="30" id="2Nj-dw-AqW"/>
+                            <constraint firstItem="MZB-gh-gPz" firstAttribute="leading" secondItem="bcZ-WM-5s2" secondAttribute="trailing" constant="30" id="AZ3-uw-vxy"/>
+                            <constraint firstItem="bcZ-WM-5s2" firstAttribute="top" secondItem="RBo-b2-unn" secondAttribute="bottom" constant="30" id="FDb-KL-gfW"/>
+                            <constraint firstItem="MZB-gh-gPz" firstAttribute="top" secondItem="RBo-b2-unn" secondAttribute="bottom" constant="30" id="KTJ-DW-btv"/>
+                            <constraint firstItem="UqB-O1-WVF" firstAttribute="trailing" secondItem="Dwg-Yi-86d" secondAttribute="trailing" constant="30" id="Lie-DJ-JhB"/>
+                            <constraint firstItem="Dwg-Yi-86d" firstAttribute="top" secondItem="RBo-b2-unn" secondAttribute="bottom" constant="30" id="N56-9w-I7M"/>
+                            <constraint firstItem="Dwg-Yi-86d" firstAttribute="leading" secondItem="MZB-gh-gPz" secondAttribute="trailing" constant="30" id="Z1V-48-ybm"/>
+                            <constraint firstItem="MZB-gh-gPz" firstAttribute="width" secondItem="bcZ-WM-5s2" secondAttribute="width" id="czY-zc-z3x"/>
+                            <constraint firstItem="MZB-gh-gPz" firstAttribute="height" secondItem="bcZ-WM-5s2" secondAttribute="height" id="iMD-kn-wo8"/>
+                            <constraint firstItem="Dwg-Yi-86d" firstAttribute="height" secondItem="bcZ-WM-5s2" secondAttribute="height" id="mKE-9B-xlg"/>
+                            <constraint firstItem="RBo-b2-unn" firstAttribute="centerY" secondItem="6ft-q8-iBa" secondAttribute="centerY" id="o6C-ia-jWw"/>
+                            <constraint firstItem="UqB-O1-WVF" firstAttribute="trailing" secondItem="RBo-b2-unn" secondAttribute="trailing" constant="30" id="oSg-mu-HQo"/>
+                            <constraint firstItem="bcZ-WM-5s2" firstAttribute="leading" secondItem="UqB-O1-WVF" secondAttribute="leading" constant="30" id="yH4-74-JOc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UqB-O1-WVF"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="RBo-b2-unn" id="bbo-vC-ZZb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r5P-4R-E3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xEv-8n-89P">
+                    <connections>
+                        <action selector="selectPhoto:" destination="Vcs-hs-atY" id="rcM-mE-MYm"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2919" y="-81"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="fdb-uP-YGF">
             <objects>
@@ -826,6 +899,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVA-FC-mco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1272" y="-1022"/>
+        </scene>
+        <!--Peripheral View Controller-->
+        <scene sceneID="jnk-fD-aXA">
+            <objects>
+                <viewController storyboardIdentifier="CBPeripheralViewController" id="cmZ-Ow-442" customClass="CBPeripheralViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w1K-Fn-d9J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ExJ-LE-0Sg">
+                                <rect key="frame" x="30" y="176" width="315" height="315"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ExJ-LE-0Sg" secondAttribute="height" multiplier="1:1" id="Ov9-qZ-um8"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6Au-e1-Q8r" appends="YES" id="49V-fi-Jr7"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an4-uV-d1Q">
+                                <rect key="frame" x="30" y="521" width="85" height="30"/>
+                                <state key="normal" title="连接"/>
+                                <connections>
+                                    <action selector="connectAction:" destination="cmZ-Ow-442" eventType="touchUpInside" id="5tb-Gy-fEs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAn-ON-VS7">
+                                <rect key="frame" x="145" y="521" width="85" height="30"/>
+                                <state key="normal" title="发送"/>
+                                <connections>
+                                    <action selector="sendAction:" destination="cmZ-Ow-442" eventType="touchUpInside" id="axN-55-bd5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbV-hk-zrf">
+                                <rect key="frame" x="260" y="521" width="85" height="30"/>
+                                <state key="normal" title="断开"/>
+                                <connections>
+                                    <action selector="disConnectAction:" destination="cmZ-Ow-442" eventType="touchUpInside" id="ftC-45-EK9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="siD-ir-PG9" firstAttribute="trailing" secondItem="wbV-hk-zrf" secondAttribute="trailing" constant="30" id="2T6-UZ-VNv"/>
+                            <constraint firstItem="wbV-hk-zrf" firstAttribute="top" secondItem="ExJ-LE-0Sg" secondAttribute="bottom" constant="30" id="4JE-pc-IJg"/>
+                            <constraint firstItem="UAn-ON-VS7" firstAttribute="width" secondItem="an4-uV-d1Q" secondAttribute="width" id="AQ3-3g-h7G"/>
+                            <constraint firstItem="wbV-hk-zrf" firstAttribute="leading" secondItem="UAn-ON-VS7" secondAttribute="trailing" constant="30" id="EBB-Ov-bD6"/>
+                            <constraint firstItem="UAn-ON-VS7" firstAttribute="leading" secondItem="an4-uV-d1Q" secondAttribute="trailing" constant="30" id="GHX-Wl-P5k"/>
+                            <constraint firstItem="ExJ-LE-0Sg" firstAttribute="leading" secondItem="siD-ir-PG9" secondAttribute="leading" constant="30" id="a5H-CT-IvN"/>
+                            <constraint firstItem="siD-ir-PG9" firstAttribute="trailing" secondItem="ExJ-LE-0Sg" secondAttribute="trailing" constant="30" id="fW0-Jk-lWH"/>
+                            <constraint firstItem="an4-uV-d1Q" firstAttribute="leading" secondItem="siD-ir-PG9" secondAttribute="leading" constant="30" id="fun-qv-Lfy"/>
+                            <constraint firstItem="an4-uV-d1Q" firstAttribute="top" secondItem="ExJ-LE-0Sg" secondAttribute="bottom" constant="30" id="hHW-va-Mf0"/>
+                            <constraint firstItem="wbV-hk-zrf" firstAttribute="height" secondItem="an4-uV-d1Q" secondAttribute="height" id="iFO-Aq-S5T"/>
+                            <constraint firstItem="ExJ-LE-0Sg" firstAttribute="centerY" secondItem="w1K-Fn-d9J" secondAttribute="centerY" id="mOK-09-sC3"/>
+                            <constraint firstItem="wbV-hk-zrf" firstAttribute="width" secondItem="an4-uV-d1Q" secondAttribute="width" id="pkt-L9-iy7"/>
+                            <constraint firstItem="UAn-ON-VS7" firstAttribute="top" secondItem="ExJ-LE-0Sg" secondAttribute="bottom" constant="30" id="s7u-BM-cWd"/>
+                            <constraint firstItem="UAn-ON-VS7" firstAttribute="height" secondItem="an4-uV-d1Q" secondAttribute="height" id="ycp-aV-gh1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="siD-ir-PG9"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="ExJ-LE-0Sg" id="57I-NT-mrI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W9G-AH-hYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6Au-e1-Q8r">
+                    <connections>
+                        <action selector="selectPhoto:" destination="cmZ-Ow-442" id="xJh-Aj-wlq"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3684" y="-90"/>
         </scene>
     </scenes>
     <resources>

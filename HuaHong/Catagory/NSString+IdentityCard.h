@@ -50,4 +50,8 @@ typedef enum : NSUInteger {
 
 /* !@brief **** 做验证  */
 - (BOOL)isEmpty;
+
+-(NSString *)encodeString;
+-(NSString *)decodeString;
+
 @end

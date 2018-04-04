@@ -324,7 +324,7 @@
     NSURL *url = [NSURL fileURLWithPath:myPathDocs];
     
     
-    // 5 - Create exporter
+    // 5 - 视频导出
     AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:mixComposition
                                                                       presetName:AVAssetExportPresetHighestQuality];
     
@@ -531,19 +531,31 @@
     return filesize;
 }
 
-//转MP4
+//转MP4 压缩视频
 + (void)changeMovToMp4:(NSURL *)mediaURL
 {
     AVAsset *video = [AVAsset assetWithURL:mediaURL];
-    AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:video presetName:AVAssetExportPreset1280x720];
-    exportSession.shouldOptimizeForNetworkUse = YES;
-    exportSession.outputFileType = AVFileTypeMPEG4;
-    NSString * basePath=[self getVideoCachePath];
     
+    /**
+     * presetName： 视频质量
+     */
+    AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:video presetName:AVAssetExportPresetLowQuality];
+    
+//    指示输出文件应使用网络优化
+//    exportSession.shouldOptimizeForNetworkUse = YES;
+    
+    //设置输出文件类型
+    exportSession.outputFileType = AVFileTypeMPEG4;
+    
+    //设置输出路径
+    NSString * basePath=[self getVideoCachePath];
     exportSession.outputURL = [NSURL fileURLWithPath:basePath];
+    
+    //导出
     [exportSession exportAsynchronouslyWithCompletionHandler:^{
     }];
 }
+
 
 //#pragma mark GPUImage水印
 //+(void)saveVedioPath:(NSURL*)vedioPath WithQustion:(NSString*)question WithFileName:(NSString*)fileName

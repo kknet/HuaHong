@@ -6,12 +6,14 @@
 //  Copyright (c) 2015年 wxk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface Utils : NSObject
 
 
 +(NSString*)formatString:(NSString*)timeString;
 
 +(NSString *)convertToJsonFrom:(id)data;
+
+#pragma mark 方向校正
++ (UIImage*)fixOrientation:(UIImage*)aImage;
 @end

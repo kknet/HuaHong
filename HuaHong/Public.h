@@ -10,6 +10,11 @@
 #define Public_h
 
 #define kStory [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]
+
+#define kDevice_Is_iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define kDevice_Is_iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
 //#define kBaseURL @"http://192.168.0.5"
 #define kBaseURL @"http://172.31.0.47"
 
@@ -21,10 +26,15 @@
 #import <SSZipArchive.h>
 #import "ReactiveObjc.h"
 #import <NSObject+RACKVOWrapper.h>
-#import "CALayer+borderColor.h"
-#import "UILabel+autoReSize.h"
-#import "NSString+IdentityCard.h"
 #import "BaseModel.h"
+#import "AppDelegate.h"
+#import "HUtils.h"
+
+//#import "CALayer+borderColor.h"
+//#import "UILabel+autoReSize.h"
+//#import "NSString+IdentityCard.h"
+//#import "UIView+AutoLayout.h"
+
 
 
 #import "MapViewController.h"
@@ -67,7 +77,23 @@
 #import "ChainViewController.h"
 #import "runtimeViewController.h"
 #import "runloopViewController.h"
-
+#import "BlueToothController.h"
+#import "CBPeripheralViewController.h"
+#import "LeanCloudViewController.h"
+#import "FaceViewController.h"
+#import "WebViewController.h"
+#import "TextViewController.h"
+#import "CoreDataController.h"
+#import "ViewController.h"
+//#import "HHCategory.h"
+#import "UIViewExt.h"
+#import "UIView+AutoLayout.h"
+#import "UILabel+autoReSize.h"
+#import "UIColor+Category.h"
+#import "NSURL+hook.h"
+#import "NSString+IdentityCard.h"
+#import "NSArray+NSDictionary_Log.h"
+#import "CALayer+borderColor.h"
 
 
 #endif /* Public_h */

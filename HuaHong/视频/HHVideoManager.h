@@ -80,7 +80,7 @@
 //获取视频大小
 + (CGFloat)getFileSize:(NSString *)path;
 
-//转MP4
+//转MP4 压缩视频
 + (void)changeMovToMp4:(NSURL *)mediaURL;
 
 @end

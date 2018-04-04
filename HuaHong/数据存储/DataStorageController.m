@@ -79,7 +79,6 @@
 //    NSArray *array1 = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath2];
 //    NSLog(@"array1:%@",array1);
 
-
     
 }
 

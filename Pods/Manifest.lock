@@ -14,8 +14,10 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AVOSCloud (8.2.0)
   - BaiduMapKit (3.4.2)
-  - hhtestPod (0.1.0)
+  - FaceppSDK (2.0.0)
+  - HHCategory (0.3.8)
   - iCarousel (1.8.3)
   - Masonry (1.1.0)
   - ReactiveObjC (3.1.0)
@@ -25,11 +27,15 @@ PODS:
   - SSKeychain (1.4.1)
   - SSZipArchive (2.1.1)
   - SVProgressHUD (2.2.2)
+  - SystemServices (2.0.1)
+  - XYPieChart (0.2)
 
 DEPENDENCIES:
   - AFNetworking
+  - AVOSCloud
   - BaiduMapKit
-  - hhtestPod (~> 0.1.0)
+  - FaceppSDK (~> 2.0.0)
+  - HHCategory (~> 0.3.8)
   - iCarousel (~> 1.8.3)
   - Masonry
   - ReactiveObjC (~> 3.1.0)
@@ -37,11 +43,15 @@ DEPENDENCIES:
   - SSKeychain (~> 1.4.1)
   - SSZipArchive
   - SVProgressHUD
+  - SystemServices (~> 2.0.1)
+  - XYPieChart
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AVOSCloud: c28318404ce474e722e09c8ac103fc58b2610074
   BaiduMapKit: f61b19ecf07a3f2deede72b221b366bf698739ed
-  hhtestPod: 6d4009d4bbfb75f1b29d2a78889622ced07a7d31
+  FaceppSDK: c83bcadb7bbc512a3bb792f3cda407e14e0208b1
+  HHCategory: a1545b6f0f82d8a022ec50fe0efed49b6c37976a
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
@@ -49,7 +59,9 @@ SPEC CHECKSUMS:
   SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  SystemServices: 7af348493ece8951449b476c41532df72569b181
+  XYPieChart: 0efd8069d26c25d20ab74c01b5ad455f1fc48153
 
-PODFILE CHECKSUM: 60b276f39171b1eb41916da4b30d13e1852fe9f8
+PODFILE CHECKSUM: 1885530950cda58dde157144fef5f9b6faf28b8b
 
 COCOAPODS: 1.3.1

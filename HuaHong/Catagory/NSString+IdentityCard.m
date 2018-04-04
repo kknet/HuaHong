@@ -394,4 +394,15 @@
     }
     return YES;
 }
+
+-(NSString *)encodeString
+{
+   return  [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
+-(NSString *)decodeString
+{
+  return  [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
 @end

@@ -52,6 +52,10 @@
     //利用KVC 将自己的tabbar赋给系统tabBar
     [self setValue:_myTabBar forKey:@"tabBar"];
     
+//    UIImage *image = [HUtils imageWithColor:[UIColor orangeColor]];
+//    [self.myTabBar setShadowImage:image];
+//    [self.myTabBar setBackgroundImage:image];
+    
     /**
      * ios10 新特性
      */
@@ -78,7 +82,6 @@
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     StoryboardHomeController *storyVC = [story instantiateViewControllerWithIdentifier:@"StoryboardHomeController"];
     [self setupChildVc:storyVC title:@"StoryBoard" image:@"mes_icon" selectedImage:@"mes_icon_sel"];
-    
     
     [self setupChildVc:[[HomeVC alloc] init] title:@"Home" image:nil selectedImage:nil];
     

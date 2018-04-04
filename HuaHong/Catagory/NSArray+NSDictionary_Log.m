@@ -35,7 +35,7 @@
 
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
 {
-    NSMutableString *strM = [NSMutableString stringWithString:@"\n{\n"];
+    NSMutableString *strM = [NSMutableString stringWithString:@"{\n"];
     
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([obj isKindOfClass:[NSString class]]) {
@@ -47,7 +47,7 @@
         
     }];
     
-    [strM appendString:@"}\n"];
+    [strM appendString:@"\t}"];
     
     return strM;
 }

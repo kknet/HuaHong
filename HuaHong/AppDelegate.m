@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "FaceppAPI.h"
 #import "AppDelegate+Notification.h"
 #import "TabBarViewController.h"
 #import "LocationManager.h"
@@ -14,7 +16,10 @@
 @interface AppDelegate ()
 
 @end
-
+#define AppID_LeanCloud @"MzO33NdKfaN8ceAKO1IBHEGa-gzGzoHsz"
+#define AppKey_LeanCloud @"jkiMcMrIVxUE2JpJoPeWmKQ4"
+#define AppKey_Face @"i2v1x_zCb8P8rx7OtgtJ2O6fpNLyLFl5"
+#define AppSecret_Face @"5f34UqXdZjz7f64yDpFUQoOQJyxwHtye"
 @implementation AppDelegate
 
 /**
@@ -53,8 +58,40 @@
     
     [self baiduMap];
     
+    //云端存储
+    [self leanCloud];
+    
+    //人脸识别
+    [self face];
+    
     return YES;
 }
+
+#pragma mark 此方法用于处理应用间跳转的
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //1. 获取跟控制器, 执行跳转
+    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    // 主控制器
+    UIViewController *mainVC =  nav.childViewControllers[0];
+    
+    //2. 回到根控制器
+    [nav popToRootViewControllerAnimated:YES];
+    
+    
+    
+    //1. 获取 URL
+    NSString *URLStr = url.absoluteString;
+    
+    //2. 判断是否包含指定的关键词
+    if ([URLStr containsString:@"session"])
+    {
+        //3. 根据关键词跳转指定的界面
+    }
+    
+    return YES;
+}
+
 
 -(void)baiduMap
 {
@@ -199,8 +236,60 @@
     
 }
 
+-(void)leanCloud
+{
+    
+    [AVOSCloud setApplicationId:AppID_LeanCloud clientKey:AppKey_LeanCloud];
+    
+    [AVOSCloud setAllLogsEnabled:NO];
 
+}
 
+-(void)face
+{
+    // 初始化 SDK
+    [FaceppAPI initWithApiKey:AppKey_Face andApiSecret:AppSecret_Face
+                    andRegion:APIServerRegionCN];
+    
+    /// 开始 Debug 模式
+    // 如果设置 YES, 就会输出打印信息
+    [FaceppAPI setDebugMode:NO];
+}
 
+-(void)updateVersion
+{
+    NSString *LocalVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSLog(@"LocalVersion:%@",LocalVersion);
+    NSString *LineVersion = @"8.8.1.0";
+    if ([LocalVersion compare:LineVersion options:NSNumericSearch] == NSOrderedDescending) {
+        //降序
+        NSLog(@"%@  >  %@",LocalVersion,LineVersion);
+    }else if ([LocalVersion compare:LineVersion options:NSNumericSearch] == NSOrderedAscending){
+        //升序
+        NSLog(@"%@  <  %@",LocalVersion,LineVersion);
+    }else if ([LocalVersion compare:LineVersion options:NSNumericSearch] == NSOrderedSame){
+        //升序
+        NSLog(@"%@  =  %@",LocalVersion,LineVersion);
+        
+    }
+    NSError *error;
+    NSURL *url = [NSURL URLWithString:@"http://itunes.apple.com/lookup?id=1116017277"];
+    NSURLRequest *request= [NSURLRequest requestWithURL:url];
+    NSData *response=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *dict=  [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    
+    NSArray *results= [dict objectForKey:@"results"];
+    if([results count])
+    {
+        NSDictionary *resDict= [results objectAtIndex:0];
+        NSString *newVersion = [resDict objectForKey:@"version"];
+        NSString *trackViewUrl=[resDict objectForKey:@"trackViewUrl"];
+        
+        dispatch_after(0.2, dispatch_get_main_queue(), ^{
+            
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:trackViewUrl]];
+        });
+    }
+}
 @end
 

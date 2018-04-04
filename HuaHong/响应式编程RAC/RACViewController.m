@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet RACView *racView;
 @property (nonatomic,strong)id <RACSubscriber> subscriber;
-
+@property (nonatomic,strong) RACCommand *command;
 //@property (strong, nonatomic) RACDisposable *disposable;
 
 @end
@@ -35,6 +35,10 @@
 //    [self RACSignal];
 
 //    [self racTimer];
+    
+    [self racCommand2];
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -56,6 +60,8 @@
 //    [self RACObserve];
     
     [self rac_gestureSignal];
+    
+    [self racCommand];
     
 }
 
@@ -345,6 +351,15 @@
     [self.racView addGestureRecognizer:tap];
 }
 
+#pragma mark UIDatePicker
+-(void)datePicker
+{
+    UIDatePicker *_datePicker = [UIDatePicker new];
+    [[_datePicker rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(__kindof UIDatePicker * _Nullable x) {
+       NSDate *_tmpDate = x.date;
+    }];
+}
+
 #pragma mark - RACReplaySubject
 -(void)RACReplaySubject
 {
@@ -356,5 +371,80 @@
     }];
     
     [replaySubject sendNext:@"RACReplaySubject"];
+}
+
+#pragma mark - RACCommand
+-(void)racCommand
+{
+    self.command = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        
+        RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            
+            //参数
+            NSLog(@"参数:%@",input);
+            
+            //处理事情，比如网络请求
+            
+            [subscriber sendNext:@"command data"];
+            [subscriber sendCompleted];
+            
+//            [subscriber sendError:nil];
+            
+            return nil;
+            
+        }];
+        
+//        return signal;//直接返回sendNext数据
+        
+        //可对sendNext发送的数据处理，然后返回
+        return [signal map:^id _Nullable(id  _Nullable value) {
+            NSLog(@"value:%@",value);
+            return value;
+        }];
+        
+    }];
+}
+
+-(void)racCommand2
+{
+    RACSignal *signal = [self.command execute:@{@"key":@"commad key"}];
+    
+    //订阅信号1
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"x:%@",x);
+    }];
+    
+    
+//    //订阅信号2 第一个x为signal 第一次点击没反应，
+//    [self.command.executionSignals subscribeNext:^(id  _Nullable x) {
+//
+//        [x subscribeNext:^(id  _Nullable x) {
+//           NSLog(@"x:%@",x);
+//        }];
+//
+//    }];
+    
+    
+    // RAC高级用法
+    // switchToLatest:用于signal of signals，获取signal of signals发出的最新信号,也就是可以直接拿到RACCommand中的信号
+//    [self.command.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"x:%@",x);
+//    }];
+    
+     //监听命令是否执行完毕,默认会来一次，可以直接跳过，skip表示跳过第一次信号。
+    [[_command.executing skip:1] subscribeNext:^(id x) {
+        
+        if ([x boolValue] == YES) {
+            // 正在执行
+            NSLog(@"正在执行");
+            
+        }else{
+            // 执行完成
+            NSLog(@"执行完成");
+        }
+        
+    }];
+    
+    
 }
 @end

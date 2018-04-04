@@ -41,4 +41,6 @@ typedef void(^XTSegmentControlBlock)(NSInteger index);
 
 - (void)setTitle:(NSString *)title withIndex:(NSInteger)index;
 
+- (void)setItems:(NSArray *)titleItem selectedBlock:(XTSegmentControlBlock)selectedHandle;
+
 @end
