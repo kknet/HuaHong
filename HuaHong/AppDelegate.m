@@ -13,6 +13,7 @@
 #import "TabBarViewController.h"
 #import "LocationManager.h"
 #import "HomeVC.h"
+#import <UMShare/UMShare.h>
 @interface AppDelegate ()
 
 @end
@@ -20,6 +21,8 @@
 #define AppKey_LeanCloud @"jkiMcMrIVxUE2JpJoPeWmKQ4"
 #define AppKey_Face @"i2v1x_zCb8P8rx7OtgtJ2O6fpNLyLFl5"
 #define AppSecret_Face @"5f34UqXdZjz7f64yDpFUQoOQJyxwHtye"
+#define UMAppKey @"5ac9dba3b27b0a6c82000085"
+
 @implementation AppDelegate
 
 /**
@@ -64,6 +67,9 @@
     //人脸识别
     [self face];
     
+    // U-Share 平台设置
+    [self configUSharePlatforms];
+    
     return YES;
 }
 
@@ -88,6 +94,14 @@
     {
         //3. 根据关键词跳转指定的界面
     }
+    
+//    //Umeng
+//    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+//    if (!result) {
+//        // 其他如支付等SDK的回调
+//    }
+//    return result;
+    
     
     return YES;
 }
@@ -291,5 +305,21 @@
         });
     }
 }
+
+
+- (void)configUSharePlatforms
+{
+    /*
+     * 打开图片水印
+     */
+//    [UMSocialGlobal shareInstance].isUsingWaterMark = YES;
+    
+    //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
+    
+    /* 设置微信的appKey和appSecret */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:UMAppKey appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+}
+
+
 @end
 

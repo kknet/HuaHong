@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -919,22 +919,20 @@
                                     <outletCollection property="gestureRecognizers" destination="6Au-e1-Q8r" appends="YES" id="49V-fi-Jr7"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an4-uV-d1Q">
-                                <rect key="frame" x="30" y="521" width="85" height="30"/>
-                                <state key="normal" title="连接"/>
-                                <connections>
-                                    <action selector="connectAction:" destination="cmZ-Ow-442" eventType="touchUpInside" id="5tb-Gy-fEs"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAn-ON-VS7">
-                                <rect key="frame" x="145" y="521" width="85" height="30"/>
+                                <rect key="frame" x="30" y="521" width="132.5" height="40"/>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.61568627450000002" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cBB-ea-kBp"/>
+                                </constraints>
                                 <state key="normal" title="发送"/>
                                 <connections>
-                                    <action selector="sendAction:" destination="cmZ-Ow-442" eventType="touchUpInside" id="axN-55-bd5"/>
+                                    <action selector="sendAction:" destination="cmZ-Ow-442" eventType="touchUpInside" id="h5w-VJ-ye5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbV-hk-zrf">
-                                <rect key="frame" x="260" y="521" width="85" height="30"/>
+                                <rect key="frame" x="212.5" y="521" width="132.5" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.1753823706" blue="0.1390713667" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="断开"/>
                                 <connections>
                                     <action selector="disConnectAction:" destination="cmZ-Ow-442" eventType="touchUpInside" id="ftC-45-EK9"/>
@@ -943,23 +941,34 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="siD-ir-PG9" firstAttribute="trailing" secondItem="wbV-hk-zrf" secondAttribute="trailing" constant="30" id="2T6-UZ-VNv"/>
+                            <constraint firstItem="siD-ir-PG9" firstAttribute="trailing" secondItem="wbV-hk-zrf" secondAttribute="trailing" constant="50" id="2T6-UZ-VNv"/>
                             <constraint firstItem="wbV-hk-zrf" firstAttribute="top" secondItem="ExJ-LE-0Sg" secondAttribute="bottom" constant="30" id="4JE-pc-IJg"/>
-                            <constraint firstItem="UAn-ON-VS7" firstAttribute="width" secondItem="an4-uV-d1Q" secondAttribute="width" id="AQ3-3g-h7G"/>
-                            <constraint firstItem="wbV-hk-zrf" firstAttribute="leading" secondItem="UAn-ON-VS7" secondAttribute="trailing" constant="30" id="EBB-Ov-bD6"/>
-                            <constraint firstItem="UAn-ON-VS7" firstAttribute="leading" secondItem="an4-uV-d1Q" secondAttribute="trailing" constant="30" id="GHX-Wl-P5k"/>
+                            <constraint firstItem="wbV-hk-zrf" firstAttribute="leading" secondItem="UAn-ON-VS7" secondAttribute="trailing" constant="50" id="EBB-Ov-bD6"/>
+                            <constraint firstItem="wbV-hk-zrf" firstAttribute="width" secondItem="UAn-ON-VS7" secondAttribute="width" id="KSf-i8-XNh"/>
+                            <constraint firstItem="UAn-ON-VS7" firstAttribute="leading" secondItem="siD-ir-PG9" secondAttribute="leading" constant="30" id="Lg7-bm-BIM"/>
+                            <constraint firstItem="wbV-hk-zrf" firstAttribute="height" secondItem="UAn-ON-VS7" secondAttribute="height" id="NHi-7x-hDF"/>
+                            <constraint firstItem="siD-ir-PG9" firstAttribute="trailing" secondItem="wbV-hk-zrf" secondAttribute="trailing" constant="30" id="NnC-2e-4gp"/>
                             <constraint firstItem="ExJ-LE-0Sg" firstAttribute="leading" secondItem="siD-ir-PG9" secondAttribute="leading" constant="30" id="a5H-CT-IvN"/>
                             <constraint firstItem="siD-ir-PG9" firstAttribute="trailing" secondItem="ExJ-LE-0Sg" secondAttribute="trailing" constant="30" id="fW0-Jk-lWH"/>
-                            <constraint firstItem="an4-uV-d1Q" firstAttribute="leading" secondItem="siD-ir-PG9" secondAttribute="leading" constant="30" id="fun-qv-Lfy"/>
-                            <constraint firstItem="an4-uV-d1Q" firstAttribute="top" secondItem="ExJ-LE-0Sg" secondAttribute="bottom" constant="30" id="hHW-va-Mf0"/>
-                            <constraint firstItem="wbV-hk-zrf" firstAttribute="height" secondItem="an4-uV-d1Q" secondAttribute="height" id="iFO-Aq-S5T"/>
                             <constraint firstItem="ExJ-LE-0Sg" firstAttribute="centerY" secondItem="w1K-Fn-d9J" secondAttribute="centerY" id="mOK-09-sC3"/>
-                            <constraint firstItem="wbV-hk-zrf" firstAttribute="width" secondItem="an4-uV-d1Q" secondAttribute="width" id="pkt-L9-iy7"/>
+                            <constraint firstItem="siD-ir-PG9" firstAttribute="trailing" secondItem="wbV-hk-zrf" secondAttribute="trailing" constant="30" id="r4R-Eg-arm"/>
                             <constraint firstItem="UAn-ON-VS7" firstAttribute="top" secondItem="ExJ-LE-0Sg" secondAttribute="bottom" constant="30" id="s7u-BM-cWd"/>
-                            <constraint firstItem="UAn-ON-VS7" firstAttribute="height" secondItem="an4-uV-d1Q" secondAttribute="height" id="ycp-aV-gh1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="siD-ir-PG9"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2T6-UZ-VNv"/>
+                                <exclude reference="r4R-Eg-arm"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="cbC-mr-pbI">
+                        <barButtonItem key="rightBarButtonItem" title="开启外设" id="Nz6-mm-qii">
+                            <connections>
+                                <action selector="openAction:" destination="cmZ-Ow-442" id="fsM-JY-5nT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="ExJ-LE-0Sg" id="57I-NT-mrI"/>
                     </connections>
@@ -971,7 +980,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3684" y="-90"/>
+            <point key="canvasLocation" x="3870" y="-90"/>
         </scene>
     </scenes>
     <resources>

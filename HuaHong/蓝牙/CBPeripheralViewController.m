@@ -25,55 +25,12 @@
     [super viewDidLoad];
     
 }
-- (IBAction)selectPhoto:(id)sender
-{
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        
-        return;
-    }
-    
-    UIImagePickerController *pick = [UIImagePickerController new];
-    pick.delegate = self;
-    pick.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    [self presentViewController:pick animated:YES completion:nil];
-    
-}
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-{
-    self.imageView.image = info[UIImagePickerControllerOriginalImage];
-    
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)connectAction:(id)sender
+- (IBAction)openAction:(id)sender
 {
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
-    
-}
-- (IBAction)sendAction:(id)sender
-{
-//    [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"serviceUUID"]],CBAdvertisementDataLocalNameKey:@"huahong"}];
-    
-    
-  BOOL success = [self.peripheralManager updateValue:UIImagePNGRepresentation(self.imageView.image) forCharacteristic:self.characteristic onSubscribedCentrals:nil];
-    
-    if (success) {
-        NSLog(@"数据发送成功");
-        [SVProgressHUD showSuccessWithStatus:@"数据发送成功"];
-    }else {
-        NSLog(@"数据发送失败");
-        [SVProgressHUD showErrorWithStatus:@"数据发送失败"];
-    }
-    
-    
-
 }
 
-- (IBAction)disConnectAction:(id)sender
-{
-}
 
 //创建了peripheralManager对象后会自动调用回调方法didUpdateState
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
@@ -116,13 +73,22 @@
 //调用上面的方法时，会监听didAddService:
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error
 {
-    
+    [self.peripheralManager startAdvertising:@{
+                                          
+                                          CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:SERVICE_UUID]],
+                                          
+                                          CBAdvertisementDataLocalNameKey :@"huahong"
+                                          
+                                          }
+     
+     ];
 }
 
 //调用上 面方法时，会监听DidStartAdvertising:
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral error:(NSError *)error
 {
-    
+//   NSLog(@"peripheralManagerDidStartAdvertising");
+    [SVProgressHUD showSuccessWithStatus:@"蓝牙外设开启成功"];
 }
 
 /** 订阅成功回调 */
@@ -148,8 +114,12 @@
 //        [self.peripheralManager respondToRequest:request withResult:CBATTErrorReadNotPermitted];
 //    }
     
-    request.value = UIImagePNGRepresentation(self.imageView.image);
-    [self.peripheralManager respondToRequest:request withResult:CBATTErrorSuccess];
+//    request.value = UIImagePNGRepresentation(self.imageView.image);
+//    [self.peripheralManager respondToRequest:request withResult:CBATTErrorSuccess];
+    
+    NSLog(@"peripheral didReceiveReadRequest");
+    
+    [peripheral respondToRequest:request withResult:CBATTErrorSuccess];
 }
 
 /** 中心设备写入数据的时候回调 */
@@ -164,10 +134,62 @@
 //        [self.peripheralManager respondToRequest:request withResult:CBATTErrorWriteNotPermitted];
 //    }
     
+    NSLog(@"peripheral didReceiveWriteRequests");
+
     CBATTRequest *request = requests.lastObject;
-    self.imageView.image = [UIImage imageWithData:request.value];
+    
+    NSString *string = [[NSString alloc]initWithData:request.value encoding:NSUTF8StringEncoding];
+    [SVProgressHUD showSuccessWithStatus:string];
+    
+//    self.imageView.image = [UIImage imageWithData:request.value];
 
 }
 
+- (IBAction)sendAction:(id)sender
+{
+    //    [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"serviceUUID"]],CBAdvertisementDataLocalNameKey:@"huahong"}];
+    
+    
+    NSData *data = [@"蓝牙外设发送数据" dataUsingEncoding:NSUTF8StringEncoding];
+    //    NSData *data = UIImagePNGRepresentation(self.imageView.image);
+    BOOL success = [self.peripheralManager updateValue:data forCharacteristic:self.characteristic onSubscribedCentrals:nil];
+    
+    if (success) {
+        NSLog(@"数据发送成功");
+        [SVProgressHUD showSuccessWithStatus:@"数据发送成功"];
+    }else {
+        NSLog(@"数据发送失败");
+        [SVProgressHUD showErrorWithStatus:@"数据发送失败"];
+    }
+    
+    
+}
 
+- (IBAction)disConnectAction:(id)sender
+{
+    [self.peripheralManager stopAdvertising];
+}
+
+#pragma mark - 选择图片
+- (IBAction)selectPhoto:(id)sender
+{
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        
+        return;
+    }
+    
+    UIImagePickerController *pick = [UIImagePickerController new];
+    pick.delegate = self;
+    pick.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:pick animated:YES completion:nil];
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    self.imageView.image = info[UIImagePickerControllerOriginalImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 @end

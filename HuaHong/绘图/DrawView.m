@@ -8,6 +8,10 @@
 
 #import "DrawView.h"
 
+/**
+ * setNeedsDisplay :会调用自动调用drawRect方法
+ * setNeedsLayout  :会默认调用layoutSubViews
+ */
 @implementation DrawView
 {
     CGPoint centerPoint;

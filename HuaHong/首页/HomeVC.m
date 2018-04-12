@@ -37,9 +37,11 @@ static NSString *headerID = @"headerID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationController.hidesBarsOnSwipe = YES;
+
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"首页";
+    
+//    self.navigationController.hidesBarsOnSwipe = YES;
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
 
@@ -136,7 +138,7 @@ static NSString *headerID = @"headerID";
     if (!_collectionView) {
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        //layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        layout.sectionInset = UIEdgeInsetsMake(10, 5, 10, 5);
 
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(self.tableView.right,kNavBarHeight, kScreenWidth-self.tableView.width-0, kScreenHeight-kNavBarHeight-kTabBarHeight) collectionViewLayout: layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
@@ -325,11 +327,11 @@ static NSString *headerID = @"headerID";
     return 3.0;
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    
-    return UIEdgeInsetsMake(0,0,0,0);
-}
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+//{
+//
+//    return UIEdgeInsetsMake(0,0,0,0);
+//}
 
 /*
  格子的宽高设置
@@ -345,12 +347,12 @@ static NSString *headerID = @"headerID";
     NSLog(@"contentInset.left:%f",collectionView.contentInset.left);
 
     
-    return CGSizeMake((kScreenWidth-self.tableView.right -layout.sectionInset.left - layout.sectionInset.right - (line-1)*itemSpace)/line, 40);
+    return CGSizeMake((collectionView.size.width -layout.sectionInset.left - layout.sectionInset.right - (line-1)*itemSpace)/line, 40);
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    id vc = nil;
+    UIViewController *vc = nil;
     switch (indexPath.section) {
         case 0:
         {
@@ -374,7 +376,7 @@ static NSString *headerID = @"headerID";
                 
             }else if (indexPath.item == 4)
             {
-                TextViewController *vc = [TextViewController new];
+                vc = [TextViewController new];
                 vc.title = @"图文混排&硬件信息";
 
             }else if (indexPath.item == 5)
@@ -494,7 +496,7 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                AnimationController *vc = (AnimationController *)[[AnimationController alloc]init];
+                vc = (AnimationController *)[[AnimationController alloc]init];
                 vc.title = @"基本动画";
                 
             }else if (indexPath.item == 1) {
@@ -519,7 +521,7 @@ static NSString *headerID = @"headerID";
 
             }else if (indexPath.item == 2) {
                 
-               DownLoadViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"DownLoadViewController"];
+               vc = [kStory instantiateViewControllerWithIdentifier:@"DownLoadViewController"];
                 vc.title = @"下载";
             }
         }
@@ -540,12 +542,12 @@ static NSString *headerID = @"headerID";
                 
             }else if (indexPath.item == 1)
             {
-                LeanCloudViewController *vc = [LeanCloudViewController new];
+                vc = [LeanCloudViewController new];
                 vc.title = @"LeanCloud";
                 
             }else if (indexPath.item == 2)
             {
-                CoreDataController *vc = [CoreDataController new];
+                vc = [CoreDataController new];
                 vc.title = @"CoreData";
             }
         }
@@ -554,12 +556,12 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                UIViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"DrawView"];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"DrawView"];
                 vc.navigationItem.title = @"绘图";
                 
             }else if (indexPath.item == 1)
             {
-                ClockViewController *vc = [ClockViewController new];
+                vc = [ClockViewController new];
                 vc.navigationItem.title = @"时钟";
 
             }else if (indexPath.item == 2)
@@ -581,7 +583,7 @@ static NSString *headerID = @"headerID";
         case 15:
         {
         
-            WebViewController *vc = [WebViewController new];
+            vc = [WebViewController new];
             vc.navigationItem.title = @"JS互调";
             
         }
@@ -595,7 +597,7 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                ThreadViewController *vc = [ThreadViewController new];
+                vc = [ThreadViewController new];
                 vc.navigationItem.title = @"多线程";
 
             }else if (indexPath.item == 1)
@@ -608,27 +610,27 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0)
             {
-                RACViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
                 vc.navigationItem.title = @"RAC";
 
             }else if (indexPath.item == 1)
             {
-                FunctionViewController *vc = [FunctionViewController new];
+                vc = [FunctionViewController new];
                 vc.title = @"函数式编程";
                 
             }else if (indexPath.item == 2)
             {
-                ChainViewController *vc = [ChainViewController new];
+                vc = [ChainViewController new];
                 vc.title = @"链式编程";
 
             }else if (indexPath.item == 3)
             {
-                runtimeViewController *vc = [runtimeViewController new];
+                vc = [runtimeViewController new];
                 vc.title = @"runtime";
                 
             }else if (indexPath.item == 4)
             {
-                runloopViewController *vc = [runloopViewController new];
+                vc = [runloopViewController new];
                 vc.title = @"runloop";
             }
         }
@@ -637,12 +639,12 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                BlueToothController *vc = [kStory instantiateViewControllerWithIdentifier:@"BlueToothController"];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"BlueToothController"];
                 vc.navigationItem.title = @"蓝牙";
 
             }else if (indexPath.item == 1)
             {
-                CBPeripheralViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"CBPeripheralViewController"];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"CBPeripheralViewController"];
                 vc.navigationItem.title = @"蓝牙外设";
             }
             
@@ -652,7 +654,7 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                FaceViewController *vc = [FaceViewController new];
+                vc = [FaceViewController new];
                 vc.navigationItem.title = @"人脸识别";
             }
         }
@@ -661,18 +663,17 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                TimerController *vc = [TimerController new];
+                vc = [TimerController new];
                 vc.navigationItem.title = @"计时器";
 
             }else if (indexPath.item == 1)
             {
-                SecurityController *vc = [SecurityController new];
+                vc = [SecurityController new];
                 vc.navigationItem.title = @"密码安全";
 
             }else if (indexPath.item == 2)
             {
-                RACViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"RACViewController"];
-                vc.navigationItem.title = @"RAC";
+                
             }
         }
             break;
@@ -683,6 +684,7 @@ static NSString *headerID = @"headerID";
     [self.navigationController pushViewController:vc animated:YES];
 
 }
+
 
 -(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler
 {

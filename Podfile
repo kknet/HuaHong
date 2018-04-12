@@ -14,4 +14,9 @@ pod 'FaceppSDK', '~> 2.0.0'
 pod 'XYPieChart'
 pod 'SystemServices', '~> 2.0.1'
 pod 'HHCategory', '~> 0.3.8'
+
+pod 'UMCCommon'
+pod 'UMCSecurityPlugins'
+pod 'UMCShare/UI'
+pod 'UMCShare/Social/ReducedWeChat'
 end
