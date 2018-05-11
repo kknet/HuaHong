@@ -66,28 +66,29 @@
 {
     NSString *urlStr = [kBaseURL stringByAppendingPathComponent:@"tanzhou/images.zip"];
     NSURL *url = [NSURL URLWithString:urlStr];
-//    [[[NSURLSession sharedSession] downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//
-//        NSLog(@"location:%@",location);
-//    [self unZip:location];
 
-//
-//    }]resume];
-    
-    
     [[self.session downloadTaskWithURL:url]resume];
+    
+    
+    //    [[[NSURLSession sharedSession] downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    //
+    //        NSLog(@"location:%@",location);
+    //    [self unZip:location];
+    
+    //
+    //    }]resume];
     
 }
 
 //解压缩
 -(void)unZip:(NSURL *)location
 {
-    //        /**
-    //         1.不做任何处理，下载的文件会被删除
-    //         2.默认下载到tmp文件夹
-    //         3.网络下载的文件通常是zip格式，需要解压，解压后，zip文件会被删除
-    //         */
-    //
+    /**
+     * 1.不做任何处理，下载的文件会被删除
+     * 2.默认下载到tmp文件夹
+     * 3.网络下载的文件通常是zip格式，需要解压，解压后，zip文件会被删除
+     */
+    
     
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
     [SSZipArchive unzipFileAtPath:location.path toDestination:path];
@@ -124,15 +125,16 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
     });
 }
 
-/*
- * 断点下载续传
+/**
+ *  恢复下载后调用，
  */
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask
  didResumeAtOffset:(int64_t)fileOffset
 expectedTotalBytes:(int64_t)expectedTotalBytes
 {
-    
+    NSLog(@"fileOffset:%lld expectedTotalBytes:%lld",fileOffset,expectedTotalBytes);
 }
+
 - (IBAction)downLoadAction:(UIButton *)sender
 {
 //    [self downLoad];

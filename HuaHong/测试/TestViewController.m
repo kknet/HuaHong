@@ -13,6 +13,9 @@
 #import "CollectionHeadView.h"
 #import "HomeFlowLayout.h"
 #import <UShareUI/UShareUI.h>
+#import "TestView.h"
+#import <QKCodeController.h>
+
 @interface TestViewController()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,strong) UILocalNotification *localNotification;
 @property(nonatomic,strong) UICollectionView *collectionView;
@@ -43,8 +46,27 @@ static NSString *headerID = @"headerID";
 {
     
     
+    
+//  TestView *view =  [[TestView alloc]init];
+//
+//  [self.view addSubview:view];
+    
+    
+    
 //    [self share];
     
+//    [self wechatLogin];
+   
+    
+//    NSString *str = [NSString stringWithFormat:@"%f",self.hFloat];
+//    [SVProgressHUD showWithStatus:str];
+    
+    QKCodeController *vc = [QKCodeController codeControllerWithDismissCallback:^(BOOL isSuccess) {
+        
+        NSLog(@"%d",isSuccess);
+    }];
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 -(void)share
@@ -62,7 +84,7 @@ static NSString *headerID = @"headerID";
 
 - (void)shareTextToWechat
 {
-    NSString *text = @"社会化组件U-Share将各大社交平台接入您的应用，快速武装App。";
+    NSString *text = @"有没有发现不一样的地方？";
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     messageObject.text = text;
     [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_WechatSession messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
@@ -80,36 +102,39 @@ static NSString *headerID = @"headerID";
         [alert show];
     }];
 }
-- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
-{
-    //创建分享消息对象
-    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-    //创建网页内容对象
-    NSString* thumbURL =  @"https://mobile.umeng.com/images/pic/home/social/img-1.png";
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"欢迎使用【友盟+】社会化组件U-Share" descr:@"欢迎使用【友盟+】社会化组件U-Share，SDK包最小，集成成本最低，助力您的产品开发、运营与推广！" thumImage:thumbURL];
-    //设置网页地址
-    shareObject.webpageUrl = @"http://mobile.umeng.com/social";
-    //分享消息对象设置分享内容对象
-    messageObject.shareObject = shareObject;
-    //调用分享接口
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-        if (error) {
-            UMSocialLogInfo(@"************Share fail with error %@*********",error);
-        }else{
-            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
-                UMSocialShareResponse *resp = data;
-                //分享结果消息
-                UMSocialLogInfo(@"response message is %@",resp.message);
-                //第三方原始返回的数据
-                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
-            }else{
-                UMSocialLogInfo(@"response data is %@",data);
-            }
-        }
-    }];
-}
 
+
+-(void)wechatLogin
+{
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:self completion:^(id result, NSError *error) {
+        
+        UMSocialUserInfoResponse *resp = result;
+        
+        // 第三方登录数据(为空表示平台未提供)
+        // 授权数据
+        NSLog(@" uid: %@", resp.uid);
+        NSLog(@" openid: %@", resp.openid);
+        NSLog(@" accessToken: %@", resp.accessToken);
+        NSLog(@" refreshToken: %@", resp.refreshToken);
+        NSLog(@" expiration: %@", resp.expiration);
+        
+        // 用户数据
+        NSLog(@" name: %@", resp.name);
+        NSLog(@" iconurl: %@", resp.iconurl);
+        NSLog(@" gender: %@", resp.unionGender);
+        
+        // 第三方平台SDK原始数据
+        NSLog(@" originalResponse: %@", resp.originalResponse);
+    }];
+    
+    
+    
+    
+    
+}
 -(UICollectionView *)collectionView{
+    
+    
     
     if (!_collectionView) {
         

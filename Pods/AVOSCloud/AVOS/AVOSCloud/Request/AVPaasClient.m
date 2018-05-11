@@ -8,7 +8,6 @@
 
 #import "AVPaasClient.h"
 #import "AVPaasClient_internal.h"
-#import "AVNetworking.h"
 #import "LCNetworking.h"
 #import "AVUtils.h"
 #import "AVUser_Internal.h"
@@ -18,7 +17,6 @@
 #import "AVCacheManager.h"
 #import "AVErrorUtils.h"
 #import "AVPersistenceUtils.h"
-#import "AVUploaderManager.h"
 #import "AVScheduler.h"
 #import "AVObjectUtils.h"
 #import "LCNetworkStatistics.h"
@@ -117,23 +115,6 @@ NSString *const LCHeaderFieldNameProduction = @"X-LC-Prod";
     [command appendCommandLineArgument:[NSString stringWithFormat:@"\"%@\"", basicUrl]];
     
     return [NSString stringWithString:command];
-}
-@end
-
-@implementation AVHTTPClient (CancelMethods)
-- (void)cancelAllHTTPOperationsWithMethod:(NSString *)method absolutePath:(NSString *)path {
-    for (NSOperation *operation in [self.operationQueue operations]) {
-        if (![operation isKindOfClass:[AVHTTPRequestOperation class]]) {
-            continue;
-        }
-        
-        BOOL hasMatchingMethod = !method || [method isEqualToString:[[(AVHTTPRequestOperation *)operation request] HTTPMethod]];
-        BOOL hasMatchingURL = [[[[(AVHTTPRequestOperation *)operation request] URL] absoluteString] isEqualToString:path];
-        
-        if (hasMatchingMethod && hasMatchingURL) {
-            [operation cancel];
-        }
-    }
 }
 @end
 
@@ -460,11 +441,23 @@ NSString *const LCHeaderFieldNameProduction = @"X-LC-Prod";
             // 网络请求成功
             NSMutableArray *results = [NSMutableArray array];
             for (NSDictionary *object in objects) {
-                if (object[@"success"]) {
-                    [results addObject:object[@"success"]];
-                } else if (object[@"error"]) {
-                    NSError *error = [AVErrorUtils errorFromJSON:object[@"error"]];
+                
+                id success = object[@"success"];
+                
+                if (success) {
+                    
+                    [results addObject:success];
+                    
+                    continue;
+                }
+                
+                id error = object[@"error"];
+                
+                if (error) {
+                    
                     [results addObject:error];
+                    
+                    continue;
                 }
             }
             block(results, nil);
@@ -554,8 +547,8 @@ NSString *const LCHeaderFieldNameProduction = @"X-LC-Prod";
         @strongify(self);
 
         if (block) {
-            NSError *error = [AVErrorUtils errorFromJSON:responseObject];
-            block(responseObject, error);
+            
+            block(responseObject, nil);
         }
 
         if (self.isLastModifyEnabled && [request.HTTPMethod isEqualToString:@"GET"]) {
@@ -597,8 +590,9 @@ NSString *const LCHeaderFieldNameProduction = @"X-LC-Prod";
                 }
             }];
         } else {
-            if (block)
-                block(responseObject, [AVErrorUtils errorFromJSON:responseObject] ?: error);
+            if (block) {
+                block(responseObject, error);
+            }
         }
     }];
 }

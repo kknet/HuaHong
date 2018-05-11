@@ -20,9 +20,16 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self runtimeAddMethod];
+}
+
+-(void)runtimeAddMethod
+{
+    //动态添加方法
+    runtimeViewController *vc = [runtimeViewController new];
+    [vc eat:@"123"];
 }
 
 

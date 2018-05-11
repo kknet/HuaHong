@@ -36,13 +36,13 @@
     //
     //      [self gcddemo];
     
-    //      [self barrier];
+          [self barrier];
     //
     //      [self once];
     
-    //      [self group];
+//          [self group1];
     
-    [self operation];
+//    [self operation];
     
 }
 
@@ -118,6 +118,7 @@
     //只能用并发队列，要放在同一个队列
     dispatch_queue_t queue = dispatch_queue_create("hh", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1.0];
         NSLog(@"----1-----%@", [NSThread currentThread]);
     });
     dispatch_async(queue, ^{
@@ -129,6 +130,7 @@
     });
     
     dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1.0];
         NSLog(@"----3-----%@", [NSThread currentThread]);
     });
     dispatch_async(queue, ^{
@@ -214,6 +216,7 @@
     //任务2
     dispatch_group_enter(group);
     dispatch_group_async(group, queue, ^{
+        [NSThread sleepForTimeInterval:1.0];
         NSLog(@"任务2");
         dispatch_group_leave(group);
     });
@@ -232,7 +235,11 @@
     
     //等待组中任务都执行完毕，再执行后续代码
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    [NSThread sleepForTimeInterval:1.0];
+
     NSLog(@"wait");
+    
+    
 }
 
 #pragma mark NSOperation

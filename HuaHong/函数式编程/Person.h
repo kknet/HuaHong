@@ -15,4 +15,7 @@
 -(instancetype)initWithBlock:(NSString *(^)(NSString *firstName,NSString *lastName))block;
 
 -(void)eatWith:(NSString *)objc;
+
+-(void)missMethod:(NSString *)objc;
+
 @end

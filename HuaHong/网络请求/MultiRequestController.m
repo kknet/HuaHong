@@ -100,15 +100,15 @@
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
     for (int i=0; i<10; i++) {
         
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
              NSLog(@"%d---%d",i,i);
             
             dispatch_semaphore_signal(sema);
             
-        }];
+        }] resume];
         
-        [task resume];
+        
         dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
 
     }

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TestViewController : BaseViewController
-
+@property (nonatomic,assign) CGFloat hFloat;
 @end

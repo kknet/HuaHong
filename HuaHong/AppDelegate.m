@@ -30,14 +30,18 @@
  * NSString: 用copy修饰
  * Block:    用copy修饰
  * delegate: 用weak修饰
- * retain(mrc),strong(arc),weak(arc),assign(mrc,arc),copy(mrc,arc)
+ * retain(mrc),strong(arc),weak(arc，释放后赋值nil),assign(mrc,arc，释放后不会赋值nil，会导致野指针),copy(mrc,arc)
  */
 
 /**
  * command+= :siziToFit
  * option+command+= :storyboard警告
  */
+
+//extern CFAbsoluteTime startTime;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+//    NSLog(@"launch time :%f 秒",CFAbsoluteTimeGetCurrent()-startTime);
     
     [self setApplication:application didFinishLaunchingWithOptions:launchOptions];
     
@@ -76,13 +80,13 @@
 #pragma mark 此方法用于处理应用间跳转的
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    //1. 获取跟控制器, 执行跳转
-    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    // 主控制器
-    UIViewController *mainVC =  nav.childViewControllers[0];
-    
-    //2. 回到根控制器
-    [nav popToRootViewControllerAnimated:YES];
+//    //1. 获取跟控制器, 执行跳转
+//    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+//    // 主控制器
+//    UIViewController *mainVC =  nav.childViewControllers[0];
+//
+//    //2. 回到根控制器
+//    [nav popToRootViewControllerAnimated:YES];
     
     
     
@@ -316,8 +320,10 @@
     
     //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
     
+    [UMSocialManager defaultManager].umSocialAppkey = UMAppKey;
+    
     /* 设置微信的appKey和appSecret */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:UMAppKey appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdefc667f64adc83a" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
 }
 
 

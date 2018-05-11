@@ -16,7 +16,7 @@
 #define kDevice_Is_iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
 
 //#define kBaseURL @"http://192.168.0.5"
-#define kBaseURL @"http://172.31.0.47"
+#define kBaseURL @"http://172.31.0.85"
 
 #import <SVProgressHUD.h>
 #import "BaseViewController.h"
@@ -29,12 +29,17 @@
 #import "BaseModel.h"
 #import "AppDelegate.h"
 #import "HUtils.h"
+#import "NSString+Hash.h"
 
-//#import "CALayer+borderColor.h"
-//#import "UILabel+autoReSize.h"
-//#import "NSString+IdentityCard.h"
-//#import "UIView+AutoLayout.h"
-
+//#import "HHCategory.h"
+#import "UIViewExt.h"
+#import "UIView+AutoLayout.h"
+#import "UILabel+autoReSize.h"
+#import "UIColor+Category.h"
+#import "NSURL+hook.h"
+#import "NSString+IdentityCard.h"
+#import "NSArray+NSDictionary_Log.h"
+#import "CALayer+borderColor.h"
 
 
 #import "MapViewController.h"
@@ -67,7 +72,7 @@
 #import "TransitionController.h"
 #import "DrawingBoardController.h"
 #import "ThreadViewController.h"
-#import "RequestController.h"
+#import "SessionRequestController.h"
 #import "DownLoadViewController.h"
 #import "SecurityController.h"
 #import "RACViewController.h"
@@ -85,15 +90,18 @@
 #import "TextViewController.h"
 #import "CoreDataController.h"
 #import "ViewController.h"
-//#import "HHCategory.h"
-#import "UIViewExt.h"
-#import "UIView+AutoLayout.h"
-#import "UILabel+autoReSize.h"
-#import "UIColor+Category.h"
-#import "NSURL+hook.h"
-#import "NSString+IdentityCard.h"
-#import "NSArray+NSDictionary_Log.h"
-#import "CALayer+borderColor.h"
+#import "HttpsController.h"
+#import "UpLoadViewController.h"
+#import "DeleteFileController.h"
+#import "XMLController.h"
+#import "JSONPlistController.h"
+#import "AFController.h"
+#import "RegularExpressionController.h"
+#import "BridgeController.h"
+#import "StrategyController.h"
+#import "HHSegmentController.h"
+
+
 
 
 #endif /* Public_h */

@@ -395,24 +395,14 @@
     return YES;
 }
 
-/**
- * UTF8编码
- */
 -(NSString *)encodeString
 {
-    //   return  [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    return  [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+   return  [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
-/**
- * UTF8解码
- */
 -(NSString *)decodeString
 {
-    //  return  [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    return [self stringByRemovingPercentEncoding];
+  return  [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 @end

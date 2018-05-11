@@ -21,4 +21,9 @@
 {
     NSLog(@"eat:%@",objc);
 }
+
+-(void)eat:(NSString *)objc
+{
+    NSLog(@"Persion eat:%@",objc);
+}
 @end

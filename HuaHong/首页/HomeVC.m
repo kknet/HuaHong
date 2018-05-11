@@ -29,6 +29,13 @@
 static NSString *cellID = @"cellID";
 static NSString *headerID = @"headerID";
 
+//后台拉取回调
+-(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler
+{
+    NSLog(@"UIBackgroundFetchResultNewData");
+    completationHandler(UIBackgroundFetchResultNewData);
+}
+
 // 导航栏是否消失
 -(BOOL)prefersStatusBarHidden
 {
@@ -41,6 +48,18 @@ static NSString *headerID = @"headerID";
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"首页";
     
+    
+/*
+    //导航栏黑色
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    //关闭导航栏半透明效果
+    self.navigationController.navigationBar.translucent = NO;
+    
+    //状态栏白色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+ */
+    
 //    self.navigationController.hidesBarsOnSwipe = YES;
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -48,7 +67,7 @@ static NSString *headerID = @"headerID";
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"其他"]];
+    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"设计模式",@"其他"]];
     
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"tableView",@"chat",@"block",@"TextView",@"控件"],
@@ -60,7 +79,7 @@ static NSString *headerID = @"headerID";
         @[@"系统通讯录",@"自定义通讯录"],
         @[@"二维码扫描",@"二维码生成"],
         @[@"基本动画",@"扇形加载",@"转场动画"],
-        @[@"网络1",@"网络2",@"下载"],
+        @[@"多网络请求",@"session请求",@"下载",@"上传",@"Https证书",@"删除数据",@"XML解析",@"JSON/Plist",@"AFN"],
         @[@"触摸手势交互"],
         @[@"数据存储",@"云端存储",@"CoreData"],
         @[@"绘图",@"时钟",@"画板"],
@@ -72,7 +91,8 @@ static NSString *headerID = @"headerID";
         @[@"响应式编程RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
         @[@"蓝牙",@"蓝牙外设"],
         @[@"人脸识别"],
-        @[@"计时器",@"密码安全",@""]
+        @[@"策略模式",@"桥接模式"],
+        @[@"计时器",@"密码安全",@"正则表达式",@"分段选择"]
         ]];
     
     
@@ -95,7 +115,8 @@ static NSString *headerID = @"headerID";
 
 -(void)testAction
 {
-    [self.navigationController pushViewController:[[TestViewController alloc]init] animated:YES];
+    TestViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"TestViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(NSMutableArray *)dataArray{
@@ -343,8 +364,6 @@ static NSString *headerID = @"headerID";
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)collectionViewLayout;
     
-    NSLog(@"layout.sectionInset.left:%f",layout.sectionInset.left);
-    NSLog(@"contentInset.left:%f",collectionView.contentInset.left);
 
     
     return CGSizeMake((collectionView.size.width -layout.sectionInset.left - layout.sectionInset.right - (line-1)*itemSpace)/line, 40);
@@ -514,15 +533,48 @@ static NSString *headerID = @"headerID";
             if (indexPath.item == 0) {
                 
                 vc = [[MultiRequestController alloc]init];
+                vc.title = @"多网络请求";
 
             }else if (indexPath.item == 1) {
                 
-                vc = [[RequestController alloc]init];
+                vc = [[SessionRequestController alloc]init];
+                vc.title = @"session请求";
 
             }else if (indexPath.item == 2) {
                 
                vc = [kStory instantiateViewControllerWithIdentifier:@"DownLoadViewController"];
                 vc.title = @"下载";
+            }else if (indexPath.item == 3) {
+                
+                vc = [[UpLoadViewController alloc]init];
+                vc.title = @"上传";
+                
+            }else if (indexPath.item == 4) {
+                
+                vc = [[HttpsController alloc]init];
+                vc.title = @"Https证书";
+                
+                
+            }else if (indexPath.item == 5) {
+                
+                vc = [[DeleteFileController alloc]init];
+                vc.title = @"删除服务器文件";
+                
+            }else if (indexPath.item == 6) {
+                
+                vc = [[XMLController alloc]init];
+                vc.title = @"XML解析";
+                
+            }else if (indexPath.item == 7) {
+                
+                vc = [[JSONPlistController alloc]init];
+                vc.title = @"JSON/Plist";
+                
+            }else if (indexPath.item == 8) {
+                
+                vc = [[AFController alloc]init];
+                vc.title = @"AFN";
+                
             }
         }
             break;
@@ -659,7 +711,20 @@ static NSString *headerID = @"headerID";
             }
         }
             break;
-            case 21:
+        case 21:
+        {
+            if (indexPath.item == 0) {
+                
+                vc = [kStory instantiateViewControllerWithIdentifier:@"StrategyController"];
+                vc.navigationItem.title = @"策略模式";
+            }else if (indexPath.item == 1)
+            {
+                vc = [BridgeController new];
+                vc.navigationItem.title = @"桥接模式";
+            }
+        }
+            break;
+            case 22:
         {
             if (indexPath.item == 0) {
                 
@@ -673,7 +738,12 @@ static NSString *headerID = @"headerID";
 
             }else if (indexPath.item == 2)
             {
-                
+                vc = [RegularExpressionController new];
+                vc.navigationItem.title = @"正则表达式";
+            }else if (indexPath.item == 3)
+            {
+                vc = [kStory instantiateViewControllerWithIdentifier:@"HHSegmentController"];
+                vc.navigationItem.title = @"分段选择";
             }
         }
             break;
@@ -686,11 +756,6 @@ static NSString *headerID = @"headerID";
 }
 
 
--(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler
-{
-    NSLog(@"UIBackgroundFetchResultNewData");
-    completationHandler(UIBackgroundFetchResultNewData);
-}
 @end
 
 

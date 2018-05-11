@@ -10,7 +10,7 @@
 
 @interface PullUpRefreshView : UIView
 
-@property (nonatomic,copy) void (^pullUpBlock)();
+@property (nonatomic,copy) void (^pullUpBlock)(void);
 
 -(void)endloadMore;
 
