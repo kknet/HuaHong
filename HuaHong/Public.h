@@ -100,6 +100,7 @@
 #import "BridgeController.h"
 #import "StrategyController.h"
 #import "HHSegmentController.h"
+#import "HHFMDBController.h"
 
 
 

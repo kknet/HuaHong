@@ -14,8 +14,14 @@
 		7D0DA8461FC50D7000774E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8451FC50D7000774E40 /* main.m */; };
 		7D1A364B20A17C2000D74375 /* HHSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A364A20A17C1F00D74375 /* HHSegmentController.m */; };
 		7D1A364E20A17D9D00D74375 /* HHSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A364D20A17D9D00D74375 /* HHSegmentView.m */; };
+		7D1A365620A5683500D74375 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365120A5683400D74375 /* User.m */; };
+		7D1A365720A5683500D74375 /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365220A5683400D74375 /* CoreDataController.m */; };
+		7D1A365820A5683500D74375 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365420A5683400D74375 /* Model.xcdatamodeld */; };
+		7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365C20A56DE000D74375 /* DataStorageController.m */; };
+		7D1A366120A56E4000D74375 /* LeanCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365F20A56E4000D74375 /* LeanCloudViewController.m */; };
+		7D1A366420A56F0E00D74375 /* HHFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A366320A56F0E00D74375 /* HHFMDBManager.m */; };
+		7D1A366720A5845900D74375 /* HHFMDBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A366620A5845900D74375 /* HHFMDBController.m */; };
 		7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2172101FDA86D8008698C9 /* BlueToothController.m */; };
-		7D2DE5EF2015B8B8001590E1 /* DataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5EE2015B8B8001590E1 /* DataStorageController.m */; };
 		7D2DE5F22015BBCF001590E1 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F12015BBCF001590E1 /* DataModel.m */; };
 		7D2DE5F720170227001590E1 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F620170227001590E1 /* DrawView.m */; };
 		7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */; };
@@ -43,9 +49,6 @@
 		7D328A402063ABD200A64272 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D328A3E2063ABD100A64272 /* index.html */; };
 		7D328A432064DE9500A64272 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A422064DE9500A64272 /* TextViewController.m */; };
 		7D328A492064F58A00A64272 /* HHAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A482064F58A00A64272 /* HHAttachment.m */; };
-		7D328A4C2068E56000A64272 /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A4B2068E56000A64272 /* CoreDataController.m */; };
-		7D328A4F2068E65800A64272 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A4E2068E65800A64272 /* User.m */; };
-		7D328A522068EC1300A64272 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A502068EC1300A64272 /* Model.xcdatamodeld */; };
 		7D328A55206CD62D00A64272 /* HUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A54206CD62D00A64272 /* HUtils.m */; };
 		7D398FAA2009BFBE00994A3C /* TableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FA92009BFBE00994A3C /* TableViewVC.m */; };
 		7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FAC200A0B8000994A3C /* PullUpRefreshView.m */; };
@@ -102,7 +105,6 @@
 		7DA152D0204B01B00075274E /* runloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA152CF204B01B00075274E /* runloopViewController.m */; };
 		7DA152D3204B01BE0075274E /* runtimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA152D2204B01BE0075274E /* runtimeViewController.m */; };
 		7DA1D6C1205F9F0200EB0AC2 /* CBPeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1D6C0205F9F0200EB0AC2 /* CBPeripheralViewController.m */; };
-		7DA1D6C42060CD1300EB0AC2 /* LeanCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1D6C32060CD1300EB0AC2 /* LeanCloudViewController.m */; };
 		7DA1D6C72061F8EA00EB0AC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DA1D6C92061F8EA00EB0AC2 /* InfoPlist.strings */; };
 		7DA1D6CD2062207900EB0AC2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DA1D6CF2062207900EB0AC2 /* Localizable.strings */; };
 		7DA1D6D420624AFD00EB0AC2 /* FaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1D6D320624AFD00EB0AC2 /* FaceViewController.m */; };
@@ -181,10 +183,21 @@
 		7D1A364A20A17C1F00D74375 /* HHSegmentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSegmentController.m; sourceTree = "<group>"; };
 		7D1A364C20A17D9D00D74375 /* HHSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSegmentView.h; sourceTree = "<group>"; };
 		7D1A364D20A17D9D00D74375 /* HHSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSegmentView.m; sourceTree = "<group>"; };
+		7D1A365020A5683400D74375 /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
+		7D1A365120A5683400D74375 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7D1A365220A5683400D74375 /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
+		7D1A365320A5683400D74375 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7D1A365520A5683400D74375 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7D1A365B20A56DE000D74375 /* DataStorageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorageController.h; sourceTree = "<group>"; };
+		7D1A365C20A56DE000D74375 /* DataStorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorageController.m; sourceTree = "<group>"; };
+		7D1A365F20A56E4000D74375 /* LeanCloudViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeanCloudViewController.m; sourceTree = "<group>"; };
+		7D1A366020A56E4000D74375 /* LeanCloudViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanCloudViewController.h; sourceTree = "<group>"; };
+		7D1A366220A56F0E00D74375 /* HHFMDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHFMDBManager.h; sourceTree = "<group>"; };
+		7D1A366320A56F0E00D74375 /* HHFMDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHFMDBManager.m; sourceTree = "<group>"; };
+		7D1A366520A5845900D74375 /* HHFMDBController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHFMDBController.h; sourceTree = "<group>"; };
+		7D1A366620A5845900D74375 /* HHFMDBController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHFMDBController.m; sourceTree = "<group>"; };
 		7D21720F1FDA86D8008698C9 /* BlueToothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueToothController.h; sourceTree = "<group>"; };
 		7D2172101FDA86D8008698C9 /* BlueToothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueToothController.m; sourceTree = "<group>"; };
-		7D2DE5ED2015B8B8001590E1 /* DataStorageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataStorageController.h; sourceTree = "<group>"; };
-		7D2DE5EE2015B8B8001590E1 /* DataStorageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataStorageController.m; sourceTree = "<group>"; };
 		7D2DE5F02015BBCF001590E1 /* DataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		7D2DE5F12015BBCF001590E1 /* DataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		7D2DE5F320170015001590E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -235,11 +248,6 @@
 		7D328A422064DE9500A64272 /* TextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
 		7D328A472064F58A00A64272 /* HHAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAttachment.h; sourceTree = "<group>"; };
 		7D328A482064F58A00A64272 /* HHAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAttachment.m; sourceTree = "<group>"; };
-		7D328A4A2068E56000A64272 /* CoreDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
-		7D328A4B2068E56000A64272 /* CoreDataController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
-		7D328A4D2068E65800A64272 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		7D328A4E2068E65800A64272 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		7D328A512068EC1300A64272 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		7D328A53206CD62D00A64272 /* HUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUtils.h; sourceTree = "<group>"; };
 		7D328A54206CD62D00A64272 /* HUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUtils.m; sourceTree = "<group>"; };
 		7D398FA82009BFBE00994A3C /* TableViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewVC.h; sourceTree = "<group>"; };
@@ -347,8 +355,6 @@
 		7DA152D2204B01BE0075274E /* runtimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = runtimeViewController.m; sourceTree = "<group>"; };
 		7DA1D6BF205F9F0200EB0AC2 /* CBPeripheralViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBPeripheralViewController.h; sourceTree = "<group>"; };
 		7DA1D6C0205F9F0200EB0AC2 /* CBPeripheralViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBPeripheralViewController.m; sourceTree = "<group>"; };
-		7DA1D6C22060CD1300EB0AC2 /* LeanCloudViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeanCloudViewController.h; sourceTree = "<group>"; };
-		7DA1D6C32060CD1300EB0AC2 /* LeanCloudViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeanCloudViewController.m; sourceTree = "<group>"; };
 		7DA1D6C82061F8EA00EB0AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7DA1D6CA2061F98800EB0AC2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		7DA1D6CE2062207900EB0AC2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -510,9 +516,9 @@
 		7D0DA8321FC50D7000774E40 /* HuaHong */ = {
 			isa = PBXGroup;
 			children = (
-				7D53F75E20467BE100D886B9 /* chat */,
 				7DC24C8A202161A400103BDE /* HuaHong.entitlements */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
+				7D53F75E20467BE100D886B9 /* chat */,
 				7D1A364820A17BC900D74375 /* HHSegment */,
 				7D437EEB20834E0F00DAAEBD /* 设计模式 */,
 				7D398FA72009BEF800994A3C /* 常用控件 */,
@@ -543,6 +549,8 @@
 				7DFB1BD51FCFD2480033D9E2 /* 瀑布流 */,
 				7DE8D5A91FC6D12F00577762 /* 地图定位 */,
 				7D2DE5EC2015B88E001590E1 /* 数据存储 */,
+				7D2DE5F02015BBCF001590E1 /* DataModel.h */,
+				7D2DE5F12015BBCF001590E1 /* DataModel.m */,
 				7D2DE5F4201701F8001590E1 /* 绘图 */,
 				7D5393E0201AF855006D2712 /* 手势交互 */,
 				7D5393E7202013E4006D2712 /* 定时器 */,
@@ -578,6 +586,47 @@
 			path = HHSegment;
 			sourceTree = "<group>";
 		};
+		7D1A364F20A5683400D74375 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7D1A365020A5683400D74375 /* CoreDataController.h */,
+				7D1A365220A5683400D74375 /* CoreDataController.m */,
+				7D1A365320A5683400D74375 /* User.h */,
+				7D1A365120A5683400D74375 /* User.m */,
+				7D1A365420A5683400D74375 /* Model.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		7D1A365920A56D6A00D74375 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				7D1A366220A56F0E00D74375 /* HHFMDBManager.h */,
+				7D1A366320A56F0E00D74375 /* HHFMDBManager.m */,
+				7D1A366520A5845900D74375 /* HHFMDBController.h */,
+				7D1A366620A5845900D74375 /* HHFMDBController.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		7D1A365A20A56DE000D74375 /* 偏好设置:属性列表:数据归档 */ = {
+			isa = PBXGroup;
+			children = (
+				7D1A365B20A56DE000D74375 /* DataStorageController.h */,
+				7D1A365C20A56DE000D74375 /* DataStorageController.m */,
+			);
+			path = "偏好设置:属性列表:数据归档";
+			sourceTree = "<group>";
+		};
+		7D1A365E20A56E4000D74375 /* 线上存储 */ = {
+			isa = PBXGroup;
+			children = (
+				7D1A366020A56E4000D74375 /* LeanCloudViewController.h */,
+				7D1A365F20A56E4000D74375 /* LeanCloudViewController.m */,
+			);
+			path = "线上存储";
+			sourceTree = "<group>";
+		};
 		7D21720E1FDA863C008698C9 /* 蓝牙 */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,17 +641,10 @@
 		7D2DE5EC2015B88E001590E1 /* 数据存储 */ = {
 			isa = PBXGroup;
 			children = (
-				7D2DE5ED2015B8B8001590E1 /* DataStorageController.h */,
-				7D2DE5EE2015B8B8001590E1 /* DataStorageController.m */,
-				7D2DE5F02015BBCF001590E1 /* DataModel.h */,
-				7D2DE5F12015BBCF001590E1 /* DataModel.m */,
-				7DA1D6C22060CD1300EB0AC2 /* LeanCloudViewController.h */,
-				7DA1D6C32060CD1300EB0AC2 /* LeanCloudViewController.m */,
-				7D328A4A2068E56000A64272 /* CoreDataController.h */,
-				7D328A4B2068E56000A64272 /* CoreDataController.m */,
-				7D328A4D2068E65800A64272 /* User.h */,
-				7D328A4E2068E65800A64272 /* User.m */,
-				7D328A502068EC1300A64272 /* Model.xcdatamodeld */,
+				7D1A365E20A56E4000D74375 /* 线上存储 */,
+				7D1A365A20A56DE000D74375 /* 偏好设置:属性列表:数据归档 */,
+				7D1A365920A56D6A00D74375 /* FMDB */,
+				7D1A364F20A5683400D74375 /* CoreData */,
 			);
 			path = "数据存储";
 			sourceTree = "<group>";
@@ -1362,7 +1404,6 @@
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
 				7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */,
 				7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */,
-				7D328A4F2068E65800A64272 /* User.m in Sources */,
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
 				7DB9B5491FD7E6710011EE54 /* VideoBottomView.m in Sources */,
@@ -1403,7 +1444,6 @@
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
 				7DDF9E9E207F62D6003D6F17 /* AFController.m in Sources */,
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
-				7D328A522068EC1300A64272 /* Model.xcdatamodeld in Sources */,
 				7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
 				7DC24C992023002900103BDE /* CustomTransitionPop.m in Sources */,
@@ -1419,11 +1459,11 @@
 				7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */,
 				7DA152BA204AACAA0075274E /* BaseModel.m in Sources */,
 				7DA152D3204B01BE0075274E /* runtimeViewController.m in Sources */,
+				7D1A366120A56E4000D74375 /* LeanCloudViewController.m in Sources */,
 				7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */,
 				7DB9B55B1FD93C720011EE54 /* BaseVideoController.m in Sources */,
 				7DB9B5361FD678F80011EE54 /* ContactsController.m in Sources */,
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
-				7DA1D6C42060CD1300EB0AC2 /* LeanCloudViewController.m in Sources */,
 				7D437F4D2090771B00DAAEBD /* QKAlertView.m in Sources */,
 				7D91AC462081D714001AE03E /* MemoryController.m in Sources */,
 				7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */,
@@ -1434,6 +1474,7 @@
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
 				7D2DE5F22015BBCF001590E1 /* DataModel.m in Sources */,
 				7DDF9E98207F4F10003D6F17 /* XMLController.m in Sources */,
+				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
 				7D328A432064DE9500A64272 /* TextViewController.m in Sources */,
 				7DC24C8D20219EF700103BDE /* AnimationView.m in Sources */,
 				7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */,
@@ -1452,7 +1493,9 @@
 				7DAA3CEB2041BA9E00B12BC4 /* RACViewController.m in Sources */,
 				7DFB1BA91FCE94380033D9E2 /* HomeFlowLayout.m in Sources */,
 				7D1A364B20A17C2000D74375 /* HHSegmentController.m in Sources */,
+				7D1A365720A5683500D74375 /* CoreDataController.m in Sources */,
 				7D2FF0B81FFCDB1100ECAA26 /* ScanView.m in Sources */,
+				7D1A366420A56F0E00D74375 /* HHFMDBManager.m in Sources */,
 				7D53F7392044523200D886B9 /* QKCRIndicateCell.m in Sources */,
 				7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */,
 				7DBA5A5E20410C3900BC274E /* RSAEncryptor.m in Sources */,
@@ -1465,12 +1508,12 @@
 				7DC24C932022B6E500103BDE /* DrawingBoardController.m in Sources */,
 				7DB9B5391FD6A47D0011EE54 /* ContactModel.m in Sources */,
 				7D0DA8461FC50D7000774E40 /* main.m in Sources */,
-				7D2DE5EF2015B8B8001590E1 /* DataStorageController.m in Sources */,
 				7DC24C902022A6B100103BDE /* TransitionController.m in Sources */,
 				7D437EEF20834E3200DAAEBD /* BaseRemote.m in Sources */,
 				7DDF9EA720809710003D6F17 /* RegularExpressionController.m in Sources */,
 				7D4AFB0C2011D78A0018AB3D /* ContactController.m in Sources */,
 				7DFB1BE61FCFE6EB0033D9E2 /* ThreeDTouchController.m in Sources */,
+				7D1A365620A5683500D74375 /* User.m in Sources */,
 				7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */,
 				7D437F46208ECDB200DAAEBD /* NumberValidate.m in Sources */,
 				7D437F3D208ECA2200DAAEBD /* CustomTextField.m in Sources */,
@@ -1478,18 +1521,19 @@
 				7DDF9E8F2073854E003D6F17 /* ViewController.m in Sources */,
 				7D437EF82083513B00DAAEBD /* TVKJ.m in Sources */,
 				7D328A55206CD62D00A64272 /* HUtils.m in Sources */,
-				7D328A4C2068E56000A64272 /* CoreDataController.m in Sources */,
 				7DFB1BE91FCFE8390033D9E2 /* presentViewController.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
 				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,
 				7D5393BD2019746B006D2712 /* DrawController.m in Sources */,
 				7D2FF0CC2004A3E300ECAA26 /* AddVideoController.m in Sources */,
+				7D1A365820A5683500D74375 /* Model.xcdatamodeld in Sources */,
 				7D437F3A208EC85400DAAEBD /* StrategyController.m in Sources */,
 				7DEA99A2202A95050050055E /* ThreadViewController.m in Sources */,
 				7DFB1BE31FCFE2420033D9E2 /* LightSinceController.m in Sources */,
 				7D53F76120467CFA00D886B9 /* QKCRChatControlViewController.m in Sources */,
 				7DDF9E92207F00AF003D6F17 /* HttpsController.m in Sources */,
 				7DC24C962023001100103BDE /* CustomTransitionPush.m in Sources */,
+				7D1A366720A5845900D74375 /* HHFMDBController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1745,12 +1789,12 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		7D328A502068EC1300A64272 /* Model.xcdatamodeld */ = {
+		7D1A365420A5683400D74375 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7D328A512068EC1300A64272 /* Model.xcdatamodel */,
+				7D1A365520A5683400D74375 /* Model.xcdatamodel */,
 			);
-			currentVersion = 7D328A512068EC1300A64272 /* Model.xcdatamodel */;
+			currentVersion = 7D1A365520A5683400D74375 /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

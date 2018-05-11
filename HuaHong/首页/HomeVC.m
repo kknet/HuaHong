@@ -81,7 +81,7 @@ static NSString *headerID = @"headerID";
         @[@"基本动画",@"扇形加载",@"转场动画"],
         @[@"多网络请求",@"session请求",@"下载",@"上传",@"Https证书",@"删除数据",@"XML解析",@"JSON/Plist",@"AFN"],
         @[@"触摸手势交互"],
-        @[@"数据存储",@"云端存储",@"CoreData"],
+        @[@"数据存储",@"云端存储",@"CoreData",@"SQLite"],
         @[@"绘图",@"时钟",@"画板"],
         @[@"日历"],
         @[@"图文混排"],
@@ -594,16 +594,23 @@ static NSString *headerID = @"headerID";
                 
             }else if (indexPath.item == 1)
             {
-                vc = [LeanCloudViewController new];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"LeanCloudViewController"];
                 vc.title = @"LeanCloud";
                 
             }else if (indexPath.item == 2)
             {
-                vc = [CoreDataController new];
+                vc = [kStory instantiateViewControllerWithIdentifier:@"CoreDataController"];
                 vc.title = @"CoreData";
             }
+            else if (indexPath.item == 3)
+            {
+                vc = [kStory instantiateViewControllerWithIdentifier:@"HHFMDBController"];
+                vc.title = @"SQLite";
+            }
+
         }
             break;
+
         case 12:
         {
             if (indexPath.item == 0) {

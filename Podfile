@@ -20,6 +20,7 @@ pod 'SystemServices', '~> 2.0.1'
 pod 'HHCategory', '~> 0.3.8'
 pod 'MLeaksFinder'
 pod 'YYCache'
+pod 'FMDB'
 
 pod 'UMCCommon'
 pod 'UMCSecurityPlugins'
