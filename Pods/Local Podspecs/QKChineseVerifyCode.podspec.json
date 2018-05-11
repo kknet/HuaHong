@@ -1,0 +1,24 @@
+{
+  "name": "QKChineseVerifyCode",
+  "version": "0.0.1",
+  "summary": "青客用的中文验证码",
+  "description": "青客用的中文验证码，点击 红色 中文文字 才能通过验证。",
+  "homepage": "http://www.qk365.com/",
+  "license": "MIT",
+  "authors": {
+    "Sunny": "zhang_zhi_li@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "svn": "svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode"
+  },
+  "source_files": "Classes/**/*.{h,m}",
+  "exclude_files": "Classes/Exclude",
+  "resource_bundles": {
+    "QKChineseVerifyCodeFramework": [
+      "Classes/**/*.{storyboard,xib,xcassets,json,imageset,png}"
+    ]
+  }
+}
