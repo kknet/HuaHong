@@ -90,7 +90,7 @@ static NSString *headerID = @"headerID";
         @[@"多线程"],
         @[@"响应式编程RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
         @[@"蓝牙",@"蓝牙外设"],
-        @[@"人脸识别"],
+        @[@"人脸识别",@"手势解锁"],
         @[@"策略模式",@"桥接模式"],
         @[@"计时器",@"密码安全",@"正则表达式",@"分段选择"]
         ]];
@@ -117,6 +117,8 @@ static NSString *headerID = @"headerID";
 {
     TestViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"TestViewController"];
     [self.navigationController pushViewController:vc animated:YES];
+    
+//    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"App-Prefs:root=WIFI"]];
 }
 
 -(NSMutableArray *)dataArray{
@@ -369,6 +371,13 @@ static NSString *headerID = @"headerID";
     return CGSizeMake((collectionView.size.width -layout.sectionInset.left - layout.sectionInset.right - (line-1)*itemSpace)/line, 40);
 }
 
+
+/**
+ cmd + option + /
+
+ @param collectionView <#collectionView description#>
+ @param indexPath <#indexPath description#>
+ */
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *vc = nil;
@@ -386,7 +395,7 @@ static NSString *headerID = @"headerID";
             }else if (indexPath.item == 2)
             {
                 //chat
-                vc = [QKCRChatControlViewController new];
+//                vc = [QKCRChatControlViewController new];
                 
             }else if (indexPath.item == 3)
             {
@@ -715,6 +724,10 @@ static NSString *headerID = @"headerID";
                 
                 vc = [FaceViewController new];
                 vc.navigationItem.title = @"人脸识别";
+            }else if (indexPath.item == 1)
+            {
+                vc = [HHLockController new];
+                vc.navigationItem.title = @"手势解锁";
             }
         }
             break;

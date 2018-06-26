@@ -141,12 +141,9 @@
 
 -(void)showMessage:(NSString *)message
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"扫描结果" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [UIViewController showAlertWhithTarget:self Title:@"扫描结果" Message:message SureTitle:@"确定" CancelTitle:nil SureAction:^{
         [_session startRunning];
-    }];
-    [alert addAction:sureAction];
-    [self presentViewController:alert animated:YES completion:nil];
+    } CancelAction:nil];
 }
 
 -(BOOL)isAvailableCamera

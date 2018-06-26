@@ -37,14 +37,43 @@ static NSString *headerID = @"headerID";
     [super viewDidLoad];
     self.title = @"测试";
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     self.automaticallyAdjustsScrollViewInsets = YES;
 //    [self.view addSubview:self.collectionView];
     
+//    HHSwitch *hhswitch = [[HHSwitch alloc] initWithFrame:CGRectMake(100, 100, 80, 40)];
+//    [self.view addSubview:hhswitch];
+//
+//    hhswitch.onText = @"打开";
+//    hhswitch.offText = @"关闭";
+//
+//    hhswitch.backgroundColor = [UIColor clearColor];
+//    hhswitch.tintColor = [UIColor lightGrayColor];
+//    hhswitch.thumbTintColor = [UIColor redColor];
+//
+//    [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+    
+}
+
+-(void)switchAction:(HHSwitch *)sender
+{
+    if (sender.isOn)
+    {
+        NSLog(@"开始接单");
+    }else
+    {
+        NSLog(@"接单已关");
+
+    }
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    
+
+    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"Alert测试" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
+        NSLog(@"sure");
+    } CancelAction:nil];
     
     
 //  TestView *view =  [[TestView alloc]init];
@@ -61,12 +90,12 @@ static NSString *headerID = @"headerID";
 //    NSString *str = [NSString stringWithFormat:@"%f",self.hFloat];
 //    [SVProgressHUD showWithStatus:str];
     
-    QKCodeController *vc = [QKCodeController codeControllerWithDismissCallback:^(BOOL isSuccess) {
-        
-        NSLog(@"%d",isSuccess);
-    }];
-    
-    [self presentViewController:vc animated:YES completion:nil];
+//    QKCodeController *vc = [QKCodeController codeControllerWithDismissCallback:^(BOOL isSuccess) {
+//
+//        NSLog(@"%d",isSuccess);
+//    }];
+//
+//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 -(void)share
@@ -132,131 +161,33 @@ static NSString *headerID = @"headerID";
     
     
 }
--(UICollectionView *)collectionView{
-    
-    
-    
-    if (!_collectionView) {
-        
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
 
-        
-        _collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout: layout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
-        _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        _collectionView.alwaysBounceVertical = NO;
-        _collectionView.alwaysBounceHorizontal = NO;
-        _collectionView.pagingEnabled = NO;
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellID];
-        [_collectionView registerClass:[CollectionHeadView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader  withReuseIdentifier:headerID];
-        _collectionView.contentInset = UIEdgeInsetsMake(15, 15, 15, 15);
-    }
-    
-    return _collectionView;
-}
-
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 20;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    
-    return 5;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-//    NSArray *array = self.dataArray[indexPath.section];
-    
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
-    if (cell.contentView.subviews.count == 0) {
-        UILabel *label = [[UILabel alloc]initWithFrame:cell.contentView.bounds];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont systemFontOfSize:14];
-        label.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        label.layer.borderWidth = 0.5;
-        [cell.contentView addSubview:label];
-        label.text = @"haha";
-    }
-    
-    for (UIView *view in cell.contentView.subviews) {
-        if ([view isKindOfClass:[UILabel class]]) {
-            UILabel *label = (UILabel *)view;
-            label.text = @"haha";
-        }
-    }
-    
-    return cell;
-    
-    
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    
-    CollectionHeadView *header = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID forIndexPath:indexPath];
-    header.backgroundColor = [UIColor lightGrayColor];
-    header.iconImage.image = [UIImage imageNamed:@"search_expert"];
-    header.headText.text = @"haha";
-    
-    
-    return header;
-}
-
-//Header 大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
-    return CGSizeMake(0, 40);
-}
-
-//Footer 大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-{
-    return CGSizeZero;
-}
-
-
-//列间距
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 3.0;
-}
-
-//行间距
--(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 3.0;
-}
-
-//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-//{
-//
-//    return UIEdgeInsetsMake(15,15,15,15);
-//}
 
 /*
- 格子的宽高设置
- */
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+#define kSwitchHeight 50
+- (void)addSwitch
 {
-    CGFloat itemSpace = 3.0;//item列间距
-    NSInteger line = 3;//行
-
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)collectionViewLayout;
-
-    NSLog(@"layout.sectionInset.left:%f",layout.sectionInset.left);
-    NSLog(@"contentInset.left:%f",collectionView.contentInset.left);
-
-
-    return CGSizeMake((kScreenWidth-layout.sectionInset.left - layout.sectionInset.right - (line-1)*itemSpace)/line, 40);
+ 
+        NSString *showText = @"显示名称";
+        // 2个字 用80比较好看 (18号字体)
+        // 4个字 用120比较好看 (18号字体)
+        // 所以: = 字数 * 20 + 40
+        CGFloat switchWidth = showText.length * 20 + 40;//120;
+        
+        _switch_showName = [[ZJSwitch alloc] initWithFrame:CGRectMake(0, 0, switchWidth, kSwitchHeight)];
+        
+        
+ 
+        
+        _switch_showName.backgroundColor = [UIColor clearColor];
+        _switch_showName.tintColor = [UIColor lightGrayColor];
+        _switch_showName.onText = showText;
+        _switch_showName.offText = showText; // 也可以不一样
+        [_switch_showName addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
+        [self.scrollView addSubview:_switch_showName];
+ 
+ 
 }
-
-
-
+ 
+ */
 @end

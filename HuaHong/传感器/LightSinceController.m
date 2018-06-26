@@ -103,26 +103,19 @@
 
 -(void)showAlert:(NSString *)message
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
+    __weak typeof(self) weakSelf = self;
+
+    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:message SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
         if ([message containsString:@"打开"]) {
             // 打开闪光灯
-            
-            [self turnOnFlash];
+            [weakSelf turnOnFlash];
             
         }else if ([message containsString:@"关闭"])
         {
             // 关闭闪光灯
-            [self turnOffFlash];
+            [weakSelf turnOffFlash];
         }
-    }];
-    
-    [alert addAction:cancelAction];
-    [alert addAction:sureAction];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+    } CancelAction:nil];
 }
 
 // 打开闪光灯

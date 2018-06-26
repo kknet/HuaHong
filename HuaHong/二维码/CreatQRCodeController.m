@@ -171,20 +171,12 @@
 {
     if (_imageView.image)
     {
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否保存到相册？" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-//            [self saveToPhotoLibrary:_imageView.image];
-            
-            [self savedPhotosToAlbum:_imageView.image];
-            
-        }];
-        [alert addAction:sureAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-        
-        
+        __weak typeof(self) weakSelf = self;
+
+        [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"是否保存到相册？" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
+            [weakSelf savedPhotosToAlbum:_imageView.image];
+
+        } CancelAction:nil];
     }
 }
 

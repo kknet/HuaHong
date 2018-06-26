@@ -26,8 +26,8 @@
     
     self.webView.backgroundColor = [UIColor whiteColor];
     
-//    NSURL *url = [NSURL URLWithString:@"http://seller.o2o.zhaioto.com/user/apply"];
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"index.html" withExtension:nil];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.74/fgy-grab"];
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"index.html" withExtension:nil];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
     
@@ -47,8 +47,11 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //调用JS @"showalert('lq')"
-    NSString *str = [webView stringByEvaluatingJavaScriptFromString:@"test();"];
-    NSLog(@"str:%@",str);
+//    NSString *str = [webView stringByEvaluatingJavaScriptFromString:@"test();"];
+//    NSLog(@"str:%@",str);
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"orderTake();"];
+    
     
     //JS调OC
     JSContext *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
@@ -93,18 +96,11 @@
     return YES;
 }
 
-- (void)showMessage:(NSString *)str {
-    UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:str preferredStyle:UIAlertControllerStyleAlert];
-    
-    //弹出的按钮
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+- (void)showMessage:(NSString *)str
+{
+    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:str SureTitle:str CancelTitle:nil SureAction:^{
         NSLog(@"clicker");
-    }];
-    
-    [vc addAction:action];
-    
-    
-    [self presentViewController:vc animated:YES completion:nil];
+    } CancelAction:nil];
 }
 
 @end

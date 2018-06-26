@@ -139,10 +139,9 @@ static NSString *cellId = @"CollectionId";
     }else
     {
         NSString *message = [NSString stringWithFormat:@"不能超过%ld张",(long)_maxImageCount];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:sureAction];
-        [self presentViewController:alert animated:YES completion:nil];
+        
+        [UIViewController showAlertWhithTarget:self Title:@"提示" Message:message SureTitle:@"确定" CancelTitle:nil SureAction:nil
+            CancelAction:nil];
     }
    
 }

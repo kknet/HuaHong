@@ -21,6 +21,7 @@ pod 'HHCategory', '~> 0.3.8'
 pod 'MLeaksFinder'
 pod 'YYCache'
 pod 'FMDB'
+#pod 'RESideMenu', '~> 4.0.7'
 
 pod 'UMCCommon'
 pod 'UMCSecurityPlugins'

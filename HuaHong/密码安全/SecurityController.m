@@ -55,16 +55,9 @@
         
         if (success)
         {
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{         
                 
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"指纹验证成功" preferredStyle:UIAlertControllerStyleAlert];
-                
-                [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-                    
-                }]];
-                
-                
-                [self presentViewController:alert animated:YES completion:nil];
+                [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"指纹验证成功" SureTitle:@"确定" CancelTitle:nil SureAction:nil CancelAction:nil];
                 
             });
             

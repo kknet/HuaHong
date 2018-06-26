@@ -14,7 +14,6 @@
 		7D0DA8461FC50D7000774E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8451FC50D7000774E40 /* main.m */; };
 		7D1A364B20A17C2000D74375 /* HHSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A364A20A17C1F00D74375 /* HHSegmentController.m */; };
 		7D1A364E20A17D9D00D74375 /* HHSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A364D20A17D9D00D74375 /* HHSegmentView.m */; };
-		7D1A365620A5683500D74375 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365120A5683400D74375 /* User.m */; };
 		7D1A365720A5683500D74375 /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365220A5683400D74375 /* CoreDataController.m */; };
 		7D1A365820A5683500D74375 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365420A5683400D74375 /* Model.xcdatamodeld */; };
 		7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365C20A56DE000D74375 /* DataStorageController.m */; };
@@ -82,7 +81,6 @@
 		7D53F73A2044523200D886B9 /* QKCRIndicateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D53F7382044523200D886B9 /* QKCRIndicateCell.xib */; };
 		7D53F740204528CF00D886B9 /* QKCRIndicateHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F73F204528CF00D886B9 /* QKCRIndicateHeadView.m */; };
 		7D53F74620453B6700D886B9 /* QKCRRecordTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F74520453B6700D886B9 /* QKCRRecordTypeView.m */; };
-		7D53F76120467CFA00D886B9 /* QKCRChatControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F76020467CFA00D886B9 /* QKCRChatControlViewController.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
 		7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651129203C414E0042DAE7 /* ProgressView.m */; };
 		7D6FA8FB203B08E50072109E /* SessionRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6FA8FA203B08E50072109E /* SessionRequestController.m */; };
@@ -108,6 +106,9 @@
 		7DA1D6C72061F8EA00EB0AC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DA1D6C92061F8EA00EB0AC2 /* InfoPlist.strings */; };
 		7DA1D6CD2062207900EB0AC2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DA1D6CF2062207900EB0AC2 /* Localizable.strings */; };
 		7DA1D6D420624AFD00EB0AC2 /* FaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1D6D320624AFD00EB0AC2 /* FaceViewController.m */; };
+		7DA711AA20DCA05B00BEF5D9 /* HHLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA711A920DCA05B00BEF5D9 /* HHLockView.m */; };
+		7DA711AD20DCD10400BEF5D9 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA711AC20DCD10400BEF5D9 /* UIViewController+Alert.m */; };
+		7DA711B020DCDAC300BEF5D9 /* HHLockController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA711AF20DCDAC300BEF5D9 /* HHLockController.m */; };
 		7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE12041B28B00B12BC4 /* RSACryptor.m */; };
 		7DAA3CE62041B28C00B12BC4 /* rsacert.der in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE32041B28B00B12BC4 /* rsacert.der */; };
 		7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE42041B28C00B12BC4 /* p.p12 */; };
@@ -142,6 +143,10 @@
 		7DCE50EC2052206D00601E70 /* HHAudioTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE50EB2052206D00601E70 /* HHAudioTools.m */; };
 		7DDAE7E22057692700D5C274 /* HHPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDAE7E12057692700D5C274 /* HHPlayerViewController.m */; };
 		7DDAE7E5205779C500D5C274 /* HHVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDAE7E4205779C500D5C274 /* HHVideoManager.m */; };
+		7DDEA3E020E0E139008F7948 /* HHCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDEA3DF20E0E139008F7948 /* HHCoreDataManager.m */; };
+		7DDEA3F820E1D722008F7948 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDEA3F620E1D722008F7948 /* User.m */; };
+		7DDEA3F920E1D722008F7948 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDEA3F720E1D722008F7948 /* User+CoreDataProperties.m */; };
+		7DDF6F3520B5535B00921226 /* HHSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF6F3420B5535B00921226 /* HHSwitch.m */; };
 		7DDF9E8F2073854E003D6F17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF9E8E2073854E003D6F17 /* ViewController.m */; };
 		7DDF9E92207F00AF003D6F17 /* HttpsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF9E91207F00AF003D6F17 /* HttpsController.m */; };
 		7DDF9E95207F4774003D6F17 /* DeleteFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF9E94207F4774003D6F17 /* DeleteFileController.m */; };
@@ -184,9 +189,7 @@
 		7D1A364C20A17D9D00D74375 /* HHSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSegmentView.h; sourceTree = "<group>"; };
 		7D1A364D20A17D9D00D74375 /* HHSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSegmentView.m; sourceTree = "<group>"; };
 		7D1A365020A5683400D74375 /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
-		7D1A365120A5683400D74375 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		7D1A365220A5683400D74375 /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
-		7D1A365320A5683400D74375 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		7D1A365520A5683400D74375 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		7D1A365B20A56DE000D74375 /* DataStorageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorageController.h; sourceTree = "<group>"; };
 		7D1A365C20A56DE000D74375 /* DataStorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStorageController.m; sourceTree = "<group>"; };
@@ -307,8 +310,6 @@
 		7D53F73F204528CF00D886B9 /* QKCRIndicateHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKCRIndicateHeadView.m; sourceTree = "<group>"; };
 		7D53F74420453B6700D886B9 /* QKCRRecordTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKCRRecordTypeView.h; sourceTree = "<group>"; };
 		7D53F74520453B6700D886B9 /* QKCRRecordTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKCRRecordTypeView.m; sourceTree = "<group>"; };
-		7D53F75F20467CFA00D886B9 /* QKCRChatControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKCRChatControlViewController.h; sourceTree = "<group>"; };
-		7D53F76020467CFA00D886B9 /* QKCRChatControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKCRChatControlViewController.m; sourceTree = "<group>"; };
 		7D651125203C35900042DAE7 /* DownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewController.h; sourceTree = "<group>"; };
 		7D651126203C35900042DAE7 /* DownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewController.m; sourceTree = "<group>"; };
 		7D651128203C414E0042DAE7 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
@@ -361,6 +362,12 @@
 		7DA1D6D02062207B00EB0AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7DA1D6D220624AFD00EB0AC2 /* FaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceViewController.h; sourceTree = "<group>"; };
 		7DA1D6D320624AFD00EB0AC2 /* FaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceViewController.m; sourceTree = "<group>"; };
+		7DA711A820DCA05B00BEF5D9 /* HHLockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLockView.h; sourceTree = "<group>"; };
+		7DA711A920DCA05B00BEF5D9 /* HHLockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLockView.m; sourceTree = "<group>"; };
+		7DA711AB20DCD10400BEF5D9 /* UIViewController+Alert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
+		7DA711AC20DCD10400BEF5D9 /* UIViewController+Alert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
+		7DA711AE20DCDAC300BEF5D9 /* HHLockController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHLockController.h; sourceTree = "<group>"; };
+		7DA711AF20DCDAC300BEF5D9 /* HHLockController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHLockController.m; sourceTree = "<group>"; };
 		7DAA3CE12041B28B00B12BC4 /* RSACryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSACryptor.m; sourceTree = "<group>"; };
 		7DAA3CE22041B28B00B12BC4 /* RSACryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSACryptor.h; sourceTree = "<group>"; };
 		7DAA3CE32041B28B00B12BC4 /* rsacert.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = rsacert.der; sourceTree = "<group>"; };
@@ -427,6 +434,14 @@
 		7DDAE7E12057692700D5C274 /* HHPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHPlayerViewController.m; sourceTree = "<group>"; };
 		7DDAE7E3205779C500D5C274 /* HHVideoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVideoManager.h; sourceTree = "<group>"; };
 		7DDAE7E4205779C500D5C274 /* HHVideoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVideoManager.m; sourceTree = "<group>"; };
+		7DDEA3DE20E0E139008F7948 /* HHCoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHCoreDataManager.h; sourceTree = "<group>"; };
+		7DDEA3DF20E0E139008F7948 /* HHCoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHCoreDataManager.m; sourceTree = "<group>"; };
+		7DDEA3F420E1D722008F7948 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7DDEA3F520E1D722008F7948 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7DDEA3F620E1D722008F7948 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7DDEA3F720E1D722008F7948 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7DDF6F3320B5535B00921226 /* HHSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSwitch.h; sourceTree = "<group>"; };
+		7DDF6F3420B5535B00921226 /* HHSwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSwitch.m; sourceTree = "<group>"; };
 		7DDF9E8D2073854E003D6F17 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7DDF9E8E2073854E003D6F17 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7DDF9E90207F00AF003D6F17 /* HttpsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpsController.h; sourceTree = "<group>"; };
@@ -518,7 +533,7 @@
 			children = (
 				7DC24C8A202161A400103BDE /* HuaHong.entitlements */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
-				7D53F75E20467BE100D886B9 /* chat */,
+				7DA711A720DC9DA800BEF5D9 /* 身份识别 */,
 				7D1A364820A17BC900D74375 /* HHSegment */,
 				7D437EEB20834E0F00DAAEBD /* 设计模式 */,
 				7D398FA72009BEF800994A3C /* 常用控件 */,
@@ -589,10 +604,14 @@
 		7D1A364F20A5683400D74375 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				7DDEA3F520E1D722008F7948 /* User.h */,
+				7DDEA3F620E1D722008F7948 /* User.m */,
+				7DDEA3F420E1D722008F7948 /* User+CoreDataProperties.h */,
+				7DDEA3F720E1D722008F7948 /* User+CoreDataProperties.m */,
 				7D1A365020A5683400D74375 /* CoreDataController.h */,
 				7D1A365220A5683400D74375 /* CoreDataController.m */,
-				7D1A365320A5683400D74375 /* User.h */,
-				7D1A365120A5683400D74375 /* User.m */,
+				7DDEA3DE20E0E139008F7948 /* HHCoreDataManager.h */,
+				7DDEA3DF20E0E139008F7948 /* HHCoreDataManager.m */,
 				7D1A365420A5683400D74375 /* Model.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -746,6 +765,8 @@
 				7DE8D5951FC5773300577762 /* DesUtil.m */,
 				7DA152B8204AACAA0075274E /* BaseModel.h */,
 				7DA152B9204AACAA0075274E /* BaseModel.m */,
+				7DA711AB20DCD10400BEF5D9 /* UIViewController+Alert.h */,
+				7DA711AC20DCD10400BEF5D9 /* UIViewController+Alert.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -794,6 +815,8 @@
 				7D328A482064F58A00A64272 /* HHAttachment.m */,
 				7DDF9E8D2073854E003D6F17 /* ViewController.h */,
 				7DDF9E8E2073854E003D6F17 /* ViewController.m */,
+				7DDF6F3320B5535B00921226 /* HHSwitch.h */,
+				7DDF6F3420B5535B00921226 /* HHSwitch.m */,
 			);
 			path = "常用控件";
 			sourceTree = "<group>";
@@ -890,15 +913,6 @@
 			path = "定时器";
 			sourceTree = "<group>";
 		};
-		7D53F75E20467BE100D886B9 /* chat */ = {
-			isa = PBXGroup;
-			children = (
-				7D53F75F20467CFA00D886B9 /* QKCRChatControlViewController.h */,
-				7D53F76020467CFA00D886B9 /* QKCRChatControlViewController.m */,
-			);
-			path = chat;
-			sourceTree = "<group>";
-		};
 		7D91AC432081D687001AE03E /* 内存检测 */ = {
 			isa = PBXGroup;
 			children = (
@@ -970,6 +984,17 @@
 				7DA1D6D320624AFD00EB0AC2 /* FaceViewController.m */,
 			);
 			path = "智能识别";
+			sourceTree = "<group>";
+		};
+		7DA711A720DC9DA800BEF5D9 /* 身份识别 */ = {
+			isa = PBXGroup;
+			children = (
+				7DA711A820DCA05B00BEF5D9 /* HHLockView.h */,
+				7DA711A920DCA05B00BEF5D9 /* HHLockView.m */,
+				7DA711AE20DCDAC300BEF5D9 /* HHLockController.h */,
+				7DA711AF20DCDAC300BEF5D9 /* HHLockController.m */,
+			);
+			path = "身份识别";
 			sourceTree = "<group>";
 		};
 		7DAA3CE82041BA7300B12BC4 /* 响应式编程RAC */ = {
@@ -1473,6 +1498,7 @@
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
 				7D2DE5F22015BBCF001590E1 /* DataModel.m in Sources */,
+				7DDEA3F920E1D722008F7948 /* User+CoreDataProperties.m in Sources */,
 				7DDF9E98207F4F10003D6F17 /* XMLController.m in Sources */,
 				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
 				7D328A432064DE9500A64272 /* TextViewController.m in Sources */,
@@ -1482,7 +1508,9 @@
 				7D8376D22041433000C6CB06 /* EncryptionTools.m in Sources */,
 				7DDAE7E5205779C500D5C274 /* HHVideoManager.m in Sources */,
 				7DA152C2204ADE640075274E /* ChainViewController.m in Sources */,
+				7DA711AA20DCA05B00BEF5D9 /* HHLockView.m in Sources */,
 				7DC24C8920206B3D00103BDE /* AppDelegate+Notification.m in Sources */,
+				7DA711AD20DCD10400BEF5D9 /* UIViewController+Alert.m in Sources */,
 				7DC24CA320283F6500103BDE /* HHBezierPath.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
 				7D2FF20A2008916700ECAA26 /* NavigationController.m in Sources */,
@@ -1497,6 +1525,7 @@
 				7D2FF0B81FFCDB1100ECAA26 /* ScanView.m in Sources */,
 				7D1A366420A56F0E00D74375 /* HHFMDBManager.m in Sources */,
 				7D53F7392044523200D886B9 /* QKCRIndicateCell.m in Sources */,
+				7DA711B020DCDAC300BEF5D9 /* HHLockController.m in Sources */,
 				7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */,
 				7DBA5A5E20410C3900BC274E /* RSAEncryptor.m in Sources */,
 				7DA1D6C1205F9F0200EB0AC2 /* CBPeripheralViewController.m in Sources */,
@@ -1513,7 +1542,6 @@
 				7DDF9EA720809710003D6F17 /* RegularExpressionController.m in Sources */,
 				7D4AFB0C2011D78A0018AB3D /* ContactController.m in Sources */,
 				7DFB1BE61FCFE6EB0033D9E2 /* ThreeDTouchController.m in Sources */,
-				7D1A365620A5683500D74375 /* User.m in Sources */,
 				7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */,
 				7D437F46208ECDB200DAAEBD /* NumberValidate.m in Sources */,
 				7D437F3D208ECA2200DAAEBD /* CustomTextField.m in Sources */,
@@ -1526,12 +1554,14 @@
 				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,
 				7D5393BD2019746B006D2712 /* DrawController.m in Sources */,
 				7D2FF0CC2004A3E300ECAA26 /* AddVideoController.m in Sources */,
+				7DDEA3E020E0E139008F7948 /* HHCoreDataManager.m in Sources */,
 				7D1A365820A5683500D74375 /* Model.xcdatamodeld in Sources */,
 				7D437F3A208EC85400DAAEBD /* StrategyController.m in Sources */,
 				7DEA99A2202A95050050055E /* ThreadViewController.m in Sources */,
+				7DDEA3F820E1D722008F7948 /* User.m in Sources */,
 				7DFB1BE31FCFE2420033D9E2 /* LightSinceController.m in Sources */,
-				7D53F76120467CFA00D886B9 /* QKCRChatControlViewController.m in Sources */,
 				7DDF9E92207F00AF003D6F17 /* HttpsController.m in Sources */,
+				7DDF6F3520B5535B00921226 /* HHSwitch.m in Sources */,
 				7DC24C962023001100103BDE /* CustomTransitionPush.m in Sources */,
 				7D1A366720A5845900D74375 /* HHFMDBController.m in Sources */,
 			);
@@ -1704,7 +1734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qk.QkRepair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cf1c224a-d318-4190-a391-a5223b2b393f";
+				PROVISIONING_PROFILE = "64deefad-8e61-4500-9821-16e3b7ec5d56";
 				PROVISIONING_PROFILE_SPECIFIER = QkRepair_debug;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/Swift/HuaHong-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1747,8 +1777,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qk.QkRepair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "17270390-e0da-4c6c-b38b-50d56132f3f3";
-				PROVISIONING_PROFILE_SPECIFIER = QkRepair_release;
+				PROVISIONING_PROFILE = "64deefad-8e61-4500-9821-16e3b7ec5d56";
+				PROVISIONING_PROFILE_SPECIFIER = QkRepair_debug;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/首页/HuaHong-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

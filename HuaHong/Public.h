@@ -40,7 +40,8 @@
 #import "NSString+IdentityCard.h"
 #import "NSArray+NSDictionary_Log.h"
 #import "CALayer+borderColor.h"
-
+#import "UIViewController+Alert.h"
+#import <Masonry.h>
 
 #import "MapViewController.h"
 #import "WaterFallController.h"
@@ -76,7 +77,6 @@
 #import "DownLoadViewController.h"
 #import "SecurityController.h"
 #import "RACViewController.h"
-#import "QKCRChatControlViewController.h"
 #import "BlockViewController.h"
 #import "FunctionViewController.h"
 #import "ChainViewController.h"
@@ -101,6 +101,8 @@
 #import "StrategyController.h"
 #import "HHSegmentController.h"
 #import "HHFMDBController.h"
+#import "HHSwitch.h"
+#import "HHLockController.h"
 
 
 

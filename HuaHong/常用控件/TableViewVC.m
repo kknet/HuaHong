@@ -110,6 +110,10 @@ static NSString *headIdentifier = @"QKCRIndicateHeadView";
         _tableView.estimatedRowHeight = 80;
         _tableView.backgroundColor = bgColor;
         
+        _tableView.layer.shadowColor = [UIColor redColor].CGColor;
+        _tableView.layer.shadowOffset = CGSizeMake(5, 5);
+        _tableView.layer.shadowOpacity = 1.0;
+        _tableView.clipsToBounds = false;
     }
     
     

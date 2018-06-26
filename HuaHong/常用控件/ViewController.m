@@ -59,6 +59,7 @@
     
     //    图片向右边调整
     [button setImageEdgeInsets:UIEdgeInsetsMake(0, (titleWidth + space*0.5), 0, -(titleWidth + space*0.5))];
+    button.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     
     //图片在上,文字在下
     [button setTitleEdgeInsets:UIEdgeInsetsMake((titleHeight*0.5 + space*0.5), -image.size.width*0.5, -(titleHeight*0.5 + space*0.5), image.size.width*0.5)];

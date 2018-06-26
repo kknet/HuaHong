@@ -74,6 +74,10 @@
     // U-Share 平台设置
     [self configUSharePlatforms];
     
+    /** 设置缓存 */
+    NSURLCache *cache = [[NSURLCache alloc]initWithMemoryCapacity:1012*1024*5 diskCapacity:1012*1024*10 diskPath:@"images"];
+    [NSURLCache setSharedURLCache:cache];
+    
     return YES;
 }
 
@@ -286,7 +290,7 @@
         //升序
         NSLog(@"%@  <  %@",LocalVersion,LineVersion);
     }else if ([LocalVersion compare:LineVersion options:NSNumericSearch] == NSOrderedSame){
-        //升序
+        
         NSLog(@"%@  =  %@",LocalVersion,LineVersion);
         
     }

@@ -429,6 +429,7 @@ CAAnimationDelegate>
         _audioConnection = [self.audioOutput connectionWithMediaType:AVMediaTypeAudio];
     }
     return _audioConnection;
+    
 }
 
 

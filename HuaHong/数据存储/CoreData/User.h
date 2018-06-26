@@ -1,16 +1,21 @@
 //
-//  User.h
+//  User+CoreDataClass.h
 //  HuaHong
 //
-//  Created by 华宏 on 2018/3/26.
+//  Created by 华宏 on 2018/6/26.
 //  Copyright © 2018年 huahong. All rights reserved.
 //
+//
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface User : NSManagedObject
-@property (nonatomic, strong) NSString * name;
-@property (nonatomic, strong) NSNumber * age;
-@property (nonatomic, strong) NSString * userID;
-@property (nonatomic, strong) NSData * image;
+
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "User+CoreDataProperties.h"

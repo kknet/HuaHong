@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate+Notification.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation AppDelegate (Notification)
 
@@ -193,5 +195,23 @@
     label.text = userInfo.description;
     label.numberOfLines = 0;
     [[UIApplication sharedApplication].keyWindow addSubview:label];
+}
+
+
+-(void) playSound
+{
+    static SystemSoundID push = 0;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"music" ofType:@"caf"];
+    NSLog(@"path = %@",path);
+    if (path) {
+        //注册声音到系统
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path],&push);
+        AudioServicesPlaySystemSound(push);
+        //        AudioServicesPlaySystemSound(push);//如果无法再下面播放，可以尝试在此播放
+    }
+    
+    AudioServicesPlaySystemSound(push);   //播放注册的声音，（此句代码，可以在本类中的任意位置调用，不限于本方法中）
+    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);   //让手机震动
 }
 @end

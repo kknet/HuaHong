@@ -1,9 +1,10 @@
 //
-//  User.m
+//  User+CoreDataClass.m
 //  HuaHong
 //
-//  Created by 华宏 on 2018/3/26.
+//  Created by 华宏 on 2018/6/26.
 //  Copyright © 2018年 huahong. All rights reserved.
+//
 //
 
 #import "User.h"
