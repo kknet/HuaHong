@@ -69,7 +69,7 @@
     user.image = UIImageJPEGRepresentation(image,1);
     
     //向context容器中添加mo对象
-    [[HHCoreDataManager sharedManager].manageContext insertObject:user];
+    //    [[HHCoreDataManager sharedManager].manageContext insertObject:user];
     
     return [[HHCoreDataManager sharedManager].manageContext save:nil];
 }
@@ -77,13 +77,13 @@
 #pragma mark - 删除数据
 - (BOOL)deleteDataWithCondition:(NSPredicate *)predicate
 {
-   // 1.将需要删除的MO查询出来
+    // 1.将需要删除的MO查询出来
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityName inManagedObjectContext:[HHCoreDataManager sharedManager].manageContext];
     [fetchRequest setEntity:entity];
     
     // 谓词条件
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID = %@", @"1003"];
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID = %@", @"1003"];
     [fetchRequest setPredicate:predicate];
     
     NSError *error = nil;
@@ -96,12 +96,27 @@
     
     return [[HHCoreDataManager sharedManager].manageContext save:nil];
     
+    
+    NSFetchRequest *fetchRequest1 = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity1 = [NSEntityDescription entityForName:EntityName inManagedObjectContext:[HHCoreDataManager sharedManager].manageContext];
+    [fetchRequest1 setEntity:entity1];
+    
+    // 谓词条件
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID = %@", @"1003"];
+    [fetchRequest1 setPredicate:predicate];
+    NSBatchDeleteRequest *deleteRequest = [[NSBatchDeleteRequest alloc]initWithFetchRequest:fetchRequest1];
+    deleteRequest.resultType = NSBatchDeleteResultTypeObjectIDs;
+    NSBatchDeleteResult *deleteresult = [self.manageContext executeRequest:deleteRequest error:nil];
+    NSArray *resultArr = deleteresult.result;
+    NSDictionary *dic = @{NSDeletedObjectsKey:resultArr};
+    [NSManagedObjectContext mergeChangesFromRemoteContextSave:dic intoContexts:@[self.manageContext]];
+    
 }
 
 #pragma mark - 修改数据
 - (BOOL)updateWithUserId:(NSString *)userID Data:(NSDictionary *)dic
 {
-   //1.将需要修改的数据查询出来
+    //1.将需要修改的数据查询出来
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityName inManagedObjectContext:[HHCoreDataManager sharedManager].manageContext];
     [fetchRequest setEntity:entity];
@@ -125,11 +140,24 @@
     }
     
     return [[HHCoreDataManager sharedManager].manageContext save:nil];
+    
+    /** 不加载到内存，直接对数据库更新，然后告诉context更新了什么 */
+    NSBatchUpdateRequest *updateRequest = [[NSBatchUpdateRequest alloc]initWithEntityName:EntityName];
+    //指定更新条件
+    updateRequest.predicate = [NSPredicate predicateWithFormat:@"age = %@",@(20)];
+    //更新的数据
+    updateRequest.propertiesToUpdate = @{@"name":@"hello"};
+    updateRequest.resultType = NSUpdatedObjectIDsResultType;
+    NSBatchUpdateResult *result = [self.manageContext executeRequest:updateRequest error:nil];
+    NSArray *upDataIDs = result.result;
+    //merge change
+    NSDictionary *updataDic = @{NSUpdatedObjectsKey:upDataIDs};
+    [NSManagedObjectContext mergeChangesFromRemoteContextSave:updataDic intoContexts:@[self.manageContext]];
 }
 #pragma mark - 查询数据
 - (NSArray <User *> *)queryDataWithCondition:(NSPredicate *)predicate SortKey:(NSString *)sortKey ascending:(BOOL)ascending
 {
-
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityName inManagedObjectContext:[HHCoreDataManager sharedManager].manageContext];
     [fetchRequest setEntity:entity];
