@@ -69,11 +69,11 @@
 #pragma mark - 查
 - (IBAction)queryUser
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age > %@ && name LIKE '*'", @"0"];
-    NSArray *fetchedObjects = [[HHCoreDataManager sharedManager] queryDataWithCondition:nil SortKey:@"age" ascending:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age > %@ && company.name LIKE '机器人'", @"0"];
+    NSArray *fetchedObjects = [[HHCoreDataManager sharedManager] queryDataWithCondition:predicate SortKey:@"age" ascending:NO];
     
     for(User *user in fetchedObjects) {
-        NSLog(@"id : %@, name : %@, age : %@", user.userID, user.name, user.age);
+        NSLog(@"id : %@, name : %@, age : %lld,company:%@", user.userID, user.name, user.age,user.company.name);
     }
 }
 

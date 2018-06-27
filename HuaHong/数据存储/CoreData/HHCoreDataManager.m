@@ -70,6 +70,12 @@
     
     //向context容器中添加mo对象
     //    [[HHCoreDataManager sharedManager].manageContext insertObject:user];
+    Company *company = [[Company alloc]initWithContext:self.manageContext];
+    company.name = @"青客投资";
+    
+    user.company = company;
+    
+    [company addUserObject:user];
     
     return [[HHCoreDataManager sharedManager].manageContext save:nil];
 }

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "User.h"
+#import "Company.h"
+
 
 @interface HHCoreDataManager : NSObject
 

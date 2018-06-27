@@ -1,5 +1,5 @@
 //
-//  User+CoreDataClass.h
+//  Company+CoreDataClass.h
 //  HuaHong
 //
 //  Created by 华宏 on 2018/6/27.
@@ -10,14 +10,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Company;
+@class User;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface User : NSManagedObject
+@interface Company : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "User+CoreDataProperties.h"
+#import "Company+CoreDataProperties.h"

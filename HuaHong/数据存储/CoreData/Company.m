@@ -1,5 +1,5 @@
 //
-//  User+CoreDataClass.m
+//  Company+CoreDataClass.m
 //  HuaHong
 //
 //  Created by 华宏 on 2018/6/27.
@@ -7,8 +7,8 @@
 //
 //
 
-#import "User.h"
+#import "Company.h"
 
-@implementation User
+@implementation Company
 
 @end
