@@ -7,8 +7,9 @@
 //
 //
 
-#import "Company.h"
-
+#import "Company+CoreDataClass.h"
+#import "City+CoreDataClass.h"
+#import "Service+CoreDataClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,17 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Company *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *name;
-@property (nullable, nonatomic, retain) NSSet<User *> *user;
+@property (nullable, nonatomic, copy) NSNumber *companyId;
+@property (nullable, nonatomic, copy) NSString *companyName;
+@property (nullable, nonatomic, retain) City *city;
+@property (nullable, nonatomic, retain) NSSet<Service *> *service;
 
 @end
 
 @interface Company (CoreDataGeneratedAccessors)
 
-- (void)addUserObject:(User *)value;
-- (void)removeUserObject:(User *)value;
-- (void)addUser:(NSSet<User *> *)values;
-- (void)removeUser:(NSSet<User *> *)values;
+- (void)addServiceObject:(Service *)value;
+- (void)removeServiceObject:(Service *)value;
+- (void)addService:(NSSet<Service *> *)values;
+- (void)removeService:(NSSet<Service *> *)values;
 
 @end
 

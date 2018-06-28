@@ -15,7 +15,9 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"Company"];
 }
 
-@dynamic name;
-@dynamic user;
+@dynamic companyId;
+@dynamic companyName;
+@dynamic city;
+@dynamic service;
 
 @end

@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "User.h"
-#import "Company.h"
+#import "City+CoreDataClass.h"
+#import "Company+CoreDataClass.h"
+#import "Service+CoreDataClass.h"
+#import "User+CoreDataClass.h"
+
+
 
 
 @interface HHCoreDataManager : NSObject
@@ -49,5 +53,5 @@
  @param ascending 是否为升序排序
  @return 查询结果
  */
-- (NSArray <User *> *)queryDataWithCondition:(NSPredicate *)predicate SortKey:(NSString *)sortKey ascending:(BOOL)ascending;
+- (NSArray *)queryDataWithCondition:(NSPredicate *)predicate SortKey:(NSString *)sortKey ascending:(BOOL)ascending;
 @end

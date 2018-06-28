@@ -70,10 +70,16 @@ static NSString *headerID = @"headerID";
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-
-    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"Alert测试" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
-        NSLog(@"sure");
-    } CancelAction:nil];
+    
+    NSArray *arr = @[@"11",@"aa",@"哈哈"];
+    NSString *str = [arr componentsJoinedByString:@"&"];
+    NSLog(@"str:%@",str);
+    
+//    [self.segment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18]} forState:UIControlStateNormal];
+    
+//    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"Alert测试" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
+//        NSLog(@"sure");
+//    } CancelAction:nil];
     
     
 //  TestView *view =  [[TestView alloc]init];

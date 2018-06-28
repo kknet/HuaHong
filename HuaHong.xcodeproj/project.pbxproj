@@ -93,10 +93,6 @@
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
 		7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EBB1FD531CE00D0A4D5 /* PhotoListController.m */; };
 		7D957EBF1FD5337000D0A4D5 /* PhotoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EBE1FD5337000D0A4D5 /* PhotoListCell.m */; };
-		7D97E99A20E33360000520B1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D97E99820E33360000520B1 /* User.m */; };
-		7D97E99B20E33360000520B1 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D97E99920E33360000520B1 /* User+CoreDataProperties.m */; };
-		7D97E9A020E333A9000520B1 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D97E99E20E333A9000520B1 /* Company.m */; };
-		7D97E9A120E333A9000520B1 /* Company+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D97E99F20E333A9000520B1 /* Company+CoreDataProperties.m */; };
 		7DA152B6204A87E80075274E /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA152B5204A87E80075274E /* BlockViewController.m */; };
 		7DA152BA204AACAA0075274E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA152B9204AACAA0075274E /* BaseModel.m */; };
 		7DA152BF204ADBEF0075274E /* FunctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA152BE204ADBEF0075274E /* FunctionViewController.m */; };
@@ -142,6 +138,14 @@
 		7DC24C9D2027F96700103BDE /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC24C9C2027F96700103BDE /* Speech.framework */; };
 		7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC24C9F2028356900103BDE /* DrawBoardView.m */; };
 		7DC24CA320283F6500103BDE /* HHBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC24CA220283F6500103BDE /* HHBezierPath.m */; };
+		7DC3750E20E390F1005AEBCA /* Service+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3750C20E390F1005AEBCA /* Service+CoreDataClass.m */; };
+		7DC3750F20E390F1005AEBCA /* Service+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3750D20E390F1005AEBCA /* Service+CoreDataProperties.m */; };
+		7DC3751220E39117005AEBCA /* Company+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751120E39117005AEBCA /* Company+CoreDataClass.m */; };
+		7DC3751520E39140005AEBCA /* Company+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751420E39140005AEBCA /* Company+CoreDataProperties.m */; };
+		7DC3751A20E3915D005AEBCA /* City+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751820E3915D005AEBCA /* City+CoreDataClass.m */; };
+		7DC3751B20E3915D005AEBCA /* City+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751920E3915D005AEBCA /* City+CoreDataProperties.m */; };
+		7DC3752020E474F0005AEBCA /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751E20E474F0005AEBCA /* User+CoreDataClass.m */; };
+		7DC3752120E474F0005AEBCA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751F20E474F0005AEBCA /* User+CoreDataProperties.m */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
 		7DCCFAA8200CC48500902D92 /* DistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCCFAA7200CC48500902D92 /* DistanceController.m */; };
 		7DCE50EC2052206D00601E70 /* HHAudioTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE50EB2052206D00601E70 /* HHAudioTools.m */; };
@@ -338,14 +342,6 @@
 		7D957EBB1FD531CE00D0A4D5 /* PhotoListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListController.m; sourceTree = "<group>"; };
 		7D957EBD1FD5337000D0A4D5 /* PhotoListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListCell.h; sourceTree = "<group>"; };
 		7D957EBE1FD5337000D0A4D5 /* PhotoListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListCell.m; sourceTree = "<group>"; };
-		7D97E99620E33360000520B1 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
-		7D97E99720E33360000520B1 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		7D97E99820E33360000520B1 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		7D97E99920E33360000520B1 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
-		7D97E99C20E333A9000520B1 /* Company+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Company+CoreDataProperties.h"; sourceTree = "<group>"; };
-		7D97E99D20E333A9000520B1 /* Company.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
-		7D97E99E20E333A9000520B1 /* Company.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
-		7D97E99F20E333A9000520B1 /* Company+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Company+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7DA152B4204A87E80075274E /* BlockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
 		7DA152B5204A87E80075274E /* BlockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockViewController.m; sourceTree = "<group>"; };
 		7DA152B8204AACAA0075274E /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -434,6 +430,22 @@
 		7DC24C9F2028356900103BDE /* DrawBoardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawBoardView.m; sourceTree = "<group>"; };
 		7DC24CA120283F6500103BDE /* HHBezierPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHBezierPath.h; sourceTree = "<group>"; };
 		7DC24CA220283F6500103BDE /* HHBezierPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHBezierPath.m; sourceTree = "<group>"; };
+		7DC3750A20E390F1005AEBCA /* Service+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Service+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7DC3750B20E390F1005AEBCA /* Service+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Service+CoreDataClass.h"; sourceTree = "<group>"; };
+		7DC3750C20E390F1005AEBCA /* Service+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Service+CoreDataClass.m"; sourceTree = "<group>"; };
+		7DC3750D20E390F1005AEBCA /* Service+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Service+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7DC3751020E39117005AEBCA /* Company+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Company+CoreDataClass.h"; sourceTree = "<group>"; };
+		7DC3751120E39117005AEBCA /* Company+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Company+CoreDataClass.m"; sourceTree = "<group>"; };
+		7DC3751320E39140005AEBCA /* Company+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Company+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7DC3751420E39140005AEBCA /* Company+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Company+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7DC3751620E3915D005AEBCA /* City+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "City+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7DC3751720E3915D005AEBCA /* City+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "City+CoreDataClass.h"; sourceTree = "<group>"; };
+		7DC3751820E3915D005AEBCA /* City+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "City+CoreDataClass.m"; sourceTree = "<group>"; };
+		7DC3751920E3915D005AEBCA /* City+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "City+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7DC3751C20E474F0005AEBCA /* User+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7DC3751D20E474F0005AEBCA /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
+		7DC3751E20E474F0005AEBCA /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
+		7DC3751F20E474F0005AEBCA /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7DC94AF61FE901F20042632D /* AnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 		7DCCFAA6200CC48500902D92 /* DistanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistanceController.h; sourceTree = "<group>"; };
@@ -610,19 +622,27 @@
 		7D1A364F20A5683400D74375 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				7D97E99D20E333A9000520B1 /* Company.h */,
-				7D97E99E20E333A9000520B1 /* Company.m */,
-				7D97E99C20E333A9000520B1 /* Company+CoreDataProperties.h */,
-				7D97E99F20E333A9000520B1 /* Company+CoreDataProperties.m */,
-				7D97E99720E33360000520B1 /* User.h */,
-				7D97E99820E33360000520B1 /* User.m */,
-				7D97E99620E33360000520B1 /* User+CoreDataProperties.h */,
-				7D97E99920E33360000520B1 /* User+CoreDataProperties.m */,
-				7D1A365020A5683400D74375 /* CoreDataController.h */,
-				7D1A365220A5683400D74375 /* CoreDataController.m */,
+				7DC3751D20E474F0005AEBCA /* User+CoreDataClass.h */,
+				7DC3751E20E474F0005AEBCA /* User+CoreDataClass.m */,
+				7DC3751C20E474F0005AEBCA /* User+CoreDataProperties.h */,
+				7DC3751F20E474F0005AEBCA /* User+CoreDataProperties.m */,
+				7DC3751720E3915D005AEBCA /* City+CoreDataClass.h */,
+				7DC3751820E3915D005AEBCA /* City+CoreDataClass.m */,
+				7DC3751620E3915D005AEBCA /* City+CoreDataProperties.h */,
+				7DC3751920E3915D005AEBCA /* City+CoreDataProperties.m */,
+				7DC3750B20E390F1005AEBCA /* Service+CoreDataClass.h */,
+				7DC3750C20E390F1005AEBCA /* Service+CoreDataClass.m */,
+				7DC3750A20E390F1005AEBCA /* Service+CoreDataProperties.h */,
+				7DC3750D20E390F1005AEBCA /* Service+CoreDataProperties.m */,
+				7DC3751020E39117005AEBCA /* Company+CoreDataClass.h */,
+				7DC3751120E39117005AEBCA /* Company+CoreDataClass.m */,
+				7DC3751320E39140005AEBCA /* Company+CoreDataProperties.h */,
+				7DC3751420E39140005AEBCA /* Company+CoreDataProperties.m */,
 				7DDEA3DE20E0E139008F7948 /* HHCoreDataManager.h */,
 				7DDEA3DF20E0E139008F7948 /* HHCoreDataManager.m */,
 				7D1A365420A5683400D74375 /* Model.xcdatamodeld */,
+				7D1A365020A5683400D74375 /* CoreDataController.h */,
+				7D1A365220A5683400D74375 /* CoreDataController.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1437,6 +1457,7 @@
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,
 				7D4AFB062011C9FE0018AB3D /* LoginViewController.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
+				7DC3750E20E390F1005AEBCA /* Service+CoreDataClass.m in Sources */,
 				7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */,
 				7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */,
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
@@ -1457,12 +1478,14 @@
 				7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */,
 				7DDF9E95207F4774003D6F17 /* DeleteFileController.m in Sources */,
 				7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */,
+				7DC3751A20E3915D005AEBCA /* City+CoreDataClass.m in Sources */,
 				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
 				7DA152C5204ADFEB0075274E /* Person.m in Sources */,
 				7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */,
 				7DE5666B206E499100FC5F2E /* XTSegmentControl.m in Sources */,
 				7D2FF2092008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m in Sources */,
 				7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */,
+				7DC3751520E39140005AEBCA /* Company+CoreDataProperties.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,
 				7D6FA8FB203B08E50072109E /* SessionRequestController.m in Sources */,
 				7D53F72B2042E8DC00D886B9 /* RACView.m in Sources */,
@@ -1475,7 +1498,9 @@
 				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
 				7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */,
+				7DC3752020E474F0005AEBCA /* User+CoreDataClass.m in Sources */,
 				7D5393EA202013F4006D2712 /* TimerController.m in Sources */,
+				7DC3751220E39117005AEBCA /* Company+CoreDataClass.m in Sources */,
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
 				7DDF9E9E207F62D6003D6F17 /* AFController.m in Sources */,
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
@@ -1492,7 +1517,9 @@
 				7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */,
 				7D437EF52083501500DAAEBD /* SubRemote.m in Sources */,
 				7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */,
+				7DC3751B20E3915D005AEBCA /* City+CoreDataProperties.m in Sources */,
 				7DA152BA204AACAA0075274E /* BaseModel.m in Sources */,
+				7DC3750F20E390F1005AEBCA /* Service+CoreDataProperties.m in Sources */,
 				7DA152D3204B01BE0075274E /* runtimeViewController.m in Sources */,
 				7D1A366120A56E4000D74375 /* LeanCloudViewController.m in Sources */,
 				7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */,
@@ -1507,8 +1534,8 @@
 				7D2FF20B2008916700ECAA26 /* UINavigationController+BackButtonHandler.m in Sources */,
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
+				7DC3752120E474F0005AEBCA /* User+CoreDataProperties.m in Sources */,
 				7D2DE5F22015BBCF001590E1 /* DataModel.m in Sources */,
-				7D97E99B20E33360000520B1 /* User+CoreDataProperties.m in Sources */,
 				7DDF9E98207F4F10003D6F17 /* XMLController.m in Sources */,
 				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
 				7D328A432064DE9500A64272 /* TextViewController.m in Sources */,
@@ -1517,7 +1544,6 @@
 				7D398FAA2009BFBE00994A3C /* TableViewVC.m in Sources */,
 				7D8376D22041433000C6CB06 /* EncryptionTools.m in Sources */,
 				7DDAE7E5205779C500D5C274 /* HHVideoManager.m in Sources */,
-				7D97E9A120E333A9000520B1 /* Company+CoreDataProperties.m in Sources */,
 				7DA152C2204ADE640075274E /* ChainViewController.m in Sources */,
 				7DA711AA20DCA05B00BEF5D9 /* HHLockView.m in Sources */,
 				7DC24C8920206B3D00103BDE /* AppDelegate+Notification.m in Sources */,
@@ -1559,7 +1585,6 @@
 				7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */,
 				7DDF9E8F2073854E003D6F17 /* ViewController.m in Sources */,
 				7D437EF82083513B00DAAEBD /* TVKJ.m in Sources */,
-				7D97E9A020E333A9000520B1 /* Company.m in Sources */,
 				7D328A55206CD62D00A64272 /* HUtils.m in Sources */,
 				7DFB1BE91FCFE8390033D9E2 /* presentViewController.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
@@ -1570,7 +1595,6 @@
 				7D1A365820A5683500D74375 /* Model.xcdatamodeld in Sources */,
 				7D437F3A208EC85400DAAEBD /* StrategyController.m in Sources */,
 				7DEA99A2202A95050050055E /* ThreadViewController.m in Sources */,
-				7D97E99A20E33360000520B1 /* User.m in Sources */,
 				7DFB1BE31FCFE2420033D9E2 /* LightSinceController.m in Sources */,
 				7DDF9E92207F00AF003D6F17 /* HttpsController.m in Sources */,
 				7DDF6F3520B5535B00921226 /* HHSwitch.m in Sources */,

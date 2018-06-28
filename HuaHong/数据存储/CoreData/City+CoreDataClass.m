@@ -1,5 +1,5 @@
 //
-//  Company+CoreDataClass.m
+//  City+CoreDataClass.m
 //  HuaHong
 //
 //  Created by 华宏 on 2018/6/27.
@@ -7,8 +7,8 @@
 //
 //
 
-#import "Company.h"
+#import "City+CoreDataClass.h"
 
-@implementation Company
+@implementation City
 
 @end

@@ -8,7 +8,7 @@
 
 #import "HHCoreDataManager.h"
 
-#define EntityName @"User"
+#define EntityName @"Service"
 @interface HHCoreDataManager()
 @property (nonatomic,strong) NSManagedObjectContext *manageContext;
 
@@ -59,23 +59,25 @@
 #pragma mark - 新增/保存数据
 - (BOOL)saveData:(NSDictionary *)dic
 {
-    User *user = [NSEntityDescription insertNewObjectForEntityForName:EntityName inManagedObjectContext:[HHCoreDataManager sharedManager].manageContext];
+    Service *service = [NSEntityDescription insertNewObjectForEntityForName:@"Service" inManagedObjectContext:[HHCoreDataManager sharedManager].manageContext];
     
-    user.userID = [dic objectForKey:@"userID"];
-    user.age = [dic objectForKey:@"age"];
-    user.name = [dic objectForKey:@"name"];
-    NSString *imageName = [dic objectForKey:@"image"];
-    UIImage *image = [UIImage imageNamed:imageName];
-    user.image = UIImageJPEGRepresentation(image,1);
+    service.serviceId = @1;
+    service.serviceName = @"杭州服务中心";
+   
     
     //向context容器中添加mo对象
     //    [[HHCoreDataManager sharedManager].manageContext insertObject:user];
     Company *company = [[Company alloc]initWithContext:self.manageContext];
-    company.name = @"青客投资";
+    company.companyName = @"杭州分公司";
+    company.companyId = @2;
+    service.company = company;
+    [company addServiceObject:service];
     
-    user.company = company;
-    
-    [company addUserObject:user];
+    City *city = [[City alloc]initWithContext:self.manageContext];
+    city.cityName = @"杭州";
+    city.cityId = @3;
+    company.city = city;
+    [city addCompanyObject:company];
     
     return [[HHCoreDataManager sharedManager].manageContext save:nil];
 }
@@ -161,15 +163,14 @@
     [NSManagedObjectContext mergeChangesFromRemoteContextSave:updataDic intoContexts:@[self.manageContext]];
 }
 #pragma mark - 查询数据
-- (NSArray <User *> *)queryDataWithCondition:(NSPredicate *)predicate SortKey:(NSString *)sortKey ascending:(BOOL)ascending
+- (NSArray *)queryDataWithCondition:(NSPredicate *)predicate SortKey:(NSString *)sortKey ascending:(BOOL)ascending
 {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityName inManagedObjectContext:[HHCoreDataManager sharedManager].manageContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Company" inManagedObjectContext:[HHCoreDataManager sharedManager].manageContext];
     [fetchRequest setEntity:entity];
     
     //  谓词
-    //  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID = %@", @"1003"];
     [fetchRequest setPredicate:predicate];
     
     //排序

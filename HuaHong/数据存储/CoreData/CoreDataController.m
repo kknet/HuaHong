@@ -9,8 +9,11 @@
 #import "CoreDataController.h"
 #import<CoreData/CoreData.h>
 #import "HHCoreDataManager.h"
-#import"User.h"
-
+#import "City+CoreDataClass.h"
+#import "Company+CoreDataClass.h"
+#import "Service+CoreDataClass.h"
+#import "User+CoreDataClass.h"
+#import <AFNetworking.h>
 @interface CoreDataController ()
 @end
 
@@ -29,6 +32,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+//    [[AFHTTPSessionManager manager] POST:@"http://qingkesim.chinacloudapp.cn:18082/datacenter/area/findAllAreaJsonTree" parameters:@{@"userId":@""} progress:^(NSProgress * _Nonnull uploadProgress) {
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"result:%@",responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"error:%@",error);
+//
+//    }];
     
 }
 
@@ -69,11 +81,20 @@
 #pragma mark - 查
 - (IBAction)queryUser
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age > %@ && company.name LIKE '机器人'", @"0"];
-    NSArray *fetchedObjects = [[HHCoreDataManager sharedManager] queryDataWithCondition:predicate SortKey:@"age" ascending:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"companyId = 2"];
+    NSArray *fetchedObjects = [[HHCoreDataManager sharedManager] queryDataWithCondition:predicate SortKey:nil ascending:NO];
     
-    for(User *user in fetchedObjects) {
-        NSLog(@"id : %@, name : %@, age : %lld,company:%@", user.userID, user.name, user.age,user.company.name);
+    for(Company *company in fetchedObjects) {
+        NSString *cityName = company.city.cityName;
+        NSNumber *cityId = company.city.cityId;
+        NSString *companyName = company.companyName;
+        NSNumber *companyId = company.companyId;
+        NSSet *serviceSet = company.service;
+        Service *service = [serviceSet anyObject];
+//        NSArray *arr = [serviceSet allObjects];
+
+
+        NSLog(@"\ncityName : %@, cityId : %@,\ncompanyName : %@,companyId:%@,\nserviceName:%@,serviceId:%@", cityName, cityId, companyName,companyId,service.serviceName,service.serviceId);
     }
 }
 
