@@ -10,7 +10,6 @@
 #import "CollectionHeadView.h"
 #import "HomeLeftCell.h"
 
-
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic,strong) NSMutableArray *tableTittleDataArray;
@@ -90,7 +89,7 @@ static NSString *headerID = @"headerID";
         @[@"多线程"],
         @[@"响应式编程RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
         @[@"蓝牙",@"蓝牙外设"],
-        @[@"人脸识别",@"手势解锁"],
+        @[@"人脸识别",@"手势解锁",@"卡片识别"],
         @[@"策略模式",@"桥接模式"],
         @[@"计时器",@"密码安全",@"正则表达式",@"分段选择"]
         ]];
@@ -110,15 +109,21 @@ static NSString *headerID = @"headerID";
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 
+
     
 }
 
 -(void)testAction
 {
+//    HHPhotoBrowserController *vc = [HHPhotoBrowserController new];
+//    [self presentViewController:vc animated:YES completion:nil];
+    
     TestViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"TestViewController"];
     [self.navigationController pushViewController:vc animated:YES];
     
 //    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"App-Prefs:root=WIFI"]];
+    
+    
 }
 
 -(NSMutableArray *)dataArray{
@@ -728,6 +733,10 @@ static NSString *headerID = @"headerID";
             {
                 vc = [HHLockController new];
                 vc.navigationItem.title = @"手势解锁";
+            }else if (indexPath.item == 2)
+            {
+                vc = [HHCardController new];
+                vc.navigationItem.title = @"卡片识别";
             }
         }
             break;

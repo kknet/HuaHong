@@ -113,6 +113,9 @@
 		7DAA3CE62041B28C00B12BC4 /* rsacert.der in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE32041B28B00B12BC4 /* rsacert.der */; };
 		7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE42041B28C00B12BC4 /* p.p12 */; };
 		7DAA3CEB2041BA9E00B12BC4 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA3CEA2041BA9E00B12BC4 /* RACViewController.m */; };
+		7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB89720E6002000C538CA /* HHPhotoBrowserController.m */; };
+		7DABB89B20E606DE00C538CA /* PhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */; };
+		7DABB8C620E6509300C538CA /* HHCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB8C520E6509300C538CA /* HHCardController.m */; };
 		7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4FF061FD1352B004EE368 /* VoiceController.m */; };
 		7DB9B5361FD678F80011EE54 /* ContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5351FD678F80011EE54 /* ContactsController.m */; };
 		7DB9B5391FD6A47D0011EE54 /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5381FD6A47D0011EE54 /* ContactModel.m */; };
@@ -146,6 +149,8 @@
 		7DC3751B20E3915D005AEBCA /* City+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751920E3915D005AEBCA /* City+CoreDataProperties.m */; };
 		7DC3752020E474F0005AEBCA /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751E20E474F0005AEBCA /* User+CoreDataClass.m */; };
 		7DC3752120E474F0005AEBCA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751F20E474F0005AEBCA /* User+CoreDataProperties.m */; };
+		7DC3752F20E526E0005AEBCA /* ExCardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC3752D20E526E0005AEBCA /* ExCardSDK.framework */; };
+		7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
 		7DCCFAA8200CC48500902D92 /* DistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCCFAA7200CC48500902D92 /* DistanceController.m */; };
 		7DCE50EC2052206D00601E70 /* HHAudioTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE50EB2052206D00601E70 /* HHAudioTools.m */; };
@@ -380,6 +385,12 @@
 		7DAA3CE42041B28C00B12BC4 /* p.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = p.p12; sourceTree = "<group>"; };
 		7DAA3CE92041BA9E00B12BC4 /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
 		7DAA3CEA2041BA9E00B12BC4 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
+		7DABB89620E6002000C538CA /* HHPhotoBrowserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHPhotoBrowserController.h; sourceTree = "<group>"; };
+		7DABB89720E6002000C538CA /* HHPhotoBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHPhotoBrowserController.m; sourceTree = "<group>"; };
+		7DABB89920E606DE00C538CA /* PhotoBrowserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoBrowserController.h; sourceTree = "<group>"; };
+		7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserController.m; sourceTree = "<group>"; };
+		7DABB8C420E6509300C538CA /* HHCardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHCardController.h; sourceTree = "<group>"; };
+		7DABB8C520E6509300C538CA /* HHCardController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHCardController.m; sourceTree = "<group>"; };
 		7DB4FF051FD1352B004EE368 /* VoiceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceController.h; sourceTree = "<group>"; };
 		7DB4FF061FD1352B004EE368 /* VoiceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceController.m; sourceTree = "<group>"; };
 		7DB4FF081FD135A8004EE368 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
@@ -446,6 +457,8 @@
 		7DC3751D20E474F0005AEBCA /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
 		7DC3751E20E474F0005AEBCA /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
 		7DC3751F20E474F0005AEBCA /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7DC3752D20E526E0005AEBCA /* ExCardSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExCardSDK.framework; sourceTree = "<group>"; };
+		7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ExCardRes.bundle; sourceTree = "<group>"; };
 		7DC94AF61FE901F20042632D /* AnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 		7DCCFAA6200CC48500902D92 /* DistanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistanceController.h; sourceTree = "<group>"; };
@@ -519,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC24C9D2027F96700103BDE /* Speech.framework in Frameworks */,
+				7DC3752F20E526E0005AEBCA /* ExCardSDK.framework in Frameworks */,
 				7D4AFAFF20108D430018AB3D /* libcrypto.a in Frameworks */,
 				7D4AFB0020108D430018AB3D /* libssl.a in Frameworks */,
 				274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */,
@@ -910,6 +924,7 @@
 		7D437F482090770B00DAAEBD /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				7DC3752C20E526E0005AEBCA /* SDK */,
 				7D437F492090771B00DAAEBD /* QKAlertView */,
 			);
 			path = vendor;
@@ -961,6 +976,10 @@
 				7D957EBB1FD531CE00D0A4D5 /* PhotoListController.m */,
 				7D957EBD1FD5337000D0A4D5 /* PhotoListCell.h */,
 				7D957EBE1FD5337000D0A4D5 /* PhotoListCell.m */,
+				7DABB89620E6002000C538CA /* HHPhotoBrowserController.h */,
+				7DABB89720E6002000C538CA /* HHPhotoBrowserController.m */,
+				7DABB89920E606DE00C538CA /* PhotoBrowserController.h */,
+				7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */,
 			);
 			path = "相册";
 			sourceTree = "<group>";
@@ -1012,6 +1031,8 @@
 			children = (
 				7DA1D6D220624AFD00EB0AC2 /* FaceViewController.h */,
 				7DA1D6D320624AFD00EB0AC2 /* FaceViewController.m */,
+				7DABB8C420E6509300C538CA /* HHCardController.h */,
+				7DABB8C520E6509300C538CA /* HHCardController.m */,
 			);
 			path = "智能识别";
 			sourceTree = "<group>";
@@ -1126,6 +1147,15 @@
 				7DAA3CE12041B28B00B12BC4 /* RSACryptor.m */,
 			);
 			path = "密码安全";
+			sourceTree = "<group>";
+		};
+		7DC3752C20E526E0005AEBCA /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				7DC3752D20E526E0005AEBCA /* ExCardSDK.framework */,
+				7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */,
+			);
+			path = SDK;
 			sourceTree = "<group>";
 		};
 		7DC94AF51FE901770042632D /* 动画 */ = {
@@ -1371,6 +1401,7 @@
 				7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */,
 				7D328A402063ABD200A64272 /* index.html in Resources */,
 				7DE8D5861FC556DE00577762 /* Main.storyboard in Resources */,
+				7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */,
 				7D437F4E2090771B00DAAEBD /* QKAlertView.podspec in Resources */,
 				7D53F73A2044523200D886B9 /* QKCRIndicateCell.xib in Resources */,
 				7D2FF0CE2004AB4900ECAA26 /* weixinY.mp4 in Resources */,
@@ -1485,6 +1516,7 @@
 				7DE5666B206E499100FC5F2E /* XTSegmentControl.m in Sources */,
 				7D2FF2092008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m in Sources */,
 				7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */,
+				7DABB89B20E606DE00C538CA /* PhotoBrowserController.m in Sources */,
 				7DC3751520E39140005AEBCA /* Company+CoreDataProperties.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,
 				7D6FA8FB203B08E50072109E /* SessionRequestController.m in Sources */,
@@ -1504,6 +1536,7 @@
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
 				7DDF9E9E207F62D6003D6F17 /* AFController.m in Sources */,
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
+				7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */,
 				7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
 				7DC24C992023002900103BDE /* CustomTransitionPop.m in Sources */,
@@ -1528,6 +1561,7 @@
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
 				7D437F4D2090771B00DAAEBD /* QKAlertView.m in Sources */,
 				7D91AC462081D714001AE03E /* MemoryController.m in Sources */,
+				7DABB8C620E6509300C538CA /* HHCardController.m in Sources */,
 				7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */,
 				7D5393E3201AF916006D2712 /* TouchController.m in Sources */,
 				7D2DE5F720170227001590E1 /* DrawView.m in Sources */,
@@ -1753,6 +1787,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/HuaHong/vendor/LogManager/class/Vendor",
 					"$(PROJECT_DIR)/HuaHong/vendor/LogManager",
+					"$(PROJECT_DIR)/HuaHong/vendor/SDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
@@ -1796,6 +1831,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/HuaHong/vendor/LogManager/class/Vendor",
 					"$(PROJECT_DIR)/HuaHong/vendor/LogManager",
+					"$(PROJECT_DIR)/HuaHong/vendor/SDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";

@@ -103,6 +103,8 @@
 #import "HHFMDBController.h"
 #import "HHSwitch.h"
 #import "HHLockController.h"
+#import "HHPhotoBrowserController.h"
+#import "HHCardController.h"
 
 
 

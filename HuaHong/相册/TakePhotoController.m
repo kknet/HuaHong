@@ -22,6 +22,7 @@ static NSString *cellId = @"CollectionId";
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.dataArr = [NSMutableArray array];
     [self.view addSubview:self.collectionView];
     
@@ -32,7 +33,7 @@ static NSString *cellId = @"CollectionId";
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         layout.itemSize = CGSizeMake((kScreenWidth-20)/3.0, 120);
-        _collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64) collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellId];
@@ -130,7 +131,8 @@ static NSString *cellId = @"CollectionId";
         
     }else
     {
-        
+        HHPhotoBrowserController *vc = [[HHPhotoBrowserController alloc]initWithImageArray:self.dataArr.copy currentPage:indexPath.item];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 

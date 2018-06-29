@@ -16,9 +16,14 @@
 #import "TestView.h"
 #import <QKCodeController.h>
 
+#import <CoreTelephony/CTCallCenter.h>
+#import <CoreTelephony/CTCall.h>
+
 @interface TestViewController()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,strong) UILocalNotification *localNotification;
 @property(nonatomic,strong) UICollectionView *collectionView;
+
+@property (strong, nonatomic)CTCallCenter *call_center;//电话管理
 
 @end
 
@@ -37,6 +42,8 @@ static NSString *headerID = @"headerID";
     [super viewDidLoad];
     self.title = @"测试";
     
+    [self monitorCall];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = YES;
@@ -54,6 +61,11 @@ static NSString *headerID = @"headerID";
 //
 //    [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     
+    
+    UIView *titleView = [UIView new];
+    titleView.frame = CGRectMake(0, 0, 150, 44);
+    titleView.backgroundColor = [UIColor blackColor];
+    [self.navigationItem setTitleView:titleView];
 }
 
 -(void)switchAction:(HHSwitch *)sender
@@ -71,9 +83,15 @@ static NSString *headerID = @"headerID";
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
-    NSArray *arr = @[@"11",@"aa",@"哈哈"];
-    NSString *str = [arr componentsJoinedByString:@"&"];
-    NSLog(@"str:%@",str);
+    NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"12345678901"];
+    NSURL *url = [NSURL URLWithString:str];
+    if ([[UIApplication sharedApplication]canOpenURL:url])
+    {
+        [[UIApplication sharedApplication] openURL:url];
+        
+    }
+    
+    
     
 //    [self.segment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18]} forState:UIControlStateNormal];
     
@@ -196,4 +214,38 @@ static NSString *headerID = @"headerID";
 }
  
  */
+
+#pragma mark - 电话监听-监测来电
+- (void)monitorCall
+{
+    __weak typeof(self) weakSelf = self;
+    
+    _call_center = [[CTCallCenter alloc]init];
+    _call_center.callEventHandler = ^(CTCall *call){
+        
+        if ([call.callState isEqualToString:CTCallStateIncoming]) {
+            //来电
+            NSLog(@"来电");
+            
+        }else if ([call.callState isEqualToString:CTCallStateConnected])
+        {
+            //接通
+//            _startDate = [NSDate date];
+            NSLog(@"接通");
+
+            
+        }else if ([call.callState isEqualToString:CTCallStateDialing]) {
+            //
+            NSLog(@"正在拨打");
+
+            
+        }else if ([call.callState isEqualToString:CTCallStateDisconnected]) {
+            NSLog(@"断开");
+//            _endDate = [NSDate date];
+//            [weakSelf getCallTimeLength];
+            
+        }
+    };
+}
+
 @end
