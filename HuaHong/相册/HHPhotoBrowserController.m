@@ -136,7 +136,7 @@
     
     UIViewController *vc = [self.controllerArrayM objectAtIndex:self.currentPage];
     /** 当前页的vc，不是全部vc */
-    [self.pageViewControl setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    [self.pageViewControl setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 - (NSMutableArray *)controllerArrayM

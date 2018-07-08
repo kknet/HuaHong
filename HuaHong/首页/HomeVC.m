@@ -69,7 +69,7 @@ static NSString *headerID = @"headerID";
     [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"设计模式",@"其他"]];
     
     [self.dataArray addObjectsFromArray: @[
-        @[@"瀑布流",@"tableView",@"chat",@"block",@"TextView",@"控件"],
+        @[@"瀑布流",@"tableView",@"chat",@"block",@"TextView",@"控件",@"MenuControll",@"PageControl"],
         @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
         @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器"],
         @[@"文字转语音",@"录音",@"语音合成"],
@@ -415,6 +415,12 @@ static NSString *headerID = @"headerID";
             }else if (indexPath.item == 5)
             {
                 vc = [ViewController new];
+            }else if (indexPath.item == 6)
+            {
+                vc = [HHMenuController new];
+            }else if (indexPath.item == 7)
+            {
+                vc = [HHPageControl new];
             }
         }
             break;

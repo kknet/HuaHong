@@ -14,9 +14,10 @@
 {
     if ([super init])
     {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor cyanColor];
 
         [self setNeedsDisplay];
+        
     }
     
     return [super init];
@@ -31,5 +32,60 @@
     
    
 }
+
+
+//- (void)createMenuController
+//{
+//    UIMenuController *menuController = [UIMenuController sharedMenuController];
+//    [menuController setTargetRect:self.bounds inView:self];
+//    [menuController setMenuVisible:YES animated:YES];
+//    UIMenuItem *item1 = [[UIMenuItem alloc]initWithTitle:@"复制" action:@selector(myCopy:)];
+//    UIMenuItem *item2 = [[UIMenuItem alloc]initWithTitle:@"剪切" action:@selector(myCut:)];
+//    UIMenuItem *item3 = [[UIMenuItem alloc]initWithTitle:@"粘贴" action:@selector(myPaste:)];
+//    
+//    [menuController setMenuItems:@[item1,item2,item3]];
+//    [menuController setArrowDirection:UIMenuControllerArrowDown];
+//}
+//
+//- (void)myCopy:(UIMenuController *)menu
+//{
+//    NSLog(@"%s",__func__);
+//    UIPasteboard *paste = [UIPasteboard generalPasteboard];
+//    paste.string = @"hhhh";
+//}
+//
+//- (void)myCut:(UIMenuController *)menu
+//{
+//    NSLog(@"%s",__func__);
+//    UIPasteboard *paste = [UIPasteboard generalPasteboard];
+//    paste.string = @"hhhh";
+////    self.title = nil;
+//    
+//}
+//
+//- (void)myPaste:(UIMenuController *)menu
+//{
+//    NSLog(@"%s",__func__);
+//    UIPasteboard *paste = [UIPasteboard generalPasteboard];
+////    self.title = paste.string;
+//    
+//}
+//
+//
+//- (BOOL)canBecomeFirstResponder
+//{
+//    return YES;
+//}
+//
+//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+//{
+//    if (action == @selector(copy:) || action == @selector(cut:) || action == @selector(paste:) || action == @selector(myCopy:) || action == @selector(myCut:) || action == @selector(myPaste:))
+//    {
+//        
+//        return YES;
+//    }
+//    
+//    return NO;
+//}
 
 @end

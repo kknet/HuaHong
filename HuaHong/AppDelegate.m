@@ -38,6 +38,19 @@
  * option+command+= :storyboard警告
  */
 
++ (void)load
+{
+  //编译的时候调用
+}
+
++ (void)initialize
+{
+  //创建实例的时候调用
+}
+//extern:代表其他类可以引用
+//const:不可更改
+//static:静态/全局变量
+
 //extern CFAbsoluteTime startTime;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     

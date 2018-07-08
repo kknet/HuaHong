@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <script >
-        function test(){
-            return "abc";
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        
+        <script>
+            //showAlert方法
+            function showAlert(String){
+                alert(String)
+            }
+        //onClickOC方法
+        function onClickOC(String) {
+            alert(String)
         }
-    </script>
-</head>
-<body>
+        </script>
+        
+    </head>
     
-    <br /> <br /><br />
-    <a href="source:///showMessage:/helloworld">调用OC的方法</a>
-    11111111111
-    <br />
-    abc
-    <br />
-    <a href="http://www.baidu.com">baidu</a>
-<br />
-    123@abc.com
-    <br />
-    http://www.baidu.com
-    <div id="container">
-    </div>
-    <script src="dfjUpdate.js"></script>
-    <script>
-        var game = window.dfjGame("lala", "机器人", "container" , false);
-        //game.chessboard.drawPlanes();
-    </script>
-</body>
+    <body>
+        //创建html上的一个btn，绑定的方法是onClickOC，html是字符串参数
+        <button type="button" onclick="onClickOC('html')" >Click Me!</button>
+    </body>
 </html>
+

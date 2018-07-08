@@ -173,7 +173,7 @@ static NSString *cellId = @"CollectionId";
             NSLog(@"用户允许当前应用访问相册");
             
             PhotoListController *choiseVC = [[PhotoListController alloc]init];
-            choiseVC.maxImageCount = 6;
+            choiseVC.maxImageCount = 9;
             [choiseVC setFinishBlock:^(NSMutableArray *selectPhotoArr) {
                
                 [self.dataArr addObjectsFromArray:selectPhotoArr];

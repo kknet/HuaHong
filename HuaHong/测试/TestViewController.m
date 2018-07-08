@@ -80,9 +80,10 @@ static NSString *headerID = @"headerID";
     }
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+
+
+- (void)callPhone
 {
-    
     NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"12345678901"];
     NSURL *url = [NSURL URLWithString:str];
     if ([[UIApplication sharedApplication]canOpenURL:url])
@@ -90,19 +91,21 @@ static NSString *headerID = @"headerID";
         [[UIApplication sharedApplication] openURL:url];
         
     }
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
     
     
-    
-//    [self.segment setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18]} forState:UIControlStateNormal];
     
 //    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"Alert测试" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
 //        NSLog(@"sure");
 //    } CancelAction:nil];
     
     
-//  TestView *view =  [[TestView alloc]init];
-//
-//  [self.view addSubview:view];
+  TestView *view =  [[TestView alloc]init];
+    view.frame = CGRectMake(100, 100, 100, 100);
+    
+  [self.view addSubview:view];
     
     
     

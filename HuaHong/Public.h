@@ -105,6 +105,8 @@
 #import "HHLockController.h"
 #import "HHPhotoBrowserController.h"
 #import "HHCardController.h"
+#import "HHMenuController.h"
+#import "HHPageControl.h"
 
 
 

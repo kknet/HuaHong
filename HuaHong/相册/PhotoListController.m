@@ -40,8 +40,18 @@ static NSString *cellId = @"CollectionId";
 }
 -(void)done
 {
+    NSMutableArray *selectImages = [NSMutableArray array];
+    [_selectPhotoArr enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        [self getChoosePicPHImageWithasset:asset viewSize:self.view.bounds.size handle:^(UIImage *image) {
+            
+            [selectImages addObject:image];
+
+        }];
+    }];
+    
     if (_finishBlock) {
-        _finishBlock(_selectPhotoArr);
+        _finishBlock(selectImages);
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -126,23 +136,30 @@ static NSString *cellId = @"CollectionId";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.selectPhotoArr.count < self.maxImageCount)
-    {
-        PhotoListCell *cell = (PhotoListCell *)[collectionView cellForItemAtIndexPath:indexPath];
-        cell.signImage.image = [UIImage imageNamed:@"wphoto_select_yes"];
-        
-        [self getChoosePicPHImageWithasset:[self.allPhotoArr objectAtIndex:indexPath.item] viewSize:self.view.bounds.size handle:^(UIImage *image) {
-            
-            [self.selectPhotoArr addObject:image];
-        }];
-        
-    }else
+    if (self.selectPhotoArr.count >= self.maxImageCount)
     {
         NSString *message = [NSString stringWithFormat:@"不能超过%ld张",(long)_maxImageCount];
         
         [UIViewController showAlertWhithTarget:self Title:@"提示" Message:message SureTitle:@"确定" CancelTitle:nil SureAction:nil
-            CancelAction:nil];
+                                  CancelAction:nil];
+        return;
     }
+    
+    PHAsset *asset = [self.allPhotoArr objectAtIndex:indexPath.item];
+    if (![self.selectPhotoArr containsObject:asset])
+    {
+        [self.selectPhotoArr addObject:asset];
+        
+        PhotoListCell *cell = (PhotoListCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.signImage.image = [UIImage imageNamed:@"wphoto_select_yes"];
+    }else
+    {
+        [self.selectPhotoArr removeObject:asset];
+        
+        PhotoListCell *cell = (PhotoListCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.signImage.image = [UIImage imageNamed:@"wphoto_select_no"];
+    }
+    
    
 }
 
