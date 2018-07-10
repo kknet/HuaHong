@@ -77,7 +77,7 @@
 #import "DownLoadViewController.h"
 #import "SecurityController.h"
 #import "RACViewController.h"
-#import "BlockViewController.h"
+#import "BlockVC.h"
 #import "FunctionViewController.h"
 #import "ChainViewController.h"
 #import "runtimeViewController.h"
@@ -86,10 +86,10 @@
 #import "CBPeripheralViewController.h"
 #import "LeanCloudViewController.h"
 #import "FaceViewController.h"
-#import "WebViewController.h"
-#import "TextViewController.h"
+#import "WebViewVC.h"
+#import "TextViewVC.h"
 #import "CoreDataController.h"
-#import "ViewController.h"
+#import "ButtonVC.h"
 #import "HttpsController.h"
 #import "UpLoadViewController.h"
 #import "DeleteFileController.h"
@@ -105,8 +105,10 @@
 #import "HHLockController.h"
 #import "HHPhotoBrowserController.h"
 #import "HHCardController.h"
-#import "HHMenuController.h"
-#import "HHPageControl.h"
+#import "MenuControllerVC.h"
+#import "PageControlVC.h"
+#import "WKWebViewVC.h"
+
 
 
 
