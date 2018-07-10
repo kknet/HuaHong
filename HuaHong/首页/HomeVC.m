@@ -69,7 +69,7 @@ static NSString *headerID = @"headerID";
     [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"设计模式",@"其他"]];
     
     [self.dataArray addObjectsFromArray: @[
-        @[@"瀑布流",@"tableView",@"chat",@"block",@"TextView",@"控件",@"MenuControll",@"PageControl"],
+        @[@"瀑布流",@"tableView",@"WKWebView",@"block",@"TextView",@"Button",@"MenuControll",@"PageControl",@"UIWebView"],
         @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
         @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器"],
         @[@"文字转语音",@"录音",@"语音合成"],
@@ -87,7 +87,7 @@ static NSString *headerID = @"headerID";
         @[@"JS交互"],
         @[@"图表"],
         @[@"多线程"],
-        @[@"响应式编程RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
+        @[@"RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
         @[@"蓝牙",@"蓝牙外设"],
         @[@"人脸识别",@"手势解锁",@"卡片识别"],
         @[@"策略模式",@"桥接模式"],
@@ -399,28 +399,29 @@ static NSString *headerID = @"headerID";
                 
             }else if (indexPath.item == 2)
             {
-                //chat
-//                vc = [QKCRChatControlViewController new];
+                vc = [WKWebViewVC new];
                 
             }else if (indexPath.item == 3)
             {
-                //block
-                vc = [BlockViewController new];
+                vc = [BlockVC new];
                 
             }else if (indexPath.item == 4)
             {
-                vc = [TextViewController new];
+                vc = [TextViewVC new];
                 vc.title = @"图文混排&硬件信息";
 
             }else if (indexPath.item == 5)
             {
-                vc = [ViewController new];
+                vc = [ButtonVC new];
             }else if (indexPath.item == 6)
             {
-                vc = [HHMenuController new];
+                vc = [MenuControllerVC new];
             }else if (indexPath.item == 7)
             {
-                vc = [HHPageControl new];
+                vc = [PageControlVC new];
+            }else if (indexPath.item == 8)
+            {
+                vc = [WebViewVC new];
             }
         }
             break;
@@ -662,8 +663,8 @@ static NSString *headerID = @"headerID";
         case 15:
         {
         
-            vc = [WebViewController new];
-            vc.navigationItem.title = @"JS互调";
+//            vc = [WebViewController new];
+//            vc.navigationItem.title = @"JS互调";
             
         }
             break;
