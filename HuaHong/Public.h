@@ -108,6 +108,13 @@
 #import "MenuControllerVC.h"
 #import "PageControlVC.h"
 #import "WKWebViewVC.h"
+#import "GravityViewController.h"
+#import "CollisionViewController.h"
+#import "SnapViewController.h"
+#import "AttachmentBehaviorController.h"
+#import "PushBehaviorController.h"
+#import "CoreMotionController.h"
+#import "PedometerViewController.h"
 
 
 

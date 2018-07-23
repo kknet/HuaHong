@@ -224,43 +224,7 @@
 {
     return YES;
 }
-#pragma mark - 摇一摇
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    
-    [self becomeFirstResponder];
-}
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:YES];
-    
-    [self resignFirstResponder];
-}
-
--(BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
-
--(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    if (event.type == UIEventSubtypeMotionShake) {
-        NSLog(@"摇一摇开始");
-    }
-    
-}
-
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"摇一摇结束");
-}
-
--(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"摇一摇被取消");
-}
 /*
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

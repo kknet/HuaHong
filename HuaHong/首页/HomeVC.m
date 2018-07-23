@@ -71,7 +71,7 @@ static NSString *headerID = @"headerID";
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"tableView",@"WKWebView",@"block",@"TextView",@"Button",@"MenuControll",@"PageControl",@"UIWebView"],
         @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
-        @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器"],
+        @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器",@"重力传感器",@"碰撞",@"甩行为",@"附着行为",@"推行为",@"加速计陀螺仪磁力针",@"计步器"],
         @[@"文字转语音",@"录音",@"语音合成"],
         @[@"视频录制1",@"视频录制2",@"视频录制3",@"视频合成"],
         @[@"相册"],
@@ -93,9 +93,7 @@ static NSString *headerID = @"headerID";
         @[@"策略模式",@"桥接模式"],
         @[@"计时器",@"密码安全",@"正则表达式",@"分段选择"]
         ]];
-    
-    
-    
+        
     
     // tableView 的添加
     [self.view addSubview:self.tableView];
@@ -452,19 +450,54 @@ static NSString *headerID = @"headerID";
         case 2:
         {
             if (indexPath.item == 0) {
-                //光学传感器
                 vc = [[LightSinceController alloc]init];
-                
+                vc.title = @"光学传感器";
+
             }else if (indexPath.item == 1){
-                //3DTouch
                 vc = [[ThreeDTouchController alloc]init];
+                vc.title = @"3DTouch";
+
                 
             }else if (indexPath.item == 2){
-                
+                vc = [SecurityController new];
+                vc.title = @"指纹识别";
             }else if (indexPath.item == 3){
-                //距离传感器
                 vc = [[NSClassFromString(@"DistanceController") alloc]init];
-                
+                vc.title = @"距离传感器";
+
+            }
+            else if (indexPath.item == 4){
+                vc = [[GravityViewController alloc]init];
+                vc.title = @"重力传感器";
+
+            }
+            else if (indexPath.item == 5){
+                vc = [[CollisionViewController alloc]init];
+                vc.title = @"碰撞";
+
+            }else if (indexPath.item == 6){
+                vc = [[SnapViewController alloc]init];
+                vc.title = @"甩行为";
+            }
+            else if (indexPath.item == 7){
+                vc = [[AttachmentBehaviorController alloc]init];
+                vc.title = @"附着行为";
+
+            }
+            else if (indexPath.item == 8){
+                vc = [[PushBehaviorController alloc]init];
+                vc.title = @"推行为";
+
+            }
+            else if (indexPath.item == 9){
+                //CoreMotion
+                vc = [[CoreMotionController alloc]init];
+                vc.title = @"加速计、陀螺仪、磁力计";
+
+            }
+            else if (indexPath.item == 10){
+                vc = [[PedometerViewController alloc]init];
+                vc.title = @"计步器";
             }
         }
             break;

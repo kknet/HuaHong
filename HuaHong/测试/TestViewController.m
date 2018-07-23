@@ -95,17 +95,19 @@ static NSString *headerID = @"headerID";
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
-    
+    NSMutableArray *arrM = [NSMutableArray array];
+    [arrM removeAllObjects];
+    NSLog(@"arrM:%@",arrM);
     
 //    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"Alert测试" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
 //        NSLog(@"sure");
 //    } CancelAction:nil];
     
     
-  TestView *view =  [[TestView alloc]init];
-    view.frame = CGRectMake(100, 100, 100, 100);
-    
-  [self.view addSubview:view];
+//  TestView *view =  [[TestView alloc]init];
+//    view.frame = CGRectMake(100, 100, 100, 100);
+//
+//  [self.view addSubview:view];
     
     
     
