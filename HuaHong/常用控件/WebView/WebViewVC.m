@@ -12,16 +12,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"调JS" style:UIBarButtonItemStylePlain target:self action:@selector(callJSAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
     
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 200, kScreenWidth, kScreenHeight-200)];
     self.view = self.webView;
-    self.webView.backgroundColor = [UIColor whiteColor];
+    self.webView.backgroundColor = [UIColor cyanColor];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"text.html" withExtension:nil];
-//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"index.html" withExtension:nil];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"h5.html" withExtension:nil];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
@@ -47,7 +46,7 @@
     JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
     context[@"onClickOC"] = ^(NSString *string){
-        NSLog(@"onClickOC==%@",string);
+        NSLog(@"onClickOC:%@",string);
     };
 }
 
@@ -66,7 +65,7 @@
 
 - (void)callJSAction
 {
-//    [self.jsContext evaluateScript:@"showAlert('huahong')"];
+    [self.jsContext evaluateScript:@"showAlert('huahong')"];
 
 }
 

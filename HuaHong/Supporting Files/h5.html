@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div style="margin-top: 100px">
+            <h1>Objective-C和JavaScript交互</h1>
+            <input type="button" value="UIWebView JS调OC" onclick="HH.callCamera()">
+        </div>
+        <div>
+            <input type="button" value="WKWebView JS调OC" onclick="callShare()">
+        </div>
+        <div>
+                <input type="button" value="h5内部函数" onclick="selfAlert()">
+                    </div>
+                <button type="button" onclick="onClickOC('html')" >UIWebView无类名调JS</button>
+        <script>
+            var callShare = function() {
+                var shareInfo = JSON.stringify({"title": "标题", "desc": "内容", "shareUrl": "http://www.jianshu.com/u/f3e780fd1a4e"});
+//UIWebView JS
+<!--                HH.share(shareInfo);-->
+
+//WKWebView JS
+window.webkit.messageHandlers.share.postMessage(shareInfo)
+    
+            }
+        
+        var selfAlert = function() {
+            showAlert('String');
+        }
+        
+        function showAlert(String){
+            alert(String)
+        }
+        
+        //onClickOC方法
+        function onClickOC(String) {
+<!--            alert(String)-->
+        }
+        </script>
+    </body>
+</html>
+
