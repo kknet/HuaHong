@@ -95,9 +95,16 @@ static NSString *headerID = @"headerID";
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 
-    NSMutableArray *arrM = [NSMutableArray array];
-    [arrM removeAllObjects];
-    NSLog(@"arrM:%@",arrM);
+    NSDictionary *param = @{@"aaa":@"111",@"bbb":@"222",@"ccc":@"333"};
+    NSString *str = @"";
+    if (param) {
+        
+        NSData *data = [NSJSONSerialization dataWithJSONObject:param options:NSJSONWritingPrettyPrinted error:nil];
+        str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"str:%@",str);
+    }
+    
     
 //    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"Alert测试" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
 //        NSLog(@"sure");
@@ -253,4 +260,11 @@ static NSString *headerID = @"headerID";
     };
 }
 
+- (BOOL)navigationShouldPopOnBackButton
+{
+    if ([_delegate respondsToSelector:@selector(testReturnAction)]) {
+        [_delegate testReturnAction];
+    }
+    return true;
+}
 @end

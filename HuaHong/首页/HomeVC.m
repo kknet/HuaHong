@@ -66,7 +66,7 @@ static NSString *headerID = @"headerID";
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"JS交互",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"设计模式",@"其他"]];
+    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"架构模式",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"设计模式",@"其他"]];
     
     [self.dataArray addObjectsFromArray: @[
         @[@"瀑布流",@"tableView",@"WKWebView",@"block",@"TextView",@"Button",@"MenuControll",@"PageControl",@"UIWebView"],
@@ -84,7 +84,7 @@ static NSString *headerID = @"headerID";
         @[@"绘图",@"时钟",@"画板"],
         @[@"日历"],
         @[@"图文混排"],
-        @[@"JS交互"],
+        @[@"MVVM",@"MVP"],
         @[@"图表"],
         @[@"多线程"],
         @[@"RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
@@ -521,7 +521,8 @@ static NSString *headerID = @"headerID";
 
             }else if (indexPath.item == 1)
             {
-                vc = [[MovieFileOutputController alloc]init];
+               MovieFileOutputController *VC = [[MovieFileOutputController alloc]init];
+                [self presentViewController:VC animated:YES completion:nil];
 
             }else if (indexPath.item == 2)
             {
@@ -695,9 +696,17 @@ static NSString *headerID = @"headerID";
             break;
         case 15:
         {
-        
-//            vc = [WebViewController new];
-//            vc.navigationItem.title = @"JS互调";
+            if (indexPath.item == 0) {
+                
+                vc = [MVVMController new];
+                vc.navigationItem.title = @"MVVM";
+                
+            }else if (indexPath.item == 1){
+                
+                vc = [MVPController new];
+                vc.navigationItem.title = @"MVP";
+            }
+            
             
         }
             break;

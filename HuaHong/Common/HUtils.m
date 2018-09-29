@@ -584,5 +584,8 @@
     return image;
 }
 
-
+UIImage *Image(NSString *name)
+{
+    return [UIImage imageNamed:name];
+}
 @end

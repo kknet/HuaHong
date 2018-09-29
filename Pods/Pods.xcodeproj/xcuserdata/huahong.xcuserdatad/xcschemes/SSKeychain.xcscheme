@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9CB4419502E466E64719078FBA321F4E'
-               BlueprintName = 'SSKeychain'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSSKeychain.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "671F35C548CD8950B9975BC6E78A5D58"
+               BlueprintName = "SSKeychain"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libSSKeychain.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

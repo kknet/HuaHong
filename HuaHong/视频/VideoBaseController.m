@@ -6,10 +6,10 @@
 //  Copyright © 2017年 huahong. All rights reserved.
 //
 
-#import "BaseVideoController.h"
+#import "VideoBaseController.h"
 #import "HHPlayerViewController.h"
 
-@interface BaseVideoController()
+@interface VideoBaseController()
 /**
  *  记录录制时间
  */
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation BaseVideoController
+@implementation VideoBaseController
 
 -(BOOL)prefersStatusBarHidden
 {
@@ -145,7 +145,8 @@
 -(void)playVideo:(NSString *)path
 {
     HHPlayerViewController *playVc = [[HHPlayerViewController alloc] init];
-    [playVc playVideo_AVPlayerViewController:[NSURL fileURLWithPath:path]];
+//    [playVc playVideo_AVPlayerViewController:[NSURL fileURLWithPath:path]];
+    [playVc playVideo_AVPlayer:[NSURL fileURLWithPath:path]];
     [self presentViewController:playVc animated:YES completion:nil];
 }
 

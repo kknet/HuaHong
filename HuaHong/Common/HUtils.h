@@ -97,4 +97,6 @@ typedef enum ReDic
 //根据颜色生成图片
 +(UIImage *)imageWithColor:(UIColor *)color;
 
+UIImage *Image(NSString *name);
+
 @end

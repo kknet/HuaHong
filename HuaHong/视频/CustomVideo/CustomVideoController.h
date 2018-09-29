@@ -6,8 +6,8 @@
 //  Copyright © 2017年 huahong. All rights reserved.
 //
 
-#import "BaseVideoController.h"
+#import "VideoBaseController.h"
 
-@interface CustomVideoController : BaseVideoController
+@interface CustomVideoController : VideoBaseController
 
 @end

@@ -8,7 +8,7 @@
 
 #import "MovieFileOutputController.h"
 
-@interface MovieFileOutputController ()
+@interface MovieFileOutputController ()<AVCaptureFileOutputRecordingDelegate>
 
 /**
  *  AVCaptureSession对象来执行输入设备和输出设备之间的数据传递
@@ -47,7 +47,9 @@
 {
     [super viewDidAppear:animated];
     
-    self.isRecord = NO;
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
+//    self.isRecord = NO;
     self.isFront = NO;
 
     
@@ -62,6 +64,8 @@
 {
     [super viewWillDisappear:animated];
     
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
     if ([self.session isRunning]) {
         [self.session stopRunning];
     }
@@ -81,24 +85,7 @@
         return;
     }
     
-    if (!self.isRecord)
-    {
-        [self startVideoRecorder];
-        
-    } else
-    {
-        
-        if ([self.movieFileOutput isRecording])
-        {
-            
-            [self.movieFileOutput stopRecording];
-            
-        }
-        
-        
-    }
-    
-    self.isRecord = !self.isRecord;
+    [self startVideoRecorder];
     
     
 }
@@ -114,7 +101,7 @@
     
     //开始录制
     if (![self.movieFileOutput isRecording])
-    {
+    {        
         AVCaptureConnection *movieConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
         AVCaptureVideoOrientation avcaptureOrientation = AVCaptureVideoOrientationPortrait;
         [movieConnection setVideoOrientation:avcaptureOrientation];
@@ -131,7 +118,6 @@
         [super timerStop];
         [self.movieFileOutput stopRecording];
         
-
     }
     
 }
@@ -147,7 +133,7 @@
 {
     
     
-    NSLog(@"%s-- url = %@ ,recodeTime: = %f s, size: %lld kb", __func__, outputFileURL, CMTimeGetSeconds(captureOutput.recordedDuration), captureOutput.recordedFileSize / 1024);
+    NSLog(@"url = %@ ,recodeTime: = %f s, size: %lld MB", outputFileURL, CMTimeGetSeconds(captureOutput.recordedDuration), captureOutput.recordedFileSize / 1024/1024);
     
     
     if ([self.session isRunning]) {

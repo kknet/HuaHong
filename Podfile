@@ -21,6 +21,7 @@ pod 'HHCategory', '~> 0.3.8'
 pod 'MLeaksFinder'
 pod 'YYCache'
 pod 'FMDB'
+pod 'KVOController'
 #pod 'RESideMenu', '~> 4.0.7'
 
 pod 'UMCCommon'
@@ -43,4 +44,7 @@ pod 'UMCShare/Social/ReducedWeChat'
 #pod 'QKRSAHelper',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKRSAHelper'
 
 pod 'QKChineseVerifyCode',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode'
+
+#pod 'Authentication',:svn=>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/Authentication'
+
 end

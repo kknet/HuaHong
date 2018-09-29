@@ -12,11 +12,11 @@
 #import "HHVideoManager.h"
 #import "VideoRecorder.h"
 
-@interface BaseVideoController : UIViewController<VideoTopViewDelegate,VideoBottomViewDelegate,CAAnimationDelegate>
+@interface VideoBaseController : UIViewController<VideoTopViewDelegate,VideoBottomViewDelegate,CAAnimationDelegate>
 
 @property (nonatomic, strong) VideoTopView *topView;
 @property (nonatomic, strong) VideoBottomView *bottomView;
-@property (nonatomic,assign) BOOL isRecord;//记录按钮状态
+//@property (nonatomic,assign) BOOL isRecord;//记录按钮状态
 @property (nonatomic,assign) NSInteger timeLengh;//录音时长
 @property (nonatomic, assign) BOOL isFront;//是否是前置摄像头
 

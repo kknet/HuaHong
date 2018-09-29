@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3C3DDABBF0288FB2138AB06E6D0AEEFC'
-               BlueprintName = 'XYPieChart'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libXYPieChart.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "98F9BE20DCCC2B65CFD6D4269C3441FE"
+               BlueprintName = "XYPieChart"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libXYPieChart.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

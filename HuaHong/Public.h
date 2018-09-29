@@ -42,6 +42,8 @@
 #import "CALayer+borderColor.h"
 #import "UIViewController+Alert.h"
 #import <Masonry.h>
+#import "KVOController.h"
+
 
 #import "MapViewController.h"
 #import "WaterFallController.h"
@@ -60,7 +62,7 @@
 #import "QRCodeController.h"
 #import "CreatQRCodeController.h"
 #import "LoadingViewController.h"
-#import "AddVideoController.h"
+#import "AppendVideoController.h"
 #import "TestViewController.h"
 #import "TableViewVC.h"
 #import "AnnotationController.h"
@@ -115,9 +117,9 @@
 #import "PushBehaviorController.h"
 #import "CoreMotionController.h"
 #import "PedometerViewController.h"
-
-
-
+#import "MVVMTableViewController.h"
+#import "MVVMController.h"
+#import "MVPController.h"
 
 
 #endif /* Public_h */

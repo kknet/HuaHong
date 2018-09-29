@@ -6,13 +6,13 @@
 //  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "AddVideoController.h"
+#import "AppendVideoController.h"
 #import "HHVideoManager.h"
-@interface AddVideoController ()
+@interface AppendVideoController ()
 
 @end
 
-@implementation AddVideoController
+@implementation AppendVideoController
 
 -(BOOL)navigationShouldPopOnBackButton
 {
@@ -29,6 +29,7 @@
     [super didReceiveMemoryWarning];
     
     NSLog(@"%s",__func__);
+    
 }
 - (IBAction)addVideo:(id)sender
 {

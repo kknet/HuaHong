@@ -38,6 +38,7 @@
  * option+command+= :storyboard警告
  */
 
+/** cell复用 UI绑定数据 */
 + (void)load
 {
   //编译的时候调用

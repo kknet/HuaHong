@@ -125,8 +125,7 @@
 }
 
 #pragma mark - 远程通知代理方法
-//d1ece78d 2de839f7 eb7cc936 69b493ee 3c820c1a c1bf0f2c a67e0b52 74ddbd16
-//6a2cee08 e00bc63b 70231cb0 66cc3026 906e5226 47ed6884 785d0971 55581c2e
+//a4635f2b 87a13596 5b52268f 21bedc48 3a87cd7b 5fc707a7 2200871f 6b0fa9d8
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken
 {
 //    NSLog(@"deviceToken:%@",deviceToken);

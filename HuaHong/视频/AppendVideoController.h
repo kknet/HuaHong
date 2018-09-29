@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddVideoController : BaseViewController
+@interface AppendVideoController : BaseViewController
 
 @end

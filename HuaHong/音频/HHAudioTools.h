@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import <Speech/Speech.h>
 
 typedef void(^RecordeBlock)(NSString *recordePath);
-@interface HHAudioTools : NSObject<AVAudioRecorderDelegate,AVSpeechSynthesizerDelegate,AVAudioRecorderDelegate,SFSpeechRecognizerDelegate>
+@interface HHAudioTools : NSObject<AVAudioRecorderDelegate>
 
 #pragma mark - 播放音效
 /** 播放系统音效*/
@@ -97,34 +96,6 @@ typedef void(^RecordeBlock)(NSString *recordePath);
 - (void)stopPlayAudio;
 
 @property (nonatomic,copy) void(^playAuidoFinishedCallback)(void);
-
-#pragma mark - 文字转语音
-/**
- user : self
- speed : 0-1之间
- languageType : 语种
- volume :音量 [0-1] Default = 1
- tone : 音调 [0.5 - 2] Default = 1
- */
-
-/** 语种
- "zh-HK",中文(香港)粤语
- "zh-TW",中文(台湾)
- "zh-CN",中文(普通话)
- "en-GB",英语(英国)
- "en-US",英语(美国)
- */
-+ (void)startBroadcastVoice:(id)user speed:(NSInteger)speed volume:(NSInteger)volume tone:(NSInteger)tone voice:(AVSpeechSynthesizer *)voice LanguageType:(NSString *)languageType content:(NSString *)content;
-
-/** 停止播报
- voice : 初始化类名
- */
-+ (void)stopBroadcastVoice:(AVSpeechSynthesizer *)voice;
-
-#pragma mark - 语音转文字
-+(void)convertToTextWithVoice:(NSString *)voicename;
-
-+(void)convert;
 
 @end
 

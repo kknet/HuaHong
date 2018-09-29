@@ -33,7 +33,7 @@
 		7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0C320030DDA00ECAA26 /* LoadingHUD.m */; };
 		7D2FF0C62004A38000ECAA26 /* selfS.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7D2FF0C52004A38000ECAA26 /* selfS.MOV */; };
 		7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2FF0C82004A39A00ECAA26 /* music.mp3 */; };
-		7D2FF0CC2004A3E300ECAA26 /* AddVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0CB2004A3E300ECAA26 /* AddVideoController.m */; };
+		7D2FF0CC2004A3E300ECAA26 /* AppendVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0CB2004A3E300ECAA26 /* AppendVideoController.m */; };
 		7D2FF0CE2004AB4900ECAA26 /* weixinY.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2FF0CD2004AB4900ECAA26 /* weixinY.mp4 */; };
 		7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */; };
 		7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF1FC20084F3600ECAA26 /* SwiftHomeController.swift */; };
@@ -119,7 +119,22 @@
 		7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB89720E6002000C538CA /* HHPhotoBrowserController.m */; };
 		7DABB89B20E606DE00C538CA /* PhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */; };
 		7DABB8C620E6509300C538CA /* HHCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB8C520E6509300C538CA /* HHCardController.m */; };
+		7DB29BC6213A313E0044BD22 /* HHAudioConvertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29BC5213A313E0044BD22 /* HHAudioConvertManager.m */; };
+		7DB29BC9213BA5D30044BD22 /* hhController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29BC8213BA5D30044BD22 /* hhController.m */; };
 		7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4FF061FD1352B004EE368 /* VoiceController.m */; };
+		7DB90FF32147B1AE00A9B40C /* MVVM_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90FF22147B1AE00A9B40C /* MVVM_Model.m */; };
+		7DB90FF62147B3A600A9B40C /* MVVM_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90FF52147B3A600A9B40C /* MVVM_Cell.m */; };
+		7DB90FFC2147B8D500A9B40C /* MVVMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90FFB2147B8D500A9B40C /* MVVMTableViewController.m */; };
+		7DB90FFF2147BA4300A9B40C /* MVVM_HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90FFE2147BA4300A9B40C /* MVVM_HeaderView.m */; };
+		7DB910022147BB1E00A9B40C /* MVVM_ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910012147BB1E00A9B40C /* MVVM_ViewModel.m */; };
+		7DB910062148C1DC00A9B40C /* Presenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910052148C1DC00A9B40C /* Presenter.m */; };
+		7DB910092148C24300A9B40C /* MVPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910082148C24300A9B40C /* MVPController.m */; };
+		7DB9100C2148C27000A9B40C /* MVPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9100B2148C27000A9B40C /* MVPView.m */; };
+		7DB9100F2148C28600A9B40C /* MVPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9100E2148C28600A9B40C /* MVPModel.m */; };
+		7DB910132148FCB100A9B40C /* MVVMViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910122148FCB100A9B40C /* MVVMViewModel.m */; };
+		7DB910162148FCD200A9B40C /* MVVMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910152148FCD200A9B40C /* MVVMModel.m */; };
+		7DB910192148FCEF00A9B40C /* MVVMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910182148FCEF00A9B40C /* MVVMView.m */; };
+		7DB9101C2148FD0700A9B40C /* MVVMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9101B2148FD0700A9B40C /* MVVMController.m */; };
 		7DB9B5361FD678F80011EE54 /* ContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5351FD678F80011EE54 /* ContactsController.m */; };
 		7DB9B5391FD6A47D0011EE54 /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5381FD6A47D0011EE54 /* ContactModel.m */; };
 		7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B53E1FD7DE9B0011EE54 /* RecorderViewController.m */; };
@@ -128,7 +143,7 @@
 		7DB9B54C1FD7E6800011EE54 /* VideoTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B54B1FD7E6800011EE54 /* VideoTopView.m */; };
 		7DB9B5521FD8E7F50011EE54 /* ImagePickController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5511FD8E7F50011EE54 /* ImagePickController.m */; };
 		7DB9B5581FD90A570011EE54 /* MovieFileOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5571FD90A570011EE54 /* MovieFileOutputController.m */; };
-		7DB9B55B1FD93C720011EE54 /* BaseVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B55A1FD93C720011EE54 /* BaseVideoController.m */; };
+		7DB9B55B1FD93C720011EE54 /* VideoBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B55A1FD93C720011EE54 /* VideoBaseController.m */; };
 		7DB9B5601FD97F0B0011EE54 /* AssetWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B55F1FD97F0B0011EE54 /* AssetWriter.m */; };
 		7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5621FD97F210011EE54 /* VideoRecorder.m */; };
 		7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9B5651FD97FAF0011EE54 /* CustomVideoController.m */; };
@@ -246,8 +261,8 @@
 		7D2FF0C320030DDA00ECAA26 /* LoadingHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingHUD.m; sourceTree = "<group>"; };
 		7D2FF0C52004A38000ECAA26 /* selfS.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = selfS.MOV; sourceTree = "<group>"; };
 		7D2FF0C82004A39A00ECAA26 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
-		7D2FF0CA2004A3E300ECAA26 /* AddVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddVideoController.h; sourceTree = "<group>"; };
-		7D2FF0CB2004A3E300ECAA26 /* AddVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddVideoController.m; sourceTree = "<group>"; };
+		7D2FF0CA2004A3E300ECAA26 /* AppendVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppendVideoController.h; sourceTree = "<group>"; };
+		7D2FF0CB2004A3E300ECAA26 /* AppendVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppendVideoController.m; sourceTree = "<group>"; };
 		7D2FF0CD2004AB4900ECAA26 /* weixinY.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = weixinY.mp4; sourceTree = "<group>"; };
 		7D2FF1F820084F0D00ECAA26 /* StoryboardHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardHomeController.h; sourceTree = "<group>"; };
 		7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryboardHomeController.m; sourceTree = "<group>"; };
@@ -410,9 +425,39 @@
 		7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserController.m; sourceTree = "<group>"; };
 		7DABB8C420E6509300C538CA /* HHCardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHCardController.h; sourceTree = "<group>"; };
 		7DABB8C520E6509300C538CA /* HHCardController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHCardController.m; sourceTree = "<group>"; };
+		7DB29BC4213A313E0044BD22 /* HHAudioConvertManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAudioConvertManager.h; sourceTree = "<group>"; };
+		7DB29BC5213A313E0044BD22 /* HHAudioConvertManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAudioConvertManager.m; sourceTree = "<group>"; };
+		7DB29BC7213BA5D30044BD22 /* hhController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hhController.h; sourceTree = "<group>"; };
+		7DB29BC8213BA5D30044BD22 /* hhController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hhController.m; sourceTree = "<group>"; };
 		7DB4FF051FD1352B004EE368 /* VoiceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceController.h; sourceTree = "<group>"; };
 		7DB4FF061FD1352B004EE368 /* VoiceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceController.m; sourceTree = "<group>"; };
 		7DB4FF081FD135A8004EE368 /* Public.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Public.h; sourceTree = "<group>"; };
+		7DB90FF12147B1AE00A9B40C /* MVVM_Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_Model.h; sourceTree = "<group>"; };
+		7DB90FF22147B1AE00A9B40C /* MVVM_Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_Model.m; sourceTree = "<group>"; };
+		7DB90FF42147B3A600A9B40C /* MVVM_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_Cell.h; sourceTree = "<group>"; };
+		7DB90FF52147B3A600A9B40C /* MVVM_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_Cell.m; sourceTree = "<group>"; };
+		7DB90FFA2147B8D500A9B40C /* MVVMTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMTableViewController.h; sourceTree = "<group>"; };
+		7DB90FFB2147B8D500A9B40C /* MVVMTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMTableViewController.m; sourceTree = "<group>"; };
+		7DB90FFD2147BA4300A9B40C /* MVVM_HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_HeaderView.h; sourceTree = "<group>"; };
+		7DB90FFE2147BA4300A9B40C /* MVVM_HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_HeaderView.m; sourceTree = "<group>"; };
+		7DB910002147BB1E00A9B40C /* MVVM_ViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_ViewModel.h; sourceTree = "<group>"; };
+		7DB910012147BB1E00A9B40C /* MVVM_ViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_ViewModel.m; sourceTree = "<group>"; };
+		7DB910042148C1DC00A9B40C /* Presenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presenter.h; sourceTree = "<group>"; };
+		7DB910052148C1DC00A9B40C /* Presenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Presenter.m; sourceTree = "<group>"; };
+		7DB910072148C24300A9B40C /* MVPController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPController.h; sourceTree = "<group>"; };
+		7DB910082148C24300A9B40C /* MVPController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPController.m; sourceTree = "<group>"; };
+		7DB9100A2148C27000A9B40C /* MVPView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPView.h; sourceTree = "<group>"; };
+		7DB9100B2148C27000A9B40C /* MVPView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPView.m; sourceTree = "<group>"; };
+		7DB9100D2148C28600A9B40C /* MVPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPModel.h; sourceTree = "<group>"; };
+		7DB9100E2148C28600A9B40C /* MVPModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPModel.m; sourceTree = "<group>"; };
+		7DB910112148FCB100A9B40C /* MVVMViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMViewModel.h; sourceTree = "<group>"; };
+		7DB910122148FCB100A9B40C /* MVVMViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMViewModel.m; sourceTree = "<group>"; };
+		7DB910142148FCD200A9B40C /* MVVMModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMModel.h; sourceTree = "<group>"; };
+		7DB910152148FCD200A9B40C /* MVVMModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMModel.m; sourceTree = "<group>"; };
+		7DB910172148FCEF00A9B40C /* MVVMView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMView.h; sourceTree = "<group>"; };
+		7DB910182148FCEF00A9B40C /* MVVMView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMView.m; sourceTree = "<group>"; };
+		7DB9101A2148FD0700A9B40C /* MVVMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMController.h; sourceTree = "<group>"; };
+		7DB9101B2148FD0700A9B40C /* MVVMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMController.m; sourceTree = "<group>"; };
 		7DB9B5341FD678F80011EE54 /* ContactsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsController.h; sourceTree = "<group>"; };
 		7DB9B5351FD678F80011EE54 /* ContactsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsController.m; sourceTree = "<group>"; };
 		7DB9B5371FD6A47D0011EE54 /* ContactModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactModel.h; sourceTree = "<group>"; };
@@ -429,8 +474,8 @@
 		7DB9B5511FD8E7F50011EE54 /* ImagePickController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickController.m; sourceTree = "<group>"; };
 		7DB9B5561FD90A570011EE54 /* MovieFileOutputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieFileOutputController.h; sourceTree = "<group>"; };
 		7DB9B5571FD90A570011EE54 /* MovieFileOutputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieFileOutputController.m; sourceTree = "<group>"; };
-		7DB9B5591FD93C720011EE54 /* BaseVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVideoController.h; sourceTree = "<group>"; };
-		7DB9B55A1FD93C720011EE54 /* BaseVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVideoController.m; sourceTree = "<group>"; };
+		7DB9B5591FD93C720011EE54 /* VideoBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoBaseController.h; sourceTree = "<group>"; };
+		7DB9B55A1FD93C720011EE54 /* VideoBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoBaseController.m; sourceTree = "<group>"; };
 		7DB9B55E1FD97F0B0011EE54 /* AssetWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssetWriter.h; sourceTree = "<group>"; };
 		7DB9B55F1FD97F0B0011EE54 /* AssetWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssetWriter.m; sourceTree = "<group>"; };
 		7DB9B5611FD97F210011EE54 /* VideoRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoRecorder.h; sourceTree = "<group>"; };
@@ -601,6 +646,7 @@
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
 				7DA711A720DC9DA800BEF5D9 /* 身份识别 */,
 				7D1A364820A17BC900D74375 /* HHSegment */,
+				7DB90FEF2147B16D00A9B40C /* 架构模式 */,
 				7D437EEB20834E0F00DAAEBD /* 设计模式 */,
 				7D398FA72009BEF800994A3C /* 常用控件 */,
 				7DA1D6D120624ADB00EB0AC2 /* 智能识别 */,
@@ -1186,12 +1232,73 @@
 			children = (
 				7DCE50EA2052206D00601E70 /* HHAudioTools.h */,
 				7DCE50EB2052206D00601E70 /* HHAudioTools.m */,
+				7DB29BC4213A313E0044BD22 /* HHAudioConvertManager.h */,
+				7DB29BC5213A313E0044BD22 /* HHAudioConvertManager.m */,
 				7DB4FF051FD1352B004EE368 /* VoiceController.h */,
 				7DB4FF061FD1352B004EE368 /* VoiceController.m */,
+				7DB29BC7213BA5D30044BD22 /* hhController.h */,
+				7DB29BC8213BA5D30044BD22 /* hhController.m */,
 				7DB9B53D1FD7DE9B0011EE54 /* RecorderViewController.h */,
 				7DB9B53E1FD7DE9B0011EE54 /* RecorderViewController.m */,
 			);
 			path = "音频";
+			sourceTree = "<group>";
+		};
+		7DB90FEF2147B16D00A9B40C /* 架构模式 */ = {
+			isa = PBXGroup;
+			children = (
+				7DB910102148FC9200A9B40C /* MVVM1 */,
+				7DB910032148C19700A9B40C /* MVP */,
+				7DB90FF02147B16D00A9B40C /* MVVM */,
+			);
+			path = "架构模式";
+			sourceTree = "<group>";
+		};
+		7DB90FF02147B16D00A9B40C /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				7DB90FF12147B1AE00A9B40C /* MVVM_Model.h */,
+				7DB90FF22147B1AE00A9B40C /* MVVM_Model.m */,
+				7DB90FFD2147BA4300A9B40C /* MVVM_HeaderView.h */,
+				7DB90FFE2147BA4300A9B40C /* MVVM_HeaderView.m */,
+				7DB90FF42147B3A600A9B40C /* MVVM_Cell.h */,
+				7DB90FF52147B3A600A9B40C /* MVVM_Cell.m */,
+				7DB90FFA2147B8D500A9B40C /* MVVMTableViewController.h */,
+				7DB90FFB2147B8D500A9B40C /* MVVMTableViewController.m */,
+				7DB910002147BB1E00A9B40C /* MVVM_ViewModel.h */,
+				7DB910012147BB1E00A9B40C /* MVVM_ViewModel.m */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		7DB910032148C19700A9B40C /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				7DB910072148C24300A9B40C /* MVPController.h */,
+				7DB910082148C24300A9B40C /* MVPController.m */,
+				7DB910042148C1DC00A9B40C /* Presenter.h */,
+				7DB910052148C1DC00A9B40C /* Presenter.m */,
+				7DB9100A2148C27000A9B40C /* MVPView.h */,
+				7DB9100B2148C27000A9B40C /* MVPView.m */,
+				7DB9100D2148C28600A9B40C /* MVPModel.h */,
+				7DB9100E2148C28600A9B40C /* MVPModel.m */,
+			);
+			path = MVP;
+			sourceTree = "<group>";
+		};
+		7DB910102148FC9200A9B40C /* MVVM1 */ = {
+			isa = PBXGroup;
+			children = (
+				7DB910112148FCB100A9B40C /* MVVMViewModel.h */,
+				7DB910122148FCB100A9B40C /* MVVMViewModel.m */,
+				7DB910142148FCD200A9B40C /* MVVMModel.h */,
+				7DB910152148FCD200A9B40C /* MVVMModel.m */,
+				7DB910172148FCEF00A9B40C /* MVVMView.h */,
+				7DB910182148FCEF00A9B40C /* MVVMView.m */,
+				7DB9101A2148FD0700A9B40C /* MVVMController.h */,
+				7DB9101B2148FD0700A9B40C /* MVVMController.m */,
+			);
+			path = MVVM1;
 			sourceTree = "<group>";
 		};
 		7DB9B5331FD6787B0011EE54 /* 通讯录 */ = {
@@ -1218,12 +1325,12 @@
 				7DDAE7E12057692700D5C274 /* HHPlayerViewController.m */,
 				7DB9B5501FD8E7F50011EE54 /* ImagePickController.h */,
 				7DB9B5511FD8E7F50011EE54 /* ImagePickController.m */,
-				7DB9B5591FD93C720011EE54 /* BaseVideoController.h */,
-				7DB9B55A1FD93C720011EE54 /* BaseVideoController.m */,
+				7DB9B5591FD93C720011EE54 /* VideoBaseController.h */,
+				7DB9B55A1FD93C720011EE54 /* VideoBaseController.m */,
 				7DB9B5561FD90A570011EE54 /* MovieFileOutputController.h */,
 				7DB9B5571FD90A570011EE54 /* MovieFileOutputController.m */,
-				7D2FF0CA2004A3E300ECAA26 /* AddVideoController.h */,
-				7D2FF0CB2004A3E300ECAA26 /* AddVideoController.m */,
+				7D2FF0CA2004A3E300ECAA26 /* AppendVideoController.h */,
+				7D2FF0CB2004A3E300ECAA26 /* AppendVideoController.m */,
 			);
 			path = "视频";
 			sourceTree = "<group>";
@@ -1537,7 +1644,6 @@
 				7D0DA82C1FC50D7000774E40 /* Sources */,
 				7D0DA82D1FC50D7000774E40 /* Frameworks */,
 				7D0DA82E1FC50D7000774E40 /* Resources */,
-				898847096188163B74DF253D /* [CP] Embed Pods Frameworks */,
 				82BBFF3B4CCC452186D8780B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1649,8 +1755,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh",
 				"${PODS_ROOT}/AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
-				$PODS_CONFIGURATION_BUILD_DIR/HHCategory/HHCategory.bundle,
-				$PODS_CONFIGURATION_BUILD_DIR/QKChineseVerifyCode/QKChineseVerifyCodeFramework.bundle,
+				"${PODS_CONFIGURATION_BUILD_DIR}/HHCategory/HHCategory.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/QKChineseVerifyCode/QKChineseVerifyCodeFramework.bundle",
 				"${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/UMCShare/UMShare/UMSocialSDKPlugin/UMSocialSDKPromptResources.bundle",
@@ -1658,26 +1764,18 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AVOSCloud_Art.inc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HHCategory.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QKChineseVerifyCodeFramework.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SSKeychain.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		898847096188163B74DF253D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1689,12 +1787,14 @@
 			files = (
 				7DA152BF204ADBEF0075274E /* FunctionViewController.m in Sources */,
 				7D1A364E20A17D9D00D74375 /* HHSegmentView.m in Sources */,
+				7DB29BC9213BA5D30044BD22 /* hhController.m in Sources */,
 				7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */,
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
 				7DDF9E9B207F5727003D6F17 /* JSONPlistController.m in Sources */,
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,
 				7D4AFB062011C9FE0018AB3D /* LoginViewController.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
+				7DB90FFC2147B8D500A9B40C /* MVVMTableViewController.m in Sources */,
 				7DC3750E20E390F1005AEBCA /* Service+CoreDataClass.m in Sources */,
 				7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */,
 				7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */,
@@ -1703,6 +1803,7 @@
 				7DB9B5491FD7E6710011EE54 /* VideoBottomView.m in Sources */,
 				7D2FF0C120030AE600ECAA26 /* LoadingViewController.m in Sources */,
 				7DB9B5581FD90A570011EE54 /* MovieFileOutputController.m in Sources */,
+				7DB90FF62147B3A600A9B40C /* MVVM_Cell.m in Sources */,
 				7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */,
 				7D7FBB1F20401A2000C3594C /* NSString+Hash.m in Sources */,
 				7D48F96521038FCA00833594 /* presentViewController.m in Sources */,
@@ -1711,6 +1812,7 @@
 				7DE8D5931FC576ED00577762 /* Utils.m in Sources */,
 				7D437F43208ECD9700DAAEBD /* LatterValidate.m in Sources */,
 				7DB9B5601FD97F0B0011EE54 /* AssetWriter.m in Sources */,
+				7DB9101C2148FD0700A9B40C /* MVVMController.m in Sources */,
 				7DB9B5521FD8E7F50011EE54 /* ImagePickController.m in Sources */,
 				7D2FF0B51FFCB97700ECAA26 /* HomeLeftCell.m in Sources */,
 				7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */,
@@ -1718,6 +1820,7 @@
 				7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */,
 				7DC3751A20E3915D005AEBCA /* City+CoreDataClass.m in Sources */,
 				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
+				7DB9100C2148C27000A9B40C /* MVPView.m in Sources */,
 				7DA152C5204ADFEB0075274E /* Person.m in Sources */,
 				7D48F95F21038F1200833594 /* LightSinceController.m in Sources */,
 				7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */,
@@ -1738,15 +1841,19 @@
 				7DB9B54C1FD7E6800011EE54 /* VideoTopView.m in Sources */,
 				7DDE3D3520F505080044FC85 /* QKCRIndicateCell.m in Sources */,
 				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
+				7DB9100F2148C28600A9B40C /* MVPModel.m in Sources */,
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
 				7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */,
+				7DB90FFF2147BA4300A9B40C /* MVVM_HeaderView.m in Sources */,
 				7DC3752020E474F0005AEBCA /* User+CoreDataClass.m in Sources */,
 				7DDE3D2C20F505070044FC85 /* HHAttachment.m in Sources */,
 				7D5393EA202013F4006D2712 /* TimerController.m in Sources */,
+				7DB90FF32147B1AE00A9B40C /* MVVM_Model.m in Sources */,
 				7DC3751220E39117005AEBCA /* Company+CoreDataClass.m in Sources */,
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
 				7DDF9E9E207F62D6003D6F17 /* AFController.m in Sources */,
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
+				7DB910092148C24300A9B40C /* MVPController.m in Sources */,
 				7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */,
 				7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
@@ -1762,6 +1869,7 @@
 				7D48F97521042F4500833594 /* AttachmentBehaviorController.m in Sources */,
 				7DDE3D2B20F505070044FC85 /* TextViewVC.m in Sources */,
 				7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */,
+				7DB910062148C1DC00A9B40C /* Presenter.m in Sources */,
 				7D437EF52083501500DAAEBD /* SubRemote.m in Sources */,
 				7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */,
 				7DC3751B20E3915D005AEBCA /* City+CoreDataProperties.m in Sources */,
@@ -1771,7 +1879,8 @@
 				7D1A366120A56E4000D74375 /* LeanCloudViewController.m in Sources */,
 				7D81144A20EFBA6300349078 /* UIWebView+TS_JavaScriptContext.m in Sources */,
 				7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */,
-				7DB9B55B1FD93C720011EE54 /* BaseVideoController.m in Sources */,
+				7DB910192148FCEF00A9B40C /* MVVMView.m in Sources */,
+				7DB9B55B1FD93C720011EE54 /* VideoBaseController.m in Sources */,
 				7DB9B5361FD678F80011EE54 /* ContactsController.m in Sources */,
 				7DDE3D2D20F505080044FC85 /* BlockVC.m in Sources */,
 				7DDE3D3620F505080044FC85 /* QKCRIndicateHeadView.m in Sources */,
@@ -1785,11 +1894,13 @@
 				7D2FF20B2008916700ECAA26 /* UINavigationController+BackButtonHandler.m in Sources */,
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,
 				7D48F95B21038EBF00833594 /* DistanceController.m in Sources */,
+				7DB910132148FCB100A9B40C /* MVVMViewModel.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
 				7DC3752120E474F0005AEBCA /* User+CoreDataProperties.m in Sources */,
 				7D48F98021046FC200833594 /* CoreMotionController.m in Sources */,
 				7D2DE5F22015BBCF001590E1 /* DataModel.m in Sources */,
 				7DDF9E98207F4F10003D6F17 /* XMLController.m in Sources */,
+				7DB910162148FCD200A9B40C /* MVVMModel.m in Sources */,
 				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
 				7D48F9782104337800833594 /* BGView.m in Sources */,
 				7DC24C8D20219EF700103BDE /* AnimationView.m in Sources */,
@@ -1807,6 +1918,7 @@
 				7D2FF0BE1FFF4B4600ECAA26 /* CreatQRCodeController.m in Sources */,
 				7D437F40208ECBCA00DAAEBD /* BaseValidate.m in Sources */,
 				7DAA3CEB2041BA9E00B12BC4 /* RACViewController.m in Sources */,
+				7DB29BC6213A313E0044BD22 /* HHAudioConvertManager.m in Sources */,
 				7DFB1BA91FCE94380033D9E2 /* HomeFlowLayout.m in Sources */,
 				7D1A364B20A17C2000D74375 /* HHSegmentController.m in Sources */,
 				7D48F9692103909B00833594 /* GravityViewController.m in Sources */,
@@ -1835,6 +1947,7 @@
 				7D437F3D208ECA2200DAAEBD /* CustomTextField.m in Sources */,
 				7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */,
 				7D437EF82083513B00DAAEBD /* TVKJ.m in Sources */,
+				7DB910022147BB1E00A9B40C /* MVVM_ViewModel.m in Sources */,
 				7D48F96D2103A1B200833594 /* CollisionViewController.m in Sources */,
 				7D328A55206CD62D00A64272 /* HUtils.m in Sources */,
 				7DDE3D2F20F505080044FC85 /* PageControlVC.m in Sources */,
@@ -1842,7 +1955,7 @@
 				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,
 				7D5393BD2019746B006D2712 /* DrawController.m in Sources */,
 				7DDE3D3320F505080044FC85 /* QKCRRecordTypeView.m in Sources */,
-				7D2FF0CC2004A3E300ECAA26 /* AddVideoController.m in Sources */,
+				7D2FF0CC2004A3E300ECAA26 /* AppendVideoController.m in Sources */,
 				7DDEA3E020E0E139008F7948 /* HHCoreDataManager.m in Sources */,
 				7D1A365820A5683500D74375 /* Model.xcdatamodeld in Sources */,
 				7D437F3A208EC85400DAAEBD /* StrategyController.m in Sources */,
@@ -1932,7 +2045,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1984,7 +2097,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2012,7 +2125,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
 				INFOPLIST_FILE = HuaHong/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2056,7 +2169,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
 				INFOPLIST_FILE = HuaHong/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

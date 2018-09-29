@@ -201,17 +201,17 @@ CAAnimationDelegate>
     return sout;
 }
 
--(void)changeDeviceProperty:(PropertyChangeBlock)propertyChange{
-    AVCaptureDevice *captureDevice= [self.backCameraInput device];
-    NSError *error;
-    //注意改变设备属性前一定要首先调用lockForConfiguration:调用完之后使用unlockForConfiguration方法解锁
-    if ([captureDevice lockForConfiguration:&error]) {
-        propertyChange(captureDevice);
-        [captureDevice unlockForConfiguration];
-    }else{
-        NSLog(@"设置设备属性过程发生错误，错误信息：%@",error.localizedDescription);
-    }
-}
+//-(void)changeDeviceProperty:(PropertyChangeBlock)propertyChange{
+//    AVCaptureDevice *captureDevice= [self.backCameraInput device];
+//    NSError *error;
+//    //注意改变设备属性前一定要首先调用lockForConfiguration:调用完之后使用unlockForConfiguration方法解锁
+//    if ([captureDevice lockForConfiguration:&error]) {
+//        propertyChange(captureDevice);
+//        [captureDevice unlockForConfiguration];
+//    }else{
+//        NSLog(@"设置设备属性过程发生错误，错误信息：%@",error.localizedDescription);
+//    }
+//}
 
 
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate
@@ -324,7 +324,7 @@ CAAnimationDelegate>
 //录制的队列
 - (dispatch_queue_t)captureQueue {
     if (_captureQueue == nil) {
-        _captureQueue = dispatch_queue_create("cn.qiuyouqun.im.wclrecordengine.capture", DISPATCH_QUEUE_SERIAL);
+        _captureQueue = dispatch_queue_create("name", DISPATCH_QUEUE_SERIAL);
     }
     return _captureQueue;
 }
@@ -431,9 +431,6 @@ CAAnimationDelegate>
     return _audioConnection;
     
 }
-
-
-
 
 @end
 

@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "BaseVideoController.h"
-@interface MovieFileOutputController : BaseVideoController
+#import "VideoBaseController.h"
+@interface MovieFileOutputController : VideoBaseController
 
 @end
