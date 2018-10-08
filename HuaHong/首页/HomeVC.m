@@ -1,7 +1,5 @@
 //
 //  HomeVC.m
-//  HuaHong
-//
 //  Created by 华宏 on 2017/11/22.
 //  Copyright © 2017年 huahong. All rights reserved.
 //
@@ -9,13 +7,15 @@
 #import "HomeVC.h"
 #import "CollectionHeadView.h"
 #import "HomeLeftCell.h"
-
+#import "CollectionCell.h"
+#import "DataSource.h"
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
-@property(nonatomic,strong) NSMutableArray *tableTittleDataArray;
-@property(nonatomic,strong) NSMutableArray *dataArray;
-@property(nonatomic,strong) UICollectionView *collectionView;
+@property(nonatomic,strong) NSMutableArray *tableViewArray;
+@property(nonatomic,strong) NSMutableArray *collectionViewArray;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 
 @end
@@ -26,7 +26,7 @@
     BOOL _isScrollDown;//滚动方向
 }
 
-static NSString *cellID = @"cellID";
+static NSString *cellID = @"CollectionCell";
 static NSString *headerID = @"headerID";
 
 //后台拉取回调
@@ -60,94 +60,23 @@ static NSString *headerID = @"headerID";
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
 
+    NSString *title = NSLocalizedString(@"title", @"注释");
+
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    [self.tableTittleDataArray addObjectsFromArray:@[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"架构模式",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"设计模式",@"其他"]];
+    self.tableViewArray = [NSMutableArray arrayWithArray:[DataSource getTableViewArray]];
     
-    [self.dataArray addObjectsFromArray: @[
-        @[@"瀑布流",@"tableView",@"WKWebView",@"block",@"TextView",@"Button",@"MenuControll",@"PageControl",@"UIWebView"],
-        @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
-        @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器",@"重力传感器",@"碰撞",@"甩行为",@"附着行为",@"推行为",@"加速计陀螺仪磁力针",@"计步器"],
-        @[@"文字转语音",@"录音",@"语音合成"],
-        @[@"视频录制1",@"视频录制2",@"视频录制3",@"视频合成"],
-        @[@"相册"],
-        @[@"系统通讯录",@"自定义通讯录"],
-        @[@"二维码扫描",@"二维码生成"],
-        @[@"基本动画",@"扇形加载",@"转场动画"],
-        @[@"多网络请求",@"session请求",@"下载",@"上传",@"Https证书",@"删除数据",@"XML解析",@"JSON/Plist",@"AFN"],
-        @[@"触摸手势交互"],
-        @[@"数据存储",@"云端存储",@"CoreData",@"SQLite"],
-        @[@"绘图",@"时钟",@"画板"],
-        @[@"日历"],
-        @[@"图文混排"],
-        @[@"MVVM",@"MVP"],
-        @[@"图表"],
-        @[@"多线程"],
-        @[@"RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
-        @[@"蓝牙",@"蓝牙外设"],
-        @[@"人脸识别",@"手势解锁",@"卡片识别"],
-        @[@"策略模式",@"桥接模式"],
-        @[@"计时器",@"密码安全",@"正则表达式",@"分段选择"]
-        ]];
-        
+    self.collectionViewArray  = [NSMutableArray arrayWithArray:[DataSource getCollectionViewArray]];
     
-
-    // collectionView 的添加
-    [self.view addSubview:self.collectionView];
-    
-    NSString *title = NSLocalizedString(@"title", @"注释");
     
 }
 
-
--(NSMutableArray *)dataArray{
-    
-    if (!_dataArray) {
-        
-        _dataArray = [[NSMutableArray alloc]init];
-    }
-    
-    return _dataArray;
-}
-
--(NSMutableArray *)tableTittleDataArray{
-    
-    if (!_tableTittleDataArray) {
-        _tableTittleDataArray = [[NSMutableArray alloc]init];
-    }
-    return _tableTittleDataArray;
-}
-
-
--(UICollectionView *)collectionView{
-    
-    if (!_collectionView) {
-        
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        layout.sectionInset = UIEdgeInsetsMake(10, 5, 10, 5);
-
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(self.tableView.right,kNavBarHeight, kScreenWidth-self.tableView.width-0, kScreenHeight-kNavBarHeight-kTabBarHeight) collectionViewLayout: layout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
-        _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        _collectionView.alwaysBounceVertical = NO;
-        _collectionView.alwaysBounceHorizontal = NO;
-        _collectionView.pagingEnabled = NO;
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellID];
-        [_collectionView registerClass:[CollectionHeadView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader  withReuseIdentifier:headerID];
-    }
-    
-    return _collectionView;
-}
 
 #pragma mark UITableViewDataSource
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.tableTittleDataArray.count;
+    return self.tableViewArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -156,7 +85,7 @@ static NSString *headerID = @"headerID";
     
     cell.contentView.backgroundColor = (_selectIndex == indexPath.row)?  [UIColor orangeColor] : [UIColor whiteColor];
     
-    cell.contentLabel.text = self.tableTittleDataArray[indexPath.row];
+    cell.contentLabel.text = self.tableViewArray[indexPath.row];
 
     return cell;
 }
@@ -196,40 +125,27 @@ static NSString *headerID = @"headerID";
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return self.tableTittleDataArray.count;
+    return self.tableViewArray.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSArray *array = self.dataArray[section];
+    NSArray *array = self.collectionViewArray[section];
     return array.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *array = self.dataArray[indexPath.section];
+    NSArray *array = self.collectionViewArray[indexPath.section];
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
-    if (cell.contentView.subviews.count == 0) {
-        UILabel *label = [[UILabel alloc]initWithFrame:cell.contentView.bounds];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont systemFontOfSize:14];
-        label.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        label.layer.borderWidth = 0.5;
-        [cell.contentView addSubview:label];
-        label.text = array[indexPath.row];
-    }
+    CollectionCell *cell = (CollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
-    for (UIView *view in cell.contentView.subviews) {
-        if ([view isKindOfClass:[UILabel class]]) {
-            UILabel *label = (UILabel *)view;
-            label.text = array[indexPath.row];
-        }
-    }
+    cell.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    cell.layer.borderWidth = 0.5;
     
+    cell.contentLabel.text = array[indexPath.row];
+
     return cell;
-    
-    
 }
 
 // CollectionView分区标题即将展示
@@ -263,9 +179,9 @@ static NSString *headerID = @"headerID";
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
     CollectionHeadView *header = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID forIndexPath:indexPath];
-    header.backgroundColor = [UIColor lightGrayColor];
-    header.iconImage.image = [UIImage imageNamed:@"search_expert"];
-    header.headText.text = [NSString stringWithFormat:@"%@",self.tableTittleDataArray[indexPath.section]];
+    
+    header.imageView.image = [UIImage imageNamed:@"search_expert"];
+    header.contentLabel.text = [NSString stringWithFormat:@"%@",self.tableViewArray[indexPath.section]];
     
     
     return header;
@@ -778,6 +694,3 @@ static NSString *headerID = @"headerID";
 
 
 @end
-
-
-

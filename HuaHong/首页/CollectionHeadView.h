@@ -10,7 +10,7 @@
 
 @interface CollectionHeadView : UICollectionReusableView
 
-@property(nonatomic,strong) UIImageView *iconImage;
-@property (nonatomic, strong) UILabel *headText;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end

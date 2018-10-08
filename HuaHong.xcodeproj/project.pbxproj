@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */; };
 		7D058576203F0A5200C7E204 /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D058575203F0A5200C7E204 /* 123.jpg */; };
+		7D0668F0216BB82B0090443F /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0668EF216BB82B0090443F /* DataSource.m */; };
 		7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8341FC50D7000774E40 /* AppDelegate.m */; };
 		7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */; };
 		7D0DA8461FC50D7000774E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8451FC50D7000774E40 /* main.m */; };
@@ -61,6 +62,7 @@
 		7D437F46208ECDB200DAAEBD /* NumberValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D437F45208ECDB200DAAEBD /* NumberValidate.m */; };
 		7D437F4D2090771B00DAAEBD /* QKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D437F4B2090771B00DAAEBD /* QKAlertView.m */; };
 		7D437F4E2090771B00DAAEBD /* QKAlertView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7D437F4C2090771B00DAAEBD /* QKAlertView.podspec */; };
+		7D46E07C216BAEFE00AE2ECE /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D46E07B216BAEFE00AE2ECE /* CollectionCell.m */; };
 		7D48F95B21038EBF00833594 /* DistanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48F95921038EBF00833594 /* DistanceController.m */; };
 		7D48F95F21038F1200833594 /* LightSinceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48F95E21038F1200833594 /* LightSinceController.m */; };
 		7D48F96521038FCA00833594 /* presentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48F96321038FCA00833594 /* presentViewController.m */; };
@@ -215,6 +217,8 @@
 		3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuaHong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6696974C8B0A708887FDD327 /* Pods-HuaHong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.release.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.release.xcconfig"; sourceTree = "<group>"; };
 		7D058575203F0A5200C7E204 /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = "HuaHong/Assets.xcassets/转场动画/05.imageset/123.jpg"; sourceTree = SOURCE_ROOT; };
+		7D0668EE216BB82B0090443F /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		7D0668EF216BB82B0090443F /* DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		7D0DA8301FC50D7000774E40 /* HuaHong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuaHong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D0DA8331FC50D7000774E40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D0DA8341FC50D7000774E40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 		7D437F4A2090771B00DAAEBD /* QKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKAlertView.h; sourceTree = "<group>"; };
 		7D437F4B2090771B00DAAEBD /* QKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKAlertView.m; sourceTree = "<group>"; };
 		7D437F4C2090771B00DAAEBD /* QKAlertView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QKAlertView.podspec; sourceTree = "<group>"; };
+		7D46E07A216BAEFE00AE2ECE /* CollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		7D46E07B216BAEFE00AE2ECE /* CollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
 		7D48F95921038EBF00833594 /* DistanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceController.m; sourceTree = "<group>"; };
 		7D48F95A21038EBF00833594 /* DistanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistanceController.h; sourceTree = "<group>"; };
 		7D48F95D21038F1200833594 /* LightSinceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightSinceController.h; sourceTree = "<group>"; };
@@ -1546,10 +1552,14 @@
 				7DE8D57C1FC527F000577762 /* HomeVC.m */,
 				7D2FF0B31FFCB97700ECAA26 /* HomeLeftCell.h */,
 				7D2FF0B41FFCB97700ECAA26 /* HomeLeftCell.m */,
+				7D46E07A216BAEFE00AE2ECE /* CollectionCell.h */,
+				7D46E07B216BAEFE00AE2ECE /* CollectionCell.m */,
 				7DFB1BA41FCE937C0033D9E2 /* CollectionHeadView.h */,
 				7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */,
 				7DFB1BA71FCE94380033D9E2 /* HomeFlowLayout.h */,
 				7DFB1BA81FCE94380033D9E2 /* HomeFlowLayout.m */,
+				7D0668EE216BB82B0090443F /* DataSource.h */,
+				7D0668EF216BB82B0090443F /* DataSource.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -1787,6 +1797,7 @@
 			files = (
 				7DA152BF204ADBEF0075274E /* FunctionViewController.m in Sources */,
 				7D1A364E20A17D9D00D74375 /* HHSegmentView.m in Sources */,
+				7D0668F0216BB82B0090443F /* DataSource.m in Sources */,
 				7DB29BC9213BA5D30044BD22 /* hhController.m in Sources */,
 				7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */,
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
@@ -1944,6 +1955,7 @@
 				7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */,
 				7D437F46208ECDB200DAAEBD /* NumberValidate.m in Sources */,
 				7DDE3D3120F505080044FC85 /* ButtonVC.m in Sources */,
+				7D46E07C216BAEFE00AE2ECE /* CollectionCell.m in Sources */,
 				7D437F3D208ECA2200DAAEBD /* CustomTextField.m in Sources */,
 				7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */,
 				7D437EF82083513B00DAAEBD /* TVKJ.m in Sources */,
