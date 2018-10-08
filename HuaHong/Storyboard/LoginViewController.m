@@ -70,7 +70,7 @@
         [SVProgressHUD showInfoWithStatus:@"正在登录中..."];
         [self remberPassword];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
             [self performSegueWithIdentifier:@"LoginToCantact" sender:nil];
 

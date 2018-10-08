@@ -51,6 +51,7 @@
 //extern:代表其他类可以引用
 //const:不可更改
 //static:静态/全局变量
+extern NSString *const MJPropertyTypeIvar;
 
 //extern CFAbsoluteTime startTime;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -59,12 +60,15 @@
     
     [self setApplication:application didFinishLaunchingWithOptions:launchOptions];
     
+    /*
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window = window;
     [self.window makeKeyAndVisible];
 
     TabBarViewController *tabBarVC = [[TabBarViewController alloc]init];
     self.window.rootViewController = tabBarVC;
+    
+     */
     
     [LocationManager sharedLocationManager];
     

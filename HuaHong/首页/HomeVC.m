@@ -15,7 +15,8 @@
 @property(nonatomic,strong) NSMutableArray *tableTittleDataArray;
 @property(nonatomic,strong) NSMutableArray *dataArray;
 @property(nonatomic,strong) UICollectionView *collectionView;
-@property(nonatomic,strong)UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
 
@@ -42,11 +43,7 @@ static NSString *headerID = @"headerID";
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"首页";
-    
+    [super viewDidLoad];    
     
 /*
     //导航栏黑色
@@ -95,34 +92,14 @@ static NSString *headerID = @"headerID";
         ]];
         
     
-    // tableView 的添加
-    [self.view addSubview:self.tableView];
 
     // collectionView 的添加
     [self.view addSubview:self.collectionView];
     
     NSString *title = NSLocalizedString(@"title", @"注释");
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(testAction)];
-    self.navigationItem.rightBarButtonItem = rightItem;
-    
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-
-
     
 }
 
--(void)testAction
-{
-//    HHPhotoBrowserController *vc = [HHPhotoBrowserController new];
-//    [self presentViewController:vc animated:YES completion:nil];
-    
-    TestViewController *vc = [kStory instantiateViewControllerWithIdentifier:@"TestViewController"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-//    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"App-Prefs:root=WIFI"]];
-    
-    
-}
 
 -(NSMutableArray *)dataArray{
     
@@ -142,22 +119,6 @@ static NSString *headerID = @"headerID";
     return _tableTittleDataArray;
 }
 
-
--(UITableView *)tableView{
-    
-    if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,kNavBarHeight, 80, kScreenHeight-kNavBarHeight-kTabBarHeight) style:UITableViewStylePlain];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.backgroundColor  = [UIColor whiteColor];
-        _tableView.showsVerticalScrollIndicator = NO;
-        [_tableView setSeparatorInset:UIEdgeInsetsZero];
-        
-    }
-    
-    return _tableView;
-}
 
 -(UICollectionView *)collectionView{
     
@@ -183,10 +144,6 @@ static NSString *headerID = @"headerID";
 }
 
 #pragma mark UITableViewDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
-    return 1;
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -195,27 +152,13 @@ static NSString *headerID = @"headerID";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *cellID = @"cellID";
-    
-    HomeLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
-    if (!cell) {
-        
-        cell = [[HomeLeftCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+    HomeLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeLeftCell"];
     
     cell.contentView.backgroundColor = (_selectIndex == indexPath.row)?  [UIColor orangeColor] : [UIColor whiteColor];
     
     cell.contentLabel.text = self.tableTittleDataArray[indexPath.row];
 
     return cell;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 40;
-    
 }
 
 // 选中 处理collectionView
@@ -331,7 +274,7 @@ static NSString *headerID = @"headerID";
 //Header 大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(0, 40);
+    return CGSizeMake(0, 44);
 }
 
 //Footer 大小
@@ -371,7 +314,7 @@ static NSString *headerID = @"headerID";
     
 
     
-    return CGSizeMake((collectionView.size.width -layout.sectionInset.left - layout.sectionInset.right - (line-1)*itemSpace)/line, 40);
+    return CGSizeMake((collectionView.size.width -layout.sectionInset.left - layout.sectionInset.right - (line-1)*itemSpace)/line, 44);
 }
 
 

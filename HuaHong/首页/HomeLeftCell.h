@@ -10,6 +10,7 @@
 
 @interface HomeLeftCell : UITableViewCell
 
-@property (nonatomic,strong) UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
 
 @end

@@ -18,6 +18,7 @@
 
 #import <CoreTelephony/CTCallCenter.h>
 #import <CoreTelephony/CTCall.h>
+#import <Photos/Photos.h>
 
 @interface TestViewController()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,strong) UILocalNotification *localNotification;
@@ -61,11 +62,6 @@ static NSString *headerID = @"headerID";
 //
 //    [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     
-    
-    UIView *titleView = [UIView new];
-    titleView.frame = CGRectMake(0, 0, 150, 44);
-    titleView.backgroundColor = [UIColor blackColor];
-    [self.navigationItem setTitleView:titleView];
 }
 
 -(void)switchAction:(HHSwitch *)sender
@@ -94,17 +90,38 @@ static NSString *headerID = @"headerID";
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-
+    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
+    testView.backgroundColor = [UIColor cyanColor];
+    
+  UIView *snapshot =  [testView snapshotViewAfterScreenUpdates:YES];
+    [self.view addSubview:snapshot];
+ UIGraphicsBeginImageContextWithOptions(snapshot.size, NO, [UIScreen mainScreen].scale);
+    
+    [snapshot drawViewHierarchyInRect:snapshot.bounds afterScreenUpdates:NO];
+    UIImage *snapshotImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+//    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+//
+//        [PHAssetChangeRequest creationRequestForAssetFromImage:snapshotImg];
+//
+//    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+//        [SVProgressHUD showInfoWithStatus:@"保存成功"];
+//    }];
+    
     NSDictionary *param = @{@"aaa":@"111",@"bbb":@"222",@"ccc":@"333"};
     NSString *str = @"";
-    if (param) {
-        
-        NSData *data = [NSJSONSerialization dataWithJSONObject:param options:NSJSONWritingPrettyPrinted error:nil];
-        str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        NSLog(@"str:%@",str);
-    }
+//    if (param) {
+//
+//        NSData *data = [NSJSONSerialization dataWithJSONObject:param options:NSJSONWritingPrettyPrinted error:nil];
+//        str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//
+//        NSLog(@"str:%@",str);
+//    }
     
+    for (NSString *key in param) {
+        NSLog(@"value:%@",[param objectForKey:key]);
+    }
     
 //    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"Alert测试" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
 //        NSLog(@"sure");

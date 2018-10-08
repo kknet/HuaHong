@@ -64,7 +64,7 @@
 //    self.tabBar.unselectedItemTintColor = [UIColor blackColor];
     
     
-    [self setUpAllChildVc];
+//    [self setUpAllChildVc];
     
     self.selectedIndex = 1;
 }
@@ -74,9 +74,11 @@
     self.selectedIndex = 1;
 }
 
+
 /**
  *  添加所有的控制器
  */
+/*
 - (void)setUpAllChildVc
 {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -91,10 +93,12 @@
     
 
 }
+*/
 
 /**
  * 初始化子控制器
  */
+/*
 - (void)setupChildVc:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
     // 设置文字和图片
@@ -117,5 +121,5 @@
 
     }
 }
-
+*/
 @end
