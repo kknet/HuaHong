@@ -7,7 +7,6 @@
 //
 
 #import "StoryboardHomeController.h"
-#import "LoginViewController.h"
 @interface StoryboardHomeController ()
 
 @end
@@ -22,17 +21,13 @@
 }
 
 
-- (IBAction)contactAction:(id)sender
-{
-    [self performSegueWithIdentifier:@"contact" sender:nil];
-}
+
 
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    LoginViewController *loginVC = segue.destinationViewController;
-    loginVC.title = @"通讯录登录";
+    
 }
 
 

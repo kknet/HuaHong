@@ -78,8 +78,6 @@
 		7D4AFAFF20108D430018AB3D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D811F82200CACAA005C168F /* libcrypto.a */; };
 		7D4AFB0020108D430018AB3D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D811F83200CACAA005C168F /* libssl.a */; };
 		7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AFB022010946B0018AB3D /* BaiDuMapController.m */; };
-		7D4AFB062011C9FE0018AB3D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AFB052011C9FE0018AB3D /* LoginViewController.m */; };
-		7D4AFB0C2011D78A0018AB3D /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4AFB0B2011D78A0018AB3D /* ContactController.m */; };
 		7D5393BD2019746B006D2712 /* DrawController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393BC2019746B006D2712 /* DrawController.m */; };
 		7D5393E3201AF916006D2712 /* TouchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E2201AF916006D2712 /* TouchController.m */; };
 		7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5393E5201F22D1006D2712 /* ClockViewController.m */; };
@@ -87,6 +85,9 @@
 		7D53F72B2042E8DC00D886B9 /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D53F72A2042E8DC00D886B9 /* RACView.m */; };
 		7D56A301216D941700212DEB /* KVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56A300216D941700212DEB /* KVOViewController.m */; };
 		7D56A304216D946700212DEB /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56A303216D946700212DEB /* NSObject+KVO.m */; };
+		7D56A309216DDFE700212DEB /* FlyWeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56A308216DDFE700212DEB /* FlyWeightController.m */; };
+		7D56A30C216DE03C00212DEB /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56A30B216DE03C00212DEB /* Factory.m */; };
+		7D56A30F216DE07800212DEB /* Flower.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56A30E216DE07800212DEB /* Flower.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
 		7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651129203C414E0042DAE7 /* ProgressView.m */; };
 		7D6FA8FB203B08E50072109E /* SessionRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6FA8FA203B08E50072109E /* SessionRequestController.m */; };
@@ -348,10 +349,6 @@
 		7D48F9832104868800833594 /* PedometerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PedometerViewController.m; sourceTree = "<group>"; };
 		7D4AFB012010946B0018AB3D /* BaiDuMapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiDuMapController.h; sourceTree = "<group>"; };
 		7D4AFB022010946B0018AB3D /* BaiDuMapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaiDuMapController.m; sourceTree = "<group>"; };
-		7D4AFB042011C9FE0018AB3D /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		7D4AFB052011C9FE0018AB3D /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		7D4AFB0A2011D78A0018AB3D /* ContactController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactController.h; sourceTree = "<group>"; };
-		7D4AFB0B2011D78A0018AB3D /* ContactController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
 		7D5393BB2019746B006D2712 /* DrawController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawController.h; sourceTree = "<group>"; };
 		7D5393BC2019746B006D2712 /* DrawController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawController.m; sourceTree = "<group>"; };
 		7D5393E1201AF916006D2712 /* TouchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchController.h; sourceTree = "<group>"; };
@@ -366,6 +363,12 @@
 		7D56A300216D941700212DEB /* KVOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOViewController.m; sourceTree = "<group>"; };
 		7D56A302216D946700212DEB /* NSObject+KVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
 		7D56A303216D946700212DEB /* NSObject+KVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
+		7D56A307216DDFE700212DEB /* FlyWeightController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyWeightController.h; sourceTree = "<group>"; };
+		7D56A308216DDFE700212DEB /* FlyWeightController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyWeightController.m; sourceTree = "<group>"; };
+		7D56A30A216DE03C00212DEB /* Factory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
+		7D56A30B216DE03C00212DEB /* Factory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		7D56A30D216DE07800212DEB /* Flower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flower.h; sourceTree = "<group>"; };
+		7D56A30E216DE07800212DEB /* Flower.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flower.m; sourceTree = "<group>"; };
 		7D651125203C35900042DAE7 /* DownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewController.h; sourceTree = "<group>"; };
 		7D651126203C35900042DAE7 /* DownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewController.m; sourceTree = "<group>"; };
 		7D651128203C414E0042DAE7 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
@@ -921,10 +924,6 @@
 			children = (
 				7D2FF1F820084F0D00ECAA26 /* StoryboardHomeController.h */,
 				7D2FF1F920084F0D00ECAA26 /* StoryboardHomeController.m */,
-				7D4AFB042011C9FE0018AB3D /* LoginViewController.h */,
-				7D4AFB052011C9FE0018AB3D /* LoginViewController.m */,
-				7D4AFB0A2011D78A0018AB3D /* ContactController.h */,
-				7D4AFB0B2011D78A0018AB3D /* ContactController.m */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -958,6 +957,7 @@
 		7D437EEB20834E0F00DAAEBD /* 设计模式 */ = {
 			isa = PBXGroup;
 			children = (
+				7D56A305216DDEBF00212DEB /* 工厂模式&享元模式 */,
 				7D437F37208DE6B300DAAEBD /* 策略模式 */,
 				7D437EEC20834E0F00DAAEBD /* 桥接模式 */,
 			);
@@ -1139,6 +1139,19 @@
 				7D56A303216D946700212DEB /* NSObject+KVO.m */,
 			);
 			path = KVO;
+			sourceTree = "<group>";
+		};
+		7D56A305216DDEBF00212DEB /* 工厂模式&享元模式 */ = {
+			isa = PBXGroup;
+			children = (
+				7D56A307216DDFE700212DEB /* FlyWeightController.h */,
+				7D56A308216DDFE700212DEB /* FlyWeightController.m */,
+				7D56A30A216DE03C00212DEB /* Factory.h */,
+				7D56A30B216DE03C00212DEB /* Factory.m */,
+				7D56A30D216DE07800212DEB /* Flower.h */,
+				7D56A30E216DE07800212DEB /* Flower.m */,
+			);
+			path = "工厂模式&享元模式";
 			sourceTree = "<group>";
 		};
 		7D81144720EFBA6300349078 /* UIWebView-TS */ = {
@@ -1822,13 +1835,13 @@
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
 				7DDF9E9B207F5727003D6F17 /* JSONPlistController.m in Sources */,
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,
-				7D4AFB062011C9FE0018AB3D /* LoginViewController.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
 				7DB90FFC2147B8D500A9B40C /* MVVMTableViewController.m in Sources */,
 				7DC3750E20E390F1005AEBCA /* Service+CoreDataClass.m in Sources */,
 				7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */,
 				7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */,
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
+				7D56A30F216DE07800212DEB /* Flower.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
 				7DB9B5491FD7E6710011EE54 /* VideoBottomView.m in Sources */,
 				7D2FF0C120030AE600ECAA26 /* LoadingViewController.m in Sources */,
@@ -1902,6 +1915,7 @@
 				7DB910062148C1DC00A9B40C /* Presenter.m in Sources */,
 				7D437EF52083501500DAAEBD /* SubRemote.m in Sources */,
 				7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */,
+				7D56A309216DDFE700212DEB /* FlyWeightController.m in Sources */,
 				7DC3751B20E3915D005AEBCA /* City+CoreDataProperties.m in Sources */,
 				7DA152BA204AACAA0075274E /* BaseModel.m in Sources */,
 				7DC3750F20E390F1005AEBCA /* Service+CoreDataProperties.m in Sources */,
@@ -1940,6 +1954,7 @@
 				7DA152C2204ADE640075274E /* ChainViewController.m in Sources */,
 				7DA711AA20DCA05B00BEF5D9 /* HHLockView.m in Sources */,
 				7DC24C8920206B3D00103BDE /* AppDelegate+Notification.m in Sources */,
+				7D56A30C216DE03C00212DEB /* Factory.m in Sources */,
 				7DA711AD20DCD10400BEF5D9 /* UIViewController+Alert.m in Sources */,
 				7DC24CA320283F6500103BDE /* HHBezierPath.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
@@ -1971,7 +1986,6 @@
 				7DDE3D3720F505080044FC85 /* MenuControllerVC.m in Sources */,
 				7D437EEF20834E3200DAAEBD /* BaseRemote.m in Sources */,
 				7DDF9EA720809710003D6F17 /* RegularExpressionController.m in Sources */,
-				7D4AFB0C2011D78A0018AB3D /* ContactController.m in Sources */,
 				7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */,
 				7D437F46208ECDB200DAAEBD /* NumberValidate.m in Sources */,
 				7DDE3D3120F505080044FC85 /* ButtonVC.m in Sources */,
