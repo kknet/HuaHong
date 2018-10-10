@@ -1,5 +1,5 @@
 //
-//  DataModel.h
+//  Model.h
 //  HuaHong
 //
 //  Created by 华宏 on 2018/1/22.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataModel : BaseModel
+@interface Model : BaseModel
 
 @property (nonatomic,copy)   NSString *name;
 @property (nonatomic,assign) NSInteger age;

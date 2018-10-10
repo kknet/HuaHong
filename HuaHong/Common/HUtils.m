@@ -529,16 +529,6 @@
     return COLOR(rv,gv,bv,1.0);
 }
 
-+(NSString*)getDistStr:(int)dist
-{
-    if( dist < 1000 )
-        return [NSString stringWithFormat:@"%dm",dist];
-    else if( dist < 1000*1000 )
-        return [NSString stringWithFormat:@"%.2fkm",(float)dist/1000];
-    else
-        return @">1000km";
-}
-
 //url 拼接参数
 +(NSString*)makeURL:(NSString*)requrl param:(NSDictionary*)param
 {

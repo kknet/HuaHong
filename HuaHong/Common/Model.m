@@ -1,14 +1,14 @@
 //
-//  DataModel.m
+//  Model.m
 //  HuaHong
 //
 //  Created by 华宏 on 2018/1/22.
 //  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "DataModel.h"
+#import "Model.h"
 
-@implementation DataModel
+@implementation Model
 
 /*
  将某个对象写入文件时候调用

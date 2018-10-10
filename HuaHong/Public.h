@@ -120,5 +120,8 @@
 #import "MVVMTableViewController.h"
 #import "MVVMController.h"
 #import "MVPController.h"
+#import "KVOViewController.h"
+#import "Model.h"
+
 
 #endif /* Public_h */

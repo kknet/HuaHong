@@ -8,7 +8,7 @@
 
 #import "HHFMDBController.h"
 #import "HHFMDBManager.h"
-#import "DataModel.h"
+
 @interface HHFMDBController ()
 @property (nonatomic,strong) HHFMDBManager *manager;
 @end
@@ -31,7 +31,7 @@
 
 - (IBAction)addAction:(id)sender {
     
-    DataModel *model = [[DataModel alloc]init];
+    Model *model = [[Model alloc]init];
     model.name = @"zhangsan";
     model.age = 33;
     model.userID = @"1008";
@@ -48,7 +48,7 @@
 
 - (IBAction)updateAction:(id)sender {
     
-    DataModel *model = [[DataModel alloc]init];
+    Model *model = [[Model alloc]init];
     model.name = @"lisi";
     model.age = 44;
     model.userID = @"1008";
@@ -65,7 +65,7 @@
     
    NSArray *array = [self.manager queryData];
     
-    for (DataModel *model in array) {
+    for (Model *model in array) {
         NSLog(@"name:%@,age:%zd,userId:%@",model.name,model.age,model.userID);
     }
 }

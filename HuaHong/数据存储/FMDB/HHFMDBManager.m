@@ -47,7 +47,7 @@
     
 }
 
--(void)insertData:(NSArray <DataModel *>*)dataSource
+-(void)insertData:(NSArray <Model *>*)dataSource
 {
     if ([self.db open])
     {
@@ -56,7 +56,7 @@
         __weak typeof(self) weakSelf = self;
         [queue inDatabase:^(FMDatabase * _Nonnull db) {
             
-            for (DataModel *model in dataSource) {
+            for (Model *model in dataSource) {
                 
               NSString *sql = @"insert into HHDataTable (name, age, userID) values(?, ?, ?)";
                 BOOL result = [db executeUpdate:sql,model.name,[NSNumber numberWithInteger:model.age],model.userID];
@@ -103,7 +103,7 @@
     }
 }
 
--(void)updateItem:(DataModel *)model userID:(NSString *)userID complte:(void (^)(BOOL success))complete
+-(void)updateItem:(Model *)model userID:(NSString *)userID complte:(void (^)(BOOL success))complete
 {
     if ([self.db open])
     {
@@ -132,7 +132,7 @@
     }
 }
 
--(NSMutableArray<DataModel *> *)queryData
+-(NSMutableArray<Model *> *)queryData
 {
     NSMutableArray *dataArray = [NSMutableArray array];
     if ([self.db open])
@@ -148,7 +148,7 @@
             
             while ([resultSet next]) {
                 
-                DataModel *model = [[DataModel alloc]init];
+                Model *model = [[Model alloc]init];
                 model.name = [resultSet stringForColumn:@"name"];
                 model.age = [resultSet intForColumn:@"age"];
                 model.userID = [resultSet stringForColumn:@"userID"];

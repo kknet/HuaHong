@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DataModel.h"
 
 @interface HHFMDBManager : NSObject
 
--(void)insertData:(NSArray <DataModel *>*)dataSource;
+-(void)insertData:(NSArray <Model *>*)dataSource;
 
 -(void)deleteItem:(NSString *)userID;
 
--(void)updateItem:(DataModel *)model userID:(NSString *)userID complte:(void (^)(BOOL success))complete;
+-(void)updateItem:(Model *)model userID:(NSString *)userID complte:(void (^)(BOOL success))complete;
 
--(NSMutableArray<DataModel *> *)queryData;
+-(NSMutableArray<Model *> *)queryData;
 
 
 @end

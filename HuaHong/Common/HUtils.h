@@ -85,9 +85,6 @@ typedef enum ReDic
 //#87fd74 ==> UIColor
 +(UIColor*)stringToColor:(NSString*)str;
 
-//距离描述   dist:米
-+(NSString*)getDistStr:(int)dist;
-
 //url 拼接参数
 +(NSString*)makeURL:(NSString*)requrl param:(NSDictionary*)param;
 

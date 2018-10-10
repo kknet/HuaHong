@@ -7,7 +7,6 @@
 //
 
 #import "DataStorageController.h"
-#import "DataModel.h"
 
 #define kName @"name"
 #define kAge @"age"
@@ -28,7 +27,7 @@
 
 - (IBAction)saveData
 {
-    DataModel *model = [[DataModel alloc]init];
+    Model *model = [[Model alloc]init];
     model.name = @"huahong";
     model.age = 28;
 
@@ -73,7 +72,7 @@
     /**
         3.数据解归档
      */
-    DataModel *model2 = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath2];
+    Model *model2 = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath2];
     NSLog(@"name:%@,age:%ld",model2.name,(long)model2.age);
     
 //    NSArray *array1 = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filePath2];
