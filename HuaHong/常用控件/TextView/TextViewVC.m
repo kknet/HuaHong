@@ -21,7 +21,7 @@
     self.textView = [[UITextView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:self.textView];
     self.textView.delegate = self;
-    self.textView.editable = NO;
+//    self.textView.editable = NO;
     
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"硬件信息" style:UIBarButtonItemStylePlain target:self action:@selector(getSystemInfo)];

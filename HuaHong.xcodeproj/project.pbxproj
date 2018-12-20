@@ -102,6 +102,7 @@
 		7D8376D22041433000C6CB06 /* EncryptionTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8376D12041433000C6CB06 /* EncryptionTools.m */; };
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
+		7D8F370821CB2F1C008E3352 /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */; };
 		7D91769921C9DB5C007B8F91 /* GPUImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91769821C9DB5C007B8F91 /* GPUImageController.m */; };
 		7D91AC462081D714001AE03E /* MemoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91AC452081D714001AE03E /* MemoryController.m */; };
 		7D93370221A835910048E6D4 /* CleanCacheHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93370121A835910048E6D4 /* CleanCacheHelp.m */; };
@@ -424,6 +425,8 @@
 		7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		7D88EE1F1FC8076B00CC76FE /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7D88EE201FC8076B00CC76FE /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		7D8F370621CB2F1C008E3352 /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
+		7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
 		7D91769721C9DB5C007B8F91 /* GPUImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageController.h; sourceTree = "<group>"; };
 		7D91769821C9DB5C007B8F91 /* GPUImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageController.m; sourceTree = "<group>"; };
 		7D91AC442081D714001AE03E /* MemoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryController.h; sourceTree = "<group>"; };
@@ -1438,6 +1441,8 @@
 				7DABC3AD21A5867100C3EAD9 /* NSDate+Category.m */,
 				7D407B6321A66A6B00C73DA2 /* UITextField+space.h */,
 				7D407B6421A66A6B00C73DA2 /* UITextField+space.m */,
+				7D8F370621CB2F1C008E3352 /* UITextView+PlaceHolder.h */,
+				7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */,
 				7D93371121AB9E5C0048E6D4 /* MBProgressHud(Category) */,
 			);
 			path = Catagory;
@@ -2157,6 +2162,7 @@
 				7D48F98021046FC200833594 /* CoreMotionController.m in Sources */,
 				7D2DE5F22015BBCF001590E1 /* Model.m in Sources */,
 				7DDF9E98207F4F10003D6F17 /* XMLController.m in Sources */,
+				7D8F370821CB2F1C008E3352 /* UITextView+PlaceHolder.m in Sources */,
 				7DB910162148FCD200A9B40C /* MVVMModel.m in Sources */,
 				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
 				7D48F9782104337800833594 /* BGView.m in Sources */,
