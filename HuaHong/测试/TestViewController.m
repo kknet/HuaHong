@@ -19,10 +19,11 @@
 #import <CoreTelephony/CTCallCenter.h>
 #import <CoreTelephony/CTCall.h>
 #import <Photos/Photos.h>
+#import "QKAlertView.h"
+#import "TTGTextTagCollectionView.h"
 
-@interface TestViewController()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface TestViewController()
 @property (nonatomic,strong) UILocalNotification *localNotification;
-@property(nonatomic,strong) UICollectionView *collectionView;
 
 @property (strong, nonatomic)CTCallCenter *call_center;//电话管理
 
@@ -30,14 +31,8 @@
 
 @implementation TestViewController
 {
-    BOOL _isScrollDown;//滚动方向
-    NSInteger _selectIndex;//记录位置
-
+    HUtils *_tool;
 }
-
-static NSString *cellID = @"cellID";
-static NSString *headerID = @"headerID";
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,6 +56,34 @@ static NSString *headerID = @"headerID";
 //    hhswitch.thumbTintColor = [UIColor redColor];
 //
 //    [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+   
+    
+//    HUtils *tool = [HUtils new];
+//    _tool = tool;
+//    [tool drawCircle:self.view.center radius:100 lineWidth:5 lineColor:[UIColor redColor].CGColor startAngle:-M_PI_2 endAngle:-M_PI_2+2*M_PI clockwise:YES duaring:5 mainView:self.view layerFrame:self.view.bounds];
+    
+    TTGTextTagCollectionView *tagCollectionView = [[TTGTextTagCollectionView alloc] initWithFrame:CGRectMake(20, 20, 200, 200)];
+    [self.view addSubview:tagCollectionView];
+    [tagCollectionView addTags:@[@"TTG", @"Tag", @"collection", @"view"]];
+    
+    UICountingLabel *myLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(20, 250, 280, 45)];
+    myLabel.textAlignment = NSTextAlignmentCenter;
+    myLabel.font = [UIFont fontWithName:@"Avenir Next" size:48];
+    myLabel.textColor = [UIColor colorWithRed:236/255.0 green:66/255.0 blue:43/255.0 alpha:1];
+    [self.view addSubview:myLabel];
+    //设置格式
+    myLabel.format = @"%.2f";
+    
+    //设置分隔符样式
+    myLabel.positiveFormat = @"###,##0.00";
+    
+    //设置变化范围及动画时间
+    [myLabel countFrom:0.00
+                         to:3198.23
+               withDuration:1.0f];
+    
+    NSLog(@"familyNames:%@",[UIFont familyNames]);
+    
     
 }
 
@@ -78,28 +101,34 @@ static NSString *headerID = @"headerID";
 
 
 
-- (void)callPhone
-{
-    NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"12345678901"];
-    NSURL *url = [NSURL URLWithString:str];
-    if ([[UIApplication sharedApplication]canOpenURL:url])
-    {
-        [[UIApplication sharedApplication] openURL:url];
-        
-    }
-}
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
-    testView.backgroundColor = [UIColor cyanColor];
+
     
-  UIView *snapshot =  [testView snapshotViewAfterScreenUpdates:YES];
-    [self.view addSubview:snapshot];
- UIGraphicsBeginImageContextWithOptions(snapshot.size, NO, [UIScreen mainScreen].scale);
+//    NSLog(@"weekdays:%@",weekdays);
     
-    [snapshot drawViewHierarchyInRect:snapshot.bounds afterScreenUpdates:NO];
-    UIImage *snapshotImg = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+//    [_tool dismiss];
+    
+//  UIViewController *vc = [[TestVC alloc]init];
+//  [self presentViewController:vc animated:YES completion:nil];
+////    [self.navigationController pushViewController:vc animated:YES];
+//
+//  UIViewController *vc1 =  self.presentedViewController;
+//  UIViewController *vc2 =  self.presentingViewController;
+//
+//    //vc1:TestVC
+//    NSLog(@"vc1:%@,vc2:%@",vc1,vc2);
+    
+//    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
+//    testView.backgroundColor = [UIColor cyanColor];
+//
+//  UIView *snapshot =  [testView snapshotViewAfterScreenUpdates:YES];
+//    [self.view addSubview:snapshot];
+// UIGraphicsBeginImageContextWithOptions(snapshot.size, NO, [UIScreen mainScreen].scale);
+//
+//    [snapshot drawViewHierarchyInRect:snapshot.bounds afterScreenUpdates:NO];
+//    UIImage *snapshotImg = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
     
 //    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
 //
@@ -109,30 +138,16 @@ static NSString *headerID = @"headerID";
 //        [SVProgressHUD showInfoWithStatus:@"保存成功"];
 //    }];
     
-    NSDictionary *param = @{@"aaa":@"111",@"bbb":@"222",@"ccc":@"333"};
-    NSString *str = @"";
-//    if (param) {
+    NSString *ccc;
+    NSDictionary *dic = @{@"aaa":@"111",@"bbb":@"222",@"ccc":ccc};
+    NSMutableDictionary *paramm = dic.mutableCopy;
+    [paramm setObject:ccc forKey:@"ccc"];
+    NSLog(@"paramm:%@",paramm);
+//    [param.reverseObjectEnumerator.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //
-//        NSData *data = [NSJSONSerialization dataWithJSONObject:param options:NSJSONWritingPrettyPrinted error:nil];
-//        str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//
-//        NSLog(@"str:%@",str);
-//    }
-    
-    for (NSString *key in param) {
-        NSLog(@"value:%@",[param objectForKey:key]);
-    }
-    
-//    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"Alert测试" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
-//        NSLog(@"sure");
-//    } CancelAction:nil];
-    
-    
-//  TestView *view =  [[TestView alloc]init];
-//    view.frame = CGRectMake(100, 100, 100, 100);
-//
-//  [self.view addSubview:view];
-    
+//        NSLog(@"obj:%@",obj);
+//        [param removeObject:obj];
+//    }];
     
     
 //    [self share];
@@ -140,8 +155,6 @@ static NSString *headerID = @"headerID";
 //    [self wechatLogin];
    
     
-//    NSString *str = [NSString stringWithFormat:@"%f",self.hFloat];
-//    [SVProgressHUD showWithStatus:str];
     
 //    QKCodeController *vc = [QKCodeController codeControllerWithDismissCallback:^(BOOL isSuccess) {
 //
@@ -149,6 +162,9 @@ static NSString *headerID = @"headerID";
 //    }];
 //
 //    [self presentViewController:vc animated:YES completion:nil];
+   
+//    [HUtils forceOrientation:UIInterfaceOrientationLandscapeLeft];
+//    NSLog(@"%d",[HUtils isOrientationLandscape]);
 }
 
 -(void)share

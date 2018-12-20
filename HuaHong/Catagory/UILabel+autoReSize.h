@@ -9,10 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface UILabel (autoReSize)
+
+            /** 使用前提：已设置好frame */
 //这个用于高度定死了,自动设置宽度
--(void)autoReSizeWidthForContent:(CGFloat)maxW;
+-(void)widthToFit;
 
 //这个用于宽度定死了,自动设置高度
--(void)autoResizeHeightForContent:(CGFloat)maxH;
+-(void)heightToFit;
+
++ (CGSize)labelHeightFit:(NSDictionary *)attri width:(CGFloat)width text:(NSString *)text;
+
++ (CGSize)labelWidthFit:(NSDictionary *)attri height:(CGFloat)height text:(NSString *)text;
 
 @end

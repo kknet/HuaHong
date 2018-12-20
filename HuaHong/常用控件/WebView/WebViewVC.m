@@ -66,22 +66,29 @@
 - (void)callJSAction
 {
     [self.jsContext evaluateScript:@"showAlert('huahong')"];
-
 }
 
 #pragma mark - JSObjcDelegate
 - (void)callCamera
 {
-    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"callCamera" SureTitle:@"确定" CancelTitle:nil SureAction:^{
-        
-    } CancelAction:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"callCamera" ClickAction:^(UIAlertController *alertCtrl, NSInteger buttonIndex) {
+            
+        } CancelTitle:@"确定" OtherTitles: nil];
+    });
+    
+
 }
 
 -(void)share:(NSString *)shareInfo
 {
-    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:shareInfo SureTitle:@"确定" CancelTitle:nil SureAction:^{
-        
-    } CancelAction:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIViewController showAlertWhithTarget:self Title:@"提示" Message:shareInfo ClickAction:^(UIAlertController *alertCtrl, NSInteger buttonIndex) {
+            
+        } CancelTitle:@"确定" OtherTitles:nil];
+    });
+    
+    
 }
 
 

@@ -53,11 +53,19 @@
 //static:静态/全局变量
 extern NSString *const MJPropertyTypeIvar;
 
+/** 输出异常 */
+static void uncaughtExceptionHandler(NSException *exception)
+{
+    NSLog(@"%@/n%@", exception, [exception callStackSymbols]);
+    
+}
+
 //extern CFAbsoluteTime startTime;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  /** 输出异常 */
+NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
 //    NSLog(@"launch time :%f 秒",CFAbsoluteTimeGetCurrent()-startTime);
-    
     [self setApplication:application didFinishLaunchingWithOptions:launchOptions];
     
     /*
@@ -82,13 +90,13 @@ extern NSString *const MJPropertyTypeIvar;
     
     
     [self baiduMap];
-    
+
     //云端存储
-    [self leanCloud];
-    
+//    [self leanCloud];
+
     //人脸识别
     [self face];
-    
+
     // U-Share 平台设置
     [self configUSharePlatforms];
     

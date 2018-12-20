@@ -141,9 +141,9 @@
 
 -(void)showMessage:(NSString *)message
 {
-    [UIViewController showAlertWhithTarget:self Title:@"扫描结果" Message:message SureTitle:@"确定" CancelTitle:nil SureAction:^{
-        [_session startRunning];
-    } CancelAction:nil];
+    [UIViewController showAlertWhithTarget:self Title:@"扫描结果" Message:message ClickAction:^(UIAlertController *alertCtrl, NSInteger buttonIndex) {
+        
+    } CancelTitle:@"确定" OtherTitles: nil];
 }
 
 -(BOOL)isAvailableCamera

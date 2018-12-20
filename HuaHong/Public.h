@@ -9,12 +9,6 @@
 #ifndef Public_h
 #define Public_h
 
-#define kStory [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]
-
-#define kDevice_Is_iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
-
-#define kDevice_Is_iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
-
 //#define kBaseURL @"http://192.168.0.5"
 #define kBaseURL @"http://172.31.0.85"
 
@@ -29,7 +23,10 @@
 #import "BaseModel.h"
 #import "AppDelegate.h"
 #import "HUtils.h"
-#import "NSString+Hash.h"
+#import <Masonry.h>
+#import "KVOController.h"
+#import "CleanCacheHelp.h"
+
 
 //#import "HHCategory.h"
 #import "UIViewExt.h"
@@ -41,9 +38,22 @@
 #import "NSArray+NSDictionary_Log.h"
 #import "CALayer+borderColor.h"
 #import "UIViewController+Alert.h"
-#import <Masonry.h>
-#import "KVOController.h"
+#import "NSString+Hash.h"
+#import "UIButton+ImageTitleSpace.h"
+#import "NSArray+NSDirectory_Convert_m.h"
+#import "UIImage+Category.h"
+#import "NSDate+Category.h"
+#import "UITextField+space.h"
+#import "MBProgressHUD+add.h"
+#import "NSDictionary+NilSafe.h"
+#import "UITextView+Placeholder.h"
+#import "UIScrollView+EmptyDataSet.h"
+#import "UICountingLabel.h"
+#import "NSTimer+HHTimer.h"
 
+
+#import "Model.h"
+#import "HHSwitch.h"
 
 #import "MapViewController.h"
 #import "WaterFallController.h"
@@ -103,7 +113,6 @@
 #import "StrategyController.h"
 #import "HHSegmentController.h"
 #import "HHFMDBController.h"
-#import "HHSwitch.h"
 #import "HHLockController.h"
 #import "HHPhotoBrowserController.h"
 #import "HHCardController.h"
@@ -121,7 +130,8 @@
 #import "MVVMController.h"
 #import "MVPController.h"
 #import "KVOViewController.h"
-#import "Model.h"
+#import "VideoRecordController.h"
+#import "GPUImageController.h"
 
 
 #endif /* Public_h */

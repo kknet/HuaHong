@@ -67,4 +67,23 @@
     return self;
 }
 
+- (NSString *)description
+{
+    NSMutableDictionary *dicM = [NSMutableDictionary dictionary];
+    unsigned int count = 0;
+    Ivar *list = class_copyIvarList(self.class, &count);
+    for (int i = 0; i < count; i++) {
+        Ivar ivar = list[i];
+        
+        NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+        id value = [self valueForKey:key];
+        
+        if (key && value) {
+             [dicM setObject:value forKey:key];
+        }
+       
+    }
+    
+    return [dicM convertToJson];
+}
 @end

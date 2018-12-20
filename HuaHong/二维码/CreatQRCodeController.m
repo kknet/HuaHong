@@ -171,12 +171,10 @@
 {
     if (_imageView.image)
     {
-        __weak typeof(self) weakSelf = self;
-
-        [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"是否保存到相册？" SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
-            [weakSelf savedPhotosToAlbum:_imageView.image];
-
-        } CancelAction:nil];
+        
+        [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"是否保存到相册？" ClickAction:^(UIAlertController *alertCtrl, NSInteger buttonIndex) {
+            [self savedPhotosToAlbum:_imageView.image];
+        } CancelTitle:@"取消" OtherTitles:@"确定", nil];
     }
 }
 

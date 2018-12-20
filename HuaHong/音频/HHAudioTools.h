@@ -97,5 +97,7 @@ typedef void(^RecordeBlock)(NSString *recordePath);
 
 @property (nonatomic,copy) void(^playAuidoFinishedCallback)(void);
 
+/** 获取录音时长 */
+- (float)getVoiceDuration;
 @end
 

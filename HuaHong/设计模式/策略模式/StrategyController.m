@@ -35,6 +35,7 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    NSLog(@"myText:%@",textField.text);
     if ([textField isKindOfClass:[CustomTextField class]]) {
         
         [(CustomTextField *)textField validate];

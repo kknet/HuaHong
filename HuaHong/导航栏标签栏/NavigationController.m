@@ -18,6 +18,9 @@
     [super viewDidLoad];
     //解决自定义返回按钮后滑动手势失效的问题
     self.interactivePopGestureRecognizer.delegate = nil;
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars = NO;
 }
 + (void)initialize
 {
@@ -63,6 +66,7 @@
 
 }
 
+//支持设备自动旋转
 -(BOOL)shouldAutorotate
 {
     return YES;

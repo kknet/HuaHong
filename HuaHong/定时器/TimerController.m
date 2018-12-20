@@ -7,16 +7,34 @@
 //
 
 #import "TimerController.h"
+#import <objc/runtime.h>
+#import "HHProxy.h"
 
 @interface TimerController ()
 @property (nonatomic,strong) dispatch_source_t timer;
+@property (nonatomic,strong) CADisplayLink *displaylink;
+@property (nonatomic,strong) NSTimer *nsTimer;
+@property (nonatomic,strong) id target;
+@property (nonatomic,strong) HHProxy *proxy;
 @end
 
 @implementation TimerController
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self GCDTimer2];
+    
+    [self NSTimerMothod];
+    
+//    [self.navigationController pushViewController:[TestViewController new] animated:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+//    [_displaylink invalidate];
+    
+//    [_nsTimer invalidate];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +57,10 @@
      * 延迟方法二
      */
 //    [self performSelector:@selector(timeAction) withObject:nil afterDelay:3.0];
+    
+    //取消延时调用
+//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(timeAction) object:nil];
+    
     
     /**
      * 延迟方法三
@@ -77,6 +99,8 @@
  */
 -(void)GCDTimer2
 {
+    __weak typeof(self) weakSelf = self;
+
     dispatch_queue_t queue = dispatch_get_main_queue();
     _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
     dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
@@ -85,8 +109,8 @@
     dispatch_source_set_event_handler(_timer, ^{
         
         NSLog(@"gcd");
-    self.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
         
+        [weakSelf timeAction:nil];
         
     });
     
@@ -102,8 +126,8 @@
  */
 -(void)CADisplayLinkMothod
 {
- CADisplayLink *displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timeAction)];
- [displaylink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    _displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timeAction:)];
+ [_displaylink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 
@@ -113,17 +137,86 @@
  * NSTimer 经过间隔时间才开始执行; [timer fire]立刻执行
  */
 
+/** 方法一 */
+//- (void)didMoveToParentViewController:(UIViewController *)parent
+//{
+//    NSLog(@"parent:%@",parent);
+//    if (parent == nil)
+//    {
+//        [_nsTimer invalidate];//必须
+//        _nsTimer = nil;
+//
+//        [_displaylink invalidate];
+//    }
+//}
+
 -(void)NSTimerMothod
 {
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timeAction) userInfo:nil repeats:YES];
-    [timer fire];
+    __weak typeof(self) weakSelf = self;
+    
+    /**
+     * 方法二
+     * 需要在dealloc invalidate
+     */
+//    _nsTimer =  [NSTimer hhscheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        NSLog(@"timer:%@",timer);
+//        [weakSelf timeAction:nil];
+//    }];
+    
+    
+    /** 方法三 */
+    _target = [NSObject new];
+    
+    //动态添加方法
+//    Method method = class_getInstanceMethod([self class], @selector(timeAction:));
+//    class_addMethod([_target class], @selector(timeAction:), method_getImplementation(method), "v@:@");
+//
+//    //    class_addMethod([_target class], @selector(timeAction:), (IMP)dynamicFunction, "v@:@");
+//
+//    _nsTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:_target selector:@selector(timeAction:) userInfo:self repeats:YES];
+    
+     /** 方法四 */
+    _proxy = [HHProxy alloc];
+    _proxy.target = self;
+    _nsTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:_proxy selector:@selector(timeAction:) userInfo:nil repeats:YES];
+    
+    [_nsTimer fire];
 }
+
+
+void dynamicFunction(id self ,SEL _cmd,id objc)
+{
+    NSLog(@"self:%@",self);
+    NSLog(@"_cmd:%@",NSStringFromSelector(_cmd));
+    NSLog(@"objc:%@",objc);
+
+    NSTimer *timer = (NSTimer *)objc;
+    TimerController *vc = (TimerController *)timer.userInfo;
+    vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+//    NSLog(@"vc:%@",vc);
+    
+}
+
+
 
 /**
  * 执行方法
  */
--(void)timeAction
+-(void)timeAction:(id)sender
 {
     self.view.backgroundColor =  [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+    
+//    NSTimer *timer = (NSTimer *)sender;
+//    TimerController *vc = (TimerController *)timer.userInfo;
+//    vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+    
+}
+
+- (void)dealloc
+{
+    [_nsTimer invalidate];
+    _nsTimer = nil;
+    
+    NSLog(@"%s",__func__);
 }
 @end

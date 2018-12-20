@@ -55,9 +55,11 @@
         
         if (success)
         {
-            dispatch_async(dispatch_get_main_queue(), ^{         
-                
-                [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"指纹验证成功" SureTitle:@"确定" CancelTitle:nil SureAction:nil CancelAction:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [UIViewController showAlertWhithTarget:self Title:@"提示" Message:@"指纹验证成功" ClickAction:^(UIAlertController *alertCtrl, NSInteger buttonIndex) {
+                    
+                } CancelTitle:@"确定" OtherTitles: nil];
                 
             });
             

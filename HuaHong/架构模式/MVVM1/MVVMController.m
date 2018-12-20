@@ -31,6 +31,7 @@
 
     self.mvvmView = [MVVMView new];
     _mvvmView.frame = self.view.bounds;
+    _mvvmView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_mvvmView];
     
     [self.viewModel setModel:_model];

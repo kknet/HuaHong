@@ -14,7 +14,6 @@
 @interface runtimeViewController ()
 
 @property (nonatomic,strong) Person *persion;
-
 @end
 
 @implementation runtimeViewController

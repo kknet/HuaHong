@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @protocol BackButtonHandlerProtocol <NSObject>
 @optional
 
@@ -15,6 +14,7 @@
 -(BOOL)navigationShouldPopOnBackButton;
 
 @end
+
 @interface UIViewController (ShouldPopOnBackButton)<BackButtonHandlerProtocol>
 
 @end

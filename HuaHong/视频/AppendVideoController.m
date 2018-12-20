@@ -17,7 +17,7 @@
 -(BOOL)navigationShouldPopOnBackButton
 {
     NSLog(@"back");
-    return YES;
+    return NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

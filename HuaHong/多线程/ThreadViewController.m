@@ -16,16 +16,14 @@
 @implementation ThreadViewController
 
 /**
- * 原子属性是线程安全的，安全的前提是：读写不同时操作
+ * atomic原子属性是线程安全的，安全的前提是：读写不同时操作
+ * 只能在set/get操作才能保证线程安全，且耗性能
+ -- 开不开线程，取决于执行任务的函数，同步不开，异步就开
+ -- 开几条线程，取决于队列，串行开一条，并发开多条（异步）
  */
-
--(NSOperationQueue *)queue
-{
-    if (_queue == nil) {
-        _queue = [[NSOperationQueue alloc]init];
-    }
-    
-    return _queue;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+   
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -36,19 +34,27 @@
     //
     //      [self gcddemo];
     
-          [self barrier];
+    //          [self barrier];
     //
     //      [self once];
     
-//          [self group1];
+    //          [self group1];
     
-//    [self operation];
+    //    [self operation];
+    
+//    [self apply];
+    
+    [self semaphore];
     
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(NSOperationQueue *)queue
+{
+    if (_queue == nil) {
+        _queue = [[NSOperationQueue alloc]init];
+    }
     
+    return _queue;
 }
 
 #pragma mark NSThread
@@ -115,7 +121,7 @@
 #pragma mark GCD Barrier阻塞
 -(void)barrier
 {
-    //只能用并发队列，要放在同一个队列
+    //只能用并发队列(全局队列也不可以)，要放在同一个队列
     dispatch_queue_t queue = dispatch_queue_create("hh", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(queue, ^{
         [NSThread sleepForTimeInterval:1.0];
@@ -188,6 +194,7 @@
     
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
         [NSThread sleepForTimeInterval:1.0];
+//        sleep(1);
         NSLog(@"bbbb");
     });
     
@@ -331,4 +338,53 @@
 
 }
 
+#pragma mark - GCD替代for循环
+- (void)apply
+{
+    dispatch_queue_t queue = dispatch_queue_create(NULL, DISPATCH_QUEUE_CONCURRENT);
+    
+//    dispatch_apply(10, queue, ^(size_t index) {
+//        NSLog(@"%zu",index);
+//    });
+    
+    for (int i=0; i<10; i++) {
+        NSLog(@"%d",i);
+    }
+}
+
+- (void)semaphore
+{
+    dispatch_semaphore_t sem = dispatch_semaphore_create(1);//线程数
+    
+    dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index) {
+        
+        dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+        NSLog(@"%zd",index);
+        
+        sleep(2);
+        
+        NSLog(@"over %zd",index);
+
+        dispatch_semaphore_signal(sem);
+        
+        
+    });
+    
+    
+}
+
+- (void)lock
+{
+    dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index) {
+        
+        NSLock *lock = [[NSLock alloc]init];
+        [lock lock];
+        
+        NSLog(@"%zd",index);
+        sleep(2);
+        NSLog(@"over %zd",index);
+        
+        [lock unlock];
+    });
+}
 @end

@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self openAction:nil];
 }
 
 - (IBAction)openAction:(id)sender

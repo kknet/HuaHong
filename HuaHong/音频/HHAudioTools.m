@@ -132,16 +132,21 @@ static NSMutableDictionary *_soundIDDict;
     NSURL *recordeUrl = [NSURL fileURLWithPath:[self getRecordePath]];
     
     NSMutableDictionary *recordSetting =[NSMutableDictionary dictionaryWithCapacity:10];
+    
     // 音频格式
     recordSetting[AVFormatIDKey] = @(kAudioFormatLinearPCM);
+    
     // 录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）
     recordSetting[AVSampleRateKey] = @(8000);
+    
     // 音频通道数 1 或 2
     recordSetting[AVNumberOfChannelsKey] = @(2);
+    
     // 线性音频的位深度  8、16、24、32
     recordSetting[AVLinearPCMBitDepthKey] = @(16);
+    
     //录音的质量
-    recordSetting[AVEncoderAudioQualityKey] = [NSNumber numberWithInt:AVAudioQualityLow];
+    recordSetting[AVEncoderAudioQualityKey] = [NSNumber numberWithInt:AVAudioQualityMax];
     
     _recorder = [[AVAudioRecorder alloc]initWithURL:recordeUrl settings:recordSetting error:&error];
     if (error)
@@ -421,4 +426,16 @@ static NSMutableDictionary *_soundIDDict;
     }
 }
 
+/** 获取录音时长 */
+- (float)getVoiceDuration
+{
+    NSURL *audioFileURL = [NSURL fileURLWithPath:[self getRecordePath]];
+    AVURLAsset*audioAsset = [AVURLAsset URLAssetWithURL:audioFileURL options:nil];
+    
+    CMTime audioDuration = audioAsset.duration;
+    
+    float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
+    
+    return audioDurationSeconds;
+}
 @end

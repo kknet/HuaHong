@@ -13,7 +13,6 @@
 
 @interface TestViewController : BaseViewController
 @property (nonatomic,assign) CGFloat hFloat;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segment;
 
 @property (nonatomic,weak) id<TestDelegate> delegate;
 @end

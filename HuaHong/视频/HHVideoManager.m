@@ -428,48 +428,6 @@
     return fileName;
 }
 
-//获取视频第一帧的图片
-+(void)movieToImageWithVideoURL:(NSURL *)videoUrl Handler:(void (^)(UIImage *movieImage))handler
-{
-    AVAsset *asset = [AVAsset assetWithURL:videoUrl];
-    //    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
-    
-    NSParameterAssert(asset);
-    
-    AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
-    
-    //    generator.appliesPreferredTrackTransform = YES;
-    //    generator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
-    
-    CMTime thumbTime = CMTimeMakeWithSeconds(0, 60);
-    
-    //    AVAssetImageGeneratorCompletionHandler generatorHandler =
-    //    ^(CMTime requestedTime, CGImageRef im, CMTime actualTime, AVAssetImageGeneratorResult result, NSError *error){
-    //
-    //        if (result == AVAssetImageGeneratorSucceeded) {
-    //            UIImage *thumbImg = [UIImage imageWithCGImage:im];
-    //            if (handler) {
-    //                dispatch_async(dispatch_get_main_queue(), ^{
-    //                    handler(thumbImg);
-    //                });
-    //            }
-    //        }
-    //    };
-    
-    [generator generateCGImagesAsynchronouslyForTimes:
-     [NSArray arrayWithObject:[NSValue valueWithCMTime:thumbTime]] completionHandler:^(CMTime requestedTime, CGImageRef image, CMTime actualTime, AVAssetImageGeneratorResult result, NSError * error) {
-         
-         if (result == AVAssetImageGeneratorSucceeded) {
-             UIImage *thumbImg = [UIImage imageWithCGImage:image];
-             if (handler) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     handler(thumbImg);
-                 });
-             }
-         }
-     }];
-}
-
 + (void)cleanCache:(NSString *)videoPath
 {
     if ([[NSFileManager defaultManager] fileExistsAtPath:videoPath]) {

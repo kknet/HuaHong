@@ -107,6 +107,18 @@
             return false;
     }
 }
+
+//验证身份证(已使用)
++(BOOL)checkIdentifier: (NSString *)Identifier{
+    NSString * regex = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    BOOL isMatch = [pred evaluateWithObject:Identifier];
+    return isMatch;
+    
+}
+
+/////////////////////////////////////////////
 +(BOOL)isValidateEmail:(NSString *)email {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
@@ -376,13 +388,11 @@
 }
 
 /* !@brief 186****5678 （手机号码中间隐藏4位）  */
-- (NSString *)getFromNumber{
+- (NSString *)getHideNumber{
     if (self.length > 7) {
-        NSString *resultStr = self;
-        NSString *firtStr = [self substringToIndex:3];
-        NSString *lastStr = [self substringFromIndex:self.length - 4];
-        resultStr = [NSString stringWithFormat:@"%@****%@",firtStr,lastStr];
-        return resultStr;
+  
+      return [self stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
+        
     }
     return self;
 }
@@ -397,12 +407,30 @@
 
 -(NSString *)encodeString
 {
-   return  [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+   return  [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
 -(NSString *)decodeString
 {
-  return  [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+  return  [self stringByRemovingPercentEncoding];
+}
+
+//判断是否为Int形
++ (BOOL)isPureInt:(NSString*)string
+{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    
+    int val;
+    return[scan scanInt:&val] && [scan isAtEnd];
+}
+
+//判断是否为浮点形
++ (BOOL)isPureFloat:(NSString*)string
+{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    
+    float val;
+    return[scan scanFloat:&val] && [scan isAtEnd];
 }
 
 @end

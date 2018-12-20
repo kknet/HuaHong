@@ -7,6 +7,7 @@
 //
 
 #import "CustomVideoController.h"
+#import <VideoToolbox/VideoToolbox.h>
 
 @interface CustomVideoController ()<VideoRecordDelegate>
 @property (nonatomic, strong) VideoRecorder *recorder;
@@ -61,6 +62,7 @@
     
     if (!self.recorder.isCapturing)
     {
+        [self initVideotoolBox];
         [self.recorder startRecording];
         self.topView.hidden = YES;
     }else
@@ -82,11 +84,9 @@
                 NSLog(@"添加水印完成");
                 weakSelf.bottomView.lastVideoPath = [outputURL path];
                 
-                [HHVideoManager movieToImageWithVideoURL:outputURL Handler:^(UIImage *movieImage) {
-                    [weakSelf.bottomView configVideoThumb:movieImage];
-                }];
-                
-                
+            //获取视频第一帧的图片
+            [self.bottomView configVideoThumb:[UIImage getThumbnail:outputURL]];
+            
                 
                 //保存到相册
                 [HHVideoManager saveToPhotoLibrary:outputURL];
@@ -131,5 +131,11 @@
 -(void)changeCamera
 {
     [self.recorder switchCamera];
+}
+
+#pragma mark - initVideotoolBox
+- (void)initVideotoolBox
+{
+    
 }
 @end

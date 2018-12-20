@@ -17,6 +17,10 @@ typedef enum : NSUInteger {
 @interface NSString (IdentityCard)
 //验证身份证
 + (BOOL)validateIDCardNumber:(NSString *)value;
+//验证身份证(已使用)
++(BOOL)checkIdentifier: (NSString *)Identifier;
+
+
 //利用正则表达式验证
 +(BOOL)isValidateEmail:(NSString *)email;
 //验证手机号
@@ -46,7 +50,7 @@ typedef enum : NSUInteger {
 - (NSString *)doTrimming;
 
 /* !@brief 186****5678 （号码中间隐藏）  */
-- (NSString *)getFromNumber;
+- (NSString *)getHideNumber;
 
 /* !@brief **** 做验证  */
 - (BOOL)isEmpty;
@@ -54,4 +58,9 @@ typedef enum : NSUInteger {
 -(NSString *)encodeString;
 -(NSString *)decodeString;
 
+//判断是否为Int形
++ (BOOL)isPureInt:(NSString*)string;
+
+//判断是否为浮点形
++ (BOOL)isPureFloat:(NSString*)string;
 @end

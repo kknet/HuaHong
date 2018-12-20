@@ -10,27 +10,43 @@
 
 @implementation UILabel (autoReSize)
 
--(void)autoReSizeWidthForContent:(CGFloat)maxW
+-(void)widthToFit
 {
-    CGSize s = [self.text boundingRectWithSize:CGSizeMake(99999, self.frame.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
+    self.numberOfLines = 0;
+    CGSize size = [self.text boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, self.frame.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
     
-    CGFloat w = s.width + self.alignmentRectInsets.left + self.alignmentRectInsets.right;
-    CGRect f = self.frame;
-    f.size.width = w > maxW ? maxW : w;
-    self.frame = f;
+    CGRect frame = self.frame;
+    frame.size.width = size.width + self.alignmentRectInsets.left + self.alignmentRectInsets.right;
     
-}
-//这个用于宽度定死了,自动设置高度
--(void)autoResizeHeightForContent:(CGFloat)maxH
-{
-    CGSize s =  [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width, 99999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
-    
-    CGFloat h = s.height + self.alignmentRectInsets.top + self.alignmentRectInsets.bottom;
-    CGRect f = self.frame;
-    f.size.height = h > maxH ? maxH : h;
-    self.frame = f;
+    self.frame = frame;
     
 }
 
+//这个用于宽度定死了,自动设置高度
+-(void)heightToFit
+{
+    self.numberOfLines = 0;
+    CGSize size =  [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width, 99999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
+    
+     CGRect frame = self.frame;
+     frame.size.height = size.height + self.alignmentRectInsets.top + self.alignmentRectInsets.bottom;
+   
+    self.frame = frame;
+    
+}
+
+
++ (CGSize)labelHeightFit:(NSDictionary *)attri width:(CGFloat)width text:(NSString *)text
+{
+    CGSize labelSize = [text boundingRectWithSize:CGSizeMake(width, 10000) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
+    labelSize = CGSizeMake((int)labelSize.width, (int)labelSize.height+1);
+    return labelSize;
+}
+
++ (CGSize)labelWidthFit:(NSDictionary *)attri height:(CGFloat)height text:(NSString *)text {
+    CGSize labelSize = [text boundingRectWithSize:CGSizeMake(375, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
+    labelSize = CGSizeMake((int)labelSize.width+1, (int)labelSize.height);
+    return labelSize;
+}
 
 @end

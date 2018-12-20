@@ -103,19 +103,19 @@
 
 -(void)showAlert:(NSString *)message
 {
-    __weak typeof(self) weakSelf = self;
-
-    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:message SureTitle:@"确定" CancelTitle:@"取消" SureAction:^{
-        if ([message containsString:@"打开"]) {
-            // 打开闪光灯
-            [weakSelf turnOnFlash];
-            
-        }else if ([message containsString:@"关闭"])
-        {
-            // 关闭闪光灯
-            [weakSelf turnOffFlash];
+    [UIViewController showAlertWhithTarget:self Title:@"提示" Message:message ClickAction:^(UIAlertController *alertCtrl, NSInteger buttonIndex) {
+        if (buttonIndex == 1) {
+            if ([message containsString:@"打开"]) {
+                // 打开闪光灯
+                [self turnOnFlash];
+    
+            }else if ([message containsString:@"关闭"])
+            {
+                // 关闭闪光灯
+                [self turnOffFlash];
+            }
         }
-    } CancelAction:nil];
+    } CancelTitle:@"取消" OtherTitles:@"确定", nil];
 }
 
 // 打开闪光灯

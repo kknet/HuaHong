@@ -10,10 +10,10 @@
 
 @interface NSArray (Log)
 
-
+- (NSString *)convertToJson;
 @end
 
 @interface NSDictionary (Log)
-
+- (NSString *)convertToJson;
 @end
 

@@ -37,5 +37,22 @@
 //    return self;
 //}
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    Model *model = [[[self class]allocWithZone:zone]init];
+    model.name = self.name;
+    model.age = self.age;
+    
+    //未公开的成员
+    model->_userID = _userID;
+//    [model setValue:_userID forKey:@"userID"];
+    
+    return model;
+}
 
+
+//- (id)mutableCopyWithZone:(NSZone *)zone
+//{
+//
+//}
 @end

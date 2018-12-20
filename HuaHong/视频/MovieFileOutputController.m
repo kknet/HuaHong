@@ -103,8 +103,7 @@
     if (![self.movieFileOutput isRecording])
     {        
         AVCaptureConnection *movieConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
-        AVCaptureVideoOrientation avcaptureOrientation = AVCaptureVideoOrientationPortrait;
-        [movieConnection setVideoOrientation:avcaptureOrientation];
+        [movieConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
         [movieConnection setVideoScaleAndCropFactor:1.0];
         
         NSURL *url = [NSURL fileURLWithPath:[HHVideoManager getVideoCachePath]];
@@ -143,10 +142,8 @@
     
     self.bottomView.lastVideoPath = [outputFileURL path];
     
-    __weak typeof(self) weakSelf = self;
-    [HHVideoManager movieToImageWithVideoURL:outputFileURL Handler:^(UIImage *movieImage) {
-        [weakSelf.bottomView configVideoThumb:movieImage];
-    }];
+    
+    [self.bottomView configVideoThumb:[UIImage getThumbnail:outputFileURL]];
     
     [self timerStop];
     [self.bottomView configTimeLabel:self.timeLengh];

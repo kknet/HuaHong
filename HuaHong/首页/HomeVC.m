@@ -9,7 +9,8 @@
 #import "HomeLeftCell.h"
 #import "CollectionCell.h"
 #import "DataSource.h"
-@interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+
+@interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property(nonatomic,strong) NSMutableArray *tableViewArray;
 @property(nonatomic,strong) NSMutableArray *collectionViewArray;
@@ -69,9 +70,28 @@ static NSString *headerID = @"headerID";
     
     self.collectionViewArray  = [NSMutableArray arrayWithArray:[DataSource getCollectionViewArray]];
     
-    
+    _collectionView.emptyDataSetSource = self;
+    _collectionView.emptyDataSetDelegate = self;
 }
 
+#pragma mark 空白页面代理
+//空白页显示图片
+//-(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+//{
+//    return [UIImage imageNamed:@"01"];
+//}
+
+//空白页显示标题
+-(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [[NSAttributedString alloc]initWithString:@"网络不通暂无数据，请稍后重试"];
+}
+
+//空白页显示详细描述
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+   return [[NSAttributedString alloc]initWithString:@"暂无数据，请稍后重试"];
+}
 
 #pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -126,12 +146,14 @@ static NSString *headerID = @"headerID";
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return self.tableViewArray.count;
+//    return 0;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSArray *array = self.collectionViewArray[section];
     return array.count;
+//     return 0;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -180,7 +202,9 @@ static NSString *headerID = @"headerID";
     
     CollectionHeadView *header = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID forIndexPath:indexPath];
     
-    header.imageView.image = [UIImage imageNamed:@"search_expert"];
+   UIColor *color = [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+    header.imageView.image = [UIImage imageWithColor:color];
+    header.imageView.contentMode = UIViewContentModeScaleToFill;
     header.contentLabel.text = [NSString stringWithFormat:@"%@",self.tableViewArray[indexPath.section]];
     
     
@@ -221,6 +245,7 @@ static NSString *headerID = @"headerID";
 /*
  格子的宽高设置
  */
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat itemSpace = 3.0;//item列间距
@@ -387,9 +412,15 @@ static NSString *headerID = @"headerID";
             {
                 CustomVideoController *VC = [[CustomVideoController alloc]init];
                 [self presentViewController:VC animated:YES completion:nil];
+                
             }else if (indexPath.item == 3)
             {
                 vc = [kStory instantiateViewControllerWithIdentifier:@"AddVideoController"];
+            }else if (indexPath.item == 4)
+            {
+                VideoRecordController *VC = [[VideoRecordController alloc]init];
+                [self presentViewController:VC animated:YES completion:nil];
+                
             }
         }
             break;
@@ -398,6 +429,9 @@ static NSString *headerID = @"headerID";
             if (indexPath.item == 0)
             {
                 vc = [[TakePhotoController alloc]init];
+            }else if (indexPath.item == 1)
+            {
+               vc = [[GPUImageController alloc]init];
             }
         }
             break;

@@ -36,4 +36,6 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 //判断一个view是否在window上面
 -(BOOL)isShowingOnWindow;
 
+-(void)shadow:(UIColor *)shadowColor opacity:(CGFloat)opacity radius:(CGFloat)radius offset:(CGSize)offset;
+
 @end

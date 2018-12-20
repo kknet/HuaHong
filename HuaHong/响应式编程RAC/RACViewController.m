@@ -148,16 +148,16 @@
 }
 
 #pragma mark - Instead of delegate Method
-/*
--(void)delegateMethod
-{
-    //2.订阅信号
-    [self.racView.subject subscribeNext:^(id  _Nullable x) {
-        NSLog(@"接收信号：%@",x);
 
+-(void)delegateMethod1
+{
+    [[self rac_signalForSelector:@selector(textFieldShouldReturn:) fromProtocol:@protocol(UITextFieldDelegate)]subscribeNext:^(RACTuple * _Nullable x) {
+        NSLog(@"%@",x);
     }];
+    
+    self.textField.delegate = self;
 }
-*/
+
 -(void)delegateMethod
 {
     [[self.racView rac_signalForSelector:@selector(btnClick:)] subscribeNext:^(RACTuple * _Nullable x) {
@@ -166,6 +166,8 @@
         
         [self sendVerificationCode:sender];
     }];
+    
+    
 }
 
 //模拟发送验证码
@@ -344,11 +346,13 @@
 -(void)rac_gestureSignal
 {
     UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+    [self.racView addGestureRecognizer:tap];
+    
     [[tap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
         
         NSLog(@"rac_gestureSignal:%@",x);
     }];
-    [self.racView addGestureRecognizer:tap];
+    
 }
 
 #pragma mark UIDatePicker

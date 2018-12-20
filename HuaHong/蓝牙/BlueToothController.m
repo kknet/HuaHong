@@ -32,16 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"搜索" style:UIBarButtonItemStyleDone target:self action:@selector(SearchBarBtnClicked)];
-    
-}
-
--(void)SearchBarBtnClicked
-{
     //1.创建中央管理者
     self.centralMgr  = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{CBCentralManagerOptionShowPowerAlertKey : [NSNumber numberWithBool:YES]}];
-    
-    
 }
 
 #pragma mark - CBCentralManagerDelegate

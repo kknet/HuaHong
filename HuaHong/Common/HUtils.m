@@ -10,21 +10,9 @@
 #import <CommonCrypto/CommonDigest.h>
 
 @implementation HUtils
-
-+(void)ShowAlert:(NSString *)message{
-    UIAlertView* alert ;
-    
-    if (alert==nil) {
-        alert = [[UIAlertView alloc] initWithTitle:@"提示" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    }
-    
-    [alert show];
-    alert = nil;
-    
-    
+{
+    CAShapeLayer *_layer;
 }
-
-
 + (NSString *)getAPPName{
     
     NSString *AppName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleNameKey];
@@ -39,341 +27,7 @@
     return [infoDictionary objectForKey:@"CFBundleShortVersionString"];
 }
 
-+(BOOL)checkPhone: (NSString *)Phone{
-    NSString * regex = @"^1+[345678]+\\d{9}";
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    BOOL isMatch = [pred evaluateWithObject:Phone];
-    return isMatch;
-}
-+(BOOL)checkUsername: (NSString *)Username{
-    NSString * regex = @"^[A-Za-z]+[0-9]*$";
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    BOOL isMatch = [pred evaluateWithObject:Username];
-    return isMatch;
-}
-
-+(BOOL)checkPassWord: (NSString *)PassWord{
-    NSString * regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,20}";
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    BOOL isMatch = [pred evaluateWithObject:PassWord];
-    return isMatch;
-}
-
-+(BOOL)checkIdentifier: (NSString *)Identifier{
-    NSString * regex = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    BOOL isMatch = [pred evaluateWithObject:Identifier];
-    return isMatch;
-    
-}
-
-+(NSString*)formatString:(NSString*)timeString{
-    
-    
-    
-    NSString *formate = @"E MMM d HH:mm:ss Z yyyy";
-    NSDate *date = [self dateFromString:timeString formate:formate];
-    
-    NSTimeInterval time = [[NSDate new] timeIntervalSinceDate:date];
-    
-    //    如果小于一天
-    if (time<24*60*60) {
-        
-        if (time<60*60) {
-            
-            
-            return [NSString stringWithFormat:@"%d分钟前",(int)time/60];
-        }
-        
-        return [NSString stringWithFormat:@"%d小时前",(int)time/60/60];
-        
-    }
-    
-    
-    return [self stringFromDate:date formate:@"MM-dd HH:mm"];
-}
-
-
-+(NSDate *)dateFromString:(NSString *)timeString formate:(NSString*)formate{
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:formate];
-    
-    return  [formatter dateFromString:timeString];
-}
-
-
-+(NSString *)stringFromDate:(NSDate *)date formate:(NSString*)formate{
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:formate];
-    
-    return  [formatter stringFromDate:date];
-}
-
-
-//显示提示语言
-+(void)ShowMarkText:(NSString *)markString
-{
-    UILabel *label = (UILabel *)[[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] viewWithTag:1124];
-    [label removeFromSuperview];
-    
-    UILabel *markLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, ([UIScreen mainScreen].bounds.size.height-50)/2, [UIScreen mainScreen].bounds.size.width-50*2, 50)];
-    markLabel.textAlignment = NSTextAlignmentCenter;
-    markLabel.alpha =1;
-    markLabel.textColor = [UIColor whiteColor];
-    markLabel.text = markString;
-    markLabel.numberOfLines = 0;
-    markLabel.tag = 1124;
-    markLabel.layer.cornerRadius = 4;
-    markLabel.layer.masksToBounds = YES;
-    markLabel.font = [UIFont boldSystemFontOfSize:15];
-    markLabel.center = CGPointMake([(AppDelegate *)[[UIApplication sharedApplication] delegate] window].frame.size.width/2, [(AppDelegate *)[[UIApplication sharedApplication] delegate] window].frame.size.height/2-40);
-    markLabel.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
-    
-    
-    
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] window] addSubview:markLabel];
-    
-    [UIView animateWithDuration:2 delay:1 options:2 animations:^{
-        markLabel.alpha = 0;
-    } completion:^(BOOL finished) {
-        [markLabel removeFromSuperview];
-    }];
-    
-    markLabel = nil;
-}
-
 /*****************************************/
-
-+ (BOOL)isPureInt:(NSString*)string{
-    
-    NSScanner* scan = [NSScanner scannerWithString:string];
-    
-    int val;
-    
-    return[scan scanInt:&val] && [scan isAtEnd];
-    
-}
-
-//判断是否为浮点形：
-
-+ (BOOL)isPureFloat:(NSString*)string{
-    
-    NSScanner* scan = [NSScanner scannerWithString:string];
-    
-    float val;
-    
-    return[scan scanFloat:&val] && [scan isAtEnd];
-    
-}
-
-+ (BOOL)checkNum:(NSString *)numStr{
-    
-    if( [self isPureInt:numStr] || [self isPureFloat:numStr]){
-        
-        return YES;
-        
-    }
-    return NO;
-}
-
-
-+(BOOL)checkSFZ:(NSString *)numStr
-{
-    if( numStr == nil || [numStr length] != 18 )
-    {
-        return NO;
-    }
-    
-    char string_idnum[19];  // 身份证号码，最后一位留空，一会算出来最后一位
-    
-    char verifymap[] = "10X98765432";  // 加权乘积求和除以11的余数所对应的校验数
-    
-    int factor[] = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1};  // 加权因子
-    
-    long sum = 0l;  //加权乘积求和
-    
-    int m = 0;  // 加权乘积求和的模数
-    
-    char * p = string_idnum;  // 当前位置
-    
-    memset(string_idnum, 0, sizeof(string_idnum));  // 清零
-    
-    const char* snum = [numStr cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    strcpy(string_idnum, snum);  // 本体码，也就是前17位
-    string_idnum[17] = '\0';
-    
-    while(*p)  // 在 '\0' 之前一直成立
-        
-    {
-        
-        sum += (*p - '0') * factor[p - string_idnum];  // 加权乘积求和
-        
-        p++;  // 当前位置增加1
-        
-    }
-    
-    m = sum % 11;  // 取模
-    
-    return verifymap[m] == snum[17];
-}
-+(NSDate*)dateWithInt:(double)second
-{
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:second];
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
-    NSInteger interval = [zone secondsFromGMTForDate: date];
-    return [date  dateByAddingTimeInterval: interval];
-}
-+(NSString*)getTimeStringHourSecond:(double)second
-{
-    return [HUtils getTimeStringHour: [HUtils dateWithInt:second] ];
-}
-
-+(NSString *)dateForint:(double)time bfull:(BOOL)bfull
-{
-    NSDate *date = [HUtils dateWithInt:time];
-    return [HUtils getTimeString:date bfull:bfull];
-}
-
-+(NSDate*)getDataString:(NSString *)str bfull:(BOOL)bfull{
-    
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat: bfull ? @"yyyy-MM-dd HH:mm:ss" : @"yyyy-MM-dd HH:mm" ];
-    NSDate *Date = [dateFormatter dateFromString:str];
-    return Date;
-}
-
-+(NSString*)getTimeString:(NSDate*)dat bfull:(BOOL)bfull
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat: bfull ? @"yyyy-MM-dd HH:mm:ss" : @"yyyy-MM-dd HH:mm" ];
-    NSString *strDate = [dateFormatter stringFromDate:dat];
-    if( bfull ) return strDate;
-    
-    //  NSString *nodatetring = [dateFormatter stringFromDate:[NSDate date]];
-    return strDate;
-}
-+(NSString*)getTimeStringWithP:(double)time
-{
-    NSDate *date = [HUtils dateWithInt:time];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy.MM.dd"];
-    return [dateFormatter stringFromDate:date];
-}
-
-+(NSString*)getTimeStringHour:(NSDate*)dat   //date转字符串 2015-03-23 08:00
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-    return [dateFormatter stringFromDate:dat];
-}
-
-+(NSString*)getTimeStringDay:(double)time   //转字符串 2015-03-23
-{
-    NSDate *date = [HUtils dateWithInt:time];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    return [dateFormatter stringFromDate:date];
-}
-
-+(NSString *) FormartTime:(NSDate*) compareDate
-{
-    
-    if( compareDate == nil ) return @"";
-    
-    NSTimeInterval  timeInterval = [compareDate timeIntervalSinceNow];
-    timeInterval = -timeInterval;
-    long temp = timeInterval;
-    NSString *result;
-    
-    if (timeInterval < 60) {
-        if( temp == 0 )
-            result = @"刚刚";
-        else
-            result = [NSString stringWithFormat:@"%d秒前",(int)temp];
-    }
-    else if(( timeInterval/60) <60){
-        result = [NSString stringWithFormat:@"%d分钟前",(int)temp/60];
-    }
-    
-    else if(( temp/86400) <30){
-        
-        NSDateFormatter *date = [[NSDateFormatter alloc] init];
-        [date setDateFormat:@"dd"];
-        NSString *str = [date stringFromDate:[NSDate date]];
-        int nowday = [str intValue];
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd"];
-        NSString *strDate = [dateFormatter stringFromDate:compareDate];
-        int day = [strDate intValue];
-        if (nowday-day==0) {
-            [dateFormatter setDateFormat:@"今天 HH:mm"];
-            result =    [dateFormatter stringFromDate:compareDate];
-        }
-        else if(nowday-day==1)
-        {
-            
-            [dateFormatter setDateFormat:@"昨天 HH:mm"];
-            result =  [dateFormatter stringFromDate:compareDate];
-            
-            
-        }
-        
-        
-        else if( temp < 8 )
-        {
-            if (temp==1) {
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setDateFormat:@"昨天HH:mm"];
-                NSString *strDate = [dateFormatter stringFromDate:compareDate];
-                result = strDate;
-            }
-            else if(temp == 2)
-            {
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setDateFormat:@"前天HH:mm"];
-                NSString *strDate = [dateFormatter stringFromDate:compareDate];
-                result = strDate;
-            }
-            
-        }
-        else
-        {
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"MM-dd HH:mm"];
-            NSString *strDate = [dateFormatter stringFromDate:compareDate];
-            result = strDate;
-            
-        }
-    }
-    else
-    {//超过一个月的就直接显示时间了
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-        NSString *strDate = [dateFormatter stringFromDate:compareDate];
-        result = strDate;
-    }
-    
-    /*
-     else if((temp = (temp/(3600*24))/30) <12){
-     result = [NSString stringWithFormat:@"%d个月前",(int)temp];
-     }
-     else{
-     temp = temp/12;
-     result = [NSString stringWithFormat:@"%d年前",(int)temp];
-     }
-     */
-    
-    return  result;
-}
 
 +(UIImage*)scaleImg:(UIImage*)org maxsizeW:(CGFloat)maxW //缩放图片,,最大多少
 {
@@ -451,16 +105,6 @@
     return retimg;
 }
 
-
-
-+(BOOL)checkPasswdPre:(NSString *)passwd
-{
-    if (passwd.length<6||passwd.length>20) {
-        return NO;
-    }
-    return YES;
-}
-
 +(NSDictionary*)delNUll:(NSDictionary*)dic
 {
     NSArray* allk = dic.allKeys;
@@ -513,21 +157,6 @@
     return tmp;
 }
 
-+(UIColor*)stringToColor:(NSString*)str
-{
-    if( str.length != 7 ) return nil;
-    //#54fd13
-    NSString* r = [str substringWithRange:NSMakeRange(1, 2)];
-    unsigned long rv = strtoul( [r UTF8String] , NULL, 16);
-    
-    NSString* g = [str substringWithRange:NSMakeRange(3, 2)];
-    unsigned long gv = strtoul( [g UTF8String] , NULL, 16);
-    
-    NSString* b = [str substringWithRange:NSMakeRange(5, 2)];
-    unsigned long bv = strtoul( [b UTF8String] , NULL, 16);
-    
-    return COLOR(rv,gv,bv,1.0);
-}
 
 //url 拼接参数
 +(NSString*)makeURL:(NSString*)requrl param:(NSDictionary*)param
@@ -557,25 +186,99 @@
     return reqstr;
 }
 
-//根据颜色生成图片
-+(UIImage *)imageWithColor:(UIColor *)color
+/**
+ *  切换横竖屏
+ *
+ *  @param orientation UIInterfaceOrientation
+ */
++ (void)forceOrientation:(UIInterfaceOrientation)orientation
 {
-    CGRect rect = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0.5);
+    // setOrientation: 私有方法强制横屏
+    if ([[UIDevice currentDevice]respondsToSelector:@selector(setOrientation:)]) {
+        
+        SEL selector = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        
+        int val = orientation;
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+        
+        
+    }
     
-    UIGraphicsBeginImageContext(rect.size);
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, color.CGColor);
-    CGContextFillRect(context, rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    return image;
 }
 
-UIImage *Image(NSString *name)
+/**
+ *  是否是横屏
+ *
+ *  @return 是 返回yes
+ */
++ (BOOL)isOrientationLandscape
 {
-    return [UIImage imageNamed:name];
+    UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+return (UIInterfaceOrientationIsLandscape(statusBarOrientation));
+    
+}
+
+/** 拨打电话 */
+//@"tel:%@",phoneNumber 在低版本系统无提示，直接拨打
++ (void)callPhone:(NSString *)phoneNumber
+{
+    NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",phoneNumber];
+    NSURL *url = [NSURL URLWithString:str];
+    if ([[UIApplication sharedApplication]canOpenURL:url])
+    {
+        [[UIApplication sharedApplication] openURL:url];
+        
+    }
+}
+
+- (void)drawCircle:(CGPoint)centerPoint
+            radius:(CGFloat)radius
+         lineWidth:(CGFloat)linePath
+         lineColor:(CGColorRef)lineColor
+        startAngle:(CGFloat)startAngle
+          endAngle:(CGFloat)endAngle
+         clockwise:(BOOL)clockwise
+           duaring:(CFTimeInterval)duaring
+          mainView:(UIView *)mainView
+        layerFrame:(CGRect)layerFrame
+{
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:centerPoint radius:radius startAngle:startAngle endAngle:endAngle clockwise:clockwise];
+    _layer = [CAShapeLayer new];
+    _layer.frame = layerFrame;
+    //线宽
+    _layer.lineWidth = linePath;
+    //指定线的边缘是圆的
+    _layer.lineCap = kCALineCapRound;
+    //线的颜色
+    _layer.strokeColor = lineColor;
+    //填充色 封闭路径的填充色
+    _layer.fillColor =[UIColor clearColor].CGColor;
+    //添加贝塞尔路径
+    _layer.path = [path CGPath];
+    //开始绘制点和结束比例；strokeStart和strokeEnd可以设置一条Path的起始和终止的位置，通过利用strokeStart和strokeEnd这2个属性支持动画的特点
+//    _layer.strokeStart = 0;
+//    _layer.strokeEnd = 1;
+    //动画：strokeEnd为CAShapeLayer的属性
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    animation.duration = duaring;
+    animation.fromValue = @(0);
+    animation.toValue = @(1);
+    [_layer addAnimation:animation forKey:@"rotation"];
+    [mainView.layer addSublayer:_layer];
+    
+    
+}
+
+- (void)dismiss
+{
+    if (_layer != nil) {
+        [_layer removeFromSuperlayer];
+    }
 }
 @end

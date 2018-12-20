@@ -29,7 +29,9 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
-    
+     self.textView.placeholder = @"placeholder";
+    self.textView.placeholderColor = [UIColor redColor];
+
 }
 
 -(void)getSystemInfo

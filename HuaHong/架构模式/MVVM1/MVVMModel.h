@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MVVMModel : NSObject
+@interface MVVMModel : BaseModel
 
 @property (nonatomic,copy) NSString *content;
 

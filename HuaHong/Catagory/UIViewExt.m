@@ -228,4 +228,13 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center)
     return !self.isHidden && self.alpha > 0.01 && intersects && self.window == keywindow;
     
 }
+
+-(void)shadow:(UIColor *)shadowColor opacity:(CGFloat)opacity radius:(CGFloat)radius offset:(CGSize)offset {
+    //给Cell设置阴影效果
+    self.layer.masksToBounds = NO;
+    self.layer.shadowColor = shadowColor.CGColor;
+    self.layer.shadowOpacity = opacity;
+    self.layer.shadowRadius = radius;
+    self.layer.shadowOffset = offset;
+}
 @end

@@ -1,65 +1,29 @@
 //
-//  Utils.m
-//  SinaWeibo
+//  UIImage+Category.m
+//  HuaHong
 //
-//  Created by wang xinkai on 15/4/13.
-//  Copyright (c) 2015年 wxk. All rights reserved.
+//  Created by 华宏 on 2018/11/21.
+//  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "Utils.h"
+#import "UIImage+Category.h"
+#import <AVFoundation/AVFoundation.h>
 
-@implementation Utils
-
-+(NSString*)formatString:(NSString*)timeString{
-    
-    
-    
-    NSString *formate = @"E MMM d HH:mm:ss Z yyyy";
-    NSDate *date = [self dateFromString:timeString formate:formate];
-    
-    NSTimeInterval time = [[NSDate new] timeIntervalSinceDate:date];
-    
-//    如果小于一天
-    if (time<24*60*60) {
-        
-        if (time<60*60) {
-            
-            
-            return [NSString stringWithFormat:@"%d分钟前",(int)time/60];
-        }
-        
-        return [NSString stringWithFormat:@"%d小时前",(int)time/60/60];
-        
-    }
-    
-    
-    return [self stringFromDate:date formate:@"MM-dd HH:mm"];
-}
-
-
-+(NSDate *)dateFromString:(NSString *)timeString formate:(NSString*)formate{
-
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:formate];
-    
-    return  [formatter dateFromString:timeString];
-}
-
-
-+(NSString *)stringFromDate:(NSDate *)date formate:(NSString*)formate{
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:formate];
-    
-    return  [formatter stringFromDate:date];
-}
-
-+(NSString *)convertToJsonFrom:(id)data
+@implementation UIImage (Category)
++ (nullable UIImage *)imageWithColor:(UIColor *)color
 {
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *jsonStr = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+    CGRect rect = CGRectMake(0, 0, 1, 1);
     
-    return jsonStr;
+    UIGraphicsBeginImageContext(rect.size);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 #pragma mark 方向校正
@@ -146,4 +110,31 @@
     return img;
 }
 
+/** 得到Video的第一帧 */
++ (UIImage*)getThumbnail:(NSURL*)videoURL
+{
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:videoURL options:nil];
+    
+    NSParameterAssert(asset);
+    
+    AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
+    
+    // 截图的时候调整到正确的方向
+    generator.appliesPreferredTrackTransform = YES;
+    CMTime time = CMTimeMake(0, 600);
+    NSError *error = nil;
+    CMTime actualTime;
+    CGImageRef imageRef = [generator copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    
+    if (error) {
+        return nil;
+    }
+    
+    UIImage *image = [UIImage imageWithCGImage:imageRef];
+    
+    CGImageRelease(imageRef);
+    
+    return image;
+    
+}
 @end

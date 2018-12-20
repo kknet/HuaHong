@@ -68,9 +68,6 @@
 //获得视频存放地址
 +(NSString *)getVideoCachePath;
 
-//获取视频第一帧的图片
-+(void)movieToImageWithVideoURL:(NSURL *)videoUrl Handler:(void (^)(UIImage *movieImage))handler;
-
 //开启／关闭闪光灯
 +(void)switchFlashLight;
 

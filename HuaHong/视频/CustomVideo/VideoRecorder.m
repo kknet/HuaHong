@@ -11,8 +11,6 @@
 #import <Photos/Photos.h>
 #import "HHVideoManager.h"
 
-typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
-
 @interface VideoRecorder ()<AVCaptureVideoDataOutputSampleBufferDelegate,
 AVCaptureAudioDataOutputSampleBufferDelegate,
 CAAnimationDelegate>
@@ -120,10 +118,11 @@ CAAnimationDelegate>
                 [self.assetWriter finishWithCompletionHandler:^{
                     self.isCapturing = NO;
                     self.assetWriter = nil;
+                    
+                    //时间恢复为0
                     self.startTime = CMTimeMake(0, 0);
                     self.currentRecordTime = 0;
                     
-                    //时间恢复为0
                     if ([self.delegate respondsToSelector:@selector(recordProgress:)]) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self.delegate recordProgress:self.currentRecordTime/self.maxVideoDuration];
@@ -171,6 +170,8 @@ CAAnimationDelegate>
     changeAnimation.delegate = self;
     changeAnimation.duration = 0.45;
     changeAnimation.type = @"oglFlip";
+//    changeAnimation.type = kCATransitionMoveIn;
+
     changeAnimation.subtype = kCATransitionFromRight;
     changeAnimation.timingFunction = UIViewAnimationCurveEaseInOut;
     [self.previewLayer addAnimation:changeAnimation forKey:@"changeAnimation"];
@@ -201,22 +202,11 @@ CAAnimationDelegate>
     return sout;
 }
 
-//-(void)changeDeviceProperty:(PropertyChangeBlock)propertyChange{
-//    AVCaptureDevice *captureDevice= [self.backCameraInput device];
-//    NSError *error;
-//    //注意改变设备属性前一定要首先调用lockForConfiguration:调用完之后使用unlockForConfiguration方法解锁
-//    if ([captureDevice lockForConfiguration:&error]) {
-//        propertyChange(captureDevice);
-//        [captureDevice unlockForConfiguration];
-//    }else{
-//        NSLog(@"设置设备属性过程发生错误，错误信息：%@",error.localizedDescription);
-//    }
-//}
-
 
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate
 
-- (void) captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+- (void) captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
+{
     BOOL isVideo = YES;
     @synchronized(self) {
         if (!self.isCapturing  || self.isPaused) {
@@ -226,11 +216,13 @@ CAAnimationDelegate>
             isVideo = NO;
         }
         //初始化编码器，当有音频和视频参数时创建编码器
-        if ((self.assetWriter == nil) && !isVideo) {
+        if ((self.assetWriter == nil) && !isVideo)
+        {
             CMFormatDescriptionRef fmt = CMSampleBufferGetFormatDescription(sampleBuffer);
             [self setAudioFormat:fmt];
             self.assetWriter = [AssetWriter encoderForPath:[HHVideoManager getVideoCachePath] Height:_cy width:_cx channels:_channels samples:_samplerate];
         }
+        
         //判断是否中断录制过
         if (self.isDiscount)
         {
@@ -241,8 +233,10 @@ CAAnimationDelegate>
             // 计算暂停的时间
             CMTime pts = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
             CMTime last = isVideo ? _lastVideo : _lastAudio;
-            if (last.flags & kCMTimeFlags_Valid) {
-                if (_timeOffset.flags & kCMTimeFlags_Valid) {
+            if (last.flags & kCMTimeFlags_Valid)
+            {
+                if (_timeOffset.flags & kCMTimeFlags_Valid)
+                {
                     pts = CMTimeSubtract(pts, _timeOffset);
                 }
                 CMTime offset = CMTimeSubtract(pts, last);
@@ -255,6 +249,7 @@ CAAnimationDelegate>
             _lastVideo.flags = 0;
             _lastAudio.flags = 0;
         }
+        
         // 增加sampleBuffer的引用计时,这样我们可以释放这个或修改这个数据，防止在修改时被释放
         CFRetain(sampleBuffer);
         if (_timeOffset.value > 0) {
@@ -262,6 +257,7 @@ CAAnimationDelegate>
             //根据得到的timeOffset调整
             sampleBuffer = [self adjustTime:sampleBuffer by:_timeOffset];
         }
+        
         // 记录暂停上一次录制的时间
         CMTime pts = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
         CMTime dur = CMSampleBufferGetDuration(sampleBuffer);
@@ -290,6 +286,7 @@ CAAnimationDelegate>
         }
         return;
     }
+    
     if ([self.delegate respondsToSelector:@selector(recordProgress:)]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegate recordProgress:self.currentRecordTime/self.maxVideoDuration];
@@ -333,20 +330,22 @@ CAAnimationDelegate>
 - (AVCaptureSession *)recordSession {
     if (_recordSession == nil) {
         _recordSession = [[AVCaptureSession alloc] init];
-        //添加后置摄像头的输出
+        //添加后置摄像头的输入
         if ([_recordSession canAddInput:self.backCameraInput]) {
             [_recordSession addInput:self.backCameraInput];
         }
-        //添加后置麦克风的输出
-        if ([_recordSession canAddInput:self.audioMicInput]) {
-            [_recordSession addInput:self.audioMicInput];
-        }
+        
         //添加视频输出
         if ([_recordSession canAddOutput:self.videoOutput]) {
             [_recordSession addOutput:self.videoOutput];
             //设置视频的分辨率
             _cx = 720;
             _cy = 1280;
+        }
+        
+        //添加音频输入
+        if ([_recordSession canAddInput:self.audioMicInput]) {
+            [_recordSession addInput:self.audioMicInput];
         }
         //添加音频输出
         if ([_recordSession canAddOutput:self.audioOutput]) {
@@ -401,8 +400,9 @@ CAAnimationDelegate>
         _videoOutput = [[AVCaptureVideoDataOutput alloc] init];
         [_videoOutput setSampleBufferDelegate:self queue:self.captureQueue];
         NSDictionary* setcapSettings = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange], kCVPixelBufferPixelFormatTypeKey,
-                                        nil];
+                                        
+                [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange], kCVPixelBufferPixelFormatTypeKey,
+                nil];
         _videoOutput.videoSettings = setcapSettings;
     }
     return _videoOutput;

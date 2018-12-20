@@ -10,17 +10,9 @@
 
 @implementation MVVMViewModel
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    
-    return self;
-}
 - (void)onPrintClick
 {
+    self.model = [MVVMModel new];
     self.model.content = [NSString stringWithFormat:@"%d",arc4random()%100];
     
     self.contentStr = self.model.content;

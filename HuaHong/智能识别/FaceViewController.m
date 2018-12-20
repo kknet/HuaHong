@@ -98,7 +98,7 @@
     //orientation 0  --> 在做人脸识别, 一定要方向为0
     
     //2. 校正方向
-    image = [Utils fixOrientation:image];
+    image = [UIImage fixOrientation:image];
     
     //3. 开始检测
     NSData *data = UIImageJPEGRepresentation(image, 0.5);

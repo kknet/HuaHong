@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Model : BaseModel
+@interface Model : BaseModel<NSCopying,NSMutableCopying>
 
 @property (nonatomic,copy)   NSString *name;
 @property (nonatomic,assign) NSInteger age;

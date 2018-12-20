@@ -35,10 +35,13 @@
         NSURL* url = [NSURL fileURLWithPath:self.path];
         //初始化写入媒体类型为MP4类型
         _writer = [AVAssetWriter assetWriterWithURL:url fileType:AVFileTypeMPEG4 error:nil];
+        
         //使其更适合在网络上播放
         _writer.shouldOptimizeForNetworkUse = YES;
+        
         //初始化视频输入
         [self initVideoInputHeight:cy width:cx];
+        
         //确保采集到rate和ch
         if (rate != 0 && ch != 0) {
             //初始化音频输入
@@ -53,19 +56,21 @@
     //录制视频的一些配置，分辨率，编码方式等等
     
     //调整视频写入时的压缩比率
-    //    NSDictionary *compressConfig =  @{AVVideoAverageBitRateKey:[NSNumber numberWithInteger:cx*cy],AVVideoProfileLevelKey:AVVideoProfileLevelH264BaselineAutoLevel,AVVideoMaxKeyFrameIntervalKey:[NSNumber numberWithInteger:10]};
+        NSDictionary *compressConfig =  @{AVVideoAverageBitRateKey:[NSNumber numberWithInteger:cx*cy],AVVideoProfileLevelKey:AVVideoProfileLevelH264BaselineAutoLevel,AVVideoMaxKeyFrameIntervalKey:[NSNumber numberWithInteger:10]};
     
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys:
-                              AVVideoCodecH264, AVVideoCodecKey,
-                              [NSNumber numberWithInteger: cx], AVVideoWidthKey,
-                              [NSNumber numberWithInteger: cy], AVVideoHeightKey,
-                              //                               compressConfig,AVVideoCompressionPropertiesKey,
+      AVVideoCodecH264, AVVideoCodecKey,
+      [NSNumber numberWithInteger: cx], AVVideoWidthKey,
+      [NSNumber numberWithInteger: cy], AVVideoHeightKey,
+      compressConfig,AVVideoCompressionPropertiesKey,
                               nil];
     
     //初始化视频写入类
     _videoInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:settings];
+    
     //表明输入是否应该调整其处理为实时数据源的数据
     _videoInput.expectsMediaDataInRealTime = YES;
+    
     //将视频输入源加入
     [_writer addInput:_videoInput];
 }
@@ -81,8 +86,10 @@
                               nil];
     //初始化音频写入类
     _audioInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeAudio outputSettings:settings];
+    
     //表明输入是否应该调整其处理为实时数据源的数据
     _audioInput.expectsMediaDataInRealTime = YES;
+    
     //将音频输入源加入
     [_writer addInput:_audioInput];
     
@@ -98,7 +105,8 @@
     //数据是否准备写入
     if (CMSampleBufferDataIsReady(sampleBuffer)) {
         //写入状态为未知,保证视频先写入
-        if (_writer.status == AVAssetWriterStatusUnknown && isVideo) {
+        if (_writer.status == AVAssetWriterStatusUnknown && isVideo)
+        {
             //获取开始写入的CMTime
             CMTime startTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
             //开始写入
