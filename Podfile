@@ -4,9 +4,11 @@
 
 platform:'ios','8.0'
 target 'HuaHong' do
-pod 'AFNetworking'
 pod 'Masonry'
-pod 'SVProgressHUD'
+#已被依赖，无需重复导入
+#pod 'AFNetworking'
+#pod 'SBJson4'
+#pod 'SVProgressHUD'
 pod 'BaiduMapKit'
 pod 'SSZipArchive'
 pod 'SSKeychain', '~> 1.4.1'
@@ -22,19 +24,20 @@ pod 'YYCache'
 pod 'FMDB'
 pod 'KVOController'
 pod 'MBProgressHUD', '~> 1.1.0'
-pod 'UITextView+Placeholder', '~> 1.2.0'
 pod 'FLAnimatedImage', '~> 1.0.12'
 pod 'MJExtension', '~> 3.0.15.1'
 pod 'UICountingLabel', '~> 1.4.1'
 pod 'NSDictionary-NilSafe'
-pod 'SBJson4'
 pod 'SDCycleScrollView', '~> 1.73'
 pod 'DZNEmptyDataSet'
 pod 'TTGTagCollectionView'
 pod 'MZTimerLabel', '~> 0.5.4'
 pod 'MMDrawerController', '~> 0.6.0'
 pod 'GPUImage'
+pod 'Bugly'
+pod 'BlocksKit'
 
+#pod 'UITextView+Placeholder', '~> 1.2.0'
 #pod 'RESideMenu', '~> 4.0.7'
 #pod 'HHCategory', '~> 0.3.8'
 
@@ -43,7 +46,8 @@ pod 'UMCSecurityPlugins'
 pod 'UMCShare/UI'
 pod 'UMCShare/Social/ReducedWeChat'
 
-#pod 'QKAFNetworkSDK',:svn=>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKAFNetworkSDK'
+pod 'QKChineseVerifyCode',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode'
+pod 'QKAFNetworkSDK',:svn=>'svn://wangxiaoli@192.168.1.193/apps/code/tags/Pods/QKAFNetworkSDK/1.0.0'
 #pod 'LogManager',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/LogManager'
 #pod 'FileManager',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/FileManager'
 #pod 'QKGotoBaiduMap', :svn => 'svn://192.168.1.193/apps/code/trunk/Base/iOS/QKPublic/Helper/QKGotoBaiduMap'
@@ -56,9 +60,6 @@ pod 'UMCShare/Social/ReducedWeChat'
 #pod 'QKRecoderHelper',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKRecoderHelper'
 #pod 'QKRecordInterfaceHelper',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKRecordInterfaceHelper'
 #pod 'QKRSAHelper',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKRSAHelper'
-
-pod 'QKChineseVerifyCode',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode'
-
 #pod 'Authentication',:svn=>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/Authentication'
 
 end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MVVM_Model.h"
 
 @interface TestView : UIView
 

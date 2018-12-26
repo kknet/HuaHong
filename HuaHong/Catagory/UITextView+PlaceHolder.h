@@ -10,7 +10,7 @@
 
 @interface UITextView (PlaceHolder)
 
-@property (nonatomic, copy) NSString *placeholder;
+@property (nonatomic, copy) IBInspectable NSString *placeholder;
 @property (nonatomic, strong) UIColor *placeholderColor;
 
 @end

@@ -100,10 +100,14 @@
 }
 
 
-
+- (void)buglyTest
+{
+    NSArray *array = @[@"1"];
+    NSLog(@"%@",[array objectAtIndex:0]);
+}
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-
+    [self buglyTest];
     
 //    NSLog(@"weekdays:%@",weekdays);
     
@@ -119,9 +123,10 @@
 //    //vc1:TestVC
 //    NSLog(@"vc1:%@,vc2:%@",vc1,vc2);
     
-//    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
-//    testView.backgroundColor = [UIColor cyanColor];
-//
+    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
+    testView.backgroundColor = [UIColor cyanColor];
+//    [testView renderWithModel:nil];
+
 //  UIView *snapshot =  [testView snapshotViewAfterScreenUpdates:YES];
 //    [self.view addSubview:snapshot];
 // UIGraphicsBeginImageContextWithOptions(snapshot.size, NO, [UIScreen mainScreen].scale);

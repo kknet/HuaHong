@@ -14,6 +14,8 @@
 #import "LocationManager.h"
 #import "HomeVC.h"
 #import <UMShare/UMShare.h>
+#import <Bugly/Bugly.h>
+
 @interface AppDelegate ()
 
 @end
@@ -60,8 +62,15 @@ static void uncaughtExceptionHandler(NSException *exception)
     
 }
 
+- (void)BuglyConfig
+{
+    [Bugly startWithAppId:@"13930b836d"];
+}
 //extern CFAbsoluteTime startTime;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self BuglyConfig];
+    
   /** 输出异常 */
 NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     

@@ -20,16 +20,16 @@ static const void *placeholderKey;
 {
     [super load];
     
-    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"layoutSubviews")), class_getInstanceMethod(self.class, @selector(layoutSubviews_swizzling)));
+    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"layoutSubviews")), class_getInstanceMethod(self.class, @selector(layoutSubviews_swizzle)));
     
-    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")), class_getInstanceMethod(self.class, @selector(dealloc_swizzling)));
+    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")), class_getInstanceMethod(self.class, @selector(dealloc_swizzle)));
 
-//    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"setText:")), class_getInstanceMethod(self.class, @selector(setText_swizzling:)));
+//    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"setText:")), class_getInstanceMethod(self.class, @selector(setText_swizzle:)));
 
     
 }
 
-- (void)layoutSubviews_swizzling
+- (void)layoutSubviews_swizzle
 {
     if (self.placeholder) {
         UIEdgeInsets textContainerInset = self.textContainerInset;
@@ -42,18 +42,18 @@ static const void *placeholderKey;
         
     }
     
-    [self layoutSubviews_swizzling];
+    [self layoutSubviews_swizzle];
 }
 
-- (void)dealloc_swizzling
+- (void)dealloc_swizzle
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    [self dealloc_swizzling];
+    [self dealloc_swizzle];
 }
 
-//- (void)setText_swizzling:(NSString *)text
+//- (void)setText_swizzle:(NSString *)text
 //{
-//    [self setText_swizzling:text];
+//    [self setText_swizzle:text];
 //    if (self.placeholder) {
 //        [self updatePlaceHolder];
 //    }
@@ -61,14 +61,14 @@ static const void *placeholderKey;
 
 - (NSString *)placeholder
 {
-    return self.placeholder;
-//    return objc_getAssociatedObject(self, &placeholderKey);
+//    return self.placeholder;
+    return objc_getAssociatedObject(self, &placeholderKey);
 }
 
 - (void)setPlaceholder:(NSString *)placeholder
 {
-    self.placeholder = placeholder;
-//    objc_setAssociatedObject(self, &placeholderKey, placeholder, OBJC_ASSOCIATION_COPY);
+//    self.placeholder = placeholder;
+    objc_setAssociatedObject(self, &placeholderKey, placeholder, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self updatePlaceHolder];
 }
 

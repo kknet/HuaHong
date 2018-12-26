@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseModel.h"
+
+@protocol MVVM_ModelDelegate <NSObject>
+@optional
+- (void)renderWithModel:(id)model;
+@end
+
+
 @interface MVVM_Model : BaseModel
-
-@property (nonatomic, copy) NSString * image;
-@property (nonatomic, copy) NSString * title;
-@property (nonatomic, copy) NSString * subTitle;
-
+@property (nonatomic,copy) NSString *title;
+@property (nonatomic,strong) NSDictionary *images;
 + (id)InfoWithDictionary:(NSDictionary *)dic;
-
 @end

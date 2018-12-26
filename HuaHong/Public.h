@@ -26,7 +26,8 @@
 #import <Masonry.h>
 #import "KVOController.h"
 #import "CleanCacheHelp.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "QKHttpRequestManager.h"
 
 //#import "HHCategory.h"
 #import "UIViewExt.h"
@@ -127,7 +128,7 @@
 #import "PushBehaviorController.h"
 #import "CoreMotionController.h"
 #import "PedometerViewController.h"
-#import "MVVMTableViewController.h"
+#import "MVVM_Controller.h"
 #import "MVVMController.h"
 #import "MVPController.h"
 #import "KVOViewController.h"

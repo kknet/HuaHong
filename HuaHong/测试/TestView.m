@@ -87,5 +87,8 @@
 //    
 //    return NO;
 //}
-
+- (void)renderWithModel:(id)model
+{
+    NSLog(@"renderWithModel");
+}
 @end

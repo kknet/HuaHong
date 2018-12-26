@@ -11,6 +11,5 @@
 @interface UIColor (Category)
 
 +(UIColor *) colorWithHexString: (NSString *) stringToConvert;
-+(UIColor *) hexStringToColor: (NSString *) stringToConvert andAlpha:(CGFloat)alpha;
 
 @end

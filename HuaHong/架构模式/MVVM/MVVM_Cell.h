@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MVVM_Model;
 
-@interface MVVM_Cell : UITableViewCell
+@interface MVVM_Cell : UICollectionViewCell
 
-@property (nonatomic,weak) UILabel *label;
-@property (nonatomic,strong) MVVM_Model *model;
-
-+ (instancetype)cellWithTableView:(UITableView *)tableView;
++ (NSString *)cellReuseIdentifier;
 
 @end

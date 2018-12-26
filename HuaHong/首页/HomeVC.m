@@ -43,8 +43,50 @@ static NSString *headerID = @"headerID";
     return NO;
 }
 
+- (void)addChildVC
+{
+    //    父子视图控制器
+    UIViewController *vc1 = [[UIViewController alloc] init];
+    vc1.view.backgroundColor = [UIColor redColor];
+    [self addChildViewController:vc1];
+    //    从父视图控制器中 移除
+    //    [vc1 removeFromParentViewController];
+    
+    
+    UIViewController *vc2 = [[UIViewController alloc] init];
+    vc2.view.backgroundColor = [UIColor purpleColor];
+    [self addChildViewController:vc2];
+    
+    
+    [self.view addSubview:vc1.view];
+    
+    
+    [self performSelector:@selector(change) withObject:nil afterDelay:5];
+}
+-(void)change{
+    
+    //    从childViewControllers 数组中  获取子视图控制器
+    UIViewController *vc1 = [self.childViewControllers firstObject];
+    UIViewController *vc2 = [self.childViewControllers lastObject];
+    
+    //  通过默认动画交换 显示子控制器的视图 (vc1.view 会移除，vc2.view 添加到self.view上)
+    [self transitionFromViewController:vc1 toViewController:vc2 duration:3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];    
+    
+    /**
+     * 1.在 viewDidLoad方法中，不能使用superView，因为view的get方法还没有走完，肯定没有添加到其他视图上//superview:(null)
+     * 2.在init方法中 不应该出现 self.view 。否则数据还没有加载，就已经调用了viewDidLoad
+     */
+    
+    NSLog(@"superview:%@",self.view.superview);
+    
+    
     
 /*
     //导航栏黑色
@@ -591,7 +633,7 @@ static NSString *headerID = @"headerID";
         {
             if (indexPath.item == 0) {
                 
-                vc = [MVVMController new];
+                vc = [MVVM_Controller new];
                 vc.navigationItem.title = @"MVVM";
                 
             }else if (indexPath.item == 1){

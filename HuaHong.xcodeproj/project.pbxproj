@@ -103,17 +103,13 @@
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
 		7D8F370821CB2F1C008E3352 /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */; };
+		7D8F371921D0D381008E3352 /* MVVM_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F371821D0D381008E3352 /* MVVM_Controller.m */; };
 		7D91769921C9DB5C007B8F91 /* GPUImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91769821C9DB5C007B8F91 /* GPUImageController.m */; };
 		7D91AC462081D714001AE03E /* MemoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91AC452081D714001AE03E /* MemoryController.m */; };
 		7D93370221A835910048E6D4 /* CleanCacheHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93370121A835910048E6D4 /* CleanCacheHelp.m */; };
 		7D93370921A931140048E6D4 /* VideoPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93370821A931140048E6D4 /* VideoPlayerManager.m */; };
 		7D93371321ABC3940048E6D4 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D93371221ABC3940048E6D4 /* MBProgressHUD.bundle */; };
 		7D93371621ABC4520048E6D4 /* MBProgressHUD+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93371521ABC4520048E6D4 /* MBProgressHUD+add.m */; };
-		7D93372321AFE2A60048E6D4 /* QKHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93371821AFE2A50048E6D4 /* QKHttpRequestManager.m */; };
-		7D93372421AFE2A60048E6D4 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93371A21AFE2A50048E6D4 /* UIImage+GIF.m */; };
-		7D93372521AFE2A60048E6D4 /* QKHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93371C21AFE2A50048E6D4 /* QKHTTPSessionManager.m */; };
-		7D93372621AFE2A60048E6D4 /* QKHttpRequestManager+UIExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93371E21AFE2A50048E6D4 /* QKHttpRequestManager+UIExtend.m */; };
-		7D93372721AFE2A60048E6D4 /* QKProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93372121AFE2A50048E6D4 /* QKProgressHUD.m */; };
 		7D93373721B125660048E6D4 /* QKRunScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93373321B125650048E6D4 /* QKRunScrollLabel.m */; };
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
 		7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EBB1FD531CE00D0A4D5 /* PhotoListController.m */; };
@@ -156,8 +152,6 @@
 		7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB4FF061FD1352B004EE368 /* VoiceController.m */; };
 		7DB90FF32147B1AE00A9B40C /* MVVM_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90FF22147B1AE00A9B40C /* MVVM_Model.m */; };
 		7DB90FF62147B3A600A9B40C /* MVVM_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90FF52147B3A600A9B40C /* MVVM_Cell.m */; };
-		7DB90FFC2147B8D500A9B40C /* MVVMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90FFB2147B8D500A9B40C /* MVVMTableViewController.m */; };
-		7DB90FFF2147BA4300A9B40C /* MVVM_HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90FFE2147BA4300A9B40C /* MVVM_HeaderView.m */; };
 		7DB910022147BB1E00A9B40C /* MVVM_ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910012147BB1E00A9B40C /* MVVM_ViewModel.m */; };
 		7DB910062148C1DC00A9B40C /* Presenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910052148C1DC00A9B40C /* Presenter.m */; };
 		7DB910092148C24300A9B40C /* MVPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910082148C24300A9B40C /* MVPController.m */; };
@@ -427,6 +421,8 @@
 		7D88EE201FC8076B00CC76FE /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		7D8F370621CB2F1C008E3352 /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
 		7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
+		7D8F371721D0D381008E3352 /* MVVM_Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_Controller.h; sourceTree = "<group>"; };
+		7D8F371821D0D381008E3352 /* MVVM_Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_Controller.m; sourceTree = "<group>"; };
 		7D91769721C9DB5C007B8F91 /* GPUImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageController.h; sourceTree = "<group>"; };
 		7D91769821C9DB5C007B8F91 /* GPUImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageController.m; sourceTree = "<group>"; };
 		7D91AC442081D714001AE03E /* MemoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryController.h; sourceTree = "<group>"; };
@@ -438,17 +434,6 @@
 		7D93371221ABC3940048E6D4 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		7D93371421ABC4520048E6D4 /* MBProgressHUD+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+add.h"; sourceTree = "<group>"; };
 		7D93371521ABC4520048E6D4 /* MBProgressHUD+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+add.m"; sourceTree = "<group>"; };
-		7D93371821AFE2A50048E6D4 /* QKHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKHttpRequestManager.m; sourceTree = "<group>"; };
-		7D93371921AFE2A50048E6D4 /* QKHttpRequestManager+UIExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QKHttpRequestManager+UIExtend.h"; sourceTree = "<group>"; };
-		7D93371A21AFE2A50048E6D4 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
-		7D93371B21AFE2A50048E6D4 /* QKProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKProgressHUD.h; sourceTree = "<group>"; };
-		7D93371C21AFE2A50048E6D4 /* QKHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKHTTPSessionManager.m; sourceTree = "<group>"; };
-		7D93371D21AFE2A50048E6D4 /* QKHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKHttpRequestManager.h; sourceTree = "<group>"; };
-		7D93371E21AFE2A50048E6D4 /* QKHttpRequestManager+UIExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QKHttpRequestManager+UIExtend.m"; sourceTree = "<group>"; };
-		7D93371F21AFE2A50048E6D4 /* QKHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKHTTPSessionManager.h; sourceTree = "<group>"; };
-		7D93372021AFE2A50048E6D4 /* SVProgressHUD+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD+Extension.h"; sourceTree = "<group>"; };
-		7D93372121AFE2A50048E6D4 /* QKProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKProgressHUD.m; sourceTree = "<group>"; };
-		7D93372221AFE2A50048E6D4 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		7D93373221B125650048E6D4 /* QKRunScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRunScrollLabel.h; sourceTree = "<group>"; };
 		7D93373321B125650048E6D4 /* QKRunScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKRunScrollLabel.m; sourceTree = "<group>"; };
 		7D957EB51FD4DC4900D0A4D5 /* TakePhotoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePhotoController.h; sourceTree = "<group>"; };
@@ -532,10 +517,6 @@
 		7DB90FF22147B1AE00A9B40C /* MVVM_Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_Model.m; sourceTree = "<group>"; };
 		7DB90FF42147B3A600A9B40C /* MVVM_Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_Cell.h; sourceTree = "<group>"; };
 		7DB90FF52147B3A600A9B40C /* MVVM_Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_Cell.m; sourceTree = "<group>"; };
-		7DB90FFA2147B8D500A9B40C /* MVVMTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMTableViewController.h; sourceTree = "<group>"; };
-		7DB90FFB2147B8D500A9B40C /* MVVMTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMTableViewController.m; sourceTree = "<group>"; };
-		7DB90FFD2147BA4300A9B40C /* MVVM_HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_HeaderView.h; sourceTree = "<group>"; };
-		7DB90FFE2147BA4300A9B40C /* MVVM_HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_HeaderView.m; sourceTree = "<group>"; };
 		7DB910002147BB1E00A9B40C /* MVVM_ViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_ViewModel.h; sourceTree = "<group>"; };
 		7DB910012147BB1E00A9B40C /* MVVM_ViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_ViewModel.m; sourceTree = "<group>"; };
 		7DB910042148C1DC00A9B40C /* Presenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presenter.h; sourceTree = "<group>"; };
@@ -1080,7 +1061,6 @@
 			isa = PBXGroup;
 			children = (
 				7D93373121B125650048E6D4 /* QKRunScrollLabel */,
-				7D93371721AFE2A50048E6D4 /* QKAFNetworkSDK */,
 				7DE56668206E499100FC5F2E /* XTSegmentControl */,
 				7D81144720EFBA6300349078 /* UIWebView-TS */,
 				7DC3752C20E526E0005AEBCA /* SDK */,
@@ -1289,24 +1269,6 @@
 			path = "MBProgressHud(Category)";
 			sourceTree = "<group>";
 		};
-		7D93371721AFE2A50048E6D4 /* QKAFNetworkSDK */ = {
-			isa = PBXGroup;
-			children = (
-				7D93371D21AFE2A50048E6D4 /* QKHttpRequestManager.h */,
-				7D93371821AFE2A50048E6D4 /* QKHttpRequestManager.m */,
-				7D93371F21AFE2A50048E6D4 /* QKHTTPSessionManager.h */,
-				7D93371C21AFE2A50048E6D4 /* QKHTTPSessionManager.m */,
-				7D93371921AFE2A50048E6D4 /* QKHttpRequestManager+UIExtend.h */,
-				7D93371E21AFE2A50048E6D4 /* QKHttpRequestManager+UIExtend.m */,
-				7D93372021AFE2A50048E6D4 /* SVProgressHUD+Extension.h */,
-				7D93371B21AFE2A50048E6D4 /* QKProgressHUD.h */,
-				7D93372121AFE2A50048E6D4 /* QKProgressHUD.m */,
-				7D93372221AFE2A50048E6D4 /* UIImage+GIF.h */,
-				7D93371A21AFE2A50048E6D4 /* UIImage+GIF.m */,
-			);
-			path = QKAFNetworkSDK;
-			sourceTree = "<group>";
-		};
 		7D93373121B125650048E6D4 /* QKRunScrollLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1480,14 +1442,12 @@
 			children = (
 				7DB90FF12147B1AE00A9B40C /* MVVM_Model.h */,
 				7DB90FF22147B1AE00A9B40C /* MVVM_Model.m */,
-				7DB90FFD2147BA4300A9B40C /* MVVM_HeaderView.h */,
-				7DB90FFE2147BA4300A9B40C /* MVVM_HeaderView.m */,
 				7DB90FF42147B3A600A9B40C /* MVVM_Cell.h */,
 				7DB90FF52147B3A600A9B40C /* MVVM_Cell.m */,
-				7DB90FFA2147B8D500A9B40C /* MVVMTableViewController.h */,
-				7DB90FFB2147B8D500A9B40C /* MVVMTableViewController.m */,
 				7DB910002147BB1E00A9B40C /* MVVM_ViewModel.h */,
 				7DB910012147BB1E00A9B40C /* MVVM_ViewModel.m */,
+				7D8F371721D0D381008E3352 /* MVVM_Controller.h */,
+				7D8F371821D0D381008E3352 /* MVVM_Controller.m */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -1877,6 +1837,7 @@
 				7D0DA82D1FC50D7000774E40 /* Frameworks */,
 				7D0DA82E1FC50D7000774E40 /* Resources */,
 				82BBFF3B4CCC452186D8780B /* [CP] Copy Pods Resources */,
+				7D8F371621CC98FC008E3352 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1979,6 +1940,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7D8F371621CC98FC008E3352 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n#\n# Copyright 2016 Bugly, Tencent. All rights reserved.\n#\n# V1.4.0\n#\n# 2016.08.03\n#\n#\n#\n######################################################\n# 1. 脚本集成到Xcode工程的Target\n######################################################\n#\n# --- Copy the SCRIPT to the Run Script of Build Phases in the Xcode project ---\n#\n# #\nBUGLY_APP_ID=\"13930b836d\"\n# #\nBUGLY_APP_KEY=\"b99fd2b8-94e1-4f8e-99cc-51e9cd9b3565\"\n# #\nBUNDLE_IDENTIFIER=\"com.qk.TheHousing\"\n# #\nUPLOAD_DSYM_ONLY=1\n#\n# # 脚本默认配置的版本格式为CFBundleShortVersionString(CFBundleVersion),  如果你修改默认的版本格式, 请设置此变量, 如果不想修改, 请忽略此设置\n# CUSTOMIZED_APP_VERSION=\"\"\n#\n# # Debug模式编译是否上传，1＝上传 0＝不上传，默认不上传\n UPLOAD_DEBUG_SYMBOLS=1\n#\n# # 模拟器编译是否上传，1=上传 0=不上传，默认不上传\n UPLOAD_SIMULATOR_SYMBOLS=1\n#\n# #只有Archive操作时上传, 1=支持Archive上传 0=所有Release模式编译都上传\n# UPLOAD_ARCHIVE_ONLY=0\n#\n# #\n# source dSYMUpload.sh\n#\n# --- END OF SCRIPT ---\n#\n#\n#\n#\n#######################################################\n# 2. 脚本根据输入参数处理\n#######################################################\n#\n# #命令行下输入应用基本信息, .dSYM文件的父目录路径, 输出文件目录即可\n#\n# sh dSYMUpload.sh <bugly_app_id> <bugly_app_key> <app_bundle_identifier> <app_version> <dSYM_src_dir> <bSYMBOL_dest_dir>\n#\n# #\n#\n# #注意:\n# # 1. dSYMUpload.sh会调用buglySymboliOS.jar进行.dSYM解析，所以依赖Java运行时环境\n# # 2. dSYMUpload.sh和buglySymboliOS.jar的文件路径需一致\n#\n#\n\n#\n# --- CONTENT OF SCRIPT ---\n#\n\n# Bugly服务域名\nBUGLY_DSYM_UPLOAD_DOMAIN=\"api.bugly.qq.com\"\n\n# 注意jar工具的路径跟dSYMUpload.sh脚本路径一致, 请务必保证jar路径的正确性\nBUGLY_SYMBOL_JAR_PATH=\"dsymtool/buglySymboliOS.jar\"\n# 查找添加到系统目录的jar工具\nif [ ! -f \"${BUGLY_SYMBOL_JAR_PATH}\" ]; then\nBUGLY_SYMBOL_JAR_PATH=\"$HOME/bin/buglySymboliOS.jar\"\nfi\n\n# 打印错误信息\nfunction exitWithMessage(){\necho \"--------------------------------\"\necho \"${1}\"\necho \"--------------------------------\"\nexit ${2}\n}\n\n# 上传bSYMBOL文件\nfunction dSYMUpload() {\nP_APP_ID=\"$1\"\nP_APP_KEY=\"$2\"\nP_APP_BUNDLE_ID=\"$3\"\nP_APP_VERSION=\"$4\"\nP_BSYMBOL_ZIP_FILE=\"$5\"\n\n#\nP_BSYMBOL_ZIP_FILE_NAME=${P_BSYMBOL_ZIP_FILE##*/}\nP_BSYMBOL_ZIP_FILE_NAME=${P_BSYMBOL_ZIP_FILE_NAME//&/_}\nP_BSYMBOL_ZIP_FILE_NAME=\"${P_BSYMBOL_ZIP_FILE_NAME// /_}\"\n\nDSYM_UPLOAD_URL=\"https://${BUGLY_DSYM_UPLOAD_DOMAIN}/openapi/file/upload/symbol?app_id=${P_APP_ID}&app_key=${P_APP_KEY}\"\necho \"dSYM upload url: ${DSYM_UPLOAD_URL}\"\n\necho \"-----------------------------\"\nSTATUS=$(/usr/bin/curl -k \"${DSYM_UPLOAD_URL}\" --form \"api_version=1\" --form \"app_id=${P_APP_ID}\" --form \"app_key=${P_APP_KEY}\" --form \"symbolType=2\"  --form \"bundleId=${BUNDLE_IDENTIFIER}\" --form \"productVersion=${BUGLY_APP_VERSION}\" --form \"fileName=${P_BSYMBOL_ZIP_FILE_NAME}\" --form \"file=@${P_BSYMBOL_ZIP_FILE}\" --verbose)\necho \"-----------------------------\"\n\nUPLOAD_RESULT=\"FAILTURE\"\necho \"Bugly server response: ${STATUS}\"\nif [ ! \"${STATUS}\" ]; then\necho \"Error: Failed to upload the zip archive file.\"\nelif [[ \"${STATUS}\" == *\"{\\\"reponseCode\\\":\\\"0\\\"}\"* ]]; then\necho \"Success to upload the dSYM for the app [${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION}]\"\nUPLOAD_RESULT=\"SUCCESS\"\nelse\necho \"Error: Failed to upload the zip archive file to Bugly.\"\nfi\n\n#Remove temp dSYM archive\n#echo \"Remove temporary zip archive: ${DSYM_ZIP_FPATH}\"\n#/bin/rm -f \"${DSYM_ZIP_FPATH}\"\n\nif [ \"$?\" -ne 0 ]; then\nexitWithMessage \"Error: Failed to remove temporary zip archive.\" 0\nfi\n\necho \"--------------------------------\"\necho \"${UPLOAD_RESULT} - dSYM upload complete.\"\n\nif [[ \"${UPLOAD_RESULT}\" == \"FAILTURE\" ]]; then\necho \"--------------------------------\"\necho \"Failed to upload the dSYM\"\necho \"Please check the script and try it again.\"\nfi\n}\n\n# .dSYM解析为bSYMBOL文件\nfunction dSYMParse() {\nDSYM_FILE=\"$1\"\nDSYM_SYMBOL_FILE=\"$2\"\n\necho \"--------------------------------\"\necho \"Extract symbol info from .dSYM file. to ${DSYM_SYMBOL_FILE}\"\n(/usr/bin/java -Xms512m -Xmx1024m -Dfile.encoding=UTF8 -jar \"${BUGLY_SYMBOL_JAR_PATH}\" -i \"${DSYM_FILE}\" -o \"${DSYM_SYMBOL_FILE}\" ) || exitWithMessage \"Error: Failed to extract symbols.\" 1\necho \"--------------------------------\"\n\n}\n\n# 执行\nfunction run() {\n\nCONFIG_BUGLY_APP_ID=\"$1\"\nCONFIG_BUGLY_APP_KEY=\"$2\"\n\nCONFIG_BUGLY_APP_BUNDLE_IDENTIFIER=\"$3\"\nCONFIG_BUGLY_APP_VERSION=\"$4\"\nCONFIG_DSYM_SOURCE_DIR=\"$5\"\nCONFIG_DSYM_DEST_DIR=\"$6\"\nCONFIG_UPLOAD_DSYM_ONLY=\"$7\"\n\n# 检查必须参数是否设置\nif [ ! \"${CONFIG_BUGLY_APP_ID}\" ]; then\nexitWithMessage \"Error: Bugly App ID not defined. Please set 'BUGLY_APP_ID' \" 0\nfi\n\nif [[ \"${CONFIG_BUGLY_APP_ID}\" == *\"App ID\"* ]]; then\nexitWithMessage \"Error: Bugly App ID not defined.\" 0\nfi\n\nif [ ! \"${CONFIG_BUGLY_APP_KEY}\" ]; then\nexitWithMessage \"Error: Bugly App Key not defined.\" 0\nfi\n\nif [ ! \"${CONFIG_BUGLY_APP_BUNDLE_IDENTIFIER}\" ]; then\nexitWithMessage \"Error: Bundle Identifier not defined.\" 0\nfi\n\nif [ ! \"${CONFIG_BUGLY_APP_VERSION}\" ]; then\nexitWithMessage \"Error: App Version not defined.\" 0\nfi\n\nif [ ! -e \"${CONFIG_DSYM_SOURCE_DIR}\" ]; then\nexitWithMessage \"Error: Invalid dir ${CONFIG_DSYM_SOURCE_DIR}\" 0\nfi\n\nif [ ! \"${CONFIG_DSYM_DEST_DIR}\" ]; then\nexitWithMessage \"Error: Invalid dir ${CONFIG_DSYM_DEST_DIR}\" 0\nfi\n\nif [ ! -e \"${CONFIG_DSYM_DEST_DIR}\" ]; then\nmkdir ${CONFIG_DSYM_DEST_DIR}\nfi\n\nDSYM_FOLDER=\"${CONFIG_DSYM_SOURCE_DIR}\"\nIFS=$'\\n'\n\necho \"Scaning dSYM FOLDER: ${DSYM_FOLDER} ...\"\nRET=\"F\"\n\n#\nfor dsymFile in $(find \"$DSYM_FOLDER\" -name '*.dSYM'); do\nRET=\"T\"\necho \"Found dSYM file: $dsymFile\"\n\nDSYM_FILE_NAME=${dsymFile##*/}\nDSYM_SYMBOL_ZIP_FILE_NAME=\"${DSYM_FILE_NAME}.zip\"\nDSYM_SYMBOL_ZIP_FILE_NAME=\"${DSYM_SYMBOL_ZIP_FILE_NAME// /_}\"\nDSYM_SYMBOL_ZIP_FILE=${CONFIG_DSYM_DEST_DIR}/${DSYM_SYMBOL_ZIP_FILE_NAME}\n\nif [ $CONFIG_UPLOAD_DSYM_ONLY -eq 1 ]; then\nif [ -e $DSYM_SYMBOL_ZIP_FILE ]; then\nrm -f $DSYM_SYMBOL_ZIP_FILE\nfi\n# 如果只上传dSYM，直接压缩dSYM目录\nzip -r -j $DSYM_SYMBOL_ZIP_FILE $dsymFile -x *.plist\nelse\n# 使用符号表工具来生成Symbol文件\ndSYMParse $dsymFile $DSYM_SYMBOL_ZIP_FILE\nfi\n\n# 上传\ndSYMUpload $CONFIG_BUGLY_APP_ID $CONFIG_BUGLY_APP_KEY $CONFIG_BUGLY_APP_BUNDLE_IDENTIFIER $CONFIG_BUGLY_APP_VERSION $DSYM_SYMBOL_ZIP_FILE\ndone\n\nif [ $RET = \"F\" ]; then\nexitWithMessage \"No .dSYM found in ${DSYM_FOLDER}\" 0\nfi\n}\n\n# 在Xcode工程中执行\nfunction runInXcode(){\necho \"Uploading dSYM to Bugly in Xcode ...\"\n\necho \"Info.Plist : ${INFOPLIST_FILE}\"\n\nBUNDLE_VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' \"${INFOPLIST_FILE}\")\nBUNDLE_SHORT_VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' \"${INFOPLIST_FILE}\")\n\n# 组装Bugly默认识别的版本信息(格式为CFBundleShortVersionString(CFBundleVersion), 例如: 1.0(1))\nif [ ! \"${CUSTOMIZED_APP_VERSION}\" ]; then\nBUGLY_APP_VERSION=\"${BUNDLE_SHORT_VERSION}(${BUNDLE_VERSION})\"\nelse\nBUGLY_APP_VERSION=\"${CUSTOMIZED_APP_VERSION}\"\nfi\n\necho \"--------------------------------\"\necho \"Prepare application information.\"\necho \"--------------------------------\"\n\necho \"Product Name: ${PRODUCT_NAME}\"\necho \"Bundle Identifier: ${BUNDLE_IDENTIFIER}\"\necho \"Version: ${BUNDLE_SHORT_VERSION}\"\necho \"Build: ${BUNDLE_VERSION}\"\n\necho \"Bugly App ID: ${BUGLY_APP_ID}\"\necho \"Bugly App key: ${BUGLY_APP_KEY}\"\necho \"Bugly App Version: ${BUGLY_APP_VERSION}\"\n\necho \"--------------------------------\"\necho \"Check the arguments ...\"\n\n##检查模拟器编译是否允许上传符号\nif [ \"$EFFECTIVE_PLATFORM_NAME\" == \"-iphonesimulator\" ]; then\nif [ $UPLOAD_SIMULATOR_SYMBOLS -eq 0 ]; then\nexitWithMessage \"Warning: Build for simulator and skipping to upload. \\nYou can modify 'UPLOAD_SIMULATOR_SYMBOLS' to 1 in the script.\" 0\nfi\nfi\n\n##检查是否是Release模式编译\nif [ \"${CONFIGURATION=}\" == \"Debug\" ]; then\nif [ $UPLOAD_DEBUG_SYMBOLS -eq 0 ]; then\nexitWithMessage \"Warning: Build for debug mode and skipping to upload. \\nYou can modify 'UPLOAD_DEBUG_SYMBOLS' to 1 in the script.\" 0\nfi\nfi\n\n##检查是否Archive操作\nif [ $UPLOAD_ARCHIVE_ONLY -eq 1 ]; then\nif [[ \"$TARGET_BUILD_DIR\" == *\"/Archive\"* ]]; then\necho \"Archive the package\"\nelse\nexitWithMessage \"Warning: Build for NOT Archive mode and skipping to upload. \\nYou can modify 'UPLOAD_ARCHIVE_ONLY' to 0 in the script.\" 0\nfi\nfi\n\n#\nrun ${BUGLY_APP_ID} ${BUGLY_APP_KEY} ${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION} ${DWARF_DSYM_FOLDER_PATH} ${BUILD_DIR}/BuglySymbolTemp ${UPLOAD_DSYM_ONLY}\n}\n\n# 根据Xcode的环境变量判断是否处于Xcode环境\nINFO_PLIST_FILE=\"${INFOPLIST_FILE}\"\n\nBuildInXcode=\"F\"\nif [ -f \"${INFO_PLIST_FILE}\" ]; then\nBuildInXcode=\"T\"\nfi\n\nif [ $BuildInXcode = \"T\" ]; then\nrunInXcode\nelse\necho \"\\nUsage: dSYMUpload.sh <bugly_app_id> <bugly_app_key> <app_bundle_identifier> <app_version> <dSYM_src_dir> <bSYMBOL_dest_dir> [upload_dsym_only]\\n\"\n# 你可以在此处直接设置BuglyAppID和BuglyAppKey，排除不常变参数的输入\nBUGLY_APP_ID=\"$1\"\nBUGLY_APP_KEY=\"$2\"\nBUNDLE_IDENTIFIER=\"$3\"\nBUGLY_APP_VERSION=\"$4\"\nDWARF_DSYM_FOLDER_PATH=\"$5\"\nSYMBOL_OUTPUT_PATH=\"$6\"\nUPLOAD_DSYM_ONLY=$7\nrun ${BUGLY_APP_ID} ${BUGLY_APP_KEY} ${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION} ${DWARF_DSYM_FOLDER_PATH} ${SYMBOL_OUTPUT_PATH} ${UPLOAD_DSYM_ONLY}\nfi\n";
+		};
 		82BBFF3B4CCC452186D8780B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2028,7 +2006,6 @@
 			files = (
 				7DA152BF204ADBEF0075274E /* FunctionViewController.m in Sources */,
 				7D1A364E20A17D9D00D74375 /* HHSegmentView.m in Sources */,
-				7D93372521AFE2A60048E6D4 /* QKHTTPSessionManager.m in Sources */,
 				7D0668F0216BB82B0090443F /* DataSource.m in Sources */,
 				7DB29BC9213BA5D30044BD22 /* hhController.m in Sources */,
 				7D56A301216D941700212DEB /* KVOViewController.m in Sources */,
@@ -2042,7 +2019,6 @@
 				7D93373721B125660048E6D4 /* QKRunScrollLabel.m in Sources */,
 				7D93370221A835910048E6D4 /* CleanCacheHelp.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
-				7DB90FFC2147B8D500A9B40C /* MVVMTableViewController.m in Sources */,
 				7DC3750E20E390F1005AEBCA /* Service+CoreDataClass.m in Sources */,
 				7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */,
 				7DABC3A121A5389D00C3EAD9 /* UIColor+Category.m in Sources */,
@@ -2056,6 +2032,7 @@
 				7DB9B5581FD90A570011EE54 /* MovieFileOutputController.m in Sources */,
 				7DB90FF62147B3A600A9B40C /* MVVM_Cell.m in Sources */,
 				7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */,
+				7D8F371921D0D381008E3352 /* MVVM_Controller.m in Sources */,
 				7D7FBB1F20401A2000C3594C /* NSString+Hash.m in Sources */,
 				7D48F96521038FCA00833594 /* presentViewController.m in Sources */,
 				7DDAE7E22057692700D5C274 /* HHPlayerViewController.m in Sources */,
@@ -2100,7 +2077,6 @@
 				7DB9100F2148C28600A9B40C /* MVPModel.m in Sources */,
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
 				7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */,
-				7DB90FFF2147BA4300A9B40C /* MVVM_HeaderView.m in Sources */,
 				7DC3752020E474F0005AEBCA /* User+CoreDataClass.m in Sources */,
 				7DDE3D2C20F505070044FC85 /* HHAttachment.m in Sources */,
 				7D5393EA202013F4006D2712 /* TimerController.m in Sources */,
@@ -2155,7 +2131,6 @@
 				7D2DE5F720170227001590E1 /* DrawView.m in Sources */,
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,
 				7D48F95B21038EBF00833594 /* DistanceController.m in Sources */,
-				7D93372321AFE2A60048E6D4 /* QKHttpRequestManager.m in Sources */,
 				7DB910132148FCB100A9B40C /* MVVMViewModel.m in Sources */,
 				7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */,
 				7DC3752120E474F0005AEBCA /* User+CoreDataProperties.m in Sources */,
@@ -2168,7 +2143,6 @@
 				7D48F9782104337800833594 /* BGView.m in Sources */,
 				7DC24C8D20219EF700103BDE /* AnimationView.m in Sources */,
 				7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */,
-				7D93372421AFE2A60048E6D4 /* UIImage+GIF.m in Sources */,
 				7D8376D22041433000C6CB06 /* EncryptionTools.m in Sources */,
 				7DDAE7E5205779C500D5C274 /* HHVideoManager.m in Sources */,
 				7DA152C2204ADE640075274E /* ChainViewController.m in Sources */,
@@ -2176,7 +2150,6 @@
 				7DC24C8920206B3D00103BDE /* AppDelegate+Notification.m in Sources */,
 				7D56A30C216DE03C00212DEB /* Factory.m in Sources */,
 				7DA711AD20DCD10400BEF5D9 /* UIViewController+Alert.m in Sources */,
-				7D93372721AFE2A60048E6D4 /* QKProgressHUD.m in Sources */,
 				7DC24CA320283F6500103BDE /* HHBezierPath.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
 				7D2FF20A2008916700ECAA26 /* NavigationController.m in Sources */,
@@ -2218,7 +2191,6 @@
 				7D437EF82083513B00DAAEBD /* TVKJ.m in Sources */,
 				7DB910022147BB1E00A9B40C /* MVVM_ViewModel.m in Sources */,
 				7D48F96D2103A1B200833594 /* CollisionViewController.m in Sources */,
-				7D93372621AFE2A60048E6D4 /* QKHttpRequestManager+UIExtend.m in Sources */,
 				7D328A55206CD62D00A64272 /* HUtils.m in Sources */,
 				7DDE3D2F20F505080044FC85 /* PageControlVC.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,

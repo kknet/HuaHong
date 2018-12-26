@@ -15,3 +15,4 @@
     return [[self alloc]initWithDict:dic];
 }
 @end
+

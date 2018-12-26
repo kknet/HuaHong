@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0361BF80A0B0AE4C67902AF2FEF0EEA"
+               BlueprintIdentifier = "61F91A38BBCF113C905DBEF04B9B4C7E"
                BuildableName = "QKChineseVerifyCodeFramework.bundle"
                BlueprintName = "QKChineseVerifyCode-QKChineseVerifyCodeFramework"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0361BF80A0B0AE4C67902AF2FEF0EEA"
+            BlueprintIdentifier = "61F91A38BBCF113C905DBEF04B9B4C7E"
             BuildableName = "QKChineseVerifyCodeFramework.bundle"
             BlueprintName = "QKChineseVerifyCode-QKChineseVerifyCodeFramework"
             ReferencedContainer = "container:Pods.xcodeproj">

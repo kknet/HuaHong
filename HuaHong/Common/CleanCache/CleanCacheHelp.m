@@ -33,7 +33,7 @@
         return 0;
     }
     
-    /** 子路径:以递归的方式获取子项列表 */
+    /** 子路径:以递归的方式获取子项列表，子目录的子目录的子目录 所有的都可以拿到 */
     NSArray *subpaths = [manager subpathsAtPath:folderPath];
     
     /** 遍历器 */
@@ -57,7 +57,7 @@
         //文件夹路径
         NSString *directoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)firstObject];
         
-        /** 子路径:以非递归的方式获取子项列表*/
+        /** 子路径:以非递归的方式获取子项列表，获取指定目录下的所有的子目录和文件 不保护孙子辈*/
         NSArray *subpaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
         
         for (NSString *subpath in subpaths) {

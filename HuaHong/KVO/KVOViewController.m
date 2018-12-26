@@ -20,6 +20,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     _model = [Model new];
+    _model.name = @"";
     
 //    [self systemKVO];
     

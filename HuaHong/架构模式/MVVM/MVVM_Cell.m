@@ -10,67 +10,68 @@
 #import "MVVM_Model.h"
 
 @interface MVVM_Cell()
-@property (nonatomic,weak) UIImageView *imgView;
-@property (nonatomic,weak) UILabel *subLabel;
+@property (nonatomic,weak) UIImageView* imageView;
+@property (nonatomic,weak) UILabel* titleLabel;
 @end
 
 @implementation MVVM_Cell
 
-+(instancetype)cellWithTableView:(UITableView *)tableView
-{
-    static NSString * identifier = @"MVVMCell";
-    MVVM_Cell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
-    if (cell == nil) {
-        cell = [[MVVM_Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self initUI];
     }
-    
-    return cell;
+    return self;
 }
 
-//重写init方法构建cell内容
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+
+- (void)initUI
 {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        //图片
-        UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_model.image]];
-        imageView.frame = CGRectMake(5, 5, 80, 60);
-        [self.contentView addSubview:imageView];
-        self.imgView = imageView;
-        //标题
-        UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView.frame)+10, 15, 200, 20)];
-        lable.font = [UIFont systemFontOfSize:20.0f];
-        [self.contentView addSubview:lable];
-        self.label = lable;
-        //副标题
-        UILabel * subLable = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView.frame)+10, 40, 200, 13)];
-        subLable.font = [UIFont systemFontOfSize:13.0f];
-        [self.contentView addSubview:subLable];
-        
-        self.backgroundColor = [UIColor whiteColor];
+    UIImageView* imageView = [[UIImageView alloc] init];
+    [self.contentView addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(imageView.superview);
+        make.height.equalTo(imageView.mas_width);
+    }];
+    self.imageView = imageView;
+//    self.imageView.userInteractionEnabled = YES;
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+//    [self.imageView addGestureRecognizer:tap];
+    
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor whiteColor];
+    [self.contentView addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(imageView);
+        make.top.equalTo(imageView.mas_bottom);
+        make.bottom.equalTo(self.contentView);
+    }];
+    self.titleLabel = label;
+    
+    
+}
+
+- (void)prepareForReuse
+{
+    self.imageView.image = nil;
+    self.titleLabel.text = @"";
+}
+
+//模型渲染
+- (void)renderWithModel:(id)model {
+    if ([model isKindOfClass:[MVVM_Model  class]]) {
+        MVVM_Model *movie = model;
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:movie.images[@"large"]?:nil]];
+        self.titleLabel.text = movie.title?:@"";
     }
-    return  self;
-    
 }
 
-//重写set方法,传递模型
-- (void)setModel:(MVVM_Model *)model
+//cell标识
++ (NSString *)cellReuseIdentifier
 {
-    _model = model;
-    self.imageView.image = [UIImage imageNamed:model.image];
-    self.label.text = model.title;
-    self.subLabel.text = model.subTitle;
+    return NSStringFromClass(self.class);
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end
