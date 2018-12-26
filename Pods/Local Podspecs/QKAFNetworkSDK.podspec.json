@@ -1,0 +1,36 @@
+{
+  "name": "QKAFNetworkSDK",
+  "version": "1.0.0",
+  "summary": "增加无网络回调.",
+  "description": "公共插件。",
+  "license": "MIT",
+  "authors": {
+    "wangxiaoli": "1587272615@qq.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "homepage": "https://github.com/ChenHanLinHaHa/Network",
+  "source": {
+    "svn": "svn://wangxiaoli@192.168.1.193/apps/code/tags/Pods/QKAFNetworkSDK/1.0.0"
+  },
+  "ios": {
+    "source_files": "**/*.{h,m,mm}"
+  },
+  "resources": "Helper/**/*.{png}",
+  "requires_arc": true,
+  "dependencies": {
+    "AFNetworking": [
+      "~> 3.1.0"
+    ],
+    "SVProgressHUD": [
+      "~> 2.1.2"
+    ],
+    "SBJson": [
+      "~> 4.0.4"
+    ],
+    "FLAnimatedImage": [
+      "~> 1.0.12"
+    ]
+  }
+}

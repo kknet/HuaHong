@@ -1,1 +1,0 @@
-../../../HHCategory/HHCategory/Classes/Catagory/NSString+IdentityCard.h

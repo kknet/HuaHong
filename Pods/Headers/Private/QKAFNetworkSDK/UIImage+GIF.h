@@ -1,0 +1,1 @@
+../../../QKAFNetworkSDK/UIImage+GIF.h
