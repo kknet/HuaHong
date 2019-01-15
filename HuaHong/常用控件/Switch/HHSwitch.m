@@ -128,7 +128,7 @@
     
     if (!self.isOn) {
         // frame of off status
-        self.onContentView.frame = CGRectMake(-11 * CGRectGetWidth(self.containerView.bounds),
+        self.onContentView.frame = CGRectMake(-1 * CGRectGetWidth(self.containerView.bounds),
                                               0,
                                               CGRectGetWidth(self.containerView.bounds),
                                               CGRectGetHeight(self.containerView.bounds));
@@ -165,12 +165,12 @@
     
     self.onLabel.frame = CGRectMake(lMargin,
                                     r - lHeight / 2.0,
-                                    CGRectGetWidth(self.onContentView.bounds) - lMargin - ZJSwitchKnobSize - 22 * margin,
+                                    CGRectGetWidth(self.onContentView.bounds) - lMargin - ZJSwitchKnobSize - 2 * margin,
                                     lHeight);
     
-    self.offLabel.frame = CGRectMake(ZJSwitchKnobSize + 22 * margin,
+    self.offLabel.frame = CGRectMake(ZJSwitchKnobSize + 2 * margin,
                                      r - lHeight / 2.0,
-                                     CGRectGetWidth(self.onContentView.bounds) - lMargin - ZJSwitchKnobSize - 22 * margin,
+                                     CGRectGetWidth(self.onContentView.bounds) - lMargin - ZJSwitchKnobSize - 2 * margin,
                                      lHeight);
 }
 
@@ -192,7 +192,7 @@
     if (!animated) {
         if (!self.isOn) {
             // frame of off status
-            self.onContentView.frame = CGRectMake(-11 * CGRectGetWidth(self.containerView.bounds),
+            self.onContentView.frame = CGRectMake(-1 * CGRectGetWidth(self.containerView.bounds),
                                                   0,
                                                   CGRectGetWidth(self.containerView.bounds),
                                                   CGRectGetHeight(self.containerView.bounds));
@@ -252,7 +252,7 @@
                                                                   ZJSwitchKnobSize);
                              }
                              completion:^(BOOL finished){
-                                 self.onContentView.frame = CGRectMake(-11 * CGRectGetWidth(self.containerView.bounds),
+                                 self.onContentView.frame = CGRectMake(-1 * CGRectGetWidth(self.containerView.bounds),
                                                                        0,
                                                                        CGRectGetWidth(self.containerView.bounds),
                                                                        CGRectGetHeight(self.containerView.bounds));

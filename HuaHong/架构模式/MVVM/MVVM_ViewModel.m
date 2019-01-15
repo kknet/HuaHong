@@ -33,15 +33,28 @@
     self.command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
         
-        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-//            @strongify(self);
+        NSLog(@"input:%@",input);
+        RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            
             [self getDoubanList:^(NSArray<MVVM_Model *> *array) {
+                self.dataArray = array.mutableCopy;
                 [subscriber sendNext:array];
                 [subscriber sendCompleted];
             }];
-            return nil;
+            
+            return [RACDisposable disposableWithBlock:^{ }];
         }];
         
+        
+        /**
+         * value = [subscriber sendNext:array]的array
+         * 也可以直接 return signal;
+         **/
+        return [signal map:^id _Nullable(id  _Nullable value) {
+            
+//            NSLog(@"value:%@",value);
+            return value;
+        }];
     }];
     
 }
@@ -78,4 +91,19 @@
     
 }
 
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    
+    return _dataArray;
+}
+//- (void)clicked:(NSIndexPath *)indexPath
+//{
+//    MVVM_Model *model = self.dataArray[indexPath.item];
+//    model.number++;
+//    [self.dataArray removeObject:model];
+//    
+//}
 @end

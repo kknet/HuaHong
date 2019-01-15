@@ -18,7 +18,7 @@
 + (NSArray *)getCollectionViewArray
 {
     return  @[
-              @[@"瀑布流",@"tableView",@"WKWebView",@"block",@"TextView",@"Button",@"MenuControll",@"PageControl",@"UIWebView"],
+              @[@"瀑布流",@"tableView",@"WKWebView",@"block",@"TextView",@"Button",@"MenuControll",@"PageControl",@"UIWebView",@"RATreeView"],
               @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
               @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器",@"重力传感器",@"碰撞",@"甩行为",@"附着行为",@"推行为",@"加速计陀螺仪磁力针",@"计步器"],
               @[@"文字转语音",@"录音",@"语音合成"],

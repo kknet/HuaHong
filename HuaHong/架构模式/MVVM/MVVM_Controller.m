@@ -8,7 +8,7 @@
 
 #import "MVVM_Controller.h"
 //#import <BlocksKit/BlocksKit.h>
-//#import <BlocksKit/A2DynamicDelegate.h>
+#import <BlocksKit/A2DynamicDelegate.h>
 #import "MVVM_Cell.h"
 #import "MVVM_ViewModel.h"
 #import "MVVM_Model.h"
@@ -51,92 +51,91 @@
     //注册cell
     [self.collectionView registerClass:[MVVM_Cell class] forCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier]];
     
-//    //collectionView dataSouce
-//    A2DynamicDelegate *dataSouce = self.collectionView.bk_dynamicDataSource;
-//
-//    //item个数
-//    [dataSouce implementMethod:@selector(collectionView:numberOfItemsInSection:) withBlock:^NSInteger(UICollectionView *collectionView, NSInteger section) {
-//        return self.dataArray.count;
-//    }];
-//
-//    //Cell
-//    [dataSouce implementMethod:@selector(collectionView:cellForItemAtIndexPath:) withBlock:^UICollectionViewCell*(UICollectionView *collectionView,NSIndexPath *indexPath) {
-//
-//        //id<MovieModelProtocol> cell = nil;
-//        id cell = nil;
-//
-//        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier] forIndexPath:indexPath];
-//        if ([cell respondsToSelector:@selector(renderWithModel:)]) {
-//            [cell renderWithModel:self.dataArray[indexPath.row]];
-//
-//        }
-//        return (UICollectionViewCell *)cell;
-//    }];
-//    self.collectionView.dataSource = (id)dataSouce;
-//
-//
-//    //delegate
-//    A2DynamicDelegate *delegate = self.collectionView.bk_dynamicDelegate;
-//
-//    //item Size
-//    [delegate implementMethod:@selector(collectionView:layout:sizeForItemAtIndexPath:) withBlock:^CGSize(UICollectionView *collectionView,UICollectionViewLayout *layout,NSIndexPath *indexPath) {
-//        return CGSizeMake(scaledCellValue(100), scaledCellValue(120));
-//    }];
-//
-//    //内边距
-//    [delegate implementMethod:@selector(collectionView:layout:insetForSectionAtIndex:) withBlock:^UIEdgeInsets(UICollectionView *collectionView ,UICollectionViewLayout *layout, NSInteger section) {
-//        return UIEdgeInsetsMake(0, 15, 0, 15);
-//    }];
-//
-//    self.collectionView.delegate = (id)delegate;
+    //collectionView dataSouce
+    A2DynamicDelegate *dataSouce = self.collectionView.bk_dynamicDataSource;
+
+    //item个数
+    [dataSouce implementMethod:@selector(collectionView:numberOfItemsInSection:) withBlock:^NSInteger(UICollectionView *collectionView, NSInteger section) {
+        return self.dataArray.count;
+    }];
+
+    //Cell
+    [dataSouce implementMethod:@selector(collectionView:cellForItemAtIndexPath:) withBlock:^UICollectionViewCell*(UICollectionView *collectionView,NSIndexPath *indexPath) {
+
+        //id<MovieModelProtocol> cell = nil;
+        id cell = nil;
+
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier] forIndexPath:indexPath];
+        if ([cell respondsToSelector:@selector(renderWithModel:)]) {
+            [cell renderWithModel:self.dataArray[indexPath.row]];
+
+        }
+        return (UICollectionViewCell *)cell;
+    }];
+    self.collectionView.dataSource = (id)dataSouce;
+
+
+    //delegate
+    A2DynamicDelegate *delegate = self.collectionView.bk_dynamicDelegate;
+
+    //item Size
+    [delegate implementMethod:@selector(collectionView:layout:sizeForItemAtIndexPath:) withBlock:^CGSize(UICollectionView *collectionView,UICollectionViewLayout *layout,NSIndexPath *indexPath) {
+        return CGSizeMake(scaledCellValue(100), scaledCellValue(120));
+    }];
+
+    //内边距
+    [delegate implementMethod:@selector(collectionView:layout:insetForSectionAtIndex:) withBlock:^UIEdgeInsets(UICollectionView *collectionView ,UICollectionViewLayout *layout, NSInteger section) {
+        return UIEdgeInsetsMake(0, 15, 0, 15);
+    }];
+
+    self.collectionView.delegate = (id)delegate;
+    
+
     
 }
 
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    return self.dataArray.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    id cell = nil;
+    MVVM_Model *model = self.dataArray[indexPath.item];
+    model.number += 1;
+    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
     
-    cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier] forIndexPath:indexPath];
-    
-    if ([cell respondsToSelector:@selector(renderWithModel:)]) {
-        [cell renderWithModel:self.dataArray[indexPath.row]];
-        
-    }
-    
-    return cell;
+//    [self.viewModel clicked:indexPath];
+
 }
 
-- (CGSize )collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-     return CGSizeMake(scaledCellValue(100), scaledCellValue(120));
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-   return UIEdgeInsetsMake(0, 15, 0, 15);
-}
 /**
  viewModel绑定
  */
 - (void)bindViewModel {
     @weakify(self);
     //将命令执行后的数据交给controller
-    [self.viewModel.command.executionSignals.switchToLatest subscribeNext:^(NSArray<MVVM_Model *> *array) {
+    
+    //第一种写法
+//    [self.viewModel.command.executionSignals.switchToLatest subscribeNext:^(NSArray<MVVM_Model *> *array) {
+//        @strongify(self);
+//        [SVProgressHUD showSuccessWithStatus:@"加载成功"];
+//        self.dataArray = array;
+//        [self.collectionView reloadData];
+//    }];
+//
+//    //执行command
+//    [self.viewModel.command execute:nil];
+//    [SVProgressHUD showWithStatus:@"加载中..."];
+    
+    //第二种写法
+    [[self.viewModel.command execute:@{@"key":@"value"}] subscribeNext:^(NSArray<MVVM_Model *> *array) {
         @strongify(self);
         [SVProgressHUD showSuccessWithStatus:@"加载成功"];
         self.dataArray = array;
         [self.collectionView reloadData];
     }];
     
-    //执行command
-    [self.viewModel.command execute:nil];
     [SVProgressHUD showWithStatus:@"加载中..."];
+    
+    [RACObserve(self.viewModel, dataArray)subscribeNext:^(id  _Nullable x) {
+        NSLog(@"RACObserve监听对象属性：%@",x);
+    }];
 }
 
 - (MVVM_ViewModel *)viewModel {

@@ -12,6 +12,7 @@
 @interface MVVM_Cell()
 @property (nonatomic,weak) UIImageView* imageView;
 @property (nonatomic,weak) UILabel* titleLabel;
+@property (nonatomic,strong) MVVM_Model *model;
 @end
 
 @implementation MVVM_Cell
@@ -34,7 +35,10 @@
     }];
     self.imageView = imageView;
 //    self.imageView.userInteractionEnabled = YES;
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
+//    [[tap rac_gestureSignal]subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+//        _model.number++;
+//    }];
 //    [self.imageView addGestureRecognizer:tap];
     
     
@@ -59,12 +63,12 @@
 }
 
 //模型渲染
-- (void)renderWithModel:(id)model {
-    if ([model isKindOfClass:[MVVM_Model  class]]) {
-        MVVM_Model *movie = model;
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:movie.images[@"large"]?:nil]];
-        self.titleLabel.text = movie.title?:@"";
-    }
+- (void)renderWithModel:(id)model
+{
+    _model = model;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:_model.images[@"large"]?:nil]];
+    self.titleLabel.text = _model.title?:@"";
+    self.titleLabel.text = [NSString stringWithFormat:@"%ld",(long)_model.number];
 }
 
 //cell标识
@@ -72,6 +76,5 @@
 {
     return NSStringFromClass(self.class);
 }
-
 
 @end

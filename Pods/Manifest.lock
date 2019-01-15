@@ -67,6 +67,7 @@ PODS:
     - SBJson (~> 4.0.4)
     - SVProgressHUD (~> 2.1.2)
   - QKChineseVerifyCode (0.0.1)
+  - RATreeView (2.1.2)
   - ReactiveObjC (3.1.0)
   - SBJson (4.0.5)
   - SDCycleScrollView (1.75):
@@ -114,6 +115,7 @@ DEPENDENCIES:
   - NSDictionary-NilSafe
   - "QKAFNetworkSDK (from `svn://wangxiaoli@192.168.1.193/apps/code/tags/Pods/QKAFNetworkSDK/1.0.0`)"
   - "QKChineseVerifyCode (from `svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode`)"
+  - RATreeView (~> 2.1.2)
   - ReactiveObjC (~> 3.1.0)
   - SDCycleScrollView (~> 1.73)
   - SDWebImage (~> 4.2.3)
@@ -151,6 +153,7 @@ SPEC REPOS:
     - MMDrawerController
     - MZTimerLabel
     - NSDictionary-NilSafe
+    - RATreeView
     - ReactiveObjC
     - SBJson
     - SDCycleScrollView
@@ -204,6 +207,7 @@ SPEC CHECKSUMS:
   NSDictionary-NilSafe: 3df5056bf920974cb9822ed24bfc41af44225201
   QKAFNetworkSDK: 45c6a75a636f5ea5dd6cee752f207b207e08bee7
   QKChineseVerifyCode: b7d6ab0a2a3126d6e154bce0e3ded5a7fb0adffa
+  RATreeView: 380cde0090cfde21dc6ac29137f49d3b768fdd28
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SBJson: af3137ccda22be3004487524da0a071c75d4251b
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
@@ -220,6 +224,6 @@ SPEC CHECKSUMS:
   XYPieChart: 0efd8069d26c25d20ab74c01b5ad455f1fc48153
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 636cb7fa432034121f5344f65d0c269b750722ad
+PODFILE CHECKSUM: 8f6cedd93e9698e1618573313edcf4d03eb35617
 
 COCOAPODS: 1.5.3

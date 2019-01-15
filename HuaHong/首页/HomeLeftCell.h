@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void(^Block)(void);
 
 @interface HomeLeftCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
-
+@property (nonatomic,copy) Block block;
 @end

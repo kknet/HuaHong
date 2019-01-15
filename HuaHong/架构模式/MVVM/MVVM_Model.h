@@ -18,4 +18,5 @@
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,strong) NSDictionary *images;
 + (id)InfoWithDictionary:(NSDictionary *)dic;
+@property (nonatomic,assign) NSInteger number;
 @end

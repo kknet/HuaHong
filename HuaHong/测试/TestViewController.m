@@ -43,18 +43,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = YES;
-//    [self.view addSubview:self.collectionView];
     
 //    HHSwitch *hhswitch = [[HHSwitch alloc] initWithFrame:CGRectMake(100, 100, 80, 40)];
 //    [self.view addSubview:hhswitch];
-//
-//    hhswitch.onText = @"打开";
-//    hhswitch.offText = @"关闭";
-//
-//    hhswitch.backgroundColor = [UIColor clearColor];
-//    hhswitch.tintColor = [UIColor lightGrayColor];
-//    hhswitch.thumbTintColor = [UIColor redColor];
-//
 //    [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
    
     
@@ -62,27 +53,27 @@
 //    _tool = tool;
 //    [tool drawCircle:self.view.center radius:100 lineWidth:5 lineColor:[UIColor redColor].CGColor startAngle:-M_PI_2 endAngle:-M_PI_2+2*M_PI clockwise:YES duaring:5 mainView:self.view layerFrame:self.view.bounds];
     
-    TTGTextTagCollectionView *tagCollectionView = [[TTGTextTagCollectionView alloc] initWithFrame:CGRectMake(20, 20, 200, 200)];
-    [self.view addSubview:tagCollectionView];
-    [tagCollectionView addTags:@[@"TTG", @"Tag", @"collection", @"view"]];
-    
-    UICountingLabel *myLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(20, 250, 280, 45)];
-    myLabel.textAlignment = NSTextAlignmentCenter;
-    myLabel.font = [UIFont fontWithName:@"Avenir Next" size:48];
-    myLabel.textColor = [UIColor colorWithRed:236/255.0 green:66/255.0 blue:43/255.0 alpha:1];
-    [self.view addSubview:myLabel];
-    //设置格式
-    myLabel.format = @"%.2f";
-    
-    //设置分隔符样式
-    myLabel.positiveFormat = @"###,##0.00";
-    
-    //设置变化范围及动画时间
-    [myLabel countFrom:0.00
-                         to:3198.23
-               withDuration:1.0f];
-    
-    NSLog(@"familyNames:%@",[UIFont familyNames]);
+//    TTGTextTagCollectionView *tagCollectionView = [[TTGTextTagCollectionView alloc] initWithFrame:CGRectMake(20, 20, 200, 200)];
+//    [self.view addSubview:tagCollectionView];
+//    [tagCollectionView addTags:@[@"TTG", @"Tag", @"collection", @"view"]];
+//
+//    UICountingLabel *myLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(20, 250, 280, 45)];
+//    myLabel.textAlignment = NSTextAlignmentCenter;
+//    myLabel.font = [UIFont fontWithName:@"Avenir Next" size:48];
+//    myLabel.textColor = [UIColor colorWithRed:236/255.0 green:66/255.0 blue:43/255.0 alpha:1];
+//    [self.view addSubview:myLabel];
+//    //设置格式
+//    myLabel.format = @"%.2f";
+//
+//    //设置分隔符样式
+//    myLabel.positiveFormat = @"###,##0.00";
+//
+//    //设置变化范围及动画时间
+//    [myLabel countFrom:0.00
+//                         to:3198.23
+//               withDuration:1.0f];
+//
+//    NSLog(@"familyNames:%@",[UIFont familyNames]);
     
     
 }
@@ -143,11 +134,11 @@
 //        [SVProgressHUD showInfoWithStatus:@"保存成功"];
 //    }];
     
-    NSString *ccc;
-    NSDictionary *dic = @{@"aaa":@"111",@"bbb":@"222",@"ccc":ccc};
-    NSMutableDictionary *paramm = dic.mutableCopy;
-    [paramm setObject:ccc forKey:@"ccc"];
-    NSLog(@"paramm:%@",paramm);
+    
+    NSArray *sortedParams = [@[@"a",@"c",@"b"] sortedArrayUsingSelector:@selector(compare:)];
+    NSLog(@"sortedParams:%@",sortedParams);
+
+    
 //    [param.reverseObjectEnumerator.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //
 //        NSLog(@"obj:%@",obj);

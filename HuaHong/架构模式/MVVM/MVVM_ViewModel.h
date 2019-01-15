@@ -11,5 +11,7 @@
 @interface MVVM_ViewModel : NSObject
 
 @property (nonatomic,strong,readonly)RACCommand *command;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 
+//- (void)clicked:(NSIndexPath *)indexPath;
 @end

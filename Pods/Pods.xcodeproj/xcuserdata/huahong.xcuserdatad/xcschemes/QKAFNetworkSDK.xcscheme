@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5201E0D0DBF080F46945F1EE2D4357E5"
+               BlueprintIdentifier = "874C147DC21A8319D50BEF570AEB3D35"
                BlueprintName = "QKAFNetworkSDK"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libQKAFNetworkSDK.a">
