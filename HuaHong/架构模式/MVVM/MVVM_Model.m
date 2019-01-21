@@ -10,9 +10,6 @@
 
 @implementation MVVM_Model
 
-+ (id)InfoWithDictionary:(NSDictionary *)dic
-{
-    return [[self alloc]initWithDict:dic];
-}
+
 @end
 

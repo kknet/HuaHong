@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (strong, nonatomic) IBOutlet UIButton *btn;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextField *anotherTextField;
 @property (strong, nonatomic) IBOutlet RACView *racView;
 @property (nonatomic,strong)id <RACSubscriber> subscriber;
 @property (nonatomic,strong) RACCommand *command;
@@ -44,6 +45,7 @@
 //    [self RACSequence];
     
 //    [self RACMulticastConnection];
+    
 }
 
 - (void)viewDidLoad {
@@ -67,6 +69,8 @@
     [self rac_gestureSignal];
     
     [self racCommand];
+    
+    [self dataBinding];
     
 }
 
@@ -549,6 +553,19 @@
         NSLog(@"distinctUntilChanged:%@",x);
     }];
     
+    /**
+     * 29.mapReplace
+     *
+     **/
+    
+    
+    /**
+     * 30.deliverOn
+     * 执行在xx线程
+     **/
+    [[signal deliverOn:[RACScheduler scheduler]]subscribeNext:^(id  _Nullable x) {
+        
+    }];
     //处理当界面有多次请求时，需要都获取到数据时，才能展示界面
     [self rac_liftSelector:@selector(updateUIWithOneData:TwoData:) withSignalsFromArray:@[aSignal,bSignal]];
 }
@@ -938,23 +955,14 @@
     
 }
 
-- (void)bind
+- (void)dataBinding
 {
-//        RACChannelTerminal *channelA = RACChannelTo(self, valueA);
-//        RACChannelTerminal *channelB = RACChannelTo(self, valueB);
-//        [[channelA map:^id(NSString *value) {
-//            if ([value isEqualToString:@"西"]) {
-//                return @"东";
-//            }
-//            return value;
-//        }] subscribe:channelB];
-//    
-//        [[channelB map:^id(NSString *value) {
-//            if ([value isEqualToString:@"左"]) {
-//                return @"右";
-//            }
-//            return value;
-//        }] subscribe:channelA];
+    [_textField.rac_newTextChannel subscribe:_anotherTextField.rac_newTextChannel];
+    [_anotherTextField.rac_newTextChannel subscribe:_textField.rac_newTextChannel];
+    
+
+    RACChannelTo(self,title) = RACChannelTo(self.textField,text);
+    [self.textField.rac_textSignal subscribe:RACChannelTo(self,title)];
     
 }
 @end

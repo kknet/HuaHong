@@ -8,9 +8,32 @@
 
 #import "UIImage+Category.h"
 #import <AVFoundation/AVFoundation.h>
+//用于图片旋转
+#import <QuartzCore/QuartzCore.h>
+#import <Accelerate/Accelerate.h>
+
+@interface View:UIView
+@property (nonatomic,strong) UIImage *image;
+@end
+
+@implementation View
+- (void)drawRect:(CGRect)rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    CGContextAddEllipseInRect(context, CGRectMake(0, 0, rect.size.width/2.0, rect.size.height/2.0));
+    CGContextClip(context);
+    CGContextFillPath(context);
+    [_image drawAtPoint:CGPointMake(0, 0)];
+    CGContextRestoreGState(context);
+}
+@end
+
 
 @implementation UIImage (Category)
-+ (nullable UIImage *)imageWithColor:(UIColor *)color
+
+/** 根据颜色生成图片 */
++ (UIImage *)imageWithColor:(UIColor *)color
 {
     CGRect rect = CGRectMake(0, 0, 1, 1);
     
@@ -26,13 +49,98 @@
     return image;
 }
 
-#pragma mark 方向校正
+/** 裁剪 */
+- (UIImage*)imageCutSize:(CGRect)rect
+{
+    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+    CGRect smallRect = CGRectMake(0, 0, CGImageGetWidth(subImageRef), CGImageGetHeight(subImageRef));
+    
+    UIGraphicsBeginImageContext(smallRect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, smallRect, subImageRef);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+/** 缩放 */
+- (UIImage*)imageScaleSize:(CGSize)size
+{
+    UIGraphicsBeginImageContext(size);
+    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+/** 旋转 */
+- (UIImage*)imageRotateInDegree:(float)degree
+{
+    size_t width = (size_t)(self.size.width * self.scale);
+    size_t height = (size_t)(self.size.height * self.scale);
+    size_t bytesPerRow = width * 4;//每行图片字节数
+    CGImageAlphaInfo alphaInfo = kCGImageAlphaPremultipliedFirst;
+    
+    //配置上下文参数
+    CGContextRef bmContext = CGBitmapContextCreate(NULL, width, height, 8, bytesPerRow, CGColorSpaceCreateDeviceRGB(), kCGBitmapByteOrderDefault | alphaInfo);
+    if (!bmContext) return nil;
+    CGContextDrawImage(bmContext, CGRectMake(0, 0, width, height), self.CGImage);
+    
+    //旋转
+    UInt8 *data = (UInt8 *)CGBitmapContextGetData(bmContext);
+    vImage_Buffer src = {data,height,width,bytesPerRow};
+    vImage_Buffer dest = {data,height,width,bytesPerRow};
+    Pixel_8888 bgColor = {0,0,0,0};
+    vImageRotate_ARGB8888(&src, &dest, NULL, degree, bgColor, kvImageBackgroundColorFill);
+    
+     //context -> UIImage
+    CGImageRef rotateImageRef = CGBitmapContextCreateImage(bmContext);
+    UIImage *image = [UIImage imageWithCGImage:rotateImageRef scale:self.scale orientation:self.imageOrientation];
+    
+    return image;
+}
+
+/** 水印 */
+- (UIImage *)waterMark:(UIImage *)logoImage WaterString:(NSString *)text
+{
+    UIGraphicsBeginImageContext(self.size);
+    
+    //绘制logo
+    [logoImage drawInRect:CGRectMake(self.size.width-50-10, self.size.height-50-10, 50, 50)];
+    
+    //绘制文字
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle]mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *Attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:20],NSParagraphStyleAttributeName:paragraphStyle,NSForegroundColorAttributeName:[UIColor redColor]};
+    [text drawInRect:CGRectMake(0, 0, self.size.width, 60) withAttributes:Attributes];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+/** 剪裁成圆形 */
+- (UIImage *)imageClipCircle
+{
+    CGFloat imageSizeMin = MIN(self.size.width, self.size.height);
+    View *mView = [[View alloc]init];
+    mView.image = self;
+    UIGraphicsBeginImageContext(CGSizeMake(imageSizeMin, imageSizeMin));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    mView.frame = CGRectMake(0, 0, imageSizeMin, imageSizeMin);
+    mView.backgroundColor = [UIColor whiteColor];
+    [mView.layer renderInContext:context];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 /**
+   方向校正
  1. 先将头部朝上
  2. 将镜像反转
  3. 重新合成输出
  */
-
 + (UIImage*)fixOrientation:(UIImage*)aImage
 {
     
@@ -137,4 +245,5 @@
     return image;
     
 }
+
 @end

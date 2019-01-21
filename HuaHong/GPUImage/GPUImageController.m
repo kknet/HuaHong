@@ -30,18 +30,35 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.imageView];
-    UIImage *image = [UIImage imageNamed:@"01"];
-    self.imageView.image = image;
+    
+    @weakify(self)
+    [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:@"http://sc0.hao123img.com/data/2017-02-23/1_78858744caabdeb66e298e1fa2077b24_510"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
+    } completed:^(UIImage * _Nullable sdImage, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.imageView.image = sdImage;
+            
+            value = 1.0;
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"饱和度" style:(UIBarButtonItemStylePlain) target:self action:@selector(SketchFilter)];
+            
+        });
+        
+    }];
     
     
-    value = 1.0;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"饱和度" style:(UIBarButtonItemStylePlain) target:self action:@selector(adjustSaturation)];
+    
+    
+    
+    
+   
 }
 
 /** 饱和度滤镜 */
 - (void)adjustSaturation
 {
-     UIImage *image = [UIImage imageNamed:@"01"];
+     UIImage *image = self.imageView.image;
     
     if (!_filter) {
         _filter = [[GPUImageSaturationFilter alloc]init];
@@ -66,7 +83,8 @@
 /** 黑白滤镜 */
 - (void)SketchFilter
 {
-    UIImage *image = [UIImage imageNamed:@"01"];
+    UIImage *image = self.imageView.image;
+   
 
     GPUImageSketchFilter *SketchFilter = [[GPUImageSketchFilter alloc]init];
     
@@ -117,6 +135,7 @@
     if (!_imageView) {
         _imageView = [[UIImageView alloc]init];
         _imageView.frame = self.view.bounds;
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     
     return _imageView;

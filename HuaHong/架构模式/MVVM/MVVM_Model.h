@@ -10,13 +10,13 @@
 
 @protocol MVVM_ModelDelegate <NSObject>
 @optional
-- (void)renderWithModel:(id)model;
+- (void)setModel:(id)model;
 @end
 
 
 @interface MVVM_Model : BaseModel
+
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,strong) NSDictionary *images;
-+ (id)InfoWithDictionary:(NSDictionary *)dic;
-@property (nonatomic,assign) NSInteger number;
+
 @end

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MVVM_ViewModel.h"
 
 @interface MVVM_Cell : UICollectionViewCell
 
+@property (nonatomic,strong) MVVM_ViewModel *viewModel;
 + (NSString *)cellReuseIdentifier;
 
 @end

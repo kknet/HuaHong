@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MVVM_Controller : UIViewController
+@interface MVVM_Controller : BaseViewController
 
 @end

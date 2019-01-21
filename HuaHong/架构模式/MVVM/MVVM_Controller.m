@@ -15,7 +15,7 @@
 
 #define scaledCellValue(value) ( floorf(CGRectGetWidth(collectionView.frame) / 375 * (value)) )
 
-@interface MVVM_Controller ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface MVVM_Controller ()
 @property (nonatomic,strong) MVVM_ViewModel *viewModel;
 @property (nonatomic,weak) UICollectionView *collectionView;
 @property (nonatomic,strong) NSArray *dataArray;
@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"MVVM";
     //初始化UI
     [self initUI];
     
@@ -38,8 +39,6 @@
 {
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
     collectionView.backgroundColor = [UIColor whiteColor];
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
     [self.view addSubview:collectionView];
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_topLayoutGuide);
@@ -63,11 +62,12 @@
     [dataSouce implementMethod:@selector(collectionView:cellForItemAtIndexPath:) withBlock:^UICollectionViewCell*(UICollectionView *collectionView,NSIndexPath *indexPath) {
 
         //id<MovieModelProtocol> cell = nil;
-        id cell = nil;
+        MVVM_Cell<MVVM_ModelDelegate> *cell = nil;
 
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier] forIndexPath:indexPath];
-        if ([cell respondsToSelector:@selector(renderWithModel:)]) {
-            [cell renderWithModel:self.dataArray[indexPath.row]];
+        cell.viewModel = _viewModel;
+        if ([cell respondsToSelector:@selector(setModel:)]) {
+            [cell setModel:self.dataArray[indexPath.row]];
 
         }
         return (UICollectionViewCell *)cell;
@@ -90,19 +90,8 @@
 
     self.collectionView.delegate = (id)delegate;
     
-
-    
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    MVVM_Model *model = self.dataArray[indexPath.item];
-    model.number += 1;
-    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-    
-//    [self.viewModel clicked:indexPath];
-
-}
 
 /**
  viewModel绑定
@@ -133,8 +122,10 @@
     
     [SVProgressHUD showWithStatus:@"加载中..."];
     
-    [RACObserve(self.viewModel, dataArray)subscribeNext:^(id  _Nullable x) {
-        NSLog(@"RACObserve监听对象属性：%@",x);
+    [RACObserve(self.viewModel, isNeedRefresh)subscribeNext:^(id  _Nullable x) {
+        if ([x boolValue]) {
+            [self.collectionView reloadData];
+        }
     }];
 }
 

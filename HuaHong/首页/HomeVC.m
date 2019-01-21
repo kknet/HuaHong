@@ -8,7 +8,6 @@
 #import "CollectionHeadView.h"
 #import "HomeLeftCell.h"
 #import "CollectionCell.h"
-#import "DataSource.h"
 
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
@@ -108,14 +107,57 @@ static NSString *headerID = @"headerID";
     _selectIndex = 0;
     _isScrollDown = YES;
     
-    self.tableViewArray = [NSMutableArray arrayWithArray:[DataSource getTableViewArray]];
+    _tableView.tableFooterView = [UIView new];
+    _tableViewArray = [NSMutableArray array];
+    _collectionViewArray = [NSMutableArray array];
     
-    self.collectionViewArray  = [NSMutableArray arrayWithArray:[DataSource getCollectionViewArray]];
+    [MBProgressHUD showLoading:@"Loading..." toView:self.view];
+    __weak typeof(self) weakSelf = self;
+    [self requestData:^(NSArray *tableArray, NSArray *collectionArray,NSError *error) {
+      
+        [MBProgressHUD hideHUDForView:self.view];
+        
+        if (error) {
+            [SVProgressHUD showErrorWithStatus:@"请求数据错误"];
+            
+            _collectionView.emptyDataSetSource = self;
+            _collectionView.emptyDataSetDelegate = self;
+            
+            return ;
+        }
+        
+        
+        [weakSelf.tableViewArray addObjectsFromArray:tableArray];
+        [weakSelf.collectionViewArray addObjectsFromArray:collectionArray];
+        
+        [weakSelf.tableView reloadData];
+        [weakSelf.collectionView reloadData];
+    }];
+   
     
-    _collectionView.emptyDataSetSource = self;
-    _collectionView.emptyDataSetDelegate = self;
+   
 }
 
+
+- (void)requestData:(void(^)(NSArray *tableArray,NSArray *collectionArray,NSError * error))callback
+{
+    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
+//    [query whereKeyExists:@"table"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if (error) {
+            callback(nil,nil,error);
+            return ;
+        }
+        
+     AVObject *object = objects.firstObject;
+     NSArray *tableArray = [object objectForKey:@"table"];
+     NSArray *collectionArray = [object objectForKey:@"collection"];
+
+     callback(tableArray,collectionArray,nil);
+
+    }];
+}
 #pragma mark 空白页面代理
 //空白页显示图片
 //-(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView

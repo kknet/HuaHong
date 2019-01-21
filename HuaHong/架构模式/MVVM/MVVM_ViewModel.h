@@ -11,7 +11,7 @@
 @interface MVVM_ViewModel : NSObject
 
 @property (nonatomic,strong,readonly)RACCommand *command;
-@property (nonatomic,strong) NSMutableArray *dataArray;
+@property (nonatomic,assign) BOOL isNeedRefresh;
 
-//- (void)clicked:(NSIndexPath *)indexPath;
+
 @end

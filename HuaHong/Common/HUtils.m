@@ -272,7 +272,6 @@ return (UIInterfaceOrientationIsLandscape(statusBarOrientation));
     [_layer addAnimation:animation forKey:@"rotation"];
     [mainView.layer addSublayer:_layer];
     
-    
 }
 
 - (void)dismiss

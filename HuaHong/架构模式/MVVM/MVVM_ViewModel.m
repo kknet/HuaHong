@@ -13,6 +13,7 @@
 
 @interface MVVM_ViewModel ()
 @property (nonatomic,strong)RACCommand *command;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @end
 
 @implementation MVVM_ViewModel
@@ -73,14 +74,13 @@
         
     } withResultBlock:^(NSDictionary *data) {
         
-        NSMutableArray *array = [NSMutableArray array];
-        NSArray *subjects = [data objectForKey:@"subjects"];
-        //遍历数组取出 存入数组并回调出去
-        [subjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            MVVM_Model *model = [MVVM_Model InfoWithDictionary:obj];
-//            model.title = @"0";
-            [array addObject:model];
-        }];
+         NSArray *subjects = [data objectForKey:@"subjects"];
+        
+        NSArray *array = [[subjects.rac_sequence map:^id _Nullable(id  _Nullable value) {
+            
+            return [MVVM_Model parserModelWithDictionary:value];
+        }]array];
+        
         if (succeedBlock) {
             succeedBlock(array);
         }

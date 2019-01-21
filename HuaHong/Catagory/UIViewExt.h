@@ -38,4 +38,7 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 
 -(void)shadow:(UIColor *)shadowColor opacity:(CGFloat)opacity radius:(CGFloat)radius offset:(CGSize)offset;
 
+/** 截屏 */
+- (UIImage*)takeSnapshot:(CGRect)rect;
+
 @end

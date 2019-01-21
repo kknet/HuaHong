@@ -52,6 +52,8 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import "UICountingLabel.h"
 #import "NSTimer+HHTimer.h"
+#import <FBShimmeringView.h>
+#import <AVOSCloud/AVOSCloud.h>
 
 
 #import "Model.h"

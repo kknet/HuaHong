@@ -7,7 +7,7 @@
 //
 
 #import "LeanCloudViewController.h"
-#import <AVOSCloud/AVOSCloud.h>
+//#import <AVOSCloud/AVOSCloud.h>
 
 @interface LeanCloudViewController ()
 
@@ -20,18 +20,54 @@
     
 }
 
+- (NSArray *)getTableViewArray
+{
+    return @[@"控件",@"定位",@"传感器",@"音频",@"视频",@"相册",@"通讯录",@"二维码",@"动画",@"网络",@"手势交互",@"数据持久化",@"绘图",@"日历",@"图文混排",@"架构模式",@"图表",@"多线程",@"编程思想",@"蓝牙",@"智能识别",@"设计模式",@"其他",@"KVO"];
+}
+
+- (NSArray *)getCollectionViewArray
+{
+    return  @[
+              @[@"瀑布流",@"tableView",@"WKWebView",@"block",@"TextView",@"Button",@"MenuControll",@"PageControl",@"UIWebView",@"RATreeView"],
+              @[@"苹果地图" ,@"大头针",@"系统地图导航",@"百度地图"],
+              @[@"光学传感器",@"3DTouch",@"指纹识别",@"距离传感器",@"重力传感器",@"碰撞",@"甩行为",@"附着行为",@"推行为",@"加速计陀螺仪磁力针",@"计步器"],
+              @[@"文字转语音",@"录音",@"语音合成"],
+              @[@"视频录制1",@"视频录制2",@"视频录制3",@"视频合成",@"自定义"],
+              @[@"相册",@"GPUImage"],
+              @[@"系统通讯录",@"自定义通讯录"],
+              @[@"二维码扫描",@"二维码生成"],
+              @[@"基本动画",@"扇形加载",@"转场动画"],
+              @[@"多网络请求",@"session请求",@"下载",@"上传",@"Https证书",@"删除数据",@"XML解析",@"JSON/Plist",@"AFN"],
+              @[@"触摸手势交互"],
+              @[@"数据存储",@"云端存储",@"CoreData",@"SQLite"],
+              @[@"绘图",@"时钟",@"画板"],
+              @[@"日历"],
+              @[@"图文混排"],
+              @[@"MVVM",@"MVP"],
+              @[@"图表"],
+              @[@"多线程"],
+              @[@"RAC",@"函数式编程",@"链式编程",@"runtime",@"runloop"],
+              @[@"蓝牙",@"蓝牙外设"],
+              @[@"人脸识别",@"手势解锁",@"卡片识别"],
+              @[@"策略模式",@"桥接模式"],
+              @[@"计时器",@"密码安全",@"正则表达式",@"分段选择"],
+              @[@"KVO"]
+              ];
+}
+
 
 - (IBAction)addAction
 {
-    AVObject *todo = [AVObject objectWithClassName:@"HUAHONG"];
-    [todo setObject:@"工程师周会" forKey:@"title"];
-    [todo setObject:@"每周工程师会议，周一下午2点" forKey:@"content"];
+    
+    AVObject *todo = [AVObject objectWithClassName:@"HomeDadaSource"];
+    [todo setObject:[self getTableViewArray] forKey:@"table"];
+    [todo setObject:[self getCollectionViewArray] forKey:@"collection"];
     [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
+            [SVProgressHUD showSuccessWithStatus:@"存储成功"];
             
-            NSLog(@"存储成功");
         } else {
-            NSLog(@"存储失败");
+            [SVProgressHUD showErrorWithStatus:@"存储失败"];
 
         }
     }];
@@ -46,7 +82,7 @@
     // 查询对象
     
     //1. 指定查询的表名
-    AVQuery *query = [AVQuery queryWithClassName:@"HUAHONG"];
+    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
     
     //2. 设置查询条件
     [query whereKey:@"content" containsString:@"会议"];
@@ -85,7 +121,7 @@
     // 查询对象
     
     //1. 指定查询的表名
-    AVQuery *query = [AVQuery queryWithClassName:@"HUAHONG"];
+    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
     
     //2. 设置查询条件
     [query whereKey:@"content" containsString:@"会议"];
@@ -126,7 +162,7 @@
     // 查询对象
     
     //1. 指定查询的表名
-    AVQuery *query = [AVQuery queryWithClassName:@"HUAHONG"];
+    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
     
     //2. 设置查询条件
     [query whereKey:@"content" containsString:@"会议"];

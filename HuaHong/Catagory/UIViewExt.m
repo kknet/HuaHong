@@ -237,4 +237,14 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center)
     self.layer.shadowRadius = radius;
     self.layer.shadowOffset = offset;
 }
+
+- (UIImage*)takeSnapshot:(CGRect)rect
+{
+    UIGraphicsBeginImageContext(rect.size);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 @end

@@ -12,7 +12,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (Category)
 
-+ (nullable UIImage *)imageWithColor:(UIColor *)color;
+/** 根据颜色生成图片 */
++ (UIImage *)imageWithColor:(UIColor *)color;
+
+/** 裁剪 */
+- (UIImage*)imageCutSize:(CGRect)rect;
+
+/** 缩放 */
+- (UIImage*)imageScaleSize:(CGSize)size;
+
+/** 旋转 */
+- (UIImage*)imageRotateInDegree:(float)degree;
+
+/** 水印 */
+- (UIImage *)waterMark:(UIImage *)logoImage WaterString:(NSString *)text;
+
+/** 剪裁成圆形 */
+- (UIImage *)imageClipCircle;
 
 /** 方向校正 */
 + (UIImage*)fixOrientation:(UIImage*)aImage;

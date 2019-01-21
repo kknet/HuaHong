@@ -8,13 +8,26 @@
 
 #import "BaseModel.h"
 #import <objc/runtime.h>
+#import <YYModel.h>
 
 @implementation BaseModel
+
++ (instancetype)parserModelWithDictionary:(NSDictionary *)dictionary
+{
+    if (!dictionary || ![dictionary isKindOfClass:[NSDictionary class]]) {
+        return nil;
+    }
+    return [self yy_modelWithDictionary:dictionary];
+}
 
 -(instancetype)initWithDict:(NSDictionary *)dict
 {
     self = [super init];
     if (self) {
+        
+        if (!dict || ![dict isKindOfClass:[NSDictionary class]]) {
+            return nil;
+        }
         
         [self setValuesForKeysWithDictionary:dict];
         

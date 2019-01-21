@@ -11,5 +11,6 @@
 @interface BaseModel : NSObject<NSCoding>
 
 -(instancetype)initWithDict:(NSDictionary *)dict;
++ (instancetype)parserModelWithDictionary:(NSDictionary *)dictionary;
 
 @end

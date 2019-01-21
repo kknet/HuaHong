@@ -101,7 +101,7 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [self baiduMap];
 
     //云端存储
-//    [self leanCloud];
+    [self leanCloud];
 
     //人脸识别
     [self face];
