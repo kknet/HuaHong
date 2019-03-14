@@ -137,6 +137,7 @@
 #import "VideoRecordController.h"
 #import "GPUImageController.h"
 #import "RATreeViewController.h"
+#import "HHAlertView.h"
 
 
 #endif /* Public_h */

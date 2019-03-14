@@ -76,8 +76,15 @@
 //    NSLog(@"familyNames:%@",[UIFont familyNames]);
     
     
+    
 }
 
+- (void)showAlertView
+{
+    HHAlertView *alertView = [HHAlertView sharedAlertView];
+    alertView.message = @"新华社北京3月13日电（记者叶昊鸣）记者13日从应急管理部了解到，财政部、应急管理部当日向青海省下拨中央自然灾害救灾资金1亿元，主要用于支持做好青海省玉树、果洛等地严重雪灾受灾群众救助工作，保障受灾群众基本生活。";
+    [alertView show];
+}
 -(void)switchAction:(HHSwitch *)sender
 {
     if (sender.isOn)
@@ -98,7 +105,7 @@
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self buglyTest];
+//    [self buglyTest];
     
 //    NSLog(@"weekdays:%@",weekdays);
     
@@ -114,8 +121,8 @@
 //    //vc1:TestVC
 //    NSLog(@"vc1:%@,vc2:%@",vc1,vc2);
     
-    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
-    testView.backgroundColor = [UIColor cyanColor];
+//    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
+//    testView.backgroundColor = [UIColor cyanColor];
 //    [testView renderWithModel:nil];
 
 //  UIView *snapshot =  [testView snapshotViewAfterScreenUpdates:YES];
@@ -161,6 +168,8 @@
    
 //    [HUtils forceOrientation:UIInterfaceOrientationLandscapeLeft];
 //    NSLog(@"%d",[HUtils isOrientationLandscape]);
+    
+    [self showAlertView];
 }
 
 -(void)share

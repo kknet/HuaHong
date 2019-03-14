@@ -30,6 +30,8 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 - (void) scaleBy: (CGFloat) scaleFactor;
 - (void) fitInSize: (CGSize) aSize;
 
+/** 设置圆角 */
+- (void)setCornerRadius:(CGFloat)cornerRadius byRoundingCorners:(UIRectCorner)corners;
 
 - (UIViewController *)viewController;
 

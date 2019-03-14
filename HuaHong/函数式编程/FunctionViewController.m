@@ -21,9 +21,12 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
+    Person *p = [Person new];
+    [[p run1]run1];
     
+    p.run2().run2();
     
-    
+    p.run3(1).run3(2).run3(3);
     
 }
 

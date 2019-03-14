@@ -89,6 +89,7 @@
     }];
 
     self.collectionView.delegate = (id)delegate;
+ 
     
 }
 

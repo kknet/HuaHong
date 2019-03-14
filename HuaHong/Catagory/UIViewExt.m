@@ -210,6 +210,15 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center)
     return nil;
 }
 
+/** 设置圆角 */
+- (void)setCornerRadius:(CGFloat)cornerRadius byRoundingCorners:(UIRectCorner)corners {
+    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(cornerRadius, self.bounds.size.height)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = path.CGPath;
+    self.layer.mask = maskLayer;
+}
+
 //判断一个view是否在主窗口上
 -(BOOL)isShowingOnWindow{
     

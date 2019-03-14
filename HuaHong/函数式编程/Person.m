@@ -26,4 +26,30 @@
 {
     NSLog(@"Persion eat:%@",objc);
 }
+
+/*--------------------------------------------------------------------*/
+- (nonnull Person *)run1
+{
+    NSLog(@"run1");
+    return self;
+}
+
+- (Person * _Nonnull (^)(void))run2
+{
+    Person *(^runBlock)(void) = ^Person *(){
+        NSLog(@"run2");
+        return self;
+    };
+    
+    return runBlock;
+}
+
+- (Person * _Nonnull (^)(float distance))run3
+{
+    return ^ Person * (float distance) {
+        NSLog(@"跑了 %.0f 米", distance);
+        
+        return self;
+    };
+}
 @end

@@ -38,13 +38,13 @@
     //
     //      [self once];
     
-    //          [self group1];
+              [self group];
     
     //    [self operation];
     
 //    [self apply];
     
-    [self semaphore];
+//    [self semaphore];
     
 }
 
@@ -184,6 +184,7 @@
 }
 
 #pragma mark 调度组
+//并行执行，notify最后执行
 -(void)group
 {
     dispatch_group_t group = dispatch_group_create();
@@ -194,7 +195,7 @@
     
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
         [NSThread sleepForTimeInterval:1.0];
-//        sleep(1);
+        sleep(1);
         NSLog(@"bbbb");
     });
     

@@ -13,6 +13,8 @@
 		7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8341FC50D7000774E40 /* AppDelegate.m */; };
 		7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */; };
 		7D0DA8461FC50D7000774E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8451FC50D7000774E40 /* main.m */; };
+		7D16E3E8223A1CA50027C5FC /* HHAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D16E3E5223A1CA40027C5FC /* HHAlertView.xib */; };
+		7D16E3E9223A1CA50027C5FC /* HHAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D16E3E6223A1CA50027C5FC /* HHAlertView.m */; };
 		7D1A364B20A17C2000D74375 /* HHSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A364A20A17C1F00D74375 /* HHSegmentController.m */; };
 		7D1A364E20A17D9D00D74375 /* HHSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A364D20A17D9D00D74375 /* HHSegmentView.m */; };
 		7D1A365720A5683500D74375 /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A365220A5683400D74375 /* CoreDataController.m */; };
@@ -254,6 +256,9 @@
 		7D0DA83D1FC50D7000774E40 /* HuaHong.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HuaHong.xcdatamodel; sourceTree = "<group>"; };
 		7D0DA8441FC50D7000774E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D0DA8451FC50D7000774E40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7D16E3E5223A1CA40027C5FC /* HHAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHAlertView.xib; sourceTree = "<group>"; };
+		7D16E3E6223A1CA50027C5FC /* HHAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAlertView.m; sourceTree = "<group>"; };
+		7D16E3E7223A1CA50027C5FC /* HHAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAlertView.h; sourceTree = "<group>"; };
 		7D1A364920A17C1F00D74375 /* HHSegmentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSegmentController.h; sourceTree = "<group>"; };
 		7D1A364A20A17C1F00D74375 /* HHSegmentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSegmentController.m; sourceTree = "<group>"; };
 		7D1A364C20A17D9D00D74375 /* HHSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSegmentView.h; sourceTree = "<group>"; };
@@ -793,6 +798,16 @@
 			path = HuaHong;
 			sourceTree = "<group>";
 		};
+		7D16E3E4223A1C470027C5FC /* HHAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				7D16E3E7223A1CA50027C5FC /* HHAlertView.h */,
+				7D16E3E6223A1CA50027C5FC /* HHAlertView.m */,
+				7D16E3E5223A1CA40027C5FC /* HHAlertView.xib */,
+			);
+			path = HHAlertView;
+			sourceTree = "<group>";
+		};
 		7D1A364820A17BC900D74375 /* HHSegment */ = {
 			isa = PBXGroup;
 			children = (
@@ -967,6 +982,7 @@
 		7D3623E11FCE51B400C77874 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7D16E3E4223A1C470027C5FC /* HHAlertView */,
 				7D328A53206CD62D00A64272 /* HUtils.h */,
 				7D328A54206CD62D00A64272 /* HUtils.m */,
 				7DE8D5891FC55A6C00577762 /* UtilsMacro.h */,
@@ -1924,6 +1940,7 @@
 				7D81144620EFB63C00349078 /* h5.html in Resources */,
 				7DD8E35021D4774100ADA2B7 /* RaTreeViewCell.xib in Resources */,
 				7D93371321ABC3940048E6D4 /* MBProgressHUD.bundle in Resources */,
+				7D16E3E8223A1CA50027C5FC /* HHAlertView.xib in Resources */,
 				7DDE3D3420F505080044FC85 /* QKCRIndicateCell.xib in Resources */,
 				7DAA3CE62041B28C00B12BC4 /* rsacert.der in Resources */,
 				7DA1D6CD2062207900EB0AC2 /* Localizable.strings in Resources */,
@@ -2093,6 +2110,7 @@
 				7DB9B54C1FD7E6800011EE54 /* VideoTopView.m in Sources */,
 				7D4E59C821721F66003D01CF /* NetworkTools.m in Sources */,
 				7DDE3D3520F505080044FC85 /* QKCRIndicateCell.m in Sources */,
+				7D16E3E9223A1CA50027C5FC /* HHAlertView.m in Sources */,
 				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
 				7DB9100F2148C28600A9B40C /* MVPModel.m in Sources */,
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
@@ -2378,8 +2396,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = HuaHong/HuaHong.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3PV33XPK7B;
@@ -2397,10 +2417,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/BaiduMapKit/BaiduMapKit/thirdlibs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qk.TheHousing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HuaHong.OC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "64deefad-8e61-4500-9821-16e3b7ec5d56";
-				PROVISIONING_PROFILE_SPECIFIER = TheHousingDev;
+				PROVISIONING_PROFILE_SPECIFIER = QKTest;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/Swift/HuaHong-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2414,9 +2434,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = HuaHong/HuaHong.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 3PV33XPK7B;
@@ -2434,10 +2455,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/BaiduMapKit/BaiduMapKit/thirdlibs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qk.TheHousing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HuaHong.OC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "64deefad-8e61-4500-9821-16e3b7ec5d56";
-				PROVISIONING_PROFILE_SPECIFIER = TheHousingDev;
+				PROVISIONING_PROFILE_SPECIFIER = QKTest;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/首页/HuaHong-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
