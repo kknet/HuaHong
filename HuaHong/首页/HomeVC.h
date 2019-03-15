@@ -22,34 +22,5 @@
 
 -(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler;
 
-/**
- * <# #>
-UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
- 
- [alertCtrl addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
- 
- [self submitData];
- }]];
- 
- [alertCtrl addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
- 
- }]];
- 
- 
- UIView *subView1 = alertCtrl.view.subviews[0];
- UIView *subView2 = subView1.subviews[0];
- UIView *subView3 = subView2.subviews[0];
- UIView *subView4 = subView3.subviews[0];
- UIView *subView5 = subView4.subviews[0];
- UILabel *messageLab = subView5.subviews[2];
- messageLab.textAlignment = NSTextAlignmentLeft;
- 
- NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
- style.lineSpacing = 5;
- NSDictionary *attributes = @{NSParagraphStyleAttributeName:style};
- messageLab.attributedText = [[NSAttributedString alloc]initWithString:messageLab.text attributes:attributes];
- 
- [self presentViewController:alertCtrl animated:YES completion:nil];
 
- */
 @end

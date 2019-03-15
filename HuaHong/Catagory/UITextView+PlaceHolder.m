@@ -24,7 +24,7 @@ static const void *placeholderKey;
     
     method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")), class_getInstanceMethod(self.class, @selector(dealloc_swizzle)));
 
-//    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"setText:")), class_getInstanceMethod(self.class, @selector(setText_swizzle:)));
+    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"setTextAlignment:")), class_getInstanceMethod(self.class, @selector(setTextAlignment_swizzle:)));
 
     
 }
@@ -51,13 +51,13 @@ static const void *placeholderKey;
     [self dealloc_swizzle];
 }
 
-//- (void)setText_swizzle:(NSString *)text
-//{
-//    [self setText_swizzle:text];
-//    if (self.placeholder) {
-//        [self updatePlaceHolder];
-//    }
-//}
+- (void)setTextAlignment_swizzle:(NSTextAlignment *)textAlignment
+{
+    [self setTextAlignment_swizzle:textAlignment];
+    if (self.placeholder) {
+        [self updatePlaceHolder];
+    }
+}
 
 - (NSString *)placeholder
 {

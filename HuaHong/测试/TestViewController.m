@@ -38,7 +38,7 @@
     [super viewDidLoad];
     self.title = @"测试";
     
-    [self monitorCall];
+//    [self monitorCall];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -83,6 +83,19 @@
 {
     HHAlertView *alertView = [HHAlertView sharedAlertView];
     alertView.message = @"新华社北京3月13日电（记者叶昊鸣）记者13日从应急管理部了解到，财政部、应急管理部当日向青海省下拨中央自然灾害救灾资金1亿元，主要用于支持做好青海省玉树、果洛等地严重雪灾受灾群众救助工作，保障受灾群众基本生活。";
+    alertView.textAlignment = NSTextAlignmentLeft;
+//    alertView.message = @"哈哈哈哈哈哈哈哈";
+
+
+//    alertView.editable = YES;
+    alertView.placeholder = @"请输入...";
+//    [alertView setSingleButton];
+//    //此处有循环引用
+    __weak typeof(self) weakSelf = self;
+    [alertView setSureBlock:^(NSString * _Nonnull message) {
+        weakSelf.title = message;
+    }];
+    
     [alertView show];
 }
 -(void)switchAction:(HHSwitch *)sender
@@ -142,8 +155,8 @@
 //    }];
     
     
-    NSArray *sortedParams = [@[@"a",@"c",@"b"] sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"sortedParams:%@",sortedParams);
+//    NSArray *sortedParams = [@[@"a",@"c",@"b"] sortedArrayUsingSelector:@selector(compare:)];
+//    NSLog(@"sortedParams:%@",sortedParams);
 
     
 //    [param.reverseObjectEnumerator.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -304,5 +317,10 @@
         [_delegate testReturnAction];
     }
     return true;
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc");
 }
 @end

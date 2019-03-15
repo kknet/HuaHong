@@ -219,6 +219,11 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center)
     self.layer.mask = maskLayer;
 }
 
+- (void)setCornerRadius:(CGFloat)cornerRadius
+{
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = YES;
+}
 //判断一个view是否在主窗口上
 -(BOOL)isShowingOnWindow{
     

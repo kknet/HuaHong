@@ -15,11 +15,11 @@
     CGFloat imageWidth = self.imageView.image.size.width;
     CGFloat imageHeiht = self.imageView.image.size.height;
     
-    /** 未发现差别 */
-    CGFloat titleWidth = self.titleLabel.intrinsicContentSize.width;
+    /** 单行文字未发现差别，多行下面的才准确 */
+//    CGFloat titleWidth = self.titleLabel.intrinsicContentSize.width;
+//    CGFloat titleHeight = self.titleLabel.intrinsicContentSize.height;
+    CGFloat titleWidth = self.titleLabel.size.width;
     CGFloat titleHeight = self.titleLabel.intrinsicContentSize.height;
-//    CGFloat titleWidth1 = self.titleLabel.size.width;
-//    CGFloat titleHeight2 = self.titleLabel.intrinsicContentSize.height;
 
     UIEdgeInsets imageInsets = UIEdgeInsetsZero;
     UIEdgeInsets titleInsets = UIEdgeInsetsZero;
