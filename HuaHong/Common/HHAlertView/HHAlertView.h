@@ -10,20 +10,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^SureActionBlock)(NSString *message);
+typedef void(^AlertBlock)(NSString *message);
 @interface HHAlertView : UIView
 
-/** 创建 */
+/** 此处不适合单例创建，每次都需重新初始化 */
 + (instancetype)sharedAlertView;
 
 /** 展示的文字内容 */
 @property (nonatomic,copy) NSString *message;
 
 /** 确定Block */
-@property (nonatomic,copy) SureActionBlock sureBlock;
+@property (nonatomic,copy) AlertBlock sureBlock;
 
-/** 弹出提示框 */
-- (void)show;
+/** 取消Block */
+@property (nonatomic,copy) AlertBlock cancelBlock;
 
 /** 对齐方式 - 默认居中对齐 */
 @property(nonatomic) NSTextAlignment textAlignment;
@@ -36,6 +36,12 @@ typedef void(^SureActionBlock)(NSString *message);
 
 /** 只有可编辑时，才有placeholder */
 @property (nonatomic, copy) NSString *placeholder;
+
+/** 是否禁止输入emoj表情😊，默认禁止YES */
+@property (nonatomic,assign) BOOL forbiddenEmoji;
+
+/** 弹出提示框 */
+- (void)show;
 
 @end
 

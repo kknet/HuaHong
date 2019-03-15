@@ -26,6 +26,49 @@
 @end
 @implementation HHAlertView
 
+/** 此处不适合单例创建，每次都需重新初始化 */
+//+ (instancetype)allocWithZone:(struct _NSZone *)zone
+//{
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        instance = [super allocWithZone:zone];
+//    });
+//
+//    return instance;
+//}
+//+ (instancetype)allocWithZone:(struct _NSZone *)zone
+//{
+//   __block id obj;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        obj = [HHAlertView sharedAlertView];
+//    });
+//
+//    return obj;
+//}
+
+//- (id)copyWithZone:(NSZone *)zone
+//{
+//    return [HHAlertView sharedAlertView];
+//}
++ (instancetype)sharedAlertView
+{
+    static HHAlertView *instance = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
+        instance = [[nib instantiateWithOwner:nil options:nil]lastObject];
+//    });
+    
+    return instance;
+}
+
+//在awakeFromNib之前调用，可以对xib文件的初始化作代码上的调整
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    return self;
+}
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -37,7 +80,7 @@
     self.cancelButton.layer.borderWidth = 1;
     self.cancelButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [self.titleLabel setCornerRadius:10 byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
-    
+    self.forbiddenEmoji = YES;
     self.textView.delegate = self;
     UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
     [self addGestureRecognizer:tap];
@@ -46,16 +89,6 @@
 
         [self endEditing:YES];
     }];
-}
-
-/** 创建 */
-+ (instancetype)sharedAlertView
-{
-    static HHAlertView *instance = nil;
-    
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass(self) bundle:nil];
-    instance = [[nib instantiateWithOwner:nil options:nil]lastObject];
-    return instance;
 }
 
 /** 弹出提示框 */
@@ -72,6 +105,10 @@
     [UIView animateWithDuration:0.25 animations:^{
          [self removeFromSuperview];
     }];
+    
+    if (_cancelBlock) {
+        _cancelBlock(_textView.text);
+    }
 }
 
 /** 确定 */
@@ -119,12 +156,14 @@
 
 - (void)contentSizeFit
 {
-    CGSize maxSize = CGSizeMake(_textView.width, CGFLOAT_MAX);
+    CGFloat maxHeight = kScreenHeight - 64*2 - (_titleLabel.height+_sureButton.height+40);
+    CGSize maxSize = CGSizeMake(_textView.width, maxHeight);
     CGSize newSize = [_textView sizeThatFits:maxSize];
-    _contentHeight.constant =  MAX(newSize.height, 60);
+    CGFloat minHeight = MAX(newSize.height, 60);
+    _contentHeight.constant =  MIN(minHeight, maxHeight);
 
     /** 上下居中 */
-    if (self.textView.contentSize.height <= self.textView.frame.size.height)
+    if (newSize.height <= self.textView.frame.size.height)
     {
         /** 这里不能使用self.textView.frame.size.height，why？*/
         CGFloat offsetY = (_contentHeight.constant - newSize.height)/2;
@@ -132,6 +171,8 @@
         UIEdgeInsets offset = UIEdgeInsetsMake(offsetY, 0, -offsetY, 0);
         [self.textView setTextContainerInset:offset];
     }
+    
+    self.textView.scrollEnabled = newSize.height > maxHeight;
 }
 /** 设置为单个按钮 */
 - (void)setSingleButton
@@ -170,6 +211,8 @@
     }
     
 }
+
+#pragma mark - UITextViewDelegate
 /** 开始编辑，弹框升高，避免键盘遮挡 */
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -182,6 +225,31 @@
      _centerY.constant = 0;
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    
+    if (self.forbiddenEmoji)
+    {
+        //限制苹果系统输入法  禁止输入表情
+        
+        /** 方法一 无效果 */
+//        if ([[[UIApplication sharedApplication]textInputMode].primaryLanguage isEqualToString:@"emoji"]) {
+//            return NO;
+//        }
+        
+        /** 方法二 无效果 */
+//        if ([[[textView textInputMode] primaryLanguage] isEqualToString:@"emoji"]) {
+//            return NO;
+//        }
+        
+        /** 方法三 有部分效果 */
+        if ([[[UITextInputMode currentInputMode] primaryLanguage] isEqualToString:@"emoji"]) {
+            return NO;
+        }
+    }
+   
+    return YES;
+}
 
 /**
  //系统弹框自动换行
