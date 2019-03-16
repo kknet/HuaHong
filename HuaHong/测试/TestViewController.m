@@ -90,6 +90,9 @@
     alertView.attributedMessage = attrMessage;
     alertView.textAlignment = NSTextAlignmentLeft;
 
+//     [alertView setLeftButtonColor:[UIColor redColor]];
+//    [alertView setLeftButtonTitleColor:[UIColor orangeColor]];
+
 //    [alertView setSingleButton];
 
      alertView.delegate = self;

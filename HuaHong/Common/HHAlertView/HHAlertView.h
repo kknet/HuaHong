@@ -64,6 +64,30 @@ typedef void(^AlertBlock)(NSString *message);
 /** 是否禁止输入emoj表情😊，默认禁止YES */
 @property (nonatomic,assign) BOOL forbiddenEmoji;
 
+/** 设置标题颜色 */
+- (void)setTitleColor:(UIColor *)color;
+
+/** 设置左按钮颜色 */
+- (void)setLeftButtonColor:(UIColor *)color;
+
+/** 设置右按钮颜色 */
+- (void)setRightButtonColor:(UIColor *)color;
+
+/** 设置单按钮颜色 */
+- (void)setSingleButtonColor:(UIColor *)color;
+
+/** 设置标题字体颜色 */
+- (void)setTitleTextColor:(UIColor *)color;
+
+/** 设置左按钮字体颜色 */
+- (void)setLeftButtonTitleColor:(UIColor *)color;
+
+/** 设置右按钮字体颜色 */
+- (void)setRightButtonTitleColor:(UIColor *)color;
+
+/** 设置单按钮字体颜色 */
+- (void)setSingleButtonTitleColor:(UIColor *)color;
+
 /** 弹出提示框 */
 - (void)show;
 

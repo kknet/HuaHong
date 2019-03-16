@@ -13,6 +13,8 @@
 #define kMinHeight 60      //最小高度
 #define kcornerRadius 10   //圆角
 #define kKeyBoardRemoveHeight 100  //键盘移动高度
+#define kHHNavBarHeight  ([UIScreen mainScreen].bounds.size.height > 800 ? 88 : 64)
+
 @interface HHAlertView()<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -230,8 +232,8 @@
 /** 根据内容适应高度 */
 - (void)contentSizeFit
 {
-    CGFloat maxHeight = kScreenHeight - kNavBarHeight*2 - (_titleLabel.height+_rightButton.height+_topMargin.constant+_middleMargin.constant+_bottomMargin.constant);
-    CGSize maxSize = CGSizeMake(_textView.width, maxHeight);
+    CGFloat maxHeight = [UIScreen mainScreen].bounds.size.height - kHHNavBarHeight*2 - (_titleLabel.frame.size.height+_rightButton.frame.size.height+_topMargin.constant+_middleMargin.constant+_bottomMargin.constant);
+    CGSize maxSize = CGSizeMake(_textView.frame.size.width, maxHeight);
     CGSize newSize = [_textView sizeThatFits:maxSize];
     CGFloat minHeight = MAX(newSize.height, kMinHeight);
     _contentHeight.constant =  MIN(minHeight, maxHeight);
@@ -254,7 +256,6 @@
 {
     _leftButton.hidden = _rightButton.hidden = YES;
     _singleButton.hidden = NO;
-    
 }
 
 /** 对齐方式 */
@@ -285,6 +286,79 @@
         self.textView.placeholder = placeholder;
     }
     
+}
+
+/** 设置标题颜色 */
+- (void)setTitleColor:(UIColor *)color
+{
+    if ([color isKindOfClass:[UIColor class]])
+    {
+        _titleLabel.backgroundColor = color;
+    }
+    
+}
+
+/** 设置左按钮颜色 */
+- (void)setLeftButtonColor:(UIColor *)color
+{
+    if ([color isKindOfClass:[UIColor class]])
+    {
+        _leftButton.backgroundColor = color;
+    }
+}
+
+/** 设置右按钮颜色 */
+- (void)setRightButtonColor:(UIColor *)color
+{
+    if ([color isKindOfClass:[UIColor class]])
+    {
+        _rightButton.backgroundColor = color;
+    }
+}
+
+/** 设置单按钮颜色 */
+- (void)setSingleButtonColor:(UIColor *)color
+{
+    if ([color isKindOfClass:[UIColor class]])
+    {
+        _singleButton.backgroundColor = color;
+    }
+}
+
+/** 设置标题字体颜色 */
+- (void)setTitleTextColor:(UIColor *)color
+{
+    if ([color isKindOfClass:[UIColor class]])
+    {
+        _titleLabel.textColor = color;
+    }
+}
+
+/** 设置左按钮字体颜色 */
+- (void)setLeftButtonTitleColor:(UIColor *)color
+{
+    if ([color isKindOfClass:[UIColor class]])
+    {
+        [_leftButton setTitleColor:color forState:UIControlStateNormal];
+    }
+}
+
+/** 设置右按钮字体颜色 */
+- (void)setRightButtonTitleColor:(UIColor *)color
+{
+    if ([color isKindOfClass:[UIColor class]])
+    {
+        [_rightButton setTitleColor:color forState:UIControlStateNormal];
+    }
+}
+
+/** 设置单按钮字体颜色 */
+- (void)setSingleButtonTitleColor:(UIColor *)color
+{
+    if ([color isKindOfClass:[UIColor class]])
+    {
+        [_singleButton setTitleColor:color forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - UITextViewDelegate
