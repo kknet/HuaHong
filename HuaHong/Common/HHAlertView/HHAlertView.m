@@ -17,8 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-@property (weak, nonatomic) IBOutlet UIButton *sureButton;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 @property (weak, nonatomic) IBOutlet UIButton *singleButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerY;
@@ -69,6 +69,7 @@
     
     return self;
 }
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -77,8 +78,8 @@
     self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
     self.bgView.layer.cornerRadius = 10;
     self.bgView.layer.masksToBounds = YES;
-    self.cancelButton.layer.borderWidth = 1;
-    self.cancelButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.leftButton.layer.borderWidth = 1;
+    self.leftButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [self.titleLabel setCornerRadius:10 byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
     self.forbiddenEmoji = YES;
     self.textView.delegate = self;
@@ -106,8 +107,12 @@
          [self removeFromSuperview];
     }];
     
-    if (_cancelBlock) {
-        _cancelBlock(_textView.text);
+    if (_leftBlock) {
+        _leftBlock(_textView.text);
+    }
+    
+    if ([_delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
+        [_delegate alertView:self clickedButtonAtIndex:0];
     }
 }
 
@@ -118,28 +123,68 @@
         [self removeFromSuperview];
     }];
     
-    if (_sureBlock) {
-        _sureBlock(_textView.text);
+    if (_rightBlock) {
+        _rightBlock(_textView.text);
     }
+    
+    if ([_delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
+        [_delegate alertView:self clickedButtonAtIndex:1];
+    }
+}
+
+/** 设置标题 */
+- (void)setTitle:(NSString *)title
+{
+    _title = title;
+    _titleLabel.text = title;
 }
 
 /** 展示的文字内容 */
 - (void)setMessage:(NSString *)message
 {
-    if (message == nil || message.length == 0) {
-        return;
-    }
-    
+    _message = message;
     self.textView.text = message;
     
     /** 设置行间距 段间距 */
     [self setLineSpace:klineSpace ParagraphSpace:kparagraphSpace TextAlignment:self.textView.textAlignment];
-
+    
+    /** 根据内容适应高度 */
     [self contentSizeFit];
     
     [self setNeedsLayout];
 
 }
+
+/** 设置左按钮标题 */
+- (void)setLeftBtnTitle:(NSString *)leftBtnTitle
+{
+    NSString *desc = [NSString stringWithFormat:@"%@左按钮标题不能为空",NSStringFromClass([self class])];
+    NSAssert(leftBtnTitle && leftBtnTitle.length, desc);
+    
+    _leftBtnTitle = leftBtnTitle;
+    [_leftButton setTitle:leftBtnTitle forState:UIControlStateNormal];
+}
+
+/** 设置右按钮标题 */
+- (void)setRightBtnTitle:(NSString *)rightBtnTitle
+{
+    NSString *desc = [NSString stringWithFormat:@"%@右按钮标题不能为空",NSStringFromClass([self class])];
+    NSAssert(rightBtnTitle && rightBtnTitle.length, desc);
+    
+    _rightBtnTitle = rightBtnTitle;
+    [_rightButton setTitle:rightBtnTitle forState:UIControlStateNormal];
+}
+
+/** 设置单按钮标题 */
+- (void)setSingleBtnTitle:(NSString *)singleBtnTitle
+{
+    NSString *desc = [NSString stringWithFormat:@"%@单按钮标题不能为空",NSStringFromClass([self class])];
+    NSAssert(singleBtnTitle && singleBtnTitle.length, desc);
+    
+    _singleBtnTitle = singleBtnTitle;
+    [_singleButton setTitle:singleBtnTitle forState:UIControlStateNormal];
+}
+
 
 /** 设置行间距 段间距 */
 - (void)setLineSpace:(CGFloat)lineSpace ParagraphSpace:(CGFloat)paragraphSpace TextAlignment:(NSTextAlignment)textAlignment
@@ -154,9 +199,10 @@
     self.textView.attributedText = attributeText;
 }
 
+/** 根据内容适应高度 */
 - (void)contentSizeFit
 {
-    CGFloat maxHeight = kScreenHeight - 64*2 - (_titleLabel.height+_sureButton.height+40);
+    CGFloat maxHeight = kScreenHeight - 64*2 - (_titleLabel.height+_rightButton.height+40);
     CGSize maxSize = CGSizeMake(_textView.width, maxHeight);
     CGSize newSize = [_textView sizeThatFits:maxSize];
     CGFloat minHeight = MAX(newSize.height, 60);
@@ -174,10 +220,11 @@
     
     self.textView.scrollEnabled = newSize.height > maxHeight;
 }
+
 /** 设置为单个按钮 */
 - (void)setSingleButton
 {
-    _cancelButton.hidden = _sureButton.hidden = YES;
+    _leftButton.hidden = _rightButton.hidden = YES;
     _singleButton.hidden = NO;
     
 }

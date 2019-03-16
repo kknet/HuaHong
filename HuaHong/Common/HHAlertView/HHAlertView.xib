@@ -128,11 +128,11 @@
             </constraints>
             <connections>
                 <outlet property="bgView" destination="of3-6F-c7d" id="R1I-gl-xVt"/>
-                <outlet property="cancelButton" destination="hk1-zV-YjR" id="CYK-Ks-Wpf"/>
                 <outlet property="centerY" destination="4X8-4J-15g" id="3fT-qn-uio"/>
                 <outlet property="contentHeight" destination="8eX-ou-4Il" id="Wpi-Fc-6p8"/>
+                <outlet property="leftButton" destination="hk1-zV-YjR" id="26G-Wo-HUZ"/>
+                <outlet property="rightButton" destination="h18-p3-5o1" id="XF4-Ko-F34"/>
                 <outlet property="singleButton" destination="gUq-iK-3in" id="MNz-cB-viu"/>
-                <outlet property="sureButton" destination="h18-p3-5o1" id="1xB-YE-vGC"/>
                 <outlet property="textView" destination="s64-58-2vp" id="W0u-9Q-wWW"/>
                 <outlet property="titleLabel" destination="QeV-S4-WGV" id="9lF-OF-ueV"/>
             </connections>
