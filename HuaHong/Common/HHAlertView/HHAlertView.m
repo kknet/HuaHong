@@ -230,7 +230,7 @@
 /** 根据内容适应高度 */
 - (void)contentSizeFit
 {
-    CGFloat maxHeight = kScreenHeight - 64*2 - (_titleLabel.height+_rightButton.height+_topMargin.constant+_middleMargin.constant+_bottomMargin.constant);
+    CGFloat maxHeight = kScreenHeight - kNavBarHeight*2 - (_titleLabel.height+_rightButton.height+_topMargin.constant+_middleMargin.constant+_bottomMargin.constant);
     CGSize maxSize = CGSizeMake(_textView.width, maxHeight);
     CGSize newSize = [_textView sizeThatFits:maxSize];
     CGFloat minHeight = MAX(newSize.height, kMinHeight);
