@@ -8,10 +8,11 @@
 
 #import "HHAlertView.h"
 
-//行间距
-#define klineSpace 3
-//段间距
-#define kparagraphSpace 4
+#define klineSpace 3       //行间距
+#define kparagraphSpace 4  //段间距
+#define kMinHeight 60      //最小高度
+#define kcornerRadius 10   //圆角
+#define kKeyBoardRemoveHeight 100  //键盘移动高度
 @interface HHAlertView()<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -19,9 +20,12 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
-@property (weak, nonatomic) IBOutlet UIButton *singleButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerY;
+@property (weak, nonatomic, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;//textView.height
+@property (weak, nonatomic) IBOutlet UIButton *singleButton;//单按钮
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerY;//bgView.center.y
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;//textView.top
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleMargin;//textView.bottom
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomMargin;//button.bottom
 
 @end
 @implementation HHAlertView
@@ -76,11 +80,11 @@
     
     self.frame = [UIScreen mainScreen].bounds;
     self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
-    self.bgView.layer.cornerRadius = 10;
+    self.bgView.layer.cornerRadius = kcornerRadius;
     self.bgView.layer.masksToBounds = YES;
     self.leftButton.layer.borderWidth = 1;
     self.leftButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    [self.titleLabel setCornerRadius:10 byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
+    [self.titleLabel setCornerRadius:kcornerRadius byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
     self.forbiddenEmoji = YES;
     self.textView.delegate = self;
     UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
@@ -155,6 +159,21 @@
 
 }
 
+/** 属性文本 */
+- (void)setAttributedMessage:(NSAttributedString *)attributedMessage
+{
+    _attributedMessage = attributedMessage;
+    self.textView.attributedText = attributedMessage;
+    
+    /** 设置行间距 段间距 */
+    [self setLineSpace:klineSpace ParagraphSpace:kparagraphSpace TextAlignment:self.textView.textAlignment];
+    
+    /** 根据内容适应高度 */
+    [self contentSizeFit];
+    
+    [self setNeedsLayout];
+    
+}
 /** 设置左按钮标题 */
 - (void)setLeftBtnTitle:(NSString *)leftBtnTitle
 {
@@ -194,7 +213,16 @@
     paragraphStyle.paragraphSpacing = paragraphSpace;
     paragraphStyle.alignment = textAlignment;
     NSDictionary *attributes = @{NSParagraphStyleAttributeName:paragraphStyle};
-    NSAttributedString *attributeText = [[NSAttributedString alloc]initWithString:self.textView.text attributes:attributes];
+    
+    NSMutableAttributedString *attributeText;
+    if (self.attributedMessage) {
+        attributeText = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedMessage];
+        [attributeText setAttributes:attributes range:NSMakeRange(0, self.attributedMessage.length)];
+    }else
+    {
+        attributeText = [[NSMutableAttributedString alloc]initWithString:self.textView.text attributes:attributes];
+    }
+   
     
     self.textView.attributedText = attributeText;
 }
@@ -202,10 +230,10 @@
 /** 根据内容适应高度 */
 - (void)contentSizeFit
 {
-    CGFloat maxHeight = kScreenHeight - 64*2 - (_titleLabel.height+_rightButton.height+40);
+    CGFloat maxHeight = kScreenHeight - 64*2 - (_titleLabel.height+_rightButton.height+_topMargin.constant+_middleMargin.constant+_bottomMargin.constant);
     CGSize maxSize = CGSizeMake(_textView.width, maxHeight);
     CGSize newSize = [_textView sizeThatFits:maxSize];
-    CGFloat minHeight = MAX(newSize.height, 60);
+    CGFloat minHeight = MAX(newSize.height, kMinHeight);
     _contentHeight.constant =  MIN(minHeight, maxHeight);
 
     /** 上下居中 */
@@ -263,7 +291,7 @@
 /** 开始编辑，弹框升高，避免键盘遮挡 */
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-     _centerY.constant = -100;
+     _centerY.constant = -kKeyBoardRemoveHeight;
 }
 
 /** 结束编辑，弹框恢复居中对齐 */

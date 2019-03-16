@@ -84,35 +84,37 @@
     
     NSString *message = @"新华社北京3月13日电（记者叶昊鸣）记者13日从应急管理部了解到，财政部、应急管理部当日向青海省下拨中央自然灾害救灾资金1亿元，主要用于支持做好青海省玉树、果洛等地严重雪灾受灾群众救助工作，保障受灾群众基本生活。新华社北京3月13日电（记者叶昊鸣）记者13日从应急管理部了解到，财政部、应急管理部当日向青海省下拨中央自然灾害救灾资金1亿元，主要用于支持做好青海省玉树、果洛等地严重雪灾受灾群众救助工作，保障受灾群众基本生活。";
 //    message = @"哈哈哈哈哈哈哈哈";
-//    HHAlertView *alertView = [HHAlertView sharedAlertView];
+    NSAttributedString *attrMessage = [[NSAttributedString alloc]initWithString:message];
+    HHAlertView *alertView = [HHAlertView sharedAlertView];
 //    alertView.message = message;
-//    alertView.textAlignment = NSTextAlignmentLeft;
+    alertView.attributedMessage = attrMessage;
+    alertView.textAlignment = NSTextAlignmentLeft;
+
+//    [alertView setSingleButton];
+
+     alertView.delegate = self;
+//    alertView.editable = YES;
+//    alertView.placeholder = @"请输入...";
+//    alertView.forbiddenEmoji = YES;
+
+    //此处有循环引用
+    __weak typeof(self) weakSelf = self;
+    [alertView setRightBlock:^(NSString * _Nonnull message) {
+        weakSelf.title = message;
+    }];
+
+    [alertView setLeftBlock:^(NSString * _Nonnull message) {
+        weakSelf.title = message;
+    }];
+
+    [alertView show];
+    
+//    QKAlertView *alertView =  [QKAlertView sharedAlertView];
+//    [alertView alertWithTitle:@"提示" message:message buttonClickback:^(QKAlertView *alertView, NSInteger buttonIndex) {
 //
-////    [alertView setSingleButton];
-//
-//     alertView.delegate = self;
-////    alertView.editable = YES;
-////    alertView.placeholder = @"请输入...";
-////    alertView.forbiddenEmoji = YES;
-//
-//    //此处有循环引用
-//    __weak typeof(self) weakSelf = self;
-//    [alertView setRightBlock:^(NSString * _Nonnull message) {
-//        weakSelf.title = message;
-//    }];
-//
-//    [alertView setLeftBlock:^(NSString * _Nonnull message) {
-//        weakSelf.title = message;
-//    }];
+//    } buttonTitles:@"取消",@"确定", nil];
 //
 //    [alertView show];
-    
-    QKAlertView *alertView =  [QKAlertView sharedAlertView];
-    [alertView alertWithTitle:@"提示" message:message buttonClickback:^(QKAlertView *alertView, NSInteger buttonIndex) {
-        
-    } buttonTitles:@"取消",@"确定", nil];
-    
-    [alertView show];
 }
 
 - (void)alertView:(HHAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

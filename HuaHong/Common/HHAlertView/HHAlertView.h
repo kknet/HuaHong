@@ -29,6 +29,9 @@ typedef void(^AlertBlock)(NSString *message);
 /** 展示的文字内容 */
 @property (nonatomic,copy) NSString *message;
 
+/** 属性文本 */
+@property(/*null_resettable*/nonatomic,copy) NSAttributedString *attributedMessage;
+
 /** 设置左按钮标题 */
 @property (nonatomic,copy,nonnull) NSString *leftBtnTitle;
 
