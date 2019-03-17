@@ -58,6 +58,9 @@ typedef void(^AlertBlock)(NSString *message);
 /** 设置输入框可编辑 */
 @property(nonatomic,getter=isEditable) BOOL editable;
 
+/** 限制字数 */
+@property (nonatomic,assign) NSInteger limitCount;
+
 /** 只有可编辑时，才有placeholder */
 @property (nonatomic, copy) NSString *placeholder;
 

@@ -395,11 +395,28 @@
         if ([[[UITextInputMode currentInputMode] primaryLanguage] isEqualToString:@"emoji"]) {
             return NO;
         }
+        
     }
+    
+//    /** 限制字数 */
+//    if (range.length == 1 && text.length == 0) {
+//        return YES;
+//    }
+//    
+//    if (textView.text.length > self.limitCount) {
+//        return NO;
+//    }
    
     return YES;
 }
 
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if (textView.text.length > self.limitCount) {
+        textView.text = [textView.text substringToIndex:self.limitCount];
+        
+    }
+}
 /**
  //系统弹框自动换行
  UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
