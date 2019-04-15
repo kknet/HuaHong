@@ -118,6 +118,7 @@
     return NO;
 }
 
+//date对应的星期几
 +(NSString *)weekdayStringFromDate:(NSDate *)date
 {
     //components.weekday[1,7]对应[周日～周六]，没有0

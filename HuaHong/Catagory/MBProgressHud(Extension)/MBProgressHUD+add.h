@@ -5,8 +5,8 @@
 //  Created by 华宏 on 2018/11/26.
 //  Copyright © 2018年 huahong. All rights reserved.
 //
-
 #import "MBProgressHUD.h"
+#import "UIViewController+MBProgressHUD.h"
 
 @interface MBProgressHUD (add)
 
@@ -20,11 +20,6 @@
 + (void)hideHUDForView:(UIView *)view;
 
 //测试
-+ (void)progress;
-
-#pragma mark - SV加载框
-//返回不了，作用域全屏
-+ (void)showProgressTitle:(NSString *)title withType:(SVProgressHUDStyle)type;
-+ (void)hideProgressTitle;
+//+ (void)progress;
 
 @end

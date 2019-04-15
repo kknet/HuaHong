@@ -83,10 +83,11 @@
     self.frame = [UIScreen mainScreen].bounds;
     self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
     self.bgView.layer.cornerRadius = kcornerRadius;
+    //剪裁过，子视图就不需要设置圆角了
     self.bgView.layer.masksToBounds = YES;
+//    [self.titleLabel setCornerRadius:kcornerRadius byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
     self.leftButton.layer.borderWidth = 1;
     self.leftButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    [self.titleLabel setCornerRadius:kcornerRadius byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
     self.forbiddenEmoji = YES;
     self.textView.delegate = self;
     UITapGestureRecognizer *tap = [UITapGestureRecognizer new];

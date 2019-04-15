@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9771BFFA6848EF3956D8897048EBA61"
-               BlueprintName = "SDWebImage"
+               BlueprintIdentifier = "7EDBBE1C5A8DCECBBA6D8A2F1B5B0BAC"
+               BlueprintName = "HHUIViewExtension"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libSDWebImage.a">
+               BuildableName = "libHHUIViewExtension.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

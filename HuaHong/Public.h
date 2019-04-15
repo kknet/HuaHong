@@ -30,7 +30,7 @@
 #import "QKHttpRequestManager.h"
 
 //#import "HHCategory.h"
-#import "UIViewExt.h"
+#import "UIView+Extension.h"
 #import "UIView+AutoLayout.h"
 #import "UILabel+autoReSize.h"
 #import "UIColor+Category.h"

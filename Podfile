@@ -46,6 +46,7 @@ pod 'RATreeView', '~> 2.1.2'
 #pod 'UITextView+Placeholder', '~> 1.2.0'
 #pod 'RESideMenu', '~> 4.0.7'
 #pod 'HHCategory', '~> 0.3.8'
+pod 'HHUIViewExtension', '~> 1.0.0'
 
 pod 'UMCCommon'
 pod 'UMCSecurityPlugins'
@@ -67,5 +68,6 @@ pod 'QKAFNetworkSDK',:svn=>'svn://wangxiaoli@192.168.1.193/apps/code/tags/Pods/Q
 #pod 'QKRecordInterfaceHelper',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKRecordInterfaceHelper'
 #pod 'QKRSAHelper',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKRSAHelper'
 #pod 'Authentication',:svn=>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/Authentication'
-
+#pod 'MBProgressHUD+DK', '~> 1.1.1'
+#pod 'UIView+Helpers', '~> 1.4.0'
 end

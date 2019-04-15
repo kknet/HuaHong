@@ -11,53 +11,23 @@
 #define kAfterDelay 2.0f
 @implementation MBProgressHUD (add)
 
-/**
- 在view上展示文字、图片
-
- @param text 所要展示的文字
- @param icon 所要展示的图片名称
- @param view 所要在哪个view上展示
- */
-+(void)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
-{
-    if (view == nil) {
-        view = [[UIApplication sharedApplication].windows lastObject];
-    }
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    
-    hud.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@",icon]]];
-    
-    hud.mode = MBProgressHUDModeCustomView;
-    
-    hud.removeFromSuperViewOnHide = YES;
-    
-    //修改样式，否则等待框背景色将为半透明
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    
-    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.7];
-
-    hud.label.text = text;
-    hud.label.textColor = [UIColor whiteColor];
-    
-    [hud hideAnimated:YES afterDelay:kAfterDelay];
-}
-
 +(void)showSuccess:(NSString *)success toView:(UIView *)view
 {
-    [self show:success icon:@"success.png" view:view];
+    NSInteger scale = [UIScreen mainScreen].scale;
+    NSString *imageName = [NSString stringWithFormat:@"success@%zdx.png",scale];
+    [self p_show:success icon:imageName view:view];
 }
 
 +(void)showError:(NSString *)error toView:(UIView *)view
 {
-    [self show:error icon:@"error.png" view:view];
+    NSInteger scale = [UIScreen mainScreen].scale;
+    NSString *imageName = [NSString stringWithFormat:@"error@%zdx.png",scale];
+    [self p_show:error icon:imageName view:view];
 }
 
 +(void)showLoading:(NSString *)text toView:(UIView *)view
 {
-    if (view == nil) {
-        view = [[UIApplication sharedApplication].windows lastObject];
-    }
+    view = view ? view : [[UIApplication sharedApplication].windows lastObject];
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
@@ -87,13 +57,40 @@
 
 + (void)hideHUDForView:(UIView *)view
 {
-    if (view == nil) {
-        view = [[UIApplication sharedApplication].windows lastObject];
-    }
+    view = view ? view : [[UIApplication sharedApplication].windows lastObject];
     
     [self hideHUDForView:view animated:YES];
 }
 
+/**
+ 在view上展示文字、图片
+ 
+ @param text 所要展示的文字
+ @param icon 所要展示的图片名称
+ @param view 所要在哪个view上展示
+ */
++(void)p_show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
+{
+    view = view ? view : [[UIApplication sharedApplication].windows lastObject];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    
+    hud.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@",icon]]];
+    
+    hud.mode = MBProgressHUDModeCustomView;
+    
+    hud.removeFromSuperViewOnHide = YES;
+    
+    //修改样式，否则等待框背景色将为半透明
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    
+    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.7];
+    
+    hud.label.text = text;
+    hud.label.textColor = [UIColor whiteColor];
+    
+    [hud hideAnimated:YES afterDelay:kAfterDelay];
+}
 
 + (void)progress
 {
@@ -117,18 +114,6 @@
     }];
     
     [timer fire];
-}
-
-+ (void)showProgressTitle:(NSString *)title withType:(SVProgressHUDStyle)type
-{
-    [SVProgressHUD setDefaultStyle:type];
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-    [SVProgressHUD showWithStatus:title];
-}
-
-+ (void)hideProgressTitle
-{
-    [SVProgressHUD dismiss];
 }
 
 @end

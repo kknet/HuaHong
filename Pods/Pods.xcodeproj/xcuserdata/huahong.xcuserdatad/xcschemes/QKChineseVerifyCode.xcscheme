@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A3CEDCACCFACF01E513DD9872A76322E"
+               BlueprintIdentifier = "E5B8B0FE5DE5C78A00AA6CEBF72D8156"
                BlueprintName = "QKChineseVerifyCode"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libQKChineseVerifyCode.a">

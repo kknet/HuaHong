@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B6EBD1B73424A85D50BE5567CF7C6D68"
+               BlueprintIdentifier = "4767E37BF80AE5B092C984A6972CC2C8"
                BlueprintName = "SBJson"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libSBJson.a">

@@ -1,15 +1,20 @@
-/*
- Erica Sadun, http://ericasadun.com
- iPhone Developer's Cookbook, 3.0 Edition
- BSD License, Use at your own risk
- */
+//
+//  UIView+Extension.h
+//  HuaHong
+//
+//  Created by 华宏 on 2019/4/6.
+//  Copyright © 2019年 huahong. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 CGPoint CGRectGetCenter(CGRect rect);
 CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 
-@interface UIView (ViewFrameGeometry)
+@interface UIView (Extension)
+
 @property CGPoint origin;
 @property CGSize size;
 
@@ -26,6 +31,9 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 @property CGFloat bottom;
 @property CGFloat right;
 
+@property (nonatomic) CGFloat centerX;
+@property (nonatomic) CGFloat centerY;
+    
 @property (nonatomic,assign) IBInspectable CGFloat cornerRadius;
 
 - (void) moveBy: (CGPoint) delta;
@@ -44,5 +52,9 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 
 /** 截屏 */
 - (UIImage*)takeSnapshot:(CGRect)rect;
+ 
+UINavigationController *selected_navigation_controller();
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -21,12 +21,12 @@
 #import <Photos/Photos.h>
 #import "QKAlertView.h"
 #import "TTGTextTagCollectionView.h"
-
-@interface TestViewController()<HHAlertViewDelegate>
+#import "QKDatePicker.h"
+@interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
 
 @property (strong, nonatomic)CTCallCenter *call_center;//电话管理
-
+@property (nonatomic,strong) QKDatePicker *pick;
 @end
 
 @implementation TestViewController
@@ -86,7 +86,7 @@
 //    message = @"哈哈哈哈哈哈哈哈";
 //    NSAttributedString *attrMessage = [[NSAttributedString alloc]initWithString:message];
     HHAlertView *alertView = [HHAlertView sharedAlertView];
-//    alertView.message = message;
+    alertView.message = message;
 //    alertView.attributedMessage = attrMessage;
     alertView.textAlignment = NSTextAlignmentLeft;
 
@@ -95,10 +95,10 @@
 
 //    [alertView setSingleButton];
 
-     alertView.delegate = self;
-    alertView.editable = YES;
-    alertView.placeholder = @"请输入...";
-    alertView.limitCount = 5;
+//     alertView.delegate = self;
+//    alertView.editable = YES;
+//    alertView.placeholder = @"请输入...";
+//    alertView.limitCount = 5;
 //    alertView.forbiddenEmoji = YES;
 
     //此处有循环引用
@@ -214,13 +214,21 @@
 //    [HUtils forceOrientation:UIInterfaceOrientationLandscapeLeft];
 //    NSLog(@"%d",[HUtils isOrientationLandscape]);
     
-    [self showAlertView];
+//    [self showAlertView];
     
   
-    
+    _pick = [[QKDatePicker alloc]initDatePickWithDate:NSDate.date datePickerModel:UIDatePickerModeDate];
+    _pick.delegate = self;
+    [_pick setDateFormat:@"yyyy-MM-dd"];
+
+    [_pick show];
     
 }
 
+- (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateStr
+{
+    NSLog(@"%@",dateStr);
+}
 -(void)share
 {
     [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession)]];
