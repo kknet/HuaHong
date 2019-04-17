@@ -53,7 +53,7 @@
 		7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FB3200B32DE00994A3C /* HHAnnotation.m */; };
 		7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D3BD4B4205E664300EFED61 /* Assets.xcassets */; };
 		7D407B6521A66A6B00C73DA2 /* UITextField+space.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D407B6421A66A6B00C73DA2 /* UITextField+space.m */; };
-		7D40E21C21A444DC00698891 /* UIButton+ImageTitleSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D40E21B21A444DC00698891 /* UIButton+ImageTitleSpace.m */; };
+		7D40E21C21A444DC00698891 /* UIButton+space.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D40E21B21A444DC00698891 /* UIButton+space.m */; };
 		7D437EEF20834E3200DAAEBD /* BaseRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D437EEE20834E3200DAAEBD /* BaseRemote.m */; };
 		7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D437EF120834E4600DAAEBD /* BaseTV.m */; };
 		7D437EF52083501500DAAEBD /* SubRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D437EF42083501500DAAEBD /* SubRemote.m */; };
@@ -94,9 +94,16 @@
 		7D56A309216DDFE700212DEB /* FlyWeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56A308216DDFE700212DEB /* FlyWeightController.m */; };
 		7D56A30C216DE03C00212DEB /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56A30B216DE03C00212DEB /* Factory.m */; };
 		7D56A30F216DE07800212DEB /* Flower.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56A30E216DE07800212DEB /* Flower.m */; };
+		7D58920D2266D23100DFE60F /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892002266D23100DFE60F /* NSDate+Calendar.m */; };
+		7D58920E2266D23100DFE60F /* QKCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892022266D23100DFE60F /* QKCalendarModel.m */; };
+		7D58920F2266D23100DFE60F /* QKCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892062266D23100DFE60F /* QKCalendarHeaderView.m */; };
+		7D5892102266D23100DFE60F /* QKCalenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5892082266D23100DFE60F /* QKCalenderCell.xib */; };
+		7D5892112266D23100DFE60F /* QKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892092266D23100DFE60F /* QKCalendarView.m */; };
+		7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */; };
+		7D5892132266D23100DFE60F /* QKCalenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58920C2266D23100DFE60F /* QKCalenderCell.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
 		7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651129203C414E0042DAE7 /* ProgressView.m */; };
-		7D6D5133224B9694005A53D8 /* QKPrivacyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5131224B9694005A53D8 /* QKPrivacyTool.m */; };
+		7D6D5133224B9694005A53D8 /* QKPrivacyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5131224B9694005A53D8 /* QKPrivacyManager.m */; };
 		7D6FA8FB203B08E50072109E /* SessionRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6FA8FA203B08E50072109E /* SessionRequestController.m */; };
 		7D6FA8FE203B3B390072109E /* XMLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6FA8FD203B3B390072109E /* XMLModel.m */; };
 		7D7FBB1F20401A2000C3594C /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7FBB1D20401A2000C3594C /* NSString+Hash.m */; };
@@ -332,8 +339,8 @@
 		7D3BD4B4205E664300EFED61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D407B6321A66A6B00C73DA2 /* UITextField+space.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+space.h"; sourceTree = "<group>"; };
 		7D407B6421A66A6B00C73DA2 /* UITextField+space.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+space.m"; sourceTree = "<group>"; };
-		7D40E21A21A444DC00698891 /* UIButton+ImageTitleSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleSpace.h"; sourceTree = "<group>"; };
-		7D40E21B21A444DC00698891 /* UIButton+ImageTitleSpace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleSpace.m"; sourceTree = "<group>"; };
+		7D40E21A21A444DC00698891 /* UIButton+space.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+space.h"; sourceTree = "<group>"; };
+		7D40E21B21A444DC00698891 /* UIButton+space.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+space.m"; sourceTree = "<group>"; };
 		7D437EED20834E3200DAAEBD /* BaseRemote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRemote.h; sourceTree = "<group>"; };
 		7D437EEE20834E3200DAAEBD /* BaseRemote.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRemote.m; sourceTree = "<group>"; };
 		7D437EF020834E4600DAAEBD /* BaseTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTV.h; sourceTree = "<group>"; };
@@ -409,12 +416,24 @@
 		7D56A30B216DE03C00212DEB /* Factory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		7D56A30D216DE07800212DEB /* Flower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flower.h; sourceTree = "<group>"; };
 		7D56A30E216DE07800212DEB /* Flower.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flower.m; sourceTree = "<group>"; };
+		7D5891FF2266D23100DFE60F /* NSDate+Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
+		7D5892002266D23100DFE60F /* NSDate+Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
+		7D5892022266D23100DFE60F /* QKCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCalendarModel.m; sourceTree = "<group>"; };
+		7D5892032266D23100DFE60F /* QKCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCalendarModel.h; sourceTree = "<group>"; };
+		7D5892052266D23100DFE60F /* QKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCalendarView.h; sourceTree = "<group>"; };
+		7D5892062266D23100DFE60F /* QKCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCalendarHeaderView.m; sourceTree = "<group>"; };
+		7D5892072266D23100DFE60F /* QKCalenderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCalenderCell.h; sourceTree = "<group>"; };
+		7D5892082266D23100DFE60F /* QKCalenderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKCalenderCell.xib; sourceTree = "<group>"; };
+		7D5892092266D23100DFE60F /* QKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCalendarView.m; sourceTree = "<group>"; };
+		7D58920A2266D23100DFE60F /* QKCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCalendarHeaderView.h; sourceTree = "<group>"; };
+		7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKCalendarHeaderView.xib; sourceTree = "<group>"; };
+		7D58920C2266D23100DFE60F /* QKCalenderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCalenderCell.m; sourceTree = "<group>"; };
 		7D651125203C35900042DAE7 /* DownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewController.h; sourceTree = "<group>"; };
 		7D651126203C35900042DAE7 /* DownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewController.m; sourceTree = "<group>"; };
 		7D651128203C414E0042DAE7 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		7D651129203C414E0042DAE7 /* ProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
-		7D6D5131224B9694005A53D8 /* QKPrivacyTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKPrivacyTool.m; sourceTree = "<group>"; };
-		7D6D5132224B9694005A53D8 /* QKPrivacyTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKPrivacyTool.h; sourceTree = "<group>"; };
+		7D6D5131224B9694005A53D8 /* QKPrivacyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKPrivacyManager.m; sourceTree = "<group>"; };
+		7D6D5132224B9694005A53D8 /* QKPrivacyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKPrivacyManager.h; sourceTree = "<group>"; };
 		7D6FA8F9203B08E50072109E /* SessionRequestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SessionRequestController.h; sourceTree = "<group>"; };
 		7D6FA8FA203B08E50072109E /* SessionRequestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SessionRequestController.m; sourceTree = "<group>"; };
 		7D6FA8FC203B3B390072109E /* XMLModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLModel.h; sourceTree = "<group>"; };
@@ -988,8 +1007,9 @@
 		7D3623E11FCE51B400C77874 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7D5891FD2266D23100DFE60F /* QKCalendar */,
 				7DBC56D82264B98D006E6068 /* QKPickerView */,
-				7D6D5130224B9694005A53D8 /* QKPrivacyAuthToolManager */,
+				7D6D5130224B9694005A53D8 /* QKPrivacyManager */,
 				7D16E3E4223A1C470027C5FC /* HHAlertView */,
 				7D328A53206CD62D00A64272 /* HUtils.h */,
 				7D328A54206CD62D00A64272 /* HUtils.m */,
@@ -1261,13 +1281,56 @@
 			path = "工厂模式&享元模式";
 			sourceTree = "<group>";
 		};
-		7D6D5130224B9694005A53D8 /* QKPrivacyAuthToolManager */ = {
+		7D5891FD2266D23100DFE60F /* QKCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				7D6D5132224B9694005A53D8 /* QKPrivacyTool.h */,
-				7D6D5131224B9694005A53D8 /* QKPrivacyTool.m */,
+				7D5891FE2266D23100DFE60F /* Category */,
+				7D5892012266D23100DFE60F /* Model */,
+				7D5892042266D23100DFE60F /* View */,
 			);
-			path = QKPrivacyAuthToolManager;
+			path = QKCalendar;
+			sourceTree = "<group>";
+		};
+		7D5891FE2266D23100DFE60F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7D5891FF2266D23100DFE60F /* NSDate+Calendar.h */,
+				7D5892002266D23100DFE60F /* NSDate+Calendar.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7D5892012266D23100DFE60F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D5892022266D23100DFE60F /* QKCalendarModel.m */,
+				7D5892032266D23100DFE60F /* QKCalendarModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D5892042266D23100DFE60F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D5892052266D23100DFE60F /* QKCalendarView.h */,
+				7D5892062266D23100DFE60F /* QKCalendarHeaderView.m */,
+				7D5892072266D23100DFE60F /* QKCalenderCell.h */,
+				7D5892082266D23100DFE60F /* QKCalenderCell.xib */,
+				7D5892092266D23100DFE60F /* QKCalendarView.m */,
+				7D58920A2266D23100DFE60F /* QKCalendarHeaderView.h */,
+				7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */,
+				7D58920C2266D23100DFE60F /* QKCalenderCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D6D5130224B9694005A53D8 /* QKPrivacyManager */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D5132224B9694005A53D8 /* QKPrivacyManager.h */,
+				7D6D5131224B9694005A53D8 /* QKPrivacyManager.m */,
+			);
+			path = QKPrivacyManager;
 			sourceTree = "<group>";
 		};
 		7D81144720EFBA6300349078 /* UIWebView-TS */ = {
@@ -1433,8 +1496,8 @@
 			children = (
 				7DE4D3AC21BADB0D00586126 /* NSTimer+HHTimer.h */,
 				7DE4D3AD21BADB0D00586126 /* NSTimer+HHTimer.m */,
-				7D40E21A21A444DC00698891 /* UIButton+ImageTitleSpace.h */,
-				7D40E21B21A444DC00698891 /* UIButton+ImageTitleSpace.m */,
+				7D40E21A21A444DC00698891 /* UIButton+space.h */,
+				7D40E21B21A444DC00698891 /* UIButton+space.m */,
 				7DA711AB20DCD10400BEF5D9 /* UIViewController+Alert.h */,
 				7DA711AC20DCD10400BEF5D9 /* UIViewController+Alert.m */,
 				7DABC38B21A5389D00C3EAD9 /* NSURL+hook.h */,
@@ -1972,9 +2035,11 @@
 				7DA1D6CD2062207900EB0AC2 /* Localizable.strings in Resources */,
 				7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */,
 				7D058576203F0A5200C7E204 /* 123.jpg in Resources */,
+				7D5892102266D23100DFE60F /* QKCalenderCell.xib in Resources */,
 				7D224ACA21D4C17B000AB767 /* ChildrenCell.xib in Resources */,
 				7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */,
 				7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */,
+				7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */,
 				7DE8D5861FC556DE00577762 /* Main.storyboard in Resources */,
 				7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */,
 				7D437F4E2090771B00DAAEBD /* QKAlertView.podspec in Resources */,
@@ -2073,7 +2138,7 @@
 				7DB29BC9213BA5D30044BD22 /* hhController.m in Sources */,
 				7D56A301216D941700212DEB /* KVOViewController.m in Sources */,
 				7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */,
-				7D40E21C21A444DC00698891 /* UIButton+ImageTitleSpace.m in Sources */,
+				7D40E21C21A444DC00698891 /* UIButton+space.m in Sources */,
 				7D93371621ABC4520048E6D4 /* MBProgressHUD+add.m in Sources */,
 				7DABC39F21A5389D00C3EAD9 /* NSURL+hook.m in Sources */,
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
@@ -2093,6 +2158,7 @@
 				7DB9B5491FD7E6710011EE54 /* VideoBottomView.m in Sources */,
 				7D2FF0C120030AE600ECAA26 /* LoadingViewController.m in Sources */,
 				7DB9B5581FD90A570011EE54 /* MovieFileOutputController.m in Sources */,
+				7D58920E2266D23100DFE60F /* QKCalendarModel.m in Sources */,
 				7DB90FF62147B3A600A9B40C /* MVVM_Cell.m in Sources */,
 				7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */,
 				7D8F371921D0D381008E3352 /* MVVM_Controller.m in Sources */,
@@ -2106,7 +2172,7 @@
 				7DABC39C21A5389D00C3EAD9 /* UIView+AutoLayout.m in Sources */,
 				7DB9B5521FD8E7F50011EE54 /* ImagePickController.m in Sources */,
 				7D2FF0B51FFCB97700ECAA26 /* HomeLeftCell.m in Sources */,
-				7D6D5133224B9694005A53D8 /* QKPrivacyTool.m in Sources */,
+				7D6D5133224B9694005A53D8 /* QKPrivacyManager.m in Sources */,
 				7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */,
 				7DDF9E95207F4774003D6F17 /* DeleteFileController.m in Sources */,
 				7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */,
@@ -2130,9 +2196,11 @@
 				7D2FF0B11FF4F91400ECAA26 /* TestView.m in Sources */,
 				7DABC3A821A54BC900C3EAD9 /* NSArray+NSDirectory_Convert_m.m in Sources */,
 				7D48F96621038FCA00833594 /* ThreeDTouchController.m in Sources */,
+				7D58920D2266D23100DFE60F /* NSDate+Calendar.m in Sources */,
 				7DE836CA200F242500003AAF /* AnnotationController.m in Sources */,
 				7DA152D0204B01B00075274E /* runloopViewController.m in Sources */,
 				7DA152CB204AED750075274E /* NSObject+Calculation.m in Sources */,
+				7D58920F2266D23100DFE60F /* QKCalendarHeaderView.m in Sources */,
 				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,
 				7DB9B54C1FD7E6800011EE54 /* VideoTopView.m in Sources */,
 				7D4E59C821721F66003D01CF /* NetworkTools.m in Sources */,
@@ -2209,6 +2277,7 @@
 				7D8F370821CB2F1C008E3352 /* UITextView+PlaceHolder.m in Sources */,
 				7DB910162148FCD200A9B40C /* MVVMModel.m in Sources */,
 				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
+				7D5892112266D23100DFE60F /* QKCalendarView.m in Sources */,
 				7D48F9782104337800833594 /* BGView.m in Sources */,
 				7DC24C8D20219EF700103BDE /* AnimationView.m in Sources */,
 				7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */,
@@ -2279,6 +2348,7 @@
 				7DDF9E92207F00AF003D6F17 /* HttpsController.m in Sources */,
 				7DC24C962023001100103BDE /* CustomTransitionPush.m in Sources */,
 				7DDE3D3A20F506490044FC85 /* WKWebViewVC.m in Sources */,
+				7D5892132266D23100DFE60F /* QKCalenderCell.m in Sources */,
 				7D48F9712104277D00833594 /* SnapViewController.m in Sources */,
 				7D1A366720A5845900D74375 /* HHFMDBController.m in Sources */,
 			);

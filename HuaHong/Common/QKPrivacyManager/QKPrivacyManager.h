@@ -1,6 +1,6 @@
 //
-//  QKPrivacyTool.h
-//  QKPrivacyAuthTool
+//  QKPrivacyManager.h
+//  QKPrivacyManager
 //
 //  Created by wsj on 2019/3/22.
 //  Copyright © 2019 wsj. All rights reserved.
@@ -94,9 +94,9 @@ typedef void(^BluetoothResultBlock)(QKCBManagerStatus status);
 
 
 
-@interface QKPrivacyTool : NSObject
+@interface QKPrivacyManager : NSObject
 
-+(instancetype)shareInstance;
++(instancetype)shareManager;
 
 @property (nonatomic, assign) QKPrivacyType PrivacyType;
 @property (nonatomic, assign) QKAuthStatus AuthStatus;

@@ -40,7 +40,7 @@
 #import "CALayer+borderColor.h"
 #import "UIViewController+Alert.h"
 #import "NSString+Hash.h"
-#import "UIButton+ImageTitleSpace.h"
+#import "UIButton+space.h"
 #import "NSArray+NSDirectory_Convert_m.h"
 #import "UIImage+Category.h"
 #import "NSDate+Category.h"

@@ -1,14 +1,14 @@
 //
-//  UIButton+ImageTitleSpace.m
+//  UIButton+space.m
 //  HuaHong
 //
 //  Created by 华宏 on 2018/11/20.
 //  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "UIButton+ImageTitleSpace.h"
+#import "UIButton+space.h"
 
-@implementation UIButton (ImageTitleSpace)
+@implementation UIButton (space)
 
 - (void)layoutButtonEdgeInsetsWithStyle:(ButtonEdgeInsetsStyle)style Space:(CGFloat)space
 {

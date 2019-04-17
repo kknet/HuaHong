@@ -1,5 +1,5 @@
 //
-//  UIButton+ImageTitleSpace.h
+//  UIButton+space.h
 //  HuaHong
 //
 //  Created by 华宏 on 2018/11/20.
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, ButtonEdgeInsetsStyle) {
     ButtonEdgeInsetsStyleBottom,//image在下
     ButtonEdgeInsetsStyleRight  //image在右
 };
-@interface UIButton (ImageTitleSpace)
+@interface UIButton (space)
 
 - (void)layoutButtonEdgeInsetsWithStyle:(ButtonEdgeInsetsStyle)style Space:(CGFloat)space;
 @end

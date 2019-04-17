@@ -1,12 +1,12 @@
 //
-//  QKPrivacyTool.m
-//  QKPrivacyAuthTool
+//  QKPrivacyManager.m
+//  QKPrivacyManager
 //
 //  Created by wsj on 2019/3/22.
 //  Copyright © 2019 wsj. All rights reserved.
 //
 
-#import "QKPrivacyTool.h"
+#import "QKPrivacyManager.h"
 #import <AVFoundation/AVFoundation.h>            //相机/麦克风
 #import <Photos/Photos.h>                        //相册
 #import <CoreLocation/CoreLocation.h>            //定位
@@ -29,7 +29,7 @@
 #define IOS8_OR_LATER   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 #define IOS7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
-@interface QKPrivacyTool ()<UNUserNotificationCenterDelegate,CBCentralManagerDelegate,CLLocationManagerDelegate>
+@interface QKPrivacyManager ()<UNUserNotificationCenterDelegate,CBCentralManagerDelegate,CLLocationManagerDelegate>
 
 //隐私权限状态回调block
 @property(nonatomic,copy) ResultBlock block;
@@ -52,16 +52,16 @@
 
 @end
 
-@implementation QKPrivacyTool
+@implementation QKPrivacyManager
 
-+(instancetype)shareInstance
++(instancetype)shareManager
 {
-    static QKPrivacyTool *share = nil;
+    static QKPrivacyManager *share = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (share ==nil)
         {
-            share = [[QKPrivacyTool alloc]init];
+            share = [[QKPrivacyManager alloc]init];
         }
     });
     return share;
@@ -595,7 +595,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [[QKPrivacyTool getCurrentVC] presentViewController:alert animated:YES completion:nil];
+            [[QKPrivacyManager getCurrentVC] presentViewController:alert animated:YES completion:nil];
             
         });
         
