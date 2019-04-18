@@ -10,9 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^SwithMonthBlock)(void);
 @interface QKCalendarHeaderView : UICollectionReusableView
 
 @property(nonatomic,strong)NSString *dateStr;
+@property (nonatomic,copy) SwithMonthBlock lastMonthBlock;
+@property (nonatomic,copy) SwithMonthBlock nextMonthBlock;
 
 @end
 

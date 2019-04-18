@@ -20,7 +20,17 @@
     self.dateLable.text = dateStr;
 }
 
+- (IBAction)lastMonthAction:(id)sender {
+    if (_lastMonthBlock) {
+        _lastMonthBlock();
+    }
+}
 
 
+- (IBAction)nextMonthAction:(id)sender {
+    if (_nextMonthBlock) {
+        _nextMonthBlock();
+    }
+}
 
 @end

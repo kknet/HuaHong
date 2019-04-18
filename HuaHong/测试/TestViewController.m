@@ -22,6 +22,8 @@
 #import "QKAlertView.h"
 #import "TTGTextTagCollectionView.h"
 #import "QKDatePicker.h"
+#import "QKCalendarView.h"
+
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
 
@@ -217,12 +219,18 @@
 //    [self showAlertView];
     
   
-    _pick = [[QKDatePicker alloc]initDatePickWithDate:NSDate.date datePickerModel:UIDatePickerModeDate];
-    _pick.delegate = self;
-    [_pick setDateFormat:@"yyyy-MM-dd"];
-
-    [_pick show];
-    
+//    _pick = [[QKDatePicker alloc]initDatePickWithDate:NSDate.date datePickerModel:UIDatePickerModeDate];
+//    _pick.delegate = self;
+//    [_pick setDateFormat:@"yyyy-MM-dd"];
+//
+//    [_pick show];
+   
+    QKCalendarView *calendarView = [[QKCalendarView alloc]initWithFrame:CGRectMake(0, 64, self.view.width, 0)];
+    [self.view addSubview:calendarView];
+    [calendarView show];
+    [calendarView setSelectBlock:^(NSInteger year, NSInteger month, NSInteger day) {
+        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
+    }];
 }
 
 - (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateStr

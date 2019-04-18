@@ -143,6 +143,15 @@
         
         QKCalendarHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
         headerView.dateStr = [NSString stringWithFormat:@"%ld年%ld月",_currentMonthModel.year,_currentMonthModel.month];
+        
+        __weak typeof(self) weakSelf = self;
+        [headerView setLastMonthBlock:^{
+           [weakSelf rightSwipe:nil];
+        }];
+        
+        [headerView setNextMonthBlock:^{
+             [weakSelf leftSwipe:nil];
+        }];
         return headerView;
     }
     

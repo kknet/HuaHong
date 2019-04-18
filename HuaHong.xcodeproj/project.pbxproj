@@ -1312,14 +1312,14 @@
 		7D5892042266D23100DFE60F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7D5892052266D23100DFE60F /* QKCalendarView.h */,
+				7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */,
+				7D58920A2266D23100DFE60F /* QKCalendarHeaderView.h */,
 				7D5892062266D23100DFE60F /* QKCalendarHeaderView.m */,
 				7D5892072266D23100DFE60F /* QKCalenderCell.h */,
 				7D5892082266D23100DFE60F /* QKCalenderCell.xib */,
-				7D5892092266D23100DFE60F /* QKCalendarView.m */,
-				7D58920A2266D23100DFE60F /* QKCalendarHeaderView.h */,
-				7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */,
 				7D58920C2266D23100DFE60F /* QKCalenderCell.m */,
+				7D5892052266D23100DFE60F /* QKCalendarView.h */,
+				7D5892092266D23100DFE60F /* QKCalendarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
