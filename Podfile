@@ -42,7 +42,7 @@ pod 'MJRefresh'
 pod 'Shimmer'
 pod 'pop'
 
-pod 'RATreeView', '~> 2.1.2'
+#pod 'RATreeView', '~> 2.1.2'
 #pod 'UITextView+Placeholder', '~> 1.2.0'
 #pod 'RESideMenu', '~> 4.0.7'
 #pod 'HHCategory', '~> 0.3.8'

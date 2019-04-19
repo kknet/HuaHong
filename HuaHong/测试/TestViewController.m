@@ -225,12 +225,17 @@
 //
 //    [_pick show];
    
-    QKCalendarView *calendarView = [[QKCalendarView alloc]initWithFrame:CGRectMake(0, 64, self.view.width, 0)];
-    [self.view addSubview:calendarView];
-    [calendarView show];
-    [calendarView setSelectBlock:^(NSInteger year, NSInteger month, NSInteger day) {
-        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
-    }];
+//    QKCalendarView *calendarView = [[QKCalendarView alloc]initWithFrame:CGRectMake(0, 64, self.view.width, 0)];
+//    [self.view addSubview:calendarView];
+//    [calendarView show];
+//    [calendarView setSelectBlock:^(NSInteger year, NSInteger month, NSInteger day) {
+//        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
+//    }];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+      
+        [MBProgressHUD showLoading:@"loading" toView:self.view];
+    });
 }
 
 - (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateStr
