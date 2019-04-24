@@ -1137,7 +1137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCa-FD-aIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4135.1999999999998" y="618.44077961019491"/>
+            <point key="canvasLocation" x="4020" y="619"/>
         </scene>
         <!--Core Data Controller-->
         <scene sceneID="wHH-Z9-Dj5">
@@ -1274,7 +1274,120 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4887" y="-54"/>
+            <point key="canvasLocation" x="4020" y="-90"/>
+        </scene>
+        <!--Video Player Controller-->
+        <scene sceneID="9QW-CL-IQy">
+            <objects>
+                <viewController storyboardIdentifier="HHVideoPlayerController" id="tg4-5L-Azm" customClass="HHVideoPlayerController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vCp-bh-ljw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqY-4K-RZu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="532"/>
+                                <color key="backgroundColor" red="0.81418362560000002" green="1" blue="0.76583258170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw7-3z-Wkm">
+                                <rect key="frame" x="138.5" y="572" width="98" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1ev-R9-lDE"/>
+                                </constraints>
+                                <state key="normal" title="播放"/>
+                                <connections>
+                                    <action selector="playOrPauseAction:" destination="tg4-5L-Azm" eventType="touchUpInside" id="442-cb-4t1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwr-B5-0Me">
+                                <rect key="frame" x="30" y="572" width="98.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NQ8-iJ-DzK"/>
+                                </constraints>
+                                <state key="normal" title="快退"/>
+                                <connections>
+                                    <action selector="rewindAction:" destination="tg4-5L-Azm" eventType="touchUpInside" id="0vG-Mf-Zv7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-1n-rex">
+                                <rect key="frame" x="246.5" y="572" width="98.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JT0-H6-PyO"/>
+                                </constraints>
+                                <state key="normal" title="快进"/>
+                                <connections>
+                                    <action selector="fastForwardAction:" destination="tg4-5L-Azm" eventType="touchUpInside" id="SUT-nk-qrT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6g-EJ-OUl">
+                                <rect key="frame" x="30" y="622" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LFD-QI-0Y8"/>
+                                    <constraint firstAttribute="width" constant="60" id="VaJ-lx-txK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-ZH-Ort">
+                                <rect key="frame" x="285" y="622" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="01O-TU-xea"/>
+                                    <constraint firstAttribute="width" constant="60" id="Fmu-wx-uon"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="19b-Va-ghv">
+                                <rect key="frame" x="98" y="622" width="179" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Njb-Rs-uWE"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderAction:" destination="tg4-5L-Azm" eventType="valueChanged" id="UDp-t4-ZWN"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mw7-3z-Wkm" firstAttribute="leading" secondItem="Dwr-B5-0Me" secondAttribute="trailing" constant="10" id="6FP-49-5hb"/>
+                            <constraint firstItem="F1R-XH-RRg" firstAttribute="trailing" secondItem="ZEn-ZH-Ort" secondAttribute="trailing" constant="30" id="75R-QE-XBd"/>
+                            <constraint firstItem="vyV-1n-rex" firstAttribute="leading" secondItem="Mw7-3z-Wkm" secondAttribute="trailing" constant="10" id="8LG-LU-cci"/>
+                            <constraint firstItem="hqY-4K-RZu" firstAttribute="top" secondItem="F1R-XH-RRg" secondAttribute="top" id="8nV-KT-BIp"/>
+                            <constraint firstItem="F1R-XH-RRg" firstAttribute="bottom" secondItem="t6g-EJ-OUl" secondAttribute="bottom" constant="15" id="CeZ-rI-uue"/>
+                            <constraint firstItem="F1R-XH-RRg" firstAttribute="bottom" secondItem="ZEn-ZH-Ort" secondAttribute="bottom" constant="15" id="Dq4-cG-3vS"/>
+                            <constraint firstItem="vyV-1n-rex" firstAttribute="width" secondItem="Dwr-B5-0Me" secondAttribute="width" id="Efu-eq-nba"/>
+                            <constraint firstItem="vyV-1n-rex" firstAttribute="top" secondItem="hqY-4K-RZu" secondAttribute="bottom" constant="20" id="Fgo-KX-bBb"/>
+                            <constraint firstItem="t6g-EJ-OUl" firstAttribute="leading" secondItem="F1R-XH-RRg" secondAttribute="leading" constant="30" id="Kfu-qR-gRa"/>
+                            <constraint firstItem="ZEn-ZH-Ort" firstAttribute="top" secondItem="vyV-1n-rex" secondAttribute="bottom" constant="20" id="Oes-XG-G5L"/>
+                            <constraint firstItem="t6g-EJ-OUl" firstAttribute="top" secondItem="Mw7-3z-Wkm" secondAttribute="bottom" constant="20" id="QSn-pe-9ll"/>
+                            <constraint firstItem="ZEn-ZH-Ort" firstAttribute="leading" secondItem="19b-Va-ghv" secondAttribute="trailing" constant="10" id="RmL-aQ-9lV"/>
+                            <constraint firstItem="hqY-4K-RZu" firstAttribute="leading" secondItem="F1R-XH-RRg" secondAttribute="leading" id="V58-PB-paU"/>
+                            <constraint firstItem="t6g-EJ-OUl" firstAttribute="top" secondItem="Dwr-B5-0Me" secondAttribute="bottom" constant="20" id="eWj-le-6kQ"/>
+                            <constraint firstItem="F1R-XH-RRg" firstAttribute="trailing" secondItem="hqY-4K-RZu" secondAttribute="trailing" id="f4J-zK-chl"/>
+                            <constraint firstItem="Mw7-3z-Wkm" firstAttribute="width" secondItem="Dwr-B5-0Me" secondAttribute="width" id="fct-iY-IIb"/>
+                            <constraint firstItem="Dwr-B5-0Me" firstAttribute="top" secondItem="hqY-4K-RZu" secondAttribute="bottom" constant="20" id="fiE-Xz-KAs"/>
+                            <constraint firstItem="F1R-XH-RRg" firstAttribute="bottom" secondItem="19b-Va-ghv" secondAttribute="bottom" constant="15" id="o51-Zb-UZX"/>
+                            <constraint firstItem="Dwr-B5-0Me" firstAttribute="leading" secondItem="F1R-XH-RRg" secondAttribute="leading" constant="30" id="uIU-Uy-jRg"/>
+                            <constraint firstItem="19b-Va-ghv" firstAttribute="leading" secondItem="t6g-EJ-OUl" secondAttribute="trailing" constant="10" id="wqw-AM-mVo"/>
+                            <constraint firstItem="Mw7-3z-Wkm" firstAttribute="top" secondItem="hqY-4K-RZu" secondAttribute="bottom" constant="20" id="yoD-Tj-duE"/>
+                            <constraint firstItem="F1R-XH-RRg" firstAttribute="trailing" secondItem="vyV-1n-rex" secondAttribute="trailing" constant="30" id="yqJ-TQ-6H0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F1R-XH-RRg"/>
+                    </view>
+                    <connections>
+                        <outlet property="durationLabel" destination="ZEn-ZH-Ort" id="seP-Jh-xtI"/>
+                        <outlet property="fastForwardBtn" destination="vyV-1n-rex" id="a6T-gd-nlo"/>
+                        <outlet property="playOrPauseBtn" destination="Mw7-3z-Wkm" id="hqg-w2-0RX"/>
+                        <outlet property="playView" destination="hqY-4K-RZu" id="LYq-wr-CW7"/>
+                        <outlet property="rewindBtn" destination="Dwr-B5-0Me" id="lg3-Bk-C1g"/>
+                        <outlet property="slider" destination="19b-Va-ghv" id="2iC-Ak-R9V"/>
+                        <outlet property="startTimeLabel" destination="t6g-EJ-OUl" id="f8w-Tf-ZLI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WzZ-o3-RLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4872.8000000000002" y="-89.505247376311857"/>
         </scene>
         <!--Lean Cloud View Controller-->
         <scene sceneID="drL-dR-XYP">

@@ -2,7 +2,8 @@
 #pod init    初始化
 #pod install 安装
 
-platform:'ios','8.0'
+inhibit_all_warnings!
+platform:'ios','9.0'
 target 'HuaHong' do
 pod 'Masonry'
 #已被依赖，无需重复导入

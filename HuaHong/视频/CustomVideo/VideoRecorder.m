@@ -9,7 +9,6 @@
 #import "VideoRecorder.h"
 #import "AssetWriter.h"
 #import <Photos/Photos.h>
-#import "HHVideoManager.h"
 
 @interface VideoRecorder ()<AVCaptureVideoDataOutputSampleBufferDelegate,
 AVCaptureAudioDataOutputSampleBufferDelegate,
@@ -38,42 +37,23 @@ CAAnimationDelegate>
 
 //录制写入
 @property (nonatomic, strong) AssetWriter *assetWriter;
-//@property (nonatomic, strong) NSString *videoPath;
 
+//照片输出流
+@property (nonatomic)AVCaptureStillImageOutput *ImageOutPut;
 //录制状态
 @property (atomic, assign) BOOL isCapturing;//正在录制
 @property (atomic, assign) BOOL isPaused;//是否暂停
 @property (atomic, assign) BOOL isDiscount;//是否中断
 @property (nonatomic, assign) BOOL isFront;
 @property (atomic, assign) CMTime startTime;//开始录制的时间
-@property (atomic, assign) CGFloat currentRecordTime;//当前录制时间
+@property (atomic, assign) double currentRecordTime;//当前录制时间
+@property(nonatomic)AVCaptureDevice *device;
 
 @end
 
 @implementation VideoRecorder
 
-
 #pragma mark - Custom Method
-//启动录制功能
-- (void)openPreview{
-    self.startTime = CMTimeMake(0, 0);
-    self.isCapturing = NO;
-    self.isPaused = NO;
-    self.isDiscount = NO;
-    self.isFront = NO;
-    [self.recordSession startRunning];
-}
-
-
-//关闭预览
-- (void)closePreview
-{
-    _startTime = CMTimeMake(0, 0);
-    if (_recordSession) {
-        [_recordSession stopRunning];
-    }
-    
-}
 
 //开始录制
 - (void)startRecording {
@@ -112,22 +92,24 @@ CAAnimationDelegate>
     @synchronized(self) {
         if (self.isCapturing)
         {
+            
             NSURL* url = [NSURL fileURLWithPath:self.assetWriter.path];
             self.isCapturing = NO;
             dispatch_async(_captureQueue, ^{
                 [self.assetWriter finishWithCompletionHandler:^{
+                    
+                    if ([self.delegate respondsToSelector:@selector(recordProgress:Duration:)]) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.delegate recordProgress:self.currentRecordTime/self.maxVideoDuration Duration:self.currentRecordTime];
+                        });
+                    }
+                    
                     self.isCapturing = NO;
                     self.assetWriter = nil;
                     
                     //时间恢复为0
                     self.startTime = CMTimeMake(0, 0);
                     self.currentRecordTime = 0;
-                    
-                    if ([self.delegate respondsToSelector:@selector(recordProgress:)]) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [self.delegate recordProgress:self.currentRecordTime/self.maxVideoDuration];
-                        });
-                    }
                     
                     if (handler) {
                         handler(url);
@@ -137,6 +119,7 @@ CAAnimationDelegate>
                 }];
             });
         }
+        
     }
 }
 
@@ -151,7 +134,7 @@ CAAnimationDelegate>
             [self.recordSession addInput:self.backCameraInput];
         }
         self.isFront = NO;
-       
+        
     }else
     {
         [self.recordSession stopRunning];
@@ -170,10 +153,11 @@ CAAnimationDelegate>
     changeAnimation.delegate = self;
     changeAnimation.duration = 0.45;
     changeAnimation.type = @"oglFlip";
-//    changeAnimation.type = kCATransitionMoveIn;
-
+    //    changeAnimation.type = kCATransitionMoveIn;
+    
     changeAnimation.subtype = kCATransitionFromRight;
-    changeAnimation.timingFunction = UIViewAnimationCurveEaseInOut;
+    changeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
     [self.previewLayer addAnimation:changeAnimation forKey:@"changeAnimation"];
 }
 
@@ -220,7 +204,9 @@ CAAnimationDelegate>
         {
             CMFormatDescriptionRef fmt = CMSampleBufferGetFormatDescription(sampleBuffer);
             [self setAudioFormat:fmt];
-            self.assetWriter = [AssetWriter encoderForPath:[HHVideoManager getVideoCachePath] Height:_cy width:_cx channels:_channels samples:_samplerate];
+            
+            NSString *filePath = [[_videoPath stringByAppendingPathComponent:_videoName] stringByAppendingString:@".mp4"];
+            self.assetWriter = [AssetWriter encoderForPath:filePath Height:_cy width:_cx channels:_channels samples:_samplerate];
         }
         
         //判断是否中断录制过
@@ -276,25 +262,28 @@ CAAnimationDelegate>
     }
     CMTime sub = CMTimeSubtract(dur, self.startTime);
     self.currentRecordTime = CMTimeGetSeconds(sub);
-    if (self.currentRecordTime > self.maxVideoDuration) {
-        if (self.currentRecordTime - self.maxVideoDuration < 0.1) {
-            if ([self.delegate respondsToSelector:@selector(recordProgress:)]) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.delegate recordProgress:self.currentRecordTime/self.maxVideoDuration];
-                });
-            }
+    
+    if (self.currentRecordTime <= self.maxVideoDuration) {
+        
+        if ([self.delegate respondsToSelector:@selector(recordProgress:Duration:)]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate recordProgress:self.currentRecordTime/self.maxVideoDuration Duration:self.currentRecordTime];
+            });
         }
-        return;
+        // 进行数据编码
+        [self.assetWriter encodeFrame:sampleBuffer isVideo:isVideo];
+        CFRelease(sampleBuffer);
+        
+    }else if (self.currentRecordTime > self.maxVideoDuration)
+    {
+        if ([self.delegate respondsToSelector:@selector(greaterThenMaxDuration)]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate greaterThenMaxDuration];
+            });
+        }
     }
     
-    if ([self.delegate respondsToSelector:@selector(recordProgress:)]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate recordProgress:self.currentRecordTime/self.maxVideoDuration];
-        });
-    }
-    // 进行数据编码
-    [self.assetWriter encodeFrame:sampleBuffer isVideo:isVideo];
-    CFRelease(sampleBuffer);
+    
 }
 
 
@@ -326,13 +315,22 @@ CAAnimationDelegate>
     return _captureQueue;
 }
 
+- (AVCaptureStillImageOutput *)ImageOutPut
+{
+    if (!_ImageOutPut) {
+        _ImageOutPut = [[AVCaptureStillImageOutput alloc]init];
+    }
+    
+    return _ImageOutPut;
+}
 //捕获视频的会话
 - (AVCaptureSession *)recordSession {
     if (_recordSession == nil) {
         _recordSession = [[AVCaptureSession alloc] init];
+        
         //添加后置摄像头的输入
-        if ([_recordSession canAddInput:self.backCameraInput]) {
-            [_recordSession addInput:self.backCameraInput];
+        if ([_recordSession canAddInput:self.frontCameraInput]) {
+            [_recordSession addInput:self.frontCameraInput];
         }
         
         //添加视频输出
@@ -341,6 +339,12 @@ CAAnimationDelegate>
             //设置视频的分辨率
             _cx = 720;
             _cy = 1280;
+        }
+        
+        //添加图片输出
+        if ([_recordSession canAddOutput:self.ImageOutPut]) {
+            [_recordSession addOutput:self.ImageOutPut];
+            
         }
         
         //添加音频输入
@@ -353,6 +357,21 @@ CAAnimationDelegate>
         }
         //设置视频录制的方向
         self.videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
+        
+        
+        //修改设备的属性，先加锁
+        if ([self.device lockForConfiguration:nil]) {
+            //闪光灯自动
+            if ([self.device isFlashModeSupported:AVCaptureFlashModeAuto]) {
+                [self.device setFlashMode:AVCaptureFlashModeAuto];
+            }
+            //自动白平衡
+            if ([self.device isWhiteBalanceModeSupported:AVCaptureWhiteBalanceModeAutoWhiteBalance]) {
+                [self.device setWhiteBalanceMode:AVCaptureWhiteBalanceModeAutoWhiteBalance];
+            }
+            //解锁
+            [self.device unlockForConfiguration];
+        }
     }
     return _recordSession;
 }
@@ -361,7 +380,7 @@ CAAnimationDelegate>
 - (AVCaptureDeviceInput *)backCameraInput {
     if (_backCameraInput == nil) {
         NSError *error;
-        _backCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[HHVideoManager backCamera] error:&error];
+        _backCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self cameraWithPosition:AVCaptureDevicePositionBack] error:&error];
         if (error) {
             NSLog(@"获取后置摄像头失败~");
         }
@@ -373,7 +392,7 @@ CAAnimationDelegate>
 - (AVCaptureDeviceInput *)frontCameraInput {
     if (_frontCameraInput == nil) {
         NSError *error;
-        _frontCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[HHVideoManager frontCamera] error:&error];
+        _frontCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self cameraWithPosition:AVCaptureDevicePositionFront] error:&error];
         if (error) {
             NSLog(@"获取前置摄像头失败~");
         }
@@ -401,8 +420,8 @@ CAAnimationDelegate>
         [_videoOutput setSampleBufferDelegate:self queue:self.captureQueue];
         NSDictionary* setcapSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                                         
-                [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange], kCVPixelBufferPixelFormatTypeKey,
-                nil];
+                                        [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange], kCVPixelBufferPixelFormatTypeKey,
+                                        nil];
         _videoOutput.videoSettings = setcapSettings;
     }
     return _videoOutput;
@@ -432,5 +451,110 @@ CAAnimationDelegate>
     
 }
 
+//用来返回是前置摄像头还是后置摄像头
+- (AVCaptureDevice *)cameraWithPosition:(AVCaptureDevicePosition) position {
+    //返回和视频录制相关的所有默认设备
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    
+    //遍历这些设备返回跟position相关的设备
+    for (AVCaptureDevice *device in devices) {
+        if ([device position] == position) {
+            return device;
+        }
+    }
+    return nil;
+}
+
+
+#pragma mark- 取照片
+- (void)shutterCamera
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        __weak typeof(self) weakSelf = self;
+        
+        AVCaptureConnection * videoConnection = [weakSelf.ImageOutPut connectionWithMediaType:AVMediaTypeVideo];
+        if (videoConnection ==  nil) {
+            return;
+        }
+        
+        //消除取图片时的声音。
+        static SystemSoundID soundID = 0;
+        if (soundID == 0) {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"photoShutter" ofType:@"caf"];
+            NSURL *filePath = [NSURL fileURLWithPath:path isDirectory:NO];
+            AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+        }
+        AudioServicesPlaySystemSound(soundID);
+        
+        @weakify(self);
+        [weakSelf.ImageOutPut captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+            @strongify(self);
+            if (imageDataSampleBuffer == nil) {
+                return;
+            }
+            
+            NSData *imageData =  [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            
+            if ([self.delegate respondsToSelector:@selector(faceScanResult:)]) {
+                [self.delegate faceScanResult:imageData];
+            }
+            
+        }];
+    });
+    
+}
+
+//启动录制功能
+- (void)startRunning
+{
+    self.startTime = CMTimeMake(0, 0);
+    self.isCapturing = NO;
+    self.isPaused = NO;
+    self.isDiscount = NO;
+    self.isFront = NO;
+    [self.recordSession startRunning];
+}
+
+//关闭预览
+- (void)stopRunning
+{
+    _startTime = CMTimeMake(0, 0);
+    
+    [self.recordSession stopRunning];
+}
+
+- (void)focusAtPoint:(CGPoint)point{
+    //    CGSize size = self.view.bounds.size;
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    // focusPoint 函数后面Point取值范围是取景框左上角（0，0）到取景框右下角（1，1）之间,按这个来但位置就是不对，只能按上面的写法才可以。前面是点击位置的y/PreviewLayer的高度，后面是1-点击位置的x/PreviewLayer的宽度
+    CGPoint focusPoint = CGPointMake( point.y /size.height ,1 - point.x/size.width );
+    
+    if ([self.device lockForConfiguration:nil]) {
+        
+        if ([self.device isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
+            [self.device setFocusPointOfInterest:focusPoint];
+            [self.device setFocusMode:AVCaptureFocusModeAutoFocus];
+        }
+        
+        if ([self.device isExposureModeSupported:AVCaptureExposureModeAutoExpose ]) {
+            [self.device setExposurePointOfInterest:focusPoint];
+            //曝光量调节
+            [self.device setExposureMode:AVCaptureExposureModeAutoExpose];
+        }
+        
+        [self.device unlockForConfiguration];
+    }
+    
+}
+
+- (AVCaptureDevice *)device
+{
+    if (!_device) {
+        _device = [self cameraWithPosition:AVCaptureDevicePositionFront];
+    }
+    
+    return _device;
+}
 @end
 

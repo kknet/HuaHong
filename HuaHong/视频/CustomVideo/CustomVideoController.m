@@ -31,7 +31,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.recorder openPreview];
+    [self.recorder startRunning];
     
 }
 
@@ -44,7 +44,7 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [self.recorder closePreview];
+    [self.recorder stopRunning];
 }
 
 - (void)viewDidLoad {

@@ -201,20 +201,7 @@
         }
         else
         {
-            if (self.positiveFormat.length>0) {
-              //带千分位分隔符样式
-                NSString *str = [NSString stringWithFormat:self.format,value];
-                NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
-                formatter.numberStyle = NSNumberFormatterDecimalStyle;
-                [formatter setPositiveFormat:self.positiveFormat];
-                self.text = [NSString stringWithFormat:@"%@",[formatter stringFromNumber:[NSNumber numberWithFloat:[str floatValue]]]];
-                
-            }else
-            {
-                //普通样式
-               self.text = [NSString stringWithFormat:self.format,value];
-            }
-            
+            self.text = [NSString stringWithFormat:self.format,value];
         }
     }
 }

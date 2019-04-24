@@ -24,8 +24,6 @@
 		7D1A366420A56F0E00D74375 /* HHFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A366320A56F0E00D74375 /* HHFMDBManager.m */; };
 		7D1A366720A5845900D74375 /* HHFMDBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A366620A5845900D74375 /* HHFMDBController.m */; };
 		7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2172101FDA86D8008698C9 /* BlueToothController.m */; };
-		7D224AC921D4C17B000AB767 /* ChildrenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D224AC721D4C17B000AB767 /* ChildrenCell.m */; };
-		7D224ACA21D4C17B000AB767 /* ChildrenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D224AC821D4C17B000AB767 /* ChildrenCell.xib */; };
 		7D2DE5F22015BBCF001590E1 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F12015BBCF001590E1 /* Model.m */; };
 		7D2DE5F720170227001590E1 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F620170227001590E1 /* DrawView.m */; };
 		7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */; };
@@ -104,6 +102,7 @@
 		7D58943E22688D7200DFE60F /* MBProgressHUD+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58943922688D7200DFE60F /* MBProgressHUD+add.m */; };
 		7D58943F22688D7200DFE60F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D58943C22688D7200DFE60F /* MBProgressHUD.bundle */; };
 		7D58944022688D7200DFE60F /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58943D22688D7200DFE60F /* UIViewController+MBProgressHUD.m */; };
+		7D58951A226EA7AB00DFE60F /* HHVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
 		7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651129203C414E0042DAE7 /* ProgressView.m */; };
 		7D6D5133224B9694005A53D8 /* QKPrivacyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5131224B9694005A53D8 /* QKPrivacyManager.m */; };
@@ -118,10 +117,12 @@
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
 		7D8F370821CB2F1C008E3352 /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */; };
 		7D8F371921D0D381008E3352 /* MVVM_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F371821D0D381008E3352 /* MVVM_Controller.m */; };
+		7D8FDD6C226F087900D00C92 /* HHAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8FDD6B226F087900D00C92 /* HHAudioRecorder.m */; };
+		7D8FDD70226F15A700D00C92 /* HHAudioPlayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8FDD6F226F15A700D00C92 /* HHAudioPlayManager.m */; };
 		7D91769921C9DB5C007B8F91 /* GPUImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91769821C9DB5C007B8F91 /* GPUImageController.m */; };
 		7D91AC462081D714001AE03E /* MemoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91AC452081D714001AE03E /* MemoryController.m */; };
 		7D93370221A835910048E6D4 /* CleanCacheHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93370121A835910048E6D4 /* CleanCacheHelp.m */; };
-		7D93370921A931140048E6D4 /* VideoPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93370821A931140048E6D4 /* VideoPlayerManager.m */; };
+		7D93370921A931140048E6D4 /* HHVideoPlayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93370821A931140048E6D4 /* HHVideoPlayManager.m */; };
 		7D93373721B125660048E6D4 /* QKRunScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93373321B125650048E6D4 /* QKRunScrollLabel.m */; };
 		7D957EB71FD4DC4900D0A4D5 /* TakePhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EB61FD4DC4900D0A4D5 /* TakePhotoController.m */; };
 		7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D957EBB1FD531CE00D0A4D5 /* PhotoListController.m */; };
@@ -208,11 +209,6 @@
 		7DC3752F20E526E0005AEBCA /* ExCardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC3752D20E526E0005AEBCA /* ExCardSDK.framework */; };
 		7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
-		7DCE50EC2052206D00601E70 /* HHAudioTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE50EB2052206D00601E70 /* HHAudioTools.m */; };
-		7DD8E34B21D46C8F00ADA2B7 /* RATreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD8E34A21D46C8F00ADA2B7 /* RATreeViewController.m */; };
-		7DD8E34F21D4774100ADA2B7 /* RaTreeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD8E34D21D4774100ADA2B7 /* RaTreeViewCell.m */; };
-		7DD8E35021D4774100ADA2B7 /* RaTreeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD8E34E21D4774100ADA2B7 /* RaTreeViewCell.xib */; };
-		7DD8E35321D478A200ADA2B7 /* RaTreeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD8E35221D478A200ADA2B7 /* RaTreeModel.m */; };
 		7DDAE7E22057692700D5C274 /* HHPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDAE7E12057692700D5C274 /* HHPlayerViewController.m */; };
 		7DDAE7E5205779C500D5C274 /* HHVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDAE7E4205779C500D5C274 /* HHVideoManager.m */; };
 		7DDE3D2B20F505070044FC85 /* TextViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDE3D0B20F505070044FC85 /* TextViewVC.m */; };
@@ -285,9 +281,6 @@
 		7D1A366620A5845900D74375 /* HHFMDBController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHFMDBController.m; sourceTree = "<group>"; };
 		7D21720F1FDA86D8008698C9 /* BlueToothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueToothController.h; sourceTree = "<group>"; };
 		7D2172101FDA86D8008698C9 /* BlueToothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueToothController.m; sourceTree = "<group>"; };
-		7D224AC621D4C17B000AB767 /* ChildrenCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChildrenCell.h; sourceTree = "<group>"; };
-		7D224AC721D4C17B000AB767 /* ChildrenCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChildrenCell.m; sourceTree = "<group>"; };
-		7D224AC821D4C17B000AB767 /* ChildrenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildrenCell.xib; sourceTree = "<group>"; };
 		7D2DE5F02015BBCF001590E1 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		7D2DE5F12015BBCF001590E1 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		7D2DE5F320170015001590E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -433,6 +426,8 @@
 		7D58943B22688D7200DFE60F /* MBProgressHUD+add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+add.h"; sourceTree = "<group>"; };
 		7D58943C22688D7200DFE60F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		7D58943D22688D7200DFE60F /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
+		7D589518226EA7AB00DFE60F /* HHVideoPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVideoPlayerController.h; sourceTree = "<group>"; };
+		7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVideoPlayerController.m; sourceTree = "<group>"; };
 		7D651125203C35900042DAE7 /* DownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewController.h; sourceTree = "<group>"; };
 		7D651126203C35900042DAE7 /* DownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewController.m; sourceTree = "<group>"; };
 		7D651128203C414E0042DAE7 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
@@ -462,14 +457,18 @@
 		7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
 		7D8F371721D0D381008E3352 /* MVVM_Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM_Controller.h; sourceTree = "<group>"; };
 		7D8F371821D0D381008E3352 /* MVVM_Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_Controller.m; sourceTree = "<group>"; };
+		7D8FDD6A226F087900D00C92 /* HHAudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAudioRecorder.h; sourceTree = "<group>"; };
+		7D8FDD6B226F087900D00C92 /* HHAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAudioRecorder.m; sourceTree = "<group>"; };
+		7D8FDD6E226F15A700D00C92 /* HHAudioPlayManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAudioPlayManager.h; sourceTree = "<group>"; };
+		7D8FDD6F226F15A700D00C92 /* HHAudioPlayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAudioPlayManager.m; sourceTree = "<group>"; };
 		7D91769721C9DB5C007B8F91 /* GPUImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageController.h; sourceTree = "<group>"; };
 		7D91769821C9DB5C007B8F91 /* GPUImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageController.m; sourceTree = "<group>"; };
 		7D91AC442081D714001AE03E /* MemoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryController.h; sourceTree = "<group>"; };
 		7D91AC452081D714001AE03E /* MemoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryController.m; sourceTree = "<group>"; };
 		7D93370021A835910048E6D4 /* CleanCacheHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanCacheHelp.h; sourceTree = "<group>"; };
 		7D93370121A835910048E6D4 /* CleanCacheHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CleanCacheHelp.m; sourceTree = "<group>"; };
-		7D93370721A931140048E6D4 /* VideoPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerManager.h; sourceTree = "<group>"; };
-		7D93370821A931140048E6D4 /* VideoPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerManager.m; sourceTree = "<group>"; };
+		7D93370721A931140048E6D4 /* HHVideoPlayManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVideoPlayManager.h; sourceTree = "<group>"; };
+		7D93370821A931140048E6D4 /* HHVideoPlayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVideoPlayManager.m; sourceTree = "<group>"; };
 		7D93373221B125650048E6D4 /* QKRunScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKRunScrollLabel.h; sourceTree = "<group>"; };
 		7D93373321B125650048E6D4 /* QKRunScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKRunScrollLabel.m; sourceTree = "<group>"; };
 		7D957EB51FD4DC4900D0A4D5 /* TakePhotoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePhotoController.h; sourceTree = "<group>"; };
@@ -638,15 +637,6 @@
 		7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ExCardRes.bundle; sourceTree = "<group>"; };
 		7DC94AF61FE901F20042632D /* AnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
-		7DCE50EA2052206D00601E70 /* HHAudioTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAudioTools.h; sourceTree = "<group>"; };
-		7DCE50EB2052206D00601E70 /* HHAudioTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAudioTools.m; sourceTree = "<group>"; };
-		7DD8E34921D46C8F00ADA2B7 /* RATreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RATreeViewController.h; sourceTree = "<group>"; };
-		7DD8E34A21D46C8F00ADA2B7 /* RATreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RATreeViewController.m; sourceTree = "<group>"; };
-		7DD8E34C21D4774100ADA2B7 /* RaTreeViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaTreeViewCell.h; sourceTree = "<group>"; };
-		7DD8E34D21D4774100ADA2B7 /* RaTreeViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaTreeViewCell.m; sourceTree = "<group>"; };
-		7DD8E34E21D4774100ADA2B7 /* RaTreeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RaTreeViewCell.xib; sourceTree = "<group>"; };
-		7DD8E35121D478A200ADA2B7 /* RaTreeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaTreeModel.h; sourceTree = "<group>"; };
-		7DD8E35221D478A200ADA2B7 /* RaTreeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaTreeModel.m; sourceTree = "<group>"; };
 		7DDAE7E02057692700D5C274 /* HHPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHPlayerViewController.h; sourceTree = "<group>"; };
 		7DDAE7E12057692700D5C274 /* HHPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHPlayerViewController.m; sourceTree = "<group>"; };
 		7DDAE7E3205779C500D5C274 /* HHVideoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVideoManager.h; sourceTree = "<group>"; };
@@ -1054,16 +1044,6 @@
 				7DDE3D1E20F505070044FC85 /* TableView */,
 				7DDE3D0A20F505070044FC85 /* TextView */,
 				7DDE3D1220F505070044FC85 /* WebView */,
-				7DD8E34921D46C8F00ADA2B7 /* RATreeViewController.h */,
-				7DD8E34A21D46C8F00ADA2B7 /* RATreeViewController.m */,
-				7D224AC621D4C17B000AB767 /* ChildrenCell.h */,
-				7D224AC721D4C17B000AB767 /* ChildrenCell.m */,
-				7D224AC821D4C17B000AB767 /* ChildrenCell.xib */,
-				7DD8E34C21D4774100ADA2B7 /* RaTreeViewCell.h */,
-				7DD8E34D21D4774100ADA2B7 /* RaTreeViewCell.m */,
-				7DD8E34E21D4774100ADA2B7 /* RaTreeViewCell.xib */,
-				7DD8E35121D478A200ADA2B7 /* RaTreeModel.h */,
-				7DD8E35221D478A200ADA2B7 /* RaTreeModel.m */,
 			);
 			path = "常用控件";
 			sourceTree = "<group>";
@@ -1355,6 +1335,24 @@
 			path = "UIWebView-TS";
 			sourceTree = "<group>";
 		};
+		7D8FDD69226F085500D00C92 /* HHAudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				7D8FDD6A226F087900D00C92 /* HHAudioRecorder.h */,
+				7D8FDD6B226F087900D00C92 /* HHAudioRecorder.m */,
+			);
+			path = HHAudioRecorder;
+			sourceTree = "<group>";
+		};
+		7D8FDD6D226F157900D00C92 /* HHAudioPlayManager */ = {
+			isa = PBXGroup;
+			children = (
+				7D8FDD6E226F15A700D00C92 /* HHAudioPlayManager.h */,
+				7D8FDD6F226F15A700D00C92 /* HHAudioPlayManager.m */,
+			);
+			path = HHAudioPlayManager;
+			sourceTree = "<group>";
+		};
 		7D91769621C9DAE6007B8F91 /* GPUImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1376,8 +1374,10 @@
 		7D93370621A930B90048E6D4 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				7D93370721A931140048E6D4 /* VideoPlayerManager.h */,
-				7D93370821A931140048E6D4 /* VideoPlayerManager.m */,
+				7D93370721A931140048E6D4 /* HHVideoPlayManager.h */,
+				7D93370821A931140048E6D4 /* HHVideoPlayManager.m */,
+				7D589518226EA7AB00DFE60F /* HHVideoPlayerController.h */,
+				7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -1532,8 +1532,8 @@
 		7DB4FF011FD134BD004EE368 /* 音频 */ = {
 			isa = PBXGroup;
 			children = (
-				7DCE50EA2052206D00601E70 /* HHAudioTools.h */,
-				7DCE50EB2052206D00601E70 /* HHAudioTools.m */,
+				7D8FDD6D226F157900D00C92 /* HHAudioPlayManager */,
+				7D8FDD69226F085500D00C92 /* HHAudioRecorder */,
 				7DB29BC4213A313E0044BD22 /* HHAudioConvertManager.h */,
 				7DB29BC5213A313E0044BD22 /* HHAudioConvertManager.m */,
 				7DB4FF051FD1352B004EE368 /* VoiceController.h */,
@@ -2027,7 +2027,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D81144620EFB63C00349078 /* h5.html in Resources */,
-				7DD8E35021D4774100ADA2B7 /* RaTreeViewCell.xib in Resources */,
 				7D16E3E8223A1CA50027C5FC /* HHAlertView.xib in Resources */,
 				7DDE3D3420F505080044FC85 /* QKCRIndicateCell.xib in Resources */,
 				7DAA3CE62041B28C00B12BC4 /* rsacert.der in Resources */,
@@ -2035,7 +2034,6 @@
 				7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */,
 				7D058576203F0A5200C7E204 /* 123.jpg in Resources */,
 				7D5892102266D23100DFE60F /* QKCalenderCell.xib in Resources */,
-				7D224ACA21D4C17B000AB767 /* ChildrenCell.xib in Resources */,
 				7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */,
 				7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */,
 				7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */,
@@ -2219,12 +2217,11 @@
 				7DDF9E9E207F62D6003D6F17 /* AFController.m in Sources */,
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
 				7DB910092148C24300A9B40C /* MVPController.m in Sources */,
-				7D224AC921D4C17B000AB767 /* ChildrenCell.m in Sources */,
 				7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */,
 				7D58943E22688D7200DFE60F /* MBProgressHUD+add.m in Sources */,
-				7DD8E34B21D46C8F00ADA2B7 /* RATreeViewController.m in Sources */,
 				7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
+				7D8FDD70226F15A700D00C92 /* HHAudioPlayManager.m in Sources */,
 				7DC24C992023002900103BDE /* CustomTransitionPop.m in Sources */,
 				7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */,
 				7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */,
@@ -2233,7 +2230,7 @@
 				7D437EFB2083543900DAAEBD /* XiaoMiTV.m in Sources */,
 				7D437EFE208354CF00DAAEBD /* BridgeController.m in Sources */,
 				7D957EBF1FD5337000D0A4D5 /* PhotoListCell.m in Sources */,
-				7D93370921A931140048E6D4 /* VideoPlayerManager.m in Sources */,
+				7D93370921A931140048E6D4 /* HHVideoPlayManager.m in Sources */,
 				7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */,
 				7DA152C8204AED490075274E /* CalculateManager.m in Sources */,
 				7D48F97521042F4500833594 /* AttachmentBehaviorController.m in Sources */,
@@ -2275,6 +2272,7 @@
 				7D2DE5F22015BBCF001590E1 /* Model.m in Sources */,
 				7DDF9E98207F4F10003D6F17 /* XMLController.m in Sources */,
 				7D8F370821CB2F1C008E3352 /* UITextView+PlaceHolder.m in Sources */,
+				7D58951A226EA7AB00DFE60F /* HHVideoPlayerController.m in Sources */,
 				7DB910162148FCD200A9B40C /* MVVMModel.m in Sources */,
 				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
 				7D5892112266D23100DFE60F /* QKCalendarView.m in Sources */,
@@ -2288,11 +2286,11 @@
 				7DC24C8920206B3D00103BDE /* AppDelegate+Notification.m in Sources */,
 				7D56A30C216DE03C00212DEB /* Factory.m in Sources */,
 				7DA711AD20DCD10400BEF5D9 /* UIViewController+Alert.m in Sources */,
+				7D8FDD6C226F087900D00C92 /* HHAudioRecorder.m in Sources */,
 				7DC24CA320283F6500103BDE /* HHBezierPath.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
 				7D2FF20A2008916700ECAA26 /* NavigationController.m in Sources */,
 				7D07F17021BE0594000F78EB /* HHProxy.m in Sources */,
-				7DCE50EC2052206D00601E70 /* HHAudioTools.m in Sources */,
 				7D2FF0BE1FFF4B4600ECAA26 /* CreatQRCodeController.m in Sources */,
 				7D437F40208ECBCA00DAAEBD /* BaseValidate.m in Sources */,
 				7DAA3CEB2041BA9E00B12BC4 /* RACViewController.m in Sources */,
@@ -2310,7 +2308,6 @@
 				7DDE3D3220F505080044FC85 /* TableViewVC.m in Sources */,
 				7DA1D6C1205F9F0200EB0AC2 /* CBPeripheralViewController.m in Sources */,
 				7DBA5A6120410CF700BC274E /* SecurityController.m in Sources */,
-				7DD8E34F21D4774100ADA2B7 /* RaTreeViewCell.m in Sources */,
 				7D6FA8FE203B3B390072109E /* XMLModel.m in Sources */,
 				7DA1D6D420624AFD00EB0AC2 /* FaceViewController.m in Sources */,
 				7DC24C932022B6E500103BDE /* DrawingBoardController.m in Sources */,
@@ -2333,7 +2330,6 @@
 				7D328A55206CD62D00A64272 /* HUtils.m in Sources */,
 				7DDE3D2F20F505080044FC85 /* PageControlVC.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
-				7DD8E35321D478A200ADA2B7 /* RaTreeModel.m in Sources */,
 				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,
 				7D5393BD2019746B006D2712 /* DrawController.m in Sources */,
 				7DDE3D3320F505080044FC85 /* QKCRRecordTypeView.m in Sources */,

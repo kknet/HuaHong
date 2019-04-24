@@ -136,8 +136,8 @@
 #import "KVOViewController.h"
 #import "VideoRecordController.h"
 #import "GPUImageController.h"
-#import "RATreeViewController.h"
 #import "HHAlertView.h"
+#import "HHVideoPlayerController.h"
 
 
 #endif /* Public_h */

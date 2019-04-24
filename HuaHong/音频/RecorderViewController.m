@@ -7,7 +7,8 @@
 //
 
 #import "RecorderViewController.h"
-#import "HHAudioTools.h"
+#import "HHAudioRecorder.h"
+#import "HHAudioPlayManager/HHAudioPlayManager.h"
 
 @interface RecorderViewController ()
 
@@ -15,7 +16,7 @@
 
 @implementation RecorderViewController
 {
-    HHAudioTools *recorde;
+    HHAudioRecorder *recorde;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,20 +28,26 @@
 
 -(void)recodeVoice
 {
-    recorde = [HHAudioTools sharedTools];
-    recorde.recordeFileName = @"12345";
-    __weak typeof(recorde) weakrecorde = recorde;
+    recorde = [HHAudioRecorder sharedManager];
+//    recorde.fileName = @"";
+//    recorde.recordLength = 0;
+    
     [recorde setRecordeBlock:^(NSString *recordePath) {
-        [weakrecorde playRecord:recordePath];
+        
+        NSLog(@"recordePath:%@",recordePath);
     }];
     
-    [recorde startRecorde:10];
+    [recorde startRecorde];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    recorde = [HHAudioTools sharedTools];
     
-    [recorde stopRecorde:YES];
+        [recorde stopRecorde:YES];
+    
+//   NSString *path = [[NSBundle mainBundle]pathForResource:@"12345" ofType:@"caf"];
+//    [[HHAudioPlayManager sharedManager]playAudioWhithURL:path progresscallback:^(CGFloat progress, NSString *currentTime, NSString *totalTime) {
+//
+//    }];
 }
 @end

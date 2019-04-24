@@ -31,6 +31,6 @@ typedef NSAttributedString* (^UICountingLabelAttributedFormatBlock)(CGFloat valu
 -(void)countFromZeroTo:(CGFloat)endValue withDuration:(NSTimeInterval)duration;
 
 - (CGFloat)currentValue;
-@property (nonatomic,copy) NSString *positiveFormat;
+
 @end
 

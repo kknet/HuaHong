@@ -15,7 +15,7 @@
 //判断相机权限
 +(BOOL)cameraAuthStatus
 {
-    AVAuthorizationStatus *authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied) {
         return NO;
     }

@@ -232,10 +232,9 @@
 //        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
 //    }];
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-      
-        [MBProgressHUD showLoading:@"loading" toView:self.view];
-    });
+  HHVideoPlayerController *vc = [kStory instantiateViewControllerWithIdentifier:@"HHVideoPlayerController"];
+    [self presentViewController:vc animated:YES completion:nil];
+
 }
 
 - (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateStr

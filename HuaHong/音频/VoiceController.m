@@ -7,7 +7,6 @@
 //
 
 #import "VoiceController.h"
-#import "HHAudioTools.h"
 #import "HHAudioConvertManager.h"
 #import "hhController.h"
 
