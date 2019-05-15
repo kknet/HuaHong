@@ -2523,7 +2523,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = QKTest;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/Swift/HuaHong-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2560,7 +2560,7 @@
 				PROVISIONING_PROFILE = "64deefad-8e61-4500-9821-16e3b7ec5d56";
 				PROVISIONING_PROFILE_SPECIFIER = QKTest;
 				SWIFT_OBJC_BRIDGING_HEADER = "HuaHong/首页/HuaHong-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
