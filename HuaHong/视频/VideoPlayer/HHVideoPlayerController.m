@@ -63,13 +63,19 @@
 //快退
 - (IBAction)rewindAction:(id)sender
 {
-    self.playManager.rate = MAX(self.playManager.rate-2.0, -2.0);
+//    self.playManager.rate = MAX(self.playManager.rate-2.0, -2.0);
+    
+    self.playManager.rate = -1.5;
+
 }
 
 //快进
 - (IBAction)fastForwardAction:(id)sender
 {
-   self.playManager.rate = MAX(self.playManager.rate+2.0, 2.0);
+   self.playManager.rate = 1.5;
+    
+    
+//    self.playView.transform = CGAffineTransformMakeRotation(-M_PI_2);
 }
 
 //播放/暂停
@@ -82,6 +88,38 @@
     {
         [self.playManager pause];
 //        [sender setTitle:@"播放" forState:UIControlStateNormal];
+    }
+}
+- (IBAction)swipeAction:(UISwipeGestureRecognizer *)sender
+{
+    switch (sender.direction) {
+        case UISwipeGestureRecognizerDirectionRight:
+        {
+            Float64 currentTime = CMTimeGetSeconds(self.playManager.currentTime);
+            currentTime += 5;
+            self.playManager.currentTime = CMTimeMakeWithSeconds(currentTime, 1000);
+        }
+            break;
+        case UISwipeGestureRecognizerDirectionLeft:
+        {
+            Float64 currentTime = CMTimeGetSeconds(self.playManager.currentTime);
+            currentTime -= 5;
+            self.playManager.currentTime = CMTimeMakeWithSeconds(currentTime, 1000);
+        }
+            break;
+        case UISwipeGestureRecognizerDirectionUp:
+        {
+            NSLog(@"UISwipeGestureRecognizerDirectionUp");
+        }
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+        {
+           NSLog(@"UISwipeGestureRecognizerDirectionDown");
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
@@ -97,4 +135,5 @@
     
     [self.playManager removePlayer];
 }
+
 @end

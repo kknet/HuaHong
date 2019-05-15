@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;//textView.top
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleMargin;//textView.bottom
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomMargin;//button.bottom
+@property (weak, nonatomic) IBOutlet UILabel *tipsLabel;//字数统计
 
 @end
 @implementation HHAlertView
@@ -97,6 +98,7 @@
 
         [self endEditing:YES];
     }];
+   
 }
 
 /** 弹出提示框 */
@@ -139,13 +141,6 @@
     }
 }
 
-/** 设置标题 */
-- (void)setTitle:(NSString *)title
-{
-    _title = title;
-    _titleLabel.text = title;
-}
-
 /** 展示的文字内容 */
 - (void)setMessage:(NSString *)message
 {
@@ -177,36 +172,6 @@
     [self setNeedsLayout];
     
 }
-/** 设置左按钮标题 */
-- (void)setLeftBtnTitle:(NSString *)leftBtnTitle
-{
-    NSString *desc = [NSString stringWithFormat:@"%@左按钮标题不能为空",NSStringFromClass([self class])];
-    NSAssert(leftBtnTitle && leftBtnTitle.length, desc);
-    
-    _leftBtnTitle = leftBtnTitle;
-    [_leftButton setTitle:leftBtnTitle forState:UIControlStateNormal];
-}
-
-/** 设置右按钮标题 */
-- (void)setRightBtnTitle:(NSString *)rightBtnTitle
-{
-    NSString *desc = [NSString stringWithFormat:@"%@右按钮标题不能为空",NSStringFromClass([self class])];
-    NSAssert(rightBtnTitle && rightBtnTitle.length, desc);
-    
-    _rightBtnTitle = rightBtnTitle;
-    [_rightButton setTitle:rightBtnTitle forState:UIControlStateNormal];
-}
-
-/** 设置单按钮标题 */
-- (void)setSingleBtnTitle:(NSString *)singleBtnTitle
-{
-    NSString *desc = [NSString stringWithFormat:@"%@单按钮标题不能为空",NSStringFromClass([self class])];
-    NSAssert(singleBtnTitle && singleBtnTitle.length, desc);
-    
-    _singleBtnTitle = singleBtnTitle;
-    [_singleButton setTitle:singleBtnTitle forState:UIControlStateNormal];
-}
-
 
 /** 设置行间距 段间距 */
 - (void)setLineSpace:(CGFloat)lineSpace ParagraphSpace:(CGFloat)paragraphSpace TextAlignment:(NSTextAlignment)textAlignment
@@ -273,15 +238,32 @@
         self.textView.backgroundColor = UIColor.groupTableViewBackgroundColor;
         self.textView.scrollEnabled = editable;
         self.textView.textAlignment = NSTextAlignmentLeft;
-    }
+        self.textView.placeholder = _placeholder;
+        self.tipsLabel.hidden = !_limitCount;
+        self.tipsLabel.text = [NSString stringWithFormat:@"0/%ld",_limitCount];
+        self.textView.contentInset = UIEdgeInsetsMake(0, 0, 15, 0);
 
+    }
+    
     self.textView.editable = editable;
 
 }
 
+- (void)setLimitCount:(NSInteger)limitCount
+{
+    _limitCount = limitCount;
+    
+    if (self.textView.editable)
+    {
+        self.tipsLabel.hidden = !_limitCount;
+        self.tipsLabel.text = [NSString stringWithFormat:@"0/%ld",_limitCount];
+    }
+
+}
 /** 只有可编辑时，才有placeholder */
 - (void)setPlaceholder:(NSString *)placeholder
 {
+    _placeholder = placeholder;
     if (self.textView.editable)
     {
         self.textView.placeholder = placeholder;
@@ -289,77 +271,49 @@
     
 }
 
-/** 设置标题颜色 */
-- (void)setTitleColor:(UIColor *)color
+/** 设置标题 */
+- (void)setTitle:(NSString *)title
 {
-    if ([color isKindOfClass:[UIColor class]])
-    {
-        _titleLabel.backgroundColor = color;
-    }
+    _title = title;
+    _titleLabel.text = title;
+}
+
+/** 设置标题titleColor,backgroundColor */
+- (void)setTitleBackgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor
+{
+    _titleLabel.backgroundColor = backgroundColor;
+    _titleLabel.textColor = textColor;
+}
+
+/** 设置左按钮title,titleColor,backgroundColor,borderColor */
+- (void)setLeftButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
+{
+    [_leftButton setTitle:title forState:UIControlStateNormal];
+    [_leftButton setTitleColor:titleColor forState:UIControlStateNormal];
+    _leftButton.backgroundColor = backgroundColor;
+    _leftButton.layer.borderWidth = 1;
+    _leftButton.layer.borderColor = borderColor.CGColor;
     
 }
 
-/** 设置左按钮颜色 */
-- (void)setLeftButtonColor:(UIColor *)color
+/** 设置右按钮title,titleColor,backgroundColor,borderColor */
+- (void)setRightButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
 {
-    if ([color isKindOfClass:[UIColor class]])
-    {
-        _leftButton.backgroundColor = color;
-    }
+    [_rightButton setTitle:title forState:UIControlStateNormal];
+    [_rightButton setTitleColor:titleColor forState:UIControlStateNormal];
+    _rightButton.backgroundColor = backgroundColor;
+    _rightButton.layer.borderWidth = 1;
+    _rightButton.layer.borderColor = borderColor.CGColor;
 }
 
-/** 设置右按钮颜色 */
-- (void)setRightButtonColor:(UIColor *)color
+/** 设置单按钮title,titleColor,backgroundColor,borderColor */
+- (void)setSingleButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
 {
-    if ([color isKindOfClass:[UIColor class]])
-    {
-        _rightButton.backgroundColor = color;
-    }
-}
-
-/** 设置单按钮颜色 */
-- (void)setSingleButtonColor:(UIColor *)color
-{
-    if ([color isKindOfClass:[UIColor class]])
-    {
-        _singleButton.backgroundColor = color;
-    }
-}
-
-/** 设置标题字体颜色 */
-- (void)setTitleTextColor:(UIColor *)color
-{
-    if ([color isKindOfClass:[UIColor class]])
-    {
-        _titleLabel.textColor = color;
-    }
-}
-
-/** 设置左按钮字体颜色 */
-- (void)setLeftButtonTitleColor:(UIColor *)color
-{
-    if ([color isKindOfClass:[UIColor class]])
-    {
-        [_leftButton setTitleColor:color forState:UIControlStateNormal];
-    }
-}
-
-/** 设置右按钮字体颜色 */
-- (void)setRightButtonTitleColor:(UIColor *)color
-{
-    if ([color isKindOfClass:[UIColor class]])
-    {
-        [_rightButton setTitleColor:color forState:UIControlStateNormal];
-    }
-}
-
-/** 设置单按钮字体颜色 */
-- (void)setSingleButtonTitleColor:(UIColor *)color
-{
-    if ([color isKindOfClass:[UIColor class]])
-    {
-        [_singleButton setTitleColor:color forState:UIControlStateNormal];
-    }
+    [_singleButton setTitle:title forState:UIControlStateNormal];
+    [_singleButton setTitleColor:titleColor forState:UIControlStateNormal];
+    _singleButton.backgroundColor = backgroundColor;
+    _singleButton.layer.borderWidth = 1;
+    _singleButton.layer.borderColor = borderColor.CGColor;
 }
 
 #pragma mark - UITextViewDelegate
@@ -381,43 +335,122 @@
     if (self.forbiddenEmoji)
     {
         //限制苹果系统输入法  禁止输入表情
-        
-        /** 方法一 无效果 */
-//        if ([[[UIApplication sharedApplication]textInputMode].primaryLanguage isEqualToString:@"emoji"]) {
-//            return NO;
-//        }
-        
-        /** 方法二 无效果 */
-//        if ([[[textView textInputMode] primaryLanguage] isEqualToString:@"emoji"]) {
-//            return NO;
-//        }
-        
-        /** 方法三 有部分效果 */
-        if ([[[UITextInputMode currentInputMode] primaryLanguage] isEqualToString:@"emoji"]) {
+        if ([[[UITextInputMode currentInputMode] primaryLanguage] isEqualToString:@"emoji"]){
             return NO;
         }
         
     }
     
-//    /** 限制字数 */
-//    if (range.length == 1 && text.length == 0) {
-//        return YES;
-//    }
-//    
-//    if (textView.text.length > self.limitCount) {
-//        return NO;
-//    }
+    /** 限制字数 */
+    UITextRange *selectedRange = [textView markedTextRange];
+    //获取高亮部分
+    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
+     //获取高亮部分内容
+     //NSString * selectedtext = [textView textInRange:selectedRange];
+
+     //如果有高亮且当前字数开始位置小于最大限制时允许输入
+     if (selectedRange && pos)
+     {
+        NSInteger startOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.start];
+             NSInteger endOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.end];
+             NSRange offsetRange = NSMakeRange(startOffset, endOffset - startOffset);
+
+             if (offsetRange.location < _limitCount)
+             {
+                return YES;
+             }else
+             {
+                return NO;
+             }
+        }
+
+     NSString *comcatstr = [textView.text stringByReplacingCharactersInRange:range withString:text];
+
+     NSInteger caninputlen = _limitCount - comcatstr.length;
+
+     if (caninputlen >= 0)
+     {
+        return YES;
+     }else
+     {
+         NSInteger len = text.length + caninputlen;
+         //防止当text.length + caninputlen < 0时，使得rg.length为一个非法最大正数出错
+         NSRange rg = {0,MAX(len,0)};
+
+         if (rg.length > 0)
+         {
+                 NSString *s = @"";
+                 //判断是否只普通的字符或asc码(对于中文和表情返回NO)
+                 BOOL asc = [text canBeConvertedToEncoding:NSASCIIStringEncoding];
+                 if (asc)
+                 {
+                     //因为是ascii码直接取就可以了不会错
+                    s = [text substringWithRange:rg];
+                 }else
+                 {
+                     __block NSInteger idx = 0;
+                     __block NSString  *trimString = @"";//截取出的字串
+                     //使用字符串遍历，这个方法能准确知道每个emoji是占一个unicode还是两个
+                     [text enumerateSubstringsInRange:NSMakeRange(0, [text length])
+                                                                  options:NSStringEnumerationByComposedCharacterSequences
+                                                               usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                            
+                                                                       if (idx >= rg.length) {
+                                                                               *stop = YES; //取出所需要就break，提高效率
+                                                                               return ;
+                                                                          }
+                            
+                                                                       trimString = [trimString stringByAppendingString:substring];
+                            
+                                                                       idx++;
+                                                                   }];
+    
+                       s = trimString;
+                    }
+             
+                 //rang是指从当前光标处进行替换处理(注意如果执行此句后面返回的是YES会触发didchange事件)
+                 [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
+             }
+         return NO;
+        }
    
     return YES;
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    if (textView.text.length > self.limitCount) {
-        textView.text = [textView.text substringToIndex:self.limitCount];
-        
+//    if (textView.text.length > self.limitCount) {
+//        textView.text = [textView.text substringToIndex:self.limitCount];
+//
+//    }
+    
+    UITextRange *selectedRange = [textView markedTextRange];
+        //获取高亮部分
+    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
+     //如果在变化中是高亮部分在变，就不要计算字符了
+     if (selectedRange && pos) {
+            return;
+         }
+     NSString  *nsTextContent = textView.text;
+     NSInteger existTextNum = nsTextContent.length;
+
+     if (existTextNum > _limitCount)
+         {
+             //截取到最大位置的字符(由于超出截部分在should时被处理了所在这里这了提高效率不再判断)
+             NSString *s = [nsTextContent substringToIndex:_limitCount];
+    
+             [textView setText:s];
+        }
+    
+    
+    if (textView.markedTextRange == nil){
+        NSInteger length = textView.text.length;
+        _tipsLabel.text = [NSString stringWithFormat:@"%ld/%ld",length,_limitCount];
     }
+    
+    
 }
+
 /**
  //系统弹框自动换行
  UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];

@@ -16,6 +16,14 @@
  * Cmd+Shift+[         切换tab栏
  * ESC                 代码补全
  */
+
+
+/**
+ * nil：指向一个对象的空指针,对objective c id 对象赋空值.
+ * Nil：指向一个类的空指针,表示对类进行赋空值.
+ * NULL：指向其他类型（如：基本类型、C类型）的空指针, 用于对非对象指针赋空值.
+ * NSNull：在集合对象中，表示空值的对象.
+ */
 #import <UIKit/UIKit.h>
 
 @interface HomeVC : BaseViewController<UITableViewDelegate,UITableViewDataSource>

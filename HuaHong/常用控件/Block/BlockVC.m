@@ -12,7 +12,8 @@
 typedef void(^Block)(NSString *str);
 @interface BlockVC ()
 @property(nonatomic,strong) NetworkTools *tools;
-@property (nonatomic,strong) NSArray *arr;
+@property (nonatomic,assign) NSInteger index;
+@property (nonatomic,copy) NSString *text;
 @property (nonatomic,copy) Block block;
 @end
 
@@ -23,7 +24,8 @@ typedef void(^Block)(NSString *str);
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"Block";
     
-    _arr = @[@"1234"];
+    _index = 123;
+    _text = @"text";
     
     //发起数据
     //1. 没有引起强引用（tools在出了viewDidLoad()方法被释放了）
@@ -65,14 +67,16 @@ typedef void(^Block)(NSString *str);
         
         @strongify(self);
 //        __strong typeof(weakSelf) strongSelf = weakSelf;
-        NSLog(@"-1-%@---%@",self,self.arr);
+        NSLog(@"2----%ld",(long)self.index);
         
-        
+        NSLog(@"3----%@",self.text);
+
 //        __strong typeof(weakSelf) strongSelf = weakSelf;
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
-            NSLog(@"-2-%@---%@",self,self.arr);
+            NSLog(@"2----%ld",(long)self.index);
+
         });
     }];
     

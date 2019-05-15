@@ -23,6 +23,7 @@
 #import "TTGTextTagCollectionView.h"
 #import "QKDatePicker.h"
 #import "QKCalendarView.h"
+#import "TestModel.h"
 
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
@@ -78,7 +79,11 @@
 //    NSLog(@"familyNames:%@",[UIFont familyNames]);
     
     
-    
+    NSDictionary *dic = @{@"userNmae":@"haha",@"userId":@(123)};
+    TestModel *model = [[TestModel alloc]initWithDict:dic];
+    if (model.userId == 123) {
+        NSLog(@"haha");
+    }
 }
 
 - (void)showAlertView
@@ -87,33 +92,33 @@
     NSString *message = @"新华社北京3月13日电（记者叶昊鸣）记者13日从应急管理部了解到，财政部、应急管理部当日向青海省下拨中央自然灾害救灾资金1亿元，主要用于支持做好青海省玉树、果洛等地严重雪灾受灾群众救助工作，保障受灾群众基本生活。新华社北京3月13日电（记者叶昊鸣）记者13日从应急管理部了解到，财政部、应急管理部当日向青海省下拨中央自然灾害救灾资金1亿元，主要用于支持做好青海省玉树、果洛等地严重雪灾受灾群众救助工作，保障受灾群众基本生活。";
 //    message = @"哈哈哈哈哈哈哈哈";
 //    NSAttributedString *attrMessage = [[NSAttributedString alloc]initWithString:message];
+    
+    
     HHAlertView *alertView = [HHAlertView sharedAlertView];
-    alertView.message = message;
-//    alertView.attributedMessage = attrMessage;
+    alertView.title = @"不合格说明";
+//    alertView.message = message;
+    alertView.placeholder = @"请说明不合格原因";
     alertView.textAlignment = NSTextAlignmentLeft;
-
-//     [alertView setLeftButtonColor:[UIColor redColor]];
-//    [alertView setLeftButtonTitleColor:[UIColor orangeColor]];
-
+    alertView.editable = YES;
+    alertView.limitCount = 200;
+    alertView.forbiddenEmoji = YES;
+    [alertView show];
 //    [alertView setSingleButton];
 
-//     alertView.delegate = self;
-//    alertView.editable = YES;
-//    alertView.placeholder = @"请输入...";
-//    alertView.limitCount = 5;
-//    alertView.forbiddenEmoji = YES;
-
-    //此处有循环引用
     __weak typeof(self) weakSelf = self;
     [alertView setRightBlock:^(NSString * _Nonnull message) {
-        weakSelf.title = message;
+        NSLog(@"右按钮点击:%@",message);
     }];
 
     [alertView setLeftBlock:^(NSString * _Nonnull message) {
-        weakSelf.title = message;
+        NSLog(@"左按钮点击:%@",message);
     }];
 
-    [alertView show];
+    //或者使用代理
+//alertView.delegate = self;
+//- (void)alertView:(HHAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+
+   
     
 //    QKAlertView *alertView =  [QKAlertView sharedAlertView];
 //    [alertView alertWithTitle:@"提示" message:message buttonClickback:^(QKAlertView *alertView, NSInteger buttonIndex) {

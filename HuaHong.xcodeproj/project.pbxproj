@@ -103,6 +103,7 @@
 		7D58943F22688D7200DFE60F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D58943C22688D7200DFE60F /* MBProgressHUD.bundle */; };
 		7D58944022688D7200DFE60F /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58943D22688D7200DFE60F /* UIViewController+MBProgressHUD.m */; };
 		7D58951A226EA7AB00DFE60F /* HHVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */; };
+		7D61C6C022850F8B00F46167 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D61C6BF22850F8B00F46167 /* TestModel.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
 		7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651129203C414E0042DAE7 /* ProgressView.m */; };
 		7D6D5133224B9694005A53D8 /* QKPrivacyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5131224B9694005A53D8 /* QKPrivacyManager.m */; };
@@ -428,6 +429,8 @@
 		7D58943D22688D7200DFE60F /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
 		7D589518226EA7AB00DFE60F /* HHVideoPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVideoPlayerController.h; sourceTree = "<group>"; };
 		7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVideoPlayerController.m; sourceTree = "<group>"; };
+		7D61C6BE22850F8B00F46167 /* TestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
+		7D61C6BF22850F8B00F46167 /* TestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		7D651125203C35900042DAE7 /* DownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadViewController.h; sourceTree = "<group>"; };
 		7D651126203C35900042DAE7 /* DownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadViewController.m; sourceTree = "<group>"; };
 		7D651128203C414E0042DAE7 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
@@ -977,6 +980,8 @@
 				7D2FF0B01FF4F91400ECAA26 /* TestView.m */,
 				7D2FF2102008935F00ECAA26 /* TestViewController.h */,
 				7D2FF2112008935F00ECAA26 /* TestViewController.m */,
+				7D61C6BE22850F8B00F46167 /* TestModel.h */,
+				7D61C6BF22850F8B00F46167 /* TestModel.m */,
 			);
 			path = "测试";
 			sourceTree = "<group>";
@@ -2304,6 +2309,7 @@
 				7DA711B020DCDAC300BEF5D9 /* HHLockController.m in Sources */,
 				7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */,
 				7D407B6521A66A6B00C73DA2 /* UITextField+space.m in Sources */,
+				7D61C6C022850F8B00F46167 /* TestModel.m in Sources */,
 				7DBA5A5E20410C3900BC274E /* RSAEncryptor.m in Sources */,
 				7DDE3D3220F505080044FC85 /* TableViewVC.m in Sources */,
 				7DA1D6C1205F9F0200EB0AC2 /* CBPeripheralViewController.m in Sources */,

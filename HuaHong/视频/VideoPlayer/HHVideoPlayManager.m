@@ -235,12 +235,20 @@
 
 - (void)rewind
 {
-    self.rate = MAX(self.player.rate - 2.0, -2.0);
+//    self.rate = MAX(self.player.rate - 2.0, -2.0);
+    Float64 currentTime = CMTimeGetSeconds(self.currentTime);
+    currentTime -= 5;
+    self.currentTime = CMTimeMakeWithSeconds(currentTime, 1000);
 }
 
 - (void)fastForward
 {
-    self.rate = MIN(self.player.rate + 2.0, 2.0);
+//    self.rate = MIN(self.player.rate + 2.0, 2.0);
+    
+    Float64 currentTime = CMTimeGetSeconds(self.currentTime);
+    currentTime += 5;
+    self.currentTime = CMTimeMakeWithSeconds(currentTime, 1000);
+
 }
 
 - (void)changeTimeSlider:(float)value {

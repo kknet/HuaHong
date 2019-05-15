@@ -32,15 +32,6 @@ typedef void(^AlertBlock)(NSString *message);
 /** 属性文本 */
 @property(/*null_resettable*/nonatomic,copy) NSAttributedString *attributedMessage;
 
-/** 设置左按钮标题 */
-@property (nonatomic,copy,nonnull) NSString *leftBtnTitle;
-
-/** 设置右按钮标题 */
-@property (nonatomic,copy,nonnull) NSString *rightBtnTitle;
-
-/** 设置单按钮标题 */
-@property (nonatomic,copy,nonnull) NSString *singleBtnTitle;
-
 /** 确定Block */
 @property (nonatomic,copy) AlertBlock rightBlock;
 
@@ -67,29 +58,17 @@ typedef void(^AlertBlock)(NSString *message);
 /** 是否禁止输入emoj表情😊，默认禁止YES */
 @property (nonatomic,assign) BOOL forbiddenEmoji;
 
-/** 设置标题颜色 */
-- (void)setTitleColor:(UIColor *)color;
+/** 设置标题titleColor,backgroundColor */
+- (void)setTitleBackgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor;
 
-/** 设置左按钮颜色 */
-- (void)setLeftButtonColor:(UIColor *)color;
+/** 设置左按钮title,titleColor,backgroundColor,borderColor */
+- (void)setLeftButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor;
 
-/** 设置右按钮颜色 */
-- (void)setRightButtonColor:(UIColor *)color;
+/** 设置右按钮title,titleColor,backgroundColor,borderColor */
+- (void)setRightButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor;
 
-/** 设置单按钮颜色 */
-- (void)setSingleButtonColor:(UIColor *)color;
-
-/** 设置标题字体颜色 */
-- (void)setTitleTextColor:(UIColor *)color;
-
-/** 设置左按钮字体颜色 */
-- (void)setLeftButtonTitleColor:(UIColor *)color;
-
-/** 设置右按钮字体颜色 */
-- (void)setRightButtonTitleColor:(UIColor *)color;
-
-/** 设置单按钮字体颜色 */
-- (void)setSingleButtonTitleColor:(UIColor *)color;
+/** 设置单按钮title,titleColor,backgroundColor,borderColor */
+- (void)setSingleButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor;
 
 /** 弹出提示框 */
 - (void)show;
