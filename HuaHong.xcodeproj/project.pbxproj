@@ -248,6 +248,8 @@
 		7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */; };
 		7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */; };
 		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
+		937C1A7F228E6CBF009C9418 /* NSDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */; };
+		93E533A9228E99FB000F5025 /* 数据安全 in Resources */ = {isa = PBXBuildFile; fileRef = 93E533A8228E99FB000F5025 /* 数据安全 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -715,6 +717,9 @@
 		7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpLoadViewController.m; sourceTree = "<group>"; };
 		7DFB1BDD1FCFDDB30033D9E2 /* WaterFallController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallController.h; sourceTree = "<group>"; };
 		7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallController.m; sourceTree = "<group>"; };
+		937C1A7D228E6CBF009C9418 /* NSDictionary+safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safe.h"; sourceTree = "<group>"; };
+		937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+safe.m"; sourceTree = "<group>"; };
+		93E533A8228E99FB000F5025 /* 数据安全 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "数据安全"; sourceTree = "<group>"; };
 		9AB1874EA98924911D4A28EB /* Pods-HuaHong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1002,6 +1007,7 @@
 		7D3623E11FCE51B400C77874 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				93E533A8228E99FB000F5025 /* 数据安全 */,
 				7D58943822688D7200DFE60F /* MBProgressHud(Extension) */,
 				7D5891FD2266D23100DFE60F /* QKCalendar */,
 				7DBC56D82264B98D006E6068 /* QKPickerView */,
@@ -1313,11 +1319,11 @@
 		7D58943822688D7200DFE60F /* MBProgressHud(Extension) */ = {
 			isa = PBXGroup;
 			children = (
+				7D58943B22688D7200DFE60F /* MBProgressHUD+add.h */,
 				7D58943922688D7200DFE60F /* MBProgressHUD+add.m */,
 				7D58943A22688D7200DFE60F /* UIViewController+MBProgressHUD.h */,
-				7D58943B22688D7200DFE60F /* MBProgressHUD+add.h */,
-				7D58943C22688D7200DFE60F /* MBProgressHUD.bundle */,
 				7D58943D22688D7200DFE60F /* UIViewController+MBProgressHUD.m */,
+				7D58943C22688D7200DFE60F /* MBProgressHUD.bundle */,
 			);
 			path = "MBProgressHud(Extension)";
 			sourceTree = "<group>";
@@ -1530,6 +1536,8 @@
 				7D407B6421A66A6B00C73DA2 /* UITextField+space.m */,
 				7D8F370621CB2F1C008E3352 /* UITextView+PlaceHolder.h */,
 				7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */,
+				937C1A7D228E6CBF009C9418 /* NSDictionary+safe.h */,
+				937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */,
 			);
 			path = Catagory;
 			sourceTree = "<group>";
@@ -2042,6 +2050,7 @@
 				7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */,
 				7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */,
 				7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */,
+				93E533A9228E99FB000F5025 /* 数据安全 in Resources */,
 				7DE8D5861FC556DE00577762 /* Main.storyboard in Resources */,
 				7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */,
 				7D437F4E2090771B00DAAEBD /* QKAlertView.podspec in Resources */,
@@ -2285,6 +2294,7 @@
 				7DC24C8D20219EF700103BDE /* AnimationView.m in Sources */,
 				7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */,
 				7D8376D22041433000C6CB06 /* EncryptionTools.m in Sources */,
+				937C1A7F228E6CBF009C9418 /* NSDictionary+safe.m in Sources */,
 				7DDAE7E5205779C500D5C274 /* HHVideoManager.m in Sources */,
 				7DA152C2204ADE640075274E /* ChainViewController.m in Sources */,
 				7DA711AA20DCA05B00BEF5D9 /* HHLockView.m in Sources */,

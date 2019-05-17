@@ -24,6 +24,7 @@
 #import "QKDatePicker.h"
 #import "QKCalendarView.h"
 #import "TestModel.h"
+#import "NSDictionary+NilSafe.h"
 
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
@@ -79,11 +80,13 @@
 //    NSLog(@"familyNames:%@",[UIFont familyNames]);
     
     
-    NSDictionary *dic = @{@"userNmae":@"haha",@"userId":@(123)};
-    TestModel *model = [[TestModel alloc]initWithDict:dic];
-    if (model.userId == 123) {
-        NSLog(@"haha");
+    NSDictionary *dic = @{@"userNmae":@"haha",@"userId":[NSNull null]};
+    
+    if ([dic[@"userId"] isEqual:[NSNull null]]) {
+        NSLog(@"class:%@",dic[@"userId"]);
     }
+    
+    [SVProgressHUD showInfoWithStatus:dic[@"userId"]];
 }
 
 - (void)showAlertView
