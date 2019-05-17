@@ -343,12 +343,6 @@ static NSString *headerID = @"headerID";
 }
 
 
-/**
- cmd + option + /
-
- @param collectionView <#collectionView description#>
- @param indexPath <#indexPath description#>
- */
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *vc = nil;

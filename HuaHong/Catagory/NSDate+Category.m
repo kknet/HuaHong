@@ -24,7 +24,7 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formate];
-    formatter.timeZone = [NSTimeZone timeZoneWithName:@"zh_CN"];
+    formatter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
     return  [formatter stringFromDate:date];
 }
 
@@ -32,7 +32,7 @@
 +(NSDate*)dateWithInterval:(NSTimeInterval)timeInterval
 {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
-    NSTimeZone *zone = [NSTimeZone timeZoneWithName:@"zh_CN"];
+    NSTimeZone *zone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
     NSInteger interval = [zone secondsFromGMTForDate: date];
     return [date  dateByAddingTimeInterval: interval];
 }
@@ -66,7 +66,7 @@
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:format];
-    formatter.timeZone = [NSTimeZone timeZoneWithName:@"zh_CN"];
+    [formatter setTimeZone:[NSTimeZone localTimeZone]];
     return [formatter stringFromDate:[NSDate date]];
 }
 
