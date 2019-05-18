@@ -26,6 +26,10 @@ cmd + option + /
 */
 
 
-
+/**
+*  isKindOfClass:确定一个对象是否是一个类的成员,或者是派生自该类的成员
+*  isMemberOfClass:确定一个对象是否是当前类的成员
+*  isSubclassOfClass：判断对象是否为某类或者其派生类的实例（类方法)
+*/
 
 }

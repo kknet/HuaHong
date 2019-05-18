@@ -50,7 +50,7 @@
 		7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FB0200A29BE00994A3C /* UIScrollView+Refresh.m */; };
 		7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FB3200B32DE00994A3C /* HHAnnotation.m */; };
 		7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D3BD4B4205E664300EFED61 /* Assets.xcassets */; };
-		7D407B6521A66A6B00C73DA2 /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D407B6421A66A6B00C73DA2 /* UITextField+Extension.m */; };
+		7D407B6521A66A6B00C73DA2 /* UITextField+Limit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D407B6421A66A6B00C73DA2 /* UITextField+Limit.m */; };
 		7D40E21C21A444DC00698891 /* UIButton+space.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D40E21B21A444DC00698891 /* UIButton+space.m */; };
 		7D437EEF20834E3200DAAEBD /* BaseRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D437EEE20834E3200DAAEBD /* BaseRemote.m */; };
 		7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D437EF120834E4600DAAEBD /* BaseTV.m */; };
@@ -334,8 +334,8 @@
 		7D398FB2200B32DE00994A3C /* HHAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAnnotation.h; sourceTree = "<group>"; };
 		7D398FB3200B32DE00994A3C /* HHAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAnnotation.m; sourceTree = "<group>"; };
 		7D3BD4B4205E664300EFED61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7D407B6321A66A6B00C73DA2 /* UITextField+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
-		7D407B6421A66A6B00C73DA2 /* UITextField+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
+		7D407B6321A66A6B00C73DA2 /* UITextField+Limit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Limit.h"; sourceTree = "<group>"; };
+		7D407B6421A66A6B00C73DA2 /* UITextField+Limit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Limit.m"; sourceTree = "<group>"; };
 		7D40E21A21A444DC00698891 /* UIButton+space.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+space.h"; sourceTree = "<group>"; };
 		7D40E21B21A444DC00698891 /* UIButton+space.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+space.m"; sourceTree = "<group>"; };
 		7D437EED20834E3200DAAEBD /* BaseRemote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRemote.h; sourceTree = "<group>"; };
@@ -1535,8 +1535,8 @@
 				7DABC3AA21A57E4100C3EAD9 /* UIImage+Category.m */,
 				7DABC3AC21A5867100C3EAD9 /* NSDate+Category.h */,
 				7DABC3AD21A5867100C3EAD9 /* NSDate+Category.m */,
-				7D407B6321A66A6B00C73DA2 /* UITextField+Extension.h */,
-				7D407B6421A66A6B00C73DA2 /* UITextField+Extension.m */,
+				7D407B6321A66A6B00C73DA2 /* UITextField+Limit.h */,
+				7D407B6421A66A6B00C73DA2 /* UITextField+Limit.m */,
 				7D8F370621CB2F1C008E3352 /* UITextView+PlaceHolder.h */,
 				7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */,
 				937C1A7D228E6CBF009C9418 /* NSDictionary+safe.h */,
@@ -2322,7 +2322,7 @@
 				7D1A366420A56F0E00D74375 /* HHFMDBManager.m in Sources */,
 				7DA711B020DCDAC300BEF5D9 /* HHLockController.m in Sources */,
 				7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */,
-				7D407B6521A66A6B00C73DA2 /* UITextField+Extension.m in Sources */,
+				7D407B6521A66A6B00C73DA2 /* UITextField+Limit.m in Sources */,
 				7D61C6C022850F8B00F46167 /* TestModel.m in Sources */,
 				7DBA5A5E20410C3900BC274E /* RSAEncryptor.m in Sources */,
 				7DDE3D3220F505080044FC85 /* TableViewVC.m in Sources */,

@@ -26,8 +26,9 @@
 #import "TestModel.h"
 #import "NSDictionary+NilSafe.h"
 
-@interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate>
+@interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @property (strong, nonatomic)CTCallCenter *call_center;//电话管理
 @property (nonatomic,strong) QKDatePicker *pick;
@@ -86,9 +87,21 @@
         NSLog(@"class:%@",dic[@"userId"]);
     }
     
-    [SVProgressHUD showInfoWithStatus:dic[@"userId"]];
+//    [SVProgressHUD showInfoWithStatus:dic[@"userId"]];
+    
+    self.textField.delegate = self;
+    self.textField.keyboardType = UIKeyboardTypeNumberPad;
+    self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
+    if ([TestView isSubclassOfClass:[UIView class]]) {
+        NSLog(@"isSubclassOfClass");
+    }
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return [textField regex_shouldChangeCharactersInRange:range replacementString:string IntLimit:4 DecimalLimit:2];
+}
 - (void)showAlertView
 {
     
