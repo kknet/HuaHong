@@ -157,12 +157,8 @@
      **/
     [[signal filter:^BOOL(NSString *value) {
         
-        if ([value isEqualToString:@"5"]) {
+        return [value isEqualToString:@"5"] ;
 
-            return NO;
-        }
-        
-        return YES;
     }]subscribeNext:^(id  _Nullable x) {
         NSLog(@"filter:%@",x);
     }];
@@ -390,7 +386,7 @@
     
     /**
      * 19.throttle
-     * 节流：用来处理当某个信号发送比较频繁的情况,在某一段时间不发送信号内容
+     * 节流：用来处理当某个信号发送比较频繁的情况,在某一段时间取最后一次信号
      **/
     RACSubject *throttleSignal = [RACSubject subject];
     [[throttleSignal throttle:2]subscribeNext:^(id  _Nullable x) {
