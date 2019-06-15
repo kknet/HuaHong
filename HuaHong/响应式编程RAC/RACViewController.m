@@ -51,7 +51,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-self.navi
     [self delegateMethod];
 
     [self kvo];
