@@ -24,7 +24,6 @@
 #import "QKDatePicker.h"
 #import "QKCalendarView.h"
 #import "TestModel.h"
-#import "NSDictionary+NilSafe.h"
 
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
@@ -81,21 +80,11 @@
 //    NSLog(@"familyNames:%@",[UIFont familyNames]);
     
     
-    NSDictionary *dic = @{@"userNmae":@"haha",@"userId":[NSNull null]};
-    
-    if ([dic[@"userId"] isEqual:[NSNull null]]) {
-        NSLog(@"class:%@",dic[@"userId"]);
-    }
-    
-//    [SVProgressHUD showInfoWithStatus:dic[@"userId"]];
-    
     self.textField.delegate = self;
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-    if ([TestView isSubclassOfClass:[UIView class]]) {
-        NSLog(@"isSubclassOfClass");
-    }
+  
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

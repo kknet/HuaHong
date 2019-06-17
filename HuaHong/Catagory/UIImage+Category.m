@@ -246,4 +246,80 @@
     
 }
 
+//缩放图片,,最大多少
++(UIImage*)scaleImg:(UIImage*)org maxsizeW:(CGFloat)maxW
+{
+    
+    UIImage* retimg = nil;
+    
+    CGFloat h;
+    CGFloat w;
+    
+    if( org.size.width > maxW )
+    {
+        w = maxW;
+        h = (w / org.size.width) * org.size.height;
+    }
+    else
+    {
+        w = org.size.width;
+        h = org.size.height;
+        return org;
+    }
+    
+    UIGraphicsBeginImageContext( CGSizeMake(w, h) );
+    
+    [org drawInRect:CGRectMake(0, 0, w, h)];
+    retimg = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return retimg;
+}
+
+
+//缩放图片
++(UIImage*)scaleImg:(UIImage*)org maxsize:(CGFloat)maxsize
+{
+    
+    UIImage* retimg = nil;
+    
+    CGFloat h;
+    CGFloat w;
+    if( org.size.width > org.size.height )
+    {
+        if( org.size.width > maxsize )
+        {
+            w = maxsize;
+            h = (w / org.size.width) * org.size.height;
+        }
+        else
+        {
+            w = org.size.width;
+            h = org.size.height;
+            return org;
+        }
+    }
+    else
+    {
+        if( org.size.height > maxsize )
+        {
+            h = maxsize;
+            w = (h / org.size.height) * org.size.width;
+        }
+        else
+        {
+            w = org.size.width;
+            h = org.size.height;
+            return org;
+        }
+    }
+    
+    UIGraphicsBeginImageContext( CGSizeMake(w, h) );
+    
+    [org drawInRect:CGRectMake(0, 0, w, h)];
+    retimg = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return retimg;
+}
 @end

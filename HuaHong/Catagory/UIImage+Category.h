@@ -36,6 +36,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** 得到Video的第一帧 */
 + (UIImage*)getThumbnail:(NSURL*)videoURL;
 
++(UIImage*)scaleImg:(UIImage*)org maxsize:(CGFloat)maxsize; //缩放图片
+
++(UIImage*)scaleImg:(UIImage*)org maxsizeW:(CGFloat)maxW; //缩放图片,,最大多少
+
 @end
 
 NS_ASSUME_NONNULL_END

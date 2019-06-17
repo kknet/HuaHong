@@ -47,6 +47,7 @@
 #import "UITextField+Limit.h"
 #import "MBProgressHUD+add.h"
 #import "NSDictionary+NilSafe.h"
+#import "NSDictionary+Null.h"
 //#import "UITextView+Placeholder.h"
 #import "UITextView+PlaceHolder.h"
 #import "UIScrollView+EmptyDataSet.h"
@@ -54,7 +55,6 @@
 #import "NSTimer+HHTimer.h"
 #import <FBShimmeringView.h>
 #import <AVOSCloud/AVOSCloud.h>
-
 
 #import "Model.h"
 #import "HHSwitch.h"

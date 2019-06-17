@@ -16,16 +16,6 @@
 
 //////////////////////////////////////////////////
 
-+(UIImage*)scaleImg:(UIImage*)org maxsize:(CGFloat)maxsize; //缩放图片
-
-+(UIImage*)scaleImg:(UIImage*)org maxsizeW:(CGFloat)maxW; //缩放图片,,最大多少
-
-//把nsnull字段干掉
-+(NSDictionary*)delNUll:(NSDictionary*)dic;
-
-//把nsnull字段干掉
-+(NSArray*)delNullInArr:(NSArray*)arr;
-
 //url 拼接参数
 +(NSString*)makeURL:(NSString*)requrl param:(NSDictionary*)param;
 
