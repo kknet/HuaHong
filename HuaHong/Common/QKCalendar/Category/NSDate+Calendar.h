@@ -12,17 +12,17 @@
 /**
  *  获得当前 NSDate 对象对应的日子
  */
-- (NSInteger)dateDay;
+- (NSInteger)day;
 
 /**
  *  获得当前 NSDate 对象对应的月份
  */
-- (NSInteger)dateMonth;
+- (NSInteger)month;
 
 /**
  *  获得当前 NSDate 对象对应的年份
  */
-- (NSInteger)dateYear;
+- (NSInteger)year;
 
 /**
  *  获取上个月的某一天（day）的 NSDate 对象

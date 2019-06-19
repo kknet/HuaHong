@@ -10,22 +10,78 @@
 
 @implementation NSDate (Category)
 
-/** String转NSDate */
-+(NSDate *)dateFromString:(NSString *)timeString formate:(NSString*)formate{
+/**
+ String转NSDate
+
+ @param dateString 日期字符串
+ @param format 日期格式
+ @return NSDate
+ */
++(nullable NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:formate];
+    [formatter setDateFormat:format];
     formatter.timeZone = [NSTimeZone timeZoneWithName:@"zh_CN"];
-    return  [formatter dateFromString:timeString];
+    return  [formatter dateFromString:dateString];
 }
 
-/** NSDate转String */
-+(NSString *)stringFromDate:(NSDate *)date formate:(NSString*)formate{
+
+/**
+ String转NSDate
+
+ @param dateString 日期字符串
+ @param format 日期格式
+ @param locale 地区
+ @param timeZone 时区
+ @return NSDate
+ */
++(nullable NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format locale:(NSLocale *)locale timeZone:(NSTimeZone *)timeZone
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    if (locale) {
+        formatter.locale = locale;
+    }
+    if (timeZone) {
+        formatter.timeZone = timeZone;
+    }
+    return  [formatter dateFromString:dateString];
+}
+
+/**
+ NSDate转String
+
+ @param format 日期格式
+ @return 日期字符串
+ */
+- (nullable NSString *)stringWithFormat:(NSString *)format{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:formate];
-    formatter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
-    return  [formatter stringFromDate:date];
+    [formatter setDateFormat:format];
+    formatter.locale = [NSLocale currentLocale];
+    return  [formatter stringFromDate:self];
+}
+
+
+/**
+ NSDate转String
+
+ @param format 日期格式
+ @param locale 地区
+ @param timeZone 时区
+ @return 日期字符串
+ */
+- (nullable NSString *)stringWithFormat:(NSString *)format locale:(NSLocale *)locale timeZone:(NSTimeZone *)timeZone
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    if (locale) {
+        formatter.locale = locale;
+    }
+    if (timeZone) {
+        formatter.timeZone = timeZone;
+    }
+    return  [formatter stringFromDate:self];
 }
 
 /** 将时间间隔转成Date，如果是毫秒，还要除以1000 */

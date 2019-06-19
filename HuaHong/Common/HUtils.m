@@ -29,9 +29,6 @@
 
 /*****************************************/
 
-
-
-
 //url 拼接参数
 +(NSString*)makeURL:(NSString*)requrl param:(NSDictionary*)param
 {
@@ -94,8 +91,7 @@
 {
     UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
     
-return (UIInterfaceOrientationIsLandscape(statusBarOrientation));
-    
+    return (UIInterfaceOrientationIsLandscape(statusBarOrientation));
 }
 
 /** 拨打电话 */

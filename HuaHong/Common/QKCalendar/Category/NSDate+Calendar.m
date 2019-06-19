@@ -9,22 +9,16 @@
 
 @implementation NSDate (Calendar)
 
-- (NSInteger)dateDay {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:NSCalendarUnitDay fromDate:self];
-    return components.day;
+- (NSInteger)day {
+    return [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self].day;
 }
 
-- (NSInteger)dateMonth {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:NSCalendarUnitMonth fromDate:self];
-    return components.month;
+- (NSInteger)month {
+    return [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self].month;
 }
 
-- (NSInteger)dateYear {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear fromDate:self];
-    return components.year;
+- (NSInteger)year {
+    return [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self].year;
 }
 
 /**

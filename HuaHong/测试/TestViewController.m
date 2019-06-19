@@ -24,7 +24,7 @@
 #import "QKDatePicker.h"
 #import "QKCalendarView.h"
 #import "TestModel.h"
-
+#import "YYCategories.h"
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
@@ -53,10 +53,6 @@
 //    [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
    
     
-//    HUtils *tool = [HUtils new];
-//    _tool = tool;
-//    [tool drawCircle:self.view.center radius:100 lineWidth:5 lineColor:[UIColor redColor].CGColor startAngle:-M_PI_2 endAngle:-M_PI_2+2*M_PI clockwise:YES duaring:5 mainView:self.view layerFrame:self.view.bounds];
-    
 //    TTGTextTagCollectionView *tagCollectionView = [[TTGTextTagCollectionView alloc] initWithFrame:CGRectMake(20, 20, 200, 200)];
 //    [self.view addSubview:tagCollectionView];
 //    [tagCollectionView addTags:@[@"TTG", @"Tag", @"collection", @"view"]];
@@ -84,7 +80,6 @@
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-  
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

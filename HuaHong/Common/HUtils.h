@@ -22,8 +22,6 @@
 //生成XML
 +(NSString*)makeXML:(NSDictionary*)param;
 
-UIImage *Image(NSString *name);
-
 /**
  *  切换横竖屏
  *

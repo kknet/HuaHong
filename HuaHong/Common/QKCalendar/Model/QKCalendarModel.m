@@ -20,8 +20,8 @@
         
         _totalDays = [date totalDaysInMonth];
         _firstWeekday = [date firstWeekDayInMonth];
-        _year = [date dateYear];
-        _month = [date dateMonth];
+        _year = date.year;
+        _month = date.month;
         _weekday = [NSDate weekdayFromDate:date];
         _isWeekend = (_weekday == 6 || _weekday == 7)? YES:NO;
         _row = ceil((_firstWeekday + _totalDays - 1)/7.0);
@@ -37,6 +37,6 @@
     _day = day;
     
     //标识是今天
-    _isToday = ((_year == [NSDate.date dateYear]) && (_month == [NSDate.date dateMonth]) && (_day == [NSDate.date dateDay]))?YES:NO;
+    _isToday = ((_year == NSDate.date.year) && (_month == NSDate.date.month) && (_day == NSDate.date.day))?YES:NO;
 }
 @end
