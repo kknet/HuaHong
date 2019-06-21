@@ -220,7 +220,7 @@
     
     
     //base64
-    NSString *base64 = [result base64EncodedDataWithOptions:0];
+    NSData *base64 = [result base64EncodedDataWithOptions:0];
     
     NSLog(@"%@",base64);
     

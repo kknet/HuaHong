@@ -25,6 +25,8 @@
 #import "QKCalendarView.h"
 #import "TestModel.h"
 #import "NSDictionary+NilSafe.h"
+#import "EncryptionTools.h"
+#import "RSAEncryptor.h"
 
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
@@ -81,26 +83,35 @@
 //    NSLog(@"familyNames:%@",[UIFont familyNames]);
     
     
-    NSDictionary *dic = @{@"userNmae":@"haha",@"userId":[NSNull null]};
+    NSDictionary *dic = @{@"userName":@"haha",@"userId":@666,
+                          @"second":@{@"name":@"huahong",@"age":@18}
+                          };
     
-    if ([dic[@"userId"] isEqual:[NSNull null]]) {
-        NSLog(@"class:%@",dic[@"userId"]);
-    }
+    TestModel *model = [[TestModel alloc]initWithDict:dic];
+    
+    NSLog(@"userNmae:%@\n name:%@\n age:%ld",model.userName,model.second.name,(long)model.second.age);
+    
     
 //    [SVProgressHUD showInfoWithStatus:dic[@"userId"]];
     
     self.textField.delegate = self;
-    self.textField.keyboardType = UIKeyboardTypeNumberPad;
+//    self.textField.keyboardType = UIKeyboardTypeNumberPad;
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    
+//    self.textField.hidden = 1;
     if ([TestView isSubclassOfClass:[UIView class]]) {
         NSLog(@"isSubclassOfClass");
     }
+    
+    
 }
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return [textField regex_shouldChangeCharactersInRange:range replacementString:string IntLimit:4 DecimalLimit:2];
+//    return [textField regex_shouldChangeCharactersInRange:range replacementString:string IntLimit:4 DecimalLimit:2];
+    
+    NSLog(@"range:%@",NSStringFromRange(range));
+    
+    NSInteger length = textField.text.length - range.length + string.length;
+    return (length <= 11);
 }
 - (void)showAlertView
 {

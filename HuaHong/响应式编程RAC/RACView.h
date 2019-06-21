@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 @interface RACView : UIView
-//@property (nonatomic,strong) RACSubject *subject;
+@property (nonatomic,strong) RACSubject *subject;
 @end

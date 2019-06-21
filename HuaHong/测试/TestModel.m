@@ -10,4 +10,28 @@
 
 @implementation TestModel
 
+-(instancetype)initWithDict:(NSDictionary *)dict
+{
+    self = [super init];
+    if (self) {
+        
+        if (!dict || ![dict isKindOfClass:[NSDictionary class]]) {
+            return nil;
+        }
+        
+        [self setValuesForKeysWithDictionary:dict];
+        
+       
+        self.second = [[SecondModel alloc]initWithDict:dict[@"second"]];
+        
+        
+    }
+    
+    return self;
+}
+
+@end
+
+@implementation SecondModel
+
 @end

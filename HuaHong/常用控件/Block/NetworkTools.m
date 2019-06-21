@@ -23,6 +23,24 @@
 
 @implementation NetworkTools
 
+-(instancetype)init
+{
+    if (self = [super init]) {
+      
+       
+    }
+    
+    return self;
+}
+
+-(void)touch
+{
+    if (_block) {
+        _block();
+    }
+}
+
+#pragma mark - 2.block作为方法的参数！
 -(void)loadData:(void (^)(NSString *))finished {
     
     //记录闭包
@@ -53,6 +71,15 @@
 }
 
 
+#pragma mark - 3.block作为返回值
+- (void(^)(int))run
+{
+    return ^(int m){
+        NSLog(@"我开始跑步了！跑了%d米",m);
+    };
+}
+
+#pragma mark -
 - (void)dealloc
 {
     NSLog(@"tools 888");
