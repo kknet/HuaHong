@@ -23,6 +23,7 @@
     
     Person *p = [Person new];
     [[p run1]run1];
+//    p.run1.run1;
     
     p.run2().run2();
     

@@ -24,12 +24,30 @@ typedef void(^Block)(NSString *str);
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"Block";
     
+    
+    NetworkTools *tools = [[NetworkTools alloc] init];
+    _tools = tools;
+    
+    //
+    /**
+     * 1.block作为属性
+     * 先写setter方法,再触发_block(),这样才有回调
+     */
+//     [_tools touch];
+    [_tools setBlock:^{
+        NSLog(@"block作为属性");
+    }];
+    
+    [_tools touch];//_block()
+    
+    
+ //2.block作为方法的参数！
     _index = 123;
     _text = @"text";
     
     //发起数据
     //1. 没有引起强引用（tools在出了viewDidLoad()方法被释放了）
-        NetworkTools *tools = [[NetworkTools alloc] init];
+    
     
         [tools loadData:^(NSString *html) {
     
@@ -86,11 +104,6 @@ typedef void(^Block)(NSString *str);
 - (void)test{
     NSLog(@"test");
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    
-
-}
 -(void)getURLWithString:(NSString *)string block:(id (^)(id obj))block
 {
     block(@"hh");
@@ -108,6 +121,11 @@ typedef void(^Block)(NSString *str);
 //    };
 //}
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+//    [_tools run];
+    _tools.run(3);
+}
 -(void)dealloc {
     
     NSLog(@"控制器 dealloc");

@@ -71,6 +71,8 @@
     
     [self dataBinding];
     
+    [self subjectMethod];
+    
 }
 
 - (void)RACSignal
@@ -597,6 +599,16 @@
     }];
     
     [replaySubject sendNext:@"RACReplaySubject"];
+}
+
+#pragma mark - subject
+- (void)subjectMethod
+{
+    //这么写,可以解决cell复用问题
+    self.racView.subject = [RACSubject subject];
+    [self.racView.subject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"x:%@",x);
+    }];
 }
 
 #pragma mark - 替代代理

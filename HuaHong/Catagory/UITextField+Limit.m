@@ -101,6 +101,8 @@
  */
 -(BOOL)checkPhoneNumber_shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+//    NSInteger length = textField.text.length - range.length + string.length;
+//    return (length <= 11);
     
     if (range.length == 1 && string.length == 0) {
         return YES;

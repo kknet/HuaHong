@@ -24,7 +24,14 @@
 #import "QKDatePicker.h"
 #import "QKCalendarView.h"
 #import "TestModel.h"
+<<<<<<< HEAD
 #import "YYCategories.h"
+=======
+#import "NSDictionary+NilSafe.h"
+#import "EncryptionTools.h"
+#import "RSAEncryptor.h"
+
+>>>>>>> e185af608d9146848c392556f72b2c40c7d65687
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UILocalNotification *localNotification;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
@@ -76,15 +83,41 @@
 //    NSLog(@"familyNames:%@",[UIFont familyNames]);
     
     
+<<<<<<< HEAD
+=======
+    NSDictionary *dic = @{@"userName":@"haha",@"userId":@666,
+                          @"second":@{@"name":@"huahong",@"age":@18}
+                          };
+    
+    TestModel *model = [[TestModel alloc]initWithDict:dic];
+    
+    NSLog(@"userNmae:%@\n name:%@\n age:%ld",model.userName,model.second.name,(long)model.second.age);
+    
+    
+//    [SVProgressHUD showInfoWithStatus:dic[@"userId"]];
+    
+>>>>>>> e185af608d9146848c392556f72b2c40c7d65687
     self.textField.delegate = self;
-    self.textField.keyboardType = UIKeyboardTypeNumberPad;
+//    self.textField.keyboardType = UIKeyboardTypeNumberPad;
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+<<<<<<< HEAD
+=======
+//    self.textField.hidden = 1;
+    if ([TestView isSubclassOfClass:[UIView class]]) {
+        NSLog(@"isSubclassOfClass");
+    }
+    
+>>>>>>> e185af608d9146848c392556f72b2c40c7d65687
     
 }
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return [textField regex_shouldChangeCharactersInRange:range replacementString:string IntLimit:4 DecimalLimit:2];
+//    return [textField regex_shouldChangeCharactersInRange:range replacementString:string IntLimit:4 DecimalLimit:2];
+    
+    NSLog(@"range:%@",NSStringFromRange(range));
+    
+    NSInteger length = textField.text.length - range.length + string.length;
+    return (length <= 11);
 }
 - (void)showAlertView
 {

@@ -20,7 +20,7 @@
 //}
 - (IBAction)btnClick:(UIButton *)sender
 {
-//    [self.subject sendNext:@"instead of delegate method"];
+    [self.subject sendNext:@"instead of delegate method"];
     
 }
 
