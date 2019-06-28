@@ -44,7 +44,7 @@
         self.imageIndex = 1;
     }
     
-    self.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%02ld",self.imageIndex]];
+    self.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%02ld",(long)self.imageIndex]];
     
     CATransition *transition = [[CATransition alloc]init];
     transition.type = @"cube";

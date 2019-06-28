@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getCurrentTimeWithFormat:(NSString *)format;
 
 //获取几个月之后的日期
-- (NSDate *)dateAfterMonths:(NSInteger)gapMonthCount;
+- (NSDate *)dateAfterMonths:(NSInteger)months;
 
 @end
 

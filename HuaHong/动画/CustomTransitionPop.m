@@ -15,11 +15,13 @@
 @implementation CustomTransitionPop
 
 #pragma mark - UIViewControllerAnimatedTransitioning
+//动画时长
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     return 0.66;
 }
 
+//动画内容
 -(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     self.transitionContext = transitionContext;
@@ -54,10 +56,11 @@
     
     
 }
+
 #pragma mark - CAAnimationDelegate
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    [self.transitionContext completeTransition:![self.transitionContext transitionWasCancelled]];
+    [self.transitionContext completeTransition:!self.transitionContext.transitionWasCancelled];
     
     [self.transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view.layer.mask = nil;
     

@@ -48,7 +48,7 @@
     toVC.view.layer.mask = maskLayer;
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
-    animation.fromValue = (__bridge id)(startPath.CGPath);
+    animation.fromValue = (id)(startPath.CGPath);
     animation.toValue = (__bridge id)(endPath.CGPath);
     animation.duration = [self transitionDuration:transitionContext];
     animation.delegate = self;

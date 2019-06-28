@@ -127,7 +127,7 @@
 }
 
 //获取几个月之后的日期
-- (NSDate *)dateAfterMonths:(NSInteger)gapMonthCount {
+- (NSDate *)dateAfterMonths:(NSInteger)months {
     //获取当年的月份，当月的总天数
     NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitCalendar fromDate:self];
@@ -149,13 +149,13 @@
     endDay = MIN(newDays, components.day);
     
     //判断是否是下一年
-    if (components.month+gapMonthCount > 12)
+    if (components.month+months > 12)
     {
         //是下一年
-        dateStr = [NSString stringWithFormat:@"%zd-%zd-%zd",components.year+(components.month+gapMonthCount)/12,(components.month+gapMonthCount)%12,endDay];
+        dateStr = [NSString stringWithFormat:@"%zd-%zd-%zd",components.year+(components.month+months)/12,(components.month+months)%12,endDay];
     } else {
         //依然是当前年份
-        dateStr = [NSString stringWithFormat:@"%zd-%zd-%zd",components.year,components.month+gapMonthCount,endDay];
+        dateStr = [NSString stringWithFormat:@"%zd-%zd-%zd",components.year,components.month+months,endDay];
     }
     
     newDate = [formatter dateFromString:dateStr];
