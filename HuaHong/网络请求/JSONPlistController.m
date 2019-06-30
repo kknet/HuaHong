@@ -28,7 +28,7 @@
 //使用Block
 -(void)loadData_Session
 {
-//    NSString *urlStr = [kBaseURL stringByAppendingPathComponent:@"uploads/123.jpg"];
+
 //    NSString *urlStr = [kBaseURL stringByAppendingPathComponent:@"videos.plist"];
     NSString *urlStr = [kBaseURL stringByAppendingPathComponent:@"videos.json"];
 

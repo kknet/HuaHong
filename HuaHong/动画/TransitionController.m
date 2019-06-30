@@ -8,7 +8,7 @@
 
 #import "TransitionController.h"
 #import "CustomTransitionPop.h"
-#import "CustomTransitionPop.h"
+#import "CustomTransitionPush.h"
 @interface TransitionController ()<UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic,assign) NSInteger imageIndex;
@@ -37,6 +37,7 @@
  cameraIrisHollowOpen  相机打开
  cameraIrisHollowClose 相机关闭
  */
+
 - (IBAction)transitionAction:(UISwipeGestureRecognizer *)sender
 {
     self.imageIndex ++;
@@ -68,6 +69,8 @@
 {
     if (operation == UINavigationControllerOperationPop) {
         return [CustomTransitionPop new];
+    }else if (operation == UINavigationControllerOperationPush){
+        return [CustomTransitionPush new];
     }
     
     return nil;

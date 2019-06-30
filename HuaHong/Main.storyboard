@@ -400,7 +400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="YOo-RO-e50">
-                                <rect key="frame" x="27.5" y="93.5" width="320" height="480"/>
+                                <rect key="frame" x="179.5" y="325.5" width="16" height="16"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="sds-Rw-5ge" appends="YES" id="3tI-Xy-27e"/>

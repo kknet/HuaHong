@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */; };
-		7D058576203F0A5200C7E204 /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D058575203F0A5200C7E204 /* 123.jpg */; };
+		7D058576203F0A5200C7E204 /* 05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D058575203F0A5200C7E204 /* 05.jpg */; };
 		7D07F17021BE0594000F78EB /* HHProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D07F16F21BE0594000F78EB /* HHProxy.m */; };
 		7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8341FC50D7000774E40 /* AppDelegate.m */; };
 		7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */; };
@@ -256,7 +256,7 @@
 /* Begin PBXFileReference section */
 		3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuaHong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6696974C8B0A708887FDD327 /* Pods-HuaHong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.release.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.release.xcconfig"; sourceTree = "<group>"; };
-		7D058575203F0A5200C7E204 /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = "HuaHong/Assets.xcassets/转场动画/05.imageset/123.jpg"; sourceTree = SOURCE_ROOT; };
+		7D058575203F0A5200C7E204 /* 05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 05.jpg; path = "HuaHong/Assets.xcassets/转场动画/05.imageset/05.jpg"; sourceTree = SOURCE_ROOT; };
 		7D07F16E21BE0594000F78EB /* HHProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHProxy.h; sourceTree = "<group>"; };
 		7D07F16F21BE0594000F78EB /* HHProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHProxy.m; sourceTree = "<group>"; };
 		7D0DA8301FC50D7000774E40 /* HuaHong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuaHong.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -998,7 +998,7 @@
 			isa = PBXGroup;
 			children = (
 				7DCD8CCB229AA48100E97B3B /* videos.xml */,
-				7D058575203F0A5200C7E204 /* 123.jpg */,
+				7D058575203F0A5200C7E204 /* 05.jpg */,
 				7D81144520EFB63C00349078 /* h5.html */,
 				7DC24C9A20246C7A00103BDE /* 黑马程序员.mp3 */,
 				7D2FF0C52004A38000ECAA26 /* selfS.MOV */,
@@ -2054,7 +2054,7 @@
 				7DA1D6CD2062207900EB0AC2 /* Localizable.strings in Resources */,
 				93E533AB228E9CCD000F5025 /* ReadMe in Resources */,
 				7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */,
-				7D058576203F0A5200C7E204 /* 123.jpg in Resources */,
+				7D058576203F0A5200C7E204 /* 05.jpg in Resources */,
 				7D5892102266D23100DFE60F /* QKCalenderCell.xib in Resources */,
 				7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */,
 				7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */,
