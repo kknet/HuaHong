@@ -69,10 +69,9 @@
 {
     if (operation == UINavigationControllerOperationPop) {
         return [CustomTransitionPop new];
-    }else if (operation == UINavigationControllerOperationPush){
-        return [CustomTransitionPush new];
     }
     
     return nil;
 }
+
 @end

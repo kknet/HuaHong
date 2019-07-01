@@ -17,16 +17,12 @@
 #pragma mark - UIViewControllerAnimatedTransitioning
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.66;
+    return 0.5;
 }
 
 -(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     self.transitionContext = transitionContext;
-    
-//    AnimationController *fromVC = (AnimationController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-//
-//    TransitionController *toVC = (TransitionController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
@@ -49,7 +45,7 @@
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
     animation.fromValue = (id)(startPath.CGPath);
-    animation.toValue = (__bridge id)(endPath.CGPath);
+    animation.toValue = (id)(endPath.CGPath);
     animation.duration = [self transitionDuration:transitionContext];
     animation.delegate = self;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];

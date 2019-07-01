@@ -179,6 +179,53 @@
     [self.redView.layer addAnimation:group forKey:nil];
 }
 
+-(void)setBtnAnimation
+{
+    
+    CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    pathAnimation.calculationMode = kCAAnimationPaced;
+    pathAnimation.fillMode = kCAFillModeForwards;
+    
+    pathAnimation.repeatCount = MAXFLOAT;
+    pathAnimation.autoreverses=YES;
+    pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    
+    pathAnimation.duration=6;
+    
+    UIBezierPath *path=[UIBezierPath bezierPathWithArcCenter:self.view.center radius:100 startAngle:0 endAngle:2*M_PI clockwise:1];
+    
+    pathAnimation.path=path.CGPath;
+    
+    //        [self.view.layer addAnimation:pathAnimation forKey:@"pathAnimation"];
+    
+    
+    
+    CAKeyframeAnimation *scaleX=[CAKeyframeAnimation animationWithKeyPath:@"transform.scale.x"];
+    
+    scaleX.values   = @[@1.0, @1.2, @1.0];
+    scaleX.keyTimes = @[@0.0, @0.5,@1.0];
+    scaleX.repeatCount = MAXFLOAT;
+    scaleX.autoreverses = YES;
+    
+    scaleX.duration=6;
+    
+    [self.view.layer addAnimation:scaleX forKey:@"scaleX"];
+    
+    
+    CAKeyframeAnimation *scaleY=[CAKeyframeAnimation animationWithKeyPath:@"transform.scale.y"];
+    
+    scaleY.values   = @[@1.0, @1.2, @1.0];
+    scaleY.keyTimes = @[@0.0, @0.5,@1.0];
+    scaleY.repeatCount = MAXFLOAT;
+    scaleY.autoreverses = YES;
+    
+    scaleY.duration=6;
+    
+    [self.view.layer addAnimation:scaleY forKey:@"scaleY"];
+    
+    
+}
+
 #pragma mark - 转场动画
 -(void)transitionAnimation
 {
@@ -206,50 +253,8 @@
     }
 }
 
--(void)setBtnAnimation
-{
-        
-        CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-        pathAnimation.calculationMode = kCAAnimationPaced;
-        pathAnimation.fillMode = kCAFillModeForwards;
-        
-        pathAnimation.repeatCount = MAXFLOAT;
-        pathAnimation.autoreverses=YES;
-        pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-
-        pathAnimation.duration=6;
-    
-        UIBezierPath *path=[UIBezierPath bezierPathWithArcCenter:self.view.center radius:100 startAngle:0 endAngle:2*M_PI clockwise:1];
-        
-        pathAnimation.path=path.CGPath;
-        
-//        [self.view.layer addAnimation:pathAnimation forKey:@"pathAnimation"];
-    
-        
-        
-        CAKeyframeAnimation *scaleX=[CAKeyframeAnimation animationWithKeyPath:@"transform.scale.x"];
-        
-        scaleX.values   = @[@1.0, @1.2, @1.0];
-        scaleX.keyTimes = @[@0.0, @0.5,@1.0];
-        scaleX.repeatCount = MAXFLOAT;
-        scaleX.autoreverses = YES;
-
-        scaleX.duration=6;
-    
-        [self.view.layer addAnimation:scaleX forKey:@"scaleX"];
-    
-        
-        CAKeyframeAnimation *scaleY=[CAKeyframeAnimation animationWithKeyPath:@"transform.scale.y"];
-        
-        scaleY.values   = @[@1.0, @1.2, @1.0];
-        scaleY.keyTimes = @[@0.0, @0.5,@1.0];
-        scaleY.repeatCount = MAXFLOAT;
-        scaleY.autoreverses = YES;
-    
-        scaleY.duration=6;
-    
-        [self.view.layer addAnimation:scaleY forKey:@"scaleY"];
-    
-    
-}
+//- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+//{
+//    return nil;
+//}
 @end

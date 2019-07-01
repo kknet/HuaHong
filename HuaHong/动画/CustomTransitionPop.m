@@ -18,17 +18,13 @@
 //动画时长
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.66;
+    return 0.5;
 }
 
 //动画内容
 -(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     self.transitionContext = transitionContext;
-    
-//    TransitionController *fromVC = (TransitionController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-//
-//    AnimationController *toVC = (AnimationController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
