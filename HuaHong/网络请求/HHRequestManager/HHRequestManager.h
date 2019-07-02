@@ -116,7 +116,7 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestDataByUrl:(NSString *(^)(void))urlBlock
-                            withParams:(id (^)(void))paramsBlock withHttpType:(HHRequestType (^)(void))httpTypeBlock withProgress:(void (^)(id))progressBlock withResultBlock:(void (^)(id))resultBlock withErrorBlock:(void (^)(HHRequestErrorType))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
+                            withParams:(id (^)(void))paramsBlock withHttpType:(HHRequestType (^)(void))httpTypeBlock withProgress:(void (^)(id progress))progressBlock withResultBlock:(void (^)(id responseObject))resultBlock withErrorBlock:(void (^)(HHRequestErrorType error))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 
 
 /**

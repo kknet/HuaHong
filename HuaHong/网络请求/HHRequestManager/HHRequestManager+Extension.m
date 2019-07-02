@@ -14,4 +14,10 @@
 {
     
 }
+
+- (void)stopLoading
+{
+    
+}
+
 @end

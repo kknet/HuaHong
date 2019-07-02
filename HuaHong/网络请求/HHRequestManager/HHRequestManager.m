@@ -132,7 +132,8 @@
 }
 
 #pragma mark -发起请求
-- (NSURLSessionTask *)requestDataByUrl:(NSString * _Nonnull (^)(void))urlBlock withParams:(id  _Nonnull (^)(void))paramsBlock withHttpType:(HHRequestType (^)(void))httpTypeBlock withProgress:(void (^)(id _Nonnull))progressBlock withResultBlock:(void (^)(id _Nonnull))resultBlock withErrorBlock:(void (^)(HHRequestErrorType))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
+- (NSURLSessionTask *)requestDataByUrl:(NSString *(^)(void))urlBlock
+                            withParams:(id (^)(void))paramsBlock withHttpType:(HHRequestType (^)(void))httpTypeBlock withProgress:(void (^)(id progress))progressBlock withResultBlock:(void (^)(id responseObject))resultBlock withErrorBlock:(void (^)(HHRequestErrorType error))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     if (![self getProxyStatus]) {
         return nil;
@@ -159,8 +160,11 @@
                 }
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
+                 [self jsonParse:responseObject url:url withResultBlock:resultBlock withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+                
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 
+                [self parseError:error url:url withTask:task withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
             }];
         }
             break;
@@ -176,8 +180,11 @@
                 }
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
+                [self jsonParse:responseObject url:url withResultBlock:resultBlock withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+                 
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                
+               
+                [self parseError:error url:url withTask:task withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
             }];
         }
             
@@ -204,8 +211,11 @@
                 }
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
+                 [self jsonParse:responseObject url:url withResultBlock:resultBlock withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+                
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 
+                [self parseError:error url:url withTask:task withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
             }];
         }
             
@@ -223,6 +233,12 @@
                 }
             } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                 
+                if (!error) {
+                    [self jsonParse:responseObject url:url withResultBlock:resultBlock withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+                }else
+                {
+                    [self parseError:error url:url withTask:response withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+                }
             }];
             
             [task resume];
@@ -245,6 +261,18 @@
                 return [NSURL fileURLWithPath:self.downloadPath];
             } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
                 
+                if (!error) {
+                    if (isSupportHud) {
+//                        [self stopLoading];
+                    }
+                    
+                    if (resultBlock) {
+                        resultBlock(filePath.path);
+                    }
+                }else
+                {
+                    [self parseError:error url:url withTask:response withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+                }
             }];
             
             [task resume];
@@ -281,5 +309,91 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
+}
+
+#pragma mark -处理请求结果
+- (void)jsonParse:(NSData *)data
+              url:(NSString *)url
+  withResultBlock:(void (^)(id data))resultBlock
+   withErrorBlock:(void (^)(HHRequestErrorType errorType))errorBlock
+     isSupportHud:(BOOL)isSupportHud
+isSupportErrorAlert:(BOOL)isSupportErrorAlert {
+    
+    if (isSupportHud) {
+//        if (self.loadingGifName) {
+//            [QKProgressHUD dismiss];
+//        } else {
+//            [self stopLoading];
+//        }
+    }
+    
+    NSError *error;
+    id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    if (error) {
+        if (errorBlock) {
+            errorBlock(HHRequestErrorJsonParseFail);
+        }
+        if (isSupportErrorAlert) {
+//            [self showErrorMsg:@"解析失败!"];
+        }
+        
+        return;
+    }
+        
+//        NSLog(@"<<< url:%@",url);
+//        NSLog(@"<<< result:%@",item);
+    
+    if (self.filterResponseCallback) {
+            void(^continueBlock)(id result) = ^(id result) {
+                if (resultBlock) {
+                    resultBlock(result);
+                }
+            };
+        self.filterResponseCallback(result, continueBlock);
+        } else {
+            if (resultBlock) {
+                resultBlock(result);
+            }
+        }
+        
+
+    
+}
+
+#pragma mark -处理错误
+- (void)parseError:(NSError *)error url:(NSString *)url withTask:(id)task withErrorBlock:(void (^)(HHRequestErrorType errorType))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
+    
+    
+    if (isSupportHud) {
+        if (!self.gifName) {
+            [self stopLoading];
+        }
+    }
+    NSLog(@"<<< url:%@",url);
+    
+    NSHTTPURLResponse *response;
+    if ([task isKindOfClass:[NSURLSessionDataTask class]]) {
+        response = (NSHTTPURLResponse *)((NSURLSessionDataTask *)task).response;
+    }else if ([task isKindOfClass:[NSURLResponse class]]){
+        response = (NSHTTPURLResponse *)task;
+    }
+    
+    if (response.statusCode == 404) {
+        if (errorBlock) {
+            errorBlock(HHRequestErrorNet404);
+        }
+    }else if (response.statusCode == 500){
+        if (errorBlock) {
+            errorBlock(HHRequestErrorNet500);
+        }
+    }else
+    {
+        if (errorBlock) {
+            errorBlock(HHRequestErrorNetOther);
+        }
+    }
+    
+    NSLog(@"error:%@",error.description);
 }
 @end

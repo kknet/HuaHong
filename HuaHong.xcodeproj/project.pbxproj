@@ -725,7 +725,6 @@
 		9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHHttpSessionManager.m; sourceTree = "<group>"; };
 		9395BDB322CA047300EABF10 /* HHRequestManager+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HHRequestManager+Extension.h"; sourceTree = "<group>"; };
 		9395BDB422CA047300EABF10 /* HHRequestManager+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HHRequestManager+Extension.m"; sourceTree = "<group>"; };
-		9395BDB622CA048A00EABF10 /* HHRequestManager+exten.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HHRequestManager+exten.h"; sourceTree = "<group>"; };
 		93CB25AF22B7715200A4A5C7 /* NSDictionary+Null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Null.h"; sourceTree = "<group>"; };
 		93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
 		93E533AA228E9CCD000F5025 /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
@@ -1970,7 +1969,6 @@
 				9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */,
 				9395BDB322CA047300EABF10 /* HHRequestManager+Extension.h */,
 				9395BDB422CA047300EABF10 /* HHRequestManager+Extension.m */,
-				9395BDB622CA048A00EABF10 /* HHRequestManager+exten.h */,
 			);
 			path = HHRequestManager;
 			sourceTree = "<group>";

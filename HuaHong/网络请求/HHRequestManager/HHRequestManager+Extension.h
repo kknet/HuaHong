@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)startLoading;
 
+- (void)stopLoading;
+
 @end
 
 NS_ASSUME_NONNULL_END
