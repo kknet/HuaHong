@@ -13,23 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, HHRequestType) {
     HHRequestGET,
     HHRequestPOST,
-    HHRequestFORM,
     HHRequestUPLOAD,
     HHRequestDOWNLOAD
 };
 
 typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
-    /**
-     * 无网络.
-     */
-    HHRequestErrorNone,
-    /**
-     * 解析失败.
-     */
-    HHRequestErrorJsonParseFail,
-    /**
-     * 网络错误.
-     */
+    
+    HHRequestErrorNone,//无网络.
+    HHRequestErrorJsonParseFail,//解析失败.
     HHRequestErrorNet404,
     HHRequestErrorNet500,
     HHRequestErrorNetOther
@@ -47,37 +38,13 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
 //SSL证书路径
 @property(nonatomic, copy) NSString *SSLCertPath;
 
-/**
- form提交的文件集合
- ex: @{@"images":[],
- @"imagekeys":[],
- @"filekeys":[]
- }
- */
-@property(nonatomic,strong) NSDictionary *postfiles;
-
 //上传的文件
 @property(nonatomic, strong) NSData *uploadFileData;
 
-//下载的路径
-@property(nonatomic, copy) NSString *downloadPath;
-
 //加载的GIF
-@property(nonatomic, copy) NSString *gifName;
+//@property(nonatomic, copy) NSString *gifName;
 
 @property(nonatomic, strong) AFHTTPRequestSerializer *requestSerializer;
-
-/*
- * 错误提示
- {
- @"errorCode":[@(401),@(1001)],
- @"retryImage":@"本地图片",
- @"noNetImage":@"本地图片",
- @"retryTxt":@"重新加载",
- @"noNetTxt":@"木有网络"
- }
- */
-@property(nonatomic,strong) NSDictionary *errorParams;
 
 //结果处理回调
 @property(nonatomic, strong) void(^filterResponseCallback)(id data,void(^continueResponseBlock)(id result));
@@ -85,35 +52,35 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
 //接口调用无网络回调
 @property(nonatomic, strong) void(^noNetRequestCallback)(id params,void(^continueResponseBlock)(id params));
 
-//初始化监听baseURL
-- (void)setReachablityUrl:(NSString *)baseUrl;
+//网络监听
+- (void)startNetMonitoring;
 
 //设置requestHeader
 - (void)setRequestHeaderField:(NSDictionary *)params;
 
 //判断是否设置代理
-- (BOOL)getProxyStatus;
+//- (BOOL)getProxyStatus;
 
 
 /**
  发起网络请求
 
- @param urlBlock url地址
- @param paramsBlock 参数
- @param httpTypeBlock 请求类型
+ @param url url地址
+ @param params 参数
+ @param requestType 请求类型
  @param progressBlock 进度回调
- @param resultBlock 结果回调
+ @param successBlock 结果回调
  @param errorBlock 错误回调
  @param isSupportHud 是否有加载框
  @param isSupportErrorAlert 是否有错误提示
  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)requestDataByUrl:(NSString *(^)(void))urlBlock
-                            withParams:(id (^)(void))paramsBlock
-                          withHttpType:(HHRequestType (^)(void))httpTypeBlock
-                          withProgress:(void (^)(id progress))progressBlock
-                       withResultBlock:(void (^)(id responseObject))resultBlock
-                        withErrorBlock:(void (^)(HHRequestErrorType error))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
+- (NSURLSessionTask *)requestByUrl:(NSString *)url
+                            params:(id)params
+                       requestType:(HHRequestType)requestType
+                          progress:(void (^)(id progress))progressBlock
+                           success:(void (^)(id responseObject))successBlock
+                           failure:(void (^)(HHRequestErrorType error))errorBlock         isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 
 
 /**
@@ -139,6 +106,13 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
              error:(void (^)(HHRequestErrorType errorType))errorBlock
       isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert;
+
+
+- (NSURLSessionTask *)download:(NSString *)url
+                            downloadPath:(NSString *)downloadPath
+                          progress:(void (^)(NSProgress *progress))progressBlock
+                           success:(void (^)(NSString *filePath))successBlock
+                           failure:(void (^)(HHRequestErrorType error))errorBlock         isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 @end
 
 NS_ASSUME_NONNULL_END

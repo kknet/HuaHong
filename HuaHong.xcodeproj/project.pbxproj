@@ -24,6 +24,7 @@
 		7D1A366420A56F0E00D74375 /* HHFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A366320A56F0E00D74375 /* HHFMDBManager.m */; };
 		7D1A366720A5845900D74375 /* HHFMDBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A366620A5845900D74375 /* HHFMDBController.m */; };
 		7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2172101FDA86D8008698C9 /* BlueToothController.m */; };
+		7D28488822CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D28488722CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m */; };
 		7D2DE5F22015BBCF001590E1 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F12015BBCF001590E1 /* Model.m */; };
 		7D2DE5F720170227001590E1 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F620170227001590E1 /* DrawView.m */; };
 		7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */; };
@@ -103,7 +104,6 @@
 		7D5892132266D23100DFE60F /* QKCalenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58920C2266D23100DFE60F /* QKCalenderCell.m */; };
 		7D58943E22688D7200DFE60F /* MBProgressHUD+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58943922688D7200DFE60F /* MBProgressHUD+add.m */; };
 		7D58943F22688D7200DFE60F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D58943C22688D7200DFE60F /* MBProgressHUD.bundle */; };
-		7D58944022688D7200DFE60F /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58943D22688D7200DFE60F /* UIViewController+MBProgressHUD.m */; };
 		7D58951A226EA7AB00DFE60F /* HHVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */; };
 		7D61C6C022850F8B00F46167 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D61C6BF22850F8B00F46167 /* TestModel.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
@@ -286,6 +286,7 @@
 		7D1A366620A5845900D74375 /* HHFMDBController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHFMDBController.m; sourceTree = "<group>"; };
 		7D21720F1FDA86D8008698C9 /* BlueToothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueToothController.h; sourceTree = "<group>"; };
 		7D2172101FDA86D8008698C9 /* BlueToothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueToothController.m; sourceTree = "<group>"; };
+		7D28488722CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
 		7D2DE5F02015BBCF001590E1 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		7D2DE5F12015BBCF001590E1 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		7D2DE5F320170015001590E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -433,7 +434,6 @@
 		7D58943A22688D7200DFE60F /* UIViewController+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MBProgressHUD.h"; sourceTree = "<group>"; };
 		7D58943B22688D7200DFE60F /* MBProgressHUD+add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+add.h"; sourceTree = "<group>"; };
 		7D58943C22688D7200DFE60F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		7D58943D22688D7200DFE60F /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
 		7D589518226EA7AB00DFE60F /* HHVideoPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVideoPlayerController.h; sourceTree = "<group>"; };
 		7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVideoPlayerController.m; sourceTree = "<group>"; };
 		7D61C6BE22850F8B00F46167 /* TestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
@@ -1338,7 +1338,7 @@
 				7D58943B22688D7200DFE60F /* MBProgressHUD+add.h */,
 				7D58943922688D7200DFE60F /* MBProgressHUD+add.m */,
 				7D58943A22688D7200DFE60F /* UIViewController+MBProgressHUD.h */,
-				7D58943D22688D7200DFE60F /* UIViewController+MBProgressHUD.m */,
+				7D28488722CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m */,
 				7D58943C22688D7200DFE60F /* MBProgressHUD.bundle */,
 			);
 			path = "MBProgressHud(Extension)";
@@ -2181,6 +2181,7 @@
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,
 				7D93373721B125660048E6D4 /* QKRunScrollLabel.m in Sources */,
 				7D93370221A835910048E6D4 /* CleanCacheHelp.m in Sources */,
+				7D28488822CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
 				7DC3750E20E390F1005AEBCA /* Service+CoreDataClass.m in Sources */,
 				7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */,
@@ -2278,7 +2279,6 @@
 				7D437EF52083501500DAAEBD /* SubRemote.m in Sources */,
 				7D834475218820DD0070B891 /* VideoRecordController.m in Sources */,
 				7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */,
-				7D58944022688D7200DFE60F /* UIViewController+MBProgressHUD.m in Sources */,
 				7D56A309216DDFE700212DEB /* FlyWeightController.m in Sources */,
 				7DC3751B20E3915D005AEBCA /* City+CoreDataProperties.m in Sources */,
 				7DA152BA204AACAA0075274E /* BaseModel.m in Sources */,
