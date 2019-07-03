@@ -18,13 +18,6 @@ typedef NS_ENUM(NSUInteger, HHRequestType) {
     HHRequestDOWNLOAD
 };
 
-//typedef NS_ENUM(NSUInteger, HHNetType) {
-//    HHNetUnknown,
-//    HHNetNotReachable,
-//    HHNetWWAN,
-//    HHNetWifi
-//};
-
 typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
     /**
      * 无网络.
@@ -116,7 +109,11 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestDataByUrl:(NSString *(^)(void))urlBlock
-                            withParams:(id (^)(void))paramsBlock withHttpType:(HHRequestType (^)(void))httpTypeBlock withProgress:(void (^)(id progress))progressBlock withResultBlock:(void (^)(id responseObject))resultBlock withErrorBlock:(void (^)(HHRequestErrorType error))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
+                            withParams:(id (^)(void))paramsBlock
+                          withHttpType:(HHRequestType (^)(void))httpTypeBlock
+                          withProgress:(void (^)(id progress))progressBlock
+                       withResultBlock:(void (^)(id responseObject))resultBlock
+                        withErrorBlock:(void (^)(HHRequestErrorType error))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 
 
 /**
@@ -140,7 +137,8 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
           progress:(void (^)(id progress))progress
             result:(void (^)(id data))result
              error:(void (^)(HHRequestErrorType errorType))errorBlock
-      isSupportHud:(BOOL)isSupportHud;
+      isSupportHud:(BOOL)isSupportHud
+isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 @end
 
 NS_ASSUME_NONNULL_END

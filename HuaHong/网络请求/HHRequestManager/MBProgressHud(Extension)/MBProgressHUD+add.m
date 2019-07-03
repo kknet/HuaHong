@@ -18,11 +18,11 @@
     [self p_show:success icon:imageName view:view];
 }
 
-+(void)showError:(NSString *)error toView:(UIView *)view
++(void)showInfo:(NSString *)info toView:(UIView *)view
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"error@%zdx.png",scale];
-    [self p_show:error icon:imageName view:view];
+    [self p_show:info icon:imageName view:view];
 }
 
 +(void)showLoading:(NSString *)text toView:(UIView *)view

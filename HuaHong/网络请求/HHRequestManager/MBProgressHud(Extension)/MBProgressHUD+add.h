@@ -12,7 +12,7 @@
 
 +(void)showSuccess:(NSString *)success toView:(UIView *)view;
 
-+(void)showError:(NSString *)error toView:(UIView *)view;
++(void)showInfo:(NSString *)info toView:(UIView *)view;
 
 +(void)showLoading:(NSString *)text toView:(UIView *)view;
 

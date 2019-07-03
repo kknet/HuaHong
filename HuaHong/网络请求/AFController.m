@@ -9,7 +9,7 @@
 #import "AFController.h"
 #import <AFHTTPSessionManager.h>
 #import "HHRequestManager.h"
-
+#import "NSDictionary+Null.h"
 @interface AFController ()
 
 @end
@@ -29,13 +29,11 @@
 //    [self PostRequest];
     
 //    [self uploadFile];
-    
-//    [[HHRequestManager defaultManager] setFilterResponseCallback:^(NSDictionary  *_Nonnull data, void (^ _Nonnull continueResponseBlock)(id _Nonnull)) {
-//        
-//        NSMutableDictionary *dicM = [NSMutableDictionary dictionaryWithDictionary:data];
-//        [dicM removeObjectForKey:@"data"];
-//        continueResponseBlock(dicM.copy);
-//    }];
+    [[HHRequestManager defaultManager] setReachablityUrl:@"https://www.baidu.com"] ;
+    [[HHRequestManager defaultManager] setFilterResponseCallback:^(NSDictionary  *_Nonnull data, void (^ _Nonnull continueResponseBlock)(id _Nonnull)) {
+
+        continueResponseBlock([data filterNull]);
+    }];
     
     [[HHRequestManager defaultManager]requestDataByUrl:^NSString * _Nonnull{
         return @"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree";
@@ -47,10 +45,10 @@
         NSLog(@"progress:%@",progress);
 
     } withResultBlock:^(id _Nonnull result) {
-        NSLog(@"responseObject:%@",result);
+
     } withErrorBlock:^(HHRequestErrorType error) {
-        NSLog(@"error:%lu",(unsigned long)error);
-    } isSupportHud:NO isSupportErrorAlert:NO];
+
+    } isSupportHud:YES isSupportErrorAlert:YES];
     
     
 }

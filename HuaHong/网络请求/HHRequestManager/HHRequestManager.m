@@ -8,33 +8,32 @@
 
 #import "HHRequestManager.h"
 #import "HHHttpSessionManager.h"
-#import "HHRequestManager+Extension.h"
-
+#import "MBProgressHUD+add.h"
 @interface HHRequestManager ()
-@property(nonatomic, strong) HHHttpSessionManager *sessionManager;
+@property(nonatomic, strong) HHHttpSessionManager *manager;
 @end
 
 @implementation HHRequestManager
 
 + (instancetype)defaultManager
 {
-    static HHRequestManager *manager;
+    static HHRequestManager *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[HHRequestManager alloc]init];
+        instance = [[HHRequestManager alloc]init];
     });
     
-    return manager;
+    return instance;
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _sessionManager = [[HHHttpSessionManager alloc]init];
-        _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-        _sessionManager.requestSerializer.timeoutInterval = 20;
-        _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        _manager = [[HHHttpSessionManager alloc]init];
+        _manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        _manager.requestSerializer.timeoutInterval = 20;
+        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     }
     
     return self;
@@ -43,13 +42,13 @@
 #pragma mark -设置baseurl
 - (void)setBaseUrl:(NSString *)baseUrl
 {
-    _sessionManager.baseUrl = baseUrl;
+    _manager.baseUrl = baseUrl;
 }
 
 #pragma mark -设置requestSerializer
 - (void)setRequestSerializer:(AFHTTPRequestSerializer *)requestSerializer
 {
-    _sessionManager.requestSerializer = requestSerializer;
+    _manager.requestSerializer = requestSerializer;
 }
 
 #pragma mark -监听网络变化
@@ -69,7 +68,7 @@
 {
     
     [params.allKeys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [_sessionManager.requestSerializer setValue:params[obj] forHTTPHeaderField:obj];
+        [_manager.requestSerializer setValue:params[obj] forHTTPHeaderField:obj];
     }];
 }
 
@@ -99,12 +98,12 @@
 - (void)setSSLCertPath:(NSString *)SSLCertPath
 {
     if (SSLCertPath) {
-        [_sessionManager setSecurityPolicy:[self customSecurityPolicy:SSLCertPath]];
+        [_manager setSecurityPolicy:[self customSecurityPolicy:SSLCertPath]];
     }else
     {
-        _sessionManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        [_sessionManager.securityPolicy setAllowInvalidCertificates:YES];
-        [_sessionManager.securityPolicy setValidatesDomainName:NO];
+        _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        [_manager.securityPolicy setAllowInvalidCertificates:YES];
+        [_manager.securityPolicy setValidatesDomainName:NO];
     }
 }
 
@@ -112,7 +111,7 @@
 - (BOOL)getProxyStatus {
     NSDictionary *proxySettings = (__bridge NSDictionary *)(CFNetworkCopySystemProxySettings());
     NSArray *proxies = (__bridge NSArray *)(CFNetworkCopyProxiesForURL((__bridge CFURLRef _Nonnull)([NSURL URLWithString:@"http://www.baidu.com&quot"]), (__bridge CFDictionaryRef _Nonnull)(proxySettings)));
-    NSLog(@"\n%@",proxies);
+//    NSLog(@"\n%@",proxies);
     
     NSDictionary *settings = proxies[0];
     NSLog(@"%@",[settings objectForKey:(NSString *)kCFProxyHostNameKey]);
@@ -121,7 +120,7 @@
     
     if ([[settings objectForKey:(NSString *)kCFProxyTypeKey] isEqualToString:@"kCFProxyTypeNone"])
     {
-        NSLog(@"没代理");
+//        NSLog(@"没代理");
         return YES;
     }
     else
@@ -136,25 +135,48 @@
                             withParams:(id (^)(void))paramsBlock withHttpType:(HHRequestType (^)(void))httpTypeBlock withProgress:(void (^)(id progress))progressBlock withResultBlock:(void (^)(id responseObject))resultBlock withErrorBlock:(void (^)(HHRequestErrorType error))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     if (![self getProxyStatus]) {
+        
+        [MBProgressHUD showInfo:@"请关闭网络代理" toView:nil];
         return nil;
     }
     
+    if (_netType == AFNetworkReachabilityStatusNotReachable) {
+        
+        //目前没啥用
+        if (self.noNetRequestCallback) {
+            void(^continueRequestBlock)(id params) = ^(id params){
+           
+            };
+            
+            self.noNetRequestCallback(paramsBlock(), continueRequestBlock);
+        }
+
+
+        errorBlock(HHRequestErrorNone);
+
+        if (isSupportErrorAlert) {
+          [MBProgressHUD showInfo:@"亲，您的手机貌似没联网" toView:nil];
+        }
+        
+        
+        return nil;
+    }
     
     NSURLSessionTask *sessionTask;
     NSString *url = urlBlock();
     NSDictionary *params = paramsBlock();
     HHRequestType requestType = httpTypeBlock();
     
-   NSLog(@"httpRequest:%@%@\nparams:%@",_sessionManager.baseURL.absoluteString,url,params);
+   NSLog(@"httpRequest:%@%@\nparams:%@",_manager.baseURL.absoluteString,url,params);
+    
+    if (isSupportHud) {
+        [MBProgressHUD showLoading:@"加载中..." toView:nil];
+    }
     
     switch (requestType) {
         case HHRequestGET:
         {
-            if (isSupportHud) {
-                [self startLoading];
-            }
-            
-            sessionTask = [_sessionManager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+            sessionTask = [_manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
                 if (progressBlock) {
                     progressBlock(downloadProgress);
                 }
@@ -170,11 +192,8 @@
             break;
         case HHRequestPOST:
         {
-            if (isSupportHud) {
-              [self startLoading];
-            }
             
-            sessionTask = [_sessionManager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+            sessionTask = [_manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
                 if (progressBlock) {
                     progressBlock(uploadProgress);
                 }
@@ -191,11 +210,8 @@
             break;
         case HHRequestFORM:
         {
-            if (isSupportHud) {
-                [self startLoading];
-            }
             
-            sessionTask = [_sessionManager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            sessionTask = [_manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                 if (self.postfiles) {
                     NSArray *images = self.postfiles[@"images"];
                     NSArray *imagekeys = self.postfiles[@"imagekeys"];
@@ -222,12 +238,9 @@
             break;
         case HHRequestUPLOAD:
         {
-            if (isSupportHud) {
-                [self startLoading];
-            }
             
             NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-            NSURLSessionUploadTask *task = [_sessionManager uploadTaskWithRequest:request fromData:self.uploadFileData progress:^(NSProgress * _Nonnull uploadProgress) {
+            NSURLSessionUploadTask *task = [_manager uploadTaskWithRequest:request fromData:self.uploadFileData progress:^(NSProgress * _Nonnull uploadProgress) {
                 if (progressBlock) {
                     progressBlock(uploadProgress);
                 }
@@ -248,12 +261,9 @@
             break;
         case HHRequestDOWNLOAD:
         {
-            if (isSupportHud) {
-                [self startLoading];
-            }
             
             NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-            NSURLSessionDownloadTask *task = [_sessionManager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+            NSURLSessionDownloadTask *task = [_manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
                 if (progressBlock) {
                     progressBlock(downloadProgress);
                 }
@@ -263,7 +273,7 @@
                 
                 if (!error) {
                     if (isSupportHud) {
-//                        [self stopLoading];
+                        [MBProgressHUD hideHUDForView:nil];
                     }
                     
                     if (resultBlock) {
@@ -289,15 +299,25 @@
     return sessionTask;
 }
 
-- (void)uploadFile:(NSString *)url params:(id)params fileDatas:(NSArray<NSData *> *)fileDatas fileName:(NSString *)fileName fileType:(NSString *)fileType progress:(void (^)(id _Nonnull))progress result:(void (^)(id _Nonnull))result error:(void (^)(HHRequestErrorType))errorBlock isSupportHud:(BOOL)isSupportHud
+- (void)uploadFile:(NSString *)url
+            params:(id)params
+         fileDatas:(NSArray <NSData *>*)fileDatas
+          fileName:(NSString *)fileName
+          fileType:(NSString *)fileType
+          progress:(void (^)(id progress))progress
+            result:(void (^)(id data))result
+             error:(void (^)(HHRequestErrorType errorType))errorBlock
+      isSupportHud:(BOOL)isSupportHud
+isSupportErrorAlert:(BOOL)isSupportErrorAlert
 {
+    
     if (isSupportHud) {
-        [self startLoading];
+        [MBProgressHUD showLoading:@"加载中..." toView:nil];
     }
     
-    [_sessionManager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [_manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [fileDatas enumerateObjectsUsingBlock:^(NSData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [formData appendPartWithFileData:obj name:[NSString stringWithFormat:@"%ld%@",idx,fileName] fileName:[NSString stringWithFormat:@"%ld%@",idx,fileName] mimeType:fileType];
+            [formData appendPartWithFileData:obj name:[NSString stringWithFormat:@"%lu%@",(unsigned long)idx,fileName] fileName:[NSString stringWithFormat:@"%lu%@",(unsigned long)idx,fileName] mimeType:fileType];
         }];
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -306,8 +326,11 @@
         }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        [self jsonParse:responseObject url:url withResultBlock:responseObject withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
+        [self parseError:error url:url withTask:task withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
     }];
 }
 
@@ -319,30 +342,28 @@
      isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
+    
     if (isSupportHud) {
-//        if (self.loadingGifName) {
-//            [QKProgressHUD dismiss];
-//        } else {
-//            [self stopLoading];
-//        }
+        [MBProgressHUD hideHUDForView:nil];
     }
     
     NSError *error;
     id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    NSLog(@"url:%@",url);
+    NSLog(@"result:%@",result);
     
     if (error) {
         if (errorBlock) {
             errorBlock(HHRequestErrorJsonParseFail);
         }
         if (isSupportErrorAlert) {
-//            [self showErrorMsg:@"解析失败!"];
+            [MBProgressHUD showInfo:@"解析错误" toView:nil];
         }
         
         return;
     }
-        
-//        NSLog(@"<<< url:%@",url);
-//        NSLog(@"<<< result:%@",item);
+    
     
     if (self.filterResponseCallback) {
             void(^continueBlock)(id result) = ^(id result) {
@@ -366,11 +387,8 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
     
     if (isSupportHud) {
-        if (!self.gifName) {
-            [self stopLoading];
-        }
+        [MBProgressHUD hideHUDForView:nil];
     }
-    NSLog(@"<<< url:%@",url);
     
     NSHTTPURLResponse *response;
     if ([task isKindOfClass:[NSURLSessionDataTask class]]) {
@@ -394,6 +412,13 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
         }
     }
     
+    
+    NSLog(@"url:%@",url);
+    NSLog(@"response:%@",response);
     NSLog(@"error:%@",error.description);
+    
+    if (isSupportErrorAlert) {
+        [MBProgressHUD showInfo:@"网络请求错误" toView:nil];
+    }
 }
 @end
