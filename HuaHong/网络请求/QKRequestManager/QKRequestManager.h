@@ -1,55 +1,45 @@
 //
-//  HHRequestManager.h
+//  QKRequestManager.h
 //  HuaHong
 //
-//  Created by qk-huahong on 2019/7/1.
+//  Created by qk-huahong on 2019/7/4.
 //  Copyright © 2019 huahong. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
-#import "HHHttpSessionManager.h"
-#import "MBProgressHUD+add.h"
+#import "QKHTTPSessionManager.h"
+#import "SVProgressHUD.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, HHRequestType) {
-    HHRequestGET,
-    HHRequestPOST,
-    HHRequestUPLOAD
+typedef NS_ENUM(NSUInteger, QKRequestType) {
+    QKRequestGET,
+    QKRequestPOST
 };
 
-typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
+typedef NS_ENUM(NSUInteger, QKRequestErrorType) {
     
-    HHRequestErrorNone,//无网络.
-    HHRequestErrorJsonParseFail,//解析失败.
-    HHRequestErrorNet404,
-    HHRequestErrorNet500,
-    HHRequestErrorNetOther
+    QKRequestErrorNone,//无网络.
+    QKRequestErrorJsonParseFail,//解析失败.
+    QKRequestErrorNet404,
+    QKRequestErrorNet500,
+    QKRequestErrorNetOther
 };
 
-@interface HHRequestManager : NSObject
+@interface QKRequestManager : NSObject
 
 + (instancetype)defaultManager;
 
-@property(nonatomic, strong) HHHttpSessionManager *manager;
+@property(nonatomic, strong) QKHTTPSessionManager *manager;
 
 @property(nonatomic, copy) NSString *baseUrl;
 
 //当前网络状态
 @property(nonatomic, assign) AFNetworkReachabilityStatus netType;
 
-//SSL证书路径
-@property(nonatomic, copy) NSString *SSLCertPath;
-
-//上传的文件
-@property(nonatomic, strong) NSData *uploadFileData;
-
-//结果处理回调
+//结果预处理
 @property(nonatomic, strong) void(^filterResponseCallback)(id data,void(^continueResponseBlock)(id result));
-
-//接口调用无网络回调
-@property(nonatomic, strong) void(^noNetRequestCallback)(id params,void(^continueResponseBlock)(id params));
 
 //网络监听
 - (void)startNetMonitoring;
@@ -57,13 +47,12 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
 //设置requestHeader
 - (void)setRequestHeaderField:(NSDictionary *)params;
 
-//判断是否设置代理
-//- (BOOL)getProxyStatus;
-
+//SSL证书路径
+- (void)setSSLCertPath:(NSString *)SSLCertPath;
 
 /**
  发起网络请求
-
+ 
  @param url url地址
  @param params 参数
  @param requestType 请求类型
@@ -75,17 +64,18 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestByUrl:(NSString *)url
-                            params:(id)params
-                       requestType:(HHRequestType)requestType
-                          progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
+                            params:(id _Nullable)params
+                       requestType:(QKRequestType)requestType
+                          progress:(void  (^ _Nullable)(NSProgress *progress))progressBlock
                            success:(void (^)(id responseObject))successBlock
-                           failure:(void (^)(HHRequestErrorType error))errorBlock
-                      isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
+                           failure:(void (^)(QKRequestErrorType error))errorBlock
+                      isSupportHud:(BOOL)isSupportHud
+               isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 
 
 /**
  上传文件
-
+ 
  @param url url地址
  @param params 参数
  @param fileDatas 二进制文件数组
@@ -103,7 +93,7 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
           fileType:(NSString *)fileType
           progress:(void (^ _Nullable)(NSProgress *progress))progress
             result:(void (^)(id data))result
-             error:(void (^)(HHRequestErrorType errorType))errorBlock
+             error:(void (^)(QKRequestErrorType errorType))errorBlock
       isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 
@@ -111,7 +101,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 
 /**
  下载文件
-
+ 
  @param url url地址
  @param downloadPath 参数
  @param progressBlock 进度回调
@@ -122,11 +112,11 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert;
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)download:(NSString *)url
-                            downloadPath:(NSString *)downloadPath
-                          progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
-                           success:(void (^)(NSString *filePath))successBlock
-                           failure:(void (^)(HHRequestErrorType error))errorBlock
-                      isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
+                  downloadPath:(NSString *)downloadPath
+                      progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
+                       success:(void (^)(NSString *filePath))successBlock
+                       failure:(void (^)(QKRequestErrorType error))errorBlock
+                  isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 @end
 
 NS_ASSUME_NONNULL_END

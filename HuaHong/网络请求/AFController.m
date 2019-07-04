@@ -10,6 +10,8 @@
 #import <AFHTTPSessionManager.h>
 #import "HHRequestManager.h"
 #import "NSDictionary+Null.h"
+#import "QKRequestManager.h"
+
 @interface AFController ()
 
 @end
@@ -20,36 +22,41 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 
+    [[QKRequestManager defaultManager] startNetMonitoring];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    [self GetRequest];
     
-//    [self PostRequest];
+//    [[QKRequestManager defaultManager] setFilterResponseCallback:^(NSDictionary  *_Nonnull data, void (^ _Nonnull continueResponseBlock)(id _Nonnull)) {
+//
+//        continueResponseBlock([data filterNull]);
+//    }];
     
-//    [self uploadFile];
-    [[HHRequestManager defaultManager] setReachablityUrl:@"https://www.baidu.com"] ;
-    [[HHRequestManager defaultManager] setFilterResponseCallback:^(NSDictionary  *_Nonnull data, void (^ _Nonnull continueResponseBlock)(id _Nonnull)) {
-
-        continueResponseBlock([data filterNull]);
-    }];
     
-    [[HHRequestManager defaultManager]requestDataByUrl:^NSString * _Nonnull{
-        return @"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree";
-    } withParams:^id _Nonnull{
-        return @{@"userId":@8};
-    } withHttpType:^HHRequestType{
-        return HHRequestPOST;
-    } withProgress:^(id _Nonnull progress) {
-        NSLog(@"progress:%@",progress);
+    [[QKRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{@"userId":@"8"} requestType:QKRequestPOST progress:nil
+    success:^(id  _Nonnull responseObject) {
 
-    } withResultBlock:^(id _Nonnull result) {
-
-    } withErrorBlock:^(HHRequestErrorType error) {
+    } failure:^(QKRequestErrorType error) {
 
     } isSupportHud:YES isSupportErrorAlert:YES];
     
+    
+//    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/QQ_V6.5.3.dmg"];
+//    [[QKRequestManager defaultManager]download:@"http://dldir1.qq.com/qqfile/QQforMac/QQ_V6.5.3.dmg" downloadPath:path progress:^(NSProgress * _Nonnull progress) {
+// 
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            CGFloat percent = progress.completedUnitCount/(CGFloat)progress.totalUnitCount;
+//            [SVProgressHUD showProgress:percent status:@"下载进度"];
+//        });
+//
+//
+//    } success:^(NSString * _Nonnull filePath) {
+//        NSLog(@"download complate");
+//        [SVProgressHUD dismiss];
+//    } failure:^(QKRequestErrorType error) {
+//
+//    } isSupportHud:NO isSupportErrorAlert:YES];
     
 }
 

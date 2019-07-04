@@ -113,6 +113,8 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     NSURLCache *cache = [[NSURLCache alloc]initWithMemoryCapacity:1012*1024*5 diskCapacity:1012*1024*10 diskPath:@"images"];
     [NSURLCache setSharedURLCache:cache];
     
+    [[HHRequestManager defaultManager] startNetMonitoring];
+    
     return YES;
 }
 

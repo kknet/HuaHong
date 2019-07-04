@@ -1,21 +1,21 @@
 //
-//  HHRequestManager.m
+//  QKRequestManager.m
 //  HuaHong
 //
-//  Created by qk-huahong on 2019/7/1.
+//  Created by qk-huahong on 2019/7/4.
 //  Copyright © 2019 huahong. All rights reserved.
 //
 
-#import "HHRequestManager.h"
+#import "QKRequestManager.h"
 
-@implementation HHRequestManager
+@implementation QKRequestManager
 
 + (instancetype)defaultManager
 {
-    static HHRequestManager *instance;
+    static QKRequestManager *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[HHRequestManager alloc]init];
+        instance = [[QKRequestManager alloc]init];
     });
     
     return instance;
@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        _manager = [[HHHttpSessionManager alloc]init];
+        _manager = [[QKHTTPSessionManager alloc]init];
         _manager.requestSerializer = [AFJSONRequestSerializer serializer];
         _manager.requestSerializer.timeoutInterval = 20;
         _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -41,10 +41,16 @@
     _manager.baseUrl = baseUrl;
 }
 
+#pragma mark -设置requestSerializer
+- (void)setRequestSerializer:(AFHTTPRequestSerializer *)requestSerializer
+{
+    _manager.requestSerializer = requestSerializer;
+}
+
 #pragma mark -监听网络变化
 - (void)startNetMonitoring
 {
-//    self.baseUrl = @"https://www.baidu.com";
+    //    self.baseUrl = @"https://www.baidu.com";
     
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [[AFNetworkReachabilityManager sharedManager]setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
@@ -69,17 +75,10 @@
 {
     NSData *certData = [NSData dataWithContentsOfFile:cerPath];
     
-    // AFSSLPinningModeCertificate 使用证书验证模式
     AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
     
-    // allowInvalidCertificates 是否允许无效证书（也就是自建的证书），默认为NO
-    // 如果是需要验证自建证书，需要设置为YES
     policy.allowInvalidCertificates = YES;
     
-    //validatesDomainName 是否需要验证域名，默认为YES；
-    //假如证书的域名与你请求的域名不一致，需把该项设置为NO；如设成NO的话，即服务器使用其他可信任机构颁发的证书，也可以建立连接，这个非常危险，建议打开。
-    //置为NO，主要用于这种情况：客户端请求的是子域名，而证书上的是另外一个域名。因为SSL证书上的域名是独立的，假如证书上注册的域名是www.google.com，那么mail.google.com是无法验证通过的；当然，有钱可以注册通配符的域名*.google.com，但这个还是比较贵的。
-    //如置为NO，建议自己添加对应域名的校验逻辑。
     policy.validatesDomainName = NO;
     
     policy.pinnedCertificates = [NSSet setWithArray:@[certData]];
@@ -102,16 +101,12 @@
 - (BOOL)getProxyStatus {
     NSDictionary *proxySettings = (__bridge NSDictionary *)(CFNetworkCopySystemProxySettings());
     NSArray *proxies = (__bridge NSArray *)(CFNetworkCopyProxiesForURL((__bridge CFURLRef _Nonnull)([NSURL URLWithString:@"http://www.baidu.com&quot"]), (__bridge CFDictionaryRef _Nonnull)(proxySettings)));
-//    NSLog(@"\n%@",proxies);
     
     NSDictionary *settings = proxies[0];
-//    NSLog(@"%@",[settings objectForKey:(NSString *)kCFProxyHostNameKey]);
-//    NSLog(@"%@",[settings objectForKey:(NSString *)kCFProxyPortNumberKey]);
-//    NSLog(@"%@",[settings objectForKey:(NSString *)kCFProxyTypeKey]);
     
     if ([[settings objectForKey:(NSString *)kCFProxyTypeKey] isEqualToString:@"kCFProxyTypeNone"])
     {
-//        NSLog(@"没代理");
+        //        NSLog(@"没代理");
         return YES;
     }
     else
@@ -136,67 +131,55 @@
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestByUrl:(NSString *)url
-                            params:(id)params
-                       requestType:(HHRequestType)requestType
-                          progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
+                            params:(id _Nullable)params
+                       requestType:(QKRequestType)requestType
+                          progress:(void  (^ _Nullable)(NSProgress *progress))progressBlock
                            success:(void (^)(id responseObject))successBlock
-                           failure:(void (^)(HHRequestErrorType error))errorBlock
-                      isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
+                           failure:(void (^)(QKRequestErrorType error))errorBlock
+                      isSupportHud:(BOOL)isSupportHud
+               isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     if (![self getProxyStatus]) {
         
-        [MBProgressHUD showInfo:@"请关闭网络代理" toView:nil];
+        [SVProgressHUD showInfoWithStatus:@"请关闭网络代理"];
         return nil;
     }
     
     if (_netType == AFNetworkReachabilityStatusNotReachable) {
         
-        //目前没啥用
-        if (self.noNetRequestCallback) {
-            void(^continueRequestBlock)(id params) = ^(id params){
-           
-            };
-            
-            self.noNetRequestCallback(params, continueRequestBlock);
-        }
-
-
-        errorBlock(HHRequestErrorNone);
-
-        if (isSupportErrorAlert) {
-          [MBProgressHUD showInfo:@"亲，您的手机貌似没联网" toView:nil];
-        }
+        errorBlock(QKRequestErrorNone);
         
+        if (isSupportErrorAlert) {
+            [SVProgressHUD showInfoWithStatus:@"亲，您的手机貌似没联网"];
+        }
         
         return nil;
     }
     
     NSURLSessionTask *sessionTask;
     
-   NSLog(@"httpRequest:%@%@\nparams:%@",_manager.baseURL.absoluteString,url,params);
+    NSLog(@"httpRequest:%@%@\nparams:%@",_manager.baseURL.absoluteString,url,params);
     
     if (isSupportHud) {
-        [MBProgressHUD showLoading:@"加载中..." toView:nil];
+        [SVProgressHUD showWithStatus:@"加载中..."];
     }
     
     switch (requestType) {
-        case HHRequestGET:
+        case QKRequestGET:
         {
             sessionTask = [_manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-                
+               
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (progressBlock) {
                         progressBlock(downloadProgress);
                     }
                 });
-                
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self jsonParse:responseObject url:url withResultBlock:successBlock withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
                 });
-                
-                
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -206,7 +189,7 @@
             }];
         }
             break;
-        case HHRequestPOST:
+        case QKRequestPOST:
         {
             
             sessionTask = [_manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -222,42 +205,12 @@
                     [self jsonParse:responseObject url:url withResultBlock:successBlock withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
                 });
                 
-                 
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                   [self parseError:error url:url withTask:task withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+                    [self parseError:error url:url withTask:task withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
                 });
-                
             }];
-        }
-            
-            break;
-        case HHRequestUPLOAD:
-        {
-            
-            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-            NSURLSessionUploadTask *task = [_manager uploadTaskWithRequest:request fromData:self.uploadFileData progress:^(NSProgress * _Nonnull uploadProgress) {
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (progressBlock) {
-                        progressBlock(uploadProgress);
-                    }
-                });
-            } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (!error) {
-                        [self jsonParse:responseObject url:url withResultBlock:successBlock withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
-                    }else
-                    {
-                        [self parseError:error url:url withTask:response withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
-                    }
-                });
-                
-            }];
-            
-            [task resume];
-            sessionTask = task;
         }
             
             break;
@@ -268,6 +221,7 @@
     
     return sessionTask;
 }
+
 
 
 /**
@@ -290,22 +244,22 @@
           fileType:(NSString *)fileType
           progress:(void (^ _Nullable)(NSProgress *progress))progress
             result:(void (^)(id data))result
-             error:(void (^)(HHRequestErrorType errorType))errorBlock
+             error:(void (^)(QKRequestErrorType errorType))errorBlock
       isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     if (![self getProxyStatus]) {
         
-        [MBProgressHUD showInfo:@"请关闭网络代理" toView:nil];
+        [SVProgressHUD showInfoWithStatus:@"请关闭网络代理"];
         return;
     }
     
     if (_netType == AFNetworkReachabilityStatusNotReachable) {
         
-        errorBlock(HHRequestErrorNone);
+        errorBlock(QKRequestErrorNone);
         
         if (isSupportErrorAlert) {
-            [MBProgressHUD showInfo:@"亲，您的手机貌似没联网" toView:nil];
+            [SVProgressHUD showInfoWithStatus:@"亲，您的手机貌似没联网"];
         }
         
         return;
@@ -313,7 +267,8 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     NSLog(@"httpRequest:%@%@\nfileDatas:%@",_manager.baseURL.absoluteString,url,fileDatas);
     
     if (isSupportHud) {
-        [MBProgressHUD showLoading:@"上传中..." toView:nil];
+        [SVProgressHUD showWithStatus:@"上传中..."];
+        
     }
     
     [_manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -322,7 +277,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
         }];
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        
+       
         dispatch_async(dispatch_get_main_queue(), ^{
             if (progress) {
                 progress(uploadProgress);
@@ -331,7 +286,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
-           [self jsonParse:responseObject url:url withResultBlock:responseObject withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+            [self jsonParse:responseObject url:url withResultBlock:responseObject withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
         });
         
         
@@ -361,22 +316,21 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
                   downloadPath:(NSString *)downloadPath
                       progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
                        success:(void (^)(NSString *filePath))successBlock
-                       failure:(void (^)(HHRequestErrorType error))errorBlock
-                  isSupportHud:(BOOL)isSupportHud
-           isSupportErrorAlert:(BOOL)isSupportErrorAlert{
+                       failure:(void (^)(QKRequestErrorType error))errorBlock
+                  isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     if (![self getProxyStatus]) {
         
-        [MBProgressHUD showInfo:@"请关闭网络代理" toView:nil];
+        [SVProgressHUD showInfoWithStatus:@"请关闭网络代理"];
         return nil;
     }
     
     if (_netType == AFNetworkReachabilityStatusNotReachable) {
         
-        errorBlock(HHRequestErrorNone);
+        errorBlock(QKRequestErrorNone);
         
         if (isSupportErrorAlert) {
-            [MBProgressHUD showInfo:@"亲，您的手机貌似没联网" toView:nil];
+            [SVProgressHUD showInfoWithStatus:@"亲，您的手机貌似没联网"];
         }
         
         return nil;
@@ -384,18 +338,20 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     NSLog(@"httpRequest:%@%@\ndownloadPath:%@",_manager.baseURL.absoluteString,url,downloadPath);
     
     if (isSupportHud) {
-        [MBProgressHUD showLoading:@"正在下载..." toView:nil];
+        [SVProgressHUD showWithStatus:@"正在下载..."];
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSURLSessionDownloadTask *task = [_manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         
+        //         CGFloat percent = uploadProgress.completedUnitCount/(CGFloat)uploadProgress.totalUnitCount;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            //         CGFloat percent = uploadProgress.completedUnitCount/(CGFloat)uploadProgress.totalUnitCount;
             if (progressBlock) {
                 progressBlock(downloadProgress);
             }
         });
+        
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         return [NSURL fileURLWithPath:downloadPath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
@@ -403,7 +359,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!error) {
                 if (isSupportHud) {
-                    [MBProgressHUD hideHUDForView:nil];
+                    [SVProgressHUD dismiss];
                 }
                 
                 if (successBlock) {
@@ -421,17 +377,18 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     return task;
 }
 
+
 #pragma mark -处理请求结果
 - (void)jsonParse:(NSData *)data
               url:(NSString *)url
   withResultBlock:(void (^)(id data))resultBlock
-   withErrorBlock:(void (^)(HHRequestErrorType errorType))errorBlock
+   withErrorBlock:(void (^)(QKRequestErrorType errorType))errorBlock
      isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
     
     if (isSupportHud) {
-        [MBProgressHUD hideHUDForView:nil];
+        [SVProgressHUD dismiss];
     }
     
     NSError *error;
@@ -442,10 +399,10 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
     if (error) {
         if (errorBlock) {
-            errorBlock(HHRequestErrorJsonParseFail);
+            errorBlock(QKRequestErrorJsonParseFail);
         }
         if (isSupportErrorAlert) {
-            [MBProgressHUD showInfo:@"解析错误" toView:nil];
+            [SVProgressHUD showInfoWithStatus:@"解析错误"];
         }
         
         return;
@@ -453,28 +410,28 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
     
     if (self.filterResponseCallback) {
-            void(^continueBlock)(id result) = ^(id result) {
-                if (resultBlock) {
-                    resultBlock(result);
-                }
-            };
-        self.filterResponseCallback(result, continueBlock);
-        } else {
+        void(^continueBlock)(id result) = ^(id result) {
             if (resultBlock) {
                 resultBlock(result);
             }
+        };
+        self.filterResponseCallback(result, continueBlock);
+    } else {
+        if (resultBlock) {
+            resultBlock(result);
         }
-        
-
+    }
+    
+    
     
 }
 
 #pragma mark -处理错误
-- (void)parseError:(NSError *)error url:(NSString *)url withTask:(id)task withErrorBlock:(void (^)(HHRequestErrorType errorType))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
+- (void)parseError:(NSError *)error url:(NSString *)url withTask:(id)task withErrorBlock:(void (^)(QKRequestErrorType errorType))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     
     if (isSupportHud) {
-        [MBProgressHUD hideHUDForView:nil];
+        [SVProgressHUD dismiss];
     }
     
     NSHTTPURLResponse *response;
@@ -486,16 +443,16 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
     if (response.statusCode == 404) {
         if (errorBlock) {
-            errorBlock(HHRequestErrorNet404);
+            errorBlock(QKRequestErrorNet404);
         }
     }else if (response.statusCode == 500){
         if (errorBlock) {
-            errorBlock(HHRequestErrorNet500);
+            errorBlock(QKRequestErrorNet500);
         }
     }else
     {
         if (errorBlock) {
-            errorBlock(HHRequestErrorNetOther);
+            errorBlock(QKRequestErrorNetOther);
         }
     }
     
@@ -505,7 +462,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     NSLog(@"error:%@",error.description);
     
     if (isSupportErrorAlert) {
-        [MBProgressHUD showInfo:@"网络请求错误" toView:nil];
+        [SVProgressHUD showInfoWithStatus:@"网络请求错误"];
     }
 }
 @end

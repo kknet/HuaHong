@@ -27,7 +27,7 @@
 #import "KVOController.h"
 #import "CleanCacheHelp.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "QKHttpRequestManager.h"
+#import "HHRequestManager.h"
 
 //#import "HHCategory.h"
 #import "UIView+Extension.h"

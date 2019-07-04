@@ -116,12 +116,12 @@
     //第二种写法
     [[self.viewModel.command execute:@{@"key":@"value"}] subscribeNext:^(NSArray<MVVM_Model *> *array) {
         @strongify(self);
-        [SVProgressHUD showSuccessWithStatus:@"加载成功"];
+//        [SVProgressHUD showSuccessWithStatus:@"加载成功"];
         self.dataArray = array;
         [self.collectionView reloadData];
     }];
     
-    [SVProgressHUD showWithStatus:@"加载中..."];
+//    [SVProgressHUD showWithStatus:@"加载中..."];
     
     [RACObserve(self.viewModel, isNeedRefresh)subscribeNext:^(id  _Nullable x) {
         if ([x boolValue]) {

@@ -64,17 +64,9 @@
 /** 网络请求 */
 - (void)getDoubanList:(void(^)(NSArray<MVVM_Model*> *array))succeedBlock {
     
-    [[QKHttpRequestManager defaultManager]requestDataByUrl:^NSString *{
-        return url;
-    } withParams:^id{
-        return @{};
-    } withHttpType:^QKPublicHttpType{
-        return QKPublicGET;
-    } withProgress:^(id progress) {
+    [[HHRequestManager defaultManager]requestByUrl:url params:@{} requestType:HHRequestGET progress:nil success:^(id  _Nonnull responseObject) {
         
-    } withResultBlock:^(NSDictionary *data) {
-        
-         NSArray *subjects = [data objectForKey:@"subjects"];
+        NSArray *subjects = [responseObject objectForKey:@"subjects"];
         
         NSArray *array = [[subjects.rac_sequence map:^id _Nullable(id  _Nullable value) {
             
@@ -84,11 +76,9 @@
         if (succeedBlock) {
             succeedBlock(array);
         }
-        
-    } withErrorBlock:^(QKPublicHttpRequestErrorType errorType) {
+    } failure:^(HHRequestErrorType error) {
         
     } isSupportHud:YES isSupportErrorAlert:YES];
-    
 }
 
 
