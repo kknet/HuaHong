@@ -250,8 +250,6 @@
 		937C1A7F228E6CBF009C9418 /* NSDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */; };
 		9395BDAE22C9B47B00EABF10 /* HHRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */; };
 		9395BDB222C9EB4700EABF10 /* HHHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */; };
-		9395BDC122CD945800EABF10 /* QKHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDC022CD945800EABF10 /* QKHTTPSessionManager.m */; };
-		9395BDC422CD949700EABF10 /* QKRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDC322CD949700EABF10 /* QKRequestManager.m */; };
 		93CB25B122B7715200A4A5C7 /* NSDictionary+Null.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */; };
 		93E533AB228E9CCD000F5025 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 93E533AA228E9CCD000F5025 /* ReadMe */; };
 /* End PBXBuildFile section */
@@ -724,10 +722,6 @@
 		9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHRequestManager.m; sourceTree = "<group>"; };
 		9395BDB022C9EB4700EABF10 /* HHHttpSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHHttpSessionManager.h; sourceTree = "<group>"; };
 		9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHHttpSessionManager.m; sourceTree = "<group>"; };
-		9395BDBF22CD945800EABF10 /* QKHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKHTTPSessionManager.h; sourceTree = "<group>"; };
-		9395BDC022CD945800EABF10 /* QKHTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKHTTPSessionManager.m; sourceTree = "<group>"; };
-		9395BDC222CD949700EABF10 /* QKRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKRequestManager.h; sourceTree = "<group>"; };
-		9395BDC322CD949700EABF10 /* QKRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKRequestManager.m; sourceTree = "<group>"; };
 		93CB25AF22B7715200A4A5C7 /* NSDictionary+Null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Null.h"; sourceTree = "<group>"; };
 		93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
 		93E533AA228E9CCD000F5025 /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
@@ -1030,6 +1024,7 @@
 		7D3623E11FCE51B400C77874 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7D58943822688D7200DFE60F /* MBProgressHud(Extension) */,
 				7D35A0E7229AE6EE00149963 /* 数据安全 */,
 				7D5891FD2266D23100DFE60F /* QKCalendar */,
 				7DBC56D82264B98D006E6068 /* QKPickerView */,
@@ -1914,7 +1909,6 @@
 		7DFB1BD91FCFD4440033D9E2 /* 网络请求 */ = {
 			isa = PBXGroup;
 			children = (
-				9395BDBE22CD93BF00EABF10 /* QKRequestManager */,
 				9395BDAF22C9E87000EABF10 /* HHRequestManager */,
 				7DFB1BDA1FCFD4580033D9E2 /* UpLoadViewController.h */,
 				7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */,
@@ -1964,7 +1958,6 @@
 		9395BDAF22C9E87000EABF10 /* HHRequestManager */ = {
 			isa = PBXGroup;
 			children = (
-				7D58943822688D7200DFE60F /* MBProgressHud(Extension) */,
 				9395BDAC22C9B47B00EABF10 /* HHRequestManager.h */,
 				9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */,
 				9395BDB022C9EB4700EABF10 /* HHHttpSessionManager.h */,
@@ -1973,17 +1966,6 @@
 				93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */,
 			);
 			path = HHRequestManager;
-			sourceTree = "<group>";
-		};
-		9395BDBE22CD93BF00EABF10 /* QKRequestManager */ = {
-			isa = PBXGroup;
-			children = (
-				9395BDBF22CD945800EABF10 /* QKHTTPSessionManager.h */,
-				9395BDC022CD945800EABF10 /* QKHTTPSessionManager.m */,
-				9395BDC222CD949700EABF10 /* QKRequestManager.h */,
-				9395BDC322CD949700EABF10 /* QKRequestManager.m */,
-			);
-			path = QKRequestManager;
 			sourceTree = "<group>";
 		};
 		A3E05E8260C4D86AEAF6644D /* Pods */ = {
@@ -2218,7 +2200,6 @@
 				7D8F371921D0D381008E3352 /* MVVM_Controller.m in Sources */,
 				7D7FBB1F20401A2000C3594C /* NSString+Hash.m in Sources */,
 				7D48F96521038FCA00833594 /* presentViewController.m in Sources */,
-				9395BDC122CD945800EABF10 /* QKHTTPSessionManager.m in Sources */,
 				7DDAE7E22057692700D5C274 /* HHPlayerViewController.m in Sources */,
 				7DDE3D2E20F505080044FC85 /* WebViewVC.m in Sources */,
 				7D437F43208ECD9700DAAEBD /* LatterValidate.m in Sources */,
@@ -2334,7 +2315,6 @@
 				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
 				7D5892112266D23100DFE60F /* QKCalendarView.m in Sources */,
 				7D48F9782104337800833594 /* BGView.m in Sources */,
-				9395BDC422CD949700EABF10 /* QKRequestManager.m in Sources */,
 				7DC24C8D20219EF700103BDE /* AnimationView.m in Sources */,
 				7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */,
 				7D8376D22041433000C6CB06 /* EncryptionTools.m in Sources */,

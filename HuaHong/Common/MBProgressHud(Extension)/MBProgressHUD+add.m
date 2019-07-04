@@ -22,7 +22,7 @@
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"error@%zdx.png",scale];
-    [self p_show:info icon:imageName view:view];
+    [self p_show:info icon:nil view:view];
 }
 
 +(void)showLoading:(NSString *)text toView:(UIView *)view

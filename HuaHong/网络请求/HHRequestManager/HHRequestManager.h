@@ -13,19 +13,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, HHRequestType) {
-    HHRequestGET,
-    HHRequestPOST,
-    HHRequestUPLOAD
+typedef NS_ENUM(NSUInteger, RequestType) {
+    GET,
+    POST,
+    UPLOAD
 };
 
-typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
+typedef NS_ENUM(NSUInteger, RequestErrorType) {
     
-    HHRequestErrorNone,//无网络.
-    HHRequestErrorJsonParseFail,//解析失败.
-    HHRequestErrorNet404,
-    HHRequestErrorNet500,
-    HHRequestErrorNetOther
+    RequestErrorNone,//无网络.
+    RequestErrorJsonParseFail,//解析失败.
+    RequestErrorNet404,
+    RequestErrorNet500,
+    RequestErrorNetOther
 };
 
 @interface HHRequestManager : NSObject
@@ -76,10 +76,10 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
  */
 - (NSURLSessionTask *)requestByUrl:(NSString *)url
                             params:(id)params
-                       requestType:(HHRequestType)requestType
+                       requestType:(RequestType)requestType
                           progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
                            success:(void (^)(id responseObject))successBlock
-                           failure:(void (^)(HHRequestErrorType error))errorBlock
+                           failure:(void (^)(RequestErrorType error))errorBlock
                       isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 
 
@@ -103,7 +103,7 @@ typedef NS_ENUM(NSUInteger, HHRequestErrorType) {
           fileType:(NSString *)fileType
           progress:(void (^ _Nullable)(NSProgress *progress))progress
             result:(void (^)(id data))result
-             error:(void (^)(HHRequestErrorType errorType))errorBlock
+             error:(void (^)(RequestErrorType errorType))errorBlock
       isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 
@@ -125,7 +125,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert;
                             downloadPath:(NSString *)downloadPath
                           progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
                            success:(void (^)(NSString *filePath))successBlock
-                           failure:(void (^)(HHRequestErrorType error))errorBlock
+                           failure:(void (^)(RequestErrorType error))errorBlock
                       isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;
 @end
 

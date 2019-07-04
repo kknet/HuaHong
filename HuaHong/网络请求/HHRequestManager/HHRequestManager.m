@@ -137,10 +137,10 @@
  */
 - (NSURLSessionTask *)requestByUrl:(NSString *)url
                             params:(id)params
-                       requestType:(HHRequestType)requestType
+                       requestType:(RequestType)requestType
                           progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
                            success:(void (^)(id responseObject))successBlock
-                           failure:(void (^)(HHRequestErrorType error))errorBlock
+                           failure:(void (^)(RequestErrorType error))errorBlock
                       isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     if (![self getProxyStatus]) {
@@ -161,7 +161,7 @@
         }
 
 
-        errorBlock(HHRequestErrorNone);
+        errorBlock(RequestErrorNone);
 
         if (isSupportErrorAlert) {
           [MBProgressHUD showInfo:@"亲，您的手机貌似没联网" toView:nil];
@@ -180,7 +180,7 @@
     }
     
     switch (requestType) {
-        case HHRequestGET:
+        case GET:
         {
             sessionTask = [_manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
                 
@@ -206,7 +206,7 @@
             }];
         }
             break;
-        case HHRequestPOST:
+        case POST:
         {
             
             sessionTask = [_manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -233,7 +233,7 @@
         }
             
             break;
-        case HHRequestUPLOAD:
+        case UPLOAD:
         {
             
             NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -290,7 +290,7 @@
           fileType:(NSString *)fileType
           progress:(void (^ _Nullable)(NSProgress *progress))progress
             result:(void (^)(id data))result
-             error:(void (^)(HHRequestErrorType errorType))errorBlock
+             error:(void (^)(RequestErrorType errorType))errorBlock
       isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
@@ -302,7 +302,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     if (_netType == AFNetworkReachabilityStatusNotReachable) {
         
-        errorBlock(HHRequestErrorNone);
+        errorBlock(RequestErrorNone);
         
         if (isSupportErrorAlert) {
             [MBProgressHUD showInfo:@"亲，您的手机貌似没联网" toView:nil];
@@ -361,7 +361,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
                   downloadPath:(NSString *)downloadPath
                       progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
                        success:(void (^)(NSString *filePath))successBlock
-                       failure:(void (^)(HHRequestErrorType error))errorBlock
+                       failure:(void (^)(RequestErrorType error))errorBlock
                   isSupportHud:(BOOL)isSupportHud
            isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
@@ -373,7 +373,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     if (_netType == AFNetworkReachabilityStatusNotReachable) {
         
-        errorBlock(HHRequestErrorNone);
+        errorBlock(RequestErrorNone);
         
         if (isSupportErrorAlert) {
             [MBProgressHUD showInfo:@"亲，您的手机貌似没联网" toView:nil];
@@ -425,7 +425,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
 - (void)jsonParse:(NSData *)data
               url:(NSString *)url
   withResultBlock:(void (^)(id data))resultBlock
-   withErrorBlock:(void (^)(HHRequestErrorType errorType))errorBlock
+   withErrorBlock:(void (^)(RequestErrorType errorType))errorBlock
      isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
@@ -442,7 +442,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
     if (error) {
         if (errorBlock) {
-            errorBlock(HHRequestErrorJsonParseFail);
+            errorBlock(RequestErrorJsonParseFail);
         }
         if (isSupportErrorAlert) {
             [MBProgressHUD showInfo:@"解析错误" toView:nil];
@@ -470,7 +470,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
 }
 
 #pragma mark -处理错误
-- (void)parseError:(NSError *)error url:(NSString *)url withTask:(id)task withErrorBlock:(void (^)(HHRequestErrorType errorType))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
+- (void)parseError:(NSError *)error url:(NSString *)url withTask:(id)task withErrorBlock:(void (^)(RequestErrorType errorType))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
     
     if (isSupportHud) {
@@ -486,16 +486,16 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     
     if (response.statusCode == 404) {
         if (errorBlock) {
-            errorBlock(HHRequestErrorNet404);
+            errorBlock(RequestErrorNet404);
         }
     }else if (response.statusCode == 500){
         if (errorBlock) {
-            errorBlock(HHRequestErrorNet500);
+            errorBlock(RequestErrorNet500);
         }
     }else
     {
         if (errorBlock) {
-            errorBlock(HHRequestErrorNetOther);
+            errorBlock(RequestErrorNetOther);
         }
     }
     

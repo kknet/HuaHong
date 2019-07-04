@@ -10,7 +10,6 @@
 #import <AFHTTPSessionManager.h>
 #import "HHRequestManager.h"
 #import "NSDictionary+Null.h"
-#import "QKRequestManager.h"
 
 @interface AFController ()
 
@@ -22,7 +21,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    [[QKRequestManager defaultManager] startNetMonitoring];
+    [[HHRequestManager defaultManager] startNetMonitoring];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -34,17 +33,17 @@
 //    }];
     
     
-    [[QKRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{@"userId":@"8"} requestType:QKRequestPOST progress:nil
+    [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{@"userId":@"8"} requestType:POST progress:nil
     success:^(id  _Nonnull responseObject) {
 
-    } failure:^(QKRequestErrorType error) {
+    } failure:^(RequestErrorType error) {
 
     } isSupportHud:YES isSupportErrorAlert:YES];
     
     
 //    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/QQ_V6.5.3.dmg"];
-//    [[QKRequestManager defaultManager]download:@"http://dldir1.qq.com/qqfile/QQforMac/QQ_V6.5.3.dmg" downloadPath:path progress:^(NSProgress * _Nonnull progress) {
-// 
+//    [[HHRequestManager defaultManager]download:@"http://dldir1.qq.com/qqfile/QQforMac/QQ_V6.5.3.dmg" downloadPath:path progress:^(NSProgress * _Nonnull progress) {
+//
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            CGFloat percent = progress.completedUnitCount/(CGFloat)progress.totalUnitCount;
 //            [SVProgressHUD showProgress:percent status:@"下载进度"];
@@ -54,7 +53,7 @@
 //    } success:^(NSString * _Nonnull filePath) {
 //        NSLog(@"download complate");
 //        [SVProgressHUD dismiss];
-//    } failure:^(QKRequestErrorType error) {
+//    } failure:^(RequestErrorType error) {
 //
 //    } isSupportHud:NO isSupportErrorAlert:YES];
     
