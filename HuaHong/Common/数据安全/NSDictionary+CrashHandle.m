@@ -215,7 +215,7 @@
 // 为了避免和系统的方法冲突，我一般都会在swizzling方法前面加前缀
 - (id)gl_objectAtIndex:(NSUInteger)index {
     // 判断下标是否越界，如果越界就进入异常拦截
-    if (self.count < index) {
+    if (self.count <= index) {
         @try {
             return [self gl_objectAtIndex:index];
         }
