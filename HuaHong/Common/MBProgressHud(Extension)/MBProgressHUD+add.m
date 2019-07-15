@@ -38,7 +38,7 @@
         
         //修改样式，否则等待框背景色将为半透明
         hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-        hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.7];
+        hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.66];
         
         //    hud.contentColor = [UIColor redColor];
         
@@ -97,7 +97,7 @@
         //修改样式，否则等待框背景色将为半透明
         hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
         
-        hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.7];
+        hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.66];
         
         hud.label.text = text;
         hud.label.numberOfLines = 0;

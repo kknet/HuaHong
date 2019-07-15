@@ -261,8 +261,10 @@
 //        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
 //    }];
     
-  HHVideoPlayerController *vc = [kStory instantiateViewControllerWithIdentifier:@"HHVideoPlayerController"];
-    [self presentViewController:vc animated:YES completion:nil];
+//  HHVideoPlayerController *vc = [kStory instantiateViewControllerWithIdentifier:@"HHVideoPlayerController"];
+//    [self presentViewController:vc animated:YES completion:nil];
+    
+    [MBProgressHUD showInfo:@"网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试" toView:self.view];
 
 }
 
