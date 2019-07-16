@@ -27,33 +27,7 @@
 
 @implementation AppDelegate
 
-/**
- * 连线UI控件都用weak修饰
- * NSString: 用copy修饰
- * Block:    用copy修饰
- * delegate: 用weak修饰
- * retain(mrc),strong(arc),weak(arc，释放后赋值nil),assign(mrc,arc，释放后不会赋值nil，会导致野指针),copy(mrc,arc)
- */
 
-/**
- * command+= :siziToFit
- * option+command+= :storyboard警告
- */
-
-/** cell复用 UI绑定数据 */
-+ (void)load
-{
-  //编译的时候调用
-}
-
-+ (void)initialize
-{
-  //创建实例的时候调用
-}
-//extern:代表其他类可以引用
-//const:不可更改
-//static:静态/全局变量
-extern NSString *const MJPropertyTypeIvar;
 
 /** 输出异常 */
 static void uncaughtExceptionHandler(NSException *exception)

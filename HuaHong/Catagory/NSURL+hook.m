@@ -13,9 +13,12 @@
 
 +(void)load
 {
-    Method URLWithStr = class_getClassMethod(self, @selector(URLWithString:));
-    Method HHURLWithStr = class_getClassMethod(self, @selector(HHURLWithString:));
-    method_exchangeImplementations(URLWithStr, HHURLWithStr);
+    Method originalMethod = class_getClassMethod(self, @selector(URLWithString:));
+    Method swizzledMethod = class_getClassMethod(self, @selector(HHURLWithString:));
+    if (!originalMethod || !swizzledMethod) {
+        return;
+    }
+    method_exchangeImplementations(originalMethod, swizzledMethod);
 
 }
 +(instancetype)HHURLWithString:(NSString *)string

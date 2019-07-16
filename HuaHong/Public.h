@@ -138,6 +138,7 @@
 #import "GPUImageController.h"
 #import "HHAlertView.h"
 #import "HHVideoPlayerController.h"
+#import "BuryViewController.h"
 
 
 #endif /* Public_h */

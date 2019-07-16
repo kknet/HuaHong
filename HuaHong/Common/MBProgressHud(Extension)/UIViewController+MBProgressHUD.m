@@ -14,10 +14,12 @@
 
 + (void)load
 {
-    Method viewDidDisappearMethod = class_getInstanceMethod([self class], @selector(viewDidDisappear:));
-    Method viewDidDisappear_swizzle = class_getInstanceMethod(self, @selector(viewDidDisappear_swizzle:));
-    
-    method_exchangeImplementations(viewDidDisappearMethod, viewDidDisappear_swizzle);
+    Method originalMethod = class_getInstanceMethod([self class], @selector(viewDidDisappear:));
+    Method swizzledMethod = class_getInstanceMethod(self, @selector(viewDidDisappear_swizzle:));
+    if (!originalMethod || !swizzledMethod) {
+        return;
+    }
+    method_exchangeImplementations(originalMethod, swizzledMethod);
 }
     
 - (void)viewDidDisappear_swizzle:(BOOL)animated

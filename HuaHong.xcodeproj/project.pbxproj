@@ -251,6 +251,10 @@
 		9395BDAE22C9B47B00EABF10 /* HHRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */; };
 		9395BDB222C9EB4700EABF10 /* HHHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */; };
 		93CB25B122B7715200A4A5C7 /* NSDictionary+Null.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */; };
+		93D42D9D22DD679600344BD7 /* UIControl+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9C22DD679500344BD7 /* UIControl+bury.m */; };
+		93D42DA022DD6CF700344BD7 /* NSObject+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9F22DD6CF600344BD7 /* NSObject+bury.m */; };
+		93D42DA322DD704500344BD7 /* BuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42DA222DD704500344BD7 /* BuryViewController.m */; };
+		93D42DA622DD936D00344BD7 /* UIGestureRecognizer+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42DA522DD936D00344BD7 /* UIGestureRecognizer+bury.m */; };
 		93E533AB228E9CCD000F5025 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 93E533AA228E9CCD000F5025 /* ReadMe */; };
 /* End PBXBuildFile section */
 
@@ -724,6 +728,14 @@
 		9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHHttpSessionManager.m; sourceTree = "<group>"; };
 		93CB25AF22B7715200A4A5C7 /* NSDictionary+Null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Null.h"; sourceTree = "<group>"; };
 		93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
+		93D42D9B22DD679500344BD7 /* UIControl+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+bury.h"; sourceTree = "<group>"; };
+		93D42D9C22DD679500344BD7 /* UIControl+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+bury.m"; sourceTree = "<group>"; };
+		93D42D9E22DD6CF600344BD7 /* NSObject+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+bury.h"; sourceTree = "<group>"; };
+		93D42D9F22DD6CF600344BD7 /* NSObject+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+bury.m"; sourceTree = "<group>"; };
+		93D42DA122DD704500344BD7 /* BuryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuryViewController.h; sourceTree = "<group>"; };
+		93D42DA222DD704500344BD7 /* BuryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuryViewController.m; sourceTree = "<group>"; };
+		93D42DA422DD936D00344BD7 /* UIGestureRecognizer+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+bury.h"; sourceTree = "<group>"; };
+		93D42DA522DD936D00344BD7 /* UIGestureRecognizer+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+bury.m"; sourceTree = "<group>"; };
 		93E533AA228E9CCD000F5025 /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		9AB1874EA98924911D4A28EB /* Pods-HuaHong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -767,6 +779,7 @@
 			isa = PBXGroup;
 			children = (
 				7DC24C8A202161A400103BDE /* HuaHong.entitlements */,
+				93D42D9A22DD670600344BD7 /* 埋点 */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
 				7D91769621C9DAE6007B8F91 /* GPUImage */,
 				7D56A2FB216D92ED00212DEB /* KVO */,
@@ -1968,6 +1981,21 @@
 			path = HHRequestManager;
 			sourceTree = "<group>";
 		};
+		93D42D9A22DD670600344BD7 /* 埋点 */ = {
+			isa = PBXGroup;
+			children = (
+				93D42D9B22DD679500344BD7 /* UIControl+bury.h */,
+				93D42D9C22DD679500344BD7 /* UIControl+bury.m */,
+				93D42D9E22DD6CF600344BD7 /* NSObject+bury.h */,
+				93D42D9F22DD6CF600344BD7 /* NSObject+bury.m */,
+				93D42DA122DD704500344BD7 /* BuryViewController.h */,
+				93D42DA222DD704500344BD7 /* BuryViewController.m */,
+				93D42DA422DD936D00344BD7 /* UIGestureRecognizer+bury.h */,
+				93D42DA522DD936D00344BD7 /* UIGestureRecognizer+bury.m */,
+			);
+			path = "埋点";
+			sourceTree = "<group>";
+		};
 		A3E05E8260C4D86AEAF6644D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2192,6 +2220,7 @@
 				7D56A30F216DE07800212DEB /* Flower.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
 				7DB9B5491FD7E6710011EE54 /* VideoBottomView.m in Sources */,
+				93D42DA622DD936D00344BD7 /* UIGestureRecognizer+bury.m in Sources */,
 				7D2FF0C120030AE600ECAA26 /* LoadingViewController.m in Sources */,
 				7DB9B5581FD90A570011EE54 /* MovieFileOutputController.m in Sources */,
 				7D58920E2266D23100DFE60F /* QKCalendarModel.m in Sources */,
@@ -2268,6 +2297,7 @@
 				7DDE3D3020F505080044FC85 /* HHSwitch.m in Sources */,
 				7D437EFB2083543900DAAEBD /* XiaoMiTV.m in Sources */,
 				7D437EFE208354CF00DAAEBD /* BridgeController.m in Sources */,
+				93D42DA322DD704500344BD7 /* BuryViewController.m in Sources */,
 				7D957EBF1FD5337000D0A4D5 /* PhotoListCell.m in Sources */,
 				7D93370921A931140048E6D4 /* HHVideoPlayManager.m in Sources */,
 				7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */,
@@ -2325,6 +2355,7 @@
 				7DC24C8920206B3D00103BDE /* AppDelegate+Notification.m in Sources */,
 				7D56A30C216DE03C00212DEB /* Factory.m in Sources */,
 				7DA711AD20DCD10400BEF5D9 /* UIViewController+Alert.m in Sources */,
+				93D42D9D22DD679600344BD7 /* UIControl+bury.m in Sources */,
 				7D8FDD6C226F087900D00C92 /* HHAudioRecorder.m in Sources */,
 				7DC24CA320283F6500103BDE /* HHBezierPath.m in Sources */,
 				7DB9B5421FD7E0440011EE54 /* CustomContactsController.m in Sources */,
@@ -2379,6 +2410,7 @@
 				7D1A365820A5683500D74375 /* Model.xcdatamodeld in Sources */,
 				7D437F3A208EC85400DAAEBD /* StrategyController.m in Sources */,
 				7DEA99A2202A95050050055E /* ThreadViewController.m in Sources */,
+				93D42DA022DD6CF700344BD7 /* NSObject+bury.m in Sources */,
 				7D48F97C21044A5500833594 /* PushBehaviorController.m in Sources */,
 				7DABC39B21A5389D00C3EAD9 /* NSString+IdentityCard.m in Sources */,
 				7D48F9842104868800833594 /* PedometerViewController.m in Sources */,
