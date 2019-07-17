@@ -247,12 +247,13 @@
 		7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */; };
 		7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */; };
 		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
+		933AC5E322DF030800E7710B /* UITableView+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E222DF030800E7710B /* UITableView+bury.m */; };
 		937C1A7F228E6CBF009C9418 /* NSDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */; };
 		9395BDAE22C9B47B00EABF10 /* HHRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */; };
 		9395BDB222C9EB4700EABF10 /* HHHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */; };
 		93CB25B122B7715200A4A5C7 /* NSDictionary+Null.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */; };
 		93D42D9D22DD679600344BD7 /* UIControl+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9C22DD679500344BD7 /* UIControl+bury.m */; };
-		93D42DA022DD6CF700344BD7 /* NSObject+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9F22DD6CF600344BD7 /* NSObject+bury.m */; };
+		93D42DA022DD6CF700344BD7 /* NSObject+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9F22DD6CF600344BD7 /* NSObject+add.m */; };
 		93D42DA322DD704500344BD7 /* BuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42DA222DD704500344BD7 /* BuryViewController.m */; };
 		93D42DA622DD936D00344BD7 /* UIGestureRecognizer+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42DA522DD936D00344BD7 /* UIGestureRecognizer+bury.m */; };
 		93E533AB228E9CCD000F5025 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 93E533AA228E9CCD000F5025 /* ReadMe */; };
@@ -720,6 +721,8 @@
 		7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpLoadViewController.m; sourceTree = "<group>"; };
 		7DFB1BDD1FCFDDB30033D9E2 /* WaterFallController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallController.h; sourceTree = "<group>"; };
 		7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallController.m; sourceTree = "<group>"; };
+		933AC5E122DF030800E7710B /* UITableView+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+bury.h"; sourceTree = "<group>"; };
+		933AC5E222DF030800E7710B /* UITableView+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+bury.m"; sourceTree = "<group>"; };
 		937C1A7D228E6CBF009C9418 /* NSDictionary+safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safe.h"; sourceTree = "<group>"; };
 		937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+safe.m"; sourceTree = "<group>"; };
 		9395BDAC22C9B47B00EABF10 /* HHRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHRequestManager.h; sourceTree = "<group>"; };
@@ -730,8 +733,8 @@
 		93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
 		93D42D9B22DD679500344BD7 /* UIControl+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+bury.h"; sourceTree = "<group>"; };
 		93D42D9C22DD679500344BD7 /* UIControl+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+bury.m"; sourceTree = "<group>"; };
-		93D42D9E22DD6CF600344BD7 /* NSObject+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+bury.h"; sourceTree = "<group>"; };
-		93D42D9F22DD6CF600344BD7 /* NSObject+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+bury.m"; sourceTree = "<group>"; };
+		93D42D9E22DD6CF600344BD7 /* NSObject+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+add.h"; sourceTree = "<group>"; };
+		93D42D9F22DD6CF600344BD7 /* NSObject+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+add.m"; sourceTree = "<group>"; };
 		93D42DA122DD704500344BD7 /* BuryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuryViewController.h; sourceTree = "<group>"; };
 		93D42DA222DD704500344BD7 /* BuryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuryViewController.m; sourceTree = "<group>"; };
 		93D42DA422DD936D00344BD7 /* UIGestureRecognizer+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+bury.h"; sourceTree = "<group>"; };
@@ -1986,12 +1989,14 @@
 			children = (
 				93D42D9B22DD679500344BD7 /* UIControl+bury.h */,
 				93D42D9C22DD679500344BD7 /* UIControl+bury.m */,
-				93D42D9E22DD6CF600344BD7 /* NSObject+bury.h */,
-				93D42D9F22DD6CF600344BD7 /* NSObject+bury.m */,
+				93D42D9E22DD6CF600344BD7 /* NSObject+add.h */,
+				93D42D9F22DD6CF600344BD7 /* NSObject+add.m */,
 				93D42DA122DD704500344BD7 /* BuryViewController.h */,
 				93D42DA222DD704500344BD7 /* BuryViewController.m */,
 				93D42DA422DD936D00344BD7 /* UIGestureRecognizer+bury.h */,
 				93D42DA522DD936D00344BD7 /* UIGestureRecognizer+bury.m */,
+				933AC5E122DF030800E7710B /* UITableView+bury.h */,
+				933AC5E222DF030800E7710B /* UITableView+bury.m */,
 			);
 			path = "埋点";
 			sourceTree = "<group>";
@@ -2210,6 +2215,7 @@
 				7D93373721B125660048E6D4 /* QKRunScrollLabel.m in Sources */,
 				7D93370221A835910048E6D4 /* CleanCacheHelp.m in Sources */,
 				7D28488822CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m in Sources */,
+				933AC5E322DF030800E7710B /* UITableView+bury.m in Sources */,
 				7D957EBC1FD531CE00D0A4D5 /* PhotoListController.m in Sources */,
 				7DC3750E20E390F1005AEBCA /* Service+CoreDataClass.m in Sources */,
 				7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */,
@@ -2410,7 +2416,7 @@
 				7D1A365820A5683500D74375 /* Model.xcdatamodeld in Sources */,
 				7D437F3A208EC85400DAAEBD /* StrategyController.m in Sources */,
 				7DEA99A2202A95050050055E /* ThreadViewController.m in Sources */,
-				93D42DA022DD6CF700344BD7 /* NSObject+bury.m in Sources */,
+				93D42DA022DD6CF700344BD7 /* NSObject+add.m in Sources */,
 				7D48F97C21044A5500833594 /* PushBehaviorController.m in Sources */,
 				7DABC39B21A5389D00C3EAD9 /* NSString+IdentityCard.m in Sources */,
 				7D48F9842104868800833594 /* PedometerViewController.m in Sources */,

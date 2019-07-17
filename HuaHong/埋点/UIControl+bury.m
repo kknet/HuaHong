@@ -8,7 +8,7 @@
 
 #import "UIControl+bury.h"
 #import <objc/runtime.h>
-#import "NSObject+bury.h"
+
 @implementation UIControl (bury)
 
 + (void)load

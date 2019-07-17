@@ -8,14 +8,16 @@
 
 #import "UIGestureRecognizer+bury.h"
 #import <objc/runtime.h>
-#import "NSObject+bury.h"
 
 @implementation UIGestureRecognizer (bury)
 
-- (void)load
++ (void)load
 {
     Method originalMethod = class_getInstanceMethod([self class], @selector(addTarget:action:));
     Method swizzledMethod = class_getInstanceMethod([self class], @selector(swizzled_addTarget:action:));
+    if (!originalMethod || !swizzledMethod) {
+        return;
+    }
     method_exchangeImplementations(originalMethod, swizzledMethod);
 }
 
@@ -27,6 +29,6 @@
         return;
     }
     
-    [self swizzled_addTarget:target action:action];
+     [self swizzled_addTarget:target action:action];
 }
 @end

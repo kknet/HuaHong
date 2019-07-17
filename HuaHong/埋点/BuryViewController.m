@@ -7,15 +7,15 @@
 //
 
 #import "BuryViewController.h"
-#import "NSObject+bury.h"
 #import "UIControl+bury.h"
 #import "UIGestureRecognizer+bury.h"
 
-@interface BuryViewController ()
+@interface BuryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UIButton     *button;
 @property (nonatomic,strong) UILabel      *label;
 @property (nonatomic,strong) UITableView  *tableView;
+@property (nonatomic,strong) UITapGestureRecognizer *tap;
 
 @end
 
@@ -59,9 +59,23 @@
         
     }];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
-    tap.key = @"123";
-    [self.label addGestureRecognizer:tap];
+    _tap = [[UITapGestureRecognizer alloc]init];
+    _tap.key = @"123";
+    [_tap addTarget:self action:@selector(tapAction:)];
+    [self.label addGestureRecognizer:_tap];
+    
+    
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 264, self.view.width, self.view.height-_label.bottom) style:UITableViewStylePlain];
+    _tableView.key = @"123";
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        NSLog(@"reloadData");
+        [_tableView reloadData];
+    });
 }
 
 - (void)buttonAction:(UIButton *)sender
@@ -74,4 +88,31 @@
     NSLog(@"手势被点击了");
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    NSLog(@"numberOfSectionsInTableView");
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"numberOfRowsInSection");
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"cellForRowAtIndexPath");
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"didSelectRowAtIndexPath:%@",indexPath);
+}
 @end

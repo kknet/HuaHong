@@ -22,7 +22,7 @@
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"error@%zdx.png",scale];
-    [self p_show:info icon:nil view:view];
+    [self p_show:info icon:imageName view:view];
 }
 
 +(void)showLoading:(NSString *)text toView:(UIView *)view
@@ -32,6 +32,15 @@
         
         showView = view ? view : [[UIApplication sharedApplication].windows lastObject];
         
+        //设置菊花框为白色
+        if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
+            
+            [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
+        }else
+        {
+            [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = [UIColor whiteColor];
+        }
+        
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:showView animated:YES];
         hud.mode = MBProgressHUDModeIndeterminate;
         hud.removeFromSuperViewOnHide = YES;
@@ -40,21 +49,10 @@
         hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
         hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.66];
         
-        //    hud.contentColor = [UIColor redColor];
-        
         hud.label.text = text;
         hud.label.textColor = [UIColor whiteColor];
         
-        //设置菊花框为白色
-        //    if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
-        //
-        //        [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
-        //    }else
-        //    {
-        //       [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = [UIColor whiteColor];
-        //    }
         
-        hud.activityIndicatorColor = [UIColor whiteColor];
     });
     
     

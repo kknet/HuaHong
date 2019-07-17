@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HuaHong/&#x57cb;&#x70b9;/UIGestureRecognizer+bury.m"
-            timestampString = "584948255.6309741"
+            filePath = "HuaHong/&#x57cb;&#x70b9;/UIControl+bury.m"
+            timestampString = "585050422.434575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "-swizzled_addTarget:action:"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-swizzled_sendAction:to:forEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
