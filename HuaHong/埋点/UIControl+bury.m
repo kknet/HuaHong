@@ -13,12 +13,7 @@
 
 + (void)load
 {
-    Method originalMethod = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
-    Method swizzledMethod = class_getInstanceMethod(self, @selector(swizzled_sendAction:to:forEvent:));
-    if (!originalMethod || !swizzledMethod) {
-        return;
-    }
-    method_exchangeImplementations(originalMethod, swizzledMethod);
+    [self swizzleInstanceMethod:@selector(sendAction:to:forEvent:) swizzledSEL:@selector(swizzled_sendAction:to:forEvent:)];
 }
 
 - (void)swizzled_sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event;

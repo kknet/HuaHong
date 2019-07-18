@@ -13,12 +13,7 @@
 
 + (void)load
 {
-    Method originalMethod = class_getInstanceMethod([self class], @selector(addTarget:action:));
-    Method swizzledMethod = class_getInstanceMethod([self class], @selector(swizzled_addTarget:action:));
-    if (!originalMethod || !swizzledMethod) {
-        return;
-    }
-    method_exchangeImplementations(originalMethod, swizzledMethod);
+    [self swizzleInstanceMethod:@selector(addTarget:action:) swizzledSEL:@selector(swizzled_addTarget:action:)];
 }
 
 - (void)swizzled_addTarget:(id)target action:(SEL)action

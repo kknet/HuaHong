@@ -155,7 +155,6 @@
 		7DABC39B21A5389D00C3EAD9 /* NSString+IdentityCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC38C21A5389D00C3EAD9 /* NSString+IdentityCard.m */; };
 		7DABC39C21A5389D00C3EAD9 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC38F21A5389D00C3EAD9 /* UIView+AutoLayout.m */; };
 		7DABC39D21A5389D00C3EAD9 /* UILabel+autoReSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC39121A5389D00C3EAD9 /* UILabel+autoReSize.m */; };
-		7DABC39F21A5389D00C3EAD9 /* NSURL+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC39321A5389D00C3EAD9 /* NSURL+hook.m */; };
 		7DABC3A021A5389D00C3EAD9 /* CALayer+borderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC39521A5389D00C3EAD9 /* CALayer+borderColor.m */; };
 		7DABC3A121A5389D00C3EAD9 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC39721A5389D00C3EAD9 /* UIColor+Category.m */; };
 		7DABC3A221A5389D00C3EAD9 /* NSArray+NSDictionary_Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC39821A5389D00C3EAD9 /* NSArray+NSDictionary_Log.m */; };
@@ -534,14 +533,12 @@
 		7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserController.m; sourceTree = "<group>"; };
 		7DABB8C420E6509300C538CA /* HHCardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHCardController.h; sourceTree = "<group>"; };
 		7DABB8C520E6509300C538CA /* HHCardController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHCardController.m; sourceTree = "<group>"; };
-		7DABC38B21A5389D00C3EAD9 /* NSURL+hook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+hook.h"; sourceTree = "<group>"; };
 		7DABC38C21A5389D00C3EAD9 /* NSString+IdentityCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IdentityCard.m"; sourceTree = "<group>"; };
 		7DABC38D21A5389D00C3EAD9 /* NSArray+NSDictionary_Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSDictionary_Log.h"; sourceTree = "<group>"; };
 		7DABC38E21A5389D00C3EAD9 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		7DABC38F21A5389D00C3EAD9 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		7DABC39021A5389D00C3EAD9 /* CALayer+borderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+borderColor.h"; sourceTree = "<group>"; };
 		7DABC39121A5389D00C3EAD9 /* UILabel+autoReSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+autoReSize.m"; sourceTree = "<group>"; };
-		7DABC39321A5389D00C3EAD9 /* NSURL+hook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+hook.m"; sourceTree = "<group>"; };
 		7DABC39421A5389D00C3EAD9 /* NSString+IdentityCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IdentityCard.h"; sourceTree = "<group>"; };
 		7DABC39521A5389D00C3EAD9 /* CALayer+borderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+borderColor.m"; sourceTree = "<group>"; };
 		7DABC39621A5389D00C3EAD9 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
@@ -784,6 +781,7 @@
 				7DC24C8A202161A400103BDE /* HuaHong.entitlements */,
 				93D42D9A22DD670600344BD7 /* 埋点 */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
+				7D2FF20E200892B900ECAA26 /* Base */,
 				7D91769621C9DAE6007B8F91 /* GPUImage */,
 				7D56A2FB216D92ED00212DEB /* KVO */,
 				7DA711A720DC9DA800BEF5D9 /* 身份识别 */,
@@ -796,7 +794,6 @@
 				7D398FA62009BE7800994A3C /* Storyboard */,
 				7D398FA52009BE3C00994A3C /* Swift */,
 				7D2FF20F200892C700ECAA26 /* 测试 */,
-				7D2FF20E200892B900ECAA26 /* Base */,
 				7D2FF0B21FFCAEF900ECAA26 /* 二维码 */,
 				7DAA3CE82041BA7300B12BC4 /* 响应式编程RAC */,
 				7DA152BB204AD9070075274E /* 函数式编程 */,
@@ -1539,14 +1536,14 @@
 		7DABC38A21A5389D00C3EAD9 /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
+				93D42D9E22DD6CF600344BD7 /* NSObject+add.h */,
+				93D42D9F22DD6CF600344BD7 /* NSObject+add.m */,
 				7DE4D3AC21BADB0D00586126 /* NSTimer+HHTimer.h */,
 				7DE4D3AD21BADB0D00586126 /* NSTimer+HHTimer.m */,
 				7D40E21A21A444DC00698891 /* UIButton+space.h */,
 				7D40E21B21A444DC00698891 /* UIButton+space.m */,
 				7DA711AB20DCD10400BEF5D9 /* UIViewController+Alert.h */,
 				7DA711AC20DCD10400BEF5D9 /* UIViewController+Alert.m */,
-				7DABC38B21A5389D00C3EAD9 /* NSURL+hook.h */,
-				7DABC39321A5389D00C3EAD9 /* NSURL+hook.m */,
 				7DABC39421A5389D00C3EAD9 /* NSString+IdentityCard.h */,
 				7DABC38C21A5389D00C3EAD9 /* NSString+IdentityCard.m */,
 				7DABC38D21A5389D00C3EAD9 /* NSArray+NSDictionary_Log.h */,
@@ -1989,8 +1986,6 @@
 			children = (
 				93D42D9B22DD679500344BD7 /* UIControl+bury.h */,
 				93D42D9C22DD679500344BD7 /* UIControl+bury.m */,
-				93D42D9E22DD6CF600344BD7 /* NSObject+add.h */,
-				93D42D9F22DD6CF600344BD7 /* NSObject+add.m */,
 				93D42DA122DD704500344BD7 /* BuryViewController.h */,
 				93D42DA222DD704500344BD7 /* BuryViewController.m */,
 				93D42DA422DD936D00344BD7 /* UIGestureRecognizer+bury.h */,
@@ -2208,7 +2203,6 @@
 				7D56A301216D941700212DEB /* KVOViewController.m in Sources */,
 				7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */,
 				7D40E21C21A444DC00698891 /* UIButton+space.m in Sources */,
-				7DABC39F21A5389D00C3EAD9 /* NSURL+hook.m in Sources */,
 				7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */,
 				7DDF9E9B207F5727003D6F17 /* JSONPlistController.m in Sources */,
 				7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */,

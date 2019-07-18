@@ -9,7 +9,6 @@
 #import "runtimeViewController.h"
 #import "Person.h"
 #import <objc/message.h>
-#import "NSURL+hook.h"
 
 @interface runtimeViewController ()
 
@@ -53,39 +52,6 @@
     //    objc_msgSendSuper(&hhsuper, @selector(eatWith:),@"");
     
 }
-
-#pragma mark - 方法欺骗
--(void)hook
-{
-    //详见 NSURL+hook.m
-    [NSURL URLWithString:@"华宏"];
-    
-}
-
-/*
-+(void)load
-{
-    //获取类方法
-    Method URLWithStr = class_getClassMethod(self, @selector(URLWithString:));
-    Method HHURLWithStr = class_getClassMethod(self, @selector(HHURLWithString:));
-    
-    method_exchangeImplementations(URLWithStr, HHURLWithStr);
-    
-    //获取实例方法
-//  Method method =  class_getInstanceMethod([self.persion class], @selector(eatWith:));
-    
-}
-+(instancetype)HHURLWithString:(NSString *)string
-{
-    NSURL *url = [NSURL HHURLWithString:string];
-    if (url == nil) {
-        NSLog(@"------------URL == nil------------");
-    }
-    
-    return url;
-}
-
-*/
 
 #pragma mark - 动态添加方法
 

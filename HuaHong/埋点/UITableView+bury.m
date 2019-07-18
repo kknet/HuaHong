@@ -13,17 +13,11 @@
 
 + (void)load
 {
-    Method originalMethod = class_getInstanceMethod([self class], @selector(setDelegate:));
-    Method swizzledMethod = class_getInstanceMethod([self class], @selector(swizzled_setDelegate:));
-    if (!originalMethod || !swizzledMethod) {
-        return;
-    }
-    method_exchangeImplementations(originalMethod, swizzledMethod);
+     [self swizzleInstanceMethod:@selector(setDelegate:) swizzledSEL:@selector(swizzled_setDelegate:)];
 }
 
 - (void)swizzled_setDelegate:(id<UITableViewDelegate>)delegate
 {
-
    
     if ([self.key isEqualToString:@"123"]) {
         

@@ -28,6 +28,8 @@
     self.navigationItem.title = @"埋点";
     
     [self setUpUI];
+    
+    NSURL *url = [NSURL URLWithString:nil];
 }
 
 - (void)setUpUI

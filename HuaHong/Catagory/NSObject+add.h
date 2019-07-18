@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) IBInspectable NSString *key;
 
++ (void)swizzleInstanceMethod:(SEL)originalSEL swizzledSEL:(SEL)swizzledSEL;
+
++ (void)swizzleClassMethod:(SEL)originalSEL swizzledSEL:(SEL)swizzledSEL;
 @end
 
 NS_ASSUME_NONNULL_END
