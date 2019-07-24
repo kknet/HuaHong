@@ -247,6 +247,8 @@
 		7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */; };
 		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
 		933AC5E322DF030800E7710B /* UITableView+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E222DF030800E7710B /* UITableView+bury.m */; };
+		933AC5E622E1885000E7710B /* HomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E522E1885000E7710B /* HomeData.m */; };
+		933AC5E922E18B0200E7710B /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E822E18B0200E7710B /* RouteManager.m */; };
 		937C1A7F228E6CBF009C9418 /* NSDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */; };
 		9395BDAE22C9B47B00EABF10 /* HHRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */; };
 		9395BDB222C9EB4700EABF10 /* HHHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */; };
@@ -720,6 +722,10 @@
 		7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallController.m; sourceTree = "<group>"; };
 		933AC5E122DF030800E7710B /* UITableView+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+bury.h"; sourceTree = "<group>"; };
 		933AC5E222DF030800E7710B /* UITableView+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+bury.m"; sourceTree = "<group>"; };
+		933AC5E422E1885000E7710B /* HomeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeData.h; sourceTree = "<group>"; };
+		933AC5E522E1885000E7710B /* HomeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeData.m; sourceTree = "<group>"; };
+		933AC5E722E18B0200E7710B /* RouteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
+		933AC5E822E18B0200E7710B /* RouteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteManager.m; sourceTree = "<group>"; };
 		937C1A7D228E6CBF009C9418 /* NSDictionary+safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safe.h"; sourceTree = "<group>"; };
 		937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+safe.m"; sourceTree = "<group>"; };
 		9395BDAC22C9B47B00EABF10 /* HHRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHRequestManager.h; sourceTree = "<group>"; };
@@ -1904,6 +1910,10 @@
 				7DFB1BA51FCE937C0033D9E2 /* CollectionHeadView.m */,
 				7DFB1BA71FCE94380033D9E2 /* HomeFlowLayout.h */,
 				7DFB1BA81FCE94380033D9E2 /* HomeFlowLayout.m */,
+				933AC5E422E1885000E7710B /* HomeData.h */,
+				933AC5E522E1885000E7710B /* HomeData.m */,
+				933AC5E722E18B0200E7710B /* RouteManager.h */,
+				933AC5E822E18B0200E7710B /* RouteManager.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -2324,6 +2334,7 @@
 				7DDE3D2D20F505080044FC85 /* BlockVC.m in Sources */,
 				7DE8D57D1FC527F000577762 /* HomeVC.m in Sources */,
 				7D437F4D2090771B00DAAEBD /* QKAlertView.m in Sources */,
+				933AC5E922E18B0200E7710B /* RouteManager.m in Sources */,
 				7D91AC462081D714001AE03E /* MemoryController.m in Sources */,
 				7DABB8C620E6509300C538CA /* HHCardController.m in Sources */,
 				7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */,
@@ -2344,6 +2355,7 @@
 				7DB910162148FCD200A9B40C /* MVVMModel.m in Sources */,
 				7D1A365D20A56DE000D74375 /* DataStorageController.m in Sources */,
 				7D5892112266D23100DFE60F /* QKCalendarView.m in Sources */,
+				933AC5E622E1885000E7710B /* HomeData.m in Sources */,
 				7D48F9782104337800833594 /* BGView.m in Sources */,
 				7DC24C8D20219EF700103BDE /* AnimationView.m in Sources */,
 				7DE836D32010710500003AAF /* SystemNavigationController.m in Sources */,
