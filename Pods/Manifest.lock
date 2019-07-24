@@ -64,7 +64,6 @@ PODS:
   - MZTimerLabel (0.5.4)
   - NSDictionary-NilSafe (0.2.0)
   - pop (1.0.12)
-  - QKChineseVerifyCode (0.0.1)
   - ReactiveObjC (3.1.0)
   - SDCycleScrollView (1.75):
     - SDWebImage (>= 4.0.0)
@@ -128,7 +127,6 @@ DEPENDENCIES:
   - MZTimerLabel (~> 0.5.4)
   - NSDictionary-NilSafe
   - pop
-  - "QKChineseVerifyCode (from `svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode`)"
   - ReactiveObjC (~> 3.1.0)
   - SDCycleScrollView (~> 1.73)
   - SDWebImage (~> 4.2.3)
@@ -203,15 +201,6 @@ SPEC REPOS:
     - YYText
     - YYWebImage
 
-EXTERNAL SOURCES:
-  QKChineseVerifyCode:
-    :svn: "svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode"
-
-CHECKOUT OPTIONS:
-  QKChineseVerifyCode:
-    :revision: 26718
-    :svn: "svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode"
-
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AVOSCloud: bfd439e58b0306e40fbcf8791d28ae906a51a73d
@@ -236,7 +225,6 @@ SPEC CHECKSUMS:
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   NSDictionary-NilSafe: 3df5056bf920974cb9822ed24bfc41af44225201
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  QKChineseVerifyCode: b7d6ab0a2a3126d6e154bce0e3ded5a7fb0adffa
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
@@ -261,6 +249,6 @@ SPEC CHECKSUMS:
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: b1ccf2887de2d190a1688c650eab31384e9ae927
+PODFILE CHECKSUM: 81929751ceb623298d05b8d23153cbe41d4c7076
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.5.3

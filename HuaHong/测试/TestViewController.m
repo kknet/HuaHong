@@ -14,7 +14,7 @@
 #import "HomeFlowLayout.h"
 #import <UShareUI/UShareUI.h>
 #import "TestView.h"
-#import <QKCodeController.h>
+//#import <QKCodeController.h>
 
 #import <CoreTelephony/CTCallCenter.h>
 #import <CoreTelephony/CTCall.h>

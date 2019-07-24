@@ -63,7 +63,7 @@ pod 'UMCSecurityPlugins'
 pod 'UMCShare/UI'
 pod 'UMCShare/Social/ReducedWeChat'
 
-pod 'QKChineseVerifyCode',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode'
+#pod 'QKChineseVerifyCode',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode'
 #pod 'QKAFNetworkSDK',:svn=>'svn://wangxiaoli@192.168.1.193/apps/code/tags/Pods/QKAFNetworkSDK/1.0.0'
 #pod 'LogManager',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/LogManager'
 #pod 'FileManager',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/FileManager'

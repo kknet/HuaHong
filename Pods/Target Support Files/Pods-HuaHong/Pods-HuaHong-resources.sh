@@ -3,15 +3,10 @@ set -e
 set -u
 set -o pipefail
 
-function on_error {
-  echo "$(realpath -mq "${0}"):$1: error: Unexpected failure"
-}
-trap 'on_error $LINENO' ERR
-
 if [ -z ${UNLOCALIZED_RESOURCES_FOLDER_PATH+x} ]; then
-  # If UNLOCALIZED_RESOURCES_FOLDER_PATH is not set, then there's nowhere for us to copy
-  # resources to, so exit 0 (signalling the script phase was successful).
-  exit 0
+    # If UNLOCALIZED_RESOURCES_FOLDER_PATH is not set, then there's nowhere for us to copy
+    # resources to, so exit 0 (signalling the script phase was successful).
+    exit 0
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
@@ -105,7 +100,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png"
   install_resource "${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/QKChineseVerifyCode/QKChineseVerifyCodeFramework.bundle"
   install_resource "${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/UMCShare/UMShare/UMSocialSDKPlugin/UMSocialSDKPromptResources.bundle"
@@ -120,7 +114,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png"
   install_resource "${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/QKChineseVerifyCode/QKChineseVerifyCodeFramework.bundle"
   install_resource "${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/UMCShare/UMShare/UMSocialSDKPlugin/UMSocialSDKPromptResources.bundle"

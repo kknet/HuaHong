@@ -98,7 +98,6 @@
 		7D58920D2266D23100DFE60F /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892002266D23100DFE60F /* NSDate+Calendar.m */; };
 		7D58920E2266D23100DFE60F /* QKCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892022266D23100DFE60F /* QKCalendarModel.m */; };
 		7D58920F2266D23100DFE60F /* QKCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892062266D23100DFE60F /* QKCalendarHeaderView.m */; };
-		7D5892102266D23100DFE60F /* QKCalenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5892082266D23100DFE60F /* QKCalenderCell.xib */; };
 		7D5892112266D23100DFE60F /* QKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892092266D23100DFE60F /* QKCalendarView.m */; };
 		7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */; };
 		7D5892132266D23100DFE60F /* QKCalenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58920C2266D23100DFE60F /* QKCalenderCell.m */; };
@@ -246,6 +245,7 @@
 		7DFB1BD81FCFD27E0033D9E2 /* WaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BD71FCFD27E0033D9E2 /* WaterFallLayout.m */; };
 		7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */; };
 		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
+		7DFDB91A22E8B80D00351BAE /* QKCalenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */; };
 		933AC5E322DF030800E7710B /* UITableView+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E222DF030800E7710B /* UITableView+bury.m */; };
 		937C1A7F228E6CBF009C9418 /* NSDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */; };
 		9395BDAE22C9B47B00EABF10 /* HHRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */; };
@@ -429,7 +429,6 @@
 		7D5892052266D23100DFE60F /* QKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCalendarView.h; sourceTree = "<group>"; };
 		7D5892062266D23100DFE60F /* QKCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCalendarHeaderView.m; sourceTree = "<group>"; };
 		7D5892072266D23100DFE60F /* QKCalenderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCalenderCell.h; sourceTree = "<group>"; };
-		7D5892082266D23100DFE60F /* QKCalenderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKCalenderCell.xib; sourceTree = "<group>"; };
 		7D5892092266D23100DFE60F /* QKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCalendarView.m; sourceTree = "<group>"; };
 		7D58920A2266D23100DFE60F /* QKCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCalendarHeaderView.h; sourceTree = "<group>"; };
 		7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKCalendarHeaderView.xib; sourceTree = "<group>"; };
@@ -718,6 +717,7 @@
 		7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpLoadViewController.m; sourceTree = "<group>"; };
 		7DFB1BDD1FCFDDB30033D9E2 /* WaterFallController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallController.h; sourceTree = "<group>"; };
 		7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallController.m; sourceTree = "<group>"; };
+		7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QKCalenderCell.xib; sourceTree = "<group>"; };
 		933AC5E122DF030800E7710B /* UITableView+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+bury.h"; sourceTree = "<group>"; };
 		933AC5E222DF030800E7710B /* UITableView+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+bury.m"; sourceTree = "<group>"; };
 		937C1A7D228E6CBF009C9418 /* NSDictionary+safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safe.h"; sourceTree = "<group>"; };
@@ -1338,10 +1338,10 @@
 				7D58920A2266D23100DFE60F /* QKCalendarHeaderView.h */,
 				7D5892062266D23100DFE60F /* QKCalendarHeaderView.m */,
 				7D5892072266D23100DFE60F /* QKCalenderCell.h */,
-				7D5892082266D23100DFE60F /* QKCalenderCell.xib */,
 				7D58920C2266D23100DFE60F /* QKCalenderCell.m */,
 				7D5892052266D23100DFE60F /* QKCalendarView.h */,
 				7D5892092266D23100DFE60F /* QKCalendarView.m */,
+				7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2097,8 +2097,8 @@
 				7DA1D6CD2062207900EB0AC2 /* Localizable.strings in Resources */,
 				93E533AB228E9CCD000F5025 /* ReadMe in Resources */,
 				7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */,
+				7DFDB91A22E8B80D00351BAE /* QKCalenderCell.xib in Resources */,
 				7D058576203F0A5200C7E204 /* 05.jpg in Resources */,
-				7D5892102266D23100DFE60F /* QKCalenderCell.xib in Resources */,
 				7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */,
 				7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */,
 				7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */,
@@ -2154,7 +2154,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh",
 				"${PODS_ROOT}/AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
@@ -2163,7 +2163,6 @@
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/QKChineseVerifyCode/QKChineseVerifyCodeFramework.bundle",
 				"${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/UMCShare/UMShare/UMSocialSDKPlugin/UMSocialSDKPromptResources.bundle",
@@ -2179,7 +2178,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QKChineseVerifyCodeFramework.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SSKeychain.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
@@ -2187,7 +2185,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
