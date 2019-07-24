@@ -120,22 +120,24 @@
     
     HHAlertView *alertView = [HHAlertView sharedAlertView];
     alertView.title = @"不合格说明";
-//    alertView.message = message;
-    alertView.placeholder = @"请说明不合格原因";
+    alertView.message = message;
+//    alertView.placeholder = @"请说明不合格原因";
     alertView.textAlignment = NSTextAlignmentLeft;
-    alertView.editable = YES;
-    alertView.limitCount = 200;
-    alertView.forbiddenEmoji = YES;
+//    alertView.editable = YES;
+//    alertView.limitCount = 200;
+//    alertView.forbiddenEmoji = YES;
+//    [alertView exchangeTwoButton];
+
     [alertView show];
 //    [alertView setSingleButton];
 
     __weak typeof(self) weakSelf = self;
     [alertView setRightBlock:^(NSString * _Nonnull message) {
-        NSLog(@"右按钮点击:%@",message);
+        NSLog(@"右按钮点击:%@",@"");
     }];
 
     [alertView setLeftBlock:^(NSString * _Nonnull message) {
-        NSLog(@"左按钮点击:%@",message);
+        NSLog(@"左按钮点击:%@",@"");
     }];
 
     //或者使用代理
@@ -264,10 +266,10 @@
 //  HHVideoPlayerController *vc = [kStory instantiateViewControllerWithIdentifier:@"HHVideoPlayerController"];
 //    [self presentViewController:vc animated:YES completion:nil];
     
-//    [MBProgressHUD showInfo:@"网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试" toView:self.view];
+    [MBProgressHUD showInfo:@"网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试" toView:self.view];
     
-    BuryViewController *buryVC = [BuryViewController new];
-    [self.navigationController pushViewController:buryVC animated:YES];
+//    BuryViewController *buryVC = [BuryViewController new];
+//    [self.navigationController pushViewController:buryVC animated:YES];
 
 }
 

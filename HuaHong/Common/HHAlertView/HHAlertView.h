@@ -20,6 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^AlertBlock)(NSString *message);
 @interface HHAlertView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
+@property (weak, nonatomic) IBOutlet UIButton *singleButton;//单按钮
+
 /** 此处不适合单例创建，每次都需重新初始化 */
 + (instancetype)sharedAlertView;
 
@@ -28,6 +34,9 @@ typedef void(^AlertBlock)(NSString *message);
 
 /** 展示的文字内容 */
 @property (nonatomic,copy) NSString *message;
+
+/** 字体 */
+@property (nonatomic,strong) UIFont *font;
 
 /** 属性文本 */
 @property(/*null_resettable*/nonatomic,copy) NSAttributedString *attributedMessage;
@@ -58,17 +67,8 @@ typedef void(^AlertBlock)(NSString *message);
 /** 是否禁止输入emoj表情😊，默认禁止YES */
 @property (nonatomic,assign) BOOL forbiddenEmoji;
 
-/** 设置标题titleColor,backgroundColor */
-- (void)setTitleBackgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor;
-
-/** 设置左按钮title,titleColor,backgroundColor,borderColor */
-- (void)setLeftButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor;
-
-/** 设置右按钮title,titleColor,backgroundColor,borderColor */
-- (void)setRightButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor;
-
-/** 设置单按钮title,titleColor,backgroundColor,borderColor */
-- (void)setSingleButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor;
+/** 交换两个按钮的位置 */
+- (void)exchangeTwoButton;
 
 /** 弹出提示框 */
 - (void)show;

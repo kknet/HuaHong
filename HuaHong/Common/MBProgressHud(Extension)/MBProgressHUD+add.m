@@ -22,7 +22,7 @@
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"error@%zdx.png",scale];
-    [self p_show:info icon:imageName view:view];
+    [self p_show:info icon:nil view:view];
 }
 
 +(void)showLoading:(NSString *)text toView:(UIView *)view
@@ -89,7 +89,7 @@
         hud.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@",icon]]];
         
         hud.mode = MBProgressHUDModeCustomView;
-        hud.margin = 40;
+        hud.margin = 30;
         hud.removeFromSuperViewOnHide = YES;
         
         //修改样式，否则等待框背景色将为半透明

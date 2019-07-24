@@ -18,12 +18,7 @@
 @interface HHAlertView()<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIButton *leftButton;
-@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;//textView.height
-@property (weak, nonatomic) IBOutlet UIButton *singleButton;//单按钮
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerY;//bgView.center.y
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;//textView.top
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleMargin;//textView.bottom
@@ -87,8 +82,8 @@
     //剪裁过，子视图就不需要设置圆角了
     self.bgView.layer.masksToBounds = YES;
 //    [self.titleLabel setCornerRadius:kcornerRadius byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
-    self.leftButton.layer.borderWidth = 1;
     self.leftButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.rightButton.layer.borderColor = self.rightButton.backgroundColor.CGColor;
     self.forbiddenEmoji = YES;
     self.textView.delegate = self;
     UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
@@ -155,6 +150,12 @@
     
     [self setNeedsLayout];
 
+}
+
+- (void)setFont:(UIFont *)font
+{
+    _font = font;
+    _textView.font = font;
 }
 
 /** 属性文本 */
@@ -278,26 +279,21 @@
     _titleLabel.text = title;
 }
 
-/** 设置标题titleColor,backgroundColor */
-- (void)setTitleBackgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor
-{
-    _titleLabel.backgroundColor = backgroundColor;
-    _titleLabel.textColor = textColor;
-}
 
 /** 设置左按钮title,titleColor,backgroundColor,borderColor */
-- (void)setLeftButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
+- (void)p_setLeftButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
 {
     [_leftButton setTitle:title forState:UIControlStateNormal];
     [_leftButton setTitleColor:titleColor forState:UIControlStateNormal];
     _leftButton.backgroundColor = backgroundColor;
     _leftButton.layer.borderWidth = 1;
+    
     _leftButton.layer.borderColor = borderColor.CGColor;
     
 }
 
 /** 设置右按钮title,titleColor,backgroundColor,borderColor */
-- (void)setRightButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
+- (void)p_setRightButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
 {
     [_rightButton setTitle:title forState:UIControlStateNormal];
     [_rightButton setTitleColor:titleColor forState:UIControlStateNormal];
@@ -306,14 +302,25 @@
     _rightButton.layer.borderColor = borderColor.CGColor;
 }
 
-/** 设置单按钮title,titleColor,backgroundColor,borderColor */
-- (void)setSingleButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
+- (void)exchangeTwoButton
 {
-    [_singleButton setTitle:title forState:UIControlStateNormal];
-    [_singleButton setTitleColor:titleColor forState:UIControlStateNormal];
-    _singleButton.backgroundColor = backgroundColor;
-    _singleButton.layer.borderWidth = 1;
-    _singleButton.layer.borderColor = borderColor.CGColor;
+    if (_singleButton.hidden == NO) {
+        return;
+    }
+    
+    NSString *oldLeftTitle = [_leftButton titleForState:UIControlStateNormal];
+    UIColor *oldLeftTitleColor = [_leftButton titleColorForState:UIControlStateNormal];
+    UIColor *oldLeftBgColor = [_leftButton backgroundColor];
+    UIColor *oldLeftBorderColor = [UIColor colorWithCGColor:_leftButton.layer.borderColor];
+    
+    NSString *oldRightTitle = [_rightButton titleForState:UIControlStateNormal];
+    UIColor *oldRightTitleColor = [_rightButton titleColorForState:UIControlStateNormal];
+    UIColor *oldRightBgColor = [_rightButton backgroundColor];
+    UIColor *oldRightBorderColor = [UIColor colorWithCGColor:_rightButton.layer.borderColor];
+    
+    [self p_setRightButtonTitle:oldLeftTitle TitleColor:oldLeftTitleColor backgroundColor:oldLeftBgColor borderColor:oldLeftBorderColor];
+    
+    [self p_setLeftButtonTitle:oldRightTitle TitleColor:oldRightTitleColor backgroundColor:oldRightBgColor borderColor:oldRightBorderColor];
 }
 
 #pragma mark - UITextViewDelegate
