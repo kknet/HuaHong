@@ -14,4 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface UIView (bury)
+
+@end
 NS_ASSUME_NONNULL_END

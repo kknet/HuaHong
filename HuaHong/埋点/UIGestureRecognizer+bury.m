@@ -13,7 +13,7 @@
 
 + (void)load
 {
-    [self swizzleInstanceMethod:@selector(addTarget:action:) swizzledSEL:@selector(swizzled_addTarget:action:)];
+//    [self swizzleInstanceMethod:@selector(addTarget:action:) swizzledSEL:@selector(swizzled_addTarget:action:)];
 }
 
 - (void)swizzled_addTarget:(id)target action:(SEL)action
@@ -21,9 +21,26 @@
     if ([self.key isEqualToString:@"123"]) {
         
         NSLog(@"手势被拦截");
+        [MBProgressHUD showInfo:@"手势被拦截" toView:nil];
         return;
     }
     
      [self swizzled_addTarget:target action:action];
+}
+
+@end
+
+@implementation UIView (bury)
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ([self.key isEqualToString:@"123"]) {
+        
+        NSLog(@"手势被拦截");
+        [MBProgressHUD showInfo:@"手势被拦截" toView:nil];
+        return NO;
+    }
+    
+    return YES;
 }
 @end

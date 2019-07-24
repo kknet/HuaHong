@@ -60,6 +60,7 @@
         make.height.mas_equalTo(100);
         
     }];
+    _label.key = @"123";
     
     _tap = [[UITapGestureRecognizer alloc]init];
     _tap.key = @"123";
@@ -109,7 +110,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    
+    cell.key = @"123";
     return cell;
 }
 

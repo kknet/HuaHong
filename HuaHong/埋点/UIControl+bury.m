@@ -21,9 +21,10 @@
     if ([self.key isEqualToString:@"123"]) {
         
         NSLog(@"UIControl方法被拦截");
+        [MBProgressHUD showInfo:@"UIControl方法被拦截" toView:nil];
+
         return;
     }
-    
     
     [self swizzled_sendAction:action to:target forEvent:event];
 }
