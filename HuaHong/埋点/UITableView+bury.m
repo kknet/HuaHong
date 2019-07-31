@@ -27,8 +27,7 @@
         return;
     }
     
-    NSLog(@"cell点击%@",[NSString stringWithFormat:@"%@/%@/%ld", NSStringFromClass([delegate class]), NSStringFromClass([self class]),self.tag]);
-    SEL sel_ =  NSSelectorFromString([NSString stringWithFormat:@"%@/%@/%ld", NSStringFromClass([delegate class]), NSStringFromClass([self class]),self.tag]);
+    SEL sel_ =  NSSelectorFromString([NSString stringWithFormat:@"%@:%@:%ld", NSStringFromClass([delegate class]), NSStringFromClass([self class]),self.tag]);
     BOOL addsuccess = class_addMethod([delegate class],
                                       sel_,
                                       method_getImplementation(class_getInstanceMethod([self class], @selector(swizzledTableView:didSelectRowAtIndexPath:))),
@@ -53,7 +52,7 @@
         return;
     } else {
         
-        SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@/%@/%ld", NSStringFromClass([self class]),  NSStringFromClass([tableView class]), tableView.tag]);
+        SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@:%@:%ld", NSStringFromClass([self class]),  NSStringFromClass([tableView class]), tableView.tag]);
         if ([self respondsToSelector:sel]) {
             IMP imp = [self methodForSelector:sel];
             void (*func)(id, SEL,id,id) = (void *)imp;
