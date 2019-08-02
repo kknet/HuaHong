@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomeData : NSObject
 
 + (NSDictionary *)getData;
-
++ (NSArray *)getLeftData;
++ (NSArray *)getRightData;
 @end
 
 NS_ASSUME_NONNULL_END

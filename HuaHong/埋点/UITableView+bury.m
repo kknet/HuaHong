@@ -46,9 +46,7 @@
 -(void)swizzledTableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (![cell.key isEqualToString:@"123"]) {
-        
-        NSLog(@"didSelectRowAtIndexPath方法被拦截");
+    if ([cell.key isEqualToString:@"123"]) {
         [MBProgressHUD showInfo:@"didSelectRowAtIndexPath方法被拦截" toView:nil];
         return;
     }

@@ -120,10 +120,10 @@ static NSString *headerID = @"headerID";
 
 - (void)requestData:(void(^)(NSArray *tableArray,NSArray *collectionArray,NSError * error))callback
 {
-    
-    NSDictionary *dic = [HomeData getData];
-     NSArray *tableArray = [dic allKeys];
-     NSArray *collectionArray = [dic allValues];
+ 
+//    NSDictionary *dic = [HomeData getData];
+     NSArray *tableArray = [HomeData getLeftData];
+     NSArray *collectionArray =[HomeData getRightData];
 
      callback(tableArray,collectionArray,nil);
     
@@ -785,6 +785,10 @@ static NSString *headerID = @"headerID";
             {
                 vc = [kStory instantiateViewControllerWithIdentifier:@"HHSegmentController"];
                 vc.navigationItem.title = @"分段选择";
+            }else if (indexPath.item == 4)
+            {
+                vc = [BuryViewController new];
+                vc.navigationItem.title = @"埋点";
             }
         }
             break;

@@ -9,7 +9,7 @@
 #import "BuryViewController.h"
 #import "UIControl+bury.h"
 #import "UIGestureRecognizer+bury.h"
-#import "TestModel.h"
+
 @interface BuryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UIButton     *button;
@@ -29,7 +29,6 @@
     
     [self setUpUI];
     
-    NSURL *url = [NSURL URLWithString:nil];
 }
 
 - (void)setUpUI
@@ -74,11 +73,6 @@
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        NSLog(@"reloadData");
-        [_tableView reloadData];
-    });
 }
 
 - (void)buttonAction:(UIButton *)sender
@@ -111,14 +105,14 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.key = @"123";
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"section:%ld,------row:%ld",(long)indexPath.section,(long)indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TestModel *model = [TestModel new];
-    [model testMethod];
-    
+    [tableView reloadData];
     NSLog(@"didSelectRowAtIndexPath:%@",indexPath);
     [MBProgressHUD showInfo:@"didSelectRowAtIndexPath方法被点击" toView:nil];
 }

@@ -268,11 +268,8 @@
     
 //    [MBProgressHUD showInfo:@"网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试" toView:self.view];
     
-    TestModel *model = [TestModel new];
-    [model testMethod];
-    
-//    BuryViewController *buryVC = [BuryViewController new];
-//    [self.navigationController pushViewController:buryVC animated:YES];
+//    TestModel *model = [TestModel new];
+//    [model testMethod];
 
 }
 
