@@ -99,4 +99,9 @@
     
     return [dicM convertToJson];
 }
+
+- (void)testMethod
+{
+    NSLog(@"Base testMethod");
+}
 @end

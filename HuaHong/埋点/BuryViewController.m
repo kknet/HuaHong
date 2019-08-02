@@ -9,7 +9,7 @@
 #import "BuryViewController.h"
 #import "UIControl+bury.h"
 #import "UIGestureRecognizer+bury.h"
-
+#import "TestModel.h"
 @interface BuryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UIButton     *button;
@@ -116,6 +116,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    TestModel *model = [TestModel new];
+    [model testMethod];
+    
     NSLog(@"didSelectRowAtIndexPath:%@",indexPath);
+    [MBProgressHUD showInfo:@"didSelectRowAtIndexPath方法被点击" toView:nil];
 }
 @end

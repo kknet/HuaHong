@@ -7,7 +7,6 @@
 //
 
 #import "TestModel.h"
-
 @implementation TestModel
 
 -(instancetype)initWithDict:(NSDictionary *)dict
@@ -29,6 +28,11 @@
     
     return self;
 }
+
+//- (void)testMethod
+//{
+//    NSLog(@"test testMethod");
+//}
 
 @end
 

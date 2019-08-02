@@ -266,7 +266,10 @@
 //  HHVideoPlayerController *vc = [kStory instantiateViewControllerWithIdentifier:@"HHVideoPlayerController"];
 //    [self presentViewController:vc animated:YES completion:nil];
     
-    [MBProgressHUD showInfo:@"网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试" toView:self.view];
+//    [MBProgressHUD showInfo:@"网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试" toView:self.view];
+    
+    TestModel *model = [TestModel new];
+    [model testMethod];
     
 //    BuryViewController *buryVC = [BuryViewController new];
 //    [self.navigationController pushViewController:buryVC animated:YES];

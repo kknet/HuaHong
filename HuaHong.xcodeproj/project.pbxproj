@@ -246,6 +246,8 @@
 		7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDB1FCFD4580033D9E2 /* UpLoadViewController.m */; };
 		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
 		7DFDB91A22E8B80D00351BAE /* QKCalenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */; };
+		932A35FB22F4002700BC3EA9 /* TestModel+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A35FA22F4002700BC3EA9 /* TestModel+add.m */; };
+		932A35FE22F4106400BC3EA9 /* HLHookUtile.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A35FD22F4106400BC3EA9 /* HLHookUtile.m */; };
 		933AC5E322DF030800E7710B /* UITableView+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E222DF030800E7710B /* UITableView+bury.m */; };
 		933AC5E622E1885000E7710B /* HomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E522E1885000E7710B /* HomeData.m */; };
 		933AC5E922E18B0200E7710B /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E822E18B0200E7710B /* RouteManager.m */; };
@@ -720,6 +722,10 @@
 		7DFB1BDD1FCFDDB30033D9E2 /* WaterFallController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFallController.h; sourceTree = "<group>"; };
 		7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFallController.m; sourceTree = "<group>"; };
 		7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QKCalenderCell.xib; sourceTree = "<group>"; };
+		932A35F922F4002700BC3EA9 /* TestModel+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestModel+add.h"; sourceTree = "<group>"; };
+		932A35FA22F4002700BC3EA9 /* TestModel+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TestModel+add.m"; sourceTree = "<group>"; };
+		932A35FC22F4106400BC3EA9 /* HLHookUtile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLHookUtile.h; sourceTree = "<group>"; };
+		932A35FD22F4106400BC3EA9 /* HLHookUtile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLHookUtile.m; sourceTree = "<group>"; };
 		933AC5E122DF030800E7710B /* UITableView+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+bury.h"; sourceTree = "<group>"; };
 		933AC5E222DF030800E7710B /* UITableView+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+bury.m"; sourceTree = "<group>"; };
 		933AC5E422E1885000E7710B /* HomeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeData.h; sourceTree = "<group>"; };
@@ -1012,6 +1018,10 @@
 				7D2FF2112008935F00ECAA26 /* TestViewController.m */,
 				7D61C6BE22850F8B00F46167 /* TestModel.h */,
 				7D61C6BF22850F8B00F46167 /* TestModel.m */,
+				932A35F922F4002700BC3EA9 /* TestModel+add.h */,
+				932A35FA22F4002700BC3EA9 /* TestModel+add.m */,
+				932A35FC22F4106400BC3EA9 /* HLHookUtile.h */,
+				932A35FD22F4106400BC3EA9 /* HLHookUtile.m */,
 			);
 			path = "测试";
 			sourceTree = "<group>";
@@ -2293,6 +2303,7 @@
 				7DDF9E9E207F62D6003D6F17 /* AFController.m in Sources */,
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
 				7DB910092148C24300A9B40C /* MVPController.m in Sources */,
+				932A35FE22F4106400BC3EA9 /* HLHookUtile.m in Sources */,
 				7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */,
 				7D58943E22688D7200DFE60F /* MBProgressHUD+add.m in Sources */,
 				7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */,
@@ -2306,6 +2317,7 @@
 				7D437EFB2083543900DAAEBD /* XiaoMiTV.m in Sources */,
 				7D437EFE208354CF00DAAEBD /* BridgeController.m in Sources */,
 				93D42DA322DD704500344BD7 /* BuryViewController.m in Sources */,
+				932A35FB22F4002700BC3EA9 /* TestModel+add.m in Sources */,
 				7D957EBF1FD5337000D0A4D5 /* PhotoListCell.m in Sources */,
 				7D93370921A931140048E6D4 /* HHVideoPlayManager.m in Sources */,
 				7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */,
