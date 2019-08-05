@@ -10,16 +10,17 @@
 
 @implementation TestModel (add)
 
-+ (void)load
-{
-    [self swizzleInstanceMethod:@selector(testMethod) swizzledSEL:@selector(swizzled_testMethod)];
-//    [HLHookUtile hookClass:[self class] andOriginalSEL:@selector(testMethod) andSwizzledSEL:@selector(swizzled_testMethod)];
-}
+//+ (void)load
+//{
+//    [self swizzleInstanceMethod:@selector(testMethod) swizzledSEL:@selector(swizzled_testMethod)];
+////    [HLHookUtile hookClass:[self class] andOriginalSEL:@selector(testMethod) andSwizzledSEL:@selector(swizzled_testMethod)];
+//}
+//
+//- (void)swizzled_testMethod
+//{
+//    NSLog(@"swizzled_testMethod");
+//    
+//    [self swizzled_testMethod];
+//}
 
-- (void)swizzled_testMethod
-{
-    NSLog(@"swizzled_testMethod");
-    
-    [self swizzled_testMethod];
-}
 @end
