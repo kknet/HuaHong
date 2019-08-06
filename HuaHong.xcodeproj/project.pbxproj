@@ -247,6 +247,8 @@
 		7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFB1BDE1FCFDDB30033D9E2 /* WaterFallController.m */; };
 		7DFDB91A22E8B80D00351BAE /* QKCalenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */; };
 		932A35FB22F4002700BC3EA9 /* TestModel+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A35FA22F4002700BC3EA9 /* TestModel+add.m */; };
+		932A363522F926BD00BC3EA9 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A363422F926BD00BC3EA9 /* ContainerViewController.m */; };
+		932A363822F926D700BC3EA9 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A363722F926D700BC3EA9 /* ChildViewController.m */; };
 		933AC5E322DF030800E7710B /* UITableView+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E222DF030800E7710B /* UITableView+bury.m */; };
 		933AC5E622E1885000E7710B /* HomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E522E1885000E7710B /* HomeData.m */; };
 		933AC5E922E18B0200E7710B /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 933AC5E822E18B0200E7710B /* RouteManager.m */; };
@@ -723,6 +725,10 @@
 		7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QKCalenderCell.xib; sourceTree = "<group>"; };
 		932A35F922F4002700BC3EA9 /* TestModel+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestModel+add.h"; sourceTree = "<group>"; };
 		932A35FA22F4002700BC3EA9 /* TestModel+add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TestModel+add.m"; sourceTree = "<group>"; };
+		932A363322F926BD00BC3EA9 /* ContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
+		932A363422F926BD00BC3EA9 /* ContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
+		932A363622F926D700BC3EA9 /* ChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
+		932A363722F926D700BC3EA9 /* ChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
 		933AC5E122DF030800E7710B /* UITableView+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+bury.h"; sourceTree = "<group>"; };
 		933AC5E222DF030800E7710B /* UITableView+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+bury.m"; sourceTree = "<group>"; };
 		933AC5E422E1885000E7710B /* HomeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeData.h; sourceTree = "<group>"; };
@@ -788,8 +794,9 @@
 			isa = PBXGroup;
 			children = (
 				7DC24C8A202161A400103BDE /* HuaHong.entitlements */,
-				93D42D9A22DD670600344BD7 /* 埋点 */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
+				93D42D9A22DD670600344BD7 /* 埋点 */,
+				932A363222F923D600BC3EA9 /* ChildViewController */,
 				7D2FF20E200892B900ECAA26 /* Base */,
 				7D91769621C9DAE6007B8F91 /* GPUImage */,
 				7D56A2FB216D92ED00212DEB /* KVO */,
@@ -1983,6 +1990,17 @@
 			path = "传感器";
 			sourceTree = "<group>";
 		};
+		932A363222F923D600BC3EA9 /* ChildViewController */ = {
+			isa = PBXGroup;
+			children = (
+				932A363322F926BD00BC3EA9 /* ContainerViewController.h */,
+				932A363422F926BD00BC3EA9 /* ContainerViewController.m */,
+				932A363622F926D700BC3EA9 /* ChildViewController.h */,
+				932A363722F926D700BC3EA9 /* ChildViewController.m */,
+			);
+			path = ChildViewController;
+			sourceTree = "<group>";
+		};
 		9395BDAF22C9E87000EABF10 /* HHRequestManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2305,6 +2323,7 @@
 				7D8FDD70226F15A700D00C92 /* HHAudioPlayManager.m in Sources */,
 				7DC24C992023002900103BDE /* CustomTransitionPop.m in Sources */,
 				7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */,
+				932A363822F926D700BC3EA9 /* ChildViewController.m in Sources */,
 				7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */,
 				7DABC3A221A5389D00C3EAD9 /* NSArray+NSDictionary_Log.m in Sources */,
 				7DDE3D3020F505080044FC85 /* HHSwitch.m in Sources */,
@@ -2344,6 +2363,7 @@
 				7D398FB1200A29BE00994A3C /* UIScrollView+Refresh.m in Sources */,
 				9395BDB222C9EB4700EABF10 /* HHHttpSessionManager.m in Sources */,
 				7D5393E3201AF916006D2712 /* TouchController.m in Sources */,
+				932A363522F926BD00BC3EA9 /* ContainerViewController.m in Sources */,
 				7DABC3AB21A57E4100C3EAD9 /* UIImage+Category.m in Sources */,
 				7D2DE5F720170227001590E1 /* DrawView.m in Sources */,
 				7DB9B53F1FD7DE9B0011EE54 /* RecorderViewController.m in Sources */,

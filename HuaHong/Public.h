@@ -49,7 +49,6 @@
 #import "NSDictionary+Null.h"
 #import "NSObject+add.h"
 #import "YYCategories.h"
-//#import "UITextView+Placeholder.h"
 #import "UITextView+PlaceHolder.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "UICountingLabel.h"
@@ -140,6 +139,7 @@
 #import "HHAlertView.h"
 #import "HHVideoPlayerController.h"
 #import "BuryViewController.h"
+#import "ContainerViewController.h"
 
 
 #endif /* Public_h */

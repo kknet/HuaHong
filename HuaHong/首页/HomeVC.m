@@ -15,10 +15,8 @@
 
 @property(nonatomic,strong) NSMutableArray *tableViewArray;
 @property(nonatomic,strong) NSMutableArray *collectionViewArray;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
 
 @end
 
@@ -31,52 +29,6 @@
 static NSString *cellID = @"CollectionCell";
 static NSString *headerID = @"headerID";
 
-//后台拉取回调
--(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler
-{
-    NSLog(@"UIBackgroundFetchResultNewData");
-    completationHandler(UIBackgroundFetchResultNewData);
-}
-
-// 导航栏是否消失
--(BOOL)prefersStatusBarHidden
-{
-    return NO;
-}
-
-- (void)addChildVC
-{
-    //    父子视图控制器
-    UIViewController *vc1 = [[UIViewController alloc] init];
-    vc1.view.backgroundColor = [UIColor redColor];
-    [self addChildViewController:vc1];
-    //    从父视图控制器中 移除
-    //    [vc1 removeFromParentViewController];
-    
-    
-    UIViewController *vc2 = [[UIViewController alloc] init];
-    vc2.view.backgroundColor = [UIColor purpleColor];
-    [self addChildViewController:vc2];
-    
-    
-    [self.view addSubview:vc1.view];
-    
-    
-    [self performSelector:@selector(change) withObject:nil afterDelay:5];
-}
--(void)change{
-    
-    //    从childViewControllers 数组中  获取子视图控制器
-    UIViewController *vc1 = [self.childViewControllers firstObject];
-    UIViewController *vc2 = [self.childViewControllers lastObject];
-    
-    //  通过默认动画交换 显示子控制器的视图 (vc1.view 会移除，vc2.view 添加到self.view上)
-    [self transitionFromViewController:vc1 toViewController:vc2 duration:3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-        
-    } completion:^(BOOL finished) {
-        
-    }];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];    
     
@@ -789,6 +741,10 @@ static NSString *headerID = @"headerID";
             {
                 vc = [BuryViewController new];
                 vc.navigationItem.title = @"埋点";
+            }else if (indexPath.item == 5)
+            {
+                vc = [ContainerViewController new];
+                vc.navigationItem.title = @"ChildVC";
             }
         }
             break;

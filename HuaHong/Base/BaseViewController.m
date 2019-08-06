@@ -67,6 +67,19 @@
     return YES;
 }
 
+// 导航栏是否消失
+-(BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
+//后台拉取回调
+-(void)completationHandler:(void (^)(UIBackgroundFetchResult))completationHandler
+{
+    NSLog(@"UIBackgroundFetchResultNewData");
+    completationHandler(UIBackgroundFetchResultNewData);
+}
+
 //-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 //{
 //    return YES;
