@@ -114,6 +114,16 @@
 		7D81144620EFB63C00349078 /* h5.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D81144520EFB63C00349078 /* h5.html */; };
 		7D81144A20EFBA6300349078 /* UIWebView+TS_JavaScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D81144920EFBA6300349078 /* UIWebView+TS_JavaScriptContext.m */; };
 		7D834475218820DD0070B891 /* VideoRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D834474218820DD0070B891 /* VideoRecordController.m */; };
+		7D8359AD22FF0FD400BEC6F6 /* BaseAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359AC22FF0FD400BEC6F6 /* BaseAdapter.m */; };
+		7D8359B022FF102100BEC6F6 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359AF22FF102100BEC6F6 /* ContentView.m */; };
+		7D8359B322FF107F00BEC6F6 /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359B222FF107F00BEC6F6 /* ItemModel.m */; };
+		7D8359B622FF10B300BEC6F6 /* ContenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359B522FF10B300BEC6F6 /* ContenModel.m */; };
+		7D8359B922FF10E500BEC6F6 /* ItemModelAdeapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359B822FF10E500BEC6F6 /* ItemModelAdeapter.m */; };
+		7D8359BC22FF113A00BEC6F6 /* ContentModelAdeapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359BB22FF113A00BEC6F6 /* ContentModelAdeapter.m */; };
+		7D8359BF22FF119D00BEC6F6 /* ModelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359BE22FF119D00BEC6F6 /* ModelAdapter.m */; };
+		7D8359C222FF11F300BEC6F6 /* AdapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359C122FF11F300BEC6F6 /* AdapterViewController.m */; };
+		7D8359C622FF185800BEC6F6 /* DecimalNumberHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359C522FF185800BEC6F6 /* DecimalNumberHelper.m */; };
+		7D8359C922FF18A000BEC6F6 /* DecimalNumberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359C822FF18A000BEC6F6 /* DecimalNumberController.m */; };
 		7D8376D22041433000C6CB06 /* EncryptionTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8376D12041433000C6CB06 /* EncryptionTools.m */; };
 		7D88EE1E1FC7EAC200CC76FE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE1D1FC7EAC200CC76FE /* MapViewController.m */; };
 		7D88EE211FC8076B00CC76FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D88EE201FC8076B00CC76FE /* BaseViewController.m */; };
@@ -465,6 +475,26 @@
 		7D811F83200CACAA005C168F /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Pods/BaiduMapKit/BaiduMapKit/thirdlibs/libssl.a; sourceTree = "<group>"; };
 		7D834473218820DD0070B891 /* VideoRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoRecordController.h; sourceTree = "<group>"; };
 		7D834474218820DD0070B891 /* VideoRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoRecordController.m; sourceTree = "<group>"; };
+		7D8359AB22FF0FD400BEC6F6 /* BaseAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAdapter.h; sourceTree = "<group>"; };
+		7D8359AC22FF0FD400BEC6F6 /* BaseAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAdapter.m; sourceTree = "<group>"; };
+		7D8359AE22FF102100BEC6F6 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
+		7D8359AF22FF102100BEC6F6 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
+		7D8359B122FF107F00BEC6F6 /* ItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemModel.h; sourceTree = "<group>"; };
+		7D8359B222FF107F00BEC6F6 /* ItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemModel.m; sourceTree = "<group>"; };
+		7D8359B422FF10B300BEC6F6 /* ContenModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContenModel.h; sourceTree = "<group>"; };
+		7D8359B522FF10B300BEC6F6 /* ContenModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContenModel.m; sourceTree = "<group>"; };
+		7D8359B722FF10E500BEC6F6 /* ItemModelAdeapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemModelAdeapter.h; sourceTree = "<group>"; };
+		7D8359B822FF10E500BEC6F6 /* ItemModelAdeapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemModelAdeapter.m; sourceTree = "<group>"; };
+		7D8359BA22FF113A00BEC6F6 /* ContentModelAdeapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentModelAdeapter.h; sourceTree = "<group>"; };
+		7D8359BB22FF113A00BEC6F6 /* ContentModelAdeapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentModelAdeapter.m; sourceTree = "<group>"; };
+		7D8359BD22FF119D00BEC6F6 /* ModelAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelAdapter.h; sourceTree = "<group>"; };
+		7D8359BE22FF119D00BEC6F6 /* ModelAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelAdapter.m; sourceTree = "<group>"; };
+		7D8359C022FF11F300BEC6F6 /* AdapterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdapterViewController.h; sourceTree = "<group>"; };
+		7D8359C122FF11F300BEC6F6 /* AdapterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdapterViewController.m; sourceTree = "<group>"; };
+		7D8359C422FF185800BEC6F6 /* DecimalNumberHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecimalNumberHelper.h; sourceTree = "<group>"; };
+		7D8359C522FF185800BEC6F6 /* DecimalNumberHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecimalNumberHelper.m; sourceTree = "<group>"; };
+		7D8359C722FF18A000BEC6F6 /* DecimalNumberController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecimalNumberController.h; sourceTree = "<group>"; };
+		7D8359C822FF18A000BEC6F6 /* DecimalNumberController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecimalNumberController.m; sourceTree = "<group>"; };
 		7D8376D02041433000C6CB06 /* EncryptionTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncryptionTools.h; sourceTree = "<group>"; };
 		7D8376D12041433000C6CB06 /* EncryptionTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncryptionTools.m; sourceTree = "<group>"; };
 		7D88EE1C1FC7EAC200CC76FE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -1055,6 +1085,7 @@
 		7D3623E11FCE51B400C77874 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7D8359C322FF184300BEC6F6 /* NSDecimalNumber */,
 				7D58943822688D7200DFE60F /* MBProgressHud(Extension) */,
 				7D35A0E7229AE6EE00149963 /* 数据安全 */,
 				7D5891FD2266D23100DFE60F /* QKCalendar */,
@@ -1121,6 +1152,7 @@
 		7D437EEB20834E0F00DAAEBD /* 设计模式 */ = {
 			isa = PBXGroup;
 			children = (
+				7D8359AA22FF0F9B00BEC6F6 /* 适配器模式 */,
 				7D56A305216DDEBF00212DEB /* 工厂模式&享元模式 */,
 				7D437F37208DE6B300DAAEBD /* 策略模式 */,
 				7D437EEC20834E0F00DAAEBD /* 桥接模式 */,
@@ -1392,6 +1424,40 @@
 				7D81144920EFBA6300349078 /* UIWebView+TS_JavaScriptContext.m */,
 			);
 			path = "UIWebView-TS";
+			sourceTree = "<group>";
+		};
+		7D8359AA22FF0F9B00BEC6F6 /* 适配器模式 */ = {
+			isa = PBXGroup;
+			children = (
+				7D8359AB22FF0FD400BEC6F6 /* BaseAdapter.h */,
+				7D8359AC22FF0FD400BEC6F6 /* BaseAdapter.m */,
+				7D8359AE22FF102100BEC6F6 /* ContentView.h */,
+				7D8359AF22FF102100BEC6F6 /* ContentView.m */,
+				7D8359B122FF107F00BEC6F6 /* ItemModel.h */,
+				7D8359B222FF107F00BEC6F6 /* ItemModel.m */,
+				7D8359B422FF10B300BEC6F6 /* ContenModel.h */,
+				7D8359B522FF10B300BEC6F6 /* ContenModel.m */,
+				7D8359B722FF10E500BEC6F6 /* ItemModelAdeapter.h */,
+				7D8359B822FF10E500BEC6F6 /* ItemModelAdeapter.m */,
+				7D8359BA22FF113A00BEC6F6 /* ContentModelAdeapter.h */,
+				7D8359BB22FF113A00BEC6F6 /* ContentModelAdeapter.m */,
+				7D8359BD22FF119D00BEC6F6 /* ModelAdapter.h */,
+				7D8359BE22FF119D00BEC6F6 /* ModelAdapter.m */,
+				7D8359C022FF11F300BEC6F6 /* AdapterViewController.h */,
+				7D8359C122FF11F300BEC6F6 /* AdapterViewController.m */,
+			);
+			path = "适配器模式";
+			sourceTree = "<group>";
+		};
+		7D8359C322FF184300BEC6F6 /* NSDecimalNumber */ = {
+			isa = PBXGroup;
+			children = (
+				7D8359C422FF185800BEC6F6 /* DecimalNumberHelper.h */,
+				7D8359C522FF185800BEC6F6 /* DecimalNumberHelper.m */,
+				7D8359C722FF18A000BEC6F6 /* DecimalNumberController.h */,
+				7D8359C822FF18A000BEC6F6 /* DecimalNumberController.m */,
+			);
+			path = NSDecimalNumber;
 			sourceTree = "<group>";
 		};
 		7D8FDD69226F085500D00C92 /* HHAudioRecorder */ = {
@@ -2231,6 +2297,7 @@
 				7DA152BF204ADBEF0075274E /* FunctionViewController.m in Sources */,
 				7D1A364E20A17D9D00D74375 /* HHSegmentView.m in Sources */,
 				7DB29BC9213BA5D30044BD22 /* hhController.m in Sources */,
+				7D8359BF22FF119D00BEC6F6 /* ModelAdapter.m in Sources */,
 				7D56A301216D941700212DEB /* KVOViewController.m in Sources */,
 				7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */,
 				7D40E21C21A444DC00698891 /* UIButton+space.m in Sources */,
@@ -2248,6 +2315,7 @@
 				7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */,
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
 				7DE4D3AE21BADB0D00586126 /* NSTimer+HHTimer.m in Sources */,
+				7D8359B622FF10B300BEC6F6 /* ContenModel.m in Sources */,
 				7D56A30F216DE07800212DEB /* Flower.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
 				7DB9B5491FD7E6710011EE54 /* VideoBottomView.m in Sources */,
@@ -2294,6 +2362,7 @@
 				7DABC3A821A54BC900C3EAD9 /* NSArray+NSDirectory_Convert_m.m in Sources */,
 				7D48F96621038FCA00833594 /* ThreeDTouchController.m in Sources */,
 				7D58920D2266D23100DFE60F /* NSDate+Calendar.m in Sources */,
+				7D8359AD22FF0FD400BEC6F6 /* BaseAdapter.m in Sources */,
 				7DE836CA200F242500003AAF /* AnnotationController.m in Sources */,
 				7DA152D0204B01B00075274E /* runloopViewController.m in Sources */,
 				7DA152CB204AED750075274E /* NSObject+Calculation.m in Sources */,
@@ -2305,8 +2374,10 @@
 				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
 				7DB9100F2148C28600A9B40C /* MVPModel.m in Sources */,
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
+				7D8359B322FF107F00BEC6F6 /* ItemModel.m in Sources */,
 				7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */,
 				7DC3752020E474F0005AEBCA /* User+CoreDataClass.m in Sources */,
+				7D8359C622FF185800BEC6F6 /* DecimalNumberHelper.m in Sources */,
 				7DDE3D2C20F505070044FC85 /* HHAttachment.m in Sources */,
 				7D5393EA202013F4006D2712 /* TimerController.m in Sources */,
 				7DB90FF32147B1AE00A9B40C /* MVVM_Model.m in Sources */,
@@ -2325,6 +2396,7 @@
 				7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */,
 				932A363822F926D700BC3EA9 /* ChildViewController.m in Sources */,
 				7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */,
+				7D8359B922FF10E500BEC6F6 /* ItemModelAdeapter.m in Sources */,
 				7DABC3A221A5389D00C3EAD9 /* NSArray+NSDictionary_Log.m in Sources */,
 				7DDE3D3020F505080044FC85 /* HHSwitch.m in Sources */,
 				7D437EFB2083543900DAAEBD /* XiaoMiTV.m in Sources */,
@@ -2409,6 +2481,7 @@
 				7D1A366420A56F0E00D74375 /* HHFMDBManager.m in Sources */,
 				7DA711B020DCDAC300BEF5D9 /* HHLockController.m in Sources */,
 				7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */,
+				7D8359B022FF102100BEC6F6 /* ContentView.m in Sources */,
 				7D407B6521A66A6B00C73DA2 /* UITextField+Limit.m in Sources */,
 				7D61C6C022850F8B00F46167 /* TestModel.m in Sources */,
 				7DBA5A5E20410C3900BC274E /* RSAEncryptor.m in Sources */,
@@ -2422,6 +2495,7 @@
 				7D56A304216D946700212DEB /* NSObject+KVO.m in Sources */,
 				7D0DA8461FC50D7000774E40 /* main.m in Sources */,
 				7DC24C902022A6B100103BDE /* TransitionController.m in Sources */,
+				7D8359C222FF11F300BEC6F6 /* AdapterViewController.m in Sources */,
 				7DDE3D3720F505080044FC85 /* MenuControllerVC.m in Sources */,
 				7D35A0EC229AE6EE00149963 /* NullSafe.m in Sources */,
 				7D437EEF20834E3200DAAEBD /* BaseRemote.m in Sources */,
@@ -2433,6 +2507,7 @@
 				7D437F3D208ECA2200DAAEBD /* CustomTextField.m in Sources */,
 				7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */,
 				7D437EF82083513B00DAAEBD /* TVKJ.m in Sources */,
+				7D8359BC22FF113A00BEC6F6 /* ContentModelAdeapter.m in Sources */,
 				7DB910022147BB1E00A9B40C /* MVVM_ViewModel.m in Sources */,
 				7D48F96D2103A1B200833594 /* CollisionViewController.m in Sources */,
 				7D328A55206CD62D00A64272 /* HUtils.m in Sources */,
@@ -2447,6 +2522,7 @@
 				7D437F3A208EC85400DAAEBD /* StrategyController.m in Sources */,
 				7DEA99A2202A95050050055E /* ThreadViewController.m in Sources */,
 				93D42DA022DD6CF700344BD7 /* NSObject+add.m in Sources */,
+				7D8359C922FF18A000BEC6F6 /* DecimalNumberController.m in Sources */,
 				7D48F97C21044A5500833594 /* PushBehaviorController.m in Sources */,
 				7DABC39B21A5389D00C3EAD9 /* NSString+IdentityCard.m in Sources */,
 				7D48F9842104868800833594 /* PedometerViewController.m in Sources */,

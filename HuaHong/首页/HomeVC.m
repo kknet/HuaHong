@@ -714,6 +714,10 @@ static NSString *headerID = @"headerID";
             {
                 vc = [BridgeController new];
                 vc.navigationItem.title = @"桥接模式";
+            }else if (indexPath.item == 2)
+            {
+                vc = [AdapterViewController new];
+                vc.navigationItem.title = @"适配器模式";
             }
         }
             break;

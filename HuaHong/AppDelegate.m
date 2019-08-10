@@ -264,8 +264,8 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 //    completionHandler(UIBackgroundFetchResultNewData);
     
     //2.将事件传给HomeVC
-    HomeVC *homeVC = [HomeVC new];
-    [homeVC completationHandler:completionHandler];
+//    HomeVC *homeVC = [HomeVC new];
+//    [homeVC completationHandler:completionHandler];
     
 }
 

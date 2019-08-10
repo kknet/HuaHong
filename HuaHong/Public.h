@@ -140,6 +140,7 @@
 #import "HHVideoPlayerController.h"
 #import "BuryViewController.h"
 #import "ContainerViewController.h"
+#import "AdapterViewController.h"
 
 
 #endif /* Public_h */
