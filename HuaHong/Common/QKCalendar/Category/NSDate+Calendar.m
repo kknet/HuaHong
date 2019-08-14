@@ -14,11 +14,11 @@
 }
 
 - (NSInteger)month {
-    return [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self].month;
+    return [[NSCalendar currentCalendar] components:NSCalendarUnitMonth fromDate:self].month;
 }
 
 - (NSInteger)year {
-    return [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self].year;
+    return [[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:self].year;
 }
 
 /**

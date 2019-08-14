@@ -11,6 +11,7 @@
 
 @interface KVOViewController ()
 @property (nonatomic,strong) Model *model;
+@property (nonatomic,strong) NSMutableArray *arrayM;
 @end
 
 @implementation KVOViewController
@@ -117,6 +118,13 @@
     i++;
     
     _model.name = [NSString stringWithFormat:@"%d",i];
+    
+    //可变数组发生变化
+    [self mutableArrayValueForKey:@"arrayM"][0] = @(1);
+    
+    NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:0];
+    //person.num  num是arrayM里面元素的属性
+    [self.arrayM addObserver:self toObjectsAtIndexes:indexSet forKeyPath:@"num" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     
 }
 @end
