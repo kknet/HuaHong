@@ -771,6 +771,7 @@
 		9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHRequestManager.m; sourceTree = "<group>"; };
 		9395BDB022C9EB4700EABF10 /* HHHttpSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHHttpSessionManager.h; sourceTree = "<group>"; };
 		9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHHttpSessionManager.m; sourceTree = "<group>"; };
+		939D8FA8230536F600F786C0 /* BaseAdapterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAdapterProtocol.h; sourceTree = "<group>"; };
 		93CB25AF22B7715200A4A5C7 /* NSDictionary+Null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Null.h"; sourceTree = "<group>"; };
 		93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
 		93D42D9B22DD679500344BD7 /* UIControl+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+bury.h"; sourceTree = "<group>"; };
@@ -1429,6 +1430,7 @@
 		7D8359AA22FF0F9B00BEC6F6 /* 适配器模式 */ = {
 			isa = PBXGroup;
 			children = (
+				939D8FA8230536F600F786C0 /* BaseAdapterProtocol.h */,
 				7D8359AB22FF0FD400BEC6F6 /* BaseAdapter.h */,
 				7D8359AC22FF0FD400BEC6F6 /* BaseAdapter.m */,
 				7D8359AE22FF102100BEC6F6 /* ContentView.h */,

@@ -7,12 +7,7 @@
 //
 
 #import <AVKit/AVKit.h>
-
-@protocol BaseAdapterProtocol <NSObject>
--(UIImage*)image;
--(NSString*)contentStr;
-@end
-
+#import "BaseAdapterProtocol.h"
 @interface BaseAdapter : NSObject<BaseAdapterProtocol>
 
 /**
