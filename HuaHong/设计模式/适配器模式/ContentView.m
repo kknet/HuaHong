@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) UIImageView *imageView;
-
 @property (nonatomic, copy) NSString *contentStr;
 @property (nonatomic, strong) UILabel *labelContent;
 

@@ -11,5 +11,5 @@
 
 @interface UIScrollView (Refresh)
 
-@property (nonatomic,strong) PullUpRefreshView *refreshView;
+@property (nonatomic, strong) PullUpRefreshView *refreshView;
 @end

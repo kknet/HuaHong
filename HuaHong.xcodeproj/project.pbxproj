@@ -178,7 +178,6 @@
 		7DB910022147BB1E00A9B40C /* MVVM_ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910012147BB1E00A9B40C /* MVVM_ViewModel.m */; };
 		7DB910062148C1DC00A9B40C /* Presenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910052148C1DC00A9B40C /* Presenter.m */; };
 		7DB910092148C24300A9B40C /* MVPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910082148C24300A9B40C /* MVPController.m */; };
-		7DB9100C2148C27000A9B40C /* MVPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9100B2148C27000A9B40C /* MVPView.m */; };
 		7DB9100F2148C28600A9B40C /* MVPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB9100E2148C28600A9B40C /* MVPModel.m */; };
 		7DB910132148FCB100A9B40C /* MVVMViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910122148FCB100A9B40C /* MVVMViewModel.m */; };
 		7DB910162148FCD200A9B40C /* MVVMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB910152148FCD200A9B40C /* MVVMModel.m */; };
@@ -265,6 +264,8 @@
 		937C1A7F228E6CBF009C9418 /* NSDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 937C1A7E228E6CBF009C9418 /* NSDictionary+safe.m */; };
 		9395BDAE22C9B47B00EABF10 /* HHRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDAD22C9B47B00EABF10 /* HHRequestManager.m */; };
 		9395BDB222C9EB4700EABF10 /* HHHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */; };
+		939D8FB2230A7B1A00F786C0 /* MVPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FB1230A7B1A00F786C0 /* MVPTableViewCell.m */; };
+		939D8FB5230A8AEB00F786C0 /* HHDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FB4230A8AEB00F786C0 /* HHDataSource.m */; };
 		93CB25B122B7715200A4A5C7 /* NSDictionary+Null.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */; };
 		93D42D9D22DD679600344BD7 /* UIControl+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9C22DD679500344BD7 /* UIControl+bury.m */; };
 		93D42DA022DD6CF700344BD7 /* NSObject+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9F22DD6CF600344BD7 /* NSObject+add.m */; };
@@ -602,8 +603,6 @@
 		7DB910052148C1DC00A9B40C /* Presenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Presenter.m; sourceTree = "<group>"; };
 		7DB910072148C24300A9B40C /* MVPController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPController.h; sourceTree = "<group>"; };
 		7DB910082148C24300A9B40C /* MVPController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPController.m; sourceTree = "<group>"; };
-		7DB9100A2148C27000A9B40C /* MVPView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPView.h; sourceTree = "<group>"; };
-		7DB9100B2148C27000A9B40C /* MVPView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPView.m; sourceTree = "<group>"; };
 		7DB9100D2148C28600A9B40C /* MVPModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPModel.h; sourceTree = "<group>"; };
 		7DB9100E2148C28600A9B40C /* MVPModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPModel.m; sourceTree = "<group>"; };
 		7DB910112148FCB100A9B40C /* MVVMViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMViewModel.h; sourceTree = "<group>"; };
@@ -772,6 +771,11 @@
 		9395BDB022C9EB4700EABF10 /* HHHttpSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHHttpSessionManager.h; sourceTree = "<group>"; };
 		9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHHttpSessionManager.m; sourceTree = "<group>"; };
 		939D8FA8230536F600F786C0 /* BaseAdapterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAdapterProtocol.h; sourceTree = "<group>"; };
+		939D8FAF230A7A7C00F786C0 /* PresentDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentDelegate.h; sourceTree = "<group>"; };
+		939D8FB0230A7B1A00F786C0 /* MVPTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPTableViewCell.h; sourceTree = "<group>"; };
+		939D8FB1230A7B1A00F786C0 /* MVPTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPTableViewCell.m; sourceTree = "<group>"; };
+		939D8FB3230A8AEB00F786C0 /* HHDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHDataSource.h; sourceTree = "<group>"; };
+		939D8FB4230A8AEB00F786C0 /* HHDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHDataSource.m; sourceTree = "<group>"; };
 		93CB25AF22B7715200A4A5C7 /* NSDictionary+Null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Null.h"; sourceTree = "<group>"; };
 		93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
 		93D42D9B22DD679500344BD7 /* UIControl+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+bury.h"; sourceTree = "<group>"; };
@@ -1707,10 +1711,13 @@
 				7DB910082148C24300A9B40C /* MVPController.m */,
 				7DB910042148C1DC00A9B40C /* Presenter.h */,
 				7DB910052148C1DC00A9B40C /* Presenter.m */,
-				7DB9100A2148C27000A9B40C /* MVPView.h */,
-				7DB9100B2148C27000A9B40C /* MVPView.m */,
+				939D8FB0230A7B1A00F786C0 /* MVPTableViewCell.h */,
+				939D8FB1230A7B1A00F786C0 /* MVPTableViewCell.m */,
 				7DB9100D2148C28600A9B40C /* MVPModel.h */,
 				7DB9100E2148C28600A9B40C /* MVPModel.m */,
+				939D8FAF230A7A7C00F786C0 /* PresentDelegate.h */,
+				939D8FB3230A8AEB00F786C0 /* HHDataSource.h */,
+				939D8FB4230A8AEB00F786C0 /* HHDataSource.m */,
 			);
 			path = MVP;
 			sourceTree = "<group>";
@@ -2332,6 +2339,7 @@
 				7D48F96521038FCA00833594 /* presentViewController.m in Sources */,
 				7DDAE7E22057692700D5C274 /* HHPlayerViewController.m in Sources */,
 				7DDE3D2E20F505080044FC85 /* WebViewVC.m in Sources */,
+				939D8FB5230A8AEB00F786C0 /* HHDataSource.m in Sources */,
 				7D437F43208ECD9700DAAEBD /* LatterValidate.m in Sources */,
 				7DB9B5601FD97F0B0011EE54 /* AssetWriter.m in Sources */,
 				7DB9101C2148FD0700A9B40C /* MVVMController.m in Sources */,
@@ -2344,7 +2352,6 @@
 				7D4AFB032010946B0018AB3D /* BaiDuMapController.m in Sources */,
 				7DC3751A20E3915D005AEBCA /* City+CoreDataClass.m in Sources */,
 				7DB4FF071FD1352B004EE368 /* VoiceController.m in Sources */,
-				7DB9100C2148C27000A9B40C /* MVPView.m in Sources */,
 				7DA152C5204ADFEB0075274E /* Person.m in Sources */,
 				7D48F95F21038F1200833594 /* LightSinceController.m in Sources */,
 				7DE836CD200F3EC500003AAF /* MyAnnotationView.m in Sources */,
@@ -2387,6 +2394,7 @@
 				7DE8D5961FC5773300577762 /* DesUtil.m in Sources */,
 				7DBC56DD2264B98D006E6068 /* QKDatePicker.m in Sources */,
 				7DDF9E9E207F62D6003D6F17 /* AFController.m in Sources */,
+				939D8FB2230A7B1A00F786C0 /* MVPTableViewCell.m in Sources */,
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
 				7DB910092148C24300A9B40C /* MVPController.m in Sources */,
 				7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */,

@@ -12,12 +12,11 @@
 #import <Photos/Photos.h>
 
 @interface GPUImageController ()
-@property (nonatomic,strong) UIImageView *imageView;
-
-@property (nonatomic,strong) GPUImageVideoCamera *videoCamera;
-@property (nonatomic,strong) GPUImageStillCamera *stillCamera;
-@property (nonatomic,strong) GPUImageSaturationFilter *filter;
-@property (nonatomic,strong) GPUImageView *GPUImgView;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
+@property (nonatomic, strong) GPUImageStillCamera *stillCamera;
+@property (nonatomic, strong) GPUImageSaturationFilter *filter;
+@property (nonatomic, strong) GPUImageView *GPUImgView;
 @end
 
 @implementation GPUImageController

@@ -30,11 +30,10 @@
 #import "RSAEncryptor.h"
 
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
-@property (nonatomic,strong) UILocalNotification *localNotification;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-
-@property (strong, nonatomic)CTCallCenter *call_center;//电话管理
-@property (nonatomic,strong) QKDatePicker *pick;
+@property (nonatomic, strong) UILocalNotification *localNotification;
+@property (nonatomic, strong) CTCallCenter *call_center;//电话管理
+@property (nonatomic, strong) QKDatePicker *pick;
 @end
 
 @implementation TestViewController

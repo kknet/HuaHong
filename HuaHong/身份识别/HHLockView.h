@@ -11,5 +11,5 @@
 typedef BOOL(^LockBlock)(NSString *pwd);
 @interface HHLockView : UIView
 
-@property (nonatomic,copy) LockBlock lockBlock;
+@property (nonatomic, copy) LockBlock lockBlock;
 @end

@@ -10,11 +10,11 @@
 
 @interface LoadingHUD()
 
-@property (nonatomic,assign) BOOL isPlay;
-@property (nonatomic,strong) CADisplayLink *disPlayLink;
-@property (nonatomic,strong) UIColor *smallRoundedfillColor;
-@property (nonatomic,strong) UIColor *minRoundedfileColor;
-@property (nonatomic,assign) CGFloat currentProgress;
+@property (nonatomic, assign) BOOL isPlay;
+@property (nonatomic, strong) CADisplayLink *disPlayLink;
+@property (nonatomic, strong) UIColor *smallRoundedfillColor;
+@property (nonatomic, strong) UIColor *minRoundedfileColor;
+@property (nonatomic, assign) CGFloat currentProgress;
 
 @end
 

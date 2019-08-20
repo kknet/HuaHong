@@ -9,8 +9,8 @@
 #import "TableViewVC.h"
 
 @interface TableViewVC ()
-@property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 

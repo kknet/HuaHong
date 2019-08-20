@@ -13,5 +13,5 @@ typedef void(^Block)(void);
 
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
-@property (nonatomic,copy) Block block;
+@property (nonatomic, copy) Block block;
 @end

@@ -16,7 +16,7 @@
 @interface HHSegmentView : UIView
 
 @property (strong, nonatomic) NSArray *itemArr;
-@property (nonatomic,weak) id<HHSegmentViewDelegate> delegate;
+@property (weak, nonatomic) id<HHSegmentViewDelegate> delegate;
 
 -(void)setScale:(CGFloat)scale PageIndex:(NSInteger)pageIndx;
 

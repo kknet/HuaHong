@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Factory : NSObject
 
-@property (nonatomic,strong) NSMutableDictionary *flowerPools;
+@property (nonatomic, strong) NSMutableDictionary *flowerPools;
 - (Flower *)flowerWithType:(FlowerType)type;
 
 @end

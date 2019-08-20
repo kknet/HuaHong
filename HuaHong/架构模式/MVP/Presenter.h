@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MVPView.h"
+#import "PresentDelegate.h"
 #import "MVPModel.h"
-@interface Presenter : NSObject<MVPViewDelegate>
-@property (nonatomic,strong) MVPView *mvpView;
-@property (nonatomic,strong) MVPModel *model;
 
-- (void)printTask;
+@interface Presenter : NSObject<PresentDelegate>
+
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+// 加载数据
+- (void)loadData;
+
+@property (nonatomic, weak) id<PresentDelegate> delegate;
+
+
 @end

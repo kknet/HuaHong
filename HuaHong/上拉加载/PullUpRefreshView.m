@@ -17,11 +17,11 @@ typedef NS_ENUM(NSInteger, PullUpRefreshViewStatus) {
 
 
 @interface PullUpRefreshView()
-@property (nonatomic,strong) UIScrollView *scorllView;
+@property (nonatomic, strong) UIScrollView *scorllView;
 //@property (nonatomic,strong) UIImageView *imageView;
-@property (nonatomic,strong) UILabel *label;
-@property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
-@property (nonatomic,assign) PullUpRefreshViewStatus currentStatus;
+@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
+@property (nonatomic, assign) PullUpRefreshViewStatus currentStatus;
 @end
 
 @implementation PullUpRefreshView

@@ -10,6 +10,6 @@
 
 @interface MVVMModel : BaseModel
 
-@property (nonatomic,copy) NSString *content;
+@property (nonatomic, copy) NSString *content;
 
 @end

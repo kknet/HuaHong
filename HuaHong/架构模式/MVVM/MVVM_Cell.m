@@ -10,9 +10,9 @@
 #import "MVVM_Model.h"
 
 @interface MVVM_Cell()
-@property (nonatomic,weak) UIImageView* imageView;
-@property (nonatomic,weak) UILabel* titleLabel;
-@property (nonatomic,strong) MVVM_Model *model;
+@property (nonatomic, weak) UIImageView* imageView;
+@property (nonatomic, weak) UILabel* titleLabel;
+@property (nonatomic, strong) MVVM_Model *model;
 @end
 
 @implementation MVVM_Cell

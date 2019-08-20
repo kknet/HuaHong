@@ -13,8 +13,8 @@
 
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
-@property(nonatomic,strong) NSMutableArray *tableViewArray;
-@property(nonatomic,strong) NSMutableArray *collectionViewArray;
+@property (strong, nonatomic) NSMutableArray *tableViewArray;
+@property (strong, nonatomic) NSMutableArray *collectionViewArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

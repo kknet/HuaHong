@@ -11,8 +11,8 @@
 #import "CustomTransitionPush.h"
 
 @interface AnimationController ()<UINavigationControllerDelegate>
-@property (nonatomic,strong) UIView *redView;
-@property (nonatomic,assign) BOOL isShowing;
+@property (nonatomic, strong) UIView *redView;
+@property (nonatomic, assign) BOOL isShowing;
 @end
 
 @implementation AnimationController

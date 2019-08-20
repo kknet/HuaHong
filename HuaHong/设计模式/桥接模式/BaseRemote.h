@@ -11,7 +11,7 @@
 
 @interface BaseRemote : NSObject
 
-@property (nonatomic,strong) BaseTV *tv;
+@property (nonatomic, strong) BaseTV *tv;
 
 
 -(void)setCommand:(NSString *)command;

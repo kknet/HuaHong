@@ -9,7 +9,7 @@
 @interface NetworkTools : NSObject
 
 //1.block作为属性
-@property (nonatomic,copy) void(^block)(void);
+@property (nonatomic, copy) void(^block)(void);
 -(void)touch;
 
 //2.block作为方法的参数！

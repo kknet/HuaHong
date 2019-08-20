@@ -12,7 +12,7 @@
 
 @interface runtimeViewController ()
 
-@property (nonatomic,strong) Person *persion;
+@property (nonatomic, strong) Person *persion;
 @end
 
 @implementation runtimeViewController

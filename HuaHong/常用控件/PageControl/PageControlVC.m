@@ -9,7 +9,7 @@
 #import "PageControlVC.h"
 
 @interface PageControlVC ()
-@property (nonatomic,strong) UIPageControl *pageControl;
+@property (nonatomic, strong) UIPageControl *pageControl;
 @end
 
 @implementation PageControlVC

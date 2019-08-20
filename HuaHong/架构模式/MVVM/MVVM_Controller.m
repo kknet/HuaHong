@@ -16,9 +16,9 @@
 #define scaledCellValue(value) ( floorf(CGRectGetWidth(collectionView.frame) / 375 * (value)) )
 
 @interface MVVM_Controller ()
-@property (nonatomic,strong) MVVM_ViewModel *viewModel;
-@property (nonatomic,weak) UICollectionView *collectionView;
-@property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic, strong) MVVM_ViewModel *viewModel;
+@property (nonatomic, weak) UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *dataArray;
 @end
 
 @implementation MVVM_Controller

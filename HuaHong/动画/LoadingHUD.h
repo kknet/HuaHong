@@ -10,7 +10,7 @@
 
 @interface LoadingHUD : UIView
 
-@property (nonatomic,assign) CGFloat progress;
-@property (nonatomic,copy) void(^playOrSuspendHandler)(BOOL isPlay);
+@property (nonatomic, assign) CGFloat progress;
+@property (nonatomic, copy) void(^playOrSuspendHandler)(BOOL isPlay);
 
 @end

@@ -11,8 +11,8 @@
 
 @interface MVVMViewModel : NSObject
 
-@property (nonatomic,copy) NSString *contentStr;
-@property (nonatomic,strong) MVVMModel *model;
+@property (nonatomic, copy) NSString *contentStr;
+@property (nonatomic, strong) MVVMModel *model;
 
 - (void)onPrintClick;
 

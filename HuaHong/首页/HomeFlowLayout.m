@@ -11,6 +11,10 @@
 @implementation HomeFlowLayout
 
 #pragma mark--这个方法中返回我们的布局数组
+/**
+ * 作用:返回指定区域的cell布局对象
+ * 什么时候调用:指定新的区域的时候调用
+ */
 -(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
 
@@ -23,7 +27,7 @@
     //遍历superArray，得到一个当前屏幕中所有的section数组
     for (UICollectionViewLayoutAttributes *attributes in superArray)
     {
-        //如果当前的元素分类是一个cell，将cell所在的分区section加入数组，重复的话会自动过滤
+        //如果当前的元素分类是一个cell，将cell所在的分区section加入集合，重复的话会自动过滤
         if (attributes.representedElementCategory == UICollectionElementCategoryCell)
         {
             [headSectionsSet addIndex:attributes.indexPath.section];
@@ -41,20 +45,20 @@
         }
     }
     
-    //遍历当前屏幕中没有header的section数组
+    //遍历当前屏幕中没有header的section集合
     [headSectionsSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop){
         
         //取到当前section中第一个item的indexPath
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:idx];
         
         //获取当前section在正常情况下已经离开屏幕的header结构信息
-        UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath];
+        UICollectionViewLayoutAttributes *headerAttributes = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath];
         
         //如果当前分区确实有因为离开屏幕而被系统回收的header
-        if (attributes)
+        if (headerAttributes)
         {
             //将该header结构信息重新加入到superArray中去
-            [superArray addObject:attributes];
+            [superArray addObject:headerAttributes];
         }
     }];
     
@@ -123,18 +127,18 @@
     
 }
 
-////return YES;表示一旦滑动就实时调用上面这个layoutAttributesForElementsInRect:方法
-//- (BOOL) shouldInvalidateLayoutForBoundsChange:(CGRect)newBound
-//{
-////    NSLog(@"shouldInvalidateLayoutForBoundsChange");
-//
-//    return YES;
-//}
-//
-//-(void)prepareLayout
-//{
-////    NSLog(@"prepareLayout");
-//}
+//return YES;表示一旦滑动就实时调用上面这个layoutAttributesForElementsInRect:方法
+- (BOOL) shouldInvalidateLayoutForBoundsChange:(CGRect)newBound
+{
+//    NSLog(@"shouldInvalidateLayoutForBoundsChange");
+
+    return YES;
+}
+
+-(void)prepareLayout
+{
+//    NSLog(@"prepareLayout");
+}
 @end
 
 

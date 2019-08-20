@@ -10,8 +10,8 @@
 
 @interface MVVM_ViewModel : NSObject
 
-@property (nonatomic,strong,readonly)RACCommand *command;
-@property (nonatomic,assign) BOOL isNeedRefresh;
+@property (nonatomic, strong,readonly)RACCommand *command;
+@property (nonatomic, assign) BOOL isNeedRefresh;
 
 
 @end

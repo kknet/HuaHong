@@ -10,7 +10,7 @@
 
 @interface Person : NSObject
 
-@property(copy,nonatomic)NSString *fullName;
+@property (copy, nonatomic)NSString *fullName;
 
 -(instancetype)initWithBlock:(NSString *(^)(NSString *firstName,NSString *lastName))block;
 

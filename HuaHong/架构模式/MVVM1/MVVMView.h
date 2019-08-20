@@ -11,7 +11,7 @@
 
 @interface MVVMView : UIView
 
-@property (nonatomic,strong) MVVMViewModel *viewModel;
+@property (nonatomic, strong) MVVMViewModel *viewModel;
 - (void)setWithViewModel:(MVVMViewModel *)vm;
 
 @end

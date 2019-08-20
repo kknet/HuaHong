@@ -12,11 +12,11 @@
 
 @interface QRCodeController ()<AVCaptureMetadataOutputObjectsDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-@property (nonatomic,strong) AVCaptureDevice *device;
-@property (nonatomic,strong) AVCaptureDeviceInput *input;
-@property (nonatomic,strong) AVCaptureMetadataOutput *output;
-@property (nonatomic,strong) AVCaptureSession *session;
-@property (nonatomic,strong) AVCaptureVideoPreviewLayer *previewLayer;
+@property (nonatomic, strong) AVCaptureDevice *device;
+@property (nonatomic, strong) AVCaptureDeviceInput *input;
+@property (nonatomic, strong) AVCaptureMetadataOutput *output;
+@property (nonatomic, strong) AVCaptureSession *session;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 
 @end
 

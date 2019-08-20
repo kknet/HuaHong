@@ -10,8 +10,8 @@
 #import "NSObject+KVO.h"
 
 @interface KVOViewController ()
-@property (nonatomic,strong) Model *model;
-@property (nonatomic,strong) NSMutableArray *arrayM;
+@property (nonatomic, strong) Model *model;
+@property (nonatomic, strong) NSMutableArray *arrayM;
 @end
 
 @implementation KVOViewController

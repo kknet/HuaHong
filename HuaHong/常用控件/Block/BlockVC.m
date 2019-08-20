@@ -11,10 +11,10 @@
 
 typedef void(^Block)(NSString *str);
 @interface BlockVC ()
-@property(nonatomic,strong) NetworkTools *tools;
-@property (nonatomic,assign) NSInteger index;
-@property (nonatomic,copy) NSString *text;
-@property (nonatomic,copy) Block block;
+@property (nonatomic, strong) NetworkTools *tools;
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) Block block;
 @end
 
 @implementation BlockVC

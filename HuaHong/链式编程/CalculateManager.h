@@ -10,7 +10,7 @@
 
 @interface CalculateManager : NSObject
 
-@property (nonatomic,assign) int result;
+@property (nonatomic, assign) int result;
 
 //-(instancetype)add:(int)value;
 

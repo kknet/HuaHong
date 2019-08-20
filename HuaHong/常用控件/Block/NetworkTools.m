@@ -17,7 +17,7 @@
 
 @interface NetworkTools ()
 
-@property(nonatomic,copy)void(^finishedCallBack)(NSString *);
+@property (nonatomic, copy)void(^finishedCallBack)(NSString *);
 
 @end
 

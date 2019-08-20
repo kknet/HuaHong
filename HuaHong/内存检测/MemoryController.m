@@ -12,8 +12,8 @@ typedef void(^Block)(void);
 
 @interface MemoryController ()
 
-@property (nonatomic,copy) Block block;
-@property (nonatomic,strong) NSObject *objc;
+@property (nonatomic, copy) Block block;
+@property (nonatomic, strong) NSObject *objc;
 @end
 
 @implementation MemoryController

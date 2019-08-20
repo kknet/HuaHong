@@ -9,7 +9,7 @@
 #import "ChildViewController.h"
 
 @interface ChildViewController ()
-@property (nonatomic,strong)UILabel *label;
+@property (nonatomic, strong)UILabel *label;
 @end
 
 @implementation ChildViewController

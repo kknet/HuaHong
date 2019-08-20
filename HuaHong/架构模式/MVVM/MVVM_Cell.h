@@ -11,7 +11,7 @@
 
 @interface MVVM_Cell : UICollectionViewCell
 
-@property (nonatomic,strong) MVVM_ViewModel *viewModel;
+@property (nonatomic, strong) MVVM_ViewModel *viewModel;
 + (NSString *)cellReuseIdentifier;
 
 @end

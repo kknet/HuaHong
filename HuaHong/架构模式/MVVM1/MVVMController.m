@@ -12,9 +12,9 @@
 #import "MVVMModel.h"
 @interface MVVMController ()
 
-@property (nonatomic,strong)MVVMViewModel *viewModel;
-@property (nonatomic,strong)MVVMView *mvvmView;
-@property (nonatomic,strong)MVVMModel *model;
+@property (nonatomic, strong)MVVMViewModel *viewModel;
+@property (nonatomic, strong)MVVMView *mvvmView;
+@property (nonatomic, strong)MVVMModel *model;
 
 @end
 

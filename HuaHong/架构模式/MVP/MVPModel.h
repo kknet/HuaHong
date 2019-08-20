@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MVPModel : NSObject
-@property (nonatomic,copy) NSString *content;
+@interface MVPModel : BaseModel
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, copy) NSString *num;
+
 @end

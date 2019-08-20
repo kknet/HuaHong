@@ -10,8 +10,8 @@
 #import <WebKit/WebKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 @interface WKWebViewVC ()<WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
-@property (nonatomic,strong)WKWebView *webView;
-@property (nonatomic,strong)UIProgressView *progressView;
+@property (nonatomic, strong)WKWebView *webView;
+@property (nonatomic, strong)UIProgressView *progressView;
 @end
 
 @implementation WKWebViewVC

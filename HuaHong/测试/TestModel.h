@@ -11,9 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TestModel : BaseModel
-@property (nonatomic,assign) NSInteger userId;
-@property (nonatomic,copy) NSString *userName;
-@property (nonatomic,strong) SecondModel *second;
+@property (nonatomic, assign) NSInteger userId;
+@property (nonatomic, copy) NSString *userName;
+@property (nonatomic, strong) SecondModel *second;
 @end
 
 @interface SecondModel : BaseModel

@@ -15,8 +15,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UITextField *anotherTextField;
 @property (strong, nonatomic) IBOutlet RACView *racView;
-@property (nonatomic,strong)id <RACSubscriber> subscriber;
-@property (nonatomic,strong) RACCommand *command;
+@property (nonatomic, strong)id <RACSubscriber> subscriber;
+@property (nonatomic, strong) RACCommand *command;
 //@property (strong, nonatomic) RACDisposable *disposable;
 
 @end

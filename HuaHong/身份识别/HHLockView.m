@@ -10,11 +10,11 @@
 
 #define kButtonCount 9
 @interface HHLockView()
-@property (nonatomic,strong) NSMutableArray *buttonArray;
-@property (nonatomic,strong) NSMutableArray *selectedArray;
+@property (nonatomic, strong) NSMutableArray *buttonArray;
+@property (nonatomic, strong) NSMutableArray *selectedArray;
 
-@property (nonatomic,assign) CGPoint currentPoint;
-@property (nonatomic,copy) NSString *pwdStr;
+@property (nonatomic, assign) CGPoint currentPoint;
+@property (nonatomic, copy) NSString *pwdStr;
 @end
 
 @implementation HHLockView

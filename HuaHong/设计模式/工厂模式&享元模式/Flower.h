@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger,FlowerType){
 };
 @interface Flower : NSObject
 
-@property (nonatomic,copy) NSString *name;
+@property (nonatomic, copy) NSString *name;
 
 @end
 

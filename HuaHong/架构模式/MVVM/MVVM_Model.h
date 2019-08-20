@@ -16,7 +16,7 @@
 
 @interface MVVM_Model : BaseModel
 
-@property (nonatomic,copy) NSString *title;
-@property (nonatomic,strong) NSDictionary *images;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) NSDictionary *images;
 
 @end

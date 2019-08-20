@@ -12,7 +12,7 @@
 @end
 
 @interface TestViewController : BaseViewController
-@property (nonatomic,assign) CGFloat hFloat;
+@property (nonatomic, assign) CGFloat hFloat;
 
-@property (nonatomic,weak) id<TestDelegate> delegate;
+@property (nonatomic, weak) id<TestDelegate> delegate;
 @end

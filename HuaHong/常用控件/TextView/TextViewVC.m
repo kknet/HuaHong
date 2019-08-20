@@ -10,7 +10,7 @@
 #import "SystemServices.h"
 #import "HHAttachment.h"
 @interface TextViewVC ()<UITextViewDelegate>
-@property (nonatomic,strong) UITextView *textView;
+@property (nonatomic, strong) UITextView *textView;
 @end
 
 @implementation TextViewVC

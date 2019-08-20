@@ -10,6 +10,6 @@
 
 @interface ScanView : UIView
 
-@property (nonatomic,assign) CGSize scanAreaSize;
+@property (nonatomic, assign) CGSize scanAreaSize;
 
 @end

@@ -10,7 +10,6 @@
 #import "HHSegmentView.h"
 @interface HHSegmentController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate,HHSegmentViewDelegate>
 @property (strong, nonatomic) IBOutlet HHSegmentView *segmentView;
-
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *itemArr;
 @end

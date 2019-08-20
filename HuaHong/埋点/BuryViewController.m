@@ -12,10 +12,10 @@
 
 @interface BuryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic,strong) UIButton     *button;
-@property (nonatomic,strong) UILabel      *label;
-@property (nonatomic,strong) UITableView  *tableView;
-@property (nonatomic,strong) UITapGestureRecognizer *tap;
+@property (nonatomic, strong) UIButton     *button;
+@property (nonatomic, strong) UILabel      *label;
+@property (nonatomic, strong) UITableView  *tableView;
+@property (nonatomic, strong) UITapGestureRecognizer *tap;
 
 @end
 
