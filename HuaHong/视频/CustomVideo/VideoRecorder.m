@@ -24,7 +24,7 @@ CAAnimationDelegate>
     Float64 _samplerate;//音频采样率
 }
 
-@property (strong, nonatomic) AVCaptureSession           *recordSession;//捕获视频的会话
+@property (strong, nonatomic) AVCaptureSession           *captureSession;//捕获视频的会话
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;//捕获到的视频呈现的layer
 @property (strong, nonatomic) AVCaptureDeviceInput       *backCameraInput;//后置摄像头输入
 @property (strong, nonatomic) AVCaptureDeviceInput       *frontCameraInput;//前置摄像头输入
@@ -34,6 +34,7 @@ CAAnimationDelegate>
 @property (strong, nonatomic) AVCaptureConnection        *videoConnection;//视频录制连接
 @property (strong, nonatomic) AVCaptureVideoDataOutput   *videoOutput;//视频输出
 @property (strong, nonatomic) AVCaptureAudioDataOutput   *audioOutput;//音频输出
+@property (nonatomic, strong) AVCaptureDeviceInput *videoInput;
 
 //录制写入
 @property (nonatomic, strong) AssetWriter *assetWriter;
@@ -125,33 +126,72 @@ CAAnimationDelegate>
 
 //切换前后置摄像头
 - (void)switchCamera{
-    if (self.isFront)
+//    if (self.isFront)
+//    {
+//        [self.captureSession stopRunning];
+//        [self.captureSession removeInput:self.frontCameraInput];
+//        if ([self.captureSession canAddInput:self.backCameraInput]) {
+//            [self changeCameraAnimation];
+//            [self.captureSession addInput:self.backCameraInput];
+//        }
+//        self.isFront = NO;
+//
+//    }else
+//    {
+//        [self.captureSession stopRunning];
+//        [self.captureSession removeInput:self.backCameraInput];
+//        if ([self.captureSession canAddInput:self.frontCameraInput]) {
+//            [self changeCameraAnimation];
+//            [self.captureSession addInput:self.frontCameraInput];
+//        }
+//        self.isFront = YES;
+//    }
+    
+    AVCaptureDeviceInput *switchInput;
+    if (self.videoInput.device.position == AVCaptureDevicePositionBack)
     {
-        [self.recordSession stopRunning];
-        [self.recordSession removeInput:self.frontCameraInput];
-        if ([self.recordSession canAddInput:self.backCameraInput]) {
-            [self changeCameraAnimation];
-            [self.recordSession addInput:self.backCameraInput];
-        }
-        self.isFront = NO;
+        //切换至前摄像头
+        //        AVCaptureDevice *frontCamera = [self cameraWithPosition:AVCaptureDevicePositionFront];
+        //        switchInput = [AVCaptureDeviceInput deviceInputWithDevice:frontCamera error:nil];
+        switchInput = self.frontCameraInput;
         
     }else
     {
-        [self.recordSession stopRunning];
-        [self.recordSession removeInput:self.backCameraInput];
-        if ([self.recordSession canAddInput:self.frontCameraInput]) {
-            [self changeCameraAnimation];
-            [self.recordSession addInput:self.frontCameraInput];
-        }
-        self.isFront = YES;
+        //切换至后摄像头
+        //       AVCaptureDevice *backCamera = [self cameraWithPosition:AVCaptureDevicePositionBack];
+        //       switchInput = [AVCaptureDeviceInput deviceInputWithDevice:backCamera error:nil];
+        switchInput = self.backCameraInput;
+        
     }
+    
+    if (switchInput == nil) {
+        return;
+    }
+    
+    [self.captureSession beginConfiguration];
+    [self.captureSession removeInput:self.videoInput];
+    
+    if ([self.captureSession canAddInput:switchInput])
+    {
+        [self.captureSession addInput:switchInput];
+        self.videoInput = switchInput;
+        [self changeCameraAnimation];
+        
+    }else
+    {
+        if ([self.captureSession canAddInput:self.videoInput]) {
+            [self.captureSession addInput:self.videoInput];
+        }
+    }
+    
+    [self.captureSession commitConfiguration];
 }
 
 #pragma mark - Private Method
 - (void)changeCameraAnimation {
     CATransition *changeAnimation = [CATransition animation];
     changeAnimation.delegate = self;
-    changeAnimation.duration = 0.45;
+    changeAnimation.duration = 0.5;
     changeAnimation.type = @"oglFlip";
     //    changeAnimation.type = kCATransitionMoveIn;
     
@@ -289,8 +329,8 @@ CAAnimationDelegate>
 
 #pragma mark - CAAnimationDelegate
 - (void)animationDidStart:(CAAnimation *)anim {
-    self.videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
-    [self.recordSession startRunning];
+    
+//    [self.captureSession startRunning];
 }
 
 #pragma mark - Lazy Load
@@ -299,7 +339,7 @@ CAAnimationDelegate>
 {
     if (_previewLayer == nil) {
         //通过AVCaptureSession初始化
-        AVCaptureVideoPreviewLayer *preview = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.recordSession];
+        AVCaptureVideoPreviewLayer *preview = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
         //设置比例为铺满全屏
         preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
         _previewLayer = preview;
@@ -324,36 +364,37 @@ CAAnimationDelegate>
     return _ImageOutPut;
 }
 //捕获视频的会话
-- (AVCaptureSession *)recordSession {
-    if (_recordSession == nil) {
-        _recordSession = [[AVCaptureSession alloc] init];
+- (AVCaptureSession *)captureSession {
+    if (_captureSession == nil) {
+        _captureSession = [[AVCaptureSession alloc] init];
         
         //添加后置摄像头的输入
-        if ([_recordSession canAddInput:self.frontCameraInput]) {
-            [_recordSession addInput:self.frontCameraInput];
+        self.videoInput = self.backCameraInput;
+        if ([_captureSession canAddInput:self.videoInput]) {
+            [_captureSession addInput:self.videoInput];
         }
         
         //添加视频输出
-        if ([_recordSession canAddOutput:self.videoOutput]) {
-            [_recordSession addOutput:self.videoOutput];
+        if ([_captureSession canAddOutput:self.videoOutput]) {
+            [_captureSession addOutput:self.videoOutput];
             //设置视频的分辨率
             _cx = 720;
             _cy = 1280;
         }
         
         //添加图片输出
-        if ([_recordSession canAddOutput:self.ImageOutPut]) {
-            [_recordSession addOutput:self.ImageOutPut];
+        if ([_captureSession canAddOutput:self.ImageOutPut]) {
+            [_captureSession addOutput:self.ImageOutPut];
             
         }
         
         //添加音频输入
-        if ([_recordSession canAddInput:self.audioMicInput]) {
-            [_recordSession addInput:self.audioMicInput];
+        if ([_captureSession canAddInput:self.audioMicInput]) {
+            [_captureSession addInput:self.audioMicInput];
         }
         //添加音频输出
-        if ([_recordSession canAddOutput:self.audioOutput]) {
-            [_recordSession addOutput:self.audioOutput];
+        if ([_captureSession canAddOutput:self.audioOutput]) {
+            [_captureSession addOutput:self.audioOutput];
         }
         //设置视频录制的方向
         self.videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;
@@ -373,7 +414,7 @@ CAAnimationDelegate>
             [self.device unlockForConfiguration];
         }
     }
-    return _recordSession;
+    return _captureSession;
 }
 
 //后置摄像头输入
@@ -466,8 +507,8 @@ CAAnimationDelegate>
 }
 
 
-#pragma mark- 取照片
-- (void)shutterCamera
+#pragma mark- 捕捉静态图片
+- (void)captureStillImage
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
@@ -513,7 +554,7 @@ CAAnimationDelegate>
     self.isPaused = NO;
     self.isDiscount = NO;
     self.isFront = NO;
-    [self.recordSession startRunning];
+    [self.captureSession startRunning];
 }
 
 //关闭预览
@@ -521,7 +562,7 @@ CAAnimationDelegate>
 {
     _startTime = CMTimeMake(0, 0);
     
-    [self.recordSession stopRunning];
+    [self.captureSession stopRunning];
 }
 
 - (void)focusAtPoint:(CGPoint)point{
