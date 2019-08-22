@@ -39,6 +39,7 @@
 {
    [self.session stopRunning];
 }
+
 #pragma mark - AVCaptureAudioDataOutputSampleBufferDelegate
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
 //同一个代理方法
@@ -248,4 +249,5 @@
     NSString *exten = [date stringByAppendingPathExtension:@"mp4"];
     return [doc stringByAppendingPathComponent:exten];
 }
+
 @end

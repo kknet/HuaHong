@@ -400,7 +400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="YOo-RO-e50">
-                                <rect key="frame" x="179.5" y="325.5" width="16" height="16"/>
+                                <rect key="frame" x="27.5" y="93.5" width="320" height="480"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="sds-Rw-5ge" appends="YES" id="3tI-Xy-27e"/>
@@ -1575,6 +1575,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQL-nb-dhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1538" y="-2507"/>
+        </scene>
+        <!--Capture Controller-->
+        <scene sceneID="GSe-ax-gQa">
+            <objects>
+                <viewController storyboardIdentifier="CaptureController" id="WJZ-Fa-OpK" customClass="CaptureController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dl1-is-tvn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnZ-qI-n6v">
+                                <rect key="frame" x="109" y="64" width="68.5" height="35"/>
+                                <state key="normal" title="停止"/>
+                                <connections>
+                                    <action selector="stopAction:" destination="WJZ-Fa-OpK" eventType="touchUpInside" id="xDR-s5-tUI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI4-8C-gr4">
+                                <rect key="frame" x="197.5" y="64" width="69" height="35"/>
+                                <state key="normal" title="切换"/>
+                                <connections>
+                                    <action selector="switchAction:" destination="WJZ-Fa-OpK" eventType="touchUpInside" id="EAI-fH-67B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amm-Vg-VO6">
+                                <rect key="frame" x="20" y="64" width="69" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="AGB-sn-CFF"/>
+                                </constraints>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="startAction:" destination="WJZ-Fa-OpK" eventType="touchUpInside" id="3cF-xZ-1KC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MT-Or-4QT">
+                                <rect key="frame" x="286.5" y="64" width="68.5" height="35"/>
+                                <state key="normal" title="other"/>
+                                <connections>
+                                    <action selector="otherAction:" destination="WJZ-Fa-OpK" eventType="touchUpInside" id="ajy-Cr-Njr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="amm-Vg-VO6" firstAttribute="top" secondItem="dl1-is-tvn" secondAttribute="top" constant="64" id="0kI-Et-uze"/>
+                            <constraint firstItem="TI4-8C-gr4" firstAttribute="leading" secondItem="OnZ-qI-n6v" secondAttribute="trailing" constant="20" id="CAJ-tl-q6B"/>
+                            <constraint firstItem="9MT-Or-4QT" firstAttribute="height" secondItem="amm-Vg-VO6" secondAttribute="height" id="FYd-9d-vj2"/>
+                            <constraint firstItem="OnZ-qI-n6v" firstAttribute="top" secondItem="amm-Vg-VO6" secondAttribute="top" id="HYE-dB-ifG"/>
+                            <constraint firstItem="TI4-8C-gr4" firstAttribute="height" secondItem="amm-Vg-VO6" secondAttribute="height" id="HtZ-rs-Jmv"/>
+                            <constraint firstAttribute="trailing" secondItem="9MT-Or-4QT" secondAttribute="trailing" constant="20" id="I2X-VC-rmH"/>
+                            <constraint firstItem="9MT-Or-4QT" firstAttribute="leading" secondItem="TI4-8C-gr4" secondAttribute="trailing" constant="20" id="M2u-Bm-DiS"/>
+                            <constraint firstItem="9MT-Or-4QT" firstAttribute="top" secondItem="amm-Vg-VO6" secondAttribute="top" id="czU-0o-aUz"/>
+                            <constraint firstItem="amm-Vg-VO6" firstAttribute="leading" secondItem="dl1-is-tvn" secondAttribute="leading" constant="20" id="dbK-Dq-jpc"/>
+                            <constraint firstItem="OnZ-qI-n6v" firstAttribute="height" secondItem="amm-Vg-VO6" secondAttribute="height" id="emE-m7-D6e"/>
+                            <constraint firstItem="OnZ-qI-n6v" firstAttribute="leading" secondItem="amm-Vg-VO6" secondAttribute="trailing" constant="20" id="hVH-QV-dJA"/>
+                            <constraint firstItem="TI4-8C-gr4" firstAttribute="width" secondItem="amm-Vg-VO6" secondAttribute="width" id="kNN-2Q-ses"/>
+                            <constraint firstItem="OnZ-qI-n6v" firstAttribute="width" secondItem="amm-Vg-VO6" secondAttribute="width" id="ojk-6J-EGF"/>
+                            <constraint firstItem="9MT-Or-4QT" firstAttribute="width" secondItem="amm-Vg-VO6" secondAttribute="width" id="qBb-Ga-ehU"/>
+                            <constraint firstItem="TI4-8C-gr4" firstAttribute="top" secondItem="amm-Vg-VO6" secondAttribute="top" id="vvv-TJ-Fpm"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMO-in-LtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-111" y="1314"/>
         </scene>
     </scenes>
     <resources>

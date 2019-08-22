@@ -60,7 +60,7 @@
     }
     
     
-    if (!self.recorder.isCapturing)
+    if (!self.recorder.isRecording)
     {
         [self initVideotoolBox];
         [self.recorder startRecording];
@@ -76,20 +76,18 @@
             NSLog(@"videoSize:%.2fM",videoSize);
             
             
-//            WEAKSELF(weakSelf);
             __weak typeof(self) weakSelf = self;
             weakSelf.topView.hidden = NO;
             
-            [HHVideoManager saveVideoPath:outputURL Watermark:@"水印:我就第五空间安抚 我发啊发安抚请叫我去哦无奇特跳舞毯问摊位图五给多少关键是给多少都告诉东哥 打过来靳魏坤赶紧离开我就饿了估计未来根据两位个; 文件柜看我今儿个礼物给我各位个我各位个我无功无过 滚动个如果积极认购人东方啊" complete:^(NSURL *outputURL) {
+            [HHVideoManager saveVideoPath:outputURL Watermark:@"水印:新华社北京3月13日电（记者叶昊鸣）记者13日从应急管理部了解到，财政部、应急管理部当日向青海省下拨中央自然灾害救灾资金1亿元，主要用于支持做好青海省玉树、果洛等地严重雪灾受灾群众救助工作，保障受灾群众基本生活。" complete:^(NSURL *outputURL) {
                 NSLog(@"添加水印完成");
                 weakSelf.bottomView.lastVideoPath = [outputURL path];
                 
             //获取视频第一帧的图片
             [self.bottomView configVideoThumb:[UIImage getThumbnail:outputURL]];
             
-                
-                //保存到相册
-                [HHVideoManager saveToPhotoLibrary:outputURL];
+            //保存到相册
+            [HHVideoManager saveToPhotoLibrary:outputURL];
                 
             }];
             
@@ -109,6 +107,7 @@
         _recorder.maxVideoDuration = NSIntegerMax;
         _recorder.delegate = self;
         _recorder.previewLayer.frame = self.view.bounds;
+        _recorder.maxVideoDuration = 10000;
         [self.view.layer insertSublayer:_recorder.previewLayer atIndex:0];
     }
     return _recorder;
@@ -128,10 +127,6 @@
     [self recordAction];
 }
 
--(void)changeCamera
-{
-    [self.recorder switchCamera];
-}
 
 #pragma mark - initVideotoolBox
 - (void)initVideotoolBox

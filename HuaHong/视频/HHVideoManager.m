@@ -399,6 +399,24 @@
     
 }
 
+//9.0 过期
+//#import <AssetsLibrary/AssetsLibrary.h>
+
+//- (void)writeVideoToAssetsLibrary:(NSURL *)videoURL
+//{
+//    ALAssetsLibrary *library = [[ALAssetsLibrary alloc]init];
+//
+//    if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:videoURL]) {
+//
+//        [library writeVideoAtPathToSavedPhotosAlbum:videoURL completionBlock:^(NSURL *assetURL, NSError *error) {
+//
+//            if (error == nil) {
+//                NSLog(@"保存相册成功");
+//            }
+//        }];
+//    }
+//}
+
 //获得视频存放地址
 +(NSString *)getVideoCachePath
 {
@@ -441,27 +459,6 @@
         NSLog(@"录制意外结束，删除本地文件");
     }
     NSAssert([[NSThread mainThread] isMainThread], @"Not Main Thread");
-    
-}
-
-//开启／关闭闪光灯
-+(void)switchFlashLight
-{
-    //    AVCaptureDevice *backCamera = [VideoManager backCamera];
-    AVCaptureDevice *backCamera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    if (backCamera.torchMode == AVCaptureTorchModeOff) {
-        [backCamera lockForConfiguration:nil];
-        backCamera.torchMode = AVCaptureTorchModeOn;
-        backCamera.flashMode = AVCaptureFlashModeOn;
-        [backCamera unlockForConfiguration];
-    } else {
-        [backCamera lockForConfiguration:nil];
-        backCamera.torchMode = AVCaptureTorchModeOff;
-        backCamera.flashMode = AVCaptureTorchModeOff;
-        [backCamera unlockForConfiguration];
-    }
-    
     
 }
 

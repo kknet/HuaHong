@@ -141,6 +141,7 @@
 #import "BuryViewController.h"
 #import "ContainerViewController.h"
 #import "AdapterViewController.h"
+#import "CaptureController.h"
 
 
 #endif /* Public_h */

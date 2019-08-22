@@ -10,11 +10,7 @@
 #import "HHPlayerViewController.h"
 
 @interface VideoBaseController()
-/**
- *  记录录制时间
- */
-@property (nonatomic, strong) NSTimer* timer;
-
+@property (nonatomic, strong) NSTimer* timer;//记录录制时间
 @end
 
 @implementation VideoBaseController
@@ -133,26 +129,23 @@
 
 -(void)switchFlashLight
 {
-    [HHVideoManager switchFlashLight];
 }
 
 - (void)changeCamera
 {
-//    VideoRecorder *recorder = [[VideoRecorder alloc]init];
-//    [recorder switchCamera];
-}
-
--(void)playVideo:(NSString *)path
-{
-    HHPlayerViewController *playVc = [[HHPlayerViewController alloc] init];
-//    [playVc playVideo_AVPlayerViewController:[NSURL fileURLWithPath:path]];
-    [playVc playVideo_AVPlayer:[NSURL fileURLWithPath:path]];
-    [self presentViewController:playVc animated:YES completion:nil];
 }
 
 -(void)begainrecord
 {
     
+}
+
+-(void)playVideo:(NSString *)path
+{
+    HHPlayerViewController *playVc = [[HHPlayerViewController alloc] init];
+    //    [playVc playVideo_AVPlayerViewController:[NSURL fileURLWithPath:path]];
+    [playVc playVideo_AVPlayer:[NSURL fileURLWithPath:path]];
+    [self presentViewController:playVc animated:YES completion:nil];
 }
 @end
 

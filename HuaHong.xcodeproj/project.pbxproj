@@ -266,6 +266,8 @@
 		9395BDB222C9EB4700EABF10 /* HHHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */; };
 		939D8FB2230A7B1A00F786C0 /* MVPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FB1230A7B1A00F786C0 /* MVPTableViewCell.m */; };
 		939D8FB5230A8AEB00F786C0 /* HHDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FB4230A8AEB00F786C0 /* HHDataSource.m */; };
+		939D8FCF230D677000F786C0 /* CCSystemCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FCE230D675B00F786C0 /* CCSystemCapture.m */; };
+		939D8FD3230D67F800F786C0 /* CaptureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FD1230D67F800F786C0 /* CaptureController.m */; };
 		93CB25B122B7715200A4A5C7 /* NSDictionary+Null.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */; };
 		93D42D9D22DD679600344BD7 /* UIControl+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9C22DD679500344BD7 /* UIControl+bury.m */; };
 		93D42DA022DD6CF700344BD7 /* NSObject+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9F22DD6CF600344BD7 /* NSObject+add.m */; };
@@ -776,6 +778,10 @@
 		939D8FB1230A7B1A00F786C0 /* MVPTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPTableViewCell.m; sourceTree = "<group>"; };
 		939D8FB3230A8AEB00F786C0 /* HHDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHDataSource.h; sourceTree = "<group>"; };
 		939D8FB4230A8AEB00F786C0 /* HHDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHDataSource.m; sourceTree = "<group>"; };
+		939D8FCD230D675B00F786C0 /* CCSystemCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSystemCapture.h; sourceTree = "<group>"; };
+		939D8FCE230D675B00F786C0 /* CCSystemCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSystemCapture.m; sourceTree = "<group>"; };
+		939D8FD0230D67F800F786C0 /* CaptureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptureController.h; sourceTree = "<group>"; };
+		939D8FD1230D67F800F786C0 /* CaptureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptureController.m; sourceTree = "<group>"; };
 		93CB25AF22B7715200A4A5C7 /* NSDictionary+Null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Null.h"; sourceTree = "<group>"; };
 		93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
 		93D42D9B22DD679500344BD7 /* UIControl+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+bury.h"; sourceTree = "<group>"; };
@@ -1753,6 +1759,7 @@
 		7DB9B5431FD7E4460011EE54 /* 视频 */ = {
 			isa = PBXGroup;
 			children = (
+				939D8FCC230D668900F786C0 /* SystemCapture */,
 				7D93370621A930B90048E6D4 /* VideoPlayer */,
 				7DB9B55D1FD97E840011EE54 /* CustomVideo */,
 				7DB9B55C1FD97E320011EE54 /* View */,
@@ -2089,6 +2096,17 @@
 			path = HHRequestManager;
 			sourceTree = "<group>";
 		};
+		939D8FCC230D668900F786C0 /* SystemCapture */ = {
+			isa = PBXGroup;
+			children = (
+				939D8FCD230D675B00F786C0 /* CCSystemCapture.h */,
+				939D8FCE230D675B00F786C0 /* CCSystemCapture.m */,
+				939D8FD0230D67F800F786C0 /* CaptureController.h */,
+				939D8FD1230D67F800F786C0 /* CaptureController.m */,
+			);
+			path = SystemCapture;
+			sourceTree = "<group>";
+		};
 		93D42D9A22DD670600344BD7 /* 埋点 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2324,6 +2342,7 @@
 				7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */,
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
 				7DE4D3AE21BADB0D00586126 /* NSTimer+HHTimer.m in Sources */,
+				939D8FCF230D677000F786C0 /* CCSystemCapture.m in Sources */,
 				7D8359B622FF10B300BEC6F6 /* ContenModel.m in Sources */,
 				7D56A30F216DE07800212DEB /* Flower.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
@@ -2378,6 +2397,7 @@
 				7D58920F2266D23100DFE60F /* QKCalendarHeaderView.m in Sources */,
 				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,
 				7DB9B54C1FD7E6800011EE54 /* VideoTopView.m in Sources */,
+				939D8FD3230D67F800F786C0 /* CaptureController.m in Sources */,
 				7D4E59C821721F66003D01CF /* NetworkTools.m in Sources */,
 				7D16E3E9223A1CA50027C5FC /* HHAlertView.m in Sources */,
 				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
@@ -2703,7 +2723,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
 				INFOPLIST_FILE = HuaHong/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2741,7 +2761,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
 				INFOPLIST_FILE = HuaHong/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

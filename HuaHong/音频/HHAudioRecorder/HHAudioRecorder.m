@@ -13,9 +13,6 @@
 
 @interface HHAudioRecorder()
 
-/***  是否保存  */
-@property (nonatomic,assign) BOOL isSave;
-
 /***  录音对象  */
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 
@@ -29,7 +26,7 @@
 
 +(HHAudioRecorder *)sharedManager
 {
-    static HHAudioRecorder *instance = nil;
+    static HHAudioRecorder *instance;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -55,44 +52,44 @@
     return _fileName;
 }
     
-- (NSTimeInterval)recordLength
+- (NSTimeInterval)maxDuration
 {
     //不设置，默认为CGFLOAT_MAX
-    if (!_recordLength) {
-        _recordLength = CGFLOAT_MAX;
+    if (!_maxDuration) {
+        _maxDuration = CGFLOAT_MAX;
     }
     
-    return _recordLength;
+    return _maxDuration;
 }
+
 /**
  *  开始录音
  */
--(void)startRecorde
+-(void)record
 {
     _pauseTime = 0;
-    _isSave = YES;
-    NSError *error = nil;
+    NSError *error;
     
     NSURL *recordeUrl = [NSURL fileURLWithPath:[self getRecordePath]];
     
-    NSMutableDictionary *recordSetting =[NSMutableDictionary dictionaryWithCapacity:10];
+    NSMutableDictionary *setting =[NSMutableDictionary dictionaryWithCapacity:10];
     
     // 音频格式
-    recordSetting[AVFormatIDKey] = @(kAudioFormatLinearPCM);
+    setting[AVFormatIDKey] = @(kAudioFormatLinearPCM);
     
     // 录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）
-    recordSetting[AVSampleRateKey] = @(8000);
+    setting[AVSampleRateKey] = @(8000);
     
     // 音频通道数 1 或 2
-    recordSetting[AVNumberOfChannelsKey] = @(2);
+    setting[AVNumberOfChannelsKey] = @(2);
     
     // 线性音频的位深度  8、16、24、32
-    recordSetting[AVLinearPCMBitDepthKey] = @(16);
+    setting[AVLinearPCMBitDepthKey] = @(16);
     
     //录音的质量
-    recordSetting[AVEncoderAudioQualityKey] = [NSNumber numberWithInt:AVAudioQualityMax];
+    setting[AVEncoderAudioQualityKey] = [NSNumber numberWithInt:AVAudioQualityMax];
     
-    _recorder = [[AVAudioRecorder alloc]initWithURL:recordeUrl settings:recordSetting error:&error];
+    _recorder = [[AVAudioRecorder alloc]initWithURL:recordeUrl settings:setting error:&error];
     if (error)
     {
         NSLog(@"error:%@",error);
@@ -102,7 +99,7 @@
     //启用分贝检测
     _recorder.meteringEnabled = YES;
     
-    [_recorder recordForDuration:self.recordLength];
+    [_recorder recordForDuration:self.maxDuration];
     
     // 如果要在真机运行, 还需要一个session类, 并且制定分类为录音
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
@@ -121,6 +118,68 @@
     NSLog(@"开始录音");
 }
 
+
+-(void)pause
+{
+    [_recorder pause];
+    _pauseTime = _recorder.currentTime;
+    
+    // 暂停循环
+//    self.displayLink.paused = YES;
+    NSLog(@"暂停录音");
+}
+
+-(void)resume
+{
+    [_recorder recordForDuration:_maxDuration];
+    [_recorder recordAtTime:_pauseTime];
+    
+    NSLog(@"继续录音");
+}
+
+-(void)stop
+{
+    if (_recorder && _recorder.isRecording)
+    {
+       [_recorder stop];
+    }
+    
+    NSLog(@"停止录音");
+}
+
+-(NSString *)getRecordePath
+{
+    return [[RecordFile stringByAppendingPathComponent:self.fileName]stringByAppendingString:@".caf"];
+}
+
+-(void)deleteRecord
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:[self getRecordePath]]) {
+        [fileManager removeItemAtPath:[self getRecordePath] error:nil];
+    }
+}
+
+-(void)resetRecorder
+{
+    _pauseTime = 0;
+    
+    [self deleteRecord];
+}
+
+#pragma mark - AVAudioRecorderDelegate
+-(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
+{
+    if (!flag) {
+        return;
+    }
+   
+    
+    if (_recordeBlock) {
+        _recordeBlock([self getRecordePath]);
+    }
+   
+}
 
 //#pragma mark 添加计时器
 //- (void)updateMetering
@@ -178,75 +237,4 @@
 //
 //    NSLog(@"power: %f",power);
 //}
-
--(void)pauseRecorde
-{
-    [_recorder pause];
-    _pauseTime = _recorder.currentTime;
-    
-    // 暂停循环
-//    self.displayLink.paused = YES;
-    NSLog(@"暂停录音");
-}
-
--(void)continueRecorde
-{
-    [_recorder recordForDuration:_recordLength];
-    [_recorder recordAtTime:_pauseTime];
-    
-    NSLog(@"继续录音");
-}
-
--(void)stopRecorde:(BOOL)isSave
-{
-    if (_recorder.isRecording == NO) {
-        return;
-    }
-    
-    _isSave = isSave;
-    
-    if (_recorder) {
-        [_recorder stop];
-    }
-    
-    // 暂停循环
-//    self.displayLink.paused = YES;
-    
-    NSLog(@"结束录音");
-}
-
--(NSString *)getRecordePath
-{
-    return [[RecordFile stringByAppendingPathComponent:self.fileName]stringByAppendingString:@".caf"];
-}
-
--(void)deleteRecord
-{
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:[self getRecordePath]]) {
-        [fileManager removeItemAtPath:[self getRecordePath] error:nil];
-    }
-}
-
--(void)resetRecorder
-{
-    _pauseTime = 0;
-    //    _recordeTotalTime = 0;
-    
-    [self deleteRecord];
-}
-
-#pragma mark - AVAudioRecorderDelegate
--(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
-{
-    if (_isSave)
-    {
-        if (_recordeBlock) {
-            _recordeBlock([self getRecordePath]);
-        }
-    }else
-    {
-        [self deleteRecord];
-    }
-}
 @end

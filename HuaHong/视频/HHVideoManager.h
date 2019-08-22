@@ -68,9 +68,6 @@
 //获得视频存放地址
 +(NSString *)getVideoCachePath;
 
-//开启／关闭闪光灯
-+(void)switchFlashLight;
-
 //获取视频时长
 + (CGFloat)getVideoLength:(NSURL *)URL;
 

@@ -37,13 +37,13 @@
         NSLog(@"recordePath:%@",recordePath);
     }];
     
-    [recorde startRecorde];
+    [recorde record];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
-        [recorde stopRecorde:YES];
+        [recorde stop];
     
 //   NSString *path = [[NSBundle mainBundle]pathForResource:@"12345" ofType:@"caf"];
 //    [[HHAudioPlayManager sharedManager]playAudioWhithURL:path progresscallback:^(CGFloat progress, NSString *currentTime, NSString *totalTime) {

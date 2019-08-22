@@ -229,10 +229,15 @@
     
     // 截图的时候调整到正确的方向
     generator.appliesPreferredTrackTransform = YES;
-    CMTime time = CMTimeMake(0, 600);
-    NSError *error = nil;
-    CMTime actualTime;
-    CGImageRef imageRef = [generator copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    
+    //根据图片的宽高比来计算图片高度
+    generator.maximumSize = CGSizeMake(100.0f, 0.0f);
+    
+    NSError *error;
+//    CMTime actualTime;
+//    CMTime time = CMTimeMake(0, 600);
+
+    CGImageRef imageRef = [generator copyCGImageAtTime:kCMTimeZero actualTime:NULL error:&error];
     
     if (error) {
         return nil;

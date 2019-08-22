@@ -17,27 +17,27 @@
 @property (nonatomic,copy) NSString *fileName;
 
 //录音时长
-@property (nonatomic,assign) NSTimeInterval recordLength;
+@property (nonatomic,assign) NSTimeInterval maxDuration;
     
-@property (nonatomic,copy) void(^recordeBlock)(NSString *recordePath);
+@property (nonatomic,copy) void(^recordeBlock)(NSString *filePath);
 
 //开始录音
--(void)startRecorde;
+-(void)record;
 
 /**
  *  暂停录音
  */
--(void)pauseRecorde;
+-(void)pause;
 
 /**
  *  暂停后 继续开始录音
  */
--(void)continueRecorde;
+-(void)resume;
 
 /**
  *  结束录音
  */
--(void)stopRecorde:(BOOL)isSave;
+-(void)stop;
 
 /**
  *  获取录音总时间

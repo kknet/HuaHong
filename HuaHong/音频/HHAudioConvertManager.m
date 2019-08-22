@@ -13,7 +13,7 @@
 @property (nonatomic, strong) AVAudioEngine *audioEngine;                           // 声音处理器
 @property (nonatomic, strong) SFSpeechRecognizer *speechRecognizer;                 // 语音识别器
 @property (nonatomic, strong) SFSpeechAudioBufferRecognitionRequest *speechRequest; // 语音请求对象
-@property (nonatomic, strong) SFSpeechRecognitionTask *currentSpeechTask;           // 当前语音识别进程@end
+@property (nonatomic, strong) SFSpeechRecognitionTask *currentSpeechTask;           // 当前语音识别进程
 @end
 @implementation HHAudioConvertManager
 

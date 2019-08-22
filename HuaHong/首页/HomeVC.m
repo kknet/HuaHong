@@ -443,6 +443,10 @@ static NSString *headerID = @"headerID";
                 VideoRecordController *VC = [[VideoRecordController alloc]init];
                 [self presentViewController:VC animated:YES completion:nil];
                 
+            }else if (indexPath.item == 5)
+            {
+                
+                vc = [kStory instantiateViewControllerWithIdentifier:@"CaptureController"];
             }
         }
             break;
