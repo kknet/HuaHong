@@ -21,6 +21,8 @@
 
 @interface VideoRecorder : NSObject
 
+- (instancetype)initWithFrame:(CGRect)frame SuperView:(UIView *)superView;
+
 @property (nonatomic,copy) NSString *videoPath;
 @property (nonatomic,copy) NSString *videoName;
 @property (nonatomic, assign) CGFloat maxVideoDuration;//最大时长
@@ -29,9 +31,6 @@
 @property (atomic, assign, readonly) BOOL isRecording;//正在录制
 @property (atomic, assign, readonly) BOOL isPaused;//是否暂停
 @property (nonatomic, weak) id <VideoRecordDelegate> delegate;
-
-//捕获到的视频呈现的layer
-- (AVCaptureVideoPreviewLayer *)previewLayer;
 
 //开始录制
 - (void)startRecording;

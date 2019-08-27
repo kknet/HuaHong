@@ -11,7 +11,6 @@
 
 /********************公共*************/
 @property (strong, nonatomic) AVCaptureSession           *captureSession;//捕捉会话
-@property (copy,   nonatomic) dispatch_queue_t           captureQueue;//录制队列
 
 /********************音频相关**********/
 @property (strong, nonatomic) AVCaptureDeviceInput       *audioInput;//音频输入
@@ -36,14 +35,6 @@
 @property (atomic, assign) BOOL isPaused;//是否暂停
 @property (atomic, assign) BOOL isDiscount;//是否中断
 @property (atomic, assign) CMTime startTime;//开始录制的时间
-@property (atomic, assign) double currentRecordTime;//当前录制时间
-@property (atomic, assign) CMTime _timeOffset;//录制的偏移CMTime
-@property (atomic, assign) CMTime _lastVideo;//记录上一次视频数据文件的CMTime
-@property (atomic, assign) CMTime _lastAudio;//记录上一次音频数据文件的CMTime
-@property (atomic, assign) int _channels;//音频通道
-@property (atomic, assign) Float64 _samplerate;//音频采样率
-@property (atomic, assign) NSUInteger witdh;/**捕获视频的宽*/
-@property (atomic, assign) NSUInteger height;/**捕获视频的高*/
 @property (atomic, assign) SystemCaptureType captureType;//捕捉类型
 
 @end
@@ -59,7 +50,7 @@
 }
 
 //MARK:- Control start/stop capture or change camera
-- (void)sessionRunning{
+- (void)startRunning{
     if (![self.captureSession isRunning]) {
         //使用同步会损耗时间，故用异步
         dispatch_async(self.captureQueue, ^{
@@ -67,7 +58,7 @@
         });
     }
 }
-- (void)sessionStop{
+- (void)stopRunning{
     if ([self.captureSession isRunning]) {
         //异步停止运行
         dispatch_async(self.captureQueue, ^{
@@ -113,6 +104,9 @@
     
     /**设置分辨率**/
     //    [self setVideoPreset];
+    
+    _witdh = 720;
+    _height = 1280;
     
     //设置视频录制的方向
     self.videoConnection.videoOrientation = AVCaptureVideoOrientationPortrait;

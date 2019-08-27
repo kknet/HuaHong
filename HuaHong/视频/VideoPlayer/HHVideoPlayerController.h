@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HHVideoPlayerController : UIViewController
-
+@property (copy,nonatomic) NSString *filePath;
 @end
 
 NS_ASSUME_NONNULL_END

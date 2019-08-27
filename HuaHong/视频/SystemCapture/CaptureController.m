@@ -23,7 +23,7 @@
     
     [self testVideo];
     
-    [self.capture sessionRunning];
+    [self.capture startRunning];
 }
 
 - (IBAction)startAction:(id)sender {

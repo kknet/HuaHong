@@ -37,6 +37,9 @@ typedef NS_ENUM(int,SystemCaptureType){
 @property (nonatomic, strong) UIView *preview;
 @property (nonatomic, weak) id<SystemCaptureDelegate> delegate;
 @property (nonatomic, assign, readonly) BOOL isRecording;//正在录制
+@property (copy,   nonatomic) dispatch_queue_t captureQueue;//录制队列
+@property (atomic, assign) NSUInteger witdh;/**捕获视频的宽*/
+@property (atomic, assign) NSUInteger height;/**捕获视频的高*/
 
 - (instancetype)initWithType:(SystemCaptureType)type;
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
@@ -47,9 +50,9 @@ typedef NS_ENUM(int,SystemCaptureType){
 - (void)prepareWithPreviewSize:(CGSize)size;
 
 /**开始*/
-- (void)sessionRunning;
+- (void)startRunning;
 /**结束*/
-- (void)sessionStop;
+- (void)stopRunning;
 
 /**切换摄像头*/
 - (void)switchCamera;

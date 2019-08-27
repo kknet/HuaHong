@@ -8,6 +8,7 @@
 
 #import "VideoBaseController.h"
 #import "HHPlayerViewController.h"
+#import "HHVideoPlayerController.h"
 
 @interface VideoBaseController()
 @property (nonatomic, strong) NSTimer* timer;//记录录制时间
@@ -142,10 +143,15 @@
 
 -(void)playVideo:(NSString *)path
 {
-    HHPlayerViewController *playVc = [[HHPlayerViewController alloc] init];
-    //    [playVc playVideo_AVPlayerViewController:[NSURL fileURLWithPath:path]];
-    [playVc playVideo_AVPlayer:[NSURL fileURLWithPath:path]];
-    [self presentViewController:playVc animated:YES completion:nil];
+//    HHPlayerViewController *playVc = [[HHPlayerViewController alloc] init];
+//    //    [playVc playVideo_AVPlayerViewController:[NSURL fileURLWithPath:path]];
+//    [playVc playVideo_AVPlayer:[NSURL fileURLWithPath:path]];
+//    [self presentViewController:playVc animated:YES completion:nil];
+    
+      HHVideoPlayerController *playVC = [kStory instantiateViewControllerWithIdentifier:@"HHVideoPlayerController"];
+    playVC.filePath = path;
+    [self presentViewController:playVC animated:YES completion:nil];
+    
 }
 @end
 

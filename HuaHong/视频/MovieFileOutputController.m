@@ -20,7 +20,7 @@
     [super viewDidAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 
-    [self.capture sessionRunning];
+    [self.capture startRunning];
     
 }
 
@@ -29,7 +29,7 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
-    [self.capture sessionStop];
+    [self.capture stopRunning];
 }
 
 - (void)viewDidLoad {
@@ -56,7 +56,7 @@
     NSLog(@"url = %@ ,recodeTime: = %f s, size: %lld MB", outputFileURL, CMTimeGetSeconds(captureOutput.recordedDuration), captureOutput.recordedFileSize / 1024/1024);
 
     if (self.capture.isRecording) {
-        [self.capture sessionStop];
+        [self.capture stopRunning];
     }
     
     [self timerStop];

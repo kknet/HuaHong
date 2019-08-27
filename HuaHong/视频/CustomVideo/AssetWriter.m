@@ -33,6 +33,7 @@
         //先把路径下的文件给删除掉，保证录制的文件是最新的
         [[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
         NSURL* url = [NSURL fileURLWithPath:self.path];
+        
         //初始化写入媒体类型为MP4类型
         _writer = [AVAssetWriter assetWriterWithURL:url fileType:AVFileTypeMPEG4 error:nil];
         
@@ -56,7 +57,7 @@
     //录制视频的一些配置，分辨率，编码方式等等
     
     //调整视频写入时的压缩比率
-        NSDictionary *compressConfig =  @{AVVideoAverageBitRateKey:[NSNumber numberWithInteger:cx*cy],AVVideoProfileLevelKey:AVVideoProfileLevelH264BaselineAutoLevel,AVVideoMaxKeyFrameIntervalKey:[NSNumber numberWithInteger:10]};
+    NSDictionary *compressConfig =  @{AVVideoAverageBitRateKey:[NSNumber numberWithInteger:cx*cy],AVVideoProfileLevelKey:AVVideoProfileLevelH264BaselineAutoLevel,AVVideoMaxKeyFrameIntervalKey:[NSNumber numberWithInteger:10]};
     
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys:
       AVVideoCodecH264, AVVideoCodecKey,
@@ -95,10 +96,6 @@
     
 }
 
-//完成视频录制时调用
-- (void)finishWithCompletionHandler:(void (^)(void))handler {
-    [_writer finishWritingWithCompletionHandler: handler];
-}
 
 //通过这个方法写入数据
 - (BOOL)encodeFrame:(CMSampleBufferRef)sampleBuffer isVideo:(BOOL)isVideo {
@@ -136,6 +133,11 @@
         }
     }
     return NO;
+}
+
+//完成视频录制时调用
+- (void)finishWithCompletionHandler:(void (^)(void))handler {
+    [_writer finishWritingWithCompletionHandler: handler];
 }
 
 - (void)dealloc {

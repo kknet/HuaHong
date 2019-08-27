@@ -27,7 +27,9 @@
     [super viewDidLoad];
     
     self.playManager = [HHVideoPlayManager defaultManager];
-    self.playManager.URL = [NSURL URLWithString:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
+//    self.playManager.URL = [NSURL URLWithString:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
+    self.playManager.URL = [NSURL fileURLWithPath:_filePath];
+
     [self.playManager addPlayerLayerTo:self.playView];
     
     __weak typeof(self) weakSelf = self;
@@ -63,6 +65,9 @@
 //快退
 - (IBAction)rewindAction:(id)sender
 {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    return;
+    
 //    self.playManager.rate = MAX(self.playManager.rate-2.0, -2.0);
     
     self.playManager.rate = -1.5;

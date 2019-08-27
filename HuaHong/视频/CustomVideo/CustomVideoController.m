@@ -103,21 +103,22 @@
 - (VideoRecorder *)recorder
 {
     if (_recorder == nil) {
-        _recorder = [[VideoRecorder alloc] init];
-        _recorder.maxVideoDuration = NSIntegerMax;
+        _recorder = [[VideoRecorder alloc] initWithFrame:CGRectMake(0, self.topView.bottom, self.view.width, self.bottomView.top-self.topView.bottom) SuperView:self.view];
+//        _recorder.maxVideoDuration = NSIntegerMax;
         _recorder.delegate = self;
-        _recorder.previewLayer.frame = self.view.bounds;
-        _recorder.maxVideoDuration = 10000;
-        [self.view.layer insertSublayer:_recorder.previewLayer atIndex:0];
+//        _recorder.capture.frame = self.view.bounds;
+        _recorder.maxVideoDuration = 10;
+//        [self.view.layer insertSublayer:_recorder.previewLayer atIndex:0];
     }
     return _recorder;
 }
 
 #pragma mark - VideoRecordDelegate
-- (void)recordProgress:(CGFloat)progress
+- (void)recordProgress:(CGFloat)progress Duration:(double)duration
 {
     NSLog(@"maxVideoDuration:%f",progress * self.recorder.maxVideoDuration);
-    [self.bottomView configTimeLabel:progress * self.recorder.maxVideoDuration];
+    
+    [self.bottomView configTimeLabel:duration];
 }
 
 
