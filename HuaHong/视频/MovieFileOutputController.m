@@ -15,22 +15,6 @@
 
 @implementation MovieFileOutputController
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-
-    [self.capture startRunning];
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-
-    [self.capture stopRunning];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +25,7 @@
     _capture.preview.frame = self.view.bounds;
     [self.view insertSubview:_capture.preview atIndex:0];
     self.capture.delegate = self;
+    [self.capture startRunning];
     
 }
 
@@ -52,7 +37,8 @@
 
 -(void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
 {
-    
+    [MBProgressHUD showLoading:@"视频处理中，请稍后" toView:self.view];
+
     NSLog(@"url = %@ ,recodeTime: = %f s, size: %lld MB", outputFileURL, CMTimeGetSeconds(captureOutput.recordedDuration), captureOutput.recordedFileSize / 1024/1024);
 
     if (self.capture.isRecording) {
@@ -68,6 +54,9 @@
     [self.bottomView configTimeLabel:self.timeLengh];
     
     self.topView.hidden = NO;
+    
+    [MBProgressHUD hideHUDForView:self.view];
+
     
 }
 

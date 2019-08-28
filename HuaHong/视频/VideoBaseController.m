@@ -138,7 +138,6 @@
 
 -(void)begainrecord
 {
-    
 }
 
 -(void)playVideo:(NSString *)path

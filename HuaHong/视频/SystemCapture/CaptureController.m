@@ -65,12 +65,28 @@
     [CCSystemCapture checkCameraAuthor];
     
     //捕获媒体
-    _capture = [[CCSystemCapture alloc] initWithType:SystemCaptureTypeMovie];
+    _capture = [[CCSystemCapture alloc] initWithType:SystemCaptureTypeMetadata];
     CGSize size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.width);
     [_capture prepareWithPreviewSize:size];  //捕获视频时传入预览层大小
     _capture.preview.frame = CGRectMake(0, 120, size.width, size.height);
     [self.view addSubview:_capture.preview];
     self.capture.delegate = self;
     
+}
+
+-(void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection
+{
+    //    if (metadataObjects.count)
+    //    {
+    //        AVMetadataMachineReadableCodeObject *metadataObject = [metadataObjects firstObject];
+    //        NSString *scanValue = metadataObject.stringValue;
+    //        [_session stopRunning];
+    //        [self showMessage:scanValue];
+    //
+    //    }
+    
+//    if (_delegate && [_delegate respondsToSelector:@selector(captureOutput:didOutputMetadataObjects:fromConnection:)]) {
+//        [_delegate captureOutput:output didOutputMetadataObjects:metadataObjects fromConnection:connection];
+//    }
 }
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "CCSystemCapture.h"
-@interface CCSystemCapture ()<AVCaptureAudioDataOutputSampleBufferDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureFileOutputRecordingDelegate>
+@interface CCSystemCapture ()<AVCaptureAudioDataOutputSampleBufferDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureFileOutputRecordingDelegate,AVCaptureMetadataOutputObjectsDelegate>
 
 /********************公共*************/
 @property (strong, nonatomic) AVCaptureSession           *captureSession;//捕捉会话
@@ -26,6 +26,10 @@
 
 /********************静态图片捕捉**********/
 @property (strong, nonatomic) AVCaptureStillImageOutput  *imageOutPut;//静态图片输出
+
+/********************元数据输出**********/
+@property (strong, nonatomic) AVCaptureMetadataOutput  *metadataOutPut;//二维码，人脸识别
+
 
 /********************预览层**********/
 @property (assign, nonatomic) CGSize                      prelayerSize;//预览窗口大小
@@ -131,6 +135,21 @@
     }
 }
 
+-(void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection
+{
+//    if (metadataObjects.count)
+//    {
+//        AVMetadataMachineReadableCodeObject *metadataObject = [metadataObjects firstObject];
+//        NSString *scanValue = metadataObject.stringValue;
+//        [_session stopRunning];
+//        [self showMessage:scanValue];
+//
+//    }
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(captureOutput:didOutputMetadataObjects:fromConnection:)]) {
+        [_delegate captureOutput:output didOutputMetadataObjects:metadataObjects fromConnection:connection];
+    }
+}
 //MARK:- 懒加载
 /**设置分辨率**/
 - (void)setVideoPreset{
@@ -214,6 +233,19 @@
                 //添加影片输出
                 if ([_captureSession canAddOutput:self.movieOutput]) {
                     [_captureSession addOutput:self.movieOutput];
+                }
+            }
+                break;
+            case SystemCaptureTypeMetadata:
+            {
+                //添加视频输入
+                if ([_captureSession canAddInput:self.videoInput]) {
+                    [_captureSession addInput:self.videoInput];
+                }
+                
+                //添加元数据输出
+                if ([_captureSession canAddOutput:self.metadataOutPut]) {
+                    [_captureSession addOutput:self.metadataOutPut];
                 }
             }
                 break;
@@ -371,6 +403,20 @@
     return _imageOutPut;
 }
 
+/********************元数据输出**********/
+- (AVCaptureMetadataOutput *)metadataOutPut
+{
+    if (!_metadataOutPut) {
+        _metadataOutPut = [[AVCaptureMetadataOutput alloc]init];
+        [_metadataOutPut setMetadataObjectsDelegate:self queue:self.captureQueue];
+        _metadataOutPut.metadataObjectTypes = @[AVMetadataObjectTypeEAN13Code,
+                                        AVMetadataObjectTypeEAN8Code,
+                                        AVMetadataObjectTypeCode128Code,
+                                        AVMetadataObjectTypeQRCode];
+    }
+    
+    return _metadataOutPut;
+}
 //MARK:- 切换摄像头
 -(void)switchCamera{
     
@@ -745,6 +791,9 @@
         }else if (_captureType == SystemCaptureTypeMovie){
             [self.captureSession removeInput:self.videoInput];
             [self.captureSession removeOutput:self.movieOutput];
+        }else if (_captureType == SystemCaptureTypeMetadata){
+            [self.captureSession removeInput:self.videoInput];
+            [self.captureSession removeOutput:self.metadataOutPut];
         }
     }
     self.captureSession = nil;

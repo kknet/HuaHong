@@ -11,10 +11,12 @@
 #import <AVFoundation/AVFoundation.h>
 //捕获类型
 typedef NS_ENUM(int,SystemCaptureType){
-    SystemCaptureTypeVideo = 0,  //视频和音频都有，适合自定义录制视频
-    SystemCaptureTypeAudio,      //只有音频
-    SystemCaptureTypeMovie,      //影片录制，movie file output
-    SystemCaptureTypeStillImage  //静态图片，只有视频，无音频
+    SystemCaptureTypeVideo = 0,   //视频和音频都有，适合自定义录制视频
+    SystemCaptureTypeAudio,       //只有音频
+    SystemCaptureTypeMovie,       //影片录制，movie file output
+    SystemCaptureTypeStillImage,  //静态图片，只有视频，无音频
+    SystemCaptureTypeMetadata     //二维码，人脸识别
+
     
 };
 
@@ -27,6 +29,7 @@ typedef NS_ENUM(int,SystemCaptureType){
 //AVCaptureFileOutputRecordingDelegate
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections;
 -(void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error;
+-(void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection;
 
 -(void)captureOutput:(AVCaptureOutput *)captureOutput captureStillImage:(NSData *)imageData;
 @end
