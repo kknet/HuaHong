@@ -147,9 +147,27 @@
 //    }
     
     if (_delegate && [_delegate respondsToSelector:@selector(captureOutput:didOutputMetadataObjects:fromConnection:)]) {
-        [_delegate captureOutput:output didOutputMetadataObjects:metadataObjects fromConnection:connection];
+        
+        NSArray *face = [self transFormFaces:metadataObjects];
+        [_delegate captureOutput:output didOutputMetadataObjects:face fromConnection:connection];
     }
 }
+
+//坐标转换
+- (NSArray *)transFormFaces:(NSArray *)faces
+{
+    NSMutableArray *arrayM = [NSMutableArray array];
+    
+    for (AVMetadataObject *face in faces) {
+        
+        AVMetadataObject *transformFace = [self.previewLayer transformedMetadataObjectForMetadataObject:face];
+        [arrayM addObject:transformFace];
+        
+    }
+                                           
+    return arrayM.copy;
+}
+
 //MARK:- 懒加载
 /**设置分辨率**/
 - (void)setVideoPreset{
@@ -236,7 +254,7 @@
                 }
             }
                 break;
-            case SystemCaptureTypeMetadata:
+            case SystemCaptureTypeQRCode:
             {
                 //添加视频输入
                 if ([_captureSession canAddInput:self.videoInput]) {
@@ -246,15 +264,36 @@
                 //添加元数据输出
                 if ([_captureSession canAddOutput:self.metadataOutPut]) {
                     [_captureSession addOutput:self.metadataOutPut];
+                    _metadataOutPut.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+
                 }
+                
+                //自动聚焦
+                [self focusForQRCode];
+                
+            }
+                break;
+            case SystemCaptureTypeFace:
+            {
+                //添加视频输入
+                if ([_captureSession canAddInput:self.videoInput]) {
+                    [_captureSession addInput:self.videoInput];
+                }
+                
+                //添加元数据输出
+                if ([_captureSession canAddOutput:self.metadataOutPut]) {
+                    [_captureSession addOutput:self.metadataOutPut];
+                    _metadataOutPut.metadataObjectTypes = @[AVMetadataObjectTypeFace];
+
+                }
+                
             }
                 break;
             default:
                 break;
         }
         
-        
-        
+      
     }
     return _captureSession;
 }
@@ -409,10 +448,7 @@
     if (!_metadataOutPut) {
         _metadataOutPut = [[AVCaptureMetadataOutput alloc]init];
         [_metadataOutPut setMetadataObjectsDelegate:self queue:self.captureQueue];
-        _metadataOutPut.metadataObjectTypes = @[AVMetadataObjectTypeEAN13Code,
-                                        AVMetadataObjectTypeEAN8Code,
-                                        AVMetadataObjectTypeCode128Code,
-                                        AVMetadataObjectTypeQRCode];
+       
     }
     
     return _metadataOutPut;
@@ -496,6 +532,22 @@
 //}
 
 //MARK:- 调整焦距&曝光
+
+- (void)focusForQRCode
+{
+    //自动聚焦
+    AVCaptureDevice *device = self.videoInput.device;
+    NSError *error;
+    
+    if ([device lockForConfiguration:&error]) {
+        if (device.autoFocusRangeRestrictionSupported) {
+        device.autoFocusRangeRestriction = AVCaptureAutoFocusRangeRestrictionNear;
+        
+        [device unlockForConfiguration];
+        }
+    }
+}
+
 - (void)focusAtPoint:(CGPoint)point
 {
 //    CGSize size = [UIScreen mainScreen].bounds.size;
@@ -791,7 +843,10 @@
         }else if (_captureType == SystemCaptureTypeMovie){
             [self.captureSession removeInput:self.videoInput];
             [self.captureSession removeOutput:self.movieOutput];
-        }else if (_captureType == SystemCaptureTypeMetadata){
+        }else if (_captureType == SystemCaptureTypeQRCode){
+            [self.captureSession removeInput:self.videoInput];
+            [self.captureSession removeOutput:self.metadataOutPut];
+        }else if (_captureType == SystemCaptureTypeFace){
             [self.captureSession removeInput:self.videoInput];
             [self.captureSession removeOutput:self.metadataOutPut];
         }

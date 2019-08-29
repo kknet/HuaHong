@@ -15,8 +15,8 @@ typedef NS_ENUM(int,SystemCaptureType){
     SystemCaptureTypeAudio,       //只有音频
     SystemCaptureTypeMovie,       //影片录制，movie file output
     SystemCaptureTypeStillImage,  //静态图片，只有视频，无音频
-    SystemCaptureTypeMetadata     //二维码，人脸识别
-
+    SystemCaptureTypeQRCode,     //二维码
+    SystemCaptureTypeFace        //人脸识别
     
 };
 

@@ -23,7 +23,8 @@
 
 -(void)back;
 -(void)switchFlashLight;
-- (void)changeCamera;
+/**切换摄像头*/
+- (void)switchCamera;
 
 -(void)playVideo:(NSString *)path;
 -(void)begainrecord;

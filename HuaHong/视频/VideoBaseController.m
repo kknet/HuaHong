@@ -91,7 +91,7 @@
             [self switchFlashLight];
             break;
         case VideoTopViewClickTypeSwitchCamera:
-            [self changeCamera];
+            [self switchCamera];
             break;
         default:
             break;
@@ -132,7 +132,8 @@
 {
 }
 
-- (void)changeCamera
+/**切换摄像头*/
+- (void)switchCamera
 {
 }
 

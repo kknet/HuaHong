@@ -107,7 +107,8 @@
     [self recordAction];
 }
 
--(void)changeCamera
+/**切换摄像头*/
+- (void)switchCamera
 {
     [self.recorder switchCamera];
 }
