@@ -8,11 +8,11 @@
 
 #import "VideoRecorder.h"
 #import "AssetWriter.h"
-#import "CCSystemCapture.h"
+#import "SystemCapture.h"
 
 @interface VideoRecorder ()<SystemCaptureDelegate>
 
-@property (nonatomic, strong) CCSystemCapture *capture;
+@property (nonatomic, strong) SystemCapture *capture;
 @property (strong, nonatomic) AssetWriter     *assetWriter;//视频写入
 
 @property (atomic, assign) BOOL isRecording;//正在录制
@@ -33,10 +33,10 @@
     self = [super init];
     if (self) {
      
-        [CCSystemCapture checkCameraAuthor];
+        [SystemCapture checkCameraAuthor];
         
         //捕获媒体
-        _capture = [[CCSystemCapture alloc] initWithType:SystemCaptureTypeVideo];
+        _capture = [[SystemCapture alloc] initWithType:SystemCaptureTypeVideo];
     
         [_capture prepareWithPreviewSize:frame.size];  //捕获视频时传入预览层大小
         _capture.preview.frame = CGRectMake(0, frame.origin.y, frame.size.width, frame.size.height);

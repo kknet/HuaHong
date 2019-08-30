@@ -1,13 +1,13 @@
 //
-//  CCSystemCapture.m
+//  SystemCapture.m
 //  HuaHong
 //
 //  Created by qk-huahong on 2019/8/21.
 //  Copyright © 2019 huahong. All rights reserved.
 //
 
-#import "CCSystemCapture.h"
-@interface CCSystemCapture ()<AVCaptureAudioDataOutputSampleBufferDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureFileOutputRecordingDelegate,AVCaptureMetadataOutputObjectsDelegate>
+#import "SystemCapture.h"
+@interface SystemCapture ()<AVCaptureAudioDataOutputSampleBufferDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureFileOutputRecordingDelegate,AVCaptureMetadataOutputObjectsDelegate>
 
 /********************公共*************/
 @property (strong, nonatomic) AVCaptureSession           *captureSession;//捕捉会话
@@ -43,7 +43,7 @@
 
 @end
 
-@implementation CCSystemCapture
+@implementation SystemCapture
 
 - (instancetype)initWithType:(SystemCaptureType)type {
     self = [super init];
@@ -59,6 +59,7 @@
         //使用同步会损耗时间，故用异步
         dispatch_async(self.captureQueue, ^{
             [self.captureSession startRunning];
+            _isRecording = true;
         });
     }
 }
@@ -67,6 +68,7 @@
         //异步停止运行
         dispatch_async(self.captureQueue, ^{
             [self.captureSession stopRunning];
+            _isRecording = false;
         });
         
     }

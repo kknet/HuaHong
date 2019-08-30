@@ -1,5 +1,5 @@
 //
-//  CCSystemCapture.h
+//  SystemCapture.h
 //  HuaHong
 //
 //  Created by qk-huahong on 2019/8/21.
@@ -35,7 +35,7 @@ typedef NS_ENUM(int,SystemCaptureType){
 @end
 
 /**捕获音视频*/
-@interface CCSystemCapture : NSObject
+@interface SystemCapture : NSObject
 /**预览层*/
 @property (nonatomic, strong) UIView *preview;
 @property (nonatomic, weak) id<SystemCaptureDelegate> delegate;

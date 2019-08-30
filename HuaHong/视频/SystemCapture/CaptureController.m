@@ -8,10 +8,10 @@
 
 
 #import "CaptureController.h"
-#import "CCSystemCapture.h"
+#import "SystemCapture.h"
 
 @interface CaptureController ()<SystemCaptureDelegate>
-@property (nonatomic, strong) CCSystemCapture *capture;
+@property (nonatomic, strong) SystemCapture *capture;
 @property (nonatomic, strong) CALayer *overLayer;
 @property (nonatomic, strong) NSMutableDictionary *layerDic;
 //@property (nonatomic, strong) NSFileHandle *handle;
@@ -68,10 +68,10 @@
     
     
     
-    [CCSystemCapture checkCameraAuthor];
+    [SystemCapture checkCameraAuthor];
     
     //捕获媒体
-    _capture = [[CCSystemCapture alloc] initWithType:SystemCaptureTypeFace];
+    _capture = [[SystemCapture alloc] initWithType:SystemCaptureTypeFace];
     CGSize size = CGSizeMake(self.view.frame.size.width, self.view.frame.size.width);
     [_capture prepareWithPreviewSize:size];  //捕获视频时传入预览层大小
     _capture.preview.frame = CGRectMake(0, 120, size.width, size.height);

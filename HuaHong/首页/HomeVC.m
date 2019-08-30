@@ -446,7 +446,8 @@ static NSString *headerID = @"headerID";
             }else if (indexPath.item == 5)
             {
                 
-                vc = [kStory instantiateViewControllerWithIdentifier:@"CaptureController"];
+//                vc = [kStory instantiateViewControllerWithIdentifier:@"CaptureController"];
+                vc = [VideoEncodeDecodeController new];
             }
         }
             break;

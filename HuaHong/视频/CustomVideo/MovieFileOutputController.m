@@ -7,10 +7,10 @@
 //
 
 #import "MovieFileOutputController.h"
-#import "CCSystemCapture.h"
+#import "SystemCapture.h"
 
 @interface MovieFileOutputController ()<SystemCaptureDelegate>
-@property (nonatomic, strong) CCSystemCapture *capture;
+@property (nonatomic, strong) SystemCapture *capture;
 @end
 
 @implementation MovieFileOutputController
@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _capture = [[CCSystemCapture alloc] initWithType:SystemCaptureTypeMovie];
+    _capture = [[SystemCapture alloc] initWithType:SystemCaptureTypeMovie];
     CGSize size = self.view.bounds.size;
     [_capture prepareWithPreviewSize:size];  //捕获视频时传入预览层大小
     _capture.preview.frame = self.view.bounds;
