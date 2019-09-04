@@ -18,6 +18,9 @@
 
 - (void)swizzled_setDelegate:(id<UITableViewDelegate>)delegate
 {
+    if (delegate == nil) {
+        return;
+    }
     
     [self swizzled_setDelegate:delegate];
     

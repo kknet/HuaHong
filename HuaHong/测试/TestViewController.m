@@ -270,6 +270,8 @@
 //    TestModel *model = [TestModel new];
 //    [model testMethod];
 
+    NSDictionary *dic = @{@"aaa":@"111",@"bbb":@"222",@"ccc":@"333",@"ddd":@"444",@"eee":@[@"555"]};
+    NSLog(@"dic:%@",dic);
 }
 
 - (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateStr
