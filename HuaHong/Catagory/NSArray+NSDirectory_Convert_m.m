@@ -12,7 +12,12 @@
 
 - (NSString *)convertToJson
 {
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
+    if (error) {
+        NSLog(@"NSArray转json失败");
+        return @"";
+    }
     NSString *jsonStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     return jsonStr;
 }
@@ -23,7 +28,12 @@
 
 - (NSString *)convertToJson
 {
-    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
+    if (error) {
+        NSLog(@"NSDictionary转json失败");
+        return @"";
+    }
     NSString *jsonStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     return jsonStr;
 }

@@ -12,54 +12,76 @@
 #import "NSDictionary+Null.h"
 
 @interface AFController ()
-
+@property (strong, nonatomic) NSURLSessionTask *task;
 @end
 
 @implementation AFController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
 
     [[HHRequestManager defaultManager] startNetMonitoring];
+    
+    //请求结果过滤NSNull
+    [[HHRequestManager defaultManager]setFilterResponseCallback:^(id _Nonnull data, void (^ _Nonnull continueResponseBlock)(id _Nonnull)) {
+
+        id result = data;
+        if ([data isKindOfClass:[NSDictionary class]] || [data isKindOfClass:[NSMutableDictionary class]]) {
+
+            NSDictionary *dic = (NSDictionary *)data;
+            result = [dic filterNull];
+
+        }else if ([data isKindOfClass:[NSArray class]] || [data isKindOfClass:[NSMutableArray class]]){
+
+            NSArray *array = (NSArray *)data;
+            result = [array filterNull];
+        }
+
+        continueResponseBlock(result);
+    }];
+    
+    
+    self.task = [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{} requestType:POST progress:nil
+                                                       success:^(id  _Nonnull responseObject) {
+                                                           
+                                                       } failure:^(RequestErrorType error) {
+                                                           
+                                                       } isSupportHud:YES isSupportErrorAlert:YES];
+    
+    [self addRequestTask:self.task];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
-//    [[QKRequestManager defaultManager] setFilterResponseCallback:^(NSDictionary  *_Nonnull data, void (^ _Nonnull continueResponseBlock)(id _Nonnull)) {
-//
-//        continueResponseBlock([data filterNull]);
-//    }];
+  
+    NSLog(@"task:%@",self.task);
     
-    
-    [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{@"userId":@"8"} requestType:POST progress:nil
-    success:^(id  _Nonnull responseObject) {
-
-    } failure:^(RequestErrorType error) {
-
-    } isSupportHud:YES isSupportErrorAlert:YES];
-    
-    
-//    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/QQ_V6.5.3.dmg"];
-//    [[HHRequestManager defaultManager]download:@"http://dldir1.qq.com/qqfile/QQforMac/QQ_V6.5.3.dmg" downloadPath:path progress:^(NSProgress * _Nonnull progress) {
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            CGFloat percent = progress.completedUnitCount/(CGFloat)progress.totalUnitCount;
-//            [SVProgressHUD showProgress:percent status:@"下载进度"];
-//        });
-//
-//
-//    } success:^(NSString * _Nonnull filePath) {
-//        NSLog(@"download complate");
-//        [SVProgressHUD dismiss];
-//    } failure:^(RequestErrorType error) {
-//
-//    } isSupportHud:NO isSupportErrorAlert:YES];
+  
+ 
     
 }
 
--(void)uploadFile
+- (void)downloadFile
+{
+    //下载
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/QQ_V6.5.3.dmg"];
+    [[HHRequestManager defaultManager]download:@"http://dldir1.qq.com/qqfile/QQforMac/QQ_V6.5.3.dmg" downloadPath:path progress:^(NSProgress * _Nonnull progress) {
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CGFloat percent = progress.completedUnitCount/(CGFloat)progress.totalUnitCount;
+            [SVProgressHUD showProgress:percent status:@"下载进度"];
+        });
+
+
+    } success:^(NSString * _Nonnull filePath) {
+        NSLog(@"download complate");
+        [SVProgressHUD dismiss];
+    } failure:^(RequestErrorType error) {
+
+    } isSupportHud:NO isSupportErrorAlert:YES];
+}
+- (void)uploadFile
 {
     NSString *urlStr = [kBaseURL stringByAppendingPathComponent:@"uploads/123.mp4"];
     NSURL *fileUrl = [[NSBundle mainBundle]URLForResource:@"weixinY.mp4" withExtension:nil];

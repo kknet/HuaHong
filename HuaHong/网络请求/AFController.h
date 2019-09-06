@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AFController : UIViewController
+@interface AFController : BaseViewController
 
 @end

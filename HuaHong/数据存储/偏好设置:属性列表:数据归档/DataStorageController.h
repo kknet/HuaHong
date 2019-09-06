@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DataStorageController : UIViewController
+@interface DataStorageController : BaseViewController
 
 @end

@@ -57,9 +57,6 @@ typedef NS_ENUM(NSUInteger, RequestErrorType) {
 //设置requestHeader
 - (void)setRequestHeaderField:(NSDictionary *)params;
 
-//判断是否设置代理
-//- (BOOL)getProxyStatus;
-
 
 /**
  发起网络请求

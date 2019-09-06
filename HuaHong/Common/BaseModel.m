@@ -43,6 +43,8 @@
 //        self.kid = value;
 //    }
 }
+
+//MARK:- NSCoding
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     unsigned int count = 0;
@@ -79,6 +81,8 @@
     
     return self;
 }
+
+//MARK:-
 
 - (NSString *)description
 {

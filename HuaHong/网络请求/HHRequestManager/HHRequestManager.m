@@ -472,9 +472,12 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
 #pragma mark -处理错误
 - (void)parseError:(NSError *)error url:(NSString *)url withTask:(id)task withErrorBlock:(void (^)(RequestErrorType errorType))errorBlock isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert{
     
-    
     if (isSupportHud) {
         [MBProgressHUD hideHUDForView:nil];
+    }
+    
+    if ([error.localizedDescription isEqualToString:@"已取消"]) {
+        return;
     }
     
     NSHTTPURLResponse *response;
@@ -505,7 +508,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     NSLog(@"error:%@",error.description);
     
     if (isSupportErrorAlert) {
-        [MBProgressHUD showInfo:@"网络请求错误" toView:nil];
+        [MBProgressHUD showInfo:@"网络请求失败，请重试!" toView:nil];
     }
 }
 @end

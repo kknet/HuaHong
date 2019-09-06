@@ -110,7 +110,7 @@
         }
         
         
-        NSLog(@"count: %ld",objects.count);
+        NSLog(@"count: %lu",(unsigned long)objects.count);
     }];
 }
 

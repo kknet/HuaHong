@@ -19,12 +19,6 @@
 
 @implementation DataStorageController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-}
-
 - (IBAction)saveData
 {
     Model *model = [[Model alloc]init];
@@ -48,7 +42,7 @@
     
     
     /**
-        3.数据归档
+        3.数据归档 必须遵守NSCoding协议，并实现代理方法
      */
     [NSKeyedArchiver archiveRootObject:model toFile:self.filePath2];
     

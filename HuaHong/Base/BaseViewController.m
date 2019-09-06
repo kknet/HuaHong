@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 
 @interface BaseViewController ()
+@property (strong, nonatomic) NSMutableArray<NSURLSessionTask *> *requestTasks;
 
 @end
 
@@ -105,4 +106,57 @@
 //    
 //    self.navigationItem.titleView = fbView;
 //}
+
+
+- (NSMutableArray<NSURLSessionTask *> *)requestTasks
+{
+    if (_requestTasks == nil) {
+        _requestTasks = [NSMutableArray array];
+    }
+    
+    return _requestTasks;
+}
+
+//将task添加到数组中，待页面消失时，统一释放
+- (void)addRequestTask:(NSURLSessionTask *)task
+{
+    if (task == nil || ![task isKindOfClass:[NSURLSessionTask class]]) {
+        return;
+    }
+    
+    [self.requestTasks addObject:task];
+}
+
+//取消并移除指定的网络请求
+- (void)removeRequestTask:(NSURLSessionTask *)task
+{
+    if (task == nil || ![task isKindOfClass:[NSURLSessionTask class]]) {
+        return;
+    }
+    
+    if (task.state == NSURLSessionTaskStateRunning || task.state == NSURLSessionTaskStateSuspended) {
+        [task cancel];
+    }
+    
+    task = nil;
+}
+
+//页面消失时，统一释放
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    if (self.requestTasks.count <= 0) {
+        return;
+    }
+    
+    for (NSURLSessionTask *task in self.requestTasks) {
+        if (task.state == NSURLSessionTaskStateRunning || task.state == NSURLSessionTaskStateSuspended) {
+            [task cancel];
+        }
+    }
+    
+    [self.requestTasks removeAllObjects];
+    NSLog(@"requestTasks:%@",_requestTasks);
+}
 @end
