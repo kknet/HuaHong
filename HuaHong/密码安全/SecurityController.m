@@ -35,13 +35,7 @@
 #pragma mark - 指纹识别
 -(void)touchIdentifier
 {
-    if ([UIDevice currentDevice].systemVersion.floatValue < 8.0)
-    {
-        NSLog(@"该系统版本不支持指纹识别");
-        return;
-    }
     
-    //判断能否使用
     LAContext *context = [[LAContext alloc]init];
     
     //验证指纹识别是否可用

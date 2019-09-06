@@ -35,27 +35,23 @@
     if(self)
     {
         locationManager = [[CLLocationManager alloc]init];
-        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+        
+        //如果没有授权则请求授权
+        if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
         {
-            //如果没有授权则请求授权
-            if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+            if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
             {
-                if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
-                {
-                    [locationManager requestWhenInUseAuthorization];
+                [locationManager requestWhenInUseAuthorization];
 
-                }
-                
-            }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)
-            {
-                AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                appdelegate.isStartLocation = YES;
-                [self startLocation];
             }
-        }else
+            
+        }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)
         {
+            AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            appdelegate.isStartLocation = YES;
             [self startLocation];
         }
+        
     }
     
     return self;

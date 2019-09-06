@@ -33,13 +33,7 @@
         showView = view ? view : [[UIApplication sharedApplication].windows lastObject];
         
         //设置菊花框为白色
-        if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
-            
-            [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
-        }else
-        {
-            [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = [UIColor whiteColor];
-        }
+        [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
         
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:showView animated:YES];
         hud.mode = MBProgressHUDModeIndeterminate;

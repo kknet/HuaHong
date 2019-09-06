@@ -121,11 +121,6 @@
 #pragma mark - 扫描相册图片
 -(void)scanAlbumImage:(UIImage *)image
 {
-    if ([[[UIDevice currentDevice]systemVersion] floatValue] < 8.0) {
-        return;
-    }
-    
-    //系统自带识别方法 >= 8.0
     CIContext *context = [CIContext contextWithOptions:nil];
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
     NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];

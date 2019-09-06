@@ -23,11 +23,8 @@
 #import <UserNotifications/UserNotifications.h> //通知
 #endif
 
-
 #define IOS10_OR_LATER  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
 #define IOS9_OR_LATER   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
-#define IOS8_OR_LATER   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-#define IOS7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
 @interface QKPrivacyManager ()<UNUserNotificationCenterDelegate,CBCentralManagerDelegate,CLLocationManagerDelegate>
 
@@ -663,25 +660,14 @@
                 NSLog(@" 通知权限 - 开了 IOS10以后  ");
             }
         }];
-    }else if (IOS8_OR_LATER){
+    }else{
         UIUserNotificationSettings *settings = [[UIApplication sharedApplication] currentUserNotificationSettings];
         if(settings.types == UIUserNotificationTypeNone){
-            NSLog(@" 通知权限 - 没开启 IOS8-iOS10 ");
+            NSLog(@" 通知权限 - 没开启 IOS10以前");
             [self pushSetting:isPushSetting];
             
         }else{
-            NSLog(@" 通知权限 - 开了 IOS8-iOS10 ");
-        }
-        
-    }else{
-        UIRemoteNotificationType type = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
-        if (type == UIUserNotificationTypeNone)
-        {
-            NSLog(@" 通知权限 - 没开启 IOS8以下 ");
-            [self pushSetting:isPushSetting];
-            
-        }else{
-            NSLog(@" 通知权限 - 开了 IOS8以下 ");
+            NSLog(@" 通知权限 - 开了 IOS10以前");
         }
         
     }
@@ -715,14 +701,10 @@
         [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
             NSLog(@"========%@",settings);
         }];
-    }else if (IOS8_OR_LATER){
-        //iOS 8 - iOS 10系统
+    }else{
+        //iOS10以前
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [application registerUserNotificationSettings:settings];
-        
-    }else{
-        //iOS 8.0系统以下
-        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
         
     }
     
