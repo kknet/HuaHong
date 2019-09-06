@@ -7,40 +7,25 @@
 //
 
 #import "MovieFileOutputController.h"
-#import "CCSystemCapture.h"
+#import "SystemCapture.h"
 
 @interface MovieFileOutputController ()<SystemCaptureDelegate>
-@property (nonatomic, strong) CCSystemCapture *capture;
+@property (nonatomic, strong) SystemCapture *capture;
 @end
 
 @implementation MovieFileOutputController
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-
-    [self.capture startRunning];
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-
-    [self.capture stopRunning];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _capture = [[CCSystemCapture alloc] initWithType:SystemCaptureTypeMovie];
+    _capture = [[SystemCapture alloc] initWithType:SystemCaptureTypeMovie];
     CGSize size = self.view.bounds.size;
     [_capture prepareWithPreviewSize:size];  //捕获视频时传入预览层大小
     _capture.preview.frame = self.view.bounds;
     [self.view insertSubview:_capture.preview atIndex:0];
     self.capture.delegate = self;
+    [self.capture startRunning];
     
 }
 
@@ -52,7 +37,8 @@
 
 -(void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
 {
-    
+    [MBProgressHUD showLoading:@"视频处理中，请稍后" toView:self.view];
+
     NSLog(@"url = %@ ,recodeTime: = %f s, size: %lld MB", outputFileURL, CMTimeGetSeconds(captureOutput.recordedDuration), captureOutput.recordedFileSize / 1024/1024);
 
     if (self.capture.isRecording) {
@@ -68,6 +54,9 @@
     [self.bottomView configTimeLabel:self.timeLengh];
     
     self.topView.hidden = NO;
+    
+    [MBProgressHUD hideHUDForView:self.view];
+
     
 }
 
@@ -94,7 +83,8 @@
     }
 }
 
--(void)changeCamera
+/**切换摄像头*/
+- (void)switchCamera
 {
     [self.capture switchCamera];
 }

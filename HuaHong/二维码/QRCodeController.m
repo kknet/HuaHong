@@ -35,9 +35,19 @@
     self.navigationItem.rightBarButtonItem = rightItem;
 }
 
+
 -(void)setUpQRCorde
 {
     _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    //自动聚焦
+    if (_device.autoFocusRangeRestrictionSupported) {
+        if ([_device lockForConfiguration:nil]) {
+            _device.autoFocusRangeRestriction = AVCaptureAutoFocusRangeRestrictionNear;
+            
+            [_device unlockForConfiguration];
+        }
+    }
     
     _input = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
     
@@ -59,6 +69,9 @@
                                 AVMetadataObjectTypeCode128Code,
                                     AVMetadataObjectTypeQRCode];
     
+    //自动聚焦
+    [self focusForQRCode];
+    
     _previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
     _previewLayer.frame = self.view.bounds;
     _previewLayer.videoGravity = AVLayerVideoGravityResize;
@@ -70,6 +83,21 @@
     _scanView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_scanView];
     
+}
+
+- (void)focusForQRCode
+{
+    //自动聚焦
+    AVCaptureDevice *device = _input.device;
+    NSError *error;
+    
+    if ([device lockForConfiguration:&error]) {
+        if (device.autoFocusRangeRestrictionSupported) {
+            device.autoFocusRangeRestriction = AVCaptureAutoFocusRangeRestrictionNear;
+            
+            [device unlockForConfiguration];
+        }
+    }
 }
 
 #pragma mark AVCaptureMetadataOutputObjectsDelegate

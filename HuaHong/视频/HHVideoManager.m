@@ -376,7 +376,7 @@
     } completionHandler:^(BOOL success, NSError * _Nullable error) {
         if (success) {
             
-            [SVProgressHUD showSuccessWithStatus:@"已保存到相册"];
+//            [SVProgressHUD showSuccessWithStatus:@"已保存到相册"];
         }
     }];
     

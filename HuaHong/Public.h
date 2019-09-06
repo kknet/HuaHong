@@ -142,6 +142,7 @@
 #import "ContainerViewController.h"
 #import "AdapterViewController.h"
 #import "CaptureController.h"
+#import "VideoEncodeDecodeController.h"
 
 
 #endif /* Public_h */

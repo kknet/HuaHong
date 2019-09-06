@@ -49,5 +49,8 @@
 
 //关闭录制功能
 - (void)stopRunning;
+
+/**切换摄像头*/
+- (void)switchCamera;
 @end
 

@@ -10,4 +10,10 @@
 #import "UIViewController+ShouldPopOnBackButton.h"
 @interface BaseViewController : UIViewController
 
+//将task添加到数组中，待页面消失时，统一释放
+- (void)addRequestTask:(NSURLSessionTask *)task;
+
+//取消并移除指定的网络请求
+- (void)removeRequestTask:(NSURLSessionTask *)task;
+
 @end

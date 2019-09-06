@@ -266,9 +266,13 @@
 		9395BDB222C9EB4700EABF10 /* HHHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395BDB122C9EB4700EABF10 /* HHHttpSessionManager.m */; };
 		939D8FB2230A7B1A00F786C0 /* MVPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FB1230A7B1A00F786C0 /* MVPTableViewCell.m */; };
 		939D8FB5230A8AEB00F786C0 /* HHDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FB4230A8AEB00F786C0 /* HHDataSource.m */; };
-		939D8FCF230D677000F786C0 /* CCSystemCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FCE230D675B00F786C0 /* CCSystemCapture.m */; };
+		939D8FCF230D677000F786C0 /* SystemCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FCE230D675B00F786C0 /* SystemCapture.m */; };
 		939D8FD3230D67F800F786C0 /* CaptureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939D8FD1230D67F800F786C0 /* CaptureController.m */; };
 		93CB25B122B7715200A4A5C7 /* NSDictionary+Null.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */; };
+		93D21CAB2318C51700728517 /* H264EncodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D21CAA2318C51700728517 /* H264EncodeTool.m */; };
+		93D21CAE2318C55600728517 /* H264DecodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D21CAD2318C55600728517 /* H264DecodeTool.m */; };
+		93D21CB12318C5DF00728517 /* VideoEncodeDecodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D21CB02318C5DF00728517 /* VideoEncodeDecodeController.m */; };
+		93D21CB42318C68000728517 /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D21CB32318C68000728517 /* AAPLEAGLLayer.m */; };
 		93D42D9D22DD679600344BD7 /* UIControl+bury.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9C22DD679500344BD7 /* UIControl+bury.m */; };
 		93D42DA022DD6CF700344BD7 /* NSObject+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42D9F22DD6CF600344BD7 /* NSObject+add.m */; };
 		93D42DA322DD704500344BD7 /* BuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D42DA222DD704500344BD7 /* BuryViewController.m */; };
@@ -778,12 +782,20 @@
 		939D8FB1230A7B1A00F786C0 /* MVPTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPTableViewCell.m; sourceTree = "<group>"; };
 		939D8FB3230A8AEB00F786C0 /* HHDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHDataSource.h; sourceTree = "<group>"; };
 		939D8FB4230A8AEB00F786C0 /* HHDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHDataSource.m; sourceTree = "<group>"; };
-		939D8FCD230D675B00F786C0 /* CCSystemCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSystemCapture.h; sourceTree = "<group>"; };
-		939D8FCE230D675B00F786C0 /* CCSystemCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSystemCapture.m; sourceTree = "<group>"; };
+		939D8FCD230D675B00F786C0 /* SystemCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemCapture.h; sourceTree = "<group>"; };
+		939D8FCE230D675B00F786C0 /* SystemCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemCapture.m; sourceTree = "<group>"; };
 		939D8FD0230D67F800F786C0 /* CaptureController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptureController.h; sourceTree = "<group>"; };
 		939D8FD1230D67F800F786C0 /* CaptureController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptureController.m; sourceTree = "<group>"; };
 		93CB25AF22B7715200A4A5C7 /* NSDictionary+Null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Null.h"; sourceTree = "<group>"; };
 		93CB25B022B7715200A4A5C7 /* NSDictionary+Null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
+		93D21CA92318C51700728517 /* H264EncodeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264EncodeTool.h; sourceTree = "<group>"; };
+		93D21CAA2318C51700728517 /* H264EncodeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264EncodeTool.m; sourceTree = "<group>"; };
+		93D21CAC2318C55600728517 /* H264DecodeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264DecodeTool.h; sourceTree = "<group>"; };
+		93D21CAD2318C55600728517 /* H264DecodeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264DecodeTool.m; sourceTree = "<group>"; };
+		93D21CAF2318C5DF00728517 /* VideoEncodeDecodeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEncodeDecodeController.h; sourceTree = "<group>"; };
+		93D21CB02318C5DF00728517 /* VideoEncodeDecodeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEncodeDecodeController.m; sourceTree = "<group>"; };
+		93D21CB22318C68000728517 /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
+		93D21CB32318C68000728517 /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
 		93D42D9B22DD679500344BD7 /* UIControl+bury.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+bury.h"; sourceTree = "<group>"; };
 		93D42D9C22DD679500344BD7 /* UIControl+bury.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+bury.m"; sourceTree = "<group>"; };
 		93D42D9E22DD6CF600344BD7 /* NSObject+add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+add.h"; sourceTree = "<group>"; };
@@ -1759,6 +1771,7 @@
 		7DB9B5431FD7E4460011EE54 /* 视频 */ = {
 			isa = PBXGroup;
 			children = (
+				93D21CA82318C4DD00728517 /* 视频编解码 */,
 				939D8FCC230D668900F786C0 /* SystemCapture */,
 				7D93370621A930B90048E6D4 /* VideoPlayer */,
 				7DB9B55D1FD97E840011EE54 /* CustomVideo */,
@@ -1771,8 +1784,6 @@
 				7DB9B5511FD8E7F50011EE54 /* ImagePickController.m */,
 				7DB9B5591FD93C720011EE54 /* VideoBaseController.h */,
 				7DB9B55A1FD93C720011EE54 /* VideoBaseController.m */,
-				7DB9B5561FD90A570011EE54 /* MovieFileOutputController.h */,
-				7DB9B5571FD90A570011EE54 /* MovieFileOutputController.m */,
 				7D834473218820DD0070B891 /* VideoRecordController.h */,
 				7D834474218820DD0070B891 /* VideoRecordController.m */,
 				7D2FF0CA2004A3E300ECAA26 /* AppendVideoController.h */,
@@ -1795,12 +1806,16 @@
 		7DB9B55D1FD97E840011EE54 /* CustomVideo */ = {
 			isa = PBXGroup;
 			children = (
+				939D8FCD230D675B00F786C0 /* SystemCapture.h */,
+				939D8FCE230D675B00F786C0 /* SystemCapture.m */,
 				7DB9B55E1FD97F0B0011EE54 /* AssetWriter.h */,
 				7DB9B55F1FD97F0B0011EE54 /* AssetWriter.m */,
 				7DB9B5611FD97F210011EE54 /* VideoRecorder.h */,
 				7DB9B5621FD97F210011EE54 /* VideoRecorder.m */,
 				7DB9B5641FD97FAF0011EE54 /* CustomVideoController.h */,
 				7DB9B5651FD97FAF0011EE54 /* CustomVideoController.m */,
+				7DB9B5561FD90A570011EE54 /* MovieFileOutputController.h */,
+				7DB9B5571FD90A570011EE54 /* MovieFileOutputController.m */,
 			);
 			path = CustomVideo;
 			sourceTree = "<group>";
@@ -2099,12 +2114,25 @@
 		939D8FCC230D668900F786C0 /* SystemCapture */ = {
 			isa = PBXGroup;
 			children = (
-				939D8FCD230D675B00F786C0 /* CCSystemCapture.h */,
-				939D8FCE230D675B00F786C0 /* CCSystemCapture.m */,
 				939D8FD0230D67F800F786C0 /* CaptureController.h */,
 				939D8FD1230D67F800F786C0 /* CaptureController.m */,
 			);
 			path = SystemCapture;
+			sourceTree = "<group>";
+		};
+		93D21CA82318C4DD00728517 /* 视频编解码 */ = {
+			isa = PBXGroup;
+			children = (
+				93D21CA92318C51700728517 /* H264EncodeTool.h */,
+				93D21CAA2318C51700728517 /* H264EncodeTool.m */,
+				93D21CAC2318C55600728517 /* H264DecodeTool.h */,
+				93D21CAD2318C55600728517 /* H264DecodeTool.m */,
+				93D21CAF2318C5DF00728517 /* VideoEncodeDecodeController.h */,
+				93D21CB02318C5DF00728517 /* VideoEncodeDecodeController.m */,
+				93D21CB22318C68000728517 /* AAPLEAGLLayer.h */,
+				93D21CB32318C68000728517 /* AAPLEAGLLayer.m */,
+			);
+			path = "视频编解码";
 			sourceTree = "<group>";
 		};
 		93D42D9A22DD670600344BD7 /* 埋点 */ = {
@@ -2340,9 +2368,10 @@
 				7D437EF220834E4600DAAEBD /* BaseTV.m in Sources */,
 				7DABC3A121A5389D00C3EAD9 /* UIColor+Category.m in Sources */,
 				7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */,
+				93D21CAB2318C51700728517 /* H264EncodeTool.m in Sources */,
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
 				7DE4D3AE21BADB0D00586126 /* NSTimer+HHTimer.m in Sources */,
-				939D8FCF230D677000F786C0 /* CCSystemCapture.m in Sources */,
+				939D8FCF230D677000F786C0 /* SystemCapture.m in Sources */,
 				7D8359B622FF10B300BEC6F6 /* ContenModel.m in Sources */,
 				7D56A30F216DE07800212DEB /* Flower.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
@@ -2350,6 +2379,7 @@
 				93D42DA622DD936D00344BD7 /* UIGestureRecognizer+bury.m in Sources */,
 				7D2FF0C120030AE600ECAA26 /* LoadingViewController.m in Sources */,
 				7DB9B5581FD90A570011EE54 /* MovieFileOutputController.m in Sources */,
+				93D21CB12318C5DF00728517 /* VideoEncodeDecodeController.m in Sources */,
 				7D58920E2266D23100DFE60F /* QKCalendarModel.m in Sources */,
 				7DB90FF62147B3A600A9B40C /* MVVM_Cell.m in Sources */,
 				7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */,
@@ -2381,6 +2411,7 @@
 				7DABC3A021A5389D00C3EAD9 /* CALayer+borderColor.m in Sources */,
 				7DABB89B20E606DE00C538CA /* PhotoBrowserController.m in Sources */,
 				7DC3751520E39140005AEBCA /* Company+CoreDataProperties.m in Sources */,
+				93D21CAE2318C55600728517 /* H264DecodeTool.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,
 				7DABC3AE21A5867100C3EAD9 /* NSDate+Category.m in Sources */,
 				7D6FA8FB203B08E50072109E /* SessionRequestController.m in Sources */,
@@ -2528,6 +2559,7 @@
 				7D8359C222FF11F300BEC6F6 /* AdapterViewController.m in Sources */,
 				7DDE3D3720F505080044FC85 /* MenuControllerVC.m in Sources */,
 				7D35A0EC229AE6EE00149963 /* NullSafe.m in Sources */,
+				93D21CB42318C68000728517 /* AAPLEAGLLayer.m in Sources */,
 				7D437EEF20834E3200DAAEBD /* BaseRemote.m in Sources */,
 				7DDF9EA720809710003D6F17 /* RegularExpressionController.m in Sources */,
 				7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */,

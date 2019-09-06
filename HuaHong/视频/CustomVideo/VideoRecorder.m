@@ -8,11 +8,11 @@
 
 #import "VideoRecorder.h"
 #import "AssetWriter.h"
-#import "CCSystemCapture.h"
+#import "SystemCapture.h"
 
 @interface VideoRecorder ()<SystemCaptureDelegate>
 
-@property (nonatomic, strong) CCSystemCapture *capture;
+@property (nonatomic, strong) SystemCapture *capture;
 @property (strong, nonatomic) AssetWriter     *assetWriter;//视频写入
 
 @property (atomic, assign) BOOL isRecording;//正在录制
@@ -33,10 +33,10 @@
     self = [super init];
     if (self) {
      
-        [CCSystemCapture checkCameraAuthor];
+        [SystemCapture checkCameraAuthor];
         
         //捕获媒体
-        _capture = [[CCSystemCapture alloc] initWithType:SystemCaptureTypeVideo];
+        _capture = [[SystemCapture alloc] initWithType:SystemCaptureTypeVideo];
     
         [_capture prepareWithPreviewSize:frame.size];  //捕获视频时传入预览层大小
         _capture.preview.frame = CGRectMake(0, frame.origin.y, frame.size.width, frame.size.height);
@@ -49,14 +49,19 @@
     return self;
 }
 
+/**切换摄像头*/
+- (void)switchCamera
+{
+    [self.capture switchCamera];
+}
 //MARK:
 //启动录制功能
 - (void)startRunning
 {
-    self.startTime = CMTimeMake(0, 0);
-    self.isRecording = NO;
-    self.isPaused = NO;
-    self.isDiscount = NO;
+//    self.startTime = CMTimeMake(0, 0);
+//    self.isRecording = NO;
+//    self.isPaused = NO;
+//    self.isDiscount = NO;
     [self.capture startRunning];
 }
 
@@ -124,10 +129,12 @@
                     self.startTime = CMTimeMake(0, 0);
                     self.currentRecordTime = 0;
                     
-                    if (handler) {
-                        handler(url);
-                    }
                     
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (handler) {
+                            handler(url);
+                        }
+                    });
                     
                 }];
             });
@@ -138,12 +145,6 @@
 
 
 #pragma mark - 设置音频格式 调整媒体数据的时间
-//设置音频格式
-- (void)setAudioFormat:(CMFormatDescriptionRef)fmt {
-    
-    
-}
-
 //调整媒体数据的时间
 - (CMSampleBufferRef)adjustTime:(CMSampleBufferRef)sample by:(CMTime)offset {
     CMItemCount count;
@@ -176,9 +177,8 @@
         //初始化编码器，当有音频和视频参数时创建编码器
         if (self.assetWriter == nil && isVideo == false)
         {
+            //设置音频格式
             CMFormatDescriptionRef fmt = CMSampleBufferGetFormatDescription(sampleBuffer);
-//            [self setAudioFormat:fmt];
-            
             const AudioStreamBasicDescription *asbd = CMAudioFormatDescriptionGetStreamBasicDescription(fmt);
             Float64 _samplerate = asbd->mSampleRate;//音频采样率
             int _channels = asbd->mChannelsPerFrame;//音频通道
@@ -200,7 +200,7 @@
             CMTime lastTime = isVideo ? _lastVideoTime : _lastAudioTime;
             if (lastTime.flags & kCMTimeFlags_Valid)
             {
-                if (_timeOffset.flags & kCMTimeFlags_Valid)
+                if (_timeOffset.flags)
                 {
                     pts = CMTimeSubtract(pts, _timeOffset);
                 }
@@ -215,10 +215,8 @@
             _lastAudioTime.flags = 0;
         }
         
-        // 增加sampleBuffer的引用计时,这样我们可以释放这个或修改这个数据，防止在修改时被释放
-        CFRetain(sampleBuffer);
+
         if (_timeOffset.value > 0) {
-            CFRelease(sampleBuffer);
             //根据得到的timeOffset调整
             sampleBuffer = [self adjustTime:sampleBuffer by:_timeOffset];
         }
@@ -251,7 +249,6 @@
         }
         // 进行数据编码
         [self.assetWriter encodeFrame:sampleBuffer isVideo:isVideo];
-        CFRelease(sampleBuffer);
         
     }else if (self.currentRecordTime > self.maxVideoDuration)
     {

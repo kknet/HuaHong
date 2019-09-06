@@ -7,49 +7,24 @@
 //
 
 #import "CustomVideoController.h"
-#import <VideoToolbox/VideoToolbox.h>
+//#import <VideoToolbox/VideoToolbox.h>
 
 @interface CustomVideoController ()<VideoRecordDelegate>
 @property (nonatomic, strong) VideoRecorder *recorder;
-
 @end
 
 @implementation CustomVideoController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     if (![HHVideoManager cameraAuthStatus]) {
         
         [super back];
         
     }
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.recorder startRunning];
     
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self.recorder stopRunning];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.recorder startRunning];
 }
 
 //开始和停止录制事件
@@ -68,6 +43,8 @@
     }else
     {
         
+        [MBProgressHUD showLoading:@"视频处理中，请稍后" toView:self.view];
+        
         [self.recorder stopRecordingCompletion:^(NSURL *outputURL) {
             
             CGFloat videoLenth = [HHVideoManager getVideoLength:outputURL];
@@ -85,9 +62,11 @@
                 
             //获取视频第一帧的图片
             [self.bottomView configVideoThumb:[UIImage getThumbnail:outputURL]];
-            
+                
             //保存到相册
             [HHVideoManager saveToPhotoLibrary:outputURL];
+                
+            [MBProgressHUD hideHUDForView:self.view];
                 
             }];
             
@@ -103,11 +82,11 @@
 - (VideoRecorder *)recorder
 {
     if (_recorder == nil) {
-        _recorder = [[VideoRecorder alloc] initWithFrame:CGRectMake(0, self.topView.bottom, self.view.width, self.bottomView.top-self.topView.bottom) SuperView:self.view];
-//        _recorder.maxVideoDuration = NSIntegerMax;
+        _recorder = [[VideoRecorder alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.bottomView.top) SuperView:self.view];
+        _recorder.maxVideoDuration = NSIntegerMax;
         _recorder.delegate = self;
 //        _recorder.capture.frame = self.view.bounds;
-        _recorder.maxVideoDuration = 10;
+//        _recorder.maxVideoDuration = 10;
 //        [self.view.layer insertSublayer:_recorder.previewLayer atIndex:0];
     }
     return _recorder;
@@ -128,6 +107,11 @@
     [self recordAction];
 }
 
+/**切换摄像头*/
+- (void)switchCamera
+{
+    [self.recorder switchCamera];
+}
 
 #pragma mark - initVideotoolBox
 - (void)initVideotoolBox

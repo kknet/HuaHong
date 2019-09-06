@@ -12,7 +12,7 @@
 
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
 {
-    NSMutableString *strM = [NSMutableString stringWithString:@"\n(\n"];
+    NSMutableString *strM = [NSMutableString stringWithString:@"\n\t[\n"];
     
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[NSString class]]) {
@@ -24,7 +24,7 @@
         
     }];
     
-    [strM appendString:@")"];
+    [strM appendString:@"\t]"];
     
     return strM;
 }
@@ -35,19 +35,36 @@
 
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level
 {
-    NSMutableString *strM = [NSMutableString stringWithString:@"{\n"];
+   __block NSUInteger count = self.count;
+    NSMutableString *strM = [NSMutableString stringWithString:@"\n{\n"];
     
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([obj isKindOfClass:[NSString class]]) {
-            [strM appendFormat:@"\t\"%@\" : \"%@\",\n", key, obj];
+        
+        if (count > 1)
+        {
+            if ([obj isKindOfClass:[NSString class]]) {
+                [strM appendFormat:@"\t\"%@\" : \"%@\",\n", key, obj];
+            }else
+            {
+                [strM appendFormat:@"\t\"%@\" : %@,\n", key, obj];
+            }
         }else
         {
-            [strM appendFormat:@"\t\"%@\" : %@,\n", key, obj];
+            //最后一个，去掉逗号
+            if ([obj isKindOfClass:[NSString class]]) {
+                [strM appendFormat:@"\t\"%@\" : \"%@\"\n", key, obj];
+            }else
+            {
+                [strM appendFormat:@"\t\"%@\" : %@\n", key, obj];
+            }
         }
+        
+        
+        count--;
         
     }];
     
-    [strM appendString:@"\t}"];
+    [strM appendString:@"}"];
     
     return strM;
 }

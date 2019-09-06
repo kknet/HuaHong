@@ -1,13 +1,13 @@
 //
-//  CCSystemCapture.m
+//  SystemCapture.m
 //  HuaHong
 //
 //  Created by qk-huahong on 2019/8/21.
 //  Copyright © 2019 huahong. All rights reserved.
 //
 
-#import "CCSystemCapture.h"
-@interface CCSystemCapture ()<AVCaptureAudioDataOutputSampleBufferDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureFileOutputRecordingDelegate>
+#import "SystemCapture.h"
+@interface SystemCapture ()<AVCaptureAudioDataOutputSampleBufferDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureFileOutputRecordingDelegate,AVCaptureMetadataOutputObjectsDelegate>
 
 /********************公共*************/
 @property (strong, nonatomic) AVCaptureSession           *captureSession;//捕捉会话
@@ -27,6 +27,10 @@
 /********************静态图片捕捉**********/
 @property (strong, nonatomic) AVCaptureStillImageOutput  *imageOutPut;//静态图片输出
 
+/********************元数据输出**********/
+@property (strong, nonatomic) AVCaptureMetadataOutput  *metadataOutPut;//二维码，人脸识别
+
+
 /********************预览层**********/
 @property (assign, nonatomic) CGSize                      prelayerSize;//预览窗口大小
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;//预览层layer
@@ -39,7 +43,7 @@
 
 @end
 
-@implementation CCSystemCapture
+@implementation SystemCapture
 
 - (instancetype)initWithType:(SystemCaptureType)type {
     self = [super init];
@@ -55,6 +59,7 @@
         //使用同步会损耗时间，故用异步
         dispatch_async(self.captureQueue, ^{
             [self.captureSession startRunning];
+            _isRecording = true;
         });
     }
 }
@@ -63,6 +68,7 @@
         //异步停止运行
         dispatch_async(self.captureQueue, ^{
             [self.captureSession stopRunning];
+            _isRecording = false;
         });
         
     }
@@ -129,6 +135,39 @@
     if (_delegate && [_delegate respondsToSelector:@selector(captureOutput:didOutputSampleBuffer:fromConnection:)]) {
         [_delegate captureOutput:captureOutput didOutputSampleBuffer:sampleBuffer fromConnection:connection];
     }
+}
+
+-(void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection
+{
+//    if (metadataObjects.count)
+//    {
+//        AVMetadataMachineReadableCodeObject *metadataObject = [metadataObjects firstObject];
+//        NSString *scanValue = metadataObject.stringValue;
+//        [_session stopRunning];
+//        [self showMessage:scanValue];
+//
+//    }
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(captureOutput:didOutputMetadataObjects:fromConnection:)]) {
+        
+        NSArray *face = [self transFormFaces:metadataObjects];
+        [_delegate captureOutput:output didOutputMetadataObjects:face fromConnection:connection];
+    }
+}
+
+//坐标转换
+- (NSArray *)transFormFaces:(NSArray *)faces
+{
+    NSMutableArray *arrayM = [NSMutableArray array];
+    
+    for (AVMetadataObject *face in faces) {
+        
+        AVMetadataObject *transformFace = [self.previewLayer transformedMetadataObjectForMetadataObject:face];
+        [arrayM addObject:transformFace];
+        
+    }
+                                           
+    return arrayM.copy;
 }
 
 //MARK:- 懒加载
@@ -217,12 +256,46 @@
                 }
             }
                 break;
+            case SystemCaptureTypeQRCode:
+            {
+                //添加视频输入
+                if ([_captureSession canAddInput:self.videoInput]) {
+                    [_captureSession addInput:self.videoInput];
+                }
+                
+                //添加元数据输出
+                if ([_captureSession canAddOutput:self.metadataOutPut]) {
+                    [_captureSession addOutput:self.metadataOutPut];
+                    _metadataOutPut.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+
+                }
+                
+                //自动聚焦
+                [self focusForQRCode];
+                
+            }
+                break;
+            case SystemCaptureTypeFace:
+            {
+                //添加视频输入
+                if ([_captureSession canAddInput:self.videoInput]) {
+                    [_captureSession addInput:self.videoInput];
+                }
+                
+                //添加元数据输出
+                if ([_captureSession canAddOutput:self.metadataOutPut]) {
+                    [_captureSession addOutput:self.metadataOutPut];
+                    _metadataOutPut.metadataObjectTypes = @[AVMetadataObjectTypeFace];
+
+                }
+                
+            }
+                break;
             default:
                 break;
         }
         
-        
-        
+      
     }
     return _captureSession;
 }
@@ -371,6 +444,17 @@
     return _imageOutPut;
 }
 
+/********************元数据输出**********/
+- (AVCaptureMetadataOutput *)metadataOutPut
+{
+    if (!_metadataOutPut) {
+        _metadataOutPut = [[AVCaptureMetadataOutput alloc]init];
+        [_metadataOutPut setMetadataObjectsDelegate:self queue:self.captureQueue];
+       
+    }
+    
+    return _metadataOutPut;
+}
 //MARK:- 切换摄像头
 -(void)switchCamera{
     
@@ -450,6 +534,22 @@
 //}
 
 //MARK:- 调整焦距&曝光
+
+- (void)focusForQRCode
+{
+    //自动聚焦
+    AVCaptureDevice *device = self.videoInput.device;
+    NSError *error;
+    
+    if ([device lockForConfiguration:&error]) {
+        if (device.autoFocusRangeRestrictionSupported) {
+        device.autoFocusRangeRestriction = AVCaptureAutoFocusRangeRestrictionNear;
+        
+        [device unlockForConfiguration];
+        }
+    }
+}
+
 - (void)focusAtPoint:(CGPoint)point
 {
 //    CGSize size = [UIScreen mainScreen].bounds.size;
@@ -745,6 +845,12 @@
         }else if (_captureType == SystemCaptureTypeMovie){
             [self.captureSession removeInput:self.videoInput];
             [self.captureSession removeOutput:self.movieOutput];
+        }else if (_captureType == SystemCaptureTypeQRCode){
+            [self.captureSession removeInput:self.videoInput];
+            [self.captureSession removeOutput:self.metadataOutPut];
+        }else if (_captureType == SystemCaptureTypeFace){
+            [self.captureSession removeInput:self.videoInput];
+            [self.captureSession removeOutput:self.metadataOutPut];
         }
     }
     self.captureSession = nil;
