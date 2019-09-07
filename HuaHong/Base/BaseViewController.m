@@ -141,11 +141,9 @@
     task = nil;
 }
 
-//页面消失时，统一释放
-- (void)viewDidDisappear:(BOOL)animated
+//取消并移除所有的网络请求
+- (void)cancelAllRequestTask
 {
-    [super viewDidDisappear:animated];
-    
     if (self.requestTasks.count <= 0) {
         return;
     }
@@ -157,6 +155,21 @@
     }
     
     [self.requestTasks removeAllObjects];
-    NSLog(@"requestTasks:%@",_requestTasks);
+    
+    if (_requestTasks.count <= 0) {
+        NSLog(@"取消并移除了所有的网络请求");
+    }else{
+       NSLog(@"requestTasks:%@",_requestTasks);
+    }
+    
 }
+
+//页面消失时，统一释放
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [self cancelAllRequestTask];
+}
+
 @end

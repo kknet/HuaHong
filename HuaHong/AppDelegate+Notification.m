@@ -108,7 +108,7 @@
     }
 }
 
--(void)cabcelLocalNotification
+-(void)cancelLocalNotification
 {
     //删除通知
     NSArray *arr = [[UIApplication sharedApplication]scheduledLocalNotifications];
