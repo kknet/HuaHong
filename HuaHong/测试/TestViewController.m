@@ -47,70 +47,19 @@
     [super viewDidLoad];
     self.title = @"测试";
     
-//    [self monitorCall];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
     self.automaticallyAdjustsScrollViewInsets = YES;
     
-//    HHSwitch *hhswitch = [[HHSwitch alloc] initWithFrame:CGRectMake(100, 100, 80, 40)];
-//    [self.view addSubview:hhswitch];
-//    [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
-   
-    
-//    TTGTextTagCollectionView *tagCollectionView = [[TTGTextTagCollectionView alloc] initWithFrame:CGRectMake(20, 20, 200, 200)];
-//    [self.view addSubview:tagCollectionView];
-//    [tagCollectionView addTags:@[@"TTG", @"Tag", @"collection", @"view"]];
-//
-//    UICountingLabel *myLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(20, 250, 280, 45)];
-//    myLabel.textAlignment = NSTextAlignmentCenter;
-//    myLabel.font = [UIFont fontWithName:@"Avenir Next" size:48];
-//    myLabel.textColor = [UIColor colorWithRed:236/255.0 green:66/255.0 blue:43/255.0 alpha:1];
-//    [self.view addSubview:myLabel];
-//    //设置格式
-//    myLabel.format = @"%.2f";
-//
-//    //设置分隔符样式
-//    myLabel.positiveFormat = @"###,##0.00";
-//
-//    //设置变化范围及动画时间
-//    [myLabel countFrom:0.00
-//                         to:3198.23
-//               withDuration:1.0f];
-//
-//    NSLog(@"familyNames:%@",[UIFont familyNames]);
-    
-    
-    NSDictionary *dic = @{@"userName":@"haha",@"userId":@666,
-                          @"second":@{@"name":@"huahong",@"age":@18}
-                          };
-    
-    TestModel *model = [[TestModel alloc]initWithDict:dic];
-    
-    NSLog(@"userNmae:%@\n name:%@\n age:%ld",model.userName,model.second.name,(long)model.second.age);
-    
-    
-//    [SVProgressHUD showInfoWithStatus:dic[@"userId"]];
-    
-    self.textField.delegate = self;
-//    self.textField.keyboardType = UIKeyboardTypeNumberPad;
-    self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    self.textField.hidden = 1;
-    if ([TestView isSubclassOfClass:[UIView class]]) {
-        NSLog(@"isSubclassOfClass");
-    }
-    
+    HHSwitch *hhswitch = [[HHSwitch alloc] initWithFrame:CGRectMake(100, 100, 80, 40)];
+    hhswitch.onText = @"开启";
+    hhswitch.offText = @"关闭";
+    hhswitch.offText = @"关闭";
+
+    [self.view addSubview:hhswitch];
+    [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+
     
 }
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-//    return [textField regex_shouldChangeCharactersInRange:range replacementString:string IntLimit:4 DecimalLimit:2];
-    
-    NSLog(@"range:%@",NSStringFromRange(range));
-    
-    NSInteger length = textField.text.length - range.length + string.length;
-    return (length <= 11);
-}
+
 - (void)showAlertView
 {
     
@@ -164,6 +113,7 @@
         NSLog(@"确定");
     }
 }
+
 -(void)switchAction:(HHSwitch *)sender
 {
     if (sender.isOn)
@@ -176,20 +126,9 @@
     }
 }
 
-
-- (void)buglyTest
-{
-    NSArray *array = @[@"1"];
-    NSLog(@"%@",[array objectAtIndex:0]);
-}
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    [self buglyTest];
-    
-//    NSLog(@"weekdays:%@",weekdays);
-    
-//    [_tool dismiss];
-    
+
 //  UIViewController *vc = [[TestVC alloc]init];
 //  [self presentViewController:vc animated:YES completion:nil];
 ////    [self.navigationController pushViewController:vc animated:YES];
@@ -223,18 +162,6 @@
     
 //    NSArray *sortedParams = [@[@"a",@"c",@"b"] sortedArrayUsingSelector:@selector(compare:)];
 //    NSLog(@"sortedParams:%@",sortedParams);
-
-    
-//    [param.reverseObjectEnumerator.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//
-//        NSLog(@"obj:%@",obj);
-//        [param removeObject:obj];
-//    }];
-    
-    
-//    [self share];
-    
-//    [self wechatLogin];
    
     
     
@@ -242,7 +169,6 @@
 //
 //        NSLog(@"%d",isSuccess);
 //    }];
-//
 //    [self presentViewController:vc animated:YES completion:nil];
    
 //    [HUtils forceOrientation:UIInterfaceOrientationLandscapeLeft];
@@ -254,7 +180,6 @@
 //    _pick = [[QKDatePicker alloc]initDatePickWithDate:NSDate.date datePickerModel:UIDatePickerModeDate];
 //    _pick.delegate = self;
 //    [_pick setDateFormat:@"yyyy-MM-dd"];
-//
 //    [_pick show];
    
 //    QKCalendarView *calendarView = [[QKCalendarView alloc]initWithFrame:CGRectMake(0, 64, self.view.width, 0)];
@@ -264,14 +189,6 @@
 //        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
 //    }];
     
-    
-//    [MBProgressHUD showInfo:@"网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试网络请求失败，请重试" toView:self.view];
-    
-//    TestModel *model = [TestModel new];
-//    [model testMethod];
-
-    NSDictionary *dic = @{@"aaa":@"111",@"bbb":@"222",@"ccc":@"333",@"ddd":@"444",@"eee":@[@"555"]};
-    NSLog(@"dic:%@",dic);
 }
 
 - (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateStr

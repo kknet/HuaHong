@@ -55,8 +55,8 @@ typedef enum : NSUInteger {
 /* !@brief **** 做验证  */
 - (BOOL)isEmpty;
 
--(NSString *)encodeString;
--(NSString *)decodeString;
+-(NSString *)encode;
+-(NSString *)decode;
 
 //判断是否为Int形
 + (BOOL)isPureInt:(NSString*)string;

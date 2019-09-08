@@ -12,12 +12,8 @@
 @interface HUtils : NSObject
 
 + (NSString *)getAPPName;
+
 +(NSString*)getAppVersion;
-
-//////////////////////////////////////////////////
-
-//url 拼接参数
-+(NSString*)makeURL:(NSString*)requrl param:(NSDictionary*)param;
 
 //生成XML
 +(NSString*)makeXML:(NSDictionary*)param;
