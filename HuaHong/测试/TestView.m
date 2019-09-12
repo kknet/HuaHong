@@ -16,11 +16,24 @@
     {
         self.backgroundColor = [UIColor cyanColor];
 
-        [self setNeedsDisplay];
+        NSLog(@"init");
         
     }
     
     return [super init];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor redColor];
+        NSLog(@"initWithFrame");
+
+
+    }
+    
+    return self;
 }
 - (void)drawRect:(CGRect)rect
 {

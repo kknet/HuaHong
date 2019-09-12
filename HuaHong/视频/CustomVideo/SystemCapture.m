@@ -382,6 +382,8 @@
 {
     if (!_movieOutput) {
         _movieOutput = [[AVCaptureMovieFileOutput alloc]init];
+        //解决视频超过10S没声音的问题
+        _movieOutput.movieFragmentInterval = kCMTimeInvalid;
     }
     
     return _movieOutput;
