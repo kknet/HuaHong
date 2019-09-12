@@ -139,9 +139,9 @@
 //    //vc1:TestVC
 //    NSLog(@"vc1:%@,vc2:%@",vc1,vc2);
     
-//    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
-//    testView.backgroundColor = [UIColor cyanColor];
-//    [testView renderWithModel:nil];
+    TestView *testView = [[TestView alloc]init];
+    testView.frame = self.view.bounds;
+    [self.view addSubview:testView];
 
 //  UIView *snapshot =  [testView snapshotViewAfterScreenUpdates:YES];
 //    [self.view addSubview:snapshot];
@@ -189,6 +189,7 @@
 //        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
 //    }];
     
+    return;
     
     NSString *str = nil;
     str = [NSString stringWithFormat:@"name:%@",str];
