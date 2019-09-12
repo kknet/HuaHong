@@ -30,10 +30,10 @@
 #import "RSAEncryptor.h"
 
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (nonatomic, strong) UILocalNotification *localNotification;
+@property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
 @property (nonatomic, strong) CTCallCenter *call_center;//电话管理
 @property (nonatomic, strong) QKDatePicker *pick;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 @end
 
 @implementation TestViewController
@@ -49,7 +49,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = YES;
     
-    HHSwitch *hhswitch = [[HHSwitch alloc] initWithFrame:CGRectMake(100, 100, 80, 40)];
+    HHSwitch *hhswitch = [[HHSwitch alloc] initWithFrame:CGRectMake(100, 90, 80, 40)];
     hhswitch.onText = @"开启";
     hhswitch.offText = @"关闭";
     hhswitch.offText = @"关闭";
@@ -57,7 +57,7 @@
     [self.view addSubview:hhswitch];
     [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
 
-    
+    NSLog(@"mySwitch:%@",_mySwitch);
 }
 
 - (void)showAlertView
@@ -68,27 +68,27 @@
 //    NSAttributedString *attrMessage = [[NSAttributedString alloc]initWithString:message];
     
     
-    HHAlertView *alertView = [HHAlertView sharedAlertView];
-    alertView.title = @"不合格说明";
-    alertView.message = message;
-//    alertView.placeholder = @"请说明不合格原因";
-    alertView.textAlignment = NSTextAlignmentLeft;
-//    alertView.editable = YES;
-//    alertView.limitCount = 200;
-//    alertView.forbiddenEmoji = YES;
-//    [alertView exchangeTwoButton];
-
-    [alertView show];
-//    [alertView setSingleButton];
-
-    __weak typeof(self) weakSelf = self;
-    [alertView setRightBlock:^(NSString * _Nonnull message) {
-        NSLog(@"右按钮点击:%@",@"");
-    }];
-
-    [alertView setLeftBlock:^(NSString * _Nonnull message) {
-        NSLog(@"左按钮点击:%@",@"");
-    }];
+//    HHAlertView *alertView = [HHAlertView sharedAlertView];
+//    alertView.title = @"不合格说明";
+//    alertView.message = message;
+////    alertView.placeholder = @"请说明不合格原因";
+//    alertView.textAlignment = NSTextAlignmentLeft;
+////    alertView.editable = YES;
+////    alertView.limitCount = 200;
+////    alertView.forbiddenEmoji = YES;
+////    [alertView exchangeTwoButton];
+//
+//    [alertView show];
+////    [alertView setSingleButton];
+//
+//    __weak typeof(self) weakSelf = self;
+//    [alertView setRightBlock:^(NSString * _Nonnull message) {
+//        NSLog(@"右按钮点击:%@",@"");
+//    }];
+//
+//    [alertView setLeftBlock:^(NSString * _Nonnull message) {
+//        NSLog(@"左按钮点击:%@",@"");
+//    }];
 
     //或者使用代理
 //alertView.delegate = self;
@@ -96,12 +96,12 @@
 
    
     
-//    QKAlertView *alertView =  [QKAlertView sharedAlertView];
-//    [alertView alertWithTitle:@"提示" message:message buttonClickback:^(QKAlertView *alertView, NSInteger buttonIndex) {
-//
-//    } buttonTitles:@"取消",@"确定", nil];
-//
-//    [alertView show];
+    QKAlertView *alertView =  [QKAlertView sharedAlertView];
+    [alertView alertWithTitle:@"提示" message:message buttonClickback:^(QKAlertView *alertView, NSInteger buttonIndex) {
+
+    } buttonTitles:@"取消",@"确定", nil];
+
+    [alertView show];
 }
 
 - (void)alertView:(HHAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -188,6 +188,20 @@
 //    [calendarView setSelectBlock:^(NSInteger year, NSInteger month, NSInteger day) {
 //        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
 //    }];
+    
+    
+    NSString *str = nil;
+    str = [NSString stringWithFormat:@"name:%@",str];
+    str = [@"name:"stringByAppendingString:str];
+//    str = [str substringToIndex:0];
+    self.label.text = str;
+    NSLog(@"%@",str);
+
+    
+//    [self showAlertView];
+    
+    BaseModel *model = [BaseModel new];
+    [model testMethod];
     
 }
 

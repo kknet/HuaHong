@@ -231,7 +231,7 @@
 //{
 //    CGFloat margin = (CGRectGetHeight(self.bounds) - HHSwitchKnobSize) / 2.0;
 //    CGFloat offset = 6.0f;
-//    
+//
 //    switch (recognizer.state) {
 //        case UIGestureRecognizerStateBegan:{
 //            if (!self.isOn) {
@@ -274,11 +274,11 @@
 //            }
 //            break;
 //        }
-//            
+//
 //        case UIGestureRecognizerStateEnded:
 //            [self setOn:!self.isOn animated:YES];
 //            break;
-//            
+//
 //        case UIGestureRecognizerStatePossible:
 //        case UIGestureRecognizerStateChanged:
 //            break;

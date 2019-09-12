@@ -66,22 +66,19 @@
     _title = title;
     _callback = callback;
     _message = message;
-    //VA_LIST是在C语言中解决便餐问题的一组宏
+    
     va_list argList;
+    va_start(argList, otherBtnTitles);
+
     if(otherBtnTitles) {
         [_titleArray addObject:otherBtnTitles];
-        //VA_START宏,获取可变参数列表的第一个参数的地址，在这里是获取otherBtnTitles的内存地址，这是argList的指针 指向otherBtnTitles
-        va_start(argList, otherBtnTitles);
-        //临时指针变量
+        
         id temp;
-        //VA_ARG宏，获取可变参数的当前参数，返回制定类型并将指针指向下一参数
-        //首先 argList的内存地址指向的firstObj将对应存储的值取出，如果不为nil则判断为真，将取出的值放在数组中，并且将指针指向下一个参数，这样每次循环argList所代表的指针偏移量就不断下移直到取出nil
         while((temp = va_arg(argList, id))) {
             [_titleArray addObject:temp];
-            NSLog(@"%@",_titleArray);
         }
     }
-    //清空列表
+    
     va_end(argList);
     [self configUI];
 }
@@ -91,29 +88,28 @@
               buttonClickback:(void(^)(QKAlertView *alertView,NSInteger buttonIndex))callback
                     countDown:(NSInteger)countDownTime buttonTitles:(NSString *)otherBtnTitles,...NS_REQUIRES_NIL_TERMINATION
 {
-//    self = [super initWithFrame:];
+
     _titleArray = [[NSMutableArray alloc] init];
     _title = title;
     _message = message;
     _callback = callback;
     _countDownTime = countDownTime;
-    //VA_LIST是在C语言中解决便餐问题的一组宏
+
     va_list argList;
+    va_start(argList, otherBtnTitles);
+
     if(otherBtnTitles) {
         [_titleArray addObject:otherBtnTitles];
-        //VA_START宏,获取可变参数列表的第一个参数的地址，在这里是获取otherBtnTitles的内存地址，这是argList的指针 指向otherBtnTitles
-        va_start(argList, otherBtnTitles);
         //临时指针变量
         id temp;
-        //VA_ARG宏，获取可变参数的当前参数，返回制定类型并将指针指向下一参数
-        //首先 argList的内存地址指向的firstObj将对应存储的值取出，如果不为nil则判断为真，将取出的值放在数组中，并且将指针指向下一个参数，这样每次循环argList所代表的指针偏移量就不断下移直到取出nil
         while((temp = va_arg(argList, id))) {
             [_titleArray addObject:temp];
             NSLog(@"%@",_titleArray);
         }
     }
-    //清空列表
+    
     va_end(argList);
+    
     [self configUI];
     [self createTimer];
     

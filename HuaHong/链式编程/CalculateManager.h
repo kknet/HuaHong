@@ -12,9 +12,6 @@
 
 @property (nonatomic, assign) int result;
 
-//-(instancetype)add:(int)value;
-
 -(CalculateManager *(^)(int value))add;
-
 
 @end

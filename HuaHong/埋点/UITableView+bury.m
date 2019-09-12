@@ -8,12 +8,15 @@
 
 #import "UITableView+bury.h"
 #import <objc/runtime.h>
+#import <Aspects/Aspects.h>
 
 @implementation UITableView (bury)
 
 + (void)load
 {
-     [self swizzleInstanceMethod:@selector(setDelegate:) swizzledSEL:@selector(swizzled_setDelegate:)];
+//     [self swizzleInstanceMethod:@selector(setDelegate:) swizzledSEL:@selector(swizzled_setDelegate:)];
+    
+    
 }
 
 - (void)swizzled_setDelegate:(id<UITableViewDelegate>)delegate

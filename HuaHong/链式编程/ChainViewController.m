@@ -8,9 +8,6 @@
 
 #import "ChainViewController.h"
 #import "NSObject+Calculation.h"
-@interface ChainViewController ()
-
-@end
 
 @implementation ChainViewController
 
