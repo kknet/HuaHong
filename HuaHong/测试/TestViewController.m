@@ -34,6 +34,7 @@
 @property (nonatomic, strong) CTCallCenter *call_center;//电话管理
 @property (nonatomic, strong) QKDatePicker *pick;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (copy, nonatomic) NSString *str;
 @end
 
 @implementation TestViewController
@@ -190,12 +191,12 @@
 //    }];
     
     
-    NSString *str = nil;
-    str = [NSString stringWithFormat:@"name:%@",str];
-    str = [@"name:"stringByAppendingString:str];
+    
+//    _str = [NSString stringWithFormat:@"name:%@",_str];
+    _str = [@"name:"stringByAppendingString:_str];
 //    str = [str substringToIndex:0];
-    self.label.text = str;
-    NSLog(@"%@",str);
+    self.label.text = _str;
+    NSLog(@"%@",_str);
 
     
 //    [self showAlertView];
