@@ -476,6 +476,13 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
         [MBProgressHUD hideHUDForView:nil];
     }
     
+    if ([task isKindOfClass:[NSURLSessionDataTask class]]) {
+       NSURLSessionDataTask * requestTask = (NSURLSessionDataTask *)task;
+        if (requestTask.error.code == NSURLErrorCancelled) {
+            return;
+        }
+    }
+    
     if ([error.localizedDescription isEqualToString:@"已取消"]) {
         return;
     }

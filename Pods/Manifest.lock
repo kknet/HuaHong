@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - AVOSCloud (10.0.2)
   - BaiduMapKit (3.4.4)
   - BlocksKit (2.2.5):
@@ -106,6 +107,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Aspects (~> 1.4.1)
   - AVOSCloud
   - BaiduMapKit
   - BlocksKit
@@ -155,6 +157,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Aspects
     - AVOSCloud
     - BaiduMapKit
     - BlocksKit
@@ -203,6 +206,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   AVOSCloud: bfd439e58b0306e40fbcf8791d28ae906a51a73d
   BaiduMapKit: 4ac88f5a363500760392825b69709f4a0125f81e
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
@@ -249,6 +253,6 @@ SPEC CHECKSUMS:
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 81929751ceb623298d05b8d23153cbe41d4c7076
+PODFILE CHECKSUM: a2fd4f404f627223fd82655c65e643b86740a26a
 
 COCOAPODS: 1.5.3

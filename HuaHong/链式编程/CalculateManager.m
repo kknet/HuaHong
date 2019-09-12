@@ -20,9 +20,4 @@
     };
 }
 
-//-(instancetype)add:(int)value
-//{
-//    _result += value;
-//    return self;
-//}
 @end

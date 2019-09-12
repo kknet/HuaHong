@@ -1041,24 +1041,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sAV-nd-29V">
+                                <rect key="frame" x="164" y="332" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="dyG-Kr-vVb">
-                                <rect key="frame" x="93" y="216" width="94" height="29"/>
+                                <rect key="frame" x="140" y="216" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stepper>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T04-jw-iNJ">
-                                <rect key="frame" x="93" y="137" width="170" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klZ-0B-iMC">
+                                <rect key="frame" x="31" y="144" width="312" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.81418362560000002" green="1" blue="0.76583258170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="VeI-Zw-9FM"/>
                     </view>
                     <connections>
-                        <outlet property="textField" destination="T04-jw-iNJ" id="vnK-gW-AKd"/>
+                        <outlet property="label" destination="klZ-0B-iMC" id="TTr-10-aaS"/>
+                        <outlet property="mySwitch" destination="sAV-nd-29V" id="UIn-LA-h2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFa-2F-L4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1634,6 +1638,7 @@
                             <constraint firstItem="9MT-Or-4QT" firstAttribute="width" secondItem="amm-Vg-VO6" secondAttribute="width" id="qBb-Ga-ehU"/>
                             <constraint firstItem="TI4-8C-gr4" firstAttribute="top" secondItem="amm-Vg-VO6" secondAttribute="top" id="vvv-TJ-Fpm"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="VOq-bi-v0f"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMO-in-LtP" userLabel="First Responder" sceneMemberID="firstResponder"/>

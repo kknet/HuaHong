@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */; };
+		7D03087F2327D39B008E1088 /* NSString+null.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03087E2327D39B008E1088 /* NSString+null.m */; };
 		7D058576203F0A5200C7E204 /* 05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D058575203F0A5200C7E204 /* 05.jpg */; };
 		7D07F17021BE0594000F78EB /* HHProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D07F16F21BE0594000F78EB /* HHProxy.m */; };
 		7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8341FC50D7000774E40 /* AppDelegate.m */; };
@@ -283,6 +284,8 @@
 /* Begin PBXFileReference section */
 		3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuaHong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6696974C8B0A708887FDD327 /* Pods-HuaHong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.release.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.release.xcconfig"; sourceTree = "<group>"; };
+		7D03087D2327D39B008E1088 /* NSString+null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+null.h"; sourceTree = "<group>"; };
+		7D03087E2327D39B008E1088 /* NSString+null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+null.m"; sourceTree = "<group>"; };
 		7D058575203F0A5200C7E204 /* 05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 05.jpg; path = "HuaHong/Assets.xcassets/转场动画/05.imageset/05.jpg"; sourceTree = SOURCE_ROOT; };
 		7D07F16E21BE0594000F78EB /* HHProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHProxy.h; sourceTree = "<group>"; };
 		7D07F16F21BE0594000F78EB /* HHProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHProxy.m; sourceTree = "<group>"; };
@@ -2146,6 +2149,8 @@
 				93D42DA522DD936D00344BD7 /* UIGestureRecognizer+bury.m */,
 				933AC5E122DF030800E7710B /* UITableView+bury.h */,
 				933AC5E222DF030800E7710B /* UITableView+bury.m */,
+				7D03087D2327D39B008E1088 /* NSString+null.h */,
+				7D03087E2327D39B008E1088 /* NSString+null.m */,
 			);
 			path = "埋点";
 			sourceTree = "<group>";
@@ -2467,6 +2472,7 @@
 				7D957EBF1FD5337000D0A4D5 /* PhotoListCell.m in Sources */,
 				7D93370921A931140048E6D4 /* HHVideoPlayManager.m in Sources */,
 				7D65112A203C414E0042DAE7 /* ProgressView.m in Sources */,
+				7D03087F2327D39B008E1088 /* NSString+null.m in Sources */,
 				7DA152C8204AED490075274E /* CalculateManager.m in Sources */,
 				7D48F97521042F4500833594 /* AttachmentBehaviorController.m in Sources */,
 				7DDE3D2B20F505070044FC85 /* TextViewVC.m in Sources */,

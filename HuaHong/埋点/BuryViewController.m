@@ -112,8 +112,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView reloadData];
-    NSLog(@"didSelectRowAtIndexPath:%@",indexPath);
-    [MBProgressHUD showInfo:@"didSelectRowAtIndexPath方法被点击" toView:nil];
+//    [tableView reloadData];
+//    NSLog(@"didSelectRowAtIndexPath:%@",indexPath);
+//    [MBProgressHUD showInfo:@"didSelectRowAtIndexPath方法被点击" toView:nil];
 }
 @end

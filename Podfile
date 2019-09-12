@@ -5,6 +5,8 @@
 inhibit_all_warnings!
 platform:'ios','9.0'
 target 'HuaHong' do
+    
+pod 'Aspects', '~> 1.4.1'
 pod 'Masonry'
 #已被依赖，无需重复导入
 pod 'AFNetworking'

@@ -48,7 +48,7 @@
                                                            
                                                        } isSupportHud:YES isSupportErrorAlert:YES];
     
-    [self addRequestTask:self.task];
+    [self.task cancel];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

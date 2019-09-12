@@ -15,6 +15,7 @@
 #import "HomeVC.h"
 #import <UMShare/UMShare.h>
 #import <Bugly/Bugly.h>
+#import <Aspects/Aspects.h>
 
 @interface AppDelegate ()
 
@@ -42,6 +43,11 @@ static void uncaughtExceptionHandler(NSException *exception)
 }
 //extern CFAbsoluteTime startTime;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [UITableView aspect_hookSelector:@selector(tableView:didSelectRowAtIndexPath:) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
+        
+        NSLog(@"AOP::%@",info);
+    } error:NULL];
     
     [self BuglyConfig];
     

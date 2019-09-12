@@ -56,7 +56,7 @@
     [attrStr insertAttributedString:attachmentStr atIndex:systemInfo.length];
     
         //超链接
-    [attrStr addAttribute:NSLinkAttributeName value:[@"http://www.baidu.com" encodeString] range:[systemInfo rangeOfString:@"SystemName"]];
+    [attrStr addAttribute:NSLinkAttributeName value:[@"http://www.baidu.com" encode] range:[systemInfo rangeOfString:@"SystemName"]];
     
     // 段落
     // NSParagraphStyle

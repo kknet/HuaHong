@@ -12,7 +12,7 @@
 
 
 /**
-* nil：指向一个对象的空指针,对objective c id 对象赋空值.
+* nil：指向一个对象的空指针,对Objective-C id 对象赋空值.
 * Nil：指向一个类的空指针,表示对类进行赋空值.
 * NULL：指向其他类型（如：基本类型、C类型）的空指针, 用于对非对象指针赋空值.
 * NSNull：在集合对象中，表示空值的对象.
@@ -27,7 +27,7 @@ cmd + option + /
 
 
 /**
-*  isKindOfClass:确定一个对象是否是一个类的成员,或者是派生自该类的成员
+*  isKindOfClass:确定一个对象是否是一个类的成员,或者是其子类的成员
 *  isMemberOfClass:确定一个对象是否是当前类的成员
 *  isSubclassOfClass：判断对象是否为某类或者其派生类的实例（类方法)
 */

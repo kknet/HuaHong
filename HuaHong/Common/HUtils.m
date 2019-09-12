@@ -27,34 +27,19 @@
     return [infoDictionary objectForKey:@"CFBundleShortVersionString"];
 }
 
-/*****************************************/
-
-//url 拼接参数
-+(NSString*)makeURL:(NSString*)requrl param:(NSDictionary*)param
-{
-    if( param.count == 0 ) return requrl;
-    
-    NSArray* allk = param.allKeys;
-    NSMutableString* reqstr = NSMutableString.new;
-    for ( NSString* onek in allk ) {
-        [reqstr appendFormat:@"%@=%@&",onek,param[onek]];
-    }
-    return [NSString stringWithFormat:@"%@?%@",requrl,[reqstr substringToIndex:reqstr.length-2]];
-}
-
 //生成XML
 +(NSString*)makeXML:(NSDictionary*)param
 {
     if( param.count == 0 ) return @"";
     
-    NSArray* allk = param.allKeys;
-    NSMutableString* reqstr = NSMutableString.new;
-    [reqstr appendString:@"<xml>\n"];
-    for ( NSString* onek in allk ) {
-        [reqstr appendFormat:@"<%@>%@</%@>\n",onek,param[onek],onek];
+    NSArray* allKeys = param.allKeys;
+    NSMutableString* mutableStr = NSMutableString.new;
+    [mutableStr appendString:@"<xml>\n"];
+    for ( NSString* key in allKeys ) {
+        [mutableStr appendFormat:@"<%@>%@</%@>\n",key,param[key],key];
     }
-    [reqstr appendString:@"</xml>"];
-    return reqstr;
+    [mutableStr appendString:@"</xml>"];
+    return mutableStr;
 }
 
 /**
@@ -146,7 +131,7 @@
 
 - (void)dismiss
 {
-    if (_layer != nil) {
+    if (_layer) {
         [_layer removeFromSuperlayer];
     }
 }

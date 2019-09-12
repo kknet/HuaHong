@@ -405,12 +405,12 @@
     return YES;
 }
 
--(NSString *)encodeString
+-(NSString *)encode
 {
    return  [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
--(NSString *)decodeString
+-(NSString *)decode
 {
   return  [self stringByRemovingPercentEncoding];
 }
