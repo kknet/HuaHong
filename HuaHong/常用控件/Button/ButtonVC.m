@@ -22,7 +22,7 @@
 
 - (void)creatButton
 {
-    UIImage *image = [UIImage imageNamed:@"flash"];
+    UIImage *image = [UIImage imageNamed:@"camera_flash_on"];
 
     CGFloat space = 0;// 图片和文字的间距
     NSString *title = @"测试测试测试";

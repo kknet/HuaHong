@@ -19,9 +19,9 @@
 
 @implementation HHLockView
 
--(instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
     }

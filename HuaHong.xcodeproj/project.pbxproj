@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B52946878D5292B5E50EB86 /* libPods-HuaHong.a */; };
 		7D03087F2327D39B008E1088 /* NSString+null.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D03087E2327D39B008E1088 /* NSString+null.m */; };
-		7D058576203F0A5200C7E204 /* 05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D058575203F0A5200C7E204 /* 05.jpg */; };
 		7D07F17021BE0594000F78EB /* HHProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D07F16F21BE0594000F78EB /* HHProxy.m */; };
 		7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA8341FC50D7000774E40 /* AppDelegate.m */; };
 		7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DA83C1FC50D7000774E40 /* HuaHong.xcdatamodeld */; };
@@ -26,6 +25,7 @@
 		7D1A366720A5845900D74375 /* HHFMDBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A366620A5845900D74375 /* HHFMDBController.m */; };
 		7D2172111FDA86D8008698C9 /* BlueToothController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2172101FDA86D8008698C9 /* BlueToothController.m */; };
 		7D28488822CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D28488722CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m */; };
+		7D2B54C4232B1764002B8EE5 /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 7D2B54C3232B1764002B8EE5 /* video.mov */; };
 		7D2DE5F22015BBCF001590E1 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F12015BBCF001590E1 /* Model.m */; };
 		7D2DE5F720170227001590E1 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2DE5F620170227001590E1 /* DrawView.m */; };
 		7D2FF0AE1FF397E000ECAA26 /* MultiRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0AD1FF397E000ECAA26 /* MultiRequestController.m */; };
@@ -36,7 +36,6 @@
 		7D2FF0BE1FFF4B4600ECAA26 /* CreatQRCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0BD1FFF4B4600ECAA26 /* CreatQRCodeController.m */; };
 		7D2FF0C120030AE600ECAA26 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0C020030AE600ECAA26 /* LoadingViewController.m */; };
 		7D2FF0C420030DDA00ECAA26 /* LoadingHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0C320030DDA00ECAA26 /* LoadingHUD.m */; };
-		7D2FF0C62004A38000ECAA26 /* selfS.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7D2FF0C52004A38000ECAA26 /* selfS.MOV */; };
 		7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2FF0C82004A39A00ECAA26 /* music.mp3 */; };
 		7D2FF0CC2004A3E300ECAA26 /* AppendVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF0CB2004A3E300ECAA26 /* AppendVideoController.m */; };
 		7D2FF0CE2004AB4900ECAA26 /* weixinY.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D2FF0CD2004AB4900ECAA26 /* weixinY.mp4 */; };
@@ -205,7 +204,7 @@
 		7DC24C932022B6E500103BDE /* DrawingBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC24C922022B6E500103BDE /* DrawingBoardController.m */; };
 		7DC24C962023001100103BDE /* CustomTransitionPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC24C952023001100103BDE /* CustomTransitionPush.m */; };
 		7DC24C992023002900103BDE /* CustomTransitionPop.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC24C982023002900103BDE /* CustomTransitionPop.m */; };
-		7DC24C9B20246C7A00103BDE /* 黑马程序员.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DC24C9A20246C7A00103BDE /* 黑马程序员.mp3 */; };
+		7DC24C9B20246C7A00103BDE /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DC24C9A20246C7A00103BDE /* audio.mp3 */; };
 		7DC24C9D2027F96700103BDE /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC24C9C2027F96700103BDE /* Speech.framework */; };
 		7DC24CA02028356900103BDE /* DrawBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC24C9F2028356900103BDE /* DrawBoardView.m */; };
 		7DC24CA320283F6500103BDE /* HHBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC24CA220283F6500103BDE /* HHBezierPath.m */; };
@@ -220,7 +219,7 @@
 		7DC3752F20E526E0005AEBCA /* ExCardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC3752D20E526E0005AEBCA /* ExCardSDK.framework */; };
 		7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
-		7DCD8CCC229AA48100E97B3B /* videos.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7DCD8CCB229AA48100E97B3B /* videos.xml */; };
+		7DCD8CCC229AA48100E97B3B /* language.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7DCD8CCB229AA48100E97B3B /* language.xml */; };
 		7DDAE7E22057692700D5C274 /* HHPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDAE7E12057692700D5C274 /* HHPlayerViewController.m */; };
 		7DDAE7E5205779C500D5C274 /* HHVideoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDAE7E4205779C500D5C274 /* HHVideoManager.m */; };
 		7DDE3D2B20F505070044FC85 /* TextViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDE3D0B20F505070044FC85 /* TextViewVC.m */; };
@@ -286,7 +285,6 @@
 		6696974C8B0A708887FDD327 /* Pods-HuaHong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuaHong.release.xcconfig"; path = "Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong.release.xcconfig"; sourceTree = "<group>"; };
 		7D03087D2327D39B008E1088 /* NSString+null.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+null.h"; sourceTree = "<group>"; };
 		7D03087E2327D39B008E1088 /* NSString+null.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+null.m"; sourceTree = "<group>"; };
-		7D058575203F0A5200C7E204 /* 05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 05.jpg; path = "HuaHong/Assets.xcassets/转场动画/05.imageset/05.jpg"; sourceTree = SOURCE_ROOT; };
 		7D07F16E21BE0594000F78EB /* HHProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHProxy.h; sourceTree = "<group>"; };
 		7D07F16F21BE0594000F78EB /* HHProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHProxy.m; sourceTree = "<group>"; };
 		7D0DA8301FC50D7000774E40 /* HuaHong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuaHong.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +314,7 @@
 		7D21720F1FDA86D8008698C9 /* BlueToothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueToothController.h; sourceTree = "<group>"; };
 		7D2172101FDA86D8008698C9 /* BlueToothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueToothController.m; sourceTree = "<group>"; };
 		7D28488722CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
+		7D2B54C3232B1764002B8EE5 /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
 		7D2DE5F02015BBCF001590E1 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		7D2DE5F12015BBCF001590E1 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		7D2DE5F320170015001590E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -337,7 +336,6 @@
 		7D2FF0C020030AE600ECAA26 /* LoadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		7D2FF0C220030DDA00ECAA26 /* LoadingHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingHUD.h; sourceTree = "<group>"; };
 		7D2FF0C320030DDA00ECAA26 /* LoadingHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingHUD.m; sourceTree = "<group>"; };
-		7D2FF0C52004A38000ECAA26 /* selfS.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = selfS.MOV; sourceTree = "<group>"; };
 		7D2FF0C82004A39A00ECAA26 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		7D2FF0CA2004A3E300ECAA26 /* AppendVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppendVideoController.h; sourceTree = "<group>"; };
 		7D2FF0CB2004A3E300ECAA26 /* AppendVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppendVideoController.m; sourceTree = "<group>"; };
@@ -665,7 +663,7 @@
 		7DC24C952023001100103BDE /* CustomTransitionPush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTransitionPush.m; sourceTree = "<group>"; };
 		7DC24C972023002900103BDE /* CustomTransitionPop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTransitionPop.h; sourceTree = "<group>"; };
 		7DC24C982023002900103BDE /* CustomTransitionPop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTransitionPop.m; sourceTree = "<group>"; };
-		7DC24C9A20246C7A00103BDE /* 黑马程序员.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "黑马程序员.mp3"; sourceTree = "<group>"; };
+		7DC24C9A20246C7A00103BDE /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
 		7DC24C9C2027F96700103BDE /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		7DC24C9E2028356900103BDE /* DrawBoardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawBoardView.h; sourceTree = "<group>"; };
 		7DC24C9F2028356900103BDE /* DrawBoardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawBoardView.m; sourceTree = "<group>"; };
@@ -691,7 +689,7 @@
 		7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ExCardRes.bundle; sourceTree = "<group>"; };
 		7DC94AF61FE901F20042632D /* AnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
-		7DCD8CCB229AA48100E97B3B /* videos.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = videos.xml; sourceTree = "<group>"; };
+		7DCD8CCB229AA48100E97B3B /* language.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = language.xml; sourceTree = "<group>"; };
 		7DDAE7E02057692700D5C274 /* HHPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHPlayerViewController.h; sourceTree = "<group>"; };
 		7DDAE7E12057692700D5C274 /* HHPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHPlayerViewController.m; sourceTree = "<group>"; };
 		7DDAE7E3205779C500D5C274 /* HHVideoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVideoManager.h; sourceTree = "<group>"; };
@@ -1087,11 +1085,10 @@
 		7D2FF2132008970400ECAA26 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7DCD8CCB229AA48100E97B3B /* videos.xml */,
-				7D058575203F0A5200C7E204 /* 05.jpg */,
+				7D2B54C3232B1764002B8EE5 /* video.mov */,
+				7DCD8CCB229AA48100E97B3B /* language.xml */,
 				7D81144520EFB63C00349078 /* h5.html */,
-				7DC24C9A20246C7A00103BDE /* 黑马程序员.mp3 */,
-				7D2FF0C52004A38000ECAA26 /* selfS.MOV */,
+				7DC24C9A20246C7A00103BDE /* audio.mp3 */,
 				7D2FF0C82004A39A00ECAA26 /* music.mp3 */,
 				7D2FF0CD2004AB4900ECAA26 /* weixinY.mp4 */,
 			);
@@ -2257,7 +2254,7 @@
 				93E533AB228E9CCD000F5025 /* ReadMe in Resources */,
 				7D2FF0C92004A39A00ECAA26 /* music.mp3 in Resources */,
 				7DFDB91A22E8B80D00351BAE /* QKCalenderCell.xib in Resources */,
-				7D058576203F0A5200C7E204 /* 05.jpg in Resources */,
+				7D2B54C4232B1764002B8EE5 /* video.mov in Resources */,
 				7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */,
 				7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */,
 				7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */,
@@ -2265,11 +2262,10 @@
 				7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */,
 				7D437F4E2090771B00DAAEBD /* QKAlertView.podspec in Resources */,
 				7D2FF0CE2004AB4900ECAA26 /* weixinY.mp4 in Resources */,
-				7D2FF0C62004A38000ECAA26 /* selfS.MOV in Resources */,
 				7DA1D6C72061F8EA00EB0AC2 /* InfoPlist.strings in Resources */,
-				7DC24C9B20246C7A00103BDE /* 黑马程序员.mp3 in Resources */,
+				7DC24C9B20246C7A00103BDE /* audio.mp3 in Resources */,
 				7D58943F22688D7200DFE60F /* MBProgressHUD.bundle in Resources */,
-				7DCD8CCC229AA48100E97B3B /* videos.xml in Resources */,
+				7DCD8CCC229AA48100E97B3B /* language.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2314,7 +2310,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HuaHong/Pods-HuaHong-resources.sh",
-				"${PODS_ROOT}/AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
 				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
@@ -2329,7 +2324,6 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AVOSCloud_Art.inc",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",

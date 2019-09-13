@@ -7,7 +7,7 @@
 //
 
 #import "FaceViewController.h"
-#import "FaceppAPI.h"
+//#import "FaceppAPI.h"
 
 @interface FaceViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (strong, nonatomic) UIImageView *imageVIew;
@@ -89,6 +89,8 @@
 //点击照片的时候调用
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
+    /*
+     
     //8. 实现了代理方法一定要取消
     [picker dismissViewControllerAnimated:YES completion:nil];
     
@@ -179,6 +181,7 @@
     
     self.imageVIew.image = newImage;
     
+     */
     
 }
 

@@ -59,18 +59,18 @@
 - (IBAction)addAction
 {
     
-    AVObject *todo = [AVObject objectWithClassName:@"HomeDadaSource"];
-    [todo setObject:[self getTableViewArray] forKey:@"table"];
-    [todo setObject:[self getCollectionViewArray] forKey:@"collection"];
-    [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            [SVProgressHUD showSuccessWithStatus:@"存储成功"];
-            
-        } else {
-            [SVProgressHUD showErrorWithStatus:@"存储失败"];
-
-        }
-    }];
+//    AVObject *todo = [AVObject objectWithClassName:@"HomeDadaSource"];
+//    [todo setObject:[self getTableViewArray] forKey:@"table"];
+//    [todo setObject:[self getCollectionViewArray] forKey:@"collection"];
+//    [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            [SVProgressHUD showSuccessWithStatus:@"存储成功"];
+//
+//        } else {
+//            [SVProgressHUD showErrorWithStatus:@"存储失败"];
+//
+//        }
+//    }];
     
 //    使用上面的后台存储
 //    [todo save];
@@ -81,37 +81,37 @@
 {
     // 查询对象
     
-    //1. 指定查询的表名
-    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
-    
-    //2. 设置查询条件
-    [query whereKey:@"content" containsString:@"会议"];
-    //    [query whereKey:@"content" equalTo:@"会议"];
-    
-    //3. 执行查询
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        //3.1 防错处理
-        if (error) {
-            NSLog(@"查询出错");
-            return;
-        }
-        
-        //3.2 获取查询到的对象
-        for (AVObject *object in objects) {
-            NSLog(@"object:%@",object);
-            
-            //4. 删除对象
-            [object removeObjectForKey:@"content"];
-            
-            
-            // 字段删除后结果保存到云端
-            [object saveInBackground];
-            
-        }
-        
-        
-        NSLog(@"count: %lu",(unsigned long)objects.count);
-    }];
+//    //1. 指定查询的表名
+//    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
+//
+//    //2. 设置查询条件
+//    [query whereKey:@"content" containsString:@"会议"];
+//    //    [query whereKey:@"content" equalTo:@"会议"];
+//
+//    //3. 执行查询
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        //3.1 防错处理
+//        if (error) {
+//            NSLog(@"查询出错");
+//            return;
+//        }
+//
+//        //3.2 获取查询到的对象
+//        for (AVObject *object in objects) {
+//            NSLog(@"object:%@",object);
+//
+//            //4. 删除对象
+//            [object removeObjectForKey:@"content"];
+//
+//
+//            // 字段删除后结果保存到云端
+//            [object saveInBackground];
+//
+//        }
+//
+//
+//        NSLog(@"count: %lu",(unsigned long)objects.count);
+//    }];
 }
 
 #pragma mark 更新对象
@@ -120,40 +120,40 @@
     
     // 查询对象
     
-    //1. 指定查询的表名
-    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
-    
-    //2. 设置查询条件
-    [query whereKey:@"content" containsString:@"会议"];
-    //    [query whereKey:@"content" equalTo:@"会议"];
-    
-    //3. 执行查询
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        //3.1 防错处理
-        if (error) {
-            NSLog(@"查询出错");
-            return;
-        }
-        
-        //3.2 获取查询到的对象
-        for (AVObject *object in objects)
-        {
-            [object setObject:@"会议，object" forKey:@"content"];
-            
-            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    
-                    NSLog(@"修改成功");
-                } else {
-                    NSLog(@"修改失败");
-                    
-                }
-            }];
-        }
-        
-        
-        NSLog(@"count: %ld",objects.count);
-    }];
+//    //1. 指定查询的表名
+//    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
+//
+//    //2. 设置查询条件
+//    [query whereKey:@"content" containsString:@"会议"];
+//    //    [query whereKey:@"content" equalTo:@"会议"];
+//
+//    //3. 执行查询
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        //3.1 防错处理
+//        if (error) {
+//            NSLog(@"查询出错");
+//            return;
+//        }
+//
+//        //3.2 获取查询到的对象
+//        for (AVObject *object in objects)
+//        {
+//            [object setObject:@"会议，object" forKey:@"content"];
+//
+//            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
+//
+//                    NSLog(@"修改成功");
+//                } else {
+//                    NSLog(@"修改失败");
+//
+//                }
+//            }];
+//        }
+//
+//
+//        NSLog(@"count: %ld",objects.count);
+//    }];
 }
 
 #pragma mark 查询对象
@@ -161,30 +161,30 @@
 {
     // 查询对象
     
-    //1. 指定查询的表名
-    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
-    
-    //2. 设置查询条件
-    [query whereKey:@"content" containsString:@"会议"];
-//    [query whereKey:@"content" equalTo:@"会议"];
-
-    //3. 执行查询
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        //3.1 防错处理
-        if (error) {
-            NSLog(@"查询出错");
-            return;
-        }
-        
-        //3.2 获取查询到的对象
-        for (AVObject *object in objects)
-        {
-            NSLog(@"object:%@",object);
-        }
-        
-        
-        NSLog(@"count: %ld",objects.count);
-    }];
+//    //1. 指定查询的表名
+//    AVQuery *query = [AVQuery queryWithClassName:@"HomeDadaSource"];
+//
+//    //2. 设置查询条件
+//    [query whereKey:@"content" containsString:@"会议"];
+////    [query whereKey:@"content" equalTo:@"会议"];
+//
+//    //3. 执行查询
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        //3.1 防错处理
+//        if (error) {
+//            NSLog(@"查询出错");
+//            return;
+//        }
+//
+//        //3.2 获取查询到的对象
+//        for (AVObject *object in objects)
+//        {
+//            NSLog(@"object:%@",object);
+//        }
+//
+//
+//        NSLog(@"count: %ld",objects.count);
+//    }];
     
 }
 

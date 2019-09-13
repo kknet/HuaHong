@@ -9,17 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>AVOSCloud.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Aspects.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>BlocksKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,17 +24,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FLAnimatedImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FMDB.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FaceppSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -89,17 +69,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MZTimerLabel.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>NSDictionary-NilSafe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PNChart.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -129,27 +109,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SSZipArchive.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SVProgressHUD.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Shimmer.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SystemServices.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>TTGTagCollectionView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -210,11 +170,6 @@
 			<false/>
 		</dict>
 		<key>iCarousel.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

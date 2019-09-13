@@ -134,9 +134,9 @@
 
 -(void)waterMark
 {
-    UIImage *originImage = [UIImage imageNamed:@"MyRoom"];
+    UIImage *originImage = [UIImage imageNamed:@"05"];
     NSString *waterMarkText = @"水印文字";
-    UIImage *waterMarkImage = [UIImage imageNamed:@"JKNotifier_default_icon"];
+    UIImage *waterMarkImage = [UIImage imageNamed:@"MyRoom"];
     
     UIGraphicsBeginImageContextWithOptions(originImage.size, NO, 0);
     

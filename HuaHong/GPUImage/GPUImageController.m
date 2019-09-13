@@ -142,7 +142,7 @@
 
 -(void)imageStretch
 {
-    UIImage *image = [UIImage imageNamed:@"flash"];
+    UIImage *image = [UIImage imageNamed:@"camera_flash_on"];
     
     /**
      * 这个函数是UIImage的一个实例函数，它的功能是创建一个内容可拉伸，而边角不拉伸的图片

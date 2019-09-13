@@ -20,7 +20,7 @@
 #import <CoreTelephony/CTCall.h>
 #import <Photos/Photos.h>
 #import "QKAlertView.h"
-#import "TTGTextTagCollectionView.h"
+//#import "TTGTextTagCollectionView.h"
 #import "QKDatePicker.h"
 #import "QKCalendarView.h"
 #import "TestModel.h"
@@ -140,12 +140,13 @@
 //    //vc1:TestVC
 //    NSLog(@"vc1:%@,vc2:%@",vc1,vc2);
     
-    TestView *testView = [[TestView alloc]init];
-    testView.frame = self.view.bounds;
-    [self.view addSubview:testView];
+//    TestView *testView = [[TestView alloc]initWithFrame:self.view.bounds];
+//    TestView *testView = [[TestView alloc]init];
+//    testView.frame = self.view.bounds;
+//    [self.view addSubview:testView];
 
 //  UIView *snapshot =  [testView snapshotViewAfterScreenUpdates:YES];
-//    [self.view addSubview:snapshot];
+//  [self.view addSubview:snapshot];
 // UIGraphicsBeginImageContextWithOptions(snapshot.size, NO, [UIScreen mainScreen].scale);
 //
 //    [snapshot drawViewHierarchyInRect:snapshot.bounds afterScreenUpdates:NO];

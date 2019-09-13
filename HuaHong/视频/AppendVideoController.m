@@ -34,14 +34,14 @@
 - (IBAction)addVideo:(id)sender
 {
     
-    NSURL *firstUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfS" ofType:@"MOV"]];
+    NSURL *firstUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"video" ofType:@"mov"]];
     NSURL *secondUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"weixinY" ofType:@"mp4"]];
     
     [HHVideoManager addFirstVideo:firstUrl andSecondVideo:secondUrl withMusic:nil];
 }
 - (IBAction)addVideoAndMusic:(id)sender
 {
-    NSURL *firstUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"selfS" ofType:@"MOV"]];
+    NSURL *firstUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"video" ofType:@"mov"]];
     NSURL *secondUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"weixinY" ofType:@"mp4"]];
     NSURL *musicUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"]];
     [HHVideoManager addFirstVideo:firstUrl andSecondVideo:secondUrl withMusic:musicUrl];

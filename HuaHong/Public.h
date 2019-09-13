@@ -17,7 +17,7 @@
 #import "UIScrollView+Refresh.h"
 #import "HuaHong-Bridging-Header.h"
 #import "HuaHong-Swift.h"
-#import <SSZipArchive.h>
+//#import <SSZipArchive.h>
 #import "ReactiveObjc.h"
 #import <NSObject+RACKVOWrapper.h>
 #import "BaseModel.h"
@@ -53,8 +53,8 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import "UICountingLabel.h"
 #import "NSTimer+HHTimer.h"
-#import <FBShimmeringView.h>
-#import <AVOSCloud/AVOSCloud.h>
+//#import <FBShimmeringView.h>
+//#import <AVOSCloud/AVOSCloud.h>
 
 #import "Model.h"
 #import "HHSwitch.h"

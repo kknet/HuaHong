@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import <AVOSCloud/AVOSCloud.h>
-#import "FaceppAPI.h"
+//#import <AVOSCloud/AVOSCloud.h>
+//#import "FaceppAPI.h"
 #import "AppDelegate+Notification.h"
 #import "TabBarViewController.h"
 #import "LocationManager.h"
@@ -278,21 +278,21 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 -(void)leanCloud
 {
     
-    [AVOSCloud setApplicationId:AppID_LeanCloud clientKey:AppKey_LeanCloud];
-    
-    [AVOSCloud setAllLogsEnabled:NO];
+//    [AVOSCloud setApplicationId:AppID_LeanCloud clientKey:AppKey_LeanCloud];
+//    
+//    [AVOSCloud setAllLogsEnabled:NO];
 
 }
 
 -(void)face
 {
-    // 初始化 SDK
-    [FaceppAPI initWithApiKey:AppKey_Face andApiSecret:AppSecret_Face
-                    andRegion:APIServerRegionCN];
-    
-    /// 开始 Debug 模式
-    // 如果设置 YES, 就会输出打印信息
-    [FaceppAPI setDebugMode:NO];
+//    // 初始化 SDK
+//    [FaceppAPI initWithApiKey:AppKey_Face andApiSecret:AppSecret_Face
+//                    andRegion:APIServerRegionCN];
+//
+//    /// 开始 Debug 模式
+//    // 如果设置 YES, 就会输出打印信息
+//    [FaceppAPI setDebugMode:NO];
 }
 
 -(void)updateVersion

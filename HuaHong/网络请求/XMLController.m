@@ -53,7 +53,7 @@
 }
 - (void)loadData_Connection
 {
-    NSString *urlStr = [kBaseURL stringByAppendingPathComponent:@"videos.xml"];
+    NSString *urlStr = [kBaseURL stringByAppendingPathComponent:@"language.xml"];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:15.0];
     

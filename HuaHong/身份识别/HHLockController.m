@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.layer.contents = (__bridge id)([UIImage imageNamed:@"Home_refresh_bg"].CGImage);
+    self.view.backgroundColor = UIColor.blueColor;
     
     HHLockView *lockView = [HHLockView new];
     [self.view addSubview:lockView];

@@ -90,8 +90,8 @@
      */
     
     
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
-    [SSZipArchive unzipFileAtPath:location.path toDestination:path];
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
+//    [SSZipArchive unzipFileAtPath:location.path toDestination:path];
 }
 
 #pragma mark - delegate

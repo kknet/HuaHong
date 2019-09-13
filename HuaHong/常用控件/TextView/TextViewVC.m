@@ -7,7 +7,7 @@
 //
 
 #import "TextViewVC.h"
-#import "SystemServices.h"
+//#import "SystemServices.h"
 #import "HHAttachment.h"
 @interface TextViewVC ()<UITextViewDelegate>
 @property (nonatomic, strong) UITextView *textView;
@@ -36,6 +36,7 @@
 
 -(void)getSystemInfo
 {
+    /*
     //获取硬件信息
     SystemServices *system = [SystemServices sharedServices];
     NSString *systemInfo = system.allSystemInformation.description;
@@ -74,7 +75,7 @@
     [attrStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, systemInfo.length)];
     
     self.textView.attributedText = attrStr;
-    
+    */
 }
 
 

@@ -8,14 +8,14 @@
 
 #import "MVVM_Controller.h"
 //#import <BlocksKit/BlocksKit.h>
-#import <BlocksKit/A2DynamicDelegate.h>
+//#import <BlocksKit/A2DynamicDelegate.h>
 #import "MVVM_Cell.h"
 #import "MVVM_ViewModel.h"
 #import "MVVM_Model.h"
 
 #define scaledCellValue(value) ( floorf(CGRectGetWidth(collectionView.frame) / 375 * (value)) )
 
-@interface MVVM_Controller ()
+@interface MVVM_Controller ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) MVVM_ViewModel *viewModel;
 @property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *dataArray;
@@ -46,53 +46,41 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     self.collectionView = collectionView;
-    
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+
+
     //注册cell
     [self.collectionView registerClass:[MVVM_Cell class] forCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier]];
-    
-    //collectionView dataSouce
-    A2DynamicDelegate *dataSouce = self.collectionView.bk_dynamicDataSource;
-
-    //item个数
-    [dataSouce implementMethod:@selector(collectionView:numberOfItemsInSection:) withBlock:^NSInteger(UICollectionView *collectionView, NSInteger section) {
-        return self.dataArray.count;
-    }];
-
-    //Cell
-    [dataSouce implementMethod:@selector(collectionView:cellForItemAtIndexPath:) withBlock:^UICollectionViewCell*(UICollectionView *collectionView,NSIndexPath *indexPath) {
-
-        //id<MovieModelProtocol> cell = nil;
-        MVVM_Cell<MVVM_ModelDelegate> *cell = nil;
-
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier] forIndexPath:indexPath];
-        cell.viewModel = _viewModel;
-        if ([cell respondsToSelector:@selector(setModel:)]) {
-            [cell setModel:self.dataArray[indexPath.row]];
-
-        }
-        return (UICollectionViewCell *)cell;
-    }];
-    self.collectionView.dataSource = (id)dataSouce;
-
-
-    //delegate
-    A2DynamicDelegate *delegate = self.collectionView.bk_dynamicDelegate;
-
-    //item Size
-    [delegate implementMethod:@selector(collectionView:layout:sizeForItemAtIndexPath:) withBlock:^CGSize(UICollectionView *collectionView,UICollectionViewLayout *layout,NSIndexPath *indexPath) {
-        return CGSizeMake(scaledCellValue(100), scaledCellValue(120));
-    }];
-
-    //内边距
-    [delegate implementMethod:@selector(collectionView:layout:insetForSectionAtIndex:) withBlock:^UIEdgeInsets(UICollectionView *collectionView ,UICollectionViewLayout *layout, NSInteger section) {
-        return UIEdgeInsetsMake(0, 15, 0, 15);
-    }];
-
-    self.collectionView.delegate = (id)delegate;
  
     
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MVVM_Cell<MVVM_ModelDelegate> *cell = nil;
+    cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier] forIndexPath:indexPath];
+    cell.viewModel = _viewModel;
+    if ([cell respondsToSelector:@selector(setModel:)]) {
+        [cell setModel:self.dataArray[indexPath.row]];
+        
+    }
+    return (UICollectionViewCell *)cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+   return CGSizeMake(scaledCellValue(100), scaledCellValue(120));
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+  return UIEdgeInsetsMake(0, 15, 0, 15);
+}
 
 /**
  viewModel绑定
@@ -136,5 +124,43 @@
     }
     return _viewModel;
 }
+
+
+//    //collectionView dataSouce
+//    A2DynamicDelegate *dataSouce = self.collectionView.bk_dynamicDataSource;
+//
+//    //item个数
+//    [dataSouce implementMethod:@selector(collectionView:numberOfItemsInSection:) withBlock:^NSInteger(UICollectionView *collectionView, NSInteger section) {
+//        return self.dataArray.count;
+//    }];
+//
+//    //Cell
+//    [dataSouce implementMethod:@selector(collectionView:cellForItemAtIndexPath:) withBlock:^UICollectionViewCell*(UICollectionView *collectionView,NSIndexPath *indexPath) {
+//
+//        //id<MovieModelProtocol> cell = nil;
+//        MVVM_Cell<MVVM_ModelDelegate> *cell = nil;
+//
+//        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MVVM_Cell cellReuseIdentifier] forIndexPath:indexPath];
+//        cell.viewModel = _viewModel;
+//        if ([cell respondsToSelector:@selector(setModel:)]) {
+//            [cell setModel:self.dataArray[indexPath.row]];
+//
+//        }
+//        return (UICollectionViewCell *)cell;
+//    }];
+//
+//
+//    //delegate
+//    A2DynamicDelegate *delegate = self.collectionView.bk_dynamicDelegate;
+//
+//    //item Size
+//    [delegate implementMethod:@selector(collectionView:layout:sizeForItemAtIndexPath:) withBlock:^CGSize(UICollectionView *collectionView,UICollectionViewLayout *layout,NSIndexPath *indexPath) {
+//        return CGSizeMake(scaledCellValue(100), scaledCellValue(120));
+//    }];
+//
+//    //内边距
+//    [delegate implementMethod:@selector(collectionView:layout:insetForSectionAtIndex:) withBlock:^UIEdgeInsets(UICollectionView *collectionView ,UICollectionViewLayout *layout, NSInteger section) {
+//        return UIEdgeInsetsMake(0, 15, 0, 15);
+//    }];
 
 @end

@@ -3,46 +3,36 @@
 #pod install 安装
 
 inhibit_all_warnings!
+
 platform:'ios','9.0'
 target 'HuaHong' do
     
-pod 'Aspects', '~> 1.4.1'
-pod 'Masonry'
-#已被依赖，无需重复导入
 pod 'AFNetworking'
-#pod 'SBJson4'
-pod 'SVProgressHUD'
+pod 'Masonry'
 pod 'BaiduMapKit'
-pod 'SSZipArchive'
 pod 'SSKeychain', '~> 1.4.1'
 pod 'SDWebImage', '~> 4.2.3'
 pod 'ReactiveObjC', '~> 3.1.0'
 pod 'iCarousel', '~> 1.8.3'
-pod 'AVOSCloud'
-pod 'FaceppSDK', '~> 2.0.0'
-pod 'SystemServices', '~> 2.0.1'
 pod 'MLeaksFinder'
 pod 'FMDB'
 pod 'KVOController'
 pod 'MBProgressHUD', '~> 1.1.0'
-pod 'FLAnimatedImage', '~> 1.0.12'
+pod 'SVProgressHUD'
 pod 'MJExtension', '~> 3.0.15.1'
-pod 'UICountingLabel', '~> 1.4.1'
 pod 'NSDictionary-NilSafe'
 pod 'SDCycleScrollView', '~> 1.73'
 pod 'DZNEmptyDataSet'
-pod 'TTGTagCollectionView'
-pod 'MZTimerLabel', '~> 0.5.4'
 pod 'MMDrawerController', '~> 0.6.0'
 pod 'GPUImage'
 pod 'Bugly'
-pod 'BlocksKit'
 pod 'XYPieChart'
-#pod 'PNChart'
+pod 'PNChart'
 pod 'MJRefresh'
-pod 'Shimmer'
-pod 'pop'
+pod 'HHUIViewExtension', '~> 1.0.0'
+pod 'Aspects', '~> 1.4.1'
 
+#pod 'YYKit'
 pod 'YYCategories'
 pod 'YYImage'
 pod 'YYCache'
@@ -52,18 +42,26 @@ pod 'YYText'
 pod 'YYKeyboardManager'
 pod 'YYDispatchQueuePool'
 pod 'YYAsyncLayer'
-#pod 'YYKit'
-
-#pod 'RATreeView', '~> 2.1.2'
-#pod 'UITextView+Placeholder', '~> 1.2.0'
-#pod 'RESideMenu', '~> 4.0.7'
-#pod 'HHCategory', '~> 0.3.8'
-pod 'HHUIViewExtension', '~> 1.0.0'
 
 pod 'UMCCommon'
 pod 'UMCSecurityPlugins'
 pod 'UMCShare/UI'
 pod 'UMCShare/Social/ReducedWeChat'
+
+#pod 'Shimmer'#文字闪烁
+#pod 'TTGTagCollectionView'#标签
+#pod 'AVOSCloud'#在线存储
+#pod 'UITextView+Placeholder', '~> 1.2.0'
+#pod 'RESideMenu', '~> 4.0.7'
+#pod 'HHCategory', '~> 0.3.8'
+#pod 'pop'#动画
+#pod 'BlocksKit'#将代理转成Block
+#pod 'SystemServices', '~> 2.0.1'#系统信息
+#pod 'UICountingLabel', '~> 1.4.1'#数字动画
+#pod 'SSZipArchive'#压缩/解压缩
+#pod 'FaceppSDK', '~> 2.0.0'#人脸识别
+#pod 'MZTimerLabel', '~> 0.5.4'#倒计时
+
 
 #pod 'QKChineseVerifyCode',:svn =>'svn://wangxiaoli@192.168.1.193/apps/code/trunk/PublicManager/Public/QKVerifyCode'
 #pod 'QKAFNetworkSDK',:svn=>'svn://wangxiaoli@192.168.1.193/apps/code/tags/Pods/QKAFNetworkSDK/1.0.0'

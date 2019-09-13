@@ -73,4 +73,15 @@ cmd + option + /
 //static:静态/全局变量
 extern NSString *const MJPropertyTypeIvar;
 
+/**
+ * - (instancetype)init
+ * - (instancetype)initWithFrame:(CGRect)frame
+ * 自定义视图时,init会自动调用initWithFrame,所以只重写initWithFrame即可,两者都重写会造成加载多次
+ */
+
+/**
+ * - (instancetype)initWithCoder:(NSCoder *)aDecoder
+ * - (void)awakeFromNib 已经加载完成,可在里面初始化其它属性
+ * 从storyboard或xib自定义视图时,先调用initWithCoder完成自身的初始化,加载完成后调用awakeFromNib
+ */
 }

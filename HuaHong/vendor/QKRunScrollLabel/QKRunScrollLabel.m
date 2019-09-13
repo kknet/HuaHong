@@ -24,13 +24,6 @@
 
 @end
 @implementation QKRunScrollLabel
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        [self setupZScrollLabel];
-    }
-    return self;
-}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

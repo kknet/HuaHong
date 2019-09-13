@@ -54,7 +54,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    [HHAudioConvertManager convertToTextWithVoice:@"黑马程序员.mp3"];
+//    [HHAudioConvertManager convertToTextWithVoice:@"audio.mp3"];
     
 //    [[HHAudioConvertManager shared] build];
 //    [[HHAudioConvertManager shared] convert];

@@ -62,7 +62,7 @@
 {
     if (_flashBtn == nil) {
         _flashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_flashBtn setImage:[UIImage imageNamed:@"flash"] forState:UIControlStateNormal];
+        [_flashBtn setImage:[UIImage imageNamed:@"camera_flash_on"] forState:UIControlStateNormal];
         _flashBtn.tag = 2017 + VideoTopViewClickTypeFlash;
         [_flashBtn addTarget:self action:@selector(eventHandler:) forControlEvents:UIControlEventTouchUpInside];
         _flashBtn.frame = CGRectMake(self.closeBtn.right, 0, kScreenWidth/3.0, 64);
@@ -75,7 +75,7 @@
 {
     if (_switchCamera == nil) {
         _switchCamera = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_switchCamera setImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
+        [_switchCamera setImage:[UIImage imageNamed:@"switch_icon"] forState:UIControlStateNormal];
         _switchCamera.tag = 2017 + VideoTopViewClickTypeSwitchCamera;
         [_switchCamera addTarget:self action:@selector(eventHandler:) forControlEvents:UIControlEventTouchUpInside];
         _switchCamera.frame = CGRectMake(self.flashBtn.right, 0, kScreenWidth/3.0, 64);

@@ -10,27 +10,33 @@
 
 @implementation TestView
 
--(instancetype)init
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    if ([super init])
+    if ([super initWithCoder:aDecoder])
     {
         self.backgroundColor = [UIColor cyanColor];
 
-        NSLog(@"init");
-        
+        NSLog(@"\ninitWithCoder");
+
     }
-    
-    return [super init];
+
+    return self;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    NSLog(@"\nawakeFromNib");
+
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
-        NSLog(@"initWithFrame");
-
-
+        
+        self.backgroundColor = [UIColor whiteColor];
+        NSLog(@"\ninitWithFrame");
     }
     
     return self;

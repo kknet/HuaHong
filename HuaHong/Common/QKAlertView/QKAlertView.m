@@ -39,7 +39,7 @@
     return alert;
 }
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
     if (self) {
