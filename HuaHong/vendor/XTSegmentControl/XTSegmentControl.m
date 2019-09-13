@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, XTSegmentControlItemType)
 
 @implementation XTSegmentControlItem
 
-- (id)initWithFrame:(CGRect)frame title:(NSString *)title type:(XTSegmentControlItemType)type
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title type:(XTSegmentControlItemType)type
 {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];

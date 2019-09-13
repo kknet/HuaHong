@@ -110,7 +110,7 @@
         [subscriber sendNext:@"hello"];
         
         //这样不会被释放，不会自动取消订阅
-        _subscriber = subscriber;
+//        _subscriber = subscriber;
         
         return [RACDisposable disposableWithBlock:^{
             NSLog(@"取消订阅");

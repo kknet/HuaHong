@@ -216,8 +216,6 @@
 		7DC3751B20E3915D005AEBCA /* City+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751920E3915D005AEBCA /* City+CoreDataProperties.m */; };
 		7DC3752020E474F0005AEBCA /* User+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751E20E474F0005AEBCA /* User+CoreDataClass.m */; };
 		7DC3752120E474F0005AEBCA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC3751F20E474F0005AEBCA /* User+CoreDataProperties.m */; };
-		7DC3752F20E526E0005AEBCA /* ExCardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC3752D20E526E0005AEBCA /* ExCardSDK.framework */; };
-		7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */; };
 		7DC94AF81FE901F20042632D /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC94AF71FE901F20042632D /* AnimationController.m */; };
 		7DCD8CCC229AA48100E97B3B /* language.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7DCD8CCB229AA48100E97B3B /* language.xml */; };
 		7DDAE7E22057692700D5C274 /* HHPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDAE7E12057692700D5C274 /* HHPlayerViewController.m */; };
@@ -685,8 +683,6 @@
 		7DC3751D20E474F0005AEBCA /* User+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataClass.h"; sourceTree = "<group>"; };
 		7DC3751E20E474F0005AEBCA /* User+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataClass.m"; sourceTree = "<group>"; };
 		7DC3751F20E474F0005AEBCA /* User+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
-		7DC3752D20E526E0005AEBCA /* ExCardSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExCardSDK.framework; sourceTree = "<group>"; };
-		7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ExCardRes.bundle; sourceTree = "<group>"; };
 		7DC94AF61FE901F20042632D /* AnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
 		7DC94AF71FE901F20042632D /* AnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 		7DCD8CCB229AA48100E97B3B /* language.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = language.xml; sourceTree = "<group>"; };
@@ -815,7 +811,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC24C9D2027F96700103BDE /* Speech.framework in Frameworks */,
-				7DC3752F20E526E0005AEBCA /* ExCardSDK.framework in Frameworks */,
 				7D4AFAFF20108D430018AB3D /* libcrypto.a in Frameworks */,
 				7D4AFB0020108D430018AB3D /* libssl.a in Frameworks */,
 				274CC725C5FA2E95D0D6CA4D /* libPods-HuaHong.a in Frameworks */,
@@ -1225,7 +1220,6 @@
 				7D93373121B125650048E6D4 /* QKRunScrollLabel */,
 				7DE56668206E499100FC5F2E /* XTSegmentControl */,
 				7D81144720EFBA6300349078 /* UIWebView-TS */,
-				7DC3752C20E526E0005AEBCA /* SDK */,
 			);
 			path = vendor;
 			sourceTree = "<group>";
@@ -1850,15 +1844,6 @@
 			path = QKPickerView;
 			sourceTree = "<group>";
 		};
-		7DC3752C20E526E0005AEBCA /* SDK */ = {
-			isa = PBXGroup;
-			children = (
-				7DC3752D20E526E0005AEBCA /* ExCardSDK.framework */,
-				7DC3752E20E526E0005AEBCA /* ExCardRes.bundle */,
-			);
-			path = SDK;
-			sourceTree = "<group>";
-		};
 		7DC94AF51FE901770042632D /* 动画 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2259,7 +2244,6 @@
 				7D3BD4B5205E664300EFED61 /* Assets.xcassets in Resources */,
 				7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */,
 				7DE8D5861FC556DE00577762 /* Main.storyboard in Resources */,
-				7DC3753020E526E0005AEBCA /* ExCardRes.bundle in Resources */,
 				7D437F4E2090771B00DAAEBD /* QKAlertView.podspec in Resources */,
 				7D2FF0CE2004AB4900ECAA26 /* weixinY.mp4 in Resources */,
 				7DA1D6C72061F8EA00EB0AC2 /* InfoPlist.strings in Resources */,
@@ -2319,8 +2303,6 @@
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-				"${PODS_ROOT}/UMCShare/UMShare/UMSocialSDKPlugin/UMSocialSDKPromptResources.bundle",
-				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -2333,8 +2315,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SSKeychain.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2750,7 +2730,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/HuaHong/vendor/SDK",
+					"$(PROJECT_DIR)/HuaHong/vendor/LogManager",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
@@ -2788,7 +2768,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/HuaHong/vendor/SDK",
+					"$(PROJECT_DIR)/HuaHong/vendor/LogManager",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";

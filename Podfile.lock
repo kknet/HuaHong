@@ -56,16 +56,6 @@ PODS:
   - SSKeychain (1.4.1)
   - SVProgressHUD (2.2.5)
   - UICountingLabel (1.2.0)
-  - UMCCommon (1.4.3)
-  - UMCSecurityPlugins (1.0.6)
-  - UMCShare/Core (6.8.2):
-    - UMCCommon
-  - UMCShare/Social/ReducedWeChat (6.8.2):
-    - UMCCommon
-    - UMCShare/Core
-  - UMCShare/UI (6.8.2):
-    - UMCCommon
-    - UMCShare/Core
   - XYPieChart (0.2)
   - YYAsyncLayer (1.0)
   - YYCache (1.0.4)
@@ -107,10 +97,6 @@ DEPENDENCIES:
   - SDWebImage (~> 4.2.3)
   - SSKeychain (~> 1.4.1)
   - SVProgressHUD
-  - UMCCommon
-  - UMCSecurityPlugins
-  - UMCShare/Social/ReducedWeChat
-  - UMCShare/UI
   - XYPieChart
   - YYAsyncLayer
   - YYCache
@@ -149,9 +135,6 @@ SPEC REPOS:
     - SSKeychain
     - SVProgressHUD
     - UICountingLabel
-    - UMCCommon
-    - UMCSecurityPlugins
-    - UMCShare
     - XYPieChart
     - YYAsyncLayer
     - YYCache
@@ -189,9 +172,6 @@ SPEC CHECKSUMS:
   SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
-  UMCCommon: ac0bc01a46a5640bbd58646448f455b4c5404bf0
-  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
-  UMCShare: ab74e3c818cd305846609b15b0daf36872213c28
   XYPieChart: 0efd8069d26c25d20ab74c01b5ad455f1fc48153
   YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
@@ -203,6 +183,6 @@ SPEC CHECKSUMS:
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: c2a35b33d78cb8d7da533738b23de0de7be4cdc1
+PODFILE CHECKSUM: 688a6248bba627a43277cde58b7347cd794b2237
 
 COCOAPODS: 1.5.3

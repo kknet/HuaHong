@@ -13,7 +13,7 @@
 #import "TabBarViewController.h"
 #import "LocationManager.h"
 #import "HomeVC.h"
-#import <UMShare/UMShare.h>
+//#import <UMShare/UMShare.h>
 #import <Bugly/Bugly.h>
 #import <Aspects/Aspects.h>
 
@@ -341,10 +341,10 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
     
-    [UMSocialManager defaultManager].umSocialAppkey = UMAppKey;
-    
-    /* 设置微信的appKey和appSecret */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdefc667f64adc83a" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+//    [UMSocialManager defaultManager].umSocialAppkey = UMAppKey;
+//    
+//    /* 设置微信的appKey和appSecret */
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdefc667f64adc83a" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
 }
 
 

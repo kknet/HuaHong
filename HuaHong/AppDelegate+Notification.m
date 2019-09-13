@@ -156,7 +156,7 @@
 /**
  iOS10以后，后台运行及程序退出 会调用的方法
  */
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler
 {
     NSDictionary *userInfo = response.notification.request.content.userInfo;
     
@@ -197,7 +197,7 @@
 }
 
 
--(void) playSound
+- (void)playSound
 {
     static SystemSoundID push = 0;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"music" ofType:@"caf"];

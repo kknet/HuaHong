@@ -6,20 +6,19 @@
 //
 
 #import "UIWebView+TS_JavaScriptContext.h"
-
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <objc/runtime.h>
 
 static const char kTSJavaScriptContext[] = "ts_javaScriptContext";
 
-static NSHashTable* g_webViews = nil;
+static NSHashTable *g_webViews = nil;
 
 @interface UIWebView (TS_JavaScriptCore_private)
 - (void) ts_didCreateJavaScriptContext:(JSContext *)ts_javaScriptContext;
 @end
 
 @protocol TSWebFrame <NSObject>
-- (id) parentFrame;
+- (id)parentFrame;
 @end
 
 @implementation NSObject (TS_JavaScriptContext)

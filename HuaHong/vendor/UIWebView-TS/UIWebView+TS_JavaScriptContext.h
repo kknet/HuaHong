@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <JavaScriptCore/JavaScriptCore.h>
 
 @protocol TSWebViewDelegate <UIWebViewDelegate>
 
 @optional
-
 - (void)webView:(UIWebView *)webView didCreateJavaScriptContext:(JSContext*) ctx;
 
 @end

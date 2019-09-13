@@ -12,15 +12,10 @@
 #import "AppDelegate+Notification.h"
 #import "CollectionHeadView.h"
 #import "HomeFlowLayout.h"
-#import <UShareUI/UShareUI.h>
-#import "TestView.h"
-//#import <QKCodeController.h>
-
 #import <CoreTelephony/CTCallCenter.h>
 #import <CoreTelephony/CTCall.h>
 #import <Photos/Photos.h>
 #import "QKAlertView.h"
-//#import "TTGTextTagCollectionView.h"
 #import "QKDatePicker.h"
 #import "QKCalendarView.h"
 #import "TestModel.h"
@@ -28,6 +23,11 @@
 #import "NSDictionary+NilSafe.h"
 #import "EncryptionTools.h"
 #import "RSAEncryptor.h"
+#import "TestView.h"
+//#import <UShareUI/UShareUI.h>
+//#import <QKCodeController.h>
+//#import "TTGTextTagCollectionView.h"
+
 
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
@@ -212,69 +212,65 @@
 {
     NSLog(@"%@",dateStr);
 }
--(void)share
-{
-    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession)]];
-    
-    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-        // 根据获取的platformType确定所选平台进行下一步操作
-        
-//        [self shareWebPageToPlatformType:UMSocialPlatformType_WechatSession];
-        
-        [self shareTextToWechat];
-    }];
-}
-
-- (void)shareTextToWechat
-{
-    NSString *text = @"有没有发现不一样的地方？";
-    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-    messageObject.text = text;
-    [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_WechatSession messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-        NSString *message = nil;
-        if (!error) {
-            message = [NSString stringWithFormat:@"分享成功"];
-        } else {
-            message = [NSString stringWithFormat:@"失败原因Code: %d\n",(int)error.code];
-        }
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"share"
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
-        [alert show];
-    }];
-}
-
-
--(void)wechatLogin
-{
-    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:self completion:^(id result, NSError *error) {
-        
-        UMSocialUserInfoResponse *resp = result;
-        
-        // 第三方登录数据(为空表示平台未提供)
-        // 授权数据
-        NSLog(@" uid: %@", resp.uid);
-        NSLog(@" openid: %@", resp.openid);
-        NSLog(@" accessToken: %@", resp.accessToken);
-        NSLog(@" refreshToken: %@", resp.refreshToken);
-        NSLog(@" expiration: %@", resp.expiration);
-        
-        // 用户数据
-        NSLog(@" name: %@", resp.name);
-        NSLog(@" iconurl: %@", resp.iconurl);
-        NSLog(@" gender: %@", resp.unionGender);
-        
-        // 第三方平台SDK原始数据
-        NSLog(@" originalResponse: %@", resp.originalResponse);
-    }];
-    
-    
-    
-    
-    
-}
+//-(void)share
+//{
+//    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession)]];
+//
+//    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+//        // 根据获取的platformType确定所选平台进行下一步操作
+//
+////        [self shareWebPageToPlatformType:UMSocialPlatformType_WechatSession];
+//
+//        [self shareTextToWechat];
+//    }];
+//}
+//
+//- (void)shareTextToWechat
+//{
+//    NSString *text = @"有没有发现不一样的地方？";
+//    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+//    messageObject.text = text;
+//    [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_WechatSession messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+//        NSString *message = nil;
+//        if (!error) {
+//            message = [NSString stringWithFormat:@"分享成功"];
+//        } else {
+//            message = [NSString stringWithFormat:@"失败原因Code: %d\n",(int)error.code];
+//        }
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"share"
+//                                                        message:message
+//                                                       delegate:nil
+//                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//    }];
+//}
+//
+//
+//-(void)wechatLogin
+//{
+//    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:self completion:^(id result, NSError *error) {
+//
+//        UMSocialUserInfoResponse *resp = result;
+//
+//        // 第三方登录数据(为空表示平台未提供)
+//        // 授权数据
+//        NSLog(@" uid: %@", resp.uid);
+//        NSLog(@" openid: %@", resp.openid);
+//        NSLog(@" accessToken: %@", resp.accessToken);
+//        NSLog(@" refreshToken: %@", resp.refreshToken);
+//        NSLog(@" expiration: %@", resp.expiration);
+//
+//        // 用户数据
+//        NSLog(@" name: %@", resp.name);
+//        NSLog(@" iconurl: %@", resp.iconurl);
+//        NSLog(@" gender: %@", resp.unionGender);
+//
+//        // 第三方平台SDK原始数据
+//        NSLog(@" originalResponse: %@", resp.originalResponse);
+//    }];
+//
+//}
 
 
 /*

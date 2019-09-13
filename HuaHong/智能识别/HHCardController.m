@@ -7,10 +7,10 @@
 //
 
 #import "HHCardController.h"
-#import <ExCardSDK/ExCardSDK.h>
+//#import <ExCardSDK/ExCardSDK.h>
 
 @interface HHCardController ()
-@property (nonatomic, strong) EXOCRQuadCaptureManager *manager;
+//@property (nonatomic, strong) EXOCRQuadCaptureManager *manager;
 
 @end
 
@@ -20,19 +20,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.manager = [EXOCRQuadCaptureManager sharedManager:self];
-    [self.manager controlTabBarControllerHiddenBySDK:NO];
-    
-    //初始化
-    [EXOCRCardEngineManager initEngine:nil];
+//    self.manager = [EXOCRQuadCaptureManager sharedManager:self];
+//    [self.manager controlTabBarControllerHiddenBySDK:NO];
+//
+//    //初始化
+//    [EXOCRCardEngineManager initEngine:nil];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    [self.manager captureQuadCardWithCardType:EXOCRCaptureCardTypeDefault OnCompleted:^(int statusCode, EXOCRQuadCardInfo *quadInfo) {
-
-    } OnCanceled:nil OnFailed:^(int statusCode, UIImage *recoImg) {
-    }];
+//    [self.manager captureQuadCardWithCardType:EXOCRCaptureCardTypeDefault OnCompleted:^(int statusCode, EXOCRQuadCardInfo *quadInfo) {
+//
+//    } OnCanceled:nil OnFailed:^(int statusCode, UIImage *recoImg) {
+//    }];
 }
 
 
