@@ -37,7 +37,6 @@
     //Authorization    Basic YWRtaW46OTAxMTI0
     [request setValue:[self getAuthorization:@"admin" pwd:@"901124"]forHTTPHeaderField:@"Authorization"];
     
-    //    NSURL *fileUrl = [[NSBundle mainBundle]URLForResource:@"weixinY.mp4" withExtension:nil];
     
     [[[NSURLSession sharedSession]dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         

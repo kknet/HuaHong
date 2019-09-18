@@ -53,7 +53,7 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell.key isEqualToString:@"123"]) {
-        [MBProgressHUD showInfo:@"didSelectRowAtIndexPath方法被拦截" toView:nil];
+        [MBProgressHUD showMessage:@"didSelectRowAtIndexPath方法被拦截"];
         return;
     }
     

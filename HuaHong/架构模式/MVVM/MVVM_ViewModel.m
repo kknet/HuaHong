@@ -64,7 +64,7 @@
 /** 网络请求 */
 - (void)getDoubanList:(void(^)(NSArray<MVVM_Model*> *array))succeedBlock {
     
-    [[HHRequestManager defaultManager]requestByUrl:url params:@{} requestType:GET progress:nil success:^(id  _Nonnull responseObject) {
+    [[HHRequestManager defaultManager]requestByUrl:url params:@{} requestType:GET success:^(id  _Nonnull responseObject) {
         
         NSArray *subjects = [responseObject objectForKey:@"subjects"];
         

@@ -50,7 +50,7 @@
     //Authorization    Basic YWRtaW46OTAxMTI0
     [request setValue:[self getAuthorization:@"admin" pwd:@"901124"]forHTTPHeaderField:@"Authorization"];
     
-    NSURL *fileUrl = [[NSBundle mainBundle]URLForResource:@"weixinY.mp4" withExtension:nil];
+    NSURL *fileUrl = [[NSBundle mainBundle]URLForResource:@"video.mov" withExtension:nil];
     
     //此方法没有代理
     /*

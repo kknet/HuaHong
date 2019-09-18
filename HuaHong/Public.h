@@ -47,7 +47,7 @@
 #import "MBProgressHUD+add.h"
 #import "NSDictionary+NilSafe.h"
 #import "NSDictionary+Null.h"
-#import "NSObject+add.h"
+#import "NSObject+swizzle.h"
 #import "YYCategories.h"
 #import "UITextView+PlaceHolder.h"
 #import "UIScrollView+EmptyDataSet.h"

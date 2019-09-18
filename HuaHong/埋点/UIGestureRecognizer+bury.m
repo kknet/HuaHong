@@ -21,7 +21,7 @@
     if ([self.key isEqualToString:@"123"]) {
         
         NSLog(@"手势被拦截");
-        [MBProgressHUD showInfo:@"手势被拦截" toView:nil];
+        [MBProgressHUD showMessage:@"手势被拦截"];
         return;
     }
     
@@ -37,7 +37,7 @@
     if ([self.key isEqualToString:@"123"]) {
         
         NSLog(@"手势被拦截");
-        [MBProgressHUD showInfo:@"手势被拦截" toView:nil];
+        [MBProgressHUD showMessage:@"手势被拦截"];
         return NO;
     }
     

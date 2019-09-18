@@ -41,13 +41,17 @@ static void uncaughtExceptionHandler(NSException *exception)
 {
     [Bugly startWithAppId:@"13930b836d"];
 }
-//extern CFAbsoluteTime startTime;
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [UITableView aspect_hookSelector:@selector(tableView:didSelectRowAtIndexPath:) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
         
         NSLog(@"AOP::%@",info);
     } error:NULL];
+    
+    
+    [self configRequestManager];
     
     [self BuglyConfig];
     
@@ -297,18 +301,18 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 
 -(void)updateVersion
 {
-    NSString *LocalVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSLog(@"LocalVersion:%@",LocalVersion);
-    NSString *LineVersion = @"8.8.1.0";
-    if ([LocalVersion compare:LineVersion options:NSNumericSearch] == NSOrderedDescending) {
+    NSString *localVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSLog(@"LocalVersion:%@",localVersion);
+    NSString *onlineVersion = @"8.8.1.0";
+    if ([localVersion compare:onlineVersion options:NSNumericSearch] == NSOrderedDescending) {
         //降序
-        NSLog(@"%@  >  %@",LocalVersion,LineVersion);
-    }else if ([LocalVersion compare:LineVersion options:NSNumericSearch] == NSOrderedAscending){
+        NSLog(@"%@  >  %@",localVersion,onlineVersion);
+    }else if ([localVersion compare:onlineVersion options:NSNumericSearch] == NSOrderedAscending){
         //升序
-        NSLog(@"%@  <  %@",LocalVersion,LineVersion);
-    }else if ([LocalVersion compare:LineVersion options:NSNumericSearch] == NSOrderedSame){
+        NSLog(@"%@  <  %@",localVersion,onlineVersion);
+    }else if ([localVersion compare:onlineVersion options:NSNumericSearch] == NSOrderedSame){
         
-        NSLog(@"%@  =  %@",LocalVersion,LineVersion);
+        NSLog(@"%@  =  %@",localVersion,onlineVersion);
         
     }
     NSError *error;
@@ -332,6 +336,29 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 }
 
 
+- (void)configRequestManager
+{
+    [[HHRequestManager defaultManager] startNetMonitoring];
+    
+    //请求结果过滤NSNull
+    [[HHRequestManager defaultManager]setFilterResponseCallback:^(id _Nonnull data, void (^ _Nonnull continueResponseBlock)(id _Nonnull)) {
+        
+        id result = data;
+        if ([data isKindOfClass:[NSDictionary class]] || [data isKindOfClass:[NSMutableDictionary class]]) {
+            
+            NSDictionary *dic = (NSDictionary *)data;
+            result = [dic filterNull];
+            
+        }else if ([data isKindOfClass:[NSArray class]] || [data isKindOfClass:[NSMutableArray class]]){
+            
+            NSArray *array = (NSArray *)data;
+            result = [array filterNull];
+        }
+        
+        continueResponseBlock(result);
+    }];
+}
+
 - (void)configUSharePlatforms
 {
     /*
@@ -342,7 +369,7 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
     
 //    [UMSocialManager defaultManager].umSocialAppkey = UMAppKey;
-//    
+//
 //    /* 设置微信的appKey和appSecret */
 //    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdefc667f64adc83a" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
 }

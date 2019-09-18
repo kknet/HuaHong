@@ -9,6 +9,7 @@
 #import "NSTimer+HHTimer.h"
 
 @implementation NSTimer (HHTimer)
+
 + (NSTimer *)hhscheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^)(NSTimer *timer))block
 {
     return [self scheduledTimerWithTimeInterval:interval target:self selector:@selector(blockHandle:) userInfo:[block copy] repeats:repeats];
@@ -21,4 +22,5 @@
         block(timer);
     }
 }
+
 @end

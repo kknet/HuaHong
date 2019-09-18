@@ -24,10 +24,6 @@
 #import "EncryptionTools.h"
 #import "RSAEncryptor.h"
 #import "TestView.h"
-//#import <UShareUI/UShareUI.h>
-//#import <QKCodeController.h>
-//#import "TTGTextTagCollectionView.h"
-
 
 @interface TestViewController()<HHAlertViewDelegate,QKDatePickerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
@@ -41,7 +37,6 @@
 {
     HUtils *_tool;
 }
-
 
 -(void)viewDidLoad
 {
@@ -191,20 +186,14 @@
 //        NSLog(@"%ld %ld %ld",(long)year,(long)month,(long)day);
 //    }];
     
-    return;
-    
-    
-//    _str = [NSString stringWithFormat:@"name:%@",_str];
-    _str = [@"name:"stringByAppendingString:_str];
-//    str = [str substringToIndex:0];
-    self.label.text = _str;
-    NSLog(@"%@",_str);
 
+//    BaseModel *model = [BaseModel new];
+//    [model testMethod];
     
-//    [self showAlertView];
+    [MBProgressHUD showSuccess:@"发送成功"];
+//    [MBProgressHUD showError:@"失败" toView:self.view];
+//    [MBProgressHUD showMessage:@"MBProgressHUD"];
     
-    BaseModel *model = [BaseModel new];
-    [model testMethod];
     
 }
 
@@ -273,34 +262,6 @@
 //}
 
 
-/*
-#define kSwitchHeight 50
-- (void)addSwitch
-{
- 
-        NSString *showText = @"显示名称";
-        // 2个字 用80比较好看 (18号字体)
-        // 4个字 用120比较好看 (18号字体)
-        // 所以: = 字数 * 20 + 40
-        CGFloat switchWidth = showText.length * 20 + 40;//120;
-        
-        _switch_showName = [[ZJSwitch alloc] initWithFrame:CGRectMake(0, 0, switchWidth, kSwitchHeight)];
-        
-        
- 
-        
-        _switch_showName.backgroundColor = [UIColor clearColor];
-        _switch_showName.tintColor = [UIColor lightGrayColor];
-        _switch_showName.onText = showText;
-        _switch_showName.offText = showText; // 也可以不一样
-        [_switch_showName addTarget:self action:@selector(handleSwitchEvent:) forControlEvents:UIControlEventValueChanged];
-        [self.scrollView addSubview:_switch_showName];
- 
- 
-}
- 
- */
-
 #pragma mark - 电话监听-监测来电
 - (void)monitorCall
 {
@@ -336,6 +297,7 @@
 
 - (BOOL)navigationShouldPopOnBackButton
 {
+    
     if ([_delegate respondsToSelector:@selector(testReturnAction)]) {
         [_delegate testReturnAction];
     }

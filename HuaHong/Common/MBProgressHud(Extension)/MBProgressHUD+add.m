@@ -11,59 +11,94 @@
 #define kAfterDelay 2.0f
 @implementation MBProgressHUD (add)
 
-+(void)showSuccess:(NSString *)success toView:(UIView *)view
+//MARK: - 警告提示信息
++(void)showMessage:(NSString *)message
+{
+    UIViewController *vc = [HUtils currentViewController];
+    [[self class] showMessage:message toView:vc.view];
+}
+
++(void)showMessage:(NSString *)message toView:(UIView *)view
+{
+    NSInteger scale = [UIScreen mainScreen].scale;
+    NSString *imageName = [NSString stringWithFormat:@"info@%zdx.png",scale];
+    [self p_show:message icon:imageName view:view];
+}
+
+//MARK: - 成功提示信息
++(void)showSuccess:(NSString *)message
+{
+    UIViewController *vc = [HUtils currentViewController];
+    [[self class] showSuccess:message toView:vc.view];
+}
+
++(void)showSuccess:(NSString *)message toView:(UIView *)view
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"success@%zdx.png",scale];
-    [self p_show:success icon:imageName view:view];
+    [self p_show:message icon:imageName view:view];
 }
 
-+(void)showInfo:(NSString *)info toView:(UIView *)view
+//MARK: - 失败提示信息
++(void)showError:(NSString *)message
+{
+    UIViewController *vc = [HUtils currentViewController];
+    [[self class] showError:message toView:vc.view];
+}
+
++(void)showError:(NSString *)message toView:(UIView *)view
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"error@%zdx.png",scale];
-    [self p_show:info icon:nil view:view];
+    [self p_show:message icon:imageName view:view];
 }
 
-+(void)showLoading:(NSString *)text toView:(UIView *)view
+//MARK: - 显示加载框
++(void)showLoading:(NSString *)message
 {
-    __block UIView *showView = view;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        showView = view ? view : [[UIApplication sharedApplication].windows lastObject];
-        
-        //设置菊花框为白色
-        [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
-        
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:showView animated:YES];
-        hud.mode = MBProgressHUDModeIndeterminate;
-        hud.removeFromSuperViewOnHide = YES;
-        
-        //修改样式，否则等待框背景色将为半透明
-        hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-        hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.66];
-        
-        hud.label.text = text;
-        hud.label.textColor = [UIColor whiteColor];
-        
-        
-    });
+    UIViewController *vc = [HUtils currentViewController];
+    [[self class] showLoading:message toView:vc.view];
+}
+
++(void)showLoading:(NSString *)message toView:(UIView *)view
+{
+
+    view = view ?: [[UIApplication sharedApplication].windows lastObject];
     
+    //设置菊花框为白色
+    [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
     
+    MBProgressHUD *hud = [MBProgressHUD HUDForView:view];
+    if (hud == nil) {
+        hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    }
+    
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.removeFromSuperViewOnHide = YES;
+    
+    //修改样式，否则等待框背景色将为半透明
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.7];
+    
+    hud.label.text = message;
+    hud.label.textColor = [UIColor whiteColor];
+    
+}
+
+//MARK: - 隐藏加载框
++ (void)hideHUD
+{
+    UIViewController *vc = [HUtils currentViewController];
+    [[self class] hideHUDForView:vc.view];
 }
 
 + (void)hideHUDForView:(UIView *)view
 {
-    __block UIView *showView = view;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        showView = view ? view : [[UIApplication sharedApplication].windows lastObject];
-        
-        [self hideHUDForView:showView animated:YES];
-    });
-    
+    view = view ?: [[UIApplication sharedApplication].windows lastObject];
+    [self hideHUDForView:view animated:YES];
 }
 
+//MARK: - 私有方法
 /**
  在view上展示文字、图片
  
@@ -73,31 +108,28 @@
  */
 +(void)p_show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
 {
-    __block UIView *showView = view;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        showView = view ? view : [[UIApplication sharedApplication].windows lastObject];
-        
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:showView animated:YES];
-        
-        hud.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@",icon]]];
-        
-        hud.mode = MBProgressHUDModeCustomView;
-        hud.margin = 30;
-        hud.removeFromSuperViewOnHide = YES;
-        
-        //修改样式，否则等待框背景色将为半透明
-        hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-        
-        hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.66];
-        
-        hud.label.text = text;
-        hud.label.numberOfLines = 0;
-        hud.label.textColor = [UIColor whiteColor];
-        hud.label.font = [UIFont systemFontOfSize:15];
-        
-        [hud hideAnimated:YES afterDelay:kAfterDelay];
-    });
+   view = view ?: [[UIApplication sharedApplication].windows lastObject];
+
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    
+    hud.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@",icon]]];
+    
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.margin = 30;
+    hud.removeFromSuperViewOnHide = YES;
+    
+    //修改样式，否则等待框背景色将为半透明
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    
+    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.7];
+    
+    hud.label.text = text;
+    hud.label.numberOfLines = 0;
+    hud.label.textColor = [UIColor whiteColor];
+    hud.label.font = [UIFont systemFontOfSize:15];
+    
+    [hud hideAnimated:YES afterDelay:kAfterDelay];
+    
     
 }
 
@@ -108,8 +140,6 @@
     hud.removeFromSuperViewOnHide = YES;
     
     hud.label.text = @"正在加载中...";
-    
-//    hud.bezelView.color = [UIColor redColor];
     
     hud.progress = 0;
     

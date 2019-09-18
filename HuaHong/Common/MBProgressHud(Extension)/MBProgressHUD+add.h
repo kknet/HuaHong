@@ -10,13 +10,24 @@
 
 @interface MBProgressHUD (add)
 
-+(void)showSuccess:(NSString *)success toView:(UIView *)view;
+//MARK: - 警告提示信息
++(void)showMessage:(NSString *)message;
++(void)showMessage:(NSString *)message toView:(UIView *)view;
 
-+(void)showInfo:(NSString *)info toView:(UIView *)view;
+//MARK: - 成功提示信息
++(void)showSuccess:(NSString *)message;
++(void)showSuccess:(NSString *)message toView:(UIView *)view;
 
-+(void)showLoading:(NSString *)text toView:(UIView *)view;
+//MARK: - 失败提示信息
++(void)showError:(NSString *)message;
++(void)showError:(NSString *)message toView:(UIView *)view;
 
-/** 返回的时候记得隐藏，否则会内存泄漏 */
+//MARK: - 显示加载框
++(void)showLoading:(NSString *)message;
++(void)showLoading:(NSString *)message toView:(UIView *)view;
+
+//MARK: - 隐藏加载框
++ (void)hideHUD;
 + (void)hideHUDForView:(UIView *)view;
 
 //测试

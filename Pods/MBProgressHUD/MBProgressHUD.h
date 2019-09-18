@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger, MBProgressHUDAnimation) {
 };
 
 typedef NS_ENUM(NSInteger, MBProgressHUDBackgroundStyle) {
-    /// Solid color background
+    /// Solid color background 纯色背景
     MBProgressHUDBackgroundStyleSolidColor,
     /// UIVisualEffectView or UIToolbar.layer background view
     MBProgressHUDBackgroundStyleBlur

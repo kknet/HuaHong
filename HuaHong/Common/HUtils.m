@@ -8,6 +8,7 @@
 
 #import "HUtils.h"
 #import <CommonCrypto/CommonDigest.h>
+#define kAppDelegate       [UIApplication sharedApplication].delegate
 
 @implementation HUtils
 {
@@ -135,4 +136,57 @@
         [_layer removeFromSuperlayer];
     }
 }
+
+#pragma mark   - 获取当前控制器
+/**  获取当前控制器*/
++ (UIViewController *)currentViewController{
+    
+    if ([kAppDelegate.window.rootViewController isKindOfClass:UINavigationController.class] || [kAppDelegate.window.rootViewController isKindOfClass:UITabBarController.class]) {
+        return [self getVisibleViewControllerWithRootVC:kAppDelegate.window.rootViewController];
+    }else{
+        UIViewController *VC = kAppDelegate.window.rootViewController;
+        if (VC.presentedViewController) {
+            if ([VC.presentedViewController isKindOfClass:UINavigationController.class]||
+                [VC.presentedViewController isKindOfClass:UITabBarController.class]) {
+                return [self getVisibleViewControllerWithRootVC:VC.presentedViewController];
+            }else{
+                return VC.presentedViewController;
+            }
+        }
+        else{
+            return VC;
+        }
+    }
+}
+
+/**
+ * 私有方法
+ * rootVC必须是UINavigationController 或 UITabBarController 及其子类
+ */
++ (UIViewController *)getVisibleViewControllerWithRootVC:(UIViewController *)rootVC{
+    
+    if ([rootVC isKindOfClass:UINavigationController.class]) {
+        UINavigationController *nav = (UINavigationController *)rootVC;
+        // 如果有modal view controller并且弹起的是导航控制器，返回其topViewController
+        if ([nav.visibleViewController isKindOfClass:UINavigationController.class]) {
+            UINavigationController *presentdNav = (UINavigationController *)nav.visibleViewController;
+            return presentdNav.visibleViewController;
+        }
+        else if ([nav.visibleViewController isKindOfClass:UITabBarController.class]){
+            return [self getVisibleViewControllerWithRootVC:nav.visibleViewController];
+        }
+        // Return modal view controller if it exists. Otherwise the top view controller.
+        else{
+            return nav.visibleViewController;
+        }
+    }
+    else if([rootVC isKindOfClass:UITabBarController.class]){
+        UITabBarController *tabVC = (UITabBarController *)rootVC;
+        UINavigationController *nav = (UINavigationController *)tabVC.selectedViewController;
+        return [self getVisibleViewControllerWithRootVC:nav];
+    }else{
+        return rootVC;
+    }
+}
+
 @end

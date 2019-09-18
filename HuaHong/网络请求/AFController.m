@@ -17,40 +17,56 @@
 
 @implementation AFController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[HHRequestManager defaultManager] startNetMonitoring];
     
-    //请求结果过滤NSNull
-    [[HHRequestManager defaultManager]setFilterResponseCallback:^(id _Nonnull data, void (^ _Nonnull continueResponseBlock)(id _Nonnull)) {
-
-        id result = data;
-        if ([data isKindOfClass:[NSDictionary class]] || [data isKindOfClass:[NSMutableDictionary class]]) {
-
-            NSDictionary *dic = (NSDictionary *)data;
-            result = [dic filterNull];
-
-        }else if ([data isKindOfClass:[NSArray class]] || [data isKindOfClass:[NSMutableArray class]]){
-
-            NSArray *array = (NSArray *)data;
-            result = [array filterNull];
-        }
-
-        continueResponseBlock(result);
-    }];
-    
-    
-    self.task = [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{} requestType:POST progress:nil
-                                                       success:^(id  _Nonnull responseObject) {
-                                                           
-                                                       } failure:^(RequestErrorType error) {
-                                                           
-                                                       } isSupportHud:YES isSupportErrorAlert:YES];
-    
-    [self.task cancel];
 }
 
+- (void)requestData
+{
+    [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{} requestType:POST
+                                           success:^(id  _Nonnull responseObject) {
+                                               
+                                           } failure:^(RequestErrorType error) {
+                                               
+                                           } isSupportHud:YES isSupportErrorAlert:YES];
+}
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
@@ -84,7 +100,7 @@
 - (void)uploadFile
 {
     NSString *urlStr = [kBaseURL stringByAppendingPathComponent:@"uploads/123.mp4"];
-    NSURL *fileUrl = [[NSBundle mainBundle]URLForResource:@"weixinY.mp4" withExtension:nil];
+    NSURL *fileUrl = [[NSBundle mainBundle]URLForResource:@"video.mov" withExtension:nil];
     
     [[AFHTTPSessionManager manager]POST:urlStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         //上传文件

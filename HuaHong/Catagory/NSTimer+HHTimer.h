@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSTimer (HHTimer)
 
 + (NSTimer *)hhscheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^)(NSTimer *timer))block;
+
 @end
 
 NS_ASSUME_NONNULL_END

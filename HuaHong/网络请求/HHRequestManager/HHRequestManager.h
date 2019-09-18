@@ -64,7 +64,6 @@ typedef NS_ENUM(NSUInteger, RequestErrorType) {
  @param url url地址
  @param params 参数
  @param requestType 请求类型
- @param progressBlock 进度回调
  @param successBlock 结果回调
  @param errorBlock 错误回调
  @param isSupportHud 是否有加载框
@@ -74,7 +73,6 @@ typedef NS_ENUM(NSUInteger, RequestErrorType) {
 - (NSURLSessionTask *)requestByUrl:(NSString *)url
                             params:(id)params
                        requestType:(RequestType)requestType
-                          progress:(void (^ _Nullable)(NSProgress *progress))progressBlock
                            success:(void (^)(id responseObject))successBlock
                            failure:(void (^)(RequestErrorType error))errorBlock
                       isSupportHud:(BOOL)isSupportHud isSupportErrorAlert:(BOOL)isSupportErrorAlert;

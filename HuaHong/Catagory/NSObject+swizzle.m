@@ -1,15 +1,15 @@
 //
-//  NSObject+add.m
+//  NSObject+swizzle.m
 //  HuaHong
 //
 //  Created by qk-huahong on 2019/7/16.
 //  Copyright © 2019 huahong. All rights reserved.
 //
 
-#import "NSObject+add.h"
+#import "NSObject+swizzle.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (add)
+@implementation NSObject (swizzle)
 
 - (NSString *)key
 {

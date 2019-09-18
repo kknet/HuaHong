@@ -21,7 +21,7 @@
     if ([self.key isEqualToString:@"123"]) {
         
         NSLog(@"UIControl方法被拦截");
-        [MBProgressHUD showInfo:@"UIControl方法被拦截" toView:nil];
+        [MBProgressHUD showMessage:@"UIControl方法被拦截"];
 
         return;
     }

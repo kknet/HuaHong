@@ -1,5 +1,5 @@
 //
-//  NSObject+add.h
+//  NSObject+swizzle.h
 //  HuaHong
 //
 //  Created by qk-huahong on 2019/7/16.
@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)swizzleInstanceMethod:(SEL)originalSEL swizzledSEL:(SEL)swizzledSEL;
 
 + (void)swizzleClassMethod:(SEL)originalSEL swizzledSEL:(SEL)swizzledSEL;
+
 @end
 
 NS_ASSUME_NONNULL_END
