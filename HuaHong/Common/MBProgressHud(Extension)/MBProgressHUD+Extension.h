@@ -1,5 +1,5 @@
 //
-//  MBProgressHUD+add.h
+//  MBProgressHUD+Extension.h
 //  HuaHong
 //
 //  Created by 华宏 on 2018/11/26.
@@ -8,7 +8,7 @@
 #import "MBProgressHUD.h"
 #import "UIViewController+MBProgressHUD.h"
 
-@interface MBProgressHUD (add)
+@interface MBProgressHUD (Extension)
 
 //MARK: - 警告提示信息
 +(void)showMessage:(NSString *)message;

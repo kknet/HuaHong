@@ -102,7 +102,7 @@
 		7D5892112266D23100DFE60F /* QKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5892092266D23100DFE60F /* QKCalendarView.m */; };
 		7D5892122266D23100DFE60F /* QKCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */; };
 		7D5892132266D23100DFE60F /* QKCalenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58920C2266D23100DFE60F /* QKCalenderCell.m */; };
-		7D58943E22688D7200DFE60F /* MBProgressHUD+add.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58943922688D7200DFE60F /* MBProgressHUD+add.m */; };
+		7D58943E22688D7200DFE60F /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58943922688D7200DFE60F /* MBProgressHUD+Extension.m */; };
 		7D58951A226EA7AB00DFE60F /* HHVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */; };
 		7D61C6C022850F8B00F46167 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D61C6BF22850F8B00F46167 /* TestModel.m */; };
 		7D651127203C35900042DAE7 /* DownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D651126203C35900042DAE7 /* DownLoadViewController.m */; };
@@ -455,9 +455,9 @@
 		7D58920A2266D23100DFE60F /* QKCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKCalendarHeaderView.h; sourceTree = "<group>"; };
 		7D58920B2266D23100DFE60F /* QKCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QKCalendarHeaderView.xib; sourceTree = "<group>"; };
 		7D58920C2266D23100DFE60F /* QKCalenderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKCalenderCell.m; sourceTree = "<group>"; };
-		7D58943922688D7200DFE60F /* MBProgressHUD+add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+add.m"; sourceTree = "<group>"; };
+		7D58943922688D7200DFE60F /* MBProgressHUD+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extension.m"; sourceTree = "<group>"; };
 		7D58943A22688D7200DFE60F /* UIViewController+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MBProgressHUD.h"; sourceTree = "<group>"; };
-		7D58943B22688D7200DFE60F /* MBProgressHUD+add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+add.h"; sourceTree = "<group>"; };
+		7D58943B22688D7200DFE60F /* MBProgressHUD+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extension.h"; sourceTree = "<group>"; };
 		7D589518226EA7AB00DFE60F /* HHVideoPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVideoPlayerController.h; sourceTree = "<group>"; };
 		7D589519226EA7AB00DFE60F /* HHVideoPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVideoPlayerController.m; sourceTree = "<group>"; };
 		7D61C6BE22850F8B00F46167 /* TestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
@@ -1416,8 +1416,8 @@
 		7D58943822688D7200DFE60F /* MBProgressHud(Extension) */ = {
 			isa = PBXGroup;
 			children = (
-				7D58943B22688D7200DFE60F /* MBProgressHUD+add.h */,
-				7D58943922688D7200DFE60F /* MBProgressHUD+add.m */,
+				7D58943B22688D7200DFE60F /* MBProgressHUD+Extension.h */,
+				7D58943922688D7200DFE60F /* MBProgressHUD+Extension.m */,
 				7D58943A22688D7200DFE60F /* UIViewController+MBProgressHUD.h */,
 				7D28488722CCF64C00AD0F4E /* UIViewController+MBProgressHUD.m */,
 				7D1D81AC23320984005F3243 /* MBProgressHUD.bundle */,
@@ -2428,7 +2428,7 @@
 				7D5393E6201F22D1006D2712 /* ClockViewController.m in Sources */,
 				7DB910092148C24300A9B40C /* MVPController.m in Sources */,
 				7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */,
-				7D58943E22688D7200DFE60F /* MBProgressHUD+add.m in Sources */,
+				7D58943E22688D7200DFE60F /* MBProgressHUD+Extension.m in Sources */,
 				7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
 				7D8FDD70226F15A700D00C92 /* HHAudioPlayManager.m in Sources */,

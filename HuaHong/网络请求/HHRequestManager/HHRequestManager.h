@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 #import "HHHttpSessionManager.h"
-#import "MBProgressHUD+add.h"
+#import "MBProgressHUD+Extension.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

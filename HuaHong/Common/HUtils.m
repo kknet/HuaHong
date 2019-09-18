@@ -175,7 +175,6 @@
         else if ([nav.visibleViewController isKindOfClass:UITabBarController.class]){
             return [self getVisibleViewControllerWithRootVC:nav.visibleViewController];
         }
-        // Return modal view controller if it exists. Otherwise the top view controller.
         else{
             return nav.visibleViewController;
         }

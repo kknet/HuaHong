@@ -1,15 +1,15 @@
 //
-//  MBProgressHUD+add.m
+//  MBProgressHUD+Extension.m
 //  HuaHong
 //
 //  Created by 华宏 on 2018/11/26.
 //  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "MBProgressHUD+add.h"
+#import "MBProgressHUD+Extension.h"
 
 #define kAfterDelay 2.0f
-@implementation MBProgressHUD (add)
+@implementation MBProgressHUD (Extension)
 
 //MARK: - 警告提示信息
 +(void)showMessage:(NSString *)message
@@ -63,15 +63,19 @@
 +(void)showLoading:(NSString *)message toView:(UIView *)view
 {
 
-    view = view ?: [[UIApplication sharedApplication].windows lastObject];
+    view = view ?: [[UIApplication sharedApplication].delegate window];
     
     //设置菊花框为白色
     [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
+    
     
     MBProgressHUD *hud = [MBProgressHUD HUDForView:view];
     if (hud == nil) {
         hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     }
+    
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+
     
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.removeFromSuperViewOnHide = YES;
@@ -94,7 +98,7 @@
 
 + (void)hideHUDForView:(UIView *)view
 {
-    view = view ?: [[UIApplication sharedApplication].windows lastObject];
+    view = view ?: [[UIApplication sharedApplication].delegate window];
     [self hideHUDForView:view animated:YES];
 }
 
@@ -108,7 +112,7 @@
  */
 +(void)p_show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
 {
-   view = view ?: [[UIApplication sharedApplication].windows lastObject];
+    view = view ?: [[UIApplication sharedApplication].delegate window];
 
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     

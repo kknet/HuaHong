@@ -44,7 +44,7 @@
 #import "UIImage+Category.h"
 #import "NSDate+Category.h"
 #import "UITextField+Limit.h"
-#import "MBProgressHUD+add.h"
+#import "MBProgressHUD+Extension.h"
 #import "NSDictionary+NilSafe.h"
 #import "NSDictionary+Null.h"
 #import "NSObject+swizzle.h"

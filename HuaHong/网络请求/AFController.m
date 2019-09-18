@@ -22,34 +22,34 @@
     [super viewWillAppear:animated];
     
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
     
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
 
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
 
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
 
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
     
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
     
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
     
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
     
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
     
     [self requestData];
-    [MBProgressHUD showMessage:@"message"];
+//    [MBProgressHUD showMessage:@"message"];
 
 }
 - (void)viewDidLoad {
@@ -61,11 +61,13 @@
 - (void)requestData
 {
     [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{} requestType:POST
-                                           success:^(id  _Nonnull responseObject) {
-                                               
-                                           } failure:^(RequestErrorType error) {
-                                               
-                                           } isSupportHud:YES isSupportErrorAlert:YES];
+       success:^(id  _Nonnull responseObject) {
+           [MBProgressHUD showMessage:@"请求成功"];
+
+       } failure:^(RequestErrorType error) {
+           [MBProgressHUD showMessage:@"请求失败"];
+
+       } isSupportHud:YES isSupportErrorAlert:YES];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
