@@ -47,12 +47,10 @@
     HHSwitch *hhswitch = [[HHSwitch alloc] initWithFrame:CGRectMake(100, 90, 80, 40)];
     hhswitch.onText = @"开启";
     hhswitch.offText = @"关闭";
-    hhswitch.offText = @"关闭";
 
     [self.view addSubview:hhswitch];
     [hhswitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
 
-    NSLog(@"mySwitch:%@",_mySwitch);
 }
 
 - (void)showAlertView
@@ -65,24 +63,24 @@
     
     HHAlertView *alertView = [HHAlertView sharedAlertView];
 
-//    [alertView alertWithTitle:@"提示" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定" buttonClickback:^(HHAlertView * _Nonnull alertView,NSString *message, NSInteger buttonIndex) {
-//
-////        if (buttonIndex == 0) {
-////            [MBProgressHUD showMessage:@"取消"];
-////        }else
-////        {
-////            [MBProgressHUD showMessage:@"确定"];
-////        }
-//
-//    }];
+    [alertView alertWithTitle:@"提示" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定" buttonClickback:^(HHAlertView * _Nonnull alertView,NSString *message, NSInteger buttonIndex) {
+
+//        if (buttonIndex == 0) {
+//            [MBProgressHUD showMessage:@"取消"];
+//        }else
+//        {
+//            [MBProgressHUD showMessage:@"确定"];
+//        }
+
+    }];
     
-        alertView.title = @"不合格说明";
+//        alertView.title = @"不合格说明";
         alertView.placeholder = @"请说明不合格原因";
         alertView.textAlignment = NSTextAlignmentLeft;
         alertView.editable = YES;
         alertView.limitCount = 200;
         alertView.forbiddenEmoji = YES;
-    //    [alertView exchangeTwoButton];
+        [alertView exchangeTwoButton];
     
     [alertView show];
     
@@ -175,8 +173,6 @@
 //    [HUtils forceOrientation:UIInterfaceOrientationLandscapeLeft];
 //    NSLog(@"%d",[HUtils isOrientationLandscape]);
     
-    [self showAlertView];
-    
   
 //    _pick = [[QKDatePicker alloc]initDatePickWithDate:NSDate.date datePickerModel:UIDatePickerModeDate];
 //    _pick.delegate = self;
@@ -194,7 +190,11 @@
 //    BaseModel *model = [BaseModel new];
 //    [model testMethod];
     
-    
+    [self showAlertView];
+
+//    NSString *str = nil;
+//    str = [NSString stringWithFormat:@"name:%@",str];
+//    NSLog(@"str:%@",str);
     
 }
 

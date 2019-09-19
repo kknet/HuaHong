@@ -18,20 +18,20 @@
  */
 
 //MARK: - 警告提示信息
-+(void)showMessage:(NSString *_Nonnull)message;
-+(void)showMessage:(NSString *_Nonnull)message toView:(UIView *_Nullable)view;
++ (void)showMessage:(NSString *_Nonnull)message;
++ (void)showMessage:(NSString *_Nonnull)message toView:(UIView *_Nullable)view;
 
 //MARK: - 成功提示信息
-+(void)showSuccess:(NSString *_Nonnull)message;
-+(void)showSuccess:(NSString *_Nonnull)message toView:(UIView *_Nullable)view;
++ (void)showSuccess:(NSString *_Nonnull)message;
++ (void)showSuccess:(NSString *_Nonnull)message toView:(UIView *_Nullable)view;
 
 //MARK: - 失败提示信息
-+(void)showError:(NSString *_Nonnull)message;
-+(void)showError:(NSString *_Nonnull)message toView:(UIView *_Nullable)view;
++ (void)showError:(NSString *_Nonnull)message;
++ (void)showError:(NSString *_Nonnull)message toView:(UIView *_Nullable)view;
 
 //MARK: - 显示加载框
-+(void)showLoading:(NSString *_Nonnull)message;
-+(void)showLoading:(NSString *_Nonnull)message toView:(UIView *_Nullable)view;
++ (void)showLoading:(NSString *_Nonnull)message;
++ (void)showLoading:(NSString *_Nonnull)message toView:(UIView *_Nullable)view;
 
 //MARK: - 隐藏加载框
 + (void)hideHUD;

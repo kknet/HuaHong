@@ -12,14 +12,14 @@
 @implementation MBProgressHUD (Extension)
 
 //MARK: - 警告提示信息
-+(void)showMessage:(NSString *)message
++ (void)showMessage:(NSString *)message
 {
     UIViewController *currentVC = [self currentViewController];
     UIView *view = currentVC ? currentVC.view : nil;
     [[self class] showMessage:message toView:view];
 }
 
-+(void)showMessage:(NSString *)message toView:(UIView *)view
++ (void)showMessage:(NSString *)message toView:(UIView *)view
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"info@%zdx.png",scale];
@@ -27,14 +27,14 @@
 }
 
 //MARK: - 成功提示信息
-+(void)showSuccess:(NSString *)message
++ (void)showSuccess:(NSString *)message
 {
     UIViewController *currentVC = [self currentViewController];
     UIView *view = currentVC ? currentVC.view : nil;
     [[self class] showSuccess:message toView:view];
 }
 
-+(void)showSuccess:(NSString *)message toView:(UIView *)view
++ (void)showSuccess:(NSString *)message toView:(UIView *)view
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"success@%zdx.png",scale];
@@ -42,14 +42,14 @@
 }
 
 //MARK: - 失败提示信息
-+(void)showError:(NSString *)message
++ (void)showError:(NSString *)message
 {
     UIViewController *currentVC = [self currentViewController];
     UIView *view = currentVC ? currentVC.view : nil;
     [[self class] showError:message toView:view];
 }
 
-+(void)showError:(NSString *)message toView:(UIView *)view
++ (void)showError:(NSString *)message toView:(UIView *)view
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"error@%zdx.png",scale];
@@ -57,14 +57,14 @@
 }
 
 //MARK: - 显示加载框
-+(void)showLoading:(NSString *)message
++ (void)showLoading:(NSString *)message
 {
     UIViewController *currentVC = [self currentViewController];
     UIView *view = currentVC ? currentVC.view : nil;
     [[self class] showLoading:message toView:view];
 }
 
-+(void)showLoading:(NSString *)message toView:(UIView *)view
++ (void)showLoading:(NSString *)message toView:(UIView *)view
 {
 
     view = view ?: [[UIApplication sharedApplication].delegate window];
@@ -115,7 +115,7 @@
  @param icon 所要展示的图片名称
  @param view 所要在哪个view上展示
  */
-+(void)p_show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
++ (void)p_show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
 {
     view = view ?: [[UIApplication sharedApplication].delegate window];
 

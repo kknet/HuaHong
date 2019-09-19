@@ -31,21 +31,13 @@
 /** 此处不适合单例创建，每次都需重新初始化 */
 //+ (instancetype)allocWithZone:(struct _NSZone *)zone
 //{
+//   __block HHAlertView *instance;
 //    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
 //        instance = [super allocWithZone:zone];
 //    });
 //
 //    return instance;
-//}
-//+ (instancetype)allocWithZone:(struct _NSZone *)zone
-//{
-//   __block id obj;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        obj = [HHAlertView sharedAlertView];
-//    });
-//
-//    return obj;
 //}
 
 //- (id)copyWithZone:(NSZone *)zone
@@ -158,6 +150,10 @@
 /** 展示的文字内容 */
 - (void)setMessage:(NSString *)message
 {
+    if(message == nil){
+        return;
+    }
+    
     _message = message;
     self.textView.text = message;
     
@@ -384,18 +380,12 @@
      //如果有高亮且当前字数开始位置小于最大限制时允许输入
      if (selectedRange && pos)
      {
-        NSInteger startOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.start];
-             NSInteger endOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.end];
-             NSRange offsetRange = NSMakeRange(startOffset, endOffset - startOffset);
-
-             if (offsetRange.location < _limitCount)
-             {
-                return YES;
-             }else
-             {
-                return NO;
-             }
-        }
+         NSInteger startOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.start];
+         NSInteger endOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.end];
+         NSRange offsetRange = NSMakeRange(startOffset, endOffset - startOffset);
+         return offsetRange.location < _limitCount;
+         
+     }
 
      NSString *comcatstr = [textView.text stringByReplacingCharactersInRange:range withString:text];
 

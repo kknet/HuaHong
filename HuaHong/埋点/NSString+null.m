@@ -9,15 +9,18 @@
 #import "NSString+null.h"
 
 @implementation NSString (null)
-//+ (void)load
-//{
-//    [self swizzleClassMethod:@selector(stringWithFormat:) swizzledSEL:@selector(swizzle_stringWithFormat:)];
-//
-//    [self swizzleInstanceMethod:@selector(stringByAppendingString:) swizzledSEL:@selector(swizzle_stringByAppendingString:)];
-//}
++ (void)load
+{
+    if ([self isKindOfClass:[NSString class]]) {
+        [self swizzleClassMethod:@selector(stringWithFormat:) swizzledSEL:@selector(swizzle_stringWithFormat:)];
+    }
+    
+
+    [self swizzleInstanceMethod:@selector(stringByAppendingString:) swizzledSEL:@selector(swizzle_stringByAppendingString:)];
+}
 
 + (instancetype)swizzle_stringWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2){
-   
+    
     va_list argList;
     va_start(argList, format);
     
@@ -32,7 +35,13 @@
 //        }
 //    }
 
+    
     NSString *result = [[NSString alloc]initWithFormat:format arguments:argList];
+    
+    if (![result containsString:@"(null)"]) {
+        return result;
+    }
+    
     result = [result stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
 
     va_end(argList);
