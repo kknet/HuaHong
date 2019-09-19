@@ -260,7 +260,7 @@
           fileName:(NSString *)fileName
           fileType:(NSString *)fileType
           progress:(void (^ _Nullable)(NSProgress *progress))progress
-            result:(void (^)(id data))result
+            result:(void (^)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject))result
              error:(void (^)(RequestErrorType errorType))errorBlock
       isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert{
@@ -308,9 +308,9 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
         }
         
         if (result) {
-            result(responseObject);
+            result(task,responseObject);
         }
-//           [self jsonParse:responseObject url:url withResultBlock:responseObject withErrorBlock:errorBlock isSupportHud:isSupportHud isSupportErrorAlert:isSupportErrorAlert];
+
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -378,7 +378,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert{
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!error) {
                 if (isSupportHud) {
-                    [MBProgressHUD hideHUDForView:nil];
+                    [MBProgressHUD hideHUD];
                 }
                 
                 if (successBlock) {
@@ -420,7 +420,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
             errorBlock(RequestErrorJsonParseFail);
         }
         if (isSupportErrorAlert) {
-            [MBProgressHUD showMessage:@"解析错误"];
+            [MBProgressHUD showError:@"解析错误"];
         }
         
         return;
@@ -490,7 +490,7 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     NSLog(@"error:%@",error.description);
     
     if (isSupportErrorAlert) {
-        [MBProgressHUD showMessage:@"网络请求失败，请重试!"];
+        [MBProgressHUD showError:@"网络请求失败，请重试!"];
     }
 }
 @end

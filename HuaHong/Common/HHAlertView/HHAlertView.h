@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-typedef void(^AlertBlock)(NSString *message);
+typedef void(^HHAlertBlock)(HHAlertView *alertView,NSString *message,NSInteger buttonIndex);
+
 @interface HHAlertView : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -28,6 +29,8 @@ typedef void(^AlertBlock)(NSString *message);
 
 /** 此处不适合单例创建，每次都需重新初始化 */
 + (instancetype)sharedAlertView;
+
+- (void)alertWithTitle:(nullable NSString *)title message:(nullable NSString *)message delegate:(nullable id <HHAlertViewDelegate>)delegate cancelButtonTitle:(nullable NSString *)cancelButtonTitle otherButtonTitles:(nullable NSString *)otherButtonTitle buttonClickback:(void(^)(HHAlertView *alertView,NSString *message,NSInteger buttonIndex))callback;
 
 /** 设置标题，只有set，没有get */
 @property (nonatomic,copy,nullable) NSString *title;
@@ -41,19 +44,10 @@ typedef void(^AlertBlock)(NSString *message);
 /** 属性文本 */
 @property(/*null_resettable*/nonatomic,copy) NSAttributedString *attributedMessage;
 
-/** 确定Block */
-@property (nonatomic,copy) AlertBlock rightBlock;
-
-/** 取消Block */
-@property (nonatomic,copy) AlertBlock leftBlock;
-
 /** 对齐方式 - 默认居中对齐 */
 @property(nonatomic) NSTextAlignment textAlignment;
 
 @property (nonatomic,weak,nullable) id<HHAlertViewDelegate> delegate;
-
-/** 设置为单个按钮 */
-- (void)setSingleButton;
 
 /** 设置输入框可编辑 */
 @property(nonatomic,getter=isEditable) BOOL editable;

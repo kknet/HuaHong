@@ -9,12 +9,12 @@
 #import "NSString+null.h"
 
 @implementation NSString (null)
-+ (void)load
-{
-    [self swizzleClassMethod:@selector(stringWithFormat:) swizzledSEL:@selector(swizzle_stringWithFormat:)];
-    
-    [self swizzleInstanceMethod:@selector(stringByAppendingString:) swizzledSEL:@selector(swizzle_stringByAppendingString:)];
-}
+//+ (void)load
+//{
+//    [self swizzleClassMethod:@selector(stringWithFormat:) swizzledSEL:@selector(swizzle_stringWithFormat:)];
+//
+//    [self swizzleInstanceMethod:@selector(stringByAppendingString:) swizzledSEL:@selector(swizzle_stringByAppendingString:)];
+//}
 
 + (instancetype)swizzle_stringWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2){
    

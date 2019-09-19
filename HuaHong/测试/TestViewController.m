@@ -29,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
 @property (nonatomic, strong) CTCallCenter *call_center;//电话管理
 @property (nonatomic, strong) QKDatePicker *pick;
-@property (weak, nonatomic) IBOutlet UILabel *label;
 @property (copy, nonatomic) NSString *str;
 @end
 
@@ -64,27 +63,29 @@
 //    NSAttributedString *attrMessage = [[NSAttributedString alloc]initWithString:message];
     
     
-//    HHAlertView *alertView = [HHAlertView sharedAlertView];
-//    alertView.title = @"不合格说明";
-//    alertView.message = message;
-////    alertView.placeholder = @"请说明不合格原因";
-//    alertView.textAlignment = NSTextAlignmentLeft;
-////    alertView.editable = YES;
-////    alertView.limitCount = 200;
-////    alertView.forbiddenEmoji = YES;
-////    [alertView exchangeTwoButton];
+    HHAlertView *alertView = [HHAlertView sharedAlertView];
+
+//    [alertView alertWithTitle:@"提示" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定" buttonClickback:^(HHAlertView * _Nonnull alertView,NSString *message, NSInteger buttonIndex) {
 //
-//    [alertView show];
-////    [alertView setSingleButton];
+////        if (buttonIndex == 0) {
+////            [MBProgressHUD showMessage:@"取消"];
+////        }else
+////        {
+////            [MBProgressHUD showMessage:@"确定"];
+////        }
 //
-//    __weak typeof(self) weakSelf = self;
-//    [alertView setRightBlock:^(NSString * _Nonnull message) {
-//        NSLog(@"右按钮点击:%@",@"");
 //    }];
-//
-//    [alertView setLeftBlock:^(NSString * _Nonnull message) {
-//        NSLog(@"左按钮点击:%@",@"");
-//    }];
+    
+        alertView.title = @"不合格说明";
+        alertView.placeholder = @"请说明不合格原因";
+        alertView.textAlignment = NSTextAlignmentLeft;
+        alertView.editable = YES;
+        alertView.limitCount = 200;
+        alertView.forbiddenEmoji = YES;
+    //    [alertView exchangeTwoButton];
+    
+    [alertView show];
+    
 
     //或者使用代理
 //alertView.delegate = self;
@@ -92,21 +93,23 @@
 
    
     
-    QKAlertView *alertView =  [QKAlertView sharedAlertView];
-    [alertView alertWithTitle:@"提示" message:message buttonClickback:^(QKAlertView *alertView, NSInteger buttonIndex) {
-
-    } buttonTitles:@"取消",@"确定", nil];
-
-    [alertView show];
+//    QKAlertView *alertView =  [QKAlertView sharedAlertView];
+//    [alertView alertWithTitle:@"提示" message:message buttonClickback:^(QKAlertView *alertView, NSInteger buttonIndex) {
+//
+//    } buttonTitles:@"取消",@"确定", nil];
+//
+//    [alertView show];
+    
+    
 }
 
 - (void)alertView:(HHAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        NSLog(@"cancle");
-    }else if (buttonIndex == 1)
+        [MBProgressHUD showMessage:@"取消"];
+    }else
     {
-        NSLog(@"确定");
+        [MBProgressHUD showMessage:@"确定"];
     }
 }
 
@@ -125,6 +128,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 
+    
 //  UIViewController *vc = [[TestVC alloc]init];
 //  [self presentViewController:vc animated:YES completion:nil];
 ////    [self.navigationController pushViewController:vc animated:YES];
@@ -171,7 +175,7 @@
 //    [HUtils forceOrientation:UIInterfaceOrientationLandscapeLeft];
 //    NSLog(@"%d",[HUtils isOrientationLandscape]);
     
-//    [self showAlertView];
+    [self showAlertView];
     
   
 //    _pick = [[QKDatePicker alloc]initDatePickWithDate:NSDate.date datePickerModel:UIDatePickerModeDate];
@@ -190,9 +194,6 @@
 //    BaseModel *model = [BaseModel new];
 //    [model testMethod];
     
-    [MBProgressHUD showSuccess:@"发送成功"];
-//    [MBProgressHUD showError:@"失败" toView:self.view];
-//    [MBProgressHUD showMessage:@"MBProgressHUD"];
     
     
 }

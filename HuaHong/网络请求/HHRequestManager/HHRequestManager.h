@@ -97,7 +97,7 @@ typedef NS_ENUM(NSUInteger, RequestErrorType) {
           fileName:(NSString *)fileName
           fileType:(NSString *)fileType
           progress:(void (^ _Nullable)(NSProgress *progress))progress
-            result:(void (^)(id data))result
+            result:(void (^)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject))result
              error:(void (^)(RequestErrorType errorType))errorBlock
       isSupportHud:(BOOL)isSupportHud
 isSupportErrorAlert:(BOOL)isSupportErrorAlert;

@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleMargin;//textView.bottom
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomMargin;//button.bottom
 @property (weak, nonatomic) IBOutlet UILabel *tipsLabel;//字数统计
-
+@property (copy, nonatomic) HHAlertBlock clickCallback;
 @end
 @implementation HHAlertView
 
@@ -52,14 +52,33 @@
 //{
 //    return [HHAlertView sharedAlertView];
 //}
+
+- (void)alertWithTitle:(nullable NSString *)title message:(nullable NSString *)message delegate:(nullable id <HHAlertViewDelegate>)delegate cancelButtonTitle:(nullable NSString *)cancelButtonTitle otherButtonTitles:(nullable NSString *)otherButtonTitle buttonClickback:(void(^)(HHAlertView *alertView,NSString *message,NSInteger buttonIndex))callback{
+    
+    self.title = title;
+    self.message = message;
+    self.delegate = delegate;
+    self.clickCallback = [callback copy];
+    
+    if (otherButtonTitle) {
+        [self.leftButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
+        [self.rightButton setTitle:otherButtonTitle forState:UIControlStateNormal];
+
+    }else
+    {
+        [self setSingleButton];
+        [self.singleButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
+
+    }
+
+}
+
 + (instancetype)sharedAlertView
 {
     static HHAlertView *instance = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-        UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
-        instance = [[nib instantiateWithOwner:nil options:nil]lastObject];
-//    });
+
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
+    instance = [[nib instantiateWithOwner:nil options:nil]lastObject];
     
     return instance;
 }
@@ -111,8 +130,8 @@
          [self removeFromSuperview];
     }];
     
-    if (_leftBlock) {
-        _leftBlock(_textView.text);
+    if (_clickCallback) {
+        _clickCallback(self,_textView.text,0);
     }
     
     if ([_delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
@@ -127,8 +146,8 @@
         [self removeFromSuperview];
     }];
     
-    if (_rightBlock) {
-        _rightBlock(_textView.text);
+    if (_clickCallback) {
+        _clickCallback(self,_textView.text,1);
     }
     
     if ([_delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
@@ -312,15 +331,22 @@
     UIColor *oldLeftTitleColor = [_leftButton titleColorForState:UIControlStateNormal];
     UIColor *oldLeftBgColor = [_leftButton backgroundColor];
     UIColor *oldLeftBorderColor = [UIColor colorWithCGColor:_leftButton.layer.borderColor];
-    
+
     NSString *oldRightTitle = [_rightButton titleForState:UIControlStateNormal];
     UIColor *oldRightTitleColor = [_rightButton titleColorForState:UIControlStateNormal];
     UIColor *oldRightBgColor = [_rightButton backgroundColor];
     UIColor *oldRightBorderColor = [UIColor colorWithCGColor:_rightButton.layer.borderColor];
-    
+
     [self p_setRightButtonTitle:oldLeftTitle TitleColor:oldLeftTitleColor backgroundColor:oldLeftBgColor borderColor:oldLeftBorderColor];
-    
+
     [self p_setLeftButtonTitle:oldRightTitle TitleColor:oldRightTitleColor backgroundColor:oldRightBgColor borderColor:oldRightBorderColor];
+    
+    [_leftButton removeAllTargets];
+    [_rightButton removeAllTargets];
+    [_leftButton addTarget:self action:@selector(sureAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_rightButton addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
+
+
 }
 
 #pragma mark - UITextViewDelegate

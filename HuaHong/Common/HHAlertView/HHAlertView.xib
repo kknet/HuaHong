@@ -99,7 +99,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="sureAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="RZ0-9w-L71"/>
+                                <action selector="cancelAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="vjS-3K-sGu"/>
                             </connections>
                         </button>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200/200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7C-8T-tCV">

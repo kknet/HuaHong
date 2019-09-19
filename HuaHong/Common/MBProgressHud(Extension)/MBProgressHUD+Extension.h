@@ -10,6 +10,13 @@
 
 @interface MBProgressHUD (Extension)
 
+/**
+ * 参数说明(下同):
+ * showMessage直接加在currentViewController.view上,若无currentVC,则加在window上
+ * message 提示信息
+ * view HUD的父视图,若view==nil,则view==window
+ */
+
 //MARK: - 警告提示信息
 +(void)showMessage:(NSString *)message;
 +(void)showMessage:(NSString *)message toView:(UIView *)view;
@@ -29,8 +36,5 @@
 //MARK: - 隐藏加载框
 + (void)hideHUD;
 + (void)hideHUDForView:(UIView *)view;
-
-//测试
-//+ (void)progress;
 
 @end

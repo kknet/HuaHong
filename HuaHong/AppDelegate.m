@@ -45,6 +45,7 @@ static void uncaughtExceptionHandler(NSException *exception)
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
     [UITableView aspect_hookSelector:@selector(tableView:didSelectRowAtIndexPath:) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
         
         NSLog(@"AOP::%@",info);
@@ -96,8 +97,6 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     /** 设置缓存 */
     NSURLCache *cache = [[NSURLCache alloc]initWithMemoryCapacity:1012*1024*5 diskCapacity:1012*1024*10 diskPath:@"images"];
     [NSURLCache setSharedURLCache:cache];
-    
-    [[HHRequestManager defaultManager] startNetMonitoring];
     
     return YES;
 }
@@ -151,6 +150,10 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [self saveContext];
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [MBProgressHUD showMessage:@"欢迎回来"];
+}
 
 #pragma mark - Core Data stack
 

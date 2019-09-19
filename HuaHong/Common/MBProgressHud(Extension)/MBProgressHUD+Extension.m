@@ -8,14 +8,15 @@
 
 #import "MBProgressHUD+Extension.h"
 
-#define kAfterDelay 2.0f
+#define kAfterDelay 3.0f
 @implementation MBProgressHUD (Extension)
 
 //MARK: - 警告提示信息
 +(void)showMessage:(NSString *)message
 {
-    UIViewController *vc = [HUtils currentViewController];
-    [[self class] showMessage:message toView:vc.view];
+    UIViewController *currentVC = [self currentViewController];
+    UIView *view = currentVC ? currentVC.view : nil;
+    [[self class] showMessage:message toView:view];
 }
 
 +(void)showMessage:(NSString *)message toView:(UIView *)view
@@ -28,8 +29,9 @@
 //MARK: - 成功提示信息
 +(void)showSuccess:(NSString *)message
 {
-    UIViewController *vc = [HUtils currentViewController];
-    [[self class] showSuccess:message toView:vc.view];
+    UIViewController *currentVC = [self currentViewController];
+    UIView *view = currentVC ? currentVC.view : nil;
+    [[self class] showSuccess:message toView:view];
 }
 
 +(void)showSuccess:(NSString *)message toView:(UIView *)view
@@ -42,8 +44,9 @@
 //MARK: - 失败提示信息
 +(void)showError:(NSString *)message
 {
-    UIViewController *vc = [HUtils currentViewController];
-    [[self class] showError:message toView:vc.view];
+    UIViewController *currentVC = [self currentViewController];
+    UIView *view = currentVC ? currentVC.view : nil;
+    [[self class] showError:message toView:view];
 }
 
 +(void)showError:(NSString *)message toView:(UIView *)view
@@ -56,8 +59,9 @@
 //MARK: - 显示加载框
 +(void)showLoading:(NSString *)message
 {
-    UIViewController *vc = [HUtils currentViewController];
-    [[self class] showLoading:message toView:vc.view];
+    UIViewController *currentVC = [self currentViewController];
+    UIView *view = currentVC ? currentVC.view : nil;
+    [[self class] showLoading:message toView:view];
 }
 
 +(void)showLoading:(NSString *)message toView:(UIView *)view
@@ -92,8 +96,9 @@
 //MARK: - 隐藏加载框
 + (void)hideHUD
 {
-    UIViewController *vc = [HUtils currentViewController];
-    [[self class] hideHUDForView:vc.view];
+    UIViewController *currentVC = [self currentViewController];
+    UIView *view = currentVC ? currentVC.view : nil;
+    [[self class] hideHUDForView:view];
 }
 
 + (void)hideHUDForView:(UIView *)view
@@ -135,6 +140,58 @@
     [hud hideAnimated:YES afterDelay:kAfterDelay];
     
     
+}
+
+/**  获取当前控制器*/
+#define kAppDelegate  [UIApplication sharedApplication].delegate
+
++ (UIViewController *)currentViewController{
+    
+    if ([kAppDelegate.window.rootViewController isKindOfClass:UINavigationController.class] || [kAppDelegate.window.rootViewController isKindOfClass:UITabBarController.class]) {
+        return [self getVisibleViewControllerWithRootVC:kAppDelegate.window.rootViewController];
+    }else{
+        UIViewController *VC = kAppDelegate.window.rootViewController;
+        if (VC.presentedViewController) {
+            if ([VC.presentedViewController isKindOfClass:UINavigationController.class]||
+                [VC.presentedViewController isKindOfClass:UITabBarController.class]) {
+                return [self getVisibleViewControllerWithRootVC:VC.presentedViewController];
+            }else{
+                return VC.presentedViewController;
+            }
+        }
+        else{
+            return VC;
+        }
+    }
+}
+
+/**
+ * 私有方法
+ * rootVC必须是UINavigationController 或 UITabBarController 及其子类
+ */
++ (UIViewController *)getVisibleViewControllerWithRootVC:(UIViewController *)rootVC{
+    
+    if ([rootVC isKindOfClass:UINavigationController.class]) {
+        UINavigationController *nav = (UINavigationController *)rootVC;
+        // 如果有modal view controller并且弹起的是导航控制器，返回其topViewController
+        if ([nav.visibleViewController isKindOfClass:UINavigationController.class]) {
+            UINavigationController *presentdNav = (UINavigationController *)nav.visibleViewController;
+            return presentdNav.visibleViewController;
+        }
+        else if ([nav.visibleViewController isKindOfClass:UITabBarController.class]){
+            return [self getVisibleViewControllerWithRootVC:nav.visibleViewController];
+        }
+        else{
+            return nav.visibleViewController;
+        }
+    }
+    else if([rootVC isKindOfClass:UITabBarController.class]){
+        UITabBarController *tabVC = (UITabBarController *)rootVC;
+        UINavigationController *nav = (UINavigationController *)tabVC.selectedViewController;
+        return [self getVisibleViewControllerWithRootVC:nav];
+    }else{
+        return rootVC;
+    }
 }
 
 + (void)progress
