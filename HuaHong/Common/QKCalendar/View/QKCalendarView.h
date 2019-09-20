@@ -25,10 +25,12 @@ typedef void (^SelectBlock) (NSInteger year ,NSInteger month ,NSInteger day);
  * 当前月的title颜色
  */
 @property(nonatomic,strong)UIColor *currentMonthTitleColor;
+
 /*
  * 上月的title颜色
  */
 @property(nonatomic,strong)UIColor *lastMonthTitleColor;
+
 /*
  * 下月的title颜色
  */

@@ -1,272 +1,509 @@
 //
 //  QKAlertView.m
-//  QK365
+//  TheHousing
 //
-//  Created by wangxiaoli on 2017/11/29.
-//  Copyright © 2017年 qk365. All rights reserved.
+//  Created by 华宏 on 2019/3/13.
+//  Copyright © 2019年 com.qk365. All rights reserved.
 //
-
-#define kRatioWidth 320
-#define kSelfRatio self.width/kRatioWidth
-#define kSelfViewRatio self.view.width/kRatioWidth
-#define kWindowRatio kScreenWidth/kRatioWidth
-#define kSpace 20
 
 #import "QKAlertView.h"
-@interface QKAlertView ()
-{
-    NSMutableArray *_titleArray; //button的title数组
-    void(^_callback)(QKAlertView *alertView,NSInteger buttonIndex);
-    NSString *_title;
-    NSString *_message;
-    NSInteger _countDownTime;
-    UILabel *_msgLabel;
-    UILabel *_titleLabel;
-    dispatch_source_t _timer;
-}
 
+#define klineSpace 3       //行间距
+#define kparagraphSpace 4  //段间距
+#define kMinHeight 60      //最小高度
+#define kcornerRadius 10   //圆角
+#define kKeyBoardRemoveHeight 100  //键盘移动高度
+#define kHHNavBarHeight  ([UIScreen mainScreen].bounds.size.height > 800 ? 88 : 64)
+
+@interface QKAlertView()<UITextViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;//textView.height
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerY;//bgView.center.y
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;//textView.top
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *middleMargin;//textView.bottom
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomMargin;//button.bottom
+@property (weak, nonatomic) IBOutlet UILabel *tipsLabel;//字数统计
+@property (copy, nonatomic) QKAlertBlock clickCallback;
 @end
-
 @implementation QKAlertView
+
+/** 此处不适合单例创建，每次都需重新初始化 */
+//+ (instancetype)allocWithZone:(struct _NSZone *)zone
+//{
+//   __block QKAlertView *instance;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        instance = [super allocWithZone:zone];
+//    });
+//
+//    return instance;
+//}
+
+//- (id)copyWithZone:(NSZone *)zone
+//{
+//    return [QKAlertView sharedAlertView];
+//}
+
+- (void)alertWithTitle:(nullable NSString *)title message:(nullable NSString *)message delegate:(nullable id <QKAlertViewDelegate>)delegate cancelButtonTitle:(nullable NSString *)cancelButtonTitle otherButtonTitles:(nullable NSString *)otherButtonTitle buttonClickback:(void(^)(QKAlertView *alertView,NSString *message,NSInteger buttonIndex))callback{
+    
+    self.title = title;
+    self.message = message;
+    self.delegate = delegate;
+    self.clickCallback = [callback copy];
+    
+    if (otherButtonTitle) {
+        [self.leftButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
+        [self.rightButton setTitle:otherButtonTitle forState:UIControlStateNormal];
+
+    }else
+    {
+        [self setSingleButton];
+        [self.singleButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
+
+    }
+
+}
 
 + (instancetype)sharedAlertView
 {
-    static dispatch_once_t once;
-    static QKAlertView *alert;
-    dispatch_once(&once, ^{
-        alert = [[QKAlertView alloc] init];
-    });
-    return alert;
+    static QKAlertView *instance = nil;
+
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
+    instance = [[nib instantiateWithOwner:nil options:nil]lastObject];
+    
+    return instance;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
+//在awakeFromNib之前调用，可以对xib文件的初始化作代码上的调整
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
-    if (self) {
-        [self configBGView];
-    }
+    self = [super initWithCoder:aDecoder];
+    
     return self;
 }
 
-- (void)configBGView
+- (void)awakeFromNib
 {
-    UIView *shadowView = [[UIView alloc] initWithFrame:self.bounds];
-    shadowView.backgroundColor = [UIColor blackColor];
-    shadowView.alpha = 0.3;
-    [self addSubview:shadowView];
-    [shadowView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)]];
+    [super awakeFromNib];
+    
+    self.frame = [UIScreen mainScreen].bounds;
+    self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
+    self.bgView.layer.cornerRadius = kcornerRadius;
+    //剪裁过，子视图就不需要设置圆角了
+    self.bgView.layer.masksToBounds = YES;
+//    [self.titleLabel setCornerRadius:kcornerRadius byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
+    self.leftButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.rightButton.layer.borderColor = self.rightButton.backgroundColor.CGColor;
+    self.forbiddenEmoji = YES;
+    self.textView.delegate = self;
+    UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+    [self addGestureRecognizer:tap];
 
+    [[tap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+
+        [self endEditing:YES];
+    }];
+   
 }
 
-- (void)alertWithTitle:(NSString *)title message:(NSString *)message buttonClickback:(void(^)(QKAlertView *alertView,NSInteger buttonIndex))callback buttonTitles:(NSString *)otherBtnTitles,...NS_REQUIRES_NIL_TERMINATION
-{
-//    self = [super initWithFrame:];[AppDelegate sharedAppDelegate].window.bounds
-
-    _titleArray = [[NSMutableArray alloc] init];
-    _title = title;
-    _callback = callback;
-    _message = message;
-    
-    va_list argList;
-    va_start(argList, otherBtnTitles);
-
-    if(otherBtnTitles) {
-        [_titleArray addObject:otherBtnTitles];
-        
-        id temp;
-        while((temp = va_arg(argList, id))) {
-            [_titleArray addObject:temp];
-        }
-    }
-    
-    va_end(argList);
-    [self configUI];
-}
-
-- (void)alertWithTitle:(NSString *)title
-                      message:(NSString *)message
-              buttonClickback:(void(^)(QKAlertView *alertView,NSInteger buttonIndex))callback
-                    countDown:(NSInteger)countDownTime buttonTitles:(NSString *)otherBtnTitles,...NS_REQUIRES_NIL_TERMINATION
-{
-
-    _titleArray = [[NSMutableArray alloc] init];
-    _title = title;
-    _message = message;
-    _callback = callback;
-    _countDownTime = countDownTime;
-
-    va_list argList;
-    va_start(argList, otherBtnTitles);
-
-    if(otherBtnTitles) {
-        [_titleArray addObject:otherBtnTitles];
-        //临时指针变量
-        id temp;
-        while((temp = va_arg(argList, id))) {
-            [_titleArray addObject:temp];
-            NSLog(@"%@",_titleArray);
-        }
-    }
-    
-    va_end(argList);
-    
-    [self configUI];
-    [self createTimer];
-    
-}
-
-- (void)configUI
-{
-    // 设置背影半透明
-   /*
-    */
-     
-    if (_alertView == NULL) {
-        _alertView = [[UIView alloc] init];
-        [self addSubview:_alertView];
-    }
-    CGSize titleSize = [UILabel labelHeightFit:@{NSFontAttributeName:Font(16)} width:kScreenWidth text:_title];
-    CGSize msgSize = [UILabel labelHeightFit:@{NSFontAttributeName:Font(15)} width:kScreenWidth text:_message];
-
-    CGFloat btnWidth = (self.width - 2 * kSpace)/_titleArray.count;
-    CGFloat btnHeight = 40;
-    CGFloat itemMargin = 10;
-    CGFloat topSpace = 20;
-    CGFloat alertHeight;
-    CGFloat titleHeight;
-    
-    
-    if (_title != nil) {
-        alertHeight = topSpace + titleSize.height + msgSize.height + btnHeight + 2 * itemMargin + 2 * kSpace;
-        titleHeight = titleSize.height + kSpace;
-        
-    } else {
-        titleHeight = titleSize.height;
-        alertHeight = topSpace + titleSize.height + msgSize.height + btnHeight + 2 * itemMargin + kSpace;
-    }
-    
-
-    
-    
-    NSLog(@"titleSize.height = %f",titleSize.height);
-    NSLog(@"msgSize.height = %f",msgSize.height);
-    NSLog(@"btnHeight = %f",btnHeight);
-    NSLog(@"topSpace = %f",topSpace);
-    NSLog(@"itemMargin = %f",itemMargin);
-
-    _alertView.frame = CGRectMake(20, (kScreenHeight - alertHeight)/2 , self.width - 40, alertHeight);
-    _alertView.layer.cornerRadius = 6;
-    _alertView.backgroundColor =[UIColor whiteColor];
-    _alertView.layer.masksToBounds = YES;
-    NSLog(@"_alertViewFrame:%@",NSStringFromCGRect(_alertView.frame));
-    
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kSpace, topSpace, _alertView.width - 2 * kSpace, titleHeight)];
-    _titleLabel.backgroundColor = [UIColor clearColor];
-    _titleLabel.textColor = COLOR(36, 37, 39, 1);
-    _titleLabel.text = _title;
-    _titleLabel.textAlignment = NSTextAlignmentCenter;
-    _titleLabel.numberOfLines = 0;
-    _titleLabel.font = Font(16);
-
-    [_alertView addSubview:_titleLabel];
-    
-    
-    
-    _msgLabel = [[UILabel alloc] initWithFrame:CGRectMake(kSpace, itemMargin + _titleLabel.bottom, _alertView.width - 2 * kSpace, msgSize.height + kSpace)];
-    _msgLabel.backgroundColor = [UIColor clearColor];
-    _msgLabel.textColor = COLOR(36, 37, 39, 1);
-    _msgLabel.text = _message;
-    _msgLabel.textAlignment = NSTextAlignmentCenter;
-    _msgLabel.numberOfLines = 0;
-    _msgLabel.font = Font(15);
-    [_alertView addSubview:_msgLabel];
-    
-    for (int j = 0; j < [_titleArray count]; j++){
-        NSString *s = _titleArray[j];
-        NSLog(@"s : %@",s);
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.layer.borderWidth = 1;
-        button.backgroundColor = [UIColor whiteColor];
-        button.layer.borderColor = COLOR(237, 237, 240, 1).CGColor;
-        button.frame = CGRectMake(j*btnWidth, _msgLabel.bottom + itemMargin, btnWidth, btnHeight);
-        NSLog(@"btnWidth = %f",btnWidth);
-        NSLog(@"_alertView.width = %f",_alertView.width);
-        NSLog(@"_msgLabel.bottom = %f",_msgLabel.bottom);
-        NSLog(@"_alertView.height = %f",_alertView.height);
-        NSLog(@"itemMargin = %f",itemMargin);
-        NSLog(@"frme:%@",NSStringFromCGRect(button.frame));
-        button.layer.cornerRadius = 1;
-        button.layer.masksToBounds = YES;
-        button.tag = j;
-        [button setTitle:s forState:UIControlStateNormal];
-        [button setTitleColor:COLOR(74, 167, 133, 1) forState:UIControlStateNormal];
-        [_alertView addSubview:button];
-        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-
-}
-
+/** 弹出提示框 */
 - (void)show
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (![[UIApplication sharedApplication].keyWindow.subviews containsObject:[QKAlertView sharedAlertView]]) {
-            [[UIApplication sharedApplication].keyWindow addSubview:[QKAlertView sharedAlertView]];
-        }
-    });
-
-}
-#pragma mark --创建定时器
-- (void)createTimer
-{
-    //获得队列
-    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-    //创建一个定时器
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    //设置开始时间
-    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
-    //设置时间间隔
-    uint64_t interval = (uint64_t)(1.0 * NSEC_PER_SEC);
-    //设置定时器
-    dispatch_source_set_timer(_timer, start, interval, 0);
-    //设置回调
-    dispatch_source_set_event_handler(_timer, ^{
-        _countDownTime--;
-        if (_countDownTime == 0) {
-            dispatch_cancel(_timer);
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _msgLabel.text = [NSString stringWithFormat:@"%ldS倒计时",_countDownTime];
-        });
-    });
-    //由于定时器默认是暂停的，需要启动一下
-    //启动定时器
-    dispatch_resume(_timer);
+    [UIView animateWithDuration:0.25 animations:^{
+        [[UIApplication sharedApplication].keyWindow addSubview:self];
+    }];
 }
 
-- (void)buttonClick:(UIButton *)sender
+/** 取消 */
+- (IBAction)cancelAction:(id)sender
 {
-    __weak typeof(self) weakSelf = self;
-
-    if (_callback) {
-        _callback(weakSelf,sender.tag);
+    [UIView animateWithDuration:0.25 animations:^{
+         [self removeFromSuperview];
+    }];
+    
+    if (_clickCallback) {
+        _clickCallback(self,_textView.text,0);
     }
-    [self dismiss];
+    
+    if ([_delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
+        [_delegate alertView:self clickedButtonAtIndex:0];
+    }
 }
 
-- (void)dismiss
+/** 确定 */
+- (IBAction)sureAction:(id)sender
 {
-    __weak typeof(self) weakSelf = self;
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf removeFromSuperview];
-    });
+    [UIView animateWithDuration:0.25 animations:^{
+        [self removeFromSuperview];
+    }];
+    
+    if (_clickCallback) {
+        _clickCallback(self,_textView.text,1);
+    }
+    
+    if ([_delegate respondsToSelector:@selector(alertView:clickedButtonAtIndex:)]) {
+        [_delegate alertView:self clickedButtonAtIndex:1];
+    }
 }
 
-- (void)tapAction:(UITapGestureRecognizer *)tap
+/** 展示的文字内容 */
+- (void)setMessage:(NSString *)message
 {
-    [self dismiss];
+    if(message == nil){
+        return;
+    }
+    
+    _message = message;
+    self.textView.text = message;
+    
+    /** 设置行间距 段间距 */
+    [self setLineSpace:klineSpace ParagraphSpace:kparagraphSpace TextAlignment:self.textView.textAlignment];
+    
+    /** 根据内容适应高度 */
+    [self contentSizeFit];
+    
+    [self setNeedsLayout];
 
 }
+
+- (void)setFont:(UIFont *)font
+{
+    _font = font;
+    _textView.font = font;
+}
+
+/** 属性文本 */
+- (void)setAttributedMessage:(NSAttributedString *)attributedMessage
+{
+    _attributedMessage = attributedMessage;
+    self.textView.attributedText = attributedMessage;
+    
+    /** 设置行间距 段间距 */
+    [self setLineSpace:klineSpace ParagraphSpace:kparagraphSpace TextAlignment:self.textView.textAlignment];
+    
+    /** 根据内容适应高度 */
+    [self contentSizeFit];
+    
+    [self setNeedsLayout];
+    
+}
+
+/** 设置行间距 段间距 */
+- (void)setLineSpace:(CGFloat)lineSpace ParagraphSpace:(CGFloat)paragraphSpace TextAlignment:(NSTextAlignment)textAlignment
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineSpacing = lineSpace;
+    paragraphStyle.paragraphSpacing = paragraphSpace;
+    paragraphStyle.alignment = textAlignment;
+    NSDictionary *attributes = @{NSParagraphStyleAttributeName:paragraphStyle};
+    
+    NSMutableAttributedString *attributeText;
+    if (self.attributedMessage) {
+        attributeText = [[NSMutableAttributedString alloc]initWithAttributedString:self.attributedMessage];
+        [attributeText setAttributes:attributes range:NSMakeRange(0, self.attributedMessage.length)];
+    }else
+    {
+        attributeText = [[NSMutableAttributedString alloc]initWithString:self.textView.text attributes:attributes];
+    }
+   
+    
+    self.textView.attributedText = attributeText;
+}
+
+/** 根据内容适应高度 */
+- (void)contentSizeFit
+{
+    CGFloat maxHeight = [UIScreen mainScreen].bounds.size.height - kHHNavBarHeight*2 - (_titleLabel.frame.size.height+_rightButton.frame.size.height+_topMargin.constant+_middleMargin.constant+_bottomMargin.constant);
+    CGSize maxSize = CGSizeMake(_textView.frame.size.width, maxHeight);
+    CGSize newSize = [_textView sizeThatFits:maxSize];
+    CGFloat minHeight = MAX(newSize.height, kMinHeight);
+    _contentHeight.constant =  MIN(minHeight, maxHeight);
+
+    /** 上下居中 */
+    if (newSize.height <= self.textView.frame.size.height)
+    {
+        /** 这里不能使用self.textView.frame.size.height，why？*/
+        CGFloat offsetY = (_contentHeight.constant - newSize.height)/2;
+        offsetY += self.textView.textContainerInset.top;
+        UIEdgeInsets offset = UIEdgeInsetsMake(offsetY, 0, -offsetY, 0);
+        [self.textView setTextContainerInset:offset];
+    }
+    
+    self.textView.scrollEnabled = newSize.height > maxHeight;
+}
+
+/** 设置为单个按钮 */
+- (void)setSingleButton
+{
+    _leftButton.hidden = _rightButton.hidden = YES;
+    _singleButton.hidden = NO;
+}
+
+/** 对齐方式 */
+- (void)setTextAlignment:(NSTextAlignment)textAlignment
+{
+    _textView.textAlignment = textAlignment;
+}
+
+/** 设置输入框可编辑 */
+- (void)setEditable:(BOOL)editable
+{
+    if (editable)
+    {
+        self.textView.backgroundColor = UIColor.groupTableViewBackgroundColor;
+        self.textView.scrollEnabled = editable;
+        self.textView.textAlignment = NSTextAlignmentLeft;
+        self.textView.placeholder = _placeholder;
+        self.tipsLabel.hidden = !_limitCount;
+        self.tipsLabel.text = [NSString stringWithFormat:@"0/%ld",_limitCount];
+        self.textView.contentInset = UIEdgeInsetsMake(0, 0, 15, 0);
+
+    }
+    
+    self.textView.editable = editable;
+
+}
+
+- (void)setLimitCount:(NSInteger)limitCount
+{
+    _limitCount = limitCount;
+    
+    if (self.textView.editable)
+    {
+        self.tipsLabel.hidden = !_limitCount;
+        self.tipsLabel.text = [NSString stringWithFormat:@"0/%ld",_limitCount];
+    }
+
+}
+/** 只有可编辑时，才有placeholder */
+- (void)setPlaceholder:(NSString *)placeholder
+{
+    _placeholder = placeholder;
+    if (self.textView.editable)
+    {
+        self.textView.placeholder = placeholder;
+    }
+    
+}
+
+/** 设置标题 */
+- (void)setTitle:(NSString *)title
+{
+    _title = title;
+    _titleLabel.text = title;
+}
+
+
+/** 设置左按钮title,titleColor,backgroundColor,borderColor */
+- (void)p_setLeftButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
+{
+    [_leftButton setTitle:title forState:UIControlStateNormal];
+    [_leftButton setTitleColor:titleColor forState:UIControlStateNormal];
+    _leftButton.backgroundColor = backgroundColor;
+    _leftButton.layer.borderWidth = 1;
+    
+    _leftButton.layer.borderColor = borderColor.CGColor;
+    
+}
+
+/** 设置右按钮title,titleColor,backgroundColor,borderColor */
+- (void)p_setRightButtonTitle:(NSString *)title TitleColor:(UIColor *)titleColor backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor
+{
+    [_rightButton setTitle:title forState:UIControlStateNormal];
+    [_rightButton setTitleColor:titleColor forState:UIControlStateNormal];
+    _rightButton.backgroundColor = backgroundColor;
+    _rightButton.layer.borderWidth = 1;
+    _rightButton.layer.borderColor = borderColor.CGColor;
+}
+
+- (void)exchangeTwoButton
+{
+    if (_singleButton.hidden == NO) {
+        return;
+    }
+    
+    NSString *oldLeftTitle = [_leftButton titleForState:UIControlStateNormal];
+    UIColor *oldLeftTitleColor = [_leftButton titleColorForState:UIControlStateNormal];
+    UIColor *oldLeftBgColor = [_leftButton backgroundColor];
+    UIColor *oldLeftBorderColor = [UIColor colorWithCGColor:_leftButton.layer.borderColor];
+
+    NSString *oldRightTitle = [_rightButton titleForState:UIControlStateNormal];
+    UIColor *oldRightTitleColor = [_rightButton titleColorForState:UIControlStateNormal];
+    UIColor *oldRightBgColor = [_rightButton backgroundColor];
+    UIColor *oldRightBorderColor = [UIColor colorWithCGColor:_rightButton.layer.borderColor];
+
+    [self p_setRightButtonTitle:oldLeftTitle TitleColor:oldLeftTitleColor backgroundColor:oldLeftBgColor borderColor:oldLeftBorderColor];
+
+    [self p_setLeftButtonTitle:oldRightTitle TitleColor:oldRightTitleColor backgroundColor:oldRightBgColor borderColor:oldRightBorderColor];
+    
+    [_leftButton removeAllTargets];
+    [_rightButton removeAllTargets];
+    [_leftButton addTarget:self action:@selector(sureAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_rightButton addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
+
+
+}
+
+#pragma mark - UITextViewDelegate
+/** 开始编辑，弹框升高，避免键盘遮挡 */
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+     _centerY.constant = -kKeyBoardRemoveHeight;
+}
+
+/** 结束编辑，弹框恢复居中对齐 */
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+     _centerY.constant = 0;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    
+    if (self.forbiddenEmoji)
+    {
+        //限制苹果系统输入法  禁止输入表情
+        if ([[[UITextInputMode currentInputMode] primaryLanguage] isEqualToString:@"emoji"]){
+            return NO;
+        }
+        
+    }
+    
+    /** 限制字数 */
+    UITextRange *selectedRange = [textView markedTextRange];
+    //获取高亮部分
+    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
+     //获取高亮部分内容
+     //NSString * selectedtext = [textView textInRange:selectedRange];
+
+     //如果有高亮且当前字数开始位置小于最大限制时允许输入
+     if (selectedRange && pos)
+     {
+         NSInteger startOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.start];
+         NSInteger endOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.end];
+         NSRange offsetRange = NSMakeRange(startOffset, endOffset - startOffset);
+         return offsetRange.location < _limitCount;
+         
+     }
+
+     NSString *comcatstr = [textView.text stringByReplacingCharactersInRange:range withString:text];
+
+     NSInteger caninputlen = _limitCount - comcatstr.length;
+
+     if (caninputlen >= 0)
+     {
+        return YES;
+     }else
+     {
+         NSInteger len = text.length + caninputlen;
+         //防止当text.length + caninputlen < 0时，使得rg.length为一个非法最大正数出错
+         NSRange rg = {0,MAX(len,0)};
+
+         if (rg.length > 0)
+         {
+                 NSString *s = @"";
+                 //判断是否只普通的字符或asc码(对于中文和表情返回NO)
+                 BOOL asc = [text canBeConvertedToEncoding:NSASCIIStringEncoding];
+                 if (asc)
+                 {
+                     //因为是ascii码直接取就可以了不会错
+                    s = [text substringWithRange:rg];
+                 }else
+                 {
+                     __block NSInteger idx = 0;
+                     __block NSString  *trimString = @"";//截取出的字串
+                     //使用字符串遍历，这个方法能准确知道每个emoji是占一个unicode还是两个
+                     [text enumerateSubstringsInRange:NSMakeRange(0, [text length])
+                                                                  options:NSStringEnumerationByComposedCharacterSequences
+                                                               usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                            
+                                                                       if (idx >= rg.length) {
+                                                                               *stop = YES; //取出所需要就break，提高效率
+                                                                               return ;
+                                                                          }
+                            
+                                                                       trimString = [trimString stringByAppendingString:substring];
+                            
+                                                                       idx++;
+                                                                   }];
+    
+                       s = trimString;
+                    }
+             
+                 //rang是指从当前光标处进行替换处理(注意如果执行此句后面返回的是YES会触发didchange事件)
+                 [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
+             }
+         return NO;
+        }
+   
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+//    if (textView.text.length > self.limitCount) {
+//        textView.text = [textView.text substringToIndex:self.limitCount];
+//
+//    }
+    
+    UITextRange *selectedRange = [textView markedTextRange];
+        //获取高亮部分
+    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
+     //如果在变化中是高亮部分在变，就不要计算字符了
+     if (selectedRange && pos) {
+            return;
+         }
+     NSString  *nsTextContent = textView.text;
+     NSInteger existTextNum = nsTextContent.length;
+
+     if (existTextNum > _limitCount)
+         {
+             //截取到最大位置的字符(由于超出截部分在should时被处理了所在这里这了提高效率不再判断)
+             NSString *s = [nsTextContent substringToIndex:_limitCount];
+    
+             [textView setText:s];
+        }
+    
+    
+    if (textView.markedTextRange == nil){
+        NSInteger length = textView.text.length;
+        _tipsLabel.text = [NSString stringWithFormat:@"%ld/%ld",length,_limitCount];
+    }
+    
+    
+}
+
+/**
+ //系统弹框自动换行
+ UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+ 
+ [alertCtrl addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+ 
+ [self submitData];
+ }]];
+ 
+ [alertCtrl addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+ 
+ }]];
+ 
+ 
+ UIView *subView1 = alertCtrl.view.subviews[0];
+ UIView *subView2 = subView1.subviews[0];
+ UIView *subView3 = subView2.subviews[0];
+ UIView *subView4 = subView3.subviews[0];
+ UIView *subView5 = subView4.subviews[0];
+ UILabel *messageLab = subView5.subviews[2];
+ messageLab.textAlignment = NSTextAlignmentLeft;
+ 
+ NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
+ style.lineSpacing = lineSpace;
+ style.paragraphSpacing = paragraphSpace;
+ NSDictionary *attributes = @{NSParagraphStyleAttributeName:style};
+ messageLab.attributedText = [[NSAttributedString alloc]initWithString:messageLab.text attributes:attributes];
+ 
+ [self presentViewController:alertCtrl animated:YES completion:nil];
+ 
+ */
 
 @end

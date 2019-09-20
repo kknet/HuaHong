@@ -55,7 +55,7 @@
 -(void)creatBackButton:(UIViewController *)viewController
 {
     //自定义返回按钮
-    UIImage *leftItemImage = [UIImage imageNamed:@"backArrow_left_black"];
+    UIImage *leftItemImage = [UIImage imageNamed:@"leftArrow"];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[leftItemImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     viewController.navigationItem.leftBarButtonItem = leftItem;
 }

@@ -24,7 +24,7 @@
     self = [super init];
     if (self) {
         self.frame = [UIScreen mainScreen].bounds;
-        [self setupDatePickerWithDatePickerModel:datePickerModel];
+        [self setupDatePickerModel:datePickerModel];
         [self setToolBar];
         
     }
@@ -32,7 +32,7 @@
     return self;
 }
 
--(void)setupDatePickerWithDatePickerModel:(UIDatePickerMode)datePickerModel{
+-(void)setupDatePickerModel:(UIDatePickerMode)datePickerModel{
     
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     datePicker.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
@@ -53,7 +53,7 @@
     if (_toolBar == nil) {
         _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-ToolbarHeight-_pickHeight, [UIScreen mainScreen].bounds.size.width, ToolbarHeight)];
         _toolBar.backgroundColor = [UIColor whiteColor];
-        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"  取消" style:UIBarButtonItemStylePlain target:self action:@selector(remove)];
+        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"  取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
         UIBarButtonItem *centerSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"确定  " style:UIBarButtonItemStylePlain target:self action:@selector(downClick)];
         _toolBar.items = @[leftItem,centerSpace,rightItem];
@@ -90,7 +90,7 @@
     
 }
 
--(void)remove
+-(void)dismiss
 {
     [UIView animateWithDuration:0.25 animations:^{
         [self removeFromSuperview];

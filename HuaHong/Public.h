@@ -57,8 +57,6 @@
 //#import <AVOSCloud/AVOSCloud.h>
 
 #import "Model.h"
-#import "HHSwitch.h"
-
 #import "MapViewController.h"
 #import "WaterFallController.h"
 #import "LightSinceController.h"
@@ -136,13 +134,17 @@
 #import "KVOViewController.h"
 #import "VideoRecordController.h"
 #import "GPUImageController.h"
-#import "HHAlertView.h"
 #import "HHVideoPlayerController.h"
 #import "BuryViewController.h"
 #import "ContainerViewController.h"
 #import "AdapterViewController.h"
 #import "CaptureController.h"
 #import "VideoEncodeDecodeController.h"
+#import "DatePickerController.h"
+#import "AlertViewController.h"
+#import "CalendarViewController.h"
+#import "CallCenterController.h"
+#import "SwitchViewController.h"
 
 
 #endif /* Public_h */

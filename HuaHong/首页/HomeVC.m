@@ -325,7 +325,7 @@ static NSString *headerID = @"headerID";
             }
             else if (indexPath.item == 9)
             {
-//                vc = [RATreeViewController new];
+
             }
         }
             break;
@@ -608,13 +608,9 @@ static NSString *headerID = @"headerID";
         {
             
         }
+        
             break;
         case 14:
-        {
-            
-        }
-            break;
-        case 15:
         {
             if (indexPath.item == 0) {
                 
@@ -630,12 +626,12 @@ static NSString *headerID = @"headerID";
             
         }
             break;
-        case 16:
+        case 15:
         {
             
         }
             break;
-        case 17:
+        case 16:
         {
             if (indexPath.item == 0) {
                 
@@ -648,7 +644,7 @@ static NSString *headerID = @"headerID";
             }
         }
             break;
-        case 18:
+        case 17:
         {
             if (indexPath.item == 0)
             {
@@ -677,7 +673,7 @@ static NSString *headerID = @"headerID";
             }
         }
             break;
-            case 19:
+            case 18:
         {
             if (indexPath.item == 0) {
                 
@@ -692,7 +688,7 @@ static NSString *headerID = @"headerID";
             
         }
             break;
-            case 20:
+            case 19:
         {
             if (indexPath.item == 0) {
                 
@@ -709,7 +705,7 @@ static NSString *headerID = @"headerID";
             }
         }
             break;
-        case 21:
+        case 20:
         {
             if (indexPath.item == 0) {
                 
@@ -726,7 +722,7 @@ static NSString *headerID = @"headerID";
             }
         }
             break;
-            case 22:
+            case 21:
         {
             if (indexPath.item == 0) {
                 
@@ -757,9 +753,40 @@ static NSString *headerID = @"headerID";
             }
         }
             break;
-            case 23:
+            case 22:
         {
-            vc = [KVOViewController new];
+            
+            if (indexPath.item == 0) {
+                
+                vc = [KVOViewController new];
+                vc.navigationItem.title = @"KVO";
+                
+            }else if (indexPath.item == 1)
+            {
+                vc = [DatePickerController new];
+                vc.navigationItem.title = @"日期选择";
+                
+            }else if (indexPath.item == 2)
+            {
+                vc = [AlertViewController new];
+                vc.navigationItem.title = @"AlertView";
+            }else if (indexPath.item == 3)
+            {
+                vc = [CalendarViewController new];
+                vc.navigationItem.title = @"日历";
+            }else if (indexPath.item == 4)
+            {
+                vc = [CallCenterController new];
+                vc.navigationItem.title = @"来电监听";
+            }else if (indexPath.item == 5)
+            {
+                vc = [SwitchViewController new];
+                vc.navigationItem.title = @"Switch";
+            }else if (indexPath.item == 6)
+            {
+                vc = [CallCenterController new];
+                vc.navigationItem.title = @"";
+            }
         }
         default:
             break;
