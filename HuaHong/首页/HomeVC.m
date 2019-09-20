@@ -784,8 +784,8 @@ static NSString *headerID = @"headerID";
                 vc.navigationItem.title = @"Switch";
             }else if (indexPath.item == 6)
             {
-                vc = [CallCenterController new];
-                vc.navigationItem.title = @"";
+                vc = [PickerViewController new];
+                vc.navigationItem.title = @"PickerView";
             }
         }
         default:

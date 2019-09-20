@@ -26,7 +26,7 @@
     if (_datePicker == nil) {
         _datePicker = [[QKDatePicker alloc]initDatePickWithDate:NSDate.date datePickerModel:UIDatePickerModeDate];
         _datePicker.delegate = self;
-        [_datePicker setDateFormat:@"yyyy-MM-dd"];
+//        [_datePicker setDateFormat:@"yyyy-MM-dd"];
     }
     
     return _datePicker;

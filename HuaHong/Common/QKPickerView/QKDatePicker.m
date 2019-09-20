@@ -13,8 +13,8 @@
 
 @property (nonatomic,strong) UIToolbar *toolBar;
 @property (nonatomic,strong) NSDate *defaultDate;
-@property (nonatomic,assign) NSUInteger pickHeight;
 @property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, assign) UIDatePickerMode datePickerModel;
 @property (nonatomic,copy) NSString *format;
 @end
 @implementation QKDatePicker
@@ -23,42 +23,50 @@
     
     self = [super init];
     if (self) {
+        
+        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
         self.frame = [UIScreen mainScreen].bounds;
-        [self setupDatePickerModel:datePickerModel];
-        [self setToolBar];
+        self.datePickerModel = datePickerModel;
+        [self addSubview:self.toolBar];
         
     }
     
     return self;
 }
 
--(void)setupDatePickerModel:(UIDatePickerMode)datePickerModel{
-    
-    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
-    datePicker.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
-    datePicker.datePickerMode = datePickerModel;
-    if (_defaultDate) {
-        [datePicker setDate:_defaultDate];
-    }
-    datePicker.backgroundColor = [UIColor whiteColor];
-    _datePicker = datePicker;
-    datePicker.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-datePicker.frame.size.height, [UIScreen mainScreen].bounds.size.width, datePicker.frame.size.height);
-    _pickHeight = datePicker.frame.size.height;
-    [self addSubview:datePicker];
-
-}
-
--(void)setToolBar
+- (UIToolbar *)toolBar
 {
     if (_toolBar == nil) {
-        _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-ToolbarHeight-_pickHeight, [UIScreen mainScreen].bounds.size.width, ToolbarHeight)];
+        
+        _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - ToolbarHeight - self.datePicker.frame.size.height, [UIScreen mainScreen].bounds.size.width, ToolbarHeight)];
         _toolBar.backgroundColor = [UIColor whiteColor];
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"  取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
         UIBarButtonItem *centerSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"确定  " style:UIBarButtonItemStylePlain target:self action:@selector(downClick)];
         _toolBar.items = @[leftItem,centerSpace,rightItem];
-        [self addSubview:_toolBar];
+        
+        
     }
+    
+    return _toolBar;
+}
+
+
+- (UIDatePicker *)datePicker
+{
+    if (_datePicker == nil) {
+        _datePicker = [[UIDatePicker alloc]init];
+        _datePicker.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
+        _datePicker.datePickerMode = self.datePickerModel;
+        if (_defaultDate) {
+            [_datePicker setDate:_defaultDate];
+        }
+        _datePicker.backgroundColor = [UIColor whiteColor];
+        _datePicker.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-_datePicker.frame.size.height, [UIScreen mainScreen].bounds.size.width, _datePicker.frame.size.height);
+        [self addSubview:_datePicker];
+    }
+    
+    return _datePicker;
 }
 
 
@@ -100,7 +108,7 @@
 
 -(void)downClick{
     
-    _format = _format?:@"yyyy-MM-dd HH:mm:ss";
+    _format = _format?:@"yyyy-MM-dd";
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:_format];
     formatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
