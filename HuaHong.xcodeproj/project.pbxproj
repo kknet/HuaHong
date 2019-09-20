@@ -159,7 +159,7 @@
 		7DAA3CE72041B28C00B12BC4 /* p.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA3CE42041B28C00B12BC4 /* p.p12 */; };
 		7DAA3CEB2041BA9E00B12BC4 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA3CEA2041BA9E00B12BC4 /* RACViewController.m */; };
 		7DABB89820E6002000C538CA /* HHPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB89720E6002000C538CA /* HHPhotoBrowserController.m */; };
-		7DABB89B20E606DE00C538CA /* PhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */; };
+		7DABB89B20E606DE00C538CA /* PhotoContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB89A20E606DE00C538CA /* PhotoContainerController.m */; };
 		7DABB8C620E6509300C538CA /* HHCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABB8C520E6509300C538CA /* HHCardController.m */; };
 		7DABC39B21A5389D00C3EAD9 /* NSString+IdentityCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC38C21A5389D00C3EAD9 /* NSString+IdentityCard.m */; };
 		7DABC39C21A5389D00C3EAD9 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC38F21A5389D00C3EAD9 /* UIView+AutoLayout.m */; };
@@ -569,8 +569,8 @@
 		7DAA3CEA2041BA9E00B12BC4 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
 		7DABB89620E6002000C538CA /* HHPhotoBrowserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHPhotoBrowserController.h; sourceTree = "<group>"; };
 		7DABB89720E6002000C538CA /* HHPhotoBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHPhotoBrowserController.m; sourceTree = "<group>"; };
-		7DABB89920E606DE00C538CA /* PhotoBrowserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoBrowserController.h; sourceTree = "<group>"; };
-		7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserController.m; sourceTree = "<group>"; };
+		7DABB89920E606DE00C538CA /* PhotoContainerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoContainerController.h; sourceTree = "<group>"; };
+		7DABB89A20E606DE00C538CA /* PhotoContainerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoContainerController.m; sourceTree = "<group>"; };
 		7DABB8C420E6509300C538CA /* HHCardController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHCardController.h; sourceTree = "<group>"; };
 		7DABB8C520E6509300C538CA /* HHCardController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHCardController.m; sourceTree = "<group>"; };
 		7DABC38C21A5389D00C3EAD9 /* NSString+IdentityCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IdentityCard.m"; sourceTree = "<group>"; };
@@ -1554,8 +1554,8 @@
 				7D957EBE1FD5337000D0A4D5 /* PhotoListCell.m */,
 				7DABB89620E6002000C538CA /* HHPhotoBrowserController.h */,
 				7DABB89720E6002000C538CA /* HHPhotoBrowserController.m */,
-				7DABB89920E606DE00C538CA /* PhotoBrowserController.h */,
-				7DABB89A20E606DE00C538CA /* PhotoBrowserController.m */,
+				7DABB89920E606DE00C538CA /* PhotoContainerController.h */,
+				7DABB89A20E606DE00C538CA /* PhotoContainerController.m */,
 			);
 			path = "相册";
 			sourceTree = "<group>";
@@ -1638,6 +1638,8 @@
 		7DABC38A21A5389D00C3EAD9 /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
+				7D03087D2327D39B008E1088 /* NSString+null.h */,
+				7D03087E2327D39B008E1088 /* NSString+null.m */,
 				93D42D9E22DD6CF600344BD7 /* NSObject+swizzle.h */,
 				93D42D9F22DD6CF600344BD7 /* NSObject+swizzle.m */,
 				7DE4D3AC21BADB0D00586126 /* NSTimer+HHTimer.h */,
@@ -2131,8 +2133,6 @@
 				93D42DA522DD936D00344BD7 /* UIGestureRecognizer+bury.m */,
 				933AC5E122DF030800E7710B /* UITableView+bury.h */,
 				933AC5E222DF030800E7710B /* UITableView+bury.m */,
-				7D03087D2327D39B008E1088 /* NSString+null.h */,
-				7D03087E2327D39B008E1088 /* NSString+null.m */,
 			);
 			path = "埋点";
 			sourceTree = "<group>";
@@ -2388,7 +2388,7 @@
 				7D2FF2092008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.m in Sources */,
 				7D398FB4200B32DE00994A3C /* HHAnnotation.m in Sources */,
 				7DABC3A021A5389D00C3EAD9 /* CALayer+borderColor.m in Sources */,
-				7DABB89B20E606DE00C538CA /* PhotoBrowserController.m in Sources */,
+				7DABB89B20E606DE00C538CA /* PhotoContainerController.m in Sources */,
 				7DC3751520E39140005AEBCA /* Company+CoreDataProperties.m in Sources */,
 				93D21CAE2318C55600728517 /* H264DecodeTool.m in Sources */,
 				7DB9B5631FD97F210011EE54 /* VideoRecorder.m in Sources */,

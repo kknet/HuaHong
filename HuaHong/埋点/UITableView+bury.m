@@ -14,9 +14,7 @@
 
 + (void)load
 {
-//     [self swizzleInstanceMethod:@selector(setDelegate:) swizzledSEL:@selector(swizzled_setDelegate:)];
-    
-    
+     [self swizzleInstanceMethod:@selector(setDelegate:) swizzledSEL:@selector(swizzled_setDelegate:)];
 }
 
 - (void)swizzled_setDelegate:(id<UITableViewDelegate>)delegate
@@ -26,6 +24,14 @@
     }
     
     [self swizzled_setDelegate:delegate];
+    
+    [[delegate class] aspect_hookSelector:@selector(tableView:didSelectRowAtIndexPath:) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
+        
+        NSLog(@"AOP::%@",info);
+    } error:NULL];
+    
+    
+    return;
     
     SEL originalSEL = @selector(tableView:didSelectRowAtIndexPath:);
     SEL swizzledSEL = @selector(swizzledTableView:didSelectRowAtIndexPath:);

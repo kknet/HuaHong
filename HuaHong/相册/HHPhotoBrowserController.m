@@ -7,13 +7,13 @@
 //
 
 #import "HHPhotoBrowserController.h"
-#import "PhotoBrowserController.h"
+#import "PhotoContainerController.h"
 
 @interface HHPhotoBrowserController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
 
 @property (nonatomic,strong) UIPageControl *pageControl;
-@property (nonatomic,strong) UIPageViewController *pageViewControl;
-@property (nonatomic,strong) NSMutableArray *controllerArrayM;
+@property (nonatomic,strong) UIPageViewController *pageViewController;
+@property (nonatomic,strong) NSMutableArray *containerControllers;
 
 @property (nonatomic,strong) NSArray<UIImage *> *imageArray;
 @property (nonatomic,assign) NSInteger currentPage;
@@ -26,7 +26,6 @@
 {
     self = [super init];
     if (self) {
-        
         self.currentPage = currentPage;
         self.imageArray = imageArray;
     }
@@ -34,31 +33,65 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+- (UIPageControl *)pageControl
+{
+    if (_pageControl == nil) {
+        _pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.view.height-30, self.view.width, 30)];
+        _pageControl.hidesForSinglePage = true;
+        _pageControl.pageIndicatorTintColor = UIColor.grayColor;
+        _pageControl.currentPageIndicatorTintColor = UIColor.whiteColor;
+        _pageControl.backgroundColor = UIColor.clearColor;
+        [_pageControl addTarget:self action:@selector(pageControlChanged:) forControlEvents:UIControlEventValueChanged];
+    }
     
-//    self.view.backgroundColor = [UIColor orangeColor];
-//    self.navigationController.navigationBar.hidden = YES;
+    return _pageControl;
+}
+
+- (void)pageControlChanged:(UIPageControl *)sender
+{
+//    UIViewController *visibleViewController = self.pageViewController.viewControllers[0];
+//    NSUInteger currentIndex = [self.containerControllers indexOfObject:visibleViewController];
+    
+    
+    NSLog(@"changedIndex:%ld",(long)sender.currentPage);
+    
+
+    NSUInteger changedIndex = sender.currentPage;
+
+    NSArray *viewControllers = [NSArray arrayWithObject:[self.containerControllers objectAtIndex:changedIndex]];
+
+    if (changedIndex > self.currentPage) {
+        [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    } else {
+        [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:NO completion:nil];
+
+    }
+    
     
 }
 
 - (UIPageViewController *)pageViewControl
 {
-    if (!_pageViewControl)
+    if (!_pageViewController)
     {
         NSDictionary *options = @{UIPageViewControllerOptionInterPageSpacingKey:@(0)};
-        _pageViewControl = [[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
-        _pageViewControl.view.frame = self.view.bounds;
-        _pageViewControl.delegate = self;
-        _pageViewControl.dataSource = self;
+        _pageViewController = [[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
+        _pageViewController.view.frame = self.view.bounds;
+        _pageViewController.delegate = self;
+        _pageViewController.dataSource = self;
+        _pageViewController.view.backgroundColor = UIColor.clearColor;
+
+        [self addChildViewController:_pageViewController];
+        [self.view addSubview:_pageViewController.view];
+        [_pageViewController didMoveToParentViewController:self];
         
-        [self addChildViewController:_pageViewControl];
-        [self.view addSubview:_pageViewControl.view];
-        [_pageViewControl didMoveToParentViewController:self];
+        [self.view addSubview:self.pageControl];
+//        [self.view sendSubviewToBack:_pageViewController.view];
         
     }
     
-    return _pageViewControl;
+    return _pageViewController;
 }
 
 #pragma mark - UIPageViewControllerDataSource
@@ -68,26 +101,24 @@
         return nil;
     }
     
-    PhotoBrowserController *vc = [self.controllerArrayM objectAtIndex:self.currentPage - 1];
-//    vc.image = [self.imageArray objectAtIndex:self.currentPage - 1];
+    PhotoContainerController *vc = [self.containerControllers objectAtIndex:self.currentPage - 1];
     return vc;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
 
-    if (self.currentPage + 1 >= self.controllerArrayM.count) {
+    if (self.currentPage + 1 >= self.containerControllers.count) {
         return nil;
     }
     
-    PhotoBrowserController *vc = [self.controllerArrayM objectAtIndex:self.currentPage + 1];
-//    vc.image = [self.imageArray objectAtIndex:self.currentPage + 1];
+    PhotoContainerController *vc = [self.containerControllers objectAtIndex:self.currentPage + 1];
     return vc;
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
-    return self.controllerArrayM.count;
+    return self.containerControllers.count;
 }
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
@@ -99,7 +130,7 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers
 {
     UIViewController *vc = pendingViewControllers.firstObject;
-    self.currentPage = [self.controllerArrayM indexOfObject:vc];
+    self.currentPage = [self.containerControllers indexOfObject:vc];
 }
 
 // 跳转动画完成时触发，配合上面的代理方法可以定位到具体的跳转界面，此方法有利于定位具体的界面位置
@@ -108,44 +139,34 @@
     
 }
 
+- (void)setCurrentPage:(NSInteger)currentPage
+{
+    _currentPage = currentPage;
+    self.pageControl.currentPage = self.currentPage;
 
-//- (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation
-//{
-//    return UIPageViewControllerSpineLocationNone;
-//}
-//
-//-(UIInterfaceOrientationMask)pageViewControllerSupportedInterfaceOrientations:(UIPageViewController *)pageViewController
-//{
-//    return UIInterfaceOrientationMaskPortrait;
-//}
-//
-//-(UIInterfaceOrientation)pageViewControllerPreferredInterfaceOrientationForPresentation:(UIPageViewController *)pageViewController
-//{
-//    return UIInterfaceOrientationPortrait;
-//}
-
+}
 - (void)setImageArray:(NSArray<UIImage *> *)imageArray
 {
     _imageArray = imageArray;
     
     [imageArray enumerateObjectsUsingBlock:^(UIImage * image, NSUInteger idx, BOOL * _Nonnull stop) {
         
-       PhotoBrowserController *vc = [[PhotoBrowserController alloc]initWithImage:image];
-        [self.controllerArrayM addObject:vc];
+       PhotoContainerController *vc = [[PhotoContainerController alloc]initWithImage:image];
+        [self.containerControllers addObject:vc];
     }];
     
-    UIViewController *vc = [self.controllerArrayM objectAtIndex:self.currentPage];
-    /** 当前页的vc，不是全部vc */
-    [self.pageViewControl setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    UIViewController *currentVC = [self.containerControllers objectAtIndex:self.currentPage];
+    [self.pageViewControl setViewControllers:@[currentVC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    self.pageControl.numberOfPages = imageArray.count;
+    self.pageControl.currentPage = self.currentPage;
 }
 
-- (NSMutableArray *)controllerArrayM
+- (NSMutableArray *)containerControllers
 {
-    if (!_controllerArrayM) {
-        _controllerArrayM = [NSMutableArray array];
+    if (!_containerControllers) {
+        _containerControllers = [NSMutableArray array];
     }
-    
-    return _controllerArrayM;
+    return _containerControllers;
 }
 
 

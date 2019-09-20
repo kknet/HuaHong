@@ -87,19 +87,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"numberOfSectionsInTableView");
+//    NSLog(@"numberOfSectionsInTableView");
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"numberOfRowsInSection");
+//    NSLog(@"numberOfRowsInSection");
     return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cellForRowAtIndexPath");
+//    NSLog(@"cellForRowAtIndexPath");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
@@ -114,6 +114,6 @@
 {
 //    [tableView reloadData];
 //    NSLog(@"didSelectRowAtIndexPath:%@",indexPath);
-//    [MBProgressHUD showInfo:@"didSelectRowAtIndexPath方法被点击" toView:nil];
+    [MBProgressHUD showMessage:@"didSelectRowAtIndexPath方法被点击"];
 }
 @end

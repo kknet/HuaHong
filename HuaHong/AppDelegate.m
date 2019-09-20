@@ -45,13 +45,6 @@ static void uncaughtExceptionHandler(NSException *exception)
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    [UITableView aspect_hookSelector:@selector(tableView:didSelectRowAtIndexPath:) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info) {
-        
-        NSLog(@"AOP::%@",info);
-    } error:NULL];
-    
-    
     [self configRequestManager];
     
     [self BuglyConfig];

@@ -1,20 +1,20 @@
 //
-//  PhotoBrowserController.m
+//  PhotoContainerController.m
 //  HuaHong
 //
 //  Created by 华宏 on 2018/6/29.
 //  Copyright © 2018年 huahong. All rights reserved.
 //
 
-#import "PhotoBrowserController.h"
+#import "PhotoContainerController.h"
 
-@interface PhotoBrowserController ()<UIScrollViewDelegate>
+@interface PhotoContainerController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic,strong) UIImageView *imageView;
 @end
 
-@class HHPhotoBrowserController;
-@implementation PhotoBrowserController
+@class HHPhotoContentController;
+@implementation PhotoContainerController
 
 - (instancetype)initWithImage:(UIImage *)image
 {
@@ -25,17 +25,10 @@
         [self.view addSubview:self.scrollView];
         [self.scrollView addSubview:self.imageView];
         
-        self.scrollView.backgroundColor = [UIColor blackColor];
+        self.scrollView.backgroundColor = [UIColor clearColor];
     }
     
     return self;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    
-
 }
 
 - (UIScrollView *)scrollView
@@ -59,7 +52,7 @@
     if (!_imageView)
     {
         _imageView = [[UIImageView alloc]initWithImage:self.image];
-        _imageView.frame = CGRectMake(0, 0, kScreenWidth, self.image.size.height*kScreenWidth/self.image.size.width);
+        _imageView.frame = CGRectMake(0, 0, self.view.width, self.image.size.height*self.view.width/self.image.size.width);
         _imageView.center = self.scrollView.center;
         _imageView.userInteractionEnabled = YES;
         

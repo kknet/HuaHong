@@ -1,5 +1,5 @@
 //
-//  PhotoBrowserController.h
+//  PhotoContainerController.h
 //  HuaHong
 //
 //  Created by 华宏 on 2018/6/29.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^DisMissBlock)(void);
-@interface PhotoBrowserController : UIViewController
+@interface PhotoContainerController : UIViewController
 
 - (instancetype)initWithImage:(UIImage *)image;
 
