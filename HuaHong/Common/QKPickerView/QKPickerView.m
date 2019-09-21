@@ -11,12 +11,12 @@
 #define ToolbarHeight 40
 @interface QKPickerView ()<UIPickerViewDelegate,UIPickerViewDataSource>
 
-@property (nonatomic,strong) UIToolbar *toolBar;
-@property (nonatomic,assign) NSUInteger pickHeight;
-@property (nonatomic, strong) UIPickerView *pickerView;
-@property (nonatomic, strong) NSArray *datasource;
-@property (nonatomic, strong) id selectedData;
-@property (nonatomic, assign) NSInteger selectedRow;
+@property (strong,nonatomic) UIToolbar *toolBar;
+@property (assign,nonatomic) NSUInteger pickHeight;
+@property (strong,nonatomic) UIPickerView *pickerView;
+@property (strong,nonatomic) NSArray *datasource;
+@property (strong,nonatomic) id selectedData;
+@property (assign,nonatomic) NSInteger selectedRow;
 
 @end
 @implementation QKPickerView
@@ -26,8 +26,9 @@
     self = [super init];
     if (self) {
         
-        self.datasource = datasource;
+        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
         self.frame = [UIScreen mainScreen].bounds;
+        self.datasource = datasource;
         [self addSubview:self.toolBar];
         [self.pickerView selectRow:0 inComponent:0 animated:false];
 
@@ -42,12 +43,14 @@
         _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 216, [UIScreen mainScreen].bounds.size.width, 216)];
         _pickerView.delegate = self;
         _pickerView.dataSource = self;
+        _pickerView.backgroundColor = UIColor.whiteColor;
         [self addSubview:_pickerView];
         
     }
     
     return _pickerView;
 }
+
 - (UIToolbar *)toolBar
 {
     if (_toolBar == nil) {
@@ -56,7 +59,7 @@
         _toolBar.backgroundColor = [UIColor whiteColor];
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"  取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
         UIBarButtonItem *centerSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"确定  " style:UIBarButtonItemStylePlain target:self action:@selector(downClick)];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"确定  " style:UIBarButtonItemStylePlain target:self action:@selector(sureClick)];
         _toolBar.items = @[leftItem,centerSpace,rightItem];
         
         
@@ -67,7 +70,7 @@
 
 
 
--(void)show
+- (void)show
 {
     [UIView animateWithDuration:0.25 animations:^{
 
@@ -77,7 +80,7 @@
 
 }
 
--(void)dismiss
+- (void)dismiss
 {
     [UIView animateWithDuration:0.25 animations:^{
         [self removeFromSuperview];
@@ -85,7 +88,7 @@
 
 }
 
--(void)downClick{
+- (void)sureClick{
 
 
     if ([self.delegate respondsToSelector:@selector(pickerView:didSelectRow:selectData:)]) {
@@ -96,7 +99,7 @@
     [self removeFromSuperview];
 }
 
--(void)setBackgroundColor:(UIColor *)color
+- (void)setPickerViewBackgroundColor:(UIColor *)color
 {
     _pickerView.backgroundColor = color;
 }
@@ -134,11 +137,6 @@
     return nil;
 }
 
-//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(nullable UIView *)view
-//{
-//
-//}
-
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (row < self.datasource.count) {
@@ -148,5 +146,6 @@
     }
     
 }
+
 @end
 

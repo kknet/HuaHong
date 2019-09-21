@@ -11,7 +11,6 @@
 @class QKPickerView;
 @protocol QKPickerViewDelegate <NSObject>
 
-@optional
 - (void)pickerView:(QKPickerView *)pickerView didSelectRow:(NSInteger)row selectData:(NSString *)selectStr;
 @end
 
@@ -21,10 +20,7 @@
 
 - (instancetype)initWithDataSource:(NSArray *)datasource;
 
-////设置日期输出格式
-//- (void)setDateFormat:(NSString *)format;
+- (void)show;
 
--(void)show;
-
--(void)setBackgroundColor:(UIColor *)color;
+- (void)setPickerViewBackgroundColor:(UIColor *)color;
 @end

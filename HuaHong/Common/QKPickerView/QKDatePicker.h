@@ -11,8 +11,7 @@
 @class QKDatePicker;
 @protocol QKDatePickerDelegate <NSObject>
 
-@optional
-- (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateStr;
+- (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateString;
 @end
 
 @interface QKDatePicker : UIView
@@ -32,5 +31,5 @@
 
 - (void)show;
 
-- (void)setBackgroundColor:(UIColor *)color;
+- (void)setDatePickerBackgroundColor:(UIColor *)color;
 @end

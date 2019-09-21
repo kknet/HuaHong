@@ -26,17 +26,17 @@
     if (_datePicker == nil) {
         _datePicker = [[QKDatePicker alloc]initDatePickWithDate:NSDate.date datePickerModel:UIDatePickerModeDate];
         _datePicker.delegate = self;
-//        [_datePicker setDateFormat:@"yyyy-MM-dd"];
+
     }
     
     return _datePicker;
 }
 
 //MARK: - QKDatePickerDelegate
-- (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateStr
+- (void)datePicker:(QKDatePicker *)datePicker didSelectDate:(NSDate *)date StringDate:(NSString *)dateString
 {
-    NSLog(@"datePicker:%@",dateStr);
-    self.title = dateStr;
+    NSLog(@"datePicker:%@",dateString);
+    self.title = dateString;
 }
 
 @end

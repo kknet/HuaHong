@@ -11,20 +11,22 @@
 #define ToolbarHeight 40
 @interface QKDatePicker ()
 
-@property (nonatomic,strong) UIToolbar *toolBar;
-@property (nonatomic,strong) NSDate *defaultDate;
-@property (nonatomic, strong) UIDatePicker *datePicker;
-@property (nonatomic, assign) UIDatePickerMode datePickerModel;
-@property (nonatomic,copy) NSString *format;
+@property (strong,nonatomic) UIToolbar        *toolBar;
+@property (strong,nonatomic) NSDate           *defaultDate;
+@property (strong,nonatomic) UIDatePicker     *datePicker;
+@property (assign,nonatomic) UIDatePickerMode datePickerModel;
+@property (copy  ,nonatomic) NSString         *format;
+
 @end
+
 @implementation QKDatePicker
 
--(instancetype)initDatePickWithDate:(NSDate *)defaultDate datePickerModel:(UIDatePickerMode)datePickerModel{
+- (instancetype)initDatePickWithDate:(NSDate *)defaultDate datePickerModel:(UIDatePickerMode)datePickerModel{
     
     self = [super init];
     if (self) {
         
-        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
+        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
         self.frame = [UIScreen mainScreen].bounds;
         self.datePickerModel = datePickerModel;
         [self addSubview:self.toolBar];
@@ -42,7 +44,7 @@
         _toolBar.backgroundColor = [UIColor whiteColor];
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"  取消" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
         UIBarButtonItem *centerSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"确定  " style:UIBarButtonItemStylePlain target:self action:@selector(downClick)];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"确定  " style:UIBarButtonItemStylePlain target:self action:@selector(sureClick)];
         _toolBar.items = @[leftItem,centerSpace,rightItem];
         
         
@@ -88,7 +90,7 @@
     _format = format;
 }
 
--(void)show
+- (void)show
 {
     [UIView animateWithDuration:0.25 animations:^{
         
@@ -98,7 +100,7 @@
     
 }
 
--(void)dismiss
+- (void)dismiss
 {
     [UIView animateWithDuration:0.25 animations:^{
         [self removeFromSuperview];
@@ -106,22 +108,22 @@
     
 }
 
--(void)downClick{
+- (void)sureClick{
     
     _format = _format?:@"yyyy-MM-dd";
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:_format];
     formatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
-    NSString *dateStr = [formatter stringFromDate:_datePicker.date];
+    NSString *dateString = [formatter stringFromDate:_datePicker.date];
     
     if ([self.delegate respondsToSelector:@selector(datePicker:didSelectDate:StringDate:)]) {
-        [self.delegate datePicker:self didSelectDate:_datePicker.date StringDate:dateStr];
+        [self.delegate datePicker:self didSelectDate:_datePicker.date StringDate:dateString];
     }
     
     [self removeFromSuperview];
 }
 
--(void)setBackgroundColor:(UIColor *)color
+- (void)setDatePickerBackgroundColor:(UIColor *)color
 {
     _datePicker.backgroundColor = color;
 }
