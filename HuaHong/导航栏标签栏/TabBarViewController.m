@@ -52,7 +52,7 @@
     //利用KVC 将自己的tabbar赋给系统tabBar
     [self setValue:_myTabBar forKey:@"tabBar"];
     
-//    UIImage *image = [HUtils imageWithColor:[UIColor orangeColor]];
+//    UIImage *image = [HHUtils imageWithColor:[UIColor orangeColor]];
 //    [self.myTabBar setShadowImage:image];
 //    [self.myTabBar setBackgroundImage:image];
     

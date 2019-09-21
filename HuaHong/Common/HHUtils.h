@@ -1,5 +1,5 @@
 //
-//  HUtils.h
+//  HHUtils.h
 //  CommunityBuyer
 //
 //  Created by 华宏 on 16/5/7.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface HUtils : NSObject
+@interface HHUtils : NSObject
 
 + (NSString *)getAPPName;
 

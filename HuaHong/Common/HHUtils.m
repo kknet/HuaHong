@@ -6,11 +6,11 @@
 //  Copyright © 2016年 zdq. All rights reserved.
 //
 
-#import "HUtils.h"
+#import "HHUtils.h"
 #import <CommonCrypto/CommonDigest.h>
 #define kAppDelegate       [UIApplication sharedApplication].delegate
 
-@implementation HUtils
+@implementation HHUtils
 {
     CAShapeLayer *_layer;
 }

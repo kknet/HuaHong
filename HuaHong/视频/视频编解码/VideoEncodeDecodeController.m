@@ -32,11 +32,11 @@
     
     [SystemCapture checkCameraAuthor];
     _capture = [[SystemCapture alloc] initWithType:SystemCaptureTypeVideo];
-    CGFloat height = (self.view.frame.size.height - 64)/2.0;
+    CGFloat height = (self.view.frame.size.height - kNavBarHeight)/2.0;
     CGFloat width = self.view.frame.size.width;
     CGSize size = CGSizeMake(width, height);
     [_capture prepareWithPreviewSize:size];  //捕获视频时传入预览层大小
-    _capture.preview.frame = CGRectMake(0, 64, size.width, size.height);
+    _capture.preview.frame = CGRectMake(0, kNavBarHeight, size.width, size.height);
     [self.view addSubview:_capture.preview];
     self.capture.delegate = self;
     
@@ -144,7 +144,7 @@
 - (AAPLEAGLLayer *)playLayer
 {
     if (!_playLayer) {
-        CGFloat height = (self.view.frame.size.height - 64)/2.0;
+        CGFloat height = (self.view.frame.size.height - kNavBarHeight)/2.0;
         CGFloat width = self.view.frame.size.width;
         _playLayer = [[AAPLEAGLLayer alloc] initWithFrame:CGRectMake(0,64+height,width,height)];
         _playLayer.backgroundColor = [UIColor whiteColor].CGColor;

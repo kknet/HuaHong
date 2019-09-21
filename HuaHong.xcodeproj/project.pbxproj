@@ -54,7 +54,7 @@
 		7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2062008916700ECAA26 /* HHTabBar.m */; };
 		7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2072008916700ECAA26 /* TabBarViewController.m */; };
 		7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2112008935F00ECAA26 /* TestViewController.m */; };
-		7D328A55206CD62D00A64272 /* HUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A54206CD62D00A64272 /* HUtils.m */; };
+		7D328A55206CD62D00A64272 /* HHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A54206CD62D00A64272 /* HHUtils.m */; };
 		7D35A0EB229AE6EE00149963 /* NSDictionary+CrashHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A0E8229AE6EE00149963 /* NSDictionary+CrashHandle.m */; };
 		7D35A0EC229AE6EE00149963 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A0E9229AE6EE00149963 /* NullSafe.m */; };
 		7D398FAD200A0B8000994A3C /* PullUpRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D398FAC200A0B8000994A3C /* PullUpRefreshView.m */; };
@@ -371,8 +371,8 @@
 		7D2FF2082008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShouldPopOnBackButton.h"; sourceTree = "<group>"; };
 		7D2FF2102008935F00ECAA26 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		7D2FF2112008935F00ECAA26 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		7D328A53206CD62D00A64272 /* HUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUtils.h; sourceTree = "<group>"; };
-		7D328A54206CD62D00A64272 /* HUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUtils.m; sourceTree = "<group>"; };
+		7D328A53206CD62D00A64272 /* HHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUtils.h; sourceTree = "<group>"; };
+		7D328A54206CD62D00A64272 /* HHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUtils.m; sourceTree = "<group>"; };
 		7D35A0E8229AE6EE00149963 /* NSDictionary+CrashHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CrashHandle.m"; sourceTree = "<group>"; };
 		7D35A0E9229AE6EE00149963 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		7D35A0EA229AE6EE00149963 /* NSDictionary+CrashHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CrashHandle.h"; sourceTree = "<group>"; };
@@ -1141,8 +1141,8 @@
 				7DBC56D82264B98D006E6068 /* QKPickerView */,
 				7D6D5130224B9694005A53D8 /* QKPrivacyManager */,
 				7D16E3E4223A1C470027C5FC /* QKAlertView */,
-				7D328A53206CD62D00A64272 /* HUtils.h */,
-				7D328A54206CD62D00A64272 /* HUtils.m */,
+				7D328A53206CD62D00A64272 /* HHUtils.h */,
+				7D328A54206CD62D00A64272 /* HHUtils.m */,
 				7DE8D5891FC55A6C00577762 /* UtilsMacro.h */,
 				7DA152B8204AACAA0075274E /* BaseModel.h */,
 				7DA152B9204AACAA0075274E /* BaseModel.m */,
@@ -2578,7 +2578,7 @@
 				7D8359BC22FF113A00BEC6F6 /* ContentModelAdeapter.m in Sources */,
 				7DB910022147BB1E00A9B40C /* MVVM_ViewModel.m in Sources */,
 				7D48F96D2103A1B200833594 /* CollisionViewController.m in Sources */,
-				7D328A55206CD62D00A64272 /* HUtils.m in Sources */,
+				7D328A55206CD62D00A64272 /* HHUtils.m in Sources */,
 				7DDE3D2F20F505080044FC85 /* PageControlVC.m in Sources */,
 				7D0DA83E1FC50D7000774E40 /* HuaHong.xcdatamodeld in Sources */,
 				7DFB1BDC1FCFD4580033D9E2 /* UpLoadViewController.m in Sources */,

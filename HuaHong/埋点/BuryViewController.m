@@ -41,7 +41,7 @@
     self.button.key = @"123";
     
     [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(64);
+        make.top.mas_equalTo(kNavBarHeight);
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(100);
     }];
