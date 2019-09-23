@@ -16,12 +16,12 @@
 
 @interface QKCalendarView()<UICollectionViewDelegate,UICollectionViewDataSource>
 
-@property(nonatomic,strong)UICollectionView *collectionView;
-@property(nonatomic,strong)NSMutableArray *dataArray;//当月的模型集合
-@property(nonatomic,strong)NSDate *currentMonthDate;//当月的日期
+@property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) NSMutableArray *dataArray;//当月的模型集合
+@property (nonatomic,strong) NSDate *currentMonthDate;//当月的日期
 @property (nonatomic,strong) QKCalendarModel *currentMonthModel;
-@property(nonatomic,strong)UISwipeGestureRecognizer *leftSwipe;//左滑手势
-@property(nonatomic,strong)UISwipeGestureRecognizer *rightSwipe;//右滑手势
+@property (nonatomic,strong) UISwipeGestureRecognizer *leftSwipe;//左滑手势
+@property (nonatomic,strong) UISwipeGestureRecognizer *rightSwipe;//右滑手势
 
 @end
 @implementation QKCalendarView
@@ -29,10 +29,27 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        
+        [self initData];
         self.currentMonthDate = [NSDate date];
-        [self setup];
+        [self addSwipeGesture];
+        self.height = self.collectionView.bottom;
     }
     return self;
+}
+
+//初始化默认数据
+- (void)initData
+{
+    self.currentMonthTitleColor = UIColor.blackColor;
+    self.lastMonthTitleColor = UIColor.lightGrayColor;
+    self.nextMonthTitleColor = UIColor.lightGrayColor;
+    self.selectBackColor = UIColor.redColor;
+    self.todayTitleColor = UIColor.redColor;
+    self.isHaveAnimation = true;
+    self.isCanScroll = true;
+    self.isShowLastAndNextDate = true;
+    
 }
 
 - (void)setCurrentMonthDate:(NSDate *)currentMonthDate
@@ -41,23 +58,20 @@
     self.currentMonthModel = [[QKCalendarModel alloc]initWithDate:_currentMonthDate];
 }
 
--(void)setup
+-(void)addSwipeGesture
 {
-    self.height = self.collectionView.bottom;
-    
-    //添加左滑右滑手势
+    //添加左滑手势
     self.leftSwipe =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(leftSwipe:)];
     self.leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
-    
     [self.collectionView addGestureRecognizer:self.leftSwipe];
     
+    //添加右滑手势
     self.rightSwipe =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(rightSwipe:)];
     self.rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
-    
     [self.collectionView addGestureRecognizer:self.rightSwipe];
 }
 
-#pragma mark--数据以及更新处理--
+#pragma mark -- 数据以及更新处理--
 -(void)show
 {
     [self.dataArray removeAllObjects];
@@ -112,6 +126,36 @@
     
 }
 
+-(void)configDayModel:(QKCalendarModel *)model
+{
+    //配置外面属性
+    model.isHaveAnimation = self.isHaveAnimation;
+    
+    model.currentMonthTitleColor = self.currentMonthTitleColor;
+    
+    model.lastMonthTitleColor = self.lastMonthTitleColor;
+    
+    model.nextMonthTitleColor = self.nextMonthTitleColor;
+    
+    model.selectBackColor = self.selectBackColor;
+    
+    model.isHaveAnimation = self.isHaveAnimation;
+    
+    model.todayTitleColor = self.todayTitleColor;
+    
+    model.isShowLastAndNextDate = self.isShowLastAndNextDate;
+    
+    
+}
+
+/** 是否禁止手势滚动 */
+-(void)setIsCanScroll:(BOOL)isCanScroll{
+    _isCanScroll = isCanScroll;
+    
+    self.leftSwipe.enabled = self.rightSwipe.enabled = isCanScroll;
+}
+
+//MARK: - UICollectionViewDataSource
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
@@ -132,6 +176,7 @@
     return cell;
 }
 
+//MARK: - UICollectionViewDelegate
 //Header 大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
@@ -179,7 +224,7 @@
     
 }
 
-#pragma mark---懒加载
+//MARK: - 懒加载
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
         
@@ -212,37 +257,8 @@
     return _dataArray;
 }
 
--(void)configDayModel:(QKCalendarModel *)model
-{
-    //配置外面属性
-    model.isHaveAnimation = self.isHaveAnimation;
-    
-    model.currentMonthTitleColor = self.currentMonthTitleColor;
-    
-    model.lastMonthTitleColor = self.lastMonthTitleColor;
-    
-    model.nextMonthTitleColor = self.nextMonthTitleColor;
-    
-    model.selectBackColor = self.selectBackColor;
-    
-    model.isHaveAnimation = self.isHaveAnimation;
-    
-    model.todayTitleColor = self.todayTitleColor;
-    
-    model.isShowLastAndNextDate = self.isShowLastAndNextDate;
-    
-    model.unNormalColor = self.unNormalColor;
-    
-}
-
-/** 是否禁止手势滚动 */
--(void)setIsCanScroll:(BOOL)isCanScroll{
-    _isCanScroll = isCanScroll;
-    
-    self.leftSwipe.enabled = self.rightSwipe.enabled = isCanScroll;
-}
-
-#pragma mark --左滑手势--
+//MARK: - 手势
+//左滑手势
 -(void)leftSwipe:(UISwipeGestureRecognizer *)swipe{
     
     self.currentMonthDate = [self.currentMonthDate nextMonthDate:1];
@@ -250,7 +266,7 @@
     [self show];
 }
 
-#pragma mark --右滑手势--
+//右滑手势
 -(void)rightSwipe:(UISwipeGestureRecognizer *)swipe{
     
     self.currentMonthDate = [self.currentMonthDate previousMonthDate:1];
@@ -259,7 +275,7 @@
     [self show];
 }
 
-#pragma mark--动画处理--
+//MARK: - 动画
 - (void)performAnimations:(NSString *)transition{
     CATransition *catransition = [CATransition animation];
     catransition.duration = 0.5;
@@ -270,25 +286,4 @@
 }
 
 
-- (void)setUnNormalDatas:(NSArray<NSString *> *)unNormalDatas
-{
-    _unNormalDatas = unNormalDatas;
-    
-    for (QKCalendarModel *model in _dataArray) {
-        
-        //异常数据
-        for (NSString *str in _unNormalDatas)
-        {
-            NSDate *date = [NSDate dateFromString:str formate:@"yyyy-MM-dd"];
-            if ([date isEqualToDate:model.currentDate]) {
-                model.unNormal = YES;
-                continue;
-            }
-            
-        }
-    }
-    
-    
-    [_collectionView reloadData];
-}
 @end

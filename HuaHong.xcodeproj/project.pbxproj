@@ -1426,9 +1426,9 @@
 				7D5892062266D23100DFE60F /* QKCalendarHeaderView.m */,
 				7D5892072266D23100DFE60F /* QKCalenderCell.h */,
 				7D58920C2266D23100DFE60F /* QKCalenderCell.m */,
+				7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */,
 				7D5892052266D23100DFE60F /* QKCalendarView.h */,
 				7D5892092266D23100DFE60F /* QKCalendarView.m */,
-				7DFDB91822E8B80D00351BAE /* QKCalenderCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

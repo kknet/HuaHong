@@ -25,8 +25,6 @@
 @property(nonatomic,assign)BOOL isToday;//今天
 @property(nonatomic,assign)BOOL isSelected;//是否被选中
 @property (nonatomic, assign) NSInteger day;   //每天所在的位置
-@property(nonatomic,assign)BOOL unNormal;//异常数据
-@property(nonatomic,strong)UIColor *unNormalColor;//异常数据颜色
 
 //当前月的title颜色
 @property(nonatomic,strong)UIColor *currentMonthTitleColor;
