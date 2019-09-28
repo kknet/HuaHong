@@ -17,47 +17,45 @@
 
 @implementation AFController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-    
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
 
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-    
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-    
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-    
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-    
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-    
-    [self requestData];
-//    [MBProgressHUD showMessage:@"message"];
-
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     
 }
 
+
+- (void)testMethod {
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+    
+    [self requestData];
+    [MBProgressHUD showMessage:@"message"];
+}
 - (void)requestData
 {
     [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{} requestType:POST
@@ -73,7 +71,21 @@
 {
     
   
-    NSLog(@"task:%@",self.task);
+     [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{} requestType:POST
+       success:^(id  _Nonnull responseObject) {
+           [MBProgressHUD showMessage:@"请求成功"];
+           
+         [self.navigationController popViewControllerAnimated:YES];
+         
+         if (_backBlock) {
+             _backBlock();
+         }
+
+       } failure:^(RequestErrorType error) {
+           [MBProgressHUD showMessage:@"请求失败"];
+           
+
+       } isSupportHud:NO isSupportErrorAlert:YES];
     
   
  

@@ -174,7 +174,10 @@
    NSLog(@"httpRequest:%@%@\nparams:%@",_manager.baseURL.absoluteString,url,params);
     
     if (isSupportHud) {
-        [MBProgressHUD showLoading:@"加载中..."];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD showLoading:@"加载中..."];
+        });
+        
     }
     
     switch (requestType) {
@@ -412,8 +415,8 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     NSError *error;
     id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
-    NSLog(@"url:%@",url);
-    NSLog(@"result:%@",result);
+//    NSLog(@"url:%@",url);
+//    NSLog(@"result:%@",result);
     
     if (error) {
         if (errorBlock) {

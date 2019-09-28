@@ -68,6 +68,7 @@
 {
 
     view = view ?: [[UIApplication sharedApplication].delegate window];
+    NSLog(@"mbview:%@",view.viewController);
     
     //设置菊花框为白色
     [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor whiteColor];
@@ -104,7 +105,8 @@
 + (void)hideHUDForView:(UIView *)view
 {
     view = view ?: [[UIApplication sharedApplication].delegate window];
-    [self hideHUDForView:view animated:YES];
+    NSLog(@"mbview:%@",view);
+    [self hideHUDForView:view animated:NO];
 }
 
 //MARK: - 私有方法
@@ -118,7 +120,6 @@
 + (void)p_show:(NSString *)text icon:(NSString *)icon view:(UIView *)view
 {
     view = view ?: [[UIApplication sharedApplication].delegate window];
-
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
     hud.customView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"MBProgressHUD.bundle/%@",icon]]];

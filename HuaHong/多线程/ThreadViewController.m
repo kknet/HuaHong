@@ -332,13 +332,6 @@
     }
 }
 
-
--(void)setImage:(UIImage *)image
-{
-    self.view.layer.contents = (__bridge id)(image.CGImage);
-
-}
-
 #pragma mark - GCD替代for循环
 - (void)apply
 {

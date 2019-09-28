@@ -547,8 +547,13 @@ static NSString *headerID = @"headerID";
                 
             }else if (indexPath.item == 8) {
                 
-                vc = [[AFController alloc]init];
+              vc = [[AFController alloc]init];
+                AFController *vc1 = vc;
                 vc.title = @"AFN";
+                [vc1 setBackBlock:^{
+                 
+                    [self testMethod];
+                }];
                 
             }
         }
@@ -797,4 +802,105 @@ static NSString *headerID = @"headerID";
 }
 
 
+- (void)testMethod
+{
+    dispatch_queue_t queue = dispatch_queue_create("hh", DISPATCH_QUEUE_CONCURRENT);
+       dispatch_async(queue, ^{
+           
+           NSLog(@"----1-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+    
+    dispatch_barrier_async(queue, ^{
+              NSLog(@"----barrier-----%@", [NSThread currentThread]);
+          });
+    
+       dispatch_async(queue, ^{
+           NSLog(@"----2-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+       
+       dispatch_barrier_async(queue, ^{
+           NSLog(@"----barrier-----%@", [NSThread currentThread]);
+       });
+       
+       dispatch_async(queue, ^{
+          
+           NSLog(@"----3-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+    
+    dispatch_barrier_async(queue, ^{
+              NSLog(@"----barrier-----%@", [NSThread currentThread]);
+          });
+       dispatch_async(queue, ^{
+           NSLog(@"----4-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+    
+    dispatch_barrier_async(queue, ^{
+              NSLog(@"----barrier-----%@", [NSThread currentThread]);
+          });
+       dispatch_async(queue, ^{
+           NSLog(@"----5-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+    
+    dispatch_barrier_async(queue, ^{
+              NSLog(@"----barrier-----%@", [NSThread currentThread]);
+          });
+       dispatch_async(queue, ^{
+           NSLog(@"----6-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+    
+    dispatch_barrier_async(queue, ^{
+              NSLog(@"----barrier-----%@", [NSThread currentThread]);
+          });
+       dispatch_async(queue, ^{
+           NSLog(@"----7-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+    
+    dispatch_barrier_async(queue, ^{
+              NSLog(@"----barrier-----%@", [NSThread currentThread]);
+          });
+       dispatch_async(queue, ^{
+           NSLog(@"----8-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+    
+    dispatch_barrier_async(queue, ^{
+              NSLog(@"----barrier-----%@", [NSThread currentThread]);
+          });
+       dispatch_async(queue, ^{
+           NSLog(@"----9-----%@", [NSThread currentThread]);
+           [self requestData];
+       });
+    
+    dispatch_barrier_async(queue, ^{
+              NSLog(@"----barrier-----%@", [NSThread currentThread]);
+          });
+       dispatch_async(queue, ^{
+           NSLog(@"----10-----%@", [NSThread currentThread]);
+           [self requestData];
+           
+
+          
+       });
+    
+    
+   
+}
+- (void)requestData
+{
+    [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{} requestType:POST
+       success:^(id  _Nonnull responseObject) {
+//           [MBProgressHUD showMessage:@"请求成功"];
+
+       } failure:^(RequestErrorType error) {
+           [MBProgressHUD showMessage:@"请求失败"];
+
+       } isSupportHud:YES isSupportErrorAlert:YES];
+}
 @end

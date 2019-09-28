@@ -151,4 +151,10 @@
     [self cancelAllRequestTask];
 }
 
+//MARK: - other
+-(void)setImage:(UIImage *)image
+{
+    self.view.layer.contents = (__bridge id)(image.CGImage);
+
+}
 @end

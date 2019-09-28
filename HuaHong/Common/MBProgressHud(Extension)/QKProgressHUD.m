@@ -7,12 +7,22 @@
 //
 
 #import "QKProgressHUD.h"
+#import "MBProgressHUD+Extension.h"
 
 #define kUseMBProgress 1  //快速切换 0:SVProgressHUD, 1:MBProgressHUD
 @implementation QKProgressHUD
 
 //MARK: - 提醒信息
-+(void)showMessage:(NSString *)message toView:(UIView *)view
++ (void)showMessage:(NSString *)message
+{
+    if (kUseMBProgress) {
+           [MBProgressHUD showMessage:message];
+       }else
+       {
+           [SVProgressHUD showInfoWithStatus:message];
+       }
+}
++ (void)showMessage:(NSString *)message toView:(UIView *)view
 {
     if (kUseMBProgress) {
         [MBProgressHUD showMessage:message toView:view];
@@ -23,7 +33,16 @@
 }
 
 //MARK: - 成功信息
-+(void)showSuccess:(NSString *)message toView:(UIView *)view
++ (void)showSuccess:(NSString *)message
+{
+    if (kUseMBProgress) {
+        [MBProgressHUD showSuccess:message];
+    }else
+    {
+        [SVProgressHUD showSuccessWithStatus:message];
+    }
+}
++ (void)showSuccess:(NSString *)message toView:(UIView *)view
 {
     if (kUseMBProgress) {
         [MBProgressHUD showSuccess:message toView:view];
@@ -34,7 +53,17 @@
 }
 
 //MARK: - 错误信息
-+(void)showError:(NSString *)message toView:(UIView *)view
++ (void)showError:(NSString *)message
+{
+    if (kUseMBProgress) {
+        [MBProgressHUD showError:message];
+    }else
+    {
+        [SVProgressHUD showErrorWithStatus:message];
+    }
+}
+
++ (void)showError:(NSString *)message toView:(UIView *)view
 {
     if (kUseMBProgress) {
         [MBProgressHUD showError:message toView:view];
@@ -45,7 +74,16 @@
 }
 
 //MARK: - 显示加载框
-+(void)showLoading:(NSString *)message toView:(UIView *)view
++ (void)showLoading:(NSString *)message
+{
+    if (kUseMBProgress) {
+        [MBProgressHUD showLoading:message];
+    }else
+    {
+        [SVProgressHUD showWithStatus:message];
+    }
+}
++ (void)showLoading:(NSString *)message toView:(UIView *)view
 {
     if (kUseMBProgress) {
         [MBProgressHUD showLoading:message toView:view];
@@ -56,6 +94,15 @@
 }
 
 //MARK: - 隐藏加载框
++ (void)hideHUD
+{
+    if (kUseMBProgress) {
+        [MBProgressHUD hideHUD];
+    }else
+    {
+        [SVProgressHUD dismiss];
+    }
+}
 + (void)hideHUDForView:(UIView *)view
 {
     if (kUseMBProgress) {

@@ -18,4 +18,7 @@
 
 //取消并移除所有的网络请求
 - (void)cancelAllRequestTask;
+
+-(void)setImage:(UIImage *)image;
+
 @end

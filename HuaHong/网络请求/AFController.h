@@ -10,4 +10,5 @@
 
 @interface AFController : BaseViewController
 
+@property (copy  ,nonatomic) void(^backBlock)(void);
 @end
