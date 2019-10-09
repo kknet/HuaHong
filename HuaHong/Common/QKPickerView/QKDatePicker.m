@@ -15,7 +15,6 @@
 @property (strong,nonatomic) NSDate           *defaultDate;
 @property (strong,nonatomic) UIDatePicker     *datePicker;
 @property (assign,nonatomic) UIDatePickerMode datePickerModel;
-@property (copy  ,nonatomic) NSString         *format;
 
 @end
 
@@ -73,21 +72,21 @@
 
 
 //设置最小可选时间
-- (void)setMinimumDate:(NSDate *)maxDate
+- (void)setMinimumDate:(NSDate *)minimumDate
 {
-    [_datePicker setMinimumDate:maxDate];
+   [_datePicker setMinimumDate:minimumDate];
 }
 
 //设置最大可选时间
-- (void)setMaximumDate:(NSDate *)maxDate
+- (void)setMaximumDate:(NSDate *)maximumDate
 {
-    [_datePicker setMaximumDate:maxDate];
+   [_datePicker setMaximumDate:maximumDate];
 }
 
 //设置日期输出格式
-- (void)setDateFormat:(NSString *)format
+- (void)setDateFormat:(NSString *)dateFormat
 {
-    _format = format;
+   _dateFormat = dateFormat;
 }
 
 - (void)show
@@ -110,9 +109,9 @@
 
 - (void)sureClick{
     
-    _format = _format?:@"yyyy-MM-dd";
+    _dateFormat = _dateFormat?:@"yyyy-MM-dd";
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:_format];
+    [formatter setDateFormat:_dateFormat];
     formatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
     NSString *dateString = [formatter stringFromDate:_datePicker.date];
     

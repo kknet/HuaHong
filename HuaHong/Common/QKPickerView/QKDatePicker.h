@@ -20,14 +20,14 @@
 
 - (instancetype)initDatePickWithDate:(NSDate *)defaultDate datePickerModel:(UIDatePickerMode)datePickerModel;
 
-//设置最小可选时间
-- (void)setMinimumDate:(NSDate *)maxDate;
+//最小可选时间
+@property (strong,nonatomic) NSDate *minimumDate;
 
-//设置最大可选时间
-- (void)setMaximumDate:(NSDate *)date;
+//最大可选时间
+@property (strong,nonatomic) NSDate *maximumDate;
 
-//设置日期输出格式
-- (void)setDateFormat:(NSString *)format;
+//日期输出格式
+@property (strong,nonatomic) NSString *dateFormat;
 
 - (void)show;
 
