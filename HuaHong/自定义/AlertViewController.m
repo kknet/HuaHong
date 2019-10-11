@@ -15,9 +15,47 @@
 
 @implementation AlertViewController
 
+/** 拜访话术 */
+#define FGY_VISIT_VOICE_VERBAL @"FGY_VISIT_VOICE_VERBAL"
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self showAlertView];
+//    [self showAlertView];
+    
+    [[HHRequestManager defaultManager]requestByUrl:@"http://192.168.1.74/commonprovider/fgy/common/Sysconfig/getSysCfg" params:@{@"key" : FGY_VISIT_VOICE_VERBAL} requestType:POST
+                                           success:^(id  _Nonnull responseObject) {
+                                               //           [MBProgressHUD showMessage:@"请求成功"];
+                                               NSDictionary *result1 = responseObject;
+                                               NSInteger code = [[result1 objectForKey:@"result"] integerValue];
+                                               if (code == 0) {
+                                                   
+                                                   NSArray *dataArr = [result1 objectForKey:@"data"];
+                                                   NSDictionary *dic = dataArr.firstObject;
+                                                    NSString * wordText = [dic objectForKey:@"value"];
+                                                           
+                                                   QKAlertView *alertView = [QKAlertView sharedAlertView];
+                                                   
+                                                   [alertView alertWithTitle:@"提示" message:wordText delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil buttonClickback:^(QKAlertView * _Nonnull alertView,NSString *message, NSInteger buttonIndex) {
+                                                       
+                                                   }];
+                                                   
+                                                   alertView.title = @"不合格说明";
+//                                                   alertView.placeholder = @"请说明不合格原因";
+                                                   alertView.textAlignment = NSTextAlignmentLeft;
+//                                                   alertView.editable = YES;
+//                                                   alertView.limitCount = 200;
+//                                                   alertView.forbiddenEmoji = YES;
+                                                   //    [alertView exchangeTwoButton];
+                                                   
+                                                   [alertView show];
+                                                   
+                                               }
+                                               
+                                           } failure:^(RequestErrorType error) {
+                                               [MBProgressHUD showMessage:@"请求失败"];
+                                               
+                                           } isSupportHud:YES isSupportErrorAlert:YES];
+    
+    
 }
 
 

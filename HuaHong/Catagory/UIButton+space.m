@@ -18,9 +18,19 @@
     /** 单行文字未发现差别，多行下面的才准确 */
 //    CGFloat titleWidth = self.titleLabel.intrinsicContentSize.width;
 //    CGFloat titleHeight = self.titleLabel.intrinsicContentSize.height;
-    CGFloat titleWidth = self.titleLabel.size.width;
-    CGFloat titleHeight = self.titleLabel.intrinsicContentSize.height;
+    
+//    CGFloat titleWidth = self.titleLabel.size.width;
+//    CGFloat titleHeight = self.titleLabel.intrinsicContentSize.height;
 
+    CGFloat  titleWidth = [self.currentTitle boundingRectWithSize:CGSizeMake(MAXFLOAT, self.frame.size.height)
+                                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                                      attributes:@{NSFontAttributeName : self.titleLabel.font}
+                                                         context:nil].size.width;
+    
+    CGFloat  titleHeight = [self.currentTitle boundingRectWithSize:CGSizeMake(titleWidth, MAXFLOAT)
+                                                          options:NSStringDrawingUsesLineFragmentOrigin
+                                                       attributes:@{NSFontAttributeName : self.titleLabel.font}
+                                                          context:nil].size.height;
     UIEdgeInsets imageInsets = UIEdgeInsetsZero;
     UIEdgeInsets titleInsets = UIEdgeInsetsZero;
 

@@ -97,14 +97,14 @@
     self.rightButton.layer.borderColor = self.rightButton.backgroundColor.CGColor;
     self.forbiddenEmoji = YES;
     self.textView.delegate = self;
-    UITapGestureRecognizer *tap = [UITapGestureRecognizer new];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
     [self addGestureRecognizer:tap];
+    
+}
 
-    [[tap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
-
-        [self endEditing:YES];
-    }];
-   
+- (void)tapAction:(UITapGestureRecognizer *)tap
+{
+    [self endEditing:YES];
 }
 
 /** 弹出提示框 */
