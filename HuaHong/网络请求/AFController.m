@@ -71,15 +71,15 @@
 {
     
   
-     [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{} requestType:POST
+     [[HHRequestManager defaultManager]requestByUrl:@"http://58.215.175.244:8090/thirdprovider/datacenter/area/findAllAreaJsonTree" params:@{@"userId":@"8"} requestType:POST
        success:^(id  _Nonnull responseObject) {
            [MBProgressHUD showMessage:@"请求成功"];
            
-         [self.navigationController popViewControllerAnimated:YES];
-         
-         if (_backBlock) {
-             _backBlock();
-         }
+//         [self.navigationController popViewControllerAnimated:YES];
+//
+//         if (_backBlock) {
+//             _backBlock();
+//         }
 
        } failure:^(RequestErrorType error) {
            [MBProgressHUD showMessage:@"请求失败"];

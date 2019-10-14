@@ -415,8 +415,8 @@ isSupportErrorAlert:(BOOL)isSupportErrorAlert {
     NSError *error;
     id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
-//    NSLog(@"url:%@",url);
-//    NSLog(@"result:%@",result);
+    NSLog(@"url:%@",url);
+    NSLog(@"result:%@",result);
     
     if (error) {
         if (errorBlock) {
