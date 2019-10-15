@@ -36,7 +36,6 @@
 #import "UIColor+Category.h"
 #import "NSString+IdentityCard.h"
 #import "NSArray+NSDictionary_Log.h"
-#import "CALayer+borderColor.h"
 #import "UIViewController+Alert.h"
 #import "NSString+Hash.h"
 #import "UIButton+space.h"

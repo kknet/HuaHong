@@ -34,7 +34,6 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 @property (nonatomic) CGFloat centerX;
 @property (nonatomic) CGFloat centerY;
     
-@property (nonatomic,assign) IBInspectable CGFloat cornerRadius;
 
 - (void) moveBy: (CGPoint) delta;
 - (void) scaleBy: (CGFloat) scaleFactor;
@@ -54,6 +53,15 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 - (UIImage*)takeSnapshot:(CGRect)rect;
  
 UINavigationController *selected_navigation_controller();
+
+//* 边线颜色 */
+@property (nonatomic, strong) IBInspectable UIColor *borderColor;
+
+//* 边线宽度 */
+@property (nonatomic, assign) IBInspectable CGFloat borderWidth;
+
+//* 圆角半径 */
+@property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
 
 @end
 

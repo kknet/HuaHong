@@ -241,18 +241,6 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center)
     maskLayer.path = path.CGPath;
     self.layer.mask = maskLayer;
 }
-
-
-- (void)setCornerRadius:(CGFloat)cornerRadius
-{
-    self.layer.cornerRadius = cornerRadius;
-    self.layer.masksToBounds = cornerRadius > 0;
-}
-    
-- (CGFloat)cornerRadius
-{
-    return self.layer.cornerRadius;
-}
     
 //判断一个view是否在主窗口上
 -(BOOL)isShowingOnWindow
@@ -297,5 +285,34 @@ UINavigationController *selected_navigation_controller()
 {
     return  (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
 }
+
+
+- (void)setBorderColor:(UIColor *)borderColor {
+    self.layer.borderColor = borderColor.CGColor;
+}
+
+- (UIColor *)borderColor {
+    return [UIColor colorWithCGColor:self.layer.borderColor];
+}
+
+- (void)setBorderWidth:(CGFloat)borderWidth {
+    self.layer.borderWidth = borderWidth;
+}
+
+- (CGFloat)borderWidth {
+    return self.layer.borderWidth;
+}
+
+- (void)setCornerRadius:(CGFloat)cornerRadius {
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = cornerRadius > 0;
+    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    self.layer.shouldRasterize = YES;
+}
+
+- (CGFloat)cornerRadius {
+    return self.layer.cornerRadius;
+}
+
 
 @end

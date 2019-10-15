@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B84E3395662D8460E0DABDA7D2FC0E8"
+               BlueprintIdentifier = "9A64CF8A1E7146D23D0973730D25CE58"
                BlueprintName = "XYPieChart"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libXYPieChart.a">

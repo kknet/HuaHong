@@ -29,7 +29,7 @@ pod 'Bugly'
 pod 'XYPieChart'
 pod 'PNChart'
 pod 'MJRefresh'
-pod 'HHUIViewExtension', '~> 1.0.0'
+#pod 'HHUIViewExtension', '~> 1.0.0'
 pod 'Aspects', '~> 1.4.1'
 
 #pod 'YYKit'

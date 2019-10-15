@@ -255,7 +255,6 @@
 }
 
 //判断是否是系统表情
-
 + (BOOL)stringContainsEmoji:(NSString *)string
 
 {
