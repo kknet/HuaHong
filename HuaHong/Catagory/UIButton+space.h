@@ -17,7 +17,8 @@ typedef NS_ENUM(NSUInteger, ButtonEdgeInsetsStyle) {
 };
 @interface UIButton (space)
 
-- (void)layoutButtonEdgeInsetsWithStyle:(ButtonEdgeInsetsStyle)style Space:(CGFloat)space;
+- (void)layoutEdgeInsetsWithStyle:(ButtonEdgeInsetsStyle)style Space:(CGFloat)space;
+
 @end
 
 

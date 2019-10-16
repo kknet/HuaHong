@@ -10,11 +10,11 @@
 
 @interface UILabel (autoReSize)
 
-            /** 使用前提：已设置好frame */
-//这个用于高度定死了,自动设置宽度
--(void)widthToFit;
+/** 使用前提：已设置好frame  */
+//自动设置宽度
+- (void)widthToFit;
 
-//这个用于宽度定死了,自动设置高度
+//自动设置高度
 -(void)heightToFit;
 
 + (CGSize)labelHeightFit:(NSDictionary *)attri width:(CGFloat)width text:(NSString *)text;

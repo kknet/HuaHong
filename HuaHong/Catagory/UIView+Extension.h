@@ -52,7 +52,7 @@ CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
 /** 截屏 */
 - (UIImage*)takeSnapshot:(CGRect)rect;
  
-UINavigationController *selected_navigation_controller();
+UINavigationController *selectedNavigationController(void);
 
 //* 边线颜色 */
 @property (nonatomic, strong) IBInspectable UIColor *borderColor;
@@ -62,6 +62,9 @@ UINavigationController *selected_navigation_controller();
 
 //* 圆角半径 */
 @property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
+
+//设置渐变色
+- (void)setGradientWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
 
 @end
 

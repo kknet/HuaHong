@@ -281,7 +281,7 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center)
     return image;
 }
 
-UINavigationController *selected_navigation_controller()
+UINavigationController *selectedNavigationController()
 {
     return  (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
 }
@@ -314,5 +314,14 @@ UINavigationController *selected_navigation_controller()
     return self.layer.cornerRadius;
 }
 
-
+//设置渐变色
+- (void)setGradientWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint
+{
+    CAGradientLayer *gradientlayer = [[CAGradientLayer alloc]init];
+    gradientlayer.colors = @[(__bridge id)startColor.CGColor,(__bridge id)endColor.CGColor];
+    gradientlayer.startPoint = startPoint;
+    gradientlayer.endPoint = endPoint;
+    gradientlayer.frame = self.bounds;
+    [self.layer addSublayer:gradientlayer];
+}
 @end

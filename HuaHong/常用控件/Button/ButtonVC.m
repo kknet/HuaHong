@@ -44,7 +44,7 @@
     
 
     
-    [button layoutButtonEdgeInsetsWithStyle:(ButtonEdgeInsetsStyleTop) Space:space];
+    [button layoutEdgeInsetsWithStyle:(ButtonEdgeInsetsStyleTop) Space:space];
     
 }
 

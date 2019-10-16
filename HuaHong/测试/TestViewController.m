@@ -27,7 +27,10 @@
     
     self.automaticallyAdjustsScrollViewInsets = YES;
     
-    
+    UIColor *startColor = [UIColor cyanColor];
+    UIColor *endColor = [UIColor colorWithRed:235/255.0 green:100/255.0 blue:1/255.0 alpha:1.0];
+    [self.view setGradientWithStartColor:startColor endColor:endColor startPoint:CGPointMake(0, 0) endPoint:CGPointMake(0, 1)];
+
 
 }
 

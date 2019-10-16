@@ -109,10 +109,16 @@ static NSMutableDictionary *_soundIDDict;
     
     NSURL *url = [NSURL fileURLWithPath:urlStr];
     _audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
+    _audioPlayer.delegate = self;
     [_audioPlayer prepareToPlay];
     [_audioPlayer play];
     
     
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    NSLog(@"AVAudioPlayer播放完成");
 }
 
 //距离传感器

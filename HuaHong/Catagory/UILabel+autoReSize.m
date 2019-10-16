@@ -10,7 +10,8 @@
 
 @implementation UILabel (autoReSize)
 
--(void)widthToFit
+//自动设置宽度
+- (void)widthToFit
 {
     self.numberOfLines = 0;
     CGSize size = [self.text boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, self.frame.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
@@ -22,11 +23,11 @@
     
 }
 
-//这个用于宽度定死了,自动设置高度
--(void)heightToFit
+//自动设置高度
+- (void)heightToFit
 {
     self.numberOfLines = 0;
-    CGSize size =  [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width, 99999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
+    CGSize size =  [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
     
      CGRect frame = self.frame;
      frame.size.height = size.height + self.alignmentRectInsets.top + self.alignmentRectInsets.bottom;
@@ -38,7 +39,7 @@
 
 + (CGSize)labelHeightFit:(NSDictionary *)attri width:(CGFloat)width text:(NSString *)text
 {
-    CGSize labelSize = [text boundingRectWithSize:CGSizeMake(width, 10000) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
+    CGSize labelSize = [text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
     labelSize = CGSizeMake((int)labelSize.width, (int)labelSize.height+1);
     return labelSize;
 }

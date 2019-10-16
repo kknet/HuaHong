@@ -10,7 +10,7 @@
 
 @implementation UIButton (space)
 
-- (void)layoutButtonEdgeInsetsWithStyle:(ButtonEdgeInsetsStyle)style Space:(CGFloat)space
+- (void)layoutEdgeInsetsWithStyle:(ButtonEdgeInsetsStyle)style Space:(CGFloat)space
 {
     CGFloat imageWidth = self.imageView.image.size.width;
     CGFloat imageHeiht = self.imageView.image.size.height;

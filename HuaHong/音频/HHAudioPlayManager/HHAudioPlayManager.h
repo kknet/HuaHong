@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 typedef void(^RecordeBlock)(NSString *recordePath);
-@interface HHAudioPlayManager : NSObject<AVAudioRecorderDelegate>
+@interface HHAudioPlayManager : NSObject<AVAudioRecorderDelegate,AVAudioPlayerDelegate>
 
 #pragma mark - 播放音效
 /** 播放系统音效*/

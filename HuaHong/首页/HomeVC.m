@@ -32,7 +32,6 @@ static NSString *headerID = @"headerID";
 - (void)viewDidLoad {
     [super viewDidLoad];    
     
- 
     self.title = @"首页";
 
     _selectIndex = 0;
