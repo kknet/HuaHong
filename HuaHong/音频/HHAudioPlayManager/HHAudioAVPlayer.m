@@ -1,14 +1,14 @@
 //
-//  HHAudioPlayManager.m
+//  HHAudioAVPlayer.m
 //  HuaHong
 //
 //  Created by 华宏 on 2019/4/23.
 //  Copyright © 2019年 huahong. All rights reserved.
 //
 
-#import "HHAudioPlayManager.h"
+#import "HHAudioAVPlayer.h"
 
-@interface HHAudioPlayManager()
+@interface HHAudioAVPlayer()
 
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayer *player;
@@ -17,18 +17,18 @@
 
 @end
 
-@implementation HHAudioPlayManager
+@implementation HHAudioAVPlayer
 
 //MARK: - 单例
-+(HHAudioPlayManager *)sharedManager
++(HHAudioAVPlayer *)shared
 {
-    static HHAudioPlayManager *instance = nil;
+    static HHAudioAVPlayer *instance = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (!instance)
         {
-            instance = [[HHAudioPlayManager alloc]init];
+            instance = [[HHAudioAVPlayer alloc]init];
         }
         
     });
@@ -75,7 +75,7 @@
         return;
     }
     
-    [self stopPlay];
+    [self stop];
     
     __weak typeof(self) weakSelf = self;
     self.timeObserve = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
@@ -102,7 +102,7 @@
 }
 
 
-- (void)pausePlay
+- (void)pause
 {
     if (self.player)
     {
@@ -119,12 +119,11 @@
 }
 
 
-- (void)stopPlay
+- (void)stop
 {
     if (self.player)
     {
         [self.player pause];
-        //        self.player = nil;
         
         if (self.timeObserve)
         {
@@ -132,6 +131,7 @@
             self.timeObserve = nil;
         }
         
+//        self.player = nil;
 //        [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
 }

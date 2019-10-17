@@ -8,7 +8,7 @@
 
 #import "RecorderViewController.h"
 #import "HHAudioRecorder.h"
-#import "HHAudioPlayManager/HHAudioPlayManager.h"
+#import "HHAudioAVPlayer.h"
 
 @interface RecorderViewController ()
 
@@ -46,7 +46,7 @@
         [recorde stop];
     
 //   NSString *path = [[NSBundle mainBundle]pathForResource:@"12345" ofType:@"caf"];
-//    [[HHAudioPlayManager sharedManager]playAudioWhithURL:path progresscallback:^(CGFloat progress, NSString *currentTime, NSString *totalTime) {
+//    [[HHAudioAVPlayer sharedManager]playAudioWhithURL:path progresscallback:^(CGFloat progress, NSString *currentTime, NSString *totalTime) {
 //
 //    }];
 }

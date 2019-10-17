@@ -32,8 +32,9 @@
     UIColor *endColor = [UIColor colorWithRed:235/255.0 green:100/255.0 blue:1/255.0 alpha:1.0];
     [self.view setGradientWithStartColor:startColor endColor:endColor startPoint:CGPointMake(0, 0) endPoint:CGPointMake(0, 1)];
 
+//    @"http://fdfs.xmcdn.com/group11/M00/AD/5F/wKgDa1ZfFi-gRNYMABuxsyS4ea4688.mp3"
     NSString *path = [[NSBundle mainBundle]pathForResource:@"music" ofType:@"mp3"];
-    [[HHAVAudioPlayer shared] createPlayerWithFilePath:@"http://fdfs.xmcdn.com/group11/M00/AD/5F/wKgDa1ZfFi-gRNYMABuxsyS4ea4688.mp3"];
+    [[HHAVAudioPlayer shared] createPlayerWithFilePath:path];
     
     [[HHAVAudioPlayer shared] setProgressBlock:^(NSTimeInterval currentTime, NSTimeInterval totalTime) {
            

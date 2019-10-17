@@ -137,7 +137,7 @@
 		7D8F370821CB2F1C008E3352 /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F370721CB2F1C008E3352 /* UITextView+PlaceHolder.m */; };
 		7D8F371921D0D381008E3352 /* MVVM_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F371821D0D381008E3352 /* MVVM_Controller.m */; };
 		7D8FDD6C226F087900D00C92 /* HHAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8FDD6B226F087900D00C92 /* HHAudioRecorder.m */; };
-		7D8FDD70226F15A700D00C92 /* HHAudioPlayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8FDD6F226F15A700D00C92 /* HHAudioPlayManager.m */; };
+		7D8FDD70226F15A700D00C92 /* HHAudioAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8FDD6F226F15A700D00C92 /* HHAudioAVPlayer.m */; };
 		7D91769921C9DB5C007B8F91 /* GPUImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91769821C9DB5C007B8F91 /* GPUImageController.m */; };
 		7D91AC462081D714001AE03E /* MemoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D91AC452081D714001AE03E /* MemoryController.m */; };
 		7D93370221A835910048E6D4 /* CleanCacheHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D93370121A835910048E6D4 /* CleanCacheHelp.m */; };
@@ -534,8 +534,8 @@
 		7D8F371821D0D381008E3352 /* MVVM_Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVM_Controller.m; sourceTree = "<group>"; };
 		7D8FDD6A226F087900D00C92 /* HHAudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAudioRecorder.h; sourceTree = "<group>"; };
 		7D8FDD6B226F087900D00C92 /* HHAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAudioRecorder.m; sourceTree = "<group>"; };
-		7D8FDD6E226F15A700D00C92 /* HHAudioPlayManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAudioPlayManager.h; sourceTree = "<group>"; };
-		7D8FDD6F226F15A700D00C92 /* HHAudioPlayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAudioPlayManager.m; sourceTree = "<group>"; };
+		7D8FDD6E226F15A700D00C92 /* HHAudioAVPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAudioAVPlayer.h; sourceTree = "<group>"; };
+		7D8FDD6F226F15A700D00C92 /* HHAudioAVPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAudioAVPlayer.m; sourceTree = "<group>"; };
 		7D91769721C9DB5C007B8F91 /* GPUImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageController.h; sourceTree = "<group>"; };
 		7D91769821C9DB5C007B8F91 /* GPUImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageController.m; sourceTree = "<group>"; };
 		7D91AC442081D714001AE03E /* MemoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryController.h; sourceTree = "<group>"; };
@@ -1518,8 +1518,8 @@
 		7D8FDD6D226F157900D00C92 /* HHAudioPlayManager */ = {
 			isa = PBXGroup;
 			children = (
-				7D8FDD6E226F15A700D00C92 /* HHAudioPlayManager.h */,
-				7D8FDD6F226F15A700D00C92 /* HHAudioPlayManager.m */,
+				7D8FDD6E226F15A700D00C92 /* HHAudioAVPlayer.h */,
+				7D8FDD6F226F15A700D00C92 /* HHAudioAVPlayer.m */,
 				7D3148E0235810C0006F96E5 /* HHSoundPlayer.h */,
 				7D3148E1235810C0006F96E5 /* HHSoundPlayer.m */,
 				7D3148E3235812D3006F96E5 /* HHAVAudioPlayer.h */,
@@ -2469,7 +2469,7 @@
 				7D58943E22688D7200DFE60F /* MBProgressHUD+Extension.m in Sources */,
 				7DAA3CE52041B28C00B12BC4 /* RSACryptor.m in Sources */,
 				7DE8D5AC1FC6D1B900577762 /* LocationManager.m in Sources */,
-				7D8FDD70226F15A700D00C92 /* HHAudioPlayManager.m in Sources */,
+				7D8FDD70226F15A700D00C92 /* HHAudioAVPlayer.m in Sources */,
 				7DC24C992023002900103BDE /* CustomTransitionPop.m in Sources */,
 				7D1D81B32334A7E2005F3243 /* DatePickerController.m in Sources */,
 				7DFB1BDF1FCFDDB30033D9E2 /* WaterFallController.m in Sources */,

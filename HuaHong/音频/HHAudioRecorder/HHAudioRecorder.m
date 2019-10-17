@@ -7,6 +7,7 @@
 //
 
 #import "HHAudioRecorder.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define RecordFile [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@""]
 #define kMp3FileName @"myRecord.mp3"
@@ -96,12 +97,9 @@
         return;
     }
     
-    //启用分贝检测
-    _recorder.meteringEnabled = YES;
     
     [_recorder recordForDuration:self.maxDuration];
     
-    // 如果要在真机运行, 还需要一个session类, 并且制定分类为录音
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     [audioSession setActive:YES error:nil];
@@ -110,10 +108,6 @@
     
     [_recorder prepareToRecord];
     [_recorder record];
-    
-    
-    //进行分贝的循环检测 --> 添加计时器(如果分贝值长时间小于某个值，则自动停止录音)
-//    [self updateMetering];
    
     NSLog(@"开始录音");
 }

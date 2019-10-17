@@ -82,7 +82,7 @@
         
         __weak typeof(self) weakSelf = self;
 
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        _timer = [NSTimer hhscheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
            
             NSTimeInterval currentTime = weakSelf.player.currentTime;
             NSTimeInterval totalTime = weakSelf.player.duration;
@@ -126,7 +126,13 @@
 {
     if (self.player) {
         
-        [_player play];
+      BOOL playSuccess = [_player play];
+        if (playSuccess) {
+            NSLog(@"播放成功");
+        }else
+        {
+             NSLog(@"播放失败");
+        }
         [self.timer fire];
     }
     

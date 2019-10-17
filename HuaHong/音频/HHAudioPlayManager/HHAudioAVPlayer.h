@@ -1,5 +1,5 @@
 //
-//  HHAudioPlayManager.h
+//  HHAudioAVPlayer.h
 //  HuaHong
 //
 //  Created by 华宏 on 2019/4/23.
@@ -10,21 +10,17 @@
 #import <AVFoundation/AVFoundation.h>
 
 typedef void(^RecordeBlock)(NSString *recordePath);
-@interface HHAudioPlayManager : NSObject
+@interface HHAudioAVPlayer : NSObject
 
-+ (instancetype)sharedManager;
-
-/**
- *  AVPlayer 播放录音
- */
++ (instancetype)shared;
 
 - (instancetype)initWithURLString:(NSString *)url;
 
 - (void)startPlayWithProgressCallback:(void (^)(CGFloat, NSString *, NSString *))progressCallback;
 
-- (void)pausePlay;
+- (void)pause;
 
-- (void)stopPlay;
+- (void)stop;
 
 @property (nonatomic,copy) void(^playAuidoFinishedCallback)(void);
 
