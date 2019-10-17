@@ -10,8 +10,10 @@
 
 @interface HHAudioPlayManager()
 
+@property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, assign) id timeObserve;
+@property (nonatomic,   copy) NSString *url;
 
 @end
 
@@ -33,28 +35,53 @@
     return instance;
 }
 
-
-//MARK: - AVPlayer
--(void)playAudioWhithURL:(NSString *)urlStr progresscallback:(void (^)(CGFloat, NSString *, NSString *))progressCallback
+- (instancetype)initWithURLString:(NSString *)url
 {
-    [self stop];
-    AVPlayerItem *songItem;
-    
-    if ([urlStr hasPrefix:@"http"])
-    {
-        songItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:urlStr]];
-    }else
-    {
-        NSURL *url = [NSURL fileURLWithPath:urlStr];
-        AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
-        songItem = [[AVPlayerItem alloc]initWithAsset:asset];
+    self = [super init];
+    if (self) {
+        _url = url;
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     }
     
-    self.player = [[AVPlayer alloc]initWithPlayerItem:songItem];
+    return self;
+}
+
+- (AVPlayer *)player
+{
+    if (!_player) {
+        
+        
+        if ([_url hasPrefix:@"http"])
+        {
+            _playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:_url]];
+            _player = [[AVPlayer alloc]initWithPlayerItem:_playerItem];
+        }else
+        {
+            NSURL *url = [NSURL fileURLWithPath:_url];
+            AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+            _playerItem = [[AVPlayerItem alloc]initWithAsset:asset];
+            _player = [[AVPlayer alloc]initWithPlayerItem:_playerItem];
+        }
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playAudioFinished:) name:AVPlayerItemDidPlayToEndTimeNotification object:_player.currentItem];
+    }
+    
+    return _player;
+}
+
+- (void)startPlayWithProgressCallback:(void (^)(CGFloat, NSString *, NSString *))progressCallback
+{
+    if (_url == nil || _url.length == 0) {
+        return;
+    }
+    
+    [self stopPlay];
+    
+    __weak typeof(self) weakSelf = self;
     self.timeObserve = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
         
         float current = CMTimeGetSeconds(time);
-        float total = CMTimeGetSeconds(songItem.duration);
+        float total = CMTimeGetSeconds(weakSelf.playerItem.duration);
         if (current)
         {
             float progress = current / total;
@@ -71,17 +98,11 @@
     
     [self.player play];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playAudioFinished:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.player.currentItem];
+    
 }
 
--(void)playAudioFinished:(NSNotification *)noti
-{
-    if (_playAuidoFinishedCallback) {
-        _playAuidoFinishedCallback();
-    }
-}
 
-- (void)stop
+- (void)pausePlay
 {
     if (self.player)
     {
@@ -93,10 +114,38 @@
             self.timeObserve = nil;
         }
         
-        self.player = nil;
-
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        //        [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
+}
+
+
+- (void)stopPlay
+{
+    if (self.player)
+    {
+        [self.player pause];
+        //        self.player = nil;
+        
+        if (self.timeObserve)
+        {
+            [self.player removeTimeObserver:self.timeObserve];
+            self.timeObserve = nil;
+        }
+        
+//        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+}
+
+- (void)playAudioFinished:(NSNotification *)noti
+{
+    if (_playAuidoFinishedCallback) {
+        _playAuidoFinishedCallback();
+    }
+}
+
+- (void)dealloc
+{
+   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 //MARK: - 获取录音文件大小
@@ -119,7 +168,7 @@
 //MARK: - 获取录音时长
 - (float)getVoiceDuration
 {
-    NSURL *audioFileURL = [NSURL fileURLWithPath:@""];
+    NSURL *audioFileURL = [NSURL fileURLWithPath:_url];
     AVURLAsset*audioAsset = [AVURLAsset URLAssetWithURL:audioFileURL options:nil];
     
     CMTime audioDuration = audioAsset.duration;

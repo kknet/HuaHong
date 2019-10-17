@@ -12,23 +12,19 @@
 typedef void(^RecordeBlock)(NSString *recordePath);
 @interface HHAudioPlayManager : NSObject
 
-
-
-/**
- *  快速初始化
- *
- *  @return 录音对象
- */
-+(HHAudioPlayManager *)sharedManager;
-
-
++ (instancetype)sharedManager;
 
 /**
  *  AVPlayer 播放录音
  */
--(void)playAudioWhithURL:(NSString *)urlStr progresscallback:(void(^)(CGFloat progress,NSString *currentTime,NSString *totalTime))progressCallback;
 
-- (void)stop;
+- (instancetype)initWithURLString:(NSString *)url;
+
+- (void)startPlayWithProgressCallback:(void (^)(CGFloat, NSString *, NSString *))progressCallback;
+
+- (void)pausePlay;
+
+- (void)stopPlay;
 
 @property (nonatomic,copy) void(^playAuidoFinishedCallback)(void);
 
