@@ -33,7 +33,7 @@
     [self.view setGradientWithStartColor:startColor endColor:endColor startPoint:CGPointMake(0, 0) endPoint:CGPointMake(0, 1)];
 
     NSString *path = [[NSBundle mainBundle]pathForResource:@"music" ofType:@"mp3"];
-    [[HHAVAudioPlayer shared] createPlayerWithFilePath:path];
+    [[HHAVAudioPlayer shared] createPlayerWithFilePath:@"http://fdfs.xmcdn.com/group11/M00/AD/5F/wKgDa1ZfFi-gRNYMABuxsyS4ea4688.mp3"];
     
     [[HHAVAudioPlayer shared] setProgressBlock:^(NSTimeInterval currentTime, NSTimeInterval totalTime) {
            
