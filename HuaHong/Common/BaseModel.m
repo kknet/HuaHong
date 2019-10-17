@@ -8,6 +8,7 @@
 
 #import "BaseModel.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
 #import <YYModel.h>
 
 @implementation BaseModel
@@ -20,7 +21,7 @@
     return [self yy_modelWithDictionary:dictionary];
 }
 
--(instancetype)initWithDict:(NSDictionary *)dict
+- (instancetype)initWithDict:(NSDictionary *)dict
 {
     self = [super init];
     if (self) {
@@ -77,35 +78,100 @@
             
             [self setValue:value forKey:key];
         }
+        
+         free(list);
     }
     
     return self;
 }
 
-//MARK:-
-
-- (NSString *)description
+//MARK: - 自动化归解档
+// 模型转字典
+- (NSDictionary *)modelToDictionay
 {
-    NSMutableDictionary *dicM = [NSMutableDictionary dictionary];
     unsigned int count = 0;
     Ivar *list = class_copyIvarList(self.class, &count);
-    for (int i = 0; i < count; i++) {
-        Ivar ivar = list[i];
-        
-        NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
-        id value = [self valueForKey:key];
-        
-        if (key && value) {
-             [dicM setObject:value forKey:key];
-        }
-       
-    }
     
-    return [dicM convertToJson];
+    if (count > 0) {
+        
+    NSMutableDictionary *dicM = [NSMutableDictionary dictionary];
+
+       for (int i = 0; i < count; i++) {
+           Ivar ivar = list[i];
+           
+           NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+           id value = [self valueForKey:key];
+           
+           if (key && value) {
+                [dicM setObject:value forKey:key];
+           }
+          
+       }
+        
+        return dicM.copy;
+    }
+   
+    
+    free(list);
+    
+    return nil;
 }
 
-- (void)testMethod
+- (NSDictionary *)modelToDictionay1
 {
-    NSLog(@"Base testMethod");
+    unsigned int count = 0;
+    objc_property_t *propertys = class_copyPropertyList(self.class, &count);
+    if (count > 0) {
+        NSMutableDictionary *dicM = [NSMutableDictionary dictionary];
+    for (int i = 0; i < count; i++) {
+              
+        const void *propertyName = property_getName(propertys[i]);
+        NSString *name = [NSString stringWithUTF8String:propertyName];
+        SEL sel = NSSelectorFromString(name);
+        if (sel) {
+            id value =  ((id (*) (id,SEL))objc_msgSend)(self, sel);
+            if (value) {
+                dicM[name] = value;
+            }
+        }
+              
+        }
+        
+        return dicM.copy;
+    }
+    
+    free(propertys);
+    return nil;
 }
+
+//字典转模型
+- (instancetype)initWithDic:(NSDictionary *)dict
+{
+    self = [super init];
+    if (self) {
+        
+        for (NSString *key in dict.allKeys) {
+            id value = dict[key];
+            SEL setter = [self setterMethod:key];
+            if (setter) {
+               ((void (*) (id,SEL,id))objc_msgSend)(self, setter,value);
+            }
+        }
+        
+    }
+    
+    return self;
+}
+
+- (SEL)setterMethod:(NSString *)key
+{
+    NSString *methodName = [NSString stringWithFormat:@"set:%@",key.capitalizedString];
+    SEL setter = NSSelectorFromString(methodName);
+    if ([self respondsToSelector:setter]) {
+        return setter;
+    }
+    
+    return nil;
+}
+
 @end

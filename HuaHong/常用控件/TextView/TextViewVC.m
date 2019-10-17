@@ -91,4 +91,24 @@
 
     return YES;
 }
+
+//加载HTML
+- (NSMutableAttributedString *)getHtmlStringWithString:(NSString *)string
+{
+    NSDictionary *options = @{NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType,
+                              NSCharacterEncodingDocumentAttribute : @(NSUTF8StringEncoding)};
+    
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithData:data options:options documentAttributes:nil error:nil];
+    
+    // 设置段落格式
+    NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
+    para.lineSpacing = 8;
+    [attStr addAttribute:NSParagraphStyleAttributeName value:para range:NSMakeRange(0, attStr.length)];
+    
+    // 设置文本的Font
+    [attStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(0, attStr.length)];
+    
+    return attStr;
+}
 @end

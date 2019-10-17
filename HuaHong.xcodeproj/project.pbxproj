@@ -54,6 +54,8 @@
 		7D2FF20C2008916700ECAA26 /* HHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2062008916700ECAA26 /* HHTabBar.m */; };
 		7D2FF20D2008916700ECAA26 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2072008916700ECAA26 /* TabBarViewController.m */; };
 		7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2112008935F00ECAA26 /* TestViewController.m */; };
+		7D3148E2235810C0006F96E5 /* HHSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3148E1235810C0006F96E5 /* HHSoundPlayer.m */; };
+		7D3148E5235812D3006F96E5 /* HHAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3148E4235812D3006F96E5 /* HHAVAudioPlayer.m */; };
 		7D328A55206CD62D00A64272 /* HHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A54206CD62D00A64272 /* HHUtils.m */; };
 		7D35A0EB229AE6EE00149963 /* NSDictionary+CrashHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A0E8229AE6EE00149963 /* NSDictionary+CrashHandle.m */; };
 		7D35A0EC229AE6EE00149963 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A0E9229AE6EE00149963 /* NullSafe.m */; };
@@ -371,6 +373,10 @@
 		7D2FF2082008916700ECAA26 /* UIViewController+ShouldPopOnBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShouldPopOnBackButton.h"; sourceTree = "<group>"; };
 		7D2FF2102008935F00ECAA26 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		7D2FF2112008935F00ECAA26 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		7D3148E0235810C0006F96E5 /* HHSoundPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHSoundPlayer.h; sourceTree = "<group>"; };
+		7D3148E1235810C0006F96E5 /* HHSoundPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSoundPlayer.m; sourceTree = "<group>"; };
+		7D3148E3235812D3006F96E5 /* HHAVAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAVAudioPlayer.h; sourceTree = "<group>"; };
+		7D3148E4235812D3006F96E5 /* HHAVAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAVAudioPlayer.m; sourceTree = "<group>"; };
 		7D328A53206CD62D00A64272 /* HHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUtils.h; sourceTree = "<group>"; };
 		7D328A54206CD62D00A64272 /* HHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUtils.m; sourceTree = "<group>"; };
 		7D35A0E8229AE6EE00149963 /* NSDictionary+CrashHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CrashHandle.m"; sourceTree = "<group>"; };
@@ -1514,6 +1520,10 @@
 			children = (
 				7D8FDD6E226F15A700D00C92 /* HHAudioPlayManager.h */,
 				7D8FDD6F226F15A700D00C92 /* HHAudioPlayManager.m */,
+				7D3148E0235810C0006F96E5 /* HHSoundPlayer.h */,
+				7D3148E1235810C0006F96E5 /* HHSoundPlayer.m */,
+				7D3148E3235812D3006F96E5 /* HHAVAudioPlayer.h */,
+				7D3148E4235812D3006F96E5 /* HHAVAudioPlayer.m */,
 			);
 			path = HHAudioPlayManager;
 			sourceTree = "<group>";
@@ -2433,10 +2443,12 @@
 				7D58920F2266D23100DFE60F /* QKCalendarHeaderView.m in Sources */,
 				7DFB1BA61FCE937C0033D9E2 /* CollectionHeadView.m in Sources */,
 				7DB9B54C1FD7E6800011EE54 /* VideoTopView.m in Sources */,
+				7D3148E5235812D3006F96E5 /* HHAVAudioPlayer.m in Sources */,
 				939D8FD3230D67F800F786C0 /* CaptureController.m in Sources */,
 				7D4E59C821721F66003D01CF /* NetworkTools.m in Sources */,
 				7D16E3E9223A1CA50027C5FC /* QKAlertView.m in Sources */,
 				7D2FF1FD20084F3600ECAA26 /* SwiftHomeController.swift in Sources */,
+				7D3148E2235810C0006F96E5 /* HHSoundPlayer.m in Sources */,
 				7DB9100F2148C28600A9B40C /* MVPModel.m in Sources */,
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
 				7D8359B322FF107F00BEC6F6 /* ItemModel.m in Sources */,
@@ -2679,7 +2691,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2732,7 +2744,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -2758,7 +2770,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
 				INFOPLIST_FILE = HuaHong/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2793,7 +2805,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HuaHong/PrefixHeader.pch";
 				INFOPLIST_FILE = HuaHong/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -117,6 +117,29 @@
     return  time;
 }
 
++ (NSString *)timeWithInterval:(NSTimeInterval)timeInterval
+{
+    
+    long temp = timeInterval;
+    NSString *time;
+    NSUInteger hour = (NSUInteger)(temp / 3600);
+    NSUInteger minute = (NSUInteger)(temp % 3600 / 60);
+    NSUInteger second = (NSUInteger)(temp % 3600 % 60);
+    
+    if (timeInterval < 60) {
+        
+        time = [NSString stringWithFormat:@"00:%02lu",(unsigned long)second];
+    }else if(hour <= 0){
+        time = [NSString stringWithFormat:@"%02lu:%02lu",(unsigned long)minute,(unsigned long)second];
+    }else
+    {
+        
+        time = [NSString stringWithFormat:@"%lu:%02lu:%02lu",(unsigned long)hour,(unsigned long)minute,(unsigned long)second];
+    }
+    
+    return  time;
+}
+
 /** 获取当前时间 */
 + (NSString *)getCurrentTimeWithFormat:(NSString *)format
 {

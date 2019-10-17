@@ -12,6 +12,7 @@
 #import <Photos/Photos.h>
 #import "TestModel.h"
 #import "TestView.h"
+#import "HHAVAudioPlayer.h"
 
 @interface TestViewController()
 @property (copy, nonatomic) NSString *str;
@@ -31,7 +32,17 @@
     UIColor *endColor = [UIColor colorWithRed:235/255.0 green:100/255.0 blue:1/255.0 alpha:1.0];
     [self.view setGradientWithStartColor:startColor endColor:endColor startPoint:CGPointMake(0, 0) endPoint:CGPointMake(0, 1)];
 
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"music" ofType:@"mp3"];
+    [[HHAVAudioPlayer shared] createPlayerWithFilePath:path];
+    
+    [[HHAVAudioPlayer shared] setProgressBlock:^(NSTimeInterval currentTime, NSTimeInterval totalTime) {
+           
+           NSLog(@"currentTime:%.0f",currentTime);
+           NSLog(@"totalTime:%.0f",totalTime);
+           
+           self.title = [NSString stringWithFormat:@"%@/%@",[NSDate timeWithInterval:currentTime],[NSDate formartTimeWithTimeInterval:totalTime]];
 
+       }];
 }
 
 
@@ -72,7 +83,16 @@
 //    NSLog(@"sortedParams:%@",sortedParams);
    
     
+    if ([HHAVAudioPlayer shared].isPlaying) {
+//        [[HHAVAudioPlayer shared] pause];
+         [[HHAVAudioPlayer shared] stop];
+    }else
+    {
+       [[HHAVAudioPlayer shared] startPlay];
+    }
     
+    
+   
 
    
     

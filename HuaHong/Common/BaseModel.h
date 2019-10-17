@@ -10,7 +10,8 @@
 
 @interface BaseModel : NSObject<NSCoding>
 
--(instancetype)initWithDict:(NSDictionary *)dict;
+- (instancetype)initWithDict:(NSDictionary *)dict;
 + (instancetype)parserModelWithDictionary:(NSDictionary *)dictionary;
-- (void)testMethod;
+
+
 @end

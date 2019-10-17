@@ -54,6 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 将时间间隔转成 时-分-秒 */
 + (NSString *)formartTimeWithTimeInterval:(NSTimeInterval)timeInterval;
 
+/** 将时间间隔转成 时:分:秒 */
++ (NSString *)timeWithInterval:(NSTimeInterval)timeInterval;
+
 /** 获取当前时间 */
 + (NSString *)getCurrentTimeWithFormat:(NSString *)format;
 
