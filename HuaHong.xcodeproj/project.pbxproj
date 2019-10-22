@@ -56,6 +56,7 @@
 		7D2FF2122008935F00ECAA26 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2FF2112008935F00ECAA26 /* TestViewController.m */; };
 		7D3148E2235810C0006F96E5 /* HHSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3148E1235810C0006F96E5 /* HHSoundPlayer.m */; };
 		7D3148E5235812D3006F96E5 /* HHAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3148E4235812D3006F96E5 /* HHAVAudioPlayer.m */; };
+		7D3148E9235D4C48006F96E5 /* ShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3148E8235D4C48006F96E5 /* ShareController.m */; };
 		7D328A55206CD62D00A64272 /* HHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D328A54206CD62D00A64272 /* HHUtils.m */; };
 		7D35A0EB229AE6EE00149963 /* NSDictionary+CrashHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A0E8229AE6EE00149963 /* NSDictionary+CrashHandle.m */; };
 		7D35A0EC229AE6EE00149963 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A0E9229AE6EE00149963 /* NullSafe.m */; };
@@ -377,6 +378,8 @@
 		7D3148E1235810C0006F96E5 /* HHSoundPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHSoundPlayer.m; sourceTree = "<group>"; };
 		7D3148E3235812D3006F96E5 /* HHAVAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHAVAudioPlayer.h; sourceTree = "<group>"; };
 		7D3148E4235812D3006F96E5 /* HHAVAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHAVAudioPlayer.m; sourceTree = "<group>"; };
+		7D3148E7235D4C48006F96E5 /* ShareController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareController.h; sourceTree = "<group>"; };
+		7D3148E8235D4C48006F96E5 /* ShareController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareController.m; sourceTree = "<group>"; };
 		7D328A53206CD62D00A64272 /* HHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUtils.h; sourceTree = "<group>"; };
 		7D328A54206CD62D00A64272 /* HHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUtils.m; sourceTree = "<group>"; };
 		7D35A0E8229AE6EE00149963 /* NSDictionary+CrashHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CrashHandle.m"; sourceTree = "<group>"; };
@@ -863,6 +866,8 @@
 			children = (
 				7DC24C8A202161A400103BDE /* HuaHong.entitlements */,
 				7DFB1BA31FCE93360033D9E2 /* 首页 */,
+				7D2FF20F200892C700ECAA26 /* 测试 */,
+				7D3148E6235D4BF6006F96E5 /* 分享 */,
 				7D1D81B02334A79F005F3243 /* 自定义 */,
 				93D42D9A22DD670600344BD7 /* 埋点 */,
 				932A363222F923D600BC3EA9 /* ChildViewController */,
@@ -878,7 +883,6 @@
 				7D398FAE200A10B700994A3C /* 上拉加载 */,
 				7D398FA62009BE7800994A3C /* Storyboard */,
 				7D398FA52009BE3C00994A3C /* Swift */,
-				7D2FF20F200892C700ECAA26 /* 测试 */,
 				7D2FF0B21FFCAEF900ECAA26 /* 二维码 */,
 				7DAA3CE82041BA7300B12BC4 /* 响应式编程RAC */,
 				7DA152BB204AD9070075274E /* 函数式编程 */,
@@ -1127,6 +1131,15 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7D3148E6235D4BF6006F96E5 /* 分享 */ = {
+			isa = PBXGroup;
+			children = (
+				7D3148E7235D4C48006F96E5 /* ShareController.h */,
+				7D3148E8235D4C48006F96E5 /* ShareController.m */,
+			);
+			path = "分享";
+			sourceTree = "<group>";
+		};
 		7D35A0E7229AE6EE00149963 /* 数据安全 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,7 +1268,6 @@
 			children = (
 				7D93373121B125650048E6D4 /* QKRunScrollLabel */,
 				7DE56668206E499100FC5F2E /* XTSegmentControl */,
-				7D81144720EFBA6300349078 /* UIWebView-TS */,
 			);
 			path = vendor;
 			sourceTree = "<group>";
@@ -1928,6 +1940,7 @@
 				7DDE3D1320F505070044FC85 /* WebViewVC.m */,
 				7DDE3D3820F506490044FC85 /* WKWebViewVC.h */,
 				7DDE3D3920F506490044FC85 /* WKWebViewVC.m */,
+				7D81144720EFBA6300349078 /* UIWebView-TS */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -2334,6 +2347,7 @@
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -2346,6 +2360,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SSKeychain.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2393,6 +2408,7 @@
 				93D21CB12318C5DF00728517 /* VideoEncodeDecodeController.m in Sources */,
 				7D58920E2266D23100DFE60F /* QKCalendarModel.m in Sources */,
 				7DB90FF62147B3A600A9B40C /* MVVM_Cell.m in Sources */,
+				7D3148E9235D4C48006F96E5 /* ShareController.m in Sources */,
 				7D0DA8351FC50D7000774E40 /* AppDelegate.m in Sources */,
 				7D8F371921D0D381008E3352 /* MVVM_Controller.m in Sources */,
 				7D7FBB1F20401A2000C3594C /* NSString+Hash.m in Sources */,

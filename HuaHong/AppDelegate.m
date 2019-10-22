@@ -13,7 +13,8 @@
 #import "TabBarViewController.h"
 #import "LocationManager.h"
 #import "HomeVC.h"
-//#import <UMShare/UMShare.h>
+#import <UMShare/UMShare.h>
+#import <UMCommon/UMConfigure.h>
 #import <Bugly/Bugly.h>
 #import <Aspects/Aspects.h>
 
@@ -94,7 +95,7 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     return YES;
 }
 
-#pragma mark 此方法用于处理应用间跳转的
+#pragma mark 此方法用于处理应用间跳转的 XCode9.3废弃
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
 //    //1. 获取跟控制器, 执行跳转
@@ -105,6 +106,7 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 //    //2. 回到根控制器
 //    [nav popToRootViewControllerAnimated:YES];
     
+    NSLog(@"openURL:%@",url);//wxdefc667f64adc83a://platformId=wechat
     
     
     //1. 获取 URL
@@ -117,11 +119,12 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     }
     
 //    //Umeng
-//    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
-//    if (!result) {
-//        // 其他如支付等SDK的回调
-//    }
-//    return result;
+//6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+if (!result) {
+     // 其他如支付等SDK的回调
+}
+return result;
     
     
     return YES;
@@ -360,16 +363,16 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     /*
      * 打开图片水印
      */
-//    [UMSocialGlobal shareInstance].isUsingWaterMark = YES;
+    [UMSocialGlobal shareInstance].isUsingWaterMark = YES;
     
-    //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
+    [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = YES;
     
 //    [UMSocialManager defaultManager].umSocialAppkey = UMAppKey;
-//
-//    /* 设置微信的appKey和appSecret */
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdefc667f64adc83a" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
+    [UMConfigure initWithAppkey:UMAppKey channel:@"App Store"];
+    
+    /* 设置微信的appKey和appSecret */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdefc667f64adc83a" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
 }
-
 
 @end
 

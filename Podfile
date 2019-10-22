@@ -43,10 +43,11 @@ pod 'YYKeyboardManager'
 pod 'YYDispatchQueuePool'
 pod 'YYAsyncLayer'
 
-#pod 'UMCCommon'
-#pod 'UMCSecurityPlugins'
-#pod 'UMCShare/UI'
-#pod 'UMCShare/Social/ReducedWeChat'
+#友盟分享-微信
+pod 'UMCCommon'
+pod 'UMCSecurityPlugins'
+pod 'UMCShare/UI'
+pod 'UMCShare/Social/ReducedWeChat'
 
 #pod 'Shimmer'#文字闪烁
 #pod 'TTGTagCollectionView'#标签

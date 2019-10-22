@@ -754,6 +754,10 @@ static NSString *headerID = @"headerID";
             {
                 vc = [ContainerViewController new];
                 vc.navigationItem.title = @"ChildVC";
+            }else if (indexPath.item == 6)
+            {
+                vc = [ShareController new];
+                vc.navigationItem.title = @"分享";
             }
         }
             break;

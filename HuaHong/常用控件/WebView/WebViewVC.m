@@ -13,15 +13,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"调JS" style:UIBarButtonItemStylePlain target:self action:@selector(callJSAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
     
-    self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 200, kScreenWidth, kScreenHeight-200)];
+    self.webView = [[UIWebView alloc]initWithFrame:self.view.bounds];
     self.view = self.webView;
-    self.webView.backgroundColor = [UIColor cyanColor];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"h5.html" withExtension:nil];
-
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"h5" withExtension:@"html"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
     
@@ -48,8 +47,15 @@
     context[@"onClickOC"] = ^(NSString *string){
         NSLog(@"onClickOC:%@",string);
     };
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+           self.jsContext = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+           self.jsContext[@"HH"] = self;
+
+       });
 }
 
+//解决：跳转后，jsContext失效问题
 - (void)webView:(UIWebView *)webView didCreateJavaScriptContext:(JSContext *)ctx
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -65,7 +71,7 @@
 
 - (void)callJSAction
 {
-    [self.jsContext evaluateScript:@"showAlert('huahong')"];
+    [self.jsContext evaluateScript:@"showAlert('OC调JS')"];
 }
 
 #pragma mark - JSObjcDelegate

@@ -62,6 +62,16 @@
     NSString *title = NSLocalizedString(@"title", @"注释");
 }
 
+- (void)createRightButtonItemWithTitle:(NSString *)title
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:title style:(UIBarButtonItemStylePlain) target:self action:@selector(topRightAction)];
+
+}
+
+- (void)topRightAction
+{
+    
+}
 // 重写下面的方法以拦截导航栏返回按钮点击事件，返回 YES 则 pop，NO 则不 pop
 -(BOOL)navigationShouldPopOnBackButton
 {

@@ -40,7 +40,7 @@
             self.imageView.image = sdImage;
             
             value = 1.0;
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"饱和度" style:(UIBarButtonItemStylePlain) target:self action:@selector(SketchFilter)];
+            [self createRightButtonItemWithTitle:@"饱和度"];
             
         });
         
@@ -52,6 +52,11 @@
     
     
    
+}
+
+- (void)topRightAction
+{
+    [self SketchFilter];
 }
 
 /** 饱和度滤镜 */

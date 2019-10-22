@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
-#import "UIWebView+TS_JavaScriptContext.h"
+//#import "UIWebView+TS_JavaScriptContext.h"
 
 @protocol JSObjcDelegate <JSExport>
 - (void)callCamera;
 - (void)share:(NSString *)shareInfo;
 @end
 
-@interface WebViewVC : UIViewController<UIWebViewDelegate,JSObjcDelegate>
+@interface WebViewVC : BaseViewController<UIWebViewDelegate,JSObjcDelegate>
 
 @property (nonatomic, strong) JSContext *jsContext;
 @property (nonatomic, strong) UIWebView *webView;

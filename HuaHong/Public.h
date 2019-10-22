@@ -145,6 +145,7 @@
 #import "CallCenterController.h"
 #import "SwitchViewController.h"
 #import "PickerViewController.h"
+#import "ShareController.h"
 
 
 #endif /* Public_h */

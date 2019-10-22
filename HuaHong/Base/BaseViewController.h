@@ -10,6 +10,9 @@
 #import "UIViewController+ShouldPopOnBackButton.h"
 @interface BaseViewController : UIViewController
 
+- (void)createRightButtonItemWithTitle:(NSString *)title;
+- (void)topRightAction;
+
 //将task添加到数组中，待页面消失时，统一释放
 - (void)addRequestTask:(NSURLSessionTask *)task;
 

@@ -23,6 +23,8 @@
     
     
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc]init];
+    
+    //true: 使用h5的视频播放器在线播放, false:使用原生播放器全屏播放
     config.allowsInlineMediaPlayback = YES;
     
     config.preferences = [[WKPreferences alloc] init];
@@ -30,17 +32,20 @@
     config.preferences.minimumFontSize = 30;
     
     /** 是否允许JS交互，默认YES */
-//    config.preferences.javaScriptEnabled = YES;
+    config.preferences.javaScriptEnabled = YES;
     
 //    config.processPool = [[WKProcessPool alloc] init];
 
-//    /** 是否允许JS自动打开窗口，默认NO */config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
+    /** 是否允许JS自动打开窗口，默认NO */
+    config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
     
     config.userContentController = [[WKUserContentController alloc] init];
     
     /** 注入JS */
+    NSString *jsFont = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", arc4random()%99 + 100];
+
     NSString *javaScriptSource = @"alert(\"WKUserScript注入js\");";
-    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:javaScriptSource injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];// forMainFrameOnly:NO(全局窗口)，yes（只限主窗口）
+    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:jsFont injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];// forMainFrameOnly:NO(全局窗口)，yes（只限主窗口）
     [config.userContentController addUserScript:userScript];
     
     /** JS调OC */
@@ -124,7 +129,8 @@
 /** OC调JS */
 - (void)callJSAction
 {
-    [_webView evaluateJavaScript:@"showAlert('huahong')" completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
+    //
+    [_webView evaluateJavaScript:@"showAlert('OC调JS')" completionHandler:^(id _Nullable obj, NSError * _Nullable error) {
         
     }];
 }
@@ -136,6 +142,7 @@
     if ([message.name isEqualToString:@"share"]) {
         
         NSLog(@"%@", message.body);
+        [MBProgressHUD showMessage:message.body];
         
     }
 }
@@ -166,6 +173,7 @@
         self.progressView.progress = self.webView.estimatedProgress;
     }
 }
+
 - (void)dealloc
 {
     [self.webView.configuration.userContentController removeAllUserScripts];
