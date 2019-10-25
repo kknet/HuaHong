@@ -12,7 +12,7 @@
 
 @interface runtimeViewController ()
 
-@property (nonatomic, strong) Person *persion;
+@property (nonatomic, strong) Person *person;
 @end
 
 @implementation runtimeViewController
@@ -21,17 +21,17 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.persion = [Person new];
-    self.persion.fullName = @"华宏";
+    self.person = [Person new];
+    self.person.fullName = @"华宏";
     
     [self changeVarValue];
     
-    NSLog(@"%@",self.persion.fullName);
+    NSLog(@"%@",self.person.fullName);
     
     
     //添加方法测试
-    [self addMethod];
-    [self.persion performSelector:@selector(missMethod:) withObject:@"蛋糕"];
+//    [self addMethod];
+    [self performSelector:@selector(missMethod:) withObject:@"蛋糕"];
 }
 
 #pragma mark - 消息发送机制
@@ -58,7 +58,7 @@
 //添加方法1
 -(void)addMethod
 {
-    class_addMethod([self.persion class], @selector(missMethod:), (IMP)hheat, "v@:@");
+    class_addMethod([self.person class], @selector(missMethod:/*未实现的方法*/), (IMP)hheat, "v@:@");
 }
 
 void hheat(id obj,SEL sel,NSString *objc)
@@ -67,7 +67,15 @@ void hheat(id obj,SEL sel,NSString *objc)
 }
 
 //添加方法2
+/**
+ *  消息转发步骤：
+ * 1.resolveInstanceMethod绑定方法，否则进行消息重定向
+ * 2.forwardingTargetForSelector：指定一个类来实现该方法，否则进行方法签名
+ * 3.methodSignatureForSelector：拿到方法签名后接下来会执行消息派发，否则执行5.异常方法
+ * 4.forwardInvocation:如果其它类能响应该方法，则派发给其来实现，否则执行5.异常方法
+ */
 
+//1.
 //+(BOOL)resolveClassMethod:(SEL)sel
 +(BOOL)resolveInstanceMethod:(SEL)sel
 {
@@ -87,21 +95,24 @@ void hheat(id obj,SEL sel,NSString *objc)
 
 
 
-// 消息重定向
+//2. 消息重定向
 -(id)forwardingTargetForSelector:(SEL)aSelector
 {
     //eat:方法在本类未实现，交给Person类来实现，方法名必须一致，因为内部kvc实现
     //若未指定实现类，则执行方法签名： -(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
-//    return [Person new];
+    
+    if ([[Person new] respondsToSelector:aSelector]) {
+        return [Person new];
+    }
     
     return [super forwardingTargetForSelector:aSelector];
 }
 
-// 方法签名
+// 3.方法签名
 -(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
     NSString *selString = NSStringFromSelector(aSelector);
-    if ([selString isEqualToString:@"eat:"]) {
+    if ([selString isEqualToString:@"missMethod:"]) {
         
         return [NSMethodSignature signatureWithObjCTypes:"v@:"];
         //拿到方法签名后接下来会执行消息派发：-(void)forwardInvocation:(NSInvocation *)anInvocation
@@ -111,7 +122,7 @@ void hheat(id obj,SEL sel,NSString *objc)
     }
 }
 
-// 消息派发
+//4. 消息派发
 -(void)forwardInvocation:(NSInvocation *)anInvocation
 {
     SEL selector = [anInvocation selector];
@@ -127,7 +138,7 @@ void hheat(id obj,SEL sel,NSString *objc)
     }
 }
 
-//方法异常
+//5.方法异常
 -(void)doesNotRecognizeSelector:(SEL)aSelector
 {
     NSString *selStr = NSStringFromSelector(aSelector);
@@ -139,7 +150,7 @@ void hheat(id obj,SEL sel,NSString *objc)
 -(void)changeVarValue
 {
     unsigned int count = 0;
-    Ivar *ivar = class_copyIvarList([self.persion class], &count);
+    Ivar *ivar = class_copyIvarList([self.person class], &count);
     
     for (int i = 0; i < count; i++) {
         
@@ -151,7 +162,7 @@ void hheat(id obj,SEL sel,NSString *objc)
         
         if ([name isEqualToString:@"_fullName"]) {
             
-            object_setIvar(self.persion, var, @"huahong");
+            object_setIvar(self.person, var, @"huahong");
             
             break;
         }

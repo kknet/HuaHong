@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol BaseAdapterProtocol <NSObject>
--(UIImage*)image;
--(NSString*)contentStr;
+- (UIImage*)image;
+- (NSString*)contentStr;
 - (void)testMethod;
 @end
 

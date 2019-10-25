@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseModel : NSObject<NSCoding>
+@interface BaseModel : NSObject<NSCoding,NSCopying,NSMutableCopying>
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
+
 + (instancetype)parserModelWithDictionary:(NSDictionary *)dictionary;
 
+//测试
+@property (nonatomic,copy)   NSString *userName;
+@property (nonatomic,assign) NSInteger age;
 
 @end

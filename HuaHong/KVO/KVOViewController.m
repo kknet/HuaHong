@@ -21,7 +21,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     _model = [Model new];
-    _model.name = @"";
+    _model.userName = @"";
     
 //    [self systemKVO];
     
@@ -35,26 +35,26 @@
 
 - (void)systemKVO
 {
-    [_model addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew |
+    [_model addObserver:self forKeyPath:@"userName" options:NSKeyValueObservingOptionNew |
      NSKeyValueObservingOptionOld context:@"参数"];
 }
 
 - (void)myKVO
 {
-    [_model hhaddObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew |
+    [_model hhaddObserver:self forKeyPath:@"userName" options:NSKeyValueObservingOptionNew |
      NSKeyValueObservingOptionOld context:@"参数"];
 }
 
 - (void)FBKVO
 {
     /** 方式一 */
-    [self.KVOController observe:_model keyPath:@"name" options:NSKeyValueObservingOptionNew |
+    [self.KVOController observe:_model keyPath:@"userName" options:NSKeyValueObservingOptionNew |
     NSKeyValueObservingOptionOld block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
 
         NSLog(@"\n object:%@\n change:%@,\n observer:%@",object,change,observer);
     }];
     
-//    [self.KVOController observe:_model keyPaths:@[@"name"] options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+//    [self.KVOController observe:_model keyPaths:@[@"userName"] options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
 //
 //        NSLog(@"\n object:%@\n change:%@,\n observer:%@",object,change,observer);
 //    }];
@@ -62,16 +62,16 @@
     
     
      /** 方式二 */
-//    [self.KVOController observe:_model keyPath:@"name" options:NSKeyValueObservingOptionNew |
+//    [self.KVOController observe:_model keyPath:@"userName" options:NSKeyValueObservingOptionNew |
 //     NSKeyValueObservingOptionOld action:@selector(ObserveAction:)];
     
-//    [self.KVOController observe:_model keyPaths:@[@"name"] options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld action:@selector(ObserveAction:)];
+//    [self.KVOController observe:_model keyPaths:@[@"userName"] options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld action:@selector(ObserveAction:)];
     
     
     /** 方式三 */
-//    [self.KVOController observe:_model keyPath:@"name" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:@"canshu"];
+//    [self.KVOController observe:_model keyPath:@"userName" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:@"canshu"];
     
-//    [self.KVOController observe:_model keyPaths:@[@"name"] options:NSKeyValueObservingOptionNew |
+//    [self.KVOController observe:_model keyPaths:@[@"userName"] options:NSKeyValueObservingOptionNew |
 //     NSKeyValueObservingOptionOld context:@"canshu"];
     
 }
@@ -84,12 +84,12 @@
 - (void)racKVO
 {
     /** 方式一 ：刚进来就会监听初始值*/
-//    [[_model rac_valuesForKeyPath:@"name" observer:self]subscribeNext:^(id  _Nullable x) {
+//    [[_model rac_valuesForKeyPath:@"userName" observer:self]subscribeNext:^(id  _Nullable x) {
 //        NSLog(@"x:%@",x);
 //    }];
     
     /** 方式二 */
-    [_model rac_observeKeyPath:@"name" options:NSKeyValueObservingOptionNew |
+    [_model rac_observeKeyPath:@"userName" options:NSKeyValueObservingOptionNew |
      NSKeyValueObservingOptionOld observer:self block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
 
          /**
@@ -109,22 +109,26 @@
 
 - (void)dealloc
 {
-//    [_model removeObserver:self forKeyPath:@"name"];
+//    [_model removeObserver:self forKeyPath:@"userName"];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     static int i = 0;
-    i++;
     
-    _model.name = [NSString stringWithFormat:@"%d",i];
+//    _model.userName = [NSString stringWithFormat:@"%d",++i];
+    //手动触发
+//    [_model willChangeValueForKey:@"userName"];
+//    [_model didChangeValueForKey:@"userName"];
+    [_model getterMethod];
     
-    //可变数组发生变化
-    [self mutableArrayValueForKey:@"arrayM"][0] = @(1);
     
-    NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:0];
-    //person.num  num是arrayM里面元素的属性
-    [self.arrayM addObserver:self toObjectsAtIndexes:indexSet forKeyPath:@"num" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+//    //可变数组发生变化
+//    [self mutableArrayValueForKey:@"arrayM"][0] = @(1);
+//
+//    NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:0];
+//    //person.num  num是arrayM里面元素的属性
+//    [self.arrayM addObserver:self toObjectsAtIndexes:indexSet forKeyPath:@"num" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     
 }
 @end

@@ -20,15 +20,21 @@
     return self;
 }
 
--(UIImage*)image{
+- (UIImage*)image{
     
     return nil;
 }
 
--(NSString*)contentStr{
+- (NSString*)contentStr{
     
     return nil;
+    
 }
+
+- (void)testMethod {
+    
+}
+
 
 @end
 

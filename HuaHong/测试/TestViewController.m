@@ -44,12 +44,17 @@
 //           self.title = [NSString stringWithFormat:@"%@/%@",[NSDate timeWithInterval:currentTime],[NSDate formartTimeWithTimeInterval:totalTime]];
 //
 //       }];
+    
+   
+    
+   
 }
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 
+    
     
 //  UIViewController *vc = [[TestVC alloc]init];
 //  [self presentViewController:vc animated:YES completion:nil];
@@ -93,7 +98,7 @@
 //    }
     
     
-   
+ 
     
 }
 

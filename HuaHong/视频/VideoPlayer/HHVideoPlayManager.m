@@ -209,11 +209,11 @@
 //监听属性值的相互影响
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
     if ([key isEqualToString:@"duration"]) {
-        return [NSSet setWithArray:@[ @"player.currentItem.duration" ]];
+        return [NSSet setWithArray:@[ @"player.currentItem.duration"]];
     } else if ([key isEqualToString:@"currentTime"]) {
-        return [NSSet setWithArray:@[ @"player.currentItem.currentTime" ]];
+        return [NSSet setWithArray:@[ @"player.currentItem.currentTime"]];
     } else if ([key isEqualToString:@"rate"]) {
-        return [NSSet setWithArray:@[ @"player.rate" ]];
+        return [NSSet setWithArray:@[ @"player.rate"]];
     } else {
         return [super keyPathsForValuesAffectingValueForKey:key];
     }

@@ -7,12 +7,12 @@
 //
 
 #import "AdapterViewController.h"
-#import "ContenModel.h"
+#import "Model.h"
 #import "ContentView.h"
 #import "BaseAdapter.h"
 #import "ContentModelAdeapter.h"
 #import "ItemModelAdeapter.h"
-#import "ItemModel.h"
+#import "TestModel.h"
 #import "ModelAdapter.h"
 
 @implementation AdapterViewController
@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     /*========================类适配器===========================*/
-    ContenModel *contenModel = [[ContenModel alloc]init];
+    Model *contenModel = [[Model alloc]init];
     contenModel.conntentStr  =  @"时间：10：32:12";
     contenModel.imageName    =  @"shijian";
     
@@ -32,7 +32,7 @@
     [self.view addSubview:contentView];
     
     
-    ItemModel *itemModel  = [[ItemModel alloc]init];
+    TestModel *itemModel  = [[TestModel alloc]init];
     itemModel.conntentStr =  @"心率：100次";
     itemModel.image       =  [UIImage imageNamed:@"mapHeaderIcon"];
     
@@ -44,7 +44,7 @@
     
     /*========================对象适配器===========================*/
     
-    ItemModel *itemModel1  = [[ItemModel alloc]init];
+    TestModel *itemModel1  = [[TestModel alloc]init];
     itemModel1.conntentStr =  @"心率：100次";
     itemModel1.image       =  [UIImage imageNamed:@"mapHeaderIcon"];
     
@@ -56,7 +56,7 @@
     
     
     
-    ContenModel *contenModel2 = [[ContenModel alloc]init];
+    Model *contenModel2 = [[Model alloc]init];
     contenModel2.conntentStr  =  @"时间：10：32:12";
     contenModel2.imageName    =  @"shijian";
     

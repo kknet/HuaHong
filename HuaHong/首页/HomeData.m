@@ -7,7 +7,6 @@
 //
 
 #import "HomeData.h"
-
 @implementation HomeData
 
 + (NSDictionary *)getData

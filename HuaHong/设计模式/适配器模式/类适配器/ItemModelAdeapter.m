@@ -7,18 +7,18 @@
 //
 
 #import "ItemModelAdeapter.h"
-#import "ItemModel.h"
+#import "TestModel.h"
 @implementation ItemModelAdeapter
 
 -(UIImage*)image{
     
-    ItemModel *model =  self.data;
+    TestModel *model =  self.data;
     
     return model.image;
 }
 
 -(NSString*)contentStr{
-    ItemModel *model =  self.data;
+    TestModel *model =  self.data;
     
     return model.conntentStr;
     

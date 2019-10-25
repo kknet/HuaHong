@@ -10,7 +10,6 @@
 #import "CollectionCell.h"
 #import "HomeData.h"
 #import "RouteManager.h"
-
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) NSMutableArray *tableViewArray;
@@ -29,11 +28,15 @@
 static NSString *cellID = @"CollectionCell";
 static NSString *headerID = @"headerID";
 
++ (void)test
+{
+    NSLog(@"test");
+}
 - (void)viewDidLoad {
     [super viewDidLoad];    
     
     self.title = @"首页";
-
+    
     _selectIndex = 0;
     _isScrollDown = YES;
     

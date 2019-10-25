@@ -174,4 +174,29 @@
     return nil;
 }
 
+//MARK: - NSCopying,NSMutableCopying
+- (id)copyWithZone:(NSZone *)zone
+{
+    BaseModel *model = [[[self class]allocWithZone:zone]init];
+    model.userName = self.userName;
+    
+    //未公开的成员
+    model->_age = _age;
+//    [model setValue:_userID forKey:@"userID"];
+    
+    return model;
+}
+
+
+//- (id)mutableCopyWithZone:(NSZone *)zone
+//{
+//    BaseModel *model = [[[self class]allocWithZone:zone]init];
+//    model.userName = self.userName;
+//
+//    //未公开的成员
+//    model->_age = _age;
+//    [model setValue:_userID forKey:@"userID"];
+//
+//    return model;
+//}
 @end

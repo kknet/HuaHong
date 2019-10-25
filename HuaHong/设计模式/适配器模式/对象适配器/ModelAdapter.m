@@ -7,22 +7,22 @@
 //
 
 #import "ModelAdapter.h"
-#import "ItemModel.h"
-#import "ContenModel.h"
+#import "TestModel.h"
+#import "Model.h"
 //对象适配器
 @implementation ModelAdapter
 
 -(UIImage*)image{
     
-    if ([self.data isMemberOfClass:[ContenModel class]]) {
+    if ([self.data isMemberOfClass:[Model class]]) {
         
-        ContenModel *model =  self.data;
+        Model *model =  self.data;
         
         return [UIImage imageNamed:model.imageName];
         
     }else{
         
-        ItemModel *model =  self.data;
+        TestModel *model =  self.data;
         
         return model.image;
         
@@ -31,15 +31,15 @@
 
 -(NSString*)contentStr{
     
-    if ([self.data isMemberOfClass:[ContenModel class]]) {
+    if ([self.data isMemberOfClass:[Model class]]) {
         
-        ContenModel *model =  self.data;
+        Model *model =  self.data;
         
         return model.conntentStr;
         
     }else{
         
-        ItemModel *model =  self.data;
+        TestModel *model =  self.data;
         
         return model.conntentStr;
         

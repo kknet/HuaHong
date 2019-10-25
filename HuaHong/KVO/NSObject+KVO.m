@@ -31,41 +31,39 @@ static const char *KVO_context = "KVO_context";
     
     //创建一个类的class
 //    const char newName = [newClassName UTF8String];
-    Class myClass = objc_allocateClassPair([self class], newClassName.UTF8String, 0);
+    Class newClass = objc_allocateClassPair([self class], newClassName.UTF8String, 0);
     
     //注册类
-    objc_registerClassPair(myClass);
+    objc_registerClassPair(newClass);
     
     //2.添加set方法
     //首先动态添加set方法，参数keypath就是get方法，通过它拼接处set方法（就是首字母大写，加:）
     NSString *keyPathChange = [[[keyPath substringToIndex:1]uppercaseString]stringByAppendingString:[keyPath substringFromIndex:1]];
     NSString *setNameStr = [NSString stringWithFormat:@"set%@:",keyPathChange];
     SEL setSEL = NSSelectorFromString(setNameStr);
-    class_addMethod(myClass, setSEL, (IMP)setMethod, "v@:@");
+    class_addMethod(newClass, setSEL, (IMP)setMethod, "v@:@");
     
     //3.修改isa指针
-    object_setClass(self, myClass);
+    object_setClass(self, newClass);
     
-    //4.保存观察者对象
+    //4.保存观察者对象、set、get方法名、context
     objc_setAssociatedObject(self, KVO_observer, observer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    //5.保存set、get方法名、context
     objc_setAssociatedObject(self, KVO_getter, keyPath, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
     objc_setAssociatedObject(self, KVO_setter, setNameStr, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
     objc_setAssociatedObject(self, KVO_context, (__bridge id)(context), OBJC_ASSOCIATION_COPY_NONATOMIC);
-
-
     
     
 }
 
 void setMethod(id self,SEL _cmd,NSString *newValue)
 {
+    //拿到观察者、set、get方法名、context
+    id observe = objc_getAssociatedObject(self, KVO_observer);
     NSString *setNameStr = objc_getAssociatedObject(self, KVO_setter);
     NSString *getNameStr = objc_getAssociatedObject(self, KVO_getter);
-    
     id context = objc_getAssociatedObject(self, KVO_context);
 
     
@@ -81,8 +79,6 @@ void setMethod(id self,SEL _cmd,NSString *newValue)
     //调用的set方法
     objc_msgSend(self, NSSelectorFromString(setNameStr),newValue);
     
-     //拿到观察者
-    id observe = objc_getAssociatedObject(self, KVO_observer);
     
     NSMutableDictionary *change = [NSMutableDictionary dictionary];
     

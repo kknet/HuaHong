@@ -124,8 +124,6 @@
 		7D834475218820DD0070B891 /* VideoRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D834474218820DD0070B891 /* VideoRecordController.m */; };
 		7D8359AD22FF0FD400BEC6F6 /* BaseAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359AC22FF0FD400BEC6F6 /* BaseAdapter.m */; };
 		7D8359B022FF102100BEC6F6 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359AF22FF102100BEC6F6 /* ContentView.m */; };
-		7D8359B322FF107F00BEC6F6 /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359B222FF107F00BEC6F6 /* ItemModel.m */; };
-		7D8359B622FF10B300BEC6F6 /* ContenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359B522FF10B300BEC6F6 /* ContenModel.m */; };
 		7D8359B922FF10E500BEC6F6 /* ItemModelAdeapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359B822FF10E500BEC6F6 /* ItemModelAdeapter.m */; };
 		7D8359BC22FF113A00BEC6F6 /* ContentModelAdeapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359BB22FF113A00BEC6F6 /* ContentModelAdeapter.m */; };
 		7D8359BF22FF119D00BEC6F6 /* ModelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8359BE22FF119D00BEC6F6 /* ModelAdapter.m */; };
@@ -509,10 +507,6 @@
 		7D8359AC22FF0FD400BEC6F6 /* BaseAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAdapter.m; sourceTree = "<group>"; };
 		7D8359AE22FF102100BEC6F6 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		7D8359AF22FF102100BEC6F6 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
-		7D8359B122FF107F00BEC6F6 /* ItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemModel.h; sourceTree = "<group>"; };
-		7D8359B222FF107F00BEC6F6 /* ItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemModel.m; sourceTree = "<group>"; };
-		7D8359B422FF10B300BEC6F6 /* ContenModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContenModel.h; sourceTree = "<group>"; };
-		7D8359B522FF10B300BEC6F6 /* ContenModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContenModel.m; sourceTree = "<group>"; };
 		7D8359B722FF10E500BEC6F6 /* ItemModelAdeapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemModelAdeapter.h; sourceTree = "<group>"; };
 		7D8359B822FF10E500BEC6F6 /* ItemModelAdeapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemModelAdeapter.m; sourceTree = "<group>"; };
 		7D8359BA22FF113A00BEC6F6 /* ContentModelAdeapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentModelAdeapter.h; sourceTree = "<group>"; };
@@ -1112,8 +1106,6 @@
 				7D2FF0B01FF4F91400ECAA26 /* TestView.m */,
 				7D2FF2102008935F00ECAA26 /* TestViewController.h */,
 				7D2FF2112008935F00ECAA26 /* TestViewController.m */,
-				7D61C6BE22850F8B00F46167 /* TestModel.h */,
-				7D61C6BF22850F8B00F46167 /* TestModel.m */,
 			);
 			path = "测试";
 			sourceTree = "<group>";
@@ -1167,6 +1159,8 @@
 				7DA152B9204AACAA0075274E /* BaseModel.m */,
 				7D2DE5F02015BBCF001590E1 /* Model.h */,
 				7D2DE5F12015BBCF001590E1 /* Model.m */,
+				7D61C6BE22850F8B00F46167 /* TestModel.h */,
+				7D61C6BF22850F8B00F46167 /* TestModel.m */,
 				7D93370D21AB94670048E6D4 /* CleanCache */,
 			);
 			path = Common;
@@ -1489,18 +1483,10 @@
 				939D8FA8230536F600F786C0 /* BaseAdapterProtocol.h */,
 				7D8359AB22FF0FD400BEC6F6 /* BaseAdapter.h */,
 				7D8359AC22FF0FD400BEC6F6 /* BaseAdapter.m */,
+				7DA3421A23628784005A0520 /* 类适配器 */,
+				7DA3421923628767005A0520 /* 对象适配器 */,
 				7D8359AE22FF102100BEC6F6 /* ContentView.h */,
 				7D8359AF22FF102100BEC6F6 /* ContentView.m */,
-				7D8359B122FF107F00BEC6F6 /* ItemModel.h */,
-				7D8359B222FF107F00BEC6F6 /* ItemModel.m */,
-				7D8359B422FF10B300BEC6F6 /* ContenModel.h */,
-				7D8359B522FF10B300BEC6F6 /* ContenModel.m */,
-				7D8359B722FF10E500BEC6F6 /* ItemModelAdeapter.h */,
-				7D8359B822FF10E500BEC6F6 /* ItemModelAdeapter.m */,
-				7D8359BA22FF113A00BEC6F6 /* ContentModelAdeapter.h */,
-				7D8359BB22FF113A00BEC6F6 /* ContentModelAdeapter.m */,
-				7D8359BD22FF119D00BEC6F6 /* ModelAdapter.h */,
-				7D8359BE22FF119D00BEC6F6 /* ModelAdapter.m */,
 				7D8359C022FF11F300BEC6F6 /* AdapterViewController.h */,
 				7D8359C122FF11F300BEC6F6 /* AdapterViewController.m */,
 			);
@@ -1655,6 +1641,26 @@
 				7DABB8C520E6509300C538CA /* HHCardController.m */,
 			);
 			path = "智能识别";
+			sourceTree = "<group>";
+		};
+		7DA3421923628767005A0520 /* 对象适配器 */ = {
+			isa = PBXGroup;
+			children = (
+				7D8359BD22FF119D00BEC6F6 /* ModelAdapter.h */,
+				7D8359BE22FF119D00BEC6F6 /* ModelAdapter.m */,
+			);
+			path = "对象适配器";
+			sourceTree = "<group>";
+		};
+		7DA3421A23628784005A0520 /* 类适配器 */ = {
+			isa = PBXGroup;
+			children = (
+				7D8359B722FF10E500BEC6F6 /* ItemModelAdeapter.h */,
+				7D8359B822FF10E500BEC6F6 /* ItemModelAdeapter.m */,
+				7D8359BA22FF113A00BEC6F6 /* ContentModelAdeapter.h */,
+				7D8359BB22FF113A00BEC6F6 /* ContentModelAdeapter.m */,
+			);
+			path = "类适配器";
 			sourceTree = "<group>";
 		};
 		7DA711A720DC9DA800BEF5D9 /* 身份识别 */ = {
@@ -2398,7 +2404,6 @@
 				7DC94AF81FE901F20042632D /* AnimationController.m in Sources */,
 				7DE4D3AE21BADB0D00586126 /* NSTimer+HHTimer.m in Sources */,
 				939D8FCF230D677000F786C0 /* SystemCapture.m in Sources */,
-				7D8359B622FF10B300BEC6F6 /* ContenModel.m in Sources */,
 				7D56A30F216DE07800212DEB /* Flower.m in Sources */,
 				7D2FF0BB1FFDFEE900ECAA26 /* QRCodeController.m in Sources */,
 				7DB9B5491FD7E6710011EE54 /* VideoBottomView.m in Sources */,
@@ -2467,7 +2472,6 @@
 				7D3148E2235810C0006F96E5 /* HHSoundPlayer.m in Sources */,
 				7DB9100F2148C28600A9B40C /* MVPModel.m in Sources */,
 				7D2FF1FA20084F0D00ECAA26 /* StoryboardHomeController.m in Sources */,
-				7D8359B322FF107F00BEC6F6 /* ItemModel.m in Sources */,
 				7DB9B5661FD97FAF0011EE54 /* CustomVideoController.m in Sources */,
 				7DC3752020E474F0005AEBCA /* User+CoreDataClass.m in Sources */,
 				7D8359C622FF185800BEC6F6 /* DecimalNumberHelper.m in Sources */,

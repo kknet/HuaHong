@@ -14,6 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger userId;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, strong) SecondModel *second;
+
+
+@property (nonatomic, strong) NSString *conntentStr;
+@property (nonatomic, strong) UIImage  *image;
+
 @end
 
 @interface SecondModel : BaseModel

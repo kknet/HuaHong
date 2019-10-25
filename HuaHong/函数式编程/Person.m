@@ -27,6 +27,11 @@
     NSLog(@"Persion eat:%@",objc);
 }
 
+-(void)missMethod:(NSString *)objc
+{
+    NSLog(@"missMethod:%@",objc);
+}
+
 /*--------------------------------------------------------------------*/
 - (nonnull Person *)run1
 {

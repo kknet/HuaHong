@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Model : BaseModel<NSCopying,NSMutableCopying>
+@interface Model : BaseModel
 
-@property (nonatomic,copy)   NSString *name;
-@property (nonatomic,assign) NSInteger age;
-@property (nonatomic, copy)  NSString * userID;
+@property (nonatomic, copy) NSString *conntentStr;
+@property (nonatomic, copy) NSString *imageName;
 
+@property (copy  ,nonatomic) NSString *userID;
+@property (copy  ,nonatomic) NSString *name;
+
+- (void)getterMethod;
 @end

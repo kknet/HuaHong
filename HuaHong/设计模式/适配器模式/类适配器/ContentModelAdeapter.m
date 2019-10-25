@@ -7,18 +7,18 @@
 //
 
 #import "ContentModelAdeapter.h"
-#import "ContenModel.h"
+#import "Model.h"
 @implementation ContentModelAdeapter
 
 -(UIImage*)image{
     
-    ContenModel *model =  self.data;
+    Model *model =  self.data;
     
     return [UIImage imageNamed:model.imageName];
 }
 
 -(NSString*)contentStr{
-    ContenModel *model =  self.data;
+    Model *model =  self.data;
     
     return model.conntentStr;
     

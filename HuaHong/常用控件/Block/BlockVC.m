@@ -12,7 +12,7 @@
 typedef void(^Block)(NSString *str);
 @interface BlockVC ()
 @property (nonatomic, strong) NetworkTools *tools;
-@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) NSInteger index;//基本数据类型也一样
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) Block block;
 @end
@@ -34,7 +34,12 @@ typedef void(^Block)(NSString *str);
      * 先写setter方法,再触发_block(),这样才有回调
      */
 //     [_tools touch];
+    
+    __block NSString *string = @"testString";
+    NSLog(@"Block前：%p",string);
     [_tools setBlock:^{
+        string = @"hello wold";
+        NSLog(@"Block后：%p",string);
         NSLog(@"block作为属性");
     }];
     
@@ -51,7 +56,7 @@ typedef void(^Block)(NSString *str);
     
         [tools loadData:^(NSString *html) {
     
-            NSLog(@"%@-------------%@",html,self.view);
+//            NSLog(@"%@-------------%ld",html,self.index);
     
         }];
     
@@ -79,26 +84,26 @@ typedef void(^Block)(NSString *str);
      */
     
     
-//    __weak typeof(self) weakSelf = self;
-    @weakify(self);
-    [self setBlock:^(NSString *str) {
-        
-        @strongify(self);
-//        __strong typeof(weakSelf) strongSelf = weakSelf;
-        NSLog(@"2----%ld",(long)self.index);
-        
-        NSLog(@"3----%@",self.text);
-
-//        __strong typeof(weakSelf) strongSelf = weakSelf;
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-            NSLog(@"2----%ld",(long)self.index);
-
-        });
-    }];
-    
-    self.block(@"block");
+////    __weak typeof(self) weakSelf = self;
+//    @weakify(self);
+//    [self setBlock:^(NSString *str) {
+//
+//        @strongify(self);
+////        __strong typeof(weakSelf) strongSelf = weakSelf;
+//        NSLog(@"2----%ld",(long)self.index);
+//
+//        NSLog(@"3----%@",self.text);
+//
+////        __strong typeof(weakSelf) strongSelf = weakSelf;
+//
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//            NSLog(@"2----%ld",(long)self.index);
+//
+//        });
+//    }];
+//
+//    self.block(@"block");
 }
 
 - (void)test{
