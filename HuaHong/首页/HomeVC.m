@@ -28,10 +28,7 @@
 static NSString *cellID = @"CollectionCell";
 static NSString *headerID = @"headerID";
 
-+ (void)test
-{
-    NSLog(@"test");
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];    
     
